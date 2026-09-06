@@ -187,9 +187,9 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Hub', titleEn: 'Worship Hub', descTr: '7 ana ibadet direği — namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'The 7 main pillars of worship — prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },
-              { href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'Bu ibadetin doğrudan emirleri ve yasakları — ayet ayet.', descEn: 'Direct commands and prohibitions of this worship — verse by verse.' },
-              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetin nihai bağlamı — hesap, mîzân ve cennet ile buluşma.', descEn: 'The ultimate context of worship — reckoning, scales and meeting Paradise.' },
+              { href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Hub', titleEn: 'Worship Hub', descTr: '7 ana ibadet direği: namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'The 7 main pillars of worship: prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },
+              { href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'Bu ibadetin doğrudan emirleri ve yasakları, ayet ayet.', descEn: 'Direct commands and prohibitions of this worship, verse by verse.' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetin nihai bağlamı: hesap, mîzân ve cennet ile buluşma.', descEn: 'The ultimate context of worship: reckoning, scales and meeting Paradise.' },
             ]}
           />
         </div>
@@ -589,8 +589,8 @@ function TabSemantik({ data, language, isMobile }) {
         maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Kur'ân'da tek isimle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim ibadetin farklı bir boyutunu — eylem, zaman, iç hâl — işaret eder."
-          : 'Described not by a single word but by a complementary semantic field. Each term points to a different dimension — action, time, inner state.'}
+          ? "Kur'ân'da tek isimle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim ibadetin farklı bir boyutuna (eylem, zaman, iç hâl) işaret eder."
+          : 'Described not by a single word but by a complementary semantic field. Each term points to a different dimension: action, time, inner state.'}
       </p>
 
       {/* Kategori legenda */}

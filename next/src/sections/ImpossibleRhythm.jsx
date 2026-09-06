@@ -23,8 +23,8 @@ const KAWTHAR_VERSES = [
 // Deviation notu: 28. ayetteki ses sapması konu değişimiyle örtüşür
 const NAJM_DEVIATION_NOTES = {
   27: {
-    tr: 'Sapma noktası: 28. ayette konu "putların isimleri"nden "bilgisiz zanlar"a geçer — ses değişimi bu tematik kırılmayı işaret eder.',
-    en: 'Deviation point: Verse 28 shifts from "naming the idols" to "baseless conjecture" — the sound break signals this thematic turn.',
+    tr: 'Sapma noktası: 28. ayette konu "putların isimleri"nden "bilgisiz zanlar"a geçer; ses değişimi bu tematik kırılmayı işaret eder.',
+    en: 'Deviation point: Verse 28 shifts from "naming the idols" to "baseless conjecture"; the sound break signals this thematic turn.',
   },
 };
 const NAJM_FASILA = [
@@ -69,8 +69,8 @@ const FASILA_SURAS = [
     border: 'rgba(46,204,113,0.3)',
     examples: ['قَدِيرٌ', 'خَبِيرٌ', 'بَصِيرٌ'],
     // §8 audit notu: 3 örneğin üçü de Esmâ-i Hüsnâ.
-    noteTr: '3 örneğin üçü de Esmâ-i Hüsnâ — sûrenin fasıla mührü ilahî sıfatlardan örülmüş.',
-    noteEn: 'All three examples are among the Beautiful Names of God — the sura\'s closing-rhyme seal is woven from divine attributes.',
+    noteTr: '3 örneğin üçü de Esmâ-i Hüsnâ\'dandır; sûrenin fasıla mührü ilâhî sıfatlardan örülmüştür.',
+    noteEn: 'All three examples are among the Beautiful Names of God; the sura\'s closing-rhyme seal is woven from divine attributes.',
   },
   {
     surahNum: 93,
@@ -333,7 +333,7 @@ export default function ImpossibleRhythm() {
                 disabled={duhaFailed}
                 aria-label={
                   duhaFailed
-                    ? (language === 'tr' ? 'Duhâ sûresi tilâveti — ses yüklenemedi' : 'Surah Ad-Duha recitation — audio unavailable')
+                    ? (language === 'tr' ? 'Duhâ sûresi tilâveti: ses yüklenemedi' : 'Surah Ad-Duha recitation: audio unavailable')
                     : duhaPlaying
                       ? (language === 'tr' ? 'Duhâ sûresi tilâvetini durdur' : 'Stop Surah Ad-Duha recitation')
                       : (language === 'tr' ? 'Duhâ sûresi tilâvetini oynat' : 'Play Surah Ad-Duha recitation')
@@ -379,8 +379,8 @@ export default function ImpossibleRhythm() {
                   }}
                 >
                   {language === 'tr'
-                    ? 'Aşağıdaki 3 ayeti okuyup hangi kategoriye girdiğini seçin — şaşıracaksınız.'
-                    : 'Read the 3 verses above and choose which category they belong to — you may be surprised.'}
+                    ? 'Aşağıdaki 3 ayeti okuyup hangi kategoriye girdiğini seçin.'
+                    : 'Read the 3 verses above and choose which category they belong to.'}
                 </p>
                 <p className="text-off-white/80 text-base font-body mb-6">
                   {language === 'tr' ? 'Bu metin hangi kategoriye giriyor?' : 'Which category does this text belong to?'}
@@ -415,12 +415,12 @@ export default function ImpossibleRhythm() {
                   <span className="text-lg mt-0.5">✗</span>
                   <div>
                     <p className="text-off-white font-body font-semibold text-sm mb-1">
-                      {language === 'tr' ? 'Hayır — şiir değil.' : 'No — this is not poetry.'}
+                      {language === 'tr' ? 'Hayır, şiir değil.' : 'No, this is not poetry.'}
                     </p>
                     <p className="text-silver/70 text-sm font-body leading-relaxed">
                       {language === 'tr'
-                        ? 'Arap şiiri 16 kesin vezne (aruz) bağlıydı — her mısranın hece sayısı ve vurgu düzeni sabit olmalıydı. Duhâ bu vezinlerin hiçbirine uymuyor.'
-                        : 'Arabic poetry followed 16 fixed meters — each line required a fixed syllable count and stress pattern. Ad-Duha matches none of them.'}
+                        ? 'Arap şiiri 16 kesin vezne (aruz) bağlıydı; her mısranın hece sayısı ve vurgu düzeni sabit olmalıydı. Duhâ bu vezinlerin hiçbirine uymuyor.'
+                        : 'Arabic poetry followed 16 fixed meters; each line required a fixed syllable count and stress pattern. Ad-Duha matches none of them.'}
                     </p>
                   </div>
                 </div>
@@ -448,12 +448,12 @@ export default function ImpossibleRhythm() {
                   <span className="text-lg mt-0.5">✗</span>
                   <div>
                     <p className="text-off-white font-body font-semibold text-sm mb-1">
-                      {language === 'tr' ? 'Hayır — düzyazı da değil.' : 'No — this is not prose either.'}
+                      {language === 'tr' ? 'Hayır, düzyazı da değil.' : 'No, this is not prose either.'}
                     </p>
                     <p className="text-silver/70 text-sm font-body leading-relaxed">
                       {language === 'tr'
-                        ? 'Arap düzyazısı (nesir) ritimden tamamen bağımsızdır. Ama Duhâ\'da her ayet "-â" sesiyle bitiyor — وَالضُّحَىٰ، سَجَىٰ، قَلَىٰ. Ritim güçlü ve tutarlı, ama hiçbir vezin kuralını takip etmiyor.'
-                        : 'Arabic prose (nathr) is completely free of rhythm. But in Ad-Duha, every verse ends with the "-ā" sound — وَالضُّحَىٰ، سَجَىٰ، قَلَىٰ. The rhythm is powerful and consistent, yet follows no metrical rule.'}
+                        ? 'Arap düzyazısı (nesir) ritimden tamamen bağımsızdır. Ama Duhâ\'da her ayet "-â" sesiyle bitiyor: وَالضُّحَىٰ، سَجَىٰ، قَلَىٰ. Ritim güçlü ve tutarlı, ama hiçbir vezin kuralını takip etmiyor.'
+                        : 'Arabic prose (nathr) is completely free of rhythm. But in Ad-Duha, every verse ends with the "-ā" sound: وَالضُّحَىٰ، سَجَىٰ، قَلَىٰ. The rhythm is powerful and consistent, yet follows no metrical rule.'}
                     </p>
                   </div>
                 </div>
@@ -481,13 +481,13 @@ export default function ImpossibleRhythm() {
                   <div className="flex-1 flex items-start gap-3 p-4 rounded-xl" style={{ background: 'rgba(231,76,60,0.07)', border: '1px solid rgba(231,76,60,0.2)' }}>
                     <span>✗</span>
                     <p className="text-silver/70 text-sm font-body">
-                      {language === 'tr' ? 'Şiir değil — hiçbir vezne uymuyor.' : 'Not poetry — matches no meter.'}
+                      {language === 'tr' ? 'Şiir değil; hiçbir vezne uymuyor.' : 'Not poetry; it matches no meter.'}
                     </p>
                   </div>
                   <div className="flex-1 flex items-start gap-3 p-4 rounded-xl" style={{ background: 'rgba(231,76,60,0.07)', border: '1px solid rgba(231,76,60,0.2)' }}>
                     <span>✗</span>
                     <p className="text-silver/70 text-sm font-body">
-                      {language === 'tr' ? 'Düzyazı değil — güçlü bir ritim var.' : 'Not prose — too rhythmically powerful.'}
+                      {language === 'tr' ? 'Düzyazı değil; güçlü bir ritmi var.' : 'Not prose; it is too rhythmic.'}
                     </p>
                   </div>
                 </div>
@@ -524,8 +524,8 @@ export default function ImpossibleRhythm() {
                 </p>
                 <p className="text-silver/70 text-base font-body leading-relaxed max-w-xl mx-auto">
                   {language === 'tr'
-                    ? 'Kendi kategorisini yaratan eser. Edebiyat tarihinde bir ilk — ne şiir ne düzyazı, ikisinin ötesinde, kendine özgü bir form. Arap dili ve edebiyatı kriterleriyle 1.400 yıldır kimse bir benzeri yazamadı.'
-                    : 'A work that created its own category. Unique in the history of literature — neither poetry nor prose, beyond both, a form entirely its own. By the standards of Arabic language and literature, no one has produced its equal in 1,400 years.'}
+                    ? 'Kendi kategorisini kuran bir eser: ne şiir ne düzyazı, kendine özgü bir form. Arap dili ve edebiyatı ölçütleriyle 1.400 yıldır bir benzeri yazılamadı.'
+                    : 'A work that created its own category: neither poetry nor prose, a form of its own. By the standards of Arabic language and literature, no one has produced its equal in 1,400 years.'}
                 </p>
                 {/* Accordion: Neden sui generis? */}
                 <div className="mt-6 text-left" style={{ maxWidth: '520px', margin: '24px auto 0' }}>
@@ -564,26 +564,26 @@ export default function ImpossibleRhythm() {
                               </p>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>Serbest şiirle farkı nedir?</span>{' '}
-                                Serbest şiir (free verse) tanımlanabilir bir geleneğin içinden çıktı — 19. yüzyıl Batı edebiyatının kasıtlı bir kırılması. Kur&apos;an ise mevcut hiçbir geleneğin kırılması değil; o geleneklerin dışında, 7. yüzyılda, referans noktasız ortaya çıktı.
+                                Serbest şiir (free verse) tanımlanabilir bir geleneğin içinden çıktı; 19. yüzyıl Batı edebiyatının kasıtlı bir kırılmasıydı. Kur&apos;an ise mevcut hiçbir geleneğin kırılması değil; o geleneklerin dışında, 7. yüzyılda, referans noktasız ortaya çıktı.
                               </p>
                               <p>
-                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Tahaddi — meydan okuma.</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Tahaddi, meydan okuma.</span>{' '}
                                 Kur&apos;an bizzat meydan okudu: &quot;Benzerini getirin.&quot; Bunu duyanlar hem o dili en iyi bilen hem de onu çürütmek için her nedeni olan insanlardı. 1.400 yıl boyunca kimse bu meydan okumayı karşılayamadı.
                               </p>
                             </div>
                           ) : (
                             <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                               <p>
-                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Not just two forms — every known form was tested.</span>{' '}
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>Not just two forms; every known form was tested.</span>{' '}
                                 7th-century Arabic had more than poetry and prose: <em>saj&apos;</em> (the rhymed cadenced prose of soothsayers), <em>khutba</em> (oratory prose), and <em>masal</em> (the concise proverb form). The Quran matched none of these either.
                               </p>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>How is it different from free verse?</span>{' '}
-                                Free verse emerged from within a recognizable tradition — a deliberate 19th-century break from Western poetic convention. The Quran, by contrast, did not break from any tradition; it appeared in the 7th century with no predecessor to define itself against.
+                                Free verse emerged from within a recognizable tradition, as a deliberate 19th-century break from Western poetic convention. The Quran, by contrast, did not break from any tradition; it appeared in the 7th century with no predecessor to define itself against.
                               </p>
                               <p>
-                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>The challenge — and the silence.</span>{' '}
-                                The Quran itself issued a challenge: produce something like it. Those who heard it were the finest masters of the language — and had every reason to respond. They could not. For 1,400 years, no one has.
+                                <span style={{ color: COLORS.gold, fontWeight: 600 }}>The challenge, and the silence.</span>{' '}
+                                The Quran itself issued a challenge: produce something like it. Those who heard it were the finest masters of the language, and they had every reason to respond. They could not. For 1,400 years, no one has.
                               </p>
                             </div>
                           )}
@@ -674,12 +674,12 @@ export default function ImpossibleRhythm() {
       {/* ── Kevser Arabic Display ── */}
       <motion.div variants={fadeUpItem} className="mb-12">
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
-          {language === 'tr' ? "Kevser Sûresi — '-ar' Fasılası" : "Al-Kawthar — '-ar' Fāṣila"}
+          {language === 'tr' ? "Kevser Sûresi: '-ar' Fasılası" : "Al-Kawthar: '-ar' Fāṣila"}
         </h3>
         <p className="text-silver/65 text-sm leading-relaxed font-body max-w-3xl mb-6">
           {language === 'tr'
             ? "3 ayetin tamamı aynı '-ar' sesiyle biter. Kafiye zorunluluğu yok; ama ses örüntüsü anlamın doğal bir parçası gibi akar."
-            : "All 3 verses end with the same '-ar' sound. No rhyme rule is imposed — yet the sonic pattern flows as a natural part of the meaning."}
+            : "All 3 verses end with the same '-ar' sound. No rhyme rule is imposed, yet the sonic pattern flows as a natural part of the meaning."}
         </p>
         <div
           className="rounded-xl p-3 md:p-4 space-y-1"
@@ -915,7 +915,7 @@ export default function ImpossibleRhythm() {
             style={{ padding: '4px 10px', borderRadius: RADIUS.pill, background: 'rgba(124,63,88,0.12)', border: '1px solid rgba(124,63,88,0.35)' }}
           >
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#7c3f58', display: 'inline-block' }} />
-            <span className="text-silver/80">{language === 'tr' ? "maqta\u02BF — kapanış (6 ayet)" : "maqta\u02BF — closing (6 verses)"}</span>
+            <span className="text-silver/80">{language === 'tr' ? "maqta\u02BF: kapanış (6 ayet)" : "maqta\u02BF: closing (6 verses)"}</span>
           </span>
           <span
             className="flex items-center gap-1.5 text-xs font-body"
@@ -970,8 +970,8 @@ export default function ImpossibleRhythm() {
 
         <p className="text-silver/75 text-sm font-body leading-relaxed mt-3">
           {language === 'tr'
-            ? "Son 6 ayet (57–62) birbirinden farklı seslerle biter — bu kasıtlı bir kapanış değişimidir. Klasik retorik bu bölüme maqta\u02BF (مقطع) adını verir."
-            : "The final 6 verses (57–62) end with distinctly different sounds — a deliberate closing shift. Classical rhetoric calls this section the maqta\u02BF (مقطع)."}
+            ? "Son 6 ayet (57–62) birbirinden farklı seslerle biter; bu kasıtlı bir kapanış değişimidir. Klasik retorik bu bölüme maqta\u02BF (مقطع) adını verir."
+            : "The final 6 verses (57–62) end with distinctly different sounds; a deliberate closing shift. Classical rhetoric calls this section the maqta\u02BF (مقطع)."}
         </p>
       </motion.div>
 
@@ -992,7 +992,7 @@ export default function ImpossibleRhythm() {
             className="font-body uppercase tracking-[0.24em] text-xs"
             style={{ color: COLORS.gold, opacity: 0.75 }}
           >
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
@@ -1010,14 +1010,14 @@ export default function ImpossibleRhythm() {
               titleTr: 'Kevser Sûresi (108)',
               titleEn: 'Sura Al-Kawthar (108)',
               descTr: '3 ayetin de "-ar" sesiyle bittiği Kur\'an\'ın en kısa fasıla mührü.',
-              descEn: 'The Quran\'s shortest closing-rhyme seal — all 3 verses end with "-ar".',
+              descEn: 'The Quran\'s shortest closing-rhyme seal; all 3 verses end with "-ar".',
             },
             {
               href: `/${language}/oku/93`,
               titleTr: 'Duhâ Sûresi (93)',
               titleEn: 'Sura Ad-Duha (93)',
-              descTr: 'Discovery widget\'taki "-â" örneği — tam sûreyi konteksiyle dinleyin.',
-              descEn: 'The "-â" example from the discovery widget — listen to the full sura in context.',
+              descTr: 'Keşif bölümündeki "-â" örneği; tam sûreyi bağlamıyla dinleyin.',
+              descEn: 'The "-â" example from the discovery section; listen to the full sura in context.',
             },
           ].map((t, i) => (
             <motion.div

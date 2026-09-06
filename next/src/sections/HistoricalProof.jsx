@@ -247,7 +247,7 @@ export default function HistoricalProof() {
       <motion.div variants={fadeUpItem} className="mt-12">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
@@ -325,12 +325,12 @@ export default function HistoricalProof() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ KUR’AN’DA KAVİMLER — ATLASI AÇ' : '↗ PEOPLES IN THE QUR’AN — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ KUR’AN’DA KAVİMLER: ATLASI AÇ' : '↗ PEOPLES IN THE QUR’AN: OPEN THE ATLAS'}
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
-                ? 'Âd · Semûd · Lût kavmi · Medyen · Sebeʾ · Firavun — kavimlerin akıbeti, helak ve kurtuluş kalıpları'
-                : 'ʿĀd · Thamūd · the people of Lot · Madyan · Sabaʾ · Pharaoh — the fate of nations, patterns of destruction and salvation'}
+                ? 'Âd · Semûd · Lût kavmi · Medyen · Sebeʾ · Firavun: kavimlerin akıbeti, helak ve kurtuluş kalıpları'
+                : 'ʿĀd · Thamūd · the people of Lot · Madyan · Sabaʾ · Pharaoh: the fate of nations, patterns of destruction and salvation'}
             </p>
           </div>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>

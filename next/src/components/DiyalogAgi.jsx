@@ -363,9 +363,9 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Diyalogların geçtiği kıssalar — sahne-sahne bağlam.', descEn: 'The narratives containing these dialogues — scene-by-scene context.' },
-            { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'Konuşma partnerlerinin kategori dağılımı — kim kimin muhatabı.', descEn: 'Category distribution of speech partners — who addresses whom.' },
-            { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Diyaloglarda kullanılan belâgat sanatları — iltifât, hitâb-ı vahdaniyye.', descEn: 'Rhetorical devices in dialogue — iltifāt, singular divine address.' },
+            { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Diyalogların geçtiği kıssalar, sahne sahne bağlam.', descEn: 'The narratives containing these dialogues, scene-by-scene context.' },
+            { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'Konuşma partnerlerinin kategori dağılımı: kim kimin muhatabı.', descEn: 'Category distribution of speech partners: who addresses whom.' },
+            { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Diyaloglarda kullanılan belâgat sanatları: iltifât, hitâb-ı vahdaniyye.', descEn: 'Rhetorical devices in dialogue: iltifāt, singular divine address.' },
           ]}
         />
       </div>
@@ -735,7 +735,7 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
         </div>
         <div style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body }}>
           {filtered.length} {language === 'tr' ? 'diyalog' : 'dialogues'}
-          {axisFilter?.speakerId && ` — ${getSpeakerName(axisFilter.speakerId)}`}
+          {axisFilter?.speakerId && `: ${getSpeakerName(axisFilter.speakerId)}`}
         </div>
       </div>
 
@@ -1304,8 +1304,8 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
                 }}>
                   <span style={{ color: TYPE_CONFIG.prophet.color, fontSize: '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                     {language === 'tr'
-                      ? "Kelîmullâh — Allah'ın doğrudan konuştuğu peygamber"
-                      : 'Kalimullah — the prophet to whom God spoke directly'
+                      ? "Kelîmullâh: Allah'ın doğrudan konuştuğu peygamber"
+                      : 'Kalimullah: the prophet to whom God spoke directly'
                     }
                   </span>
                 </div>

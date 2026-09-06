@@ -25,8 +25,8 @@ const GORUSLER = [
   {
     id: 'mutesabih',
     renk: '#e8c98a',
-    baslikTr: 'Müteşâbihtir — mânâsı Allah’a havale edilir',
-    baslikEn: 'Mutashābih — its meaning is entrusted to Allah',
+    baslikTr: 'Müteşâbihtir: mânâsı Allah’a havale edilir',
+    baslikEn: 'Mutashābih: its meaning is entrusted to Allah',
     kimTr: 'Hz. Ebû Bekir, Ömer, Osman, Ali ve İbn Mes‘ûd’dan nakledilir · Şa‘bî · Süfyân es-Sevrî · Rebî‘ b. Huseym · Kurtubî’nin tercihi',
     kimEn: 'Related from Abū Bakr, ʿUmar, ʿUthmān, ʿAlī and Ibn Masʿūd · al-Shaʿbī · Sufyān al-Thawrī · al-Rabīʿ b. Khuthaym · al-Qurṭubī’s preference',
     dayanakTr: 'Âl-i İmrân 3:7 müteşâbih âyetlerin te’vilini Allah’a tahsis eder. Sahâbeden hiç kimsenin bu harflere kesin bir anlam vermemesi, susmanın bilinçli bir tercih olduğunu gösterir.',
@@ -37,12 +37,12 @@ const GORUSLER = [
   {
     id: 'tehaddi',
     renk: '#2ab5a0',
-    baslikTr: 'Tehaddî — dilsel meydan okuma',
-    baslikEn: 'Taḥaddī — a linguistic challenge',
+    baslikTr: 'Tehaddî: dilsel meydan okuma',
+    baslikEn: 'Taḥaddī: a linguistic challenge',
     kimTr: 'Ferrâ ve Kutrub’a nisbet edilir · Zemahşerî · Râzî · İbn Teymiyye · modern dönemde Reşîd Rızâ, Mevdûdî, Seyyid Kutub',
     kimEn: 'Attributed to al-Farrāʾ and Quṭrub · al-Zamakhsharī · al-Rāzī · Ibn Taymiyya · in modern times Rashīd Riḍā, Mawdūdī, Sayyid Quṭb',
-    dayanakTr: 'Harfler muhatabın kendi elifbâsındandır: “Kur’ân sizin de bildiğiniz şu harflerden kuruludur — benzerini getirin.” En güçlü karine yapıdadır: 29 sûrenin neredeyse tamamında harflerin hemen ardından Kitab’a, Kur’ân’a veya vahye atıf gelir.',
-    dayanakEn: 'The letters come from the audience’s own alphabet: “The Qurʾān is built from these very letters you know — produce its like.” The strongest indication is structural: in nearly all 29 suras a reference to the Book, the Qurʾān or revelation follows immediately.',
+    dayanakTr: 'Harfler muhatabın kendi elifbâsındandır: “Kur’ân sizin de bildiğiniz şu harflerden kuruludur; benzerini getirin.” En güçlü karine yapıdadır: 29 sûrenin neredeyse tamamında harflerin hemen ardından Kitab’a, Kur’ân’a veya vahye atıf gelir.',
+    dayanakEn: 'The letters come from the audience’s own alphabet: “The Qurʾān is built from these very letters you know; produce its like.” The strongest indication is structural: in nearly all 29 suras a reference to the Book, the Qurʾān or revelation follows immediately.',
     zayifTr: 'Meydan okuma âyetleri bu 29 sûreyle sınırlı değildir; kalan 85 sûrede de vardır ve orada bu harfler yoktur. Yani örüntü güçlü ama tek başına belirleyici değildir.',
     zayifEn: 'The challenge verses are not limited to these 29 suras; they appear in the other 85 too, where the letters are absent. The pattern is strong but not decisive on its own.',
   },
@@ -53,8 +53,8 @@ const GORUSLER = [
     baslikEn: 'They are the sura’s name',
     kimTr: 'Halîl b. Ahmed’e nisbet edilir · Zemahşerî ve bir grup müfessir',
     kimEn: 'Attributed to al-Khalīl b. Aḥmad · al-Zamakhsharī and a group of exegetes',
-    dayanakTr: 'Yâsîn, Sâd, Kâf ve Tâhâ fiilen sûre adı olarak kullanılır — harfler orada isim işlevi görür. Kur’ân’ın kendi içinde sûreleri ayırt etme ihtiyacı vardır.',
-    dayanakEn: 'Yā-Sīn, Ṣād, Qāf and Ṭā-Hā are in fact used as sura names — there the letters function as names. The Qurʾān needs a way to distinguish its suras.',
+    dayanakTr: 'Yâsîn, Sâd, Kâf ve Tâhâ fiilen sûre adı olarak kullanılır; harfler orada isim işlevi görür. Kur’ân’ın kendi içinde sûreleri ayırt etme ihtiyacı vardır.',
+    dayanakEn: 'Yā-Sīn, Ṣād, Qāf and Ṭā-Hā are in fact used as sura names; there the letters function as names. The Qurʾān needs a way to distinguish its suras.',
     zayifTr: 'الم altı ayrı sûrenin başındadır; aynı ad altı sûreyi birbirinden nasıl ayırır? Aynı itiraz beş sûrelik الر ve altı sûrelik حم için de geçerlidir.',
     zayifEn: 'Alif-Lām-Mīm opens six different suras; how can one name distinguish six? The same objection applies to Alif-Lām-Rāʾ (five) and Ḥā-Mīm (six).',
   },
@@ -73,20 +73,20 @@ const GORUSLER = [
   {
     id: 'kasem',
     renk: '#e07a7a',
-    baslikTr: 'Kasem — Allah bu harflere yemin ediyor',
-    baslikEn: 'Qasam — an oath sworn by the letters',
+    baslikTr: 'Kasem: Allah bu harflere yemin ediyor',
+    baslikEn: 'Qasam: an oath sworn by the letters',
     kimTr: 'Ahfeş · bazı nakillerde İbn Abbâs',
     kimEn: 'Al-Akhfash · in some narrations Ibn ʿAbbās',
-    dayanakTr: 'Üç sûrede harfin hemen ardından yemin edatı gerçekten gelir: Sâd (38:1), Kâf (50:1) ve Kalem (68:1). Üçünde de tek harfin arkasından doğrudan bir kasem cümlesi gelir — âyetlerin kendisi aşağıda.',
+    dayanakTr: 'Üç sûrede harfin hemen ardından yemin edatı gerçekten gelir: Sâd (38:1), Kâf (50:1) ve Kalem (68:1). Üçünde de tek harfin arkasından doğrudan bir kasem cümlesi gelir; âyetlerin kendisi aşağıda.',
     dayanakEn: 'In three suras an oath particle genuinely follows the letter, plainly visible in the text: Ṣād 38:1, Qāf 50:1 (“by the glorious Qurʾān”) and al-Qalam 68:1 (“by the pen and what they write”). In each, a single letter is followed directly by an oath clause.',
-    zayifTr: 'Ama bu üçünün dışında yemin edatı yoktur: Bakara 2:1’den sonra “ذٰلِكَ الْكِتَابُ” gelir, yemin değil. Yani görüş tek harfli sûrelerde güçlü, kalan 26’sında dayanaksız kalır — bütünü açıklamaz.',
-    zayifEn: 'Beyond those three there is no oath particle: al-Baqara 2:1 is followed by “That is the Book”, not an oath. The view is strong for the single-letter suras and unsupported in the remaining 26 — it does not explain the whole.',
+    zayifTr: 'Ama bu üçünün dışında yemin edatı yoktur: Bakara 2:1’den sonra “ذٰلِكَ الْكِتَابُ” gelir, yemin değil. Yani görüş tek harfli sûrelerde güçlü, kalan 26’sında dayanaksız kalır; bütünü açıklamaz.',
+    zayifEn: 'Beyond those three there is no oath particle: al-Baqara 2:1 is followed by “That is the Book”, not an oath. The view is strong for the single-letter suras and unsupported in the remaining 26; it does not explain the whole.',
   },
   {
     id: 'tenbih',
     renk: '#6fc98a',
-    baslikTr: 'Tenbîh — dikkat toplama',
-    baslikEn: 'Tanbīh — arresting attention',
+    baslikTr: 'Tenbîh: dikkat toplama',
+    baslikEn: 'Tanbīh: arresting attention',
     kimTr: 'Ahfeş, Ferrâ ve dilcilerden bir grup · İbn Âşûr bu yönü öne çıkarır',
     kimEn: 'Al-Akhfash, al-Farrāʾ and a group of grammarians · Ibn ʿĀshūr emphasises this aspect',
     dayanakTr: 'Alışılmadık bir açılış dinleyiciyi durdurur. Mekke döneminde müşrikler Kur’ân dinlenmesini engellemeye çalışıyordu: “Bu Kur’ân’ı dinlemeyin, okunurken gürültü yapın” (Fussilet 41:26). Beklenmedik bir ses, kurulan bu duvarı deler.',
@@ -101,8 +101,8 @@ const GORUSLER = [
     baslikEn: 'The meaning need not be single',
     kimTr: 'Taberî’nin kendi tercihi · Câmiʿu’l-beyân, Bakara 2:1',
     kimEn: 'Al-Ṭabarī’s own preference · Jāmiʿ al-bayān, al-Baqara 2:1',
-    dayanakTr: 'Taberî erken dönem rivayetlerin çoğunu toplar ve hiçbirini tek başına seçmez: harfler aynı anda birden fazla anlam boyutu taşıyor olabilir — hem dikkat çeker, hem Kur’ân’ın aynı dil malzemesinden kurulduğunu hatırlatır, hem de anlamının tamamı insana kapalı kalır. Rivayetlerin çokluğu bu okumada bir kusur değil, tabiî bir sonuçtur.',
-    dayanakEn: 'Al-Ṭabarī gathers most of the early reports and elects none of them alone: the letters may carry several dimensions at once — arresting attention, recalling that the Qurʾān is built from the same linguistic material, and leaving part of the meaning closed to us. On this reading the plurality of reports is not a flaw but a natural consequence.',
+    dayanakTr: 'Taberî erken dönem rivayetlerin çoğunu toplar ve hiçbirini tek başına seçmez: harfler aynı anda birden fazla anlam boyutu taşıyor olabilir: hem dikkat çeker, hem Kur’ân’ın aynı dil malzemesinden kurulduğunu hatırlatır, hem de anlamının tamamı insana kapalı kalır. Rivayetlerin çokluğu bu okumada bir kusur değil, tabiî bir sonuçtur.',
+    dayanakEn: 'Al-Ṭabarī gathers most of the early reports and elects none of them alone: the letters may carry several dimensions at once: arresting attention, recalling that the Qurʾān is built from the same linguistic material, and leaving part of the meaning closed to us. On this reading the plurality of reports is not a flaw but a natural consequence.',
     zayifTr: 'Her ihtimali kabul etmek, hiçbirini sınamamak anlamına gelebilir. Bir görüşün yanlışlanabilir olması gerekir; “hepsi birden doğru” demek çoğu zaman tartışmayı bitirmez, erteler.',
     zayifEn: 'Admitting every possibility can amount to testing none. A view should be falsifiable; saying “all at once” often does not settle the debate but defers it.',
   },
@@ -113,8 +113,8 @@ const GORUSLER = [
     baslikEn: 'Standing for the whole alphabet',
     kimTr: 'Klasikte Zemahşerî’nin işaret ettiği yön · modern dönemde yaygınlaştı',
     kimEn: 'A direction indicated classically by al-Zamakhsharī · widespread in modern discussion',
-    dayanakTr: '14 harf, 28 harflik elifbânın tam yarısıdır ve mahreç ile sıfat bakımından her sınıftan örnek taşır — mehmûse ve mechûre, şedîde ve rihve. Yarısı, bütünü temsilen zikredilmiştir.',
-    dayanakEn: 'The 14 letters are exactly half of the 28-letter alphabet and include representatives of every articulatory class — voiced and voiceless, stop and continuant. The half stands for the whole.',
+    dayanakTr: '14 harf, 28 harflik elifbânın tam yarısıdır ve mahreç ile sıfat bakımından her sınıftan örnek taşır: mehmûse ve mechûre, şedîde ve rihve. Yarısı, bütünü temsilen zikredilmiştir.',
+    dayanakEn: 'The 14 letters are exactly half of the 28-letter alphabet and include representatives of every articulatory class: voiced and voiceless, stop and continuant. The half stands for the whole.',
     zayifTr: 'Bu bir gözlemdir, bir açıklama değil: harflerin niçin tam bu 14’ü olduğunu ve niçin bu kombinasyonlarda dizildiğini hâlâ söylemez.',
     zayifEn: 'This is an observation rather than an explanation: it still does not say why exactly these 14, nor why arranged in these particular combinations.',
   },
@@ -167,8 +167,8 @@ export default function MukattaaViews() {
             color: COLORS.silver, lineHeight: 1.75, margin: 0, fontFamily: FONTS.body,
           }}>
             {tr
-              ? 'İhtilâf metinde değil, metni anlama çabamızdadır. Bu harflerin Allah katında kesin bir mânâsı vardır; aşağıdaki çokluk, o mânâya ulaşmak için ortaya konan insan gayretinin çokluğudur. Bu yüzden her görüş, güçlü yanıyla birlikte zayıf yanıyla da veriliyor — hiçbiri kesin hüküm diye sunulmuyor, hiçbiri de küçümsenmiyor.'
-              : 'The disagreement lies not in the text but in our effort to understand it. These letters have a definite meaning with Allah; the multiplicity below is the multiplicity of human effort to reach it. Each view is therefore given with its weakness alongside its strength — none is presented as settled, and none is dismissed.'}
+              ? 'İhtilâf metinde değil, metni anlama çabamızdadır. Bu harflerin Allah katında kesin bir mânâsı vardır; aşağıdaki çokluk, o mânâya ulaşmak için ortaya konan insan gayretinin çokluğudur. Bu yüzden her görüş, güçlü yanıyla birlikte zayıf yanıyla da veriliyor; hiçbiri kesin hüküm diye sunulmuyor, hiçbiri de küçümsenmiyor.'
+              : 'The disagreement lies not in the text but in our effort to understand it. These letters have a definite meaning with Allah; the multiplicity below is the multiplicity of human effort to reach it. Each view is therefore given with its weakness alongside its strength; none is presented as settled, and none is dismissed.'}
           </p>
         </div>
 

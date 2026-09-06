@@ -432,7 +432,7 @@
       "content": "Maurice Bucaille (1976) proposed a linguistic parallel between the Quran's Hāmān and names from the 'Ḥmn' root attested in ancient Egyptian sources. The proposal entered popular apologetic literature as a 'classical Quranic miracle'; in academic Egyptology it has not been accepted. The Atlas presents the parallel here together with its actual academic standing.",
       "points": [
         "In the Torah, Hāmān is a figure from the Book of Esther who lives in the Persian Empire (~480 BCE); in the Quran he is the Pharaoh's aide in Egypt",
-        "The Rosetta Stone (1799) → Champollion (1822) made hieroglyphs readable",
+        "The Rosetta Stone (1799) and Champollion (1822) made hieroglyphs readable",
         "Ranke, Die Ägyptischen Personennamen (1935): hundreds of 'ḥm-' initial names are listed, including some from the 'Ḥmn' root",
         "Mainstream Egyptology rejects the parallel: 'ḥm-' initial names are very common, vocalisations differ widely, and none of them is read as 'Hāmān'",
         "Scholars working on Quran–Bible relations (Walid Saleh, Reuven Firestone) read the link between the two Hāmāns as a possible literary/theological merging, or as different figures entirely"
@@ -980,7 +980,7 @@
       },
       "korku": {
         "title": "Fear, Anxiety and Tranquility",
-        "intro": "Modern psychology defines fear in one dimension: threat perception → amygdala activation → fight or flight. The Quran defines four distinct emotional states: Hawf, Khashya, Huzn, and Sakina. Each has a different source, function, and remedy.",
+        "intro": "Modern psychology defines fear in one dimension: threat perception, amygdala activation, fight or flight. The Quran defines four distinct emotional states: Hawf, Khashya, Huzn, and Sakina. Each has a different source, function, and remedy.",
         "items": [
           {
             "id": "havf",
@@ -998,7 +998,7 @@
             "translation": "Only those fear Allah, from among His servants, who have knowledge.",
             "reference": "Fatir, 35:28",
             "description": "Deeper than hawf. Khashya is the deep reverence and fear created by truly knowing Allah; it is born not of punishment but of helplessness before greatness. The more you know, the more khashya you feel. This overlaps with psychology's experience of awe.",
-            "modernNote": "Dacher Keltner's awe research: the shrinking of ego before greatness → connection and sense of meaning."
+            "modernNote": "Dacher Keltner's awe research: the shrinking of ego before greatness, followed by connection and a sense of meaning."
           },
           {
             "id": "huzun",
@@ -1193,7 +1193,7 @@
             "translation": "If you are grateful, I will surely increase you.",
             "reference": "Ibrahim, 14:7",
             "description": "Gratitude is not a courtesy ritual; it is a cognitive reframing practice, shifting focus from what is missing to what is present. The Quran says gratitude brings \"increase\"; neuroscience studies associate gratitude practice with increases in dopamine and serotonin.",
-            "modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis confirms gratitude interventions show moderate effects on clinical depression and anxiety."
+            "modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis finds that gratitude interventions show moderate effects on clinical depression and anxiety."
           },
           {
             "id": "zikir",

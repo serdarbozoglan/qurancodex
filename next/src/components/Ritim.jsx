@@ -139,8 +139,8 @@ export default function Ritim({ onClose }) {
               href: `/${language}/arac/ses-mimarisi`,
               titleTr: 'Ses Mimarisi',
               titleEn: 'Sound Architecture',
-              descTr: 'Sert ve yumuşak ünsüzler — ritmin fonetik alt-yapısı.',
-              descEn: 'Hard and soft consonants — the phonetic infrastructure of rhythm.',
+              descTr: 'Sert ve yumuşak ünsüzler: ritmin fonetik altyapısı.',
+              descEn: 'Hard and soft consonants: the phonetic infrastructure of rhythm.',
             },
             {
               href: `/${language}/arac/yeminler`,
@@ -153,8 +153,8 @@ export default function Ritim({ onClose }) {
               href: `/${language}/arac/retorik`,
               titleTr: "Kur'an Belâgatı",
               titleEn: 'Quranic Rhetoric',
-              descTr: 'Fâsıla, iltifât, takdîm-tehîr — ritmi anlama dönüştüren sanatlar.',
-              descEn: 'Cadence, iltifāt, syntactic shifts — arts that turn rhythm into meaning.',
+              descTr: 'Fâsıla, iltifât, takdîm-tehîr: ritmi anlama dönüştüren sanatlar.',
+              descEn: 'Cadence, iltifāt, syntactic shifts: arts that turn rhythm into meaning.',
             },
           ]}
         />

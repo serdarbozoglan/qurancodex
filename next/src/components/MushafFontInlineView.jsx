@@ -88,7 +88,7 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
       <div className="mq-box" style={{ maxWidth: '640px', margin: '0 auto', width: '100%', '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "60px", '--pb-m': "60px", '--pl-d': "16px", '--pl-m': "12px" }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
           <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: theme.faint, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-            {language === 'en' ? 'Font prototype — no copyrighted image' : 'Font prototipi — telifli görsel yok'}
+            {language === 'en' ? 'Font prototype, no copyrighted image' : 'Font prototipi, telifli görsel yok'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginLeft: 'auto' }}>
             <button onClick={goPrev} disabled={idx === 0} aria-label={language === 'en' ? 'Previous' : 'Önceki'}

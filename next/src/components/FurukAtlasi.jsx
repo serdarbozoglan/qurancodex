@@ -107,8 +107,8 @@ function Hero({ language, isMobile }) {
           maxWidth: '700px', margin: '0 auto 24px',
         }}>
           {tr
-            ? <>Aynı Türkçe kelimeye çevrilen iki Arapça sözcük çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şey</em> değildir — Kur&apos;an&apos;ın seçimi hiçbir zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>rastgele</em> olmaz.</>
-            : <>Two Arabic words translated by the same English word are often <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>not the same thing</em> — the Qur&apos;an&apos;s choice is never <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>arbitrary</em>.</>}
+            ? <>Aynı Türkçe kelimeye çevrilen iki Arapça sözcük çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şey</em> değildir; Kur&apos;an&apos;ın seçimi hiçbir zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>rastgele</em> olmaz.</>
+            : <>Two Arabic words translated by the same English word are often <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>not the same thing</em>; the Qur&apos;an&apos;s choice is never <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>arbitrary</em>.</>}
         </p>
 
         <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
@@ -221,8 +221,8 @@ export default function FurukAtlasi({ onClose }) {
         isMobile={isMobile}
         links={[
           { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Yakın anlamlı kelimelerin Kur\'an genelindeki bağlantılarını 3B görselleştir.', descEn: 'Visualize connections of near-synonym words across the Quran in 3D.' },
-          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar — furûk\'un daha geniş harita bağlamı.', descEn: 'Concept connections — the wider map context for furūq.' },
-          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Anlam nüansları belâgat tekniklerine nasıl yansır — teşbih, kinâye, tıbâk.', descEn: 'How meaning nuances reflect in rhetorical techniques — tashbīh, kināya, ṭibāq.' },
+          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar: furûk\'un daha geniş harita bağlamı.', descEn: 'Concept connections: the wider map context for furūq.' },
+          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Anlam nüansları belâgat tekniklerine nasıl yansır: teşbih, kinâye, tıbâk.', descEn: 'How meaning nuances reflect in rhetorical techniques: tashbīh, kināya, ṭibāq.' },
         ]}
       />
     </div>
@@ -290,8 +290,8 @@ export default function FurukAtlasi({ onClose }) {
             lineHeight: 1.7, maxWidth: 640,
           }}>
             {tr
-              ? "Türkçe çevirisi aynı — ama Arapça'da farklı anlam taşıyan kelimeler. Matar ve ğays ikisi de 'yağmur' ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku' ama birincisi hareket, ikincisi sakinlik. Her kelimenin tüm ayet geçişlerini göster — örüntüyü kendin gör."
-              : "Same translation in English — but different meanings in Arabic. Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but the first produces motion, the second stillness. See every verse occurrence — discover the pattern yourself."}
+              ? "Türkçe çevirisi aynı, ama Arapça'da farklı anlam taşıyan kelimeler. Matar ve ğays ikisi de 'yağmur' ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku' ama birincisi hareket, ikincisi sakinlik. Her kelimenin tüm ayet geçişlerini göster, örüntüyü kendin gör."
+              : "Same translation in English, but different meanings in Arabic. Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but the first produces motion, the second stillness. See every verse occurrence and discover the pattern yourself."}
           </p>
 
           {/* Stat strip */}
@@ -437,7 +437,7 @@ function TabPanorama({ data, language, isMobile, onSelectGroup }) {
           textTransform: 'uppercase', letterSpacing: '0.14em',
           fontWeight: 700, fontFamily: FONTS.body,
         }}>
-          {tr ? 'Renk Rehberi — Baskın Bağlam' : 'Color Guide — Dominant Context'}
+          {tr ? 'Renk Rehberi: Baskın Bağlam' : 'Color Guide: Dominant Context'}
         </span>
         {[
           { ctx: 'negative', labelTr: 'Azap',   labelEn: 'Punishment' },
@@ -842,7 +842,7 @@ function SemanticMap({ group, language, isMobile, accent = COLORS.gold }) {
         })() : (
           <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0, lineHeight: 1.6, fontStyle: 'italic' }}>
             {tr
-              ? 'Noktaların üzerine gelin — her kelimenin bağlamdaki yerini görün.'
+              ? 'Noktaların üzerine gelin, her kelimenin bağlamdaki yerini görün.'
               : 'Hover over the dots to see each word\'s position in context.'}
           </p>
         )}
@@ -1248,8 +1248,8 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
     <div>
       <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.7, margin: '0 0 24px' }}>
         {tr
-          ? "Klasik furûk geleneğinden seçilmiş prensipler. Her prensip bir ayrımın özünü tek cümleyle verir — arkasındaki tüm kelime ailesi ilgili gruba bakılarak görülebilir."
-          : 'Principles selected from the classical furūq tradition. Each principle captures the essence of a distinction in one sentence — the full word family behind it can be explored in the linked group.'}
+          ? "Klasik furûk geleneğinden seçilmiş prensipler. Her prensip bir ayrımın özünü tek cümleyle verir; arkasındaki tüm kelime ailesi ilgili gruba bakılarak görülebilir."
+          : 'Principles selected from the classical furūq tradition. Each principle captures the essence of a distinction in one sentence; the full word family behind it can be explored in the linked group.'}
       </p>
       <div style={{
         display: 'grid',

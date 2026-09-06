@@ -120,9 +120,9 @@ export default function QuranCommands({ onClose }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Atlası', titleEn: 'Worship Atlas', descTr: 'Emirlerin uygulaması — namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'Application of commands — prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },
-          { href: `/${language}/arac/sebebi-nuzul`, titleTr: 'Sebeb-i Nüzûl', titleEn: 'Occasions of Revelation', descTr: 'Emirlerin iniş bağlamı — hangi olay hangi hükmü doğurdu.', descEn: 'Revelation context of commands — which event birthed which ruling.' },
-          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'Emirlerin kime yönelik olduğu — müminler, ehl-i kitap, insanlık.', descEn: 'Who commands are addressed to — believers, People of the Book, humanity.' },
+          { href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Atlası', titleEn: 'Worship Atlas', descTr: 'Emirlerin uygulaması: namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'Application of commands: prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },
+          { href: `/${language}/arac/sebebi-nuzul`, titleTr: 'Sebeb-i Nüzûl', titleEn: 'Occasions of Revelation', descTr: 'Emirlerin iniş bağlamı: hangi olay hangi hükmü doğurdu.', descEn: 'Revelation context of commands: which event gave rise to which ruling.' },
+          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'Emirlerin kime yönelik olduğu: müminler, ehl-i kitap, insanlık.', descEn: 'Who commands are addressed to: believers, People of the Book, humanity.' },
         ]}
       />
     </div>
@@ -157,7 +157,7 @@ export default function QuranCommands({ onClose }) {
 
   const labelTr = {
     title: "Kur'an Bize Ne Emrediyor?",
-    subtitle: 'Doğrudan emirler, tavsiyeler ve yasaklar — her biri bir ayet',
+    subtitle: 'Doğrudan emirler, tavsiyeler ve yasaklar; her biri bir ayet',
     allCommands: 'Tümü',
     emir: 'Emirler',
     nehiy: 'Yasaklar',
@@ -165,7 +165,7 @@ export default function QuranCommands({ onClose }) {
     nehiyStat: 'Yasak',
     kategoriler: 'Kategori',
     showMore: (n) => `+ ${n} daha göster`,
-    curatedNote: 'Seçki — Bu liste temel emir ve yasakların derlenmiş bir özetidir, kapsamlı bir tefsir değildir.',
+    curatedNote: 'Seçki: bu liste temel emir ve yasakların derlenmiş bir özetidir, kapsamlı bir tefsir değildir.',
     disclaimer: "Her madde ilgili Kur'an ayetiyle birlikte sunulmaktadır.",
     unverified: 'Doğrulanmamış',
     note: 'Not',
@@ -174,7 +174,7 @@ export default function QuranCommands({ onClose }) {
   };
   const labelEn = {
     title: 'What Does the Quran Command?',
-    subtitle: 'Direct commands, guidance, and prohibitions — each one a verse',
+    subtitle: 'Direct commands, guidance and prohibitions; each one a verse',
     allCommands: 'All',
     emir: 'Commands',
     nehiy: 'Prohibitions',
@@ -182,7 +182,7 @@ export default function QuranCommands({ onClose }) {
     nehiyStat: 'Prohibitions',
     kategoriler: 'Categories',
     showMore: (n) => `+ ${n} more`,
-    curatedNote: 'Curated selection — This list is a condensed overview of key commands and prohibitions, not a comprehensive commentary.',
+    curatedNote: 'Curated selection: this list is a condensed overview of key commands and prohibitions, not a comprehensive commentary.',
     disclaimer: 'Each item is presented with its source Quranic verse.',
     unverified: 'Unverified',
     note: 'Note',

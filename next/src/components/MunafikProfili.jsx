@@ -260,9 +260,9 @@ export default function MunafikProfili({ onClose }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Nifâkın psikolojik kökleri — savunma mekanizmaları, kalp hastalığı.', descEn: 'Psychological roots of nifāq — defense mechanisms, disease of the heart.' },
-          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stages of the Self', descTr: 'Nifâkın karşıtı — nefs-i mutmainne\'ye giden 7 mertebe.', descEn: 'The opposite of nifāq — 7 stages leading to nafs muṭma\'inna.' },
-          { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Münâfıkların kıyâmet gününde hâli — Kur\'an\'ın kesin tasviri.', descEn: 'The state of hypocrites on Doomsday — the Quran\'s definitive depiction.' },
+          { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Nifâkın psikolojik kökleri: savunma mekanizmaları, kalp hastalığı.', descEn: 'Psychological roots of nifāq: defense mechanisms, disease of the heart.' },
+          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stages of the Self', descTr: 'Nifâkın karşıtı: nefs-i mutmainne\'ye giden 7 mertebe.', descEn: 'The opposite of nifāq: 7 stages leading to nafs muṭma\'inna.' },
+          { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Münâfıkların kıyâmet gününde hâli: Kur\'an\'ın tasviri.', descEn: 'The state of hypocrites on Doomsday: the Quran\'s depiction.' },
         ]}
       />
     </div>
@@ -515,7 +515,7 @@ export default function MunafikProfili({ onClose }) {
                   margin: '0 0 8px 0',
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                 }}>
-                  <span style={{ opacity: 0.9 }}>{language === 'tr' ? 'Etimoloji — Nafak (نَفَق)' : 'Etymology — Nafaq (نَفَق)'}</span>
+                  <span style={{ opacity: 0.9 }}>{language === 'tr' ? 'Etimoloji: Nafak (نَفَق)' : 'Etymology: Nafaq (نَفَق)'}</span>
                 </p>
                 <p className="mq-fs" style={{
                   color: COLORS.silver,
@@ -655,10 +655,10 @@ export default function MunafikProfili({ onClose }) {
             language={language}
             isMobile={isMobile}
             sources={[
-              { author: 'İbn Kayyim el-Cevziyye',     workTr: 'Medâricu\'s-Sâlikîn',           workEn: 'Madārij al-Sālikīn',           period: '1292–1350 (Şâm)',     noteTr: 'Münâfık tipolojisi — nifâkın küçük/büyük ayrımı.',     noteEn: 'Hypocrite typology — minor vs major nifāq.' },
-              { author: 'el-Begavî',                  workTr: 'Meâlimu\'t-Tenzîl',             workEn: 'Maʿālim al-Tanzīl',            period: '1044–1122 (Horasan)', noteTr: 'Münâfikûn sûresi tefsiri — esbâbu\'n-nüzûl detayları.', noteEn: 'Munāfiqūn surah commentary — occasions of revelation.' },
+              { author: 'İbn Kayyim el-Cevziyye',     workTr: 'Medâricu\'s-Sâlikîn',           workEn: 'Madārij al-Sālikīn',           period: '1292–1350 (Şâm)',     noteTr: 'Münâfık tipolojisi; nifâkın küçük/büyük ayrımı.',     noteEn: 'Hypocrite typology; minor vs major nifāq.' },
+              { author: 'el-Begavî',                  workTr: 'Meâlimu\'t-Tenzîl',             workEn: 'Maʿālim al-Tanzīl',            period: '1044–1122 (Horasan)', noteTr: 'Münâfikûn sûresi tefsiri; esbâbu\'n-nüzûl ayrıntıları.', noteEn: 'Munāfiqūn surah commentary; occasions of revelation.' },
               { author: 'İmam el-Buhârî',             workTr: 'Sahîh — Kitâbu\'l-Îmân',        workEn: 'Ṣaḥīḥ — Kitāb al-Īmān',        period: '810–870 (Buhârâ)',    noteTr: 'Münafık alâmetleri hadis-i şerifi (3 ayrı versiyon).', noteEn: 'Hadith on the marks of the hypocrite (3 versions).' },
-              { author: 'er-Râzî',                    workTr: 'Mefâtîhu\'l-Ğayb',              workEn: 'Mafātīḥ al-Ghayb',             period: '1149–1209 (Rey)',     noteTr: 'Münâfik psikolojisi — küfür vs nifâk arasındaki incelik.', noteEn: 'Psychology of the hypocrite — the nuance between kufr and nifāq.' },
+              { author: 'er-Râzî',                    workTr: 'Mefâtîhu\'l-Ğayb',              workEn: 'Mafātīḥ al-Ghayb',             period: '1149–1209 (Rey)',     noteTr: 'Münâfik psikolojisi; küfür ile nifâk arasındaki incelik.', noteEn: 'Psychology of the hypocrite; the nuance between kufr and nifāq.' },
             ]}
           />
 
@@ -718,7 +718,7 @@ function PsychologyCTA({ onClose, language, isMobile }) {
           {language === 'tr' ? '↗ Devamı için' : '↗ Continue with'}
         </div>
         <div style={{ color: COLORS.offWhite, fontWeight: 600, marginBottom: '4px' }}>
-          {language === 'tr' ? 'İnsanın Psikolojisi — Bölüme Git' : 'Human Psychology — Go to Section'}
+          {language === 'tr' ? 'İnsanın Psikolojisi: Bölüme Git' : 'Human Psychology: Go to Section'}
         </div>
         <div style={{ color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.5 }}>
           {language === 'tr'

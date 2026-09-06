@@ -105,8 +105,8 @@ export default function MukattaaTable() {
           maxWidth: '70ch', fontFamily: FONTS.body,
         }}>
           {tr
-            ? 'Aynı kod aynı rengi taşır. Sûreler mushaftaki sıralarıyla dizildiği için aileler kendiliğinden görünür hâle gelir — özellikle 40’tan 46’ya kesintisiz uzanan Havâmîm bloğu.'
-            : 'Each code carries its own colour. Because the suras are listed in muṣḥaf order, the families surface on their own — above all the Ḥawāmīm block running unbroken from 40 to 46.'}
+            ? 'Aynı kod aynı rengi taşır. Sûreler mushaftaki sıralarıyla dizildiği için aileler kendiliğinden görünür hâle gelir; özellikle 40’tan 46’ya kesintisiz uzanan Havâmîm bloğu.'
+            : 'Each code carries its own colour. Because the suras are listed in muṣḥaf order, the families surface on their own; above all the Ḥawāmīm block running unbroken from 40 to 46.'}
         </p>
 
         {/* ── Şerit: 114 sûre ────────────────────────────────────────── */}
@@ -122,7 +122,7 @@ export default function MukattaaTable() {
               return (
                 <div
                   key={n}
-                  title={kayit ? `${n} · ${tr ? kayit.nameTr : kayit.nameEn} — ${kayit.comb}` : String(n)}
+                  title={kayit ? `${n} · ${tr ? kayit.nameTr : kayit.nameEn}: ${kayit.comb}` : String(n)}
                   aria-hidden="true"
                   style={{
                     flex: 1, minWidth: 0,
@@ -165,14 +165,14 @@ export default function MukattaaTable() {
               <strong style={{ color: COLORS.silver, fontWeight: 600 }}>
                 {donem.mekki} Mekkî · {donem.medeni} Medenî
               </strong>
-              {` — Medenî olanlar ${donem.medeniListe}. Ra'd’ın (13) nüzul yeri klasik kaynaklarda ihtilaflıdır; onu Mekkî sayan görüşe göre dağılım 27/2 olur. Harf uzunluğuna göre: ${donem.uzunluk}.`}
+              {`; Medenî olanlar ${donem.medeniListe}. Ra'd’ın (13) nüzul yeri klasik kaynaklarda ihtilaflıdır; onu Mekkî sayan görüşe göre dağılım 27/2 olur. Harf uzunluğuna göre: ${donem.uzunluk}.`}
             </>
           ) : (
             <>
               <strong style={{ color: COLORS.silver, fontWeight: 600 }}>
                 {donem.mekki} Meccan · {donem.medeni} Medinan
               </strong>
-              {` — the Medinan ones are ${donem.medeniListe}. The revelation place of Ar-Raʿd (13) is disputed in the classical sources; counting it as Meccan gives 27/2. By letter count: ${donem.uzunluk}.`}
+              {`; the Medinan ones are ${donem.medeniListe}. The revelation place of Ar-Raʿd (13) is disputed in the classical sources; counting it as Meccan gives 27/2. By letter count: ${donem.uzunluk}.`}
             </>
           )}
         </p>
@@ -186,7 +186,7 @@ export default function MukattaaTable() {
           <div style={{ display: 'flex', width: '100%', height: '10px', borderRadius: RADIUS.pill, overflow: 'hidden', gap: '1px' }}>
             {combinations.map((c) => (
               <div key={c.ar}
-                title={`${c.ar} — ${c.surahs.length} ${tr ? 'sûre' : 'suras'}`}
+                title={`${c.ar}: ${c.surahs.length} ${tr ? 'sûre' : 'suras'}`}
                 aria-hidden="true"
                 style={{
                   flex: c.surahs.length, minWidth: 0,
@@ -201,8 +201,8 @@ export default function MukattaaTable() {
             lineHeight: 1.65, margin: '8px 0 0', maxWidth: '78ch',
           }}>
             {tr
-              ? `Üç aile — ${enBuyukler} — 29 sûrenin ${enBuyuklerToplam}’ini tutuyor; kalan ${combinations.length - 3} kombinasyonun her biri yalnız bir ya da iki sûrede geçiyor. Dağılım eşit değil.`
-              : `Three families — ${enBuyukler} — account for ${enBuyuklerToplam} of the 29 suras; each of the remaining ${combinations.length - 3} combinations opens only one or two. The distribution is not even.`}
+              ? `Üç aile (${enBuyukler}) 29 sûrenin ${enBuyuklerToplam}’ini tutuyor; kalan ${combinations.length - 3} kombinasyonun her biri yalnız bir ya da iki sûrede geçiyor. Dağılım eşit değil.`
+              : `Three families (${enBuyukler}) account for ${enBuyuklerToplam} of the 29 suras; each of the remaining ${combinations.length - 3} combinations opens only one or two. The distribution is not even.`}
           </p>
         </div>
 

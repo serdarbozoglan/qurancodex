@@ -153,7 +153,7 @@ export default function FatihaRingDiagram({ locale = 'tr' }) {
           </>
         ) : (
           <div style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: SEMANTIC.textMuted }}>
-            {tr ? 'Bir düğüme dokunun — aynadaki eşi ve âyet metni belirir.' : 'Hover a node — its mirror and the verse text appear.'}
+            {tr ? 'Bir düğüme dokunun; aynadaki eşi ve âyet metni belirir.' : 'Hover a node; its mirror and the verse text appear.'}
           </div>
         )}
       </div>

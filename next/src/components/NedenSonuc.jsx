@@ -140,9 +140,9 @@ export default function NedenSonuc() {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'Bu zincirlerin kozmik yasa katmanı — ilâhî örüntü prensibi.', descEn: 'The cosmic-law layer of these chains — the divine pattern principle.' },
+          { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'Bu zincirlerin kozmik yasa katmanı: ilâhî örüntü prensibi.', descEn: 'The cosmic-law layer of these chains: the divine pattern principle.' },
           { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: '"Zulüm → helâk" zincirinin somut tarihsel kayıtları.', descEn: 'Concrete historical records of the "injustice → destruction" chain.' },
-          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Sabır, şükür, adalet, mîzân — zincirdeki kavramların bağlantı haritası.', descEn: 'Ṣabr, shukr, ʿadl, mīzān — connection map of the concepts in these chains.' },
+          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Sabır, şükür, adalet, mîzân: zincirdeki kavramların bağlantı haritası.', descEn: 'Ṣabr, shukr, ʿadl, mīzān: a connection map of the concepts in these chains.' },
         ]}
       />
     </div>

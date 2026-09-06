@@ -1732,8 +1732,8 @@ export default function SebebiNuzul({ onClose }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Ayet-ayet, sûre-sûre arası anlamsal bağlar — nüzul bağlamı ile birlikte.', descEn: 'Semantic ties verse-to-verse and surah-to-surah — with revelation context.' },
-          { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Nüzûl olaylarındaki tarihsel aktörler — Kureyş, Ehl-i Kitâb, Bedir sahnesi.', descEn: 'Historical actors in revelation events — Quraysh, People of the Book, Badr scene.' },
+          { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Ayet ayet, sûre sûre anlamsal bağlar, nüzul bağlamı ile birlikte.', descEn: 'Semantic ties verse to verse and surah to surah, with revelation context.' },
+          { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Nüzûl olaylarındaki tarihsel aktörler: Kureyş, Ehl-i Kitâb, Bedir sahnesi.', descEn: 'Historical actors in revelation events: Quraysh, People of the Book, Badr scene.' },
           { href: `/${language}/graf/zaman`, titleTr: 'Nüzul Zaman Çizgisi', titleEn: 'Revelation Timeline', descTr: 'Nüzul sırası ve dönemleri (Mekki/Medeni) kronolojik olarak gezin.', descEn: 'Browse revelation order and periods (Meccan/Medinan) chronologically.' },
         ]}
       />
@@ -1825,7 +1825,7 @@ export default function SebebiNuzul({ onClose }) {
           {language === 'tr' ? "Her Ayetin Bir Ânı Vardır" : 'Every Verse Has Its Moment'}
         </h2>
         <p className="mq-fs" style={{ fontFamily: "'Playfair Display', serif", '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
-          {language === 'tr' ? 'Klasik kural: "Lâ yûsenu illâ bi-nass." — Yalnız sahih rivayetle bilinir.' : 'Classical rule: "lā yūsenu illā bi-naṣṣ." — Known only through authentic transmission.'}
+          {language === 'tr' ? 'Klasik kural: "Lâ yûsenu illâ bi-nass." Yalnız sahih rivayetle bilinir.' : 'Classical rule: "lā yūsenu illā bi-naṣṣ." Known only through authentic transmission.'}
         </p>
       </div>
 

@@ -375,8 +375,8 @@ export const EXPLORE_CATEGORIES = [
         target: 'addresseeSystem',
         icon:   AddresseeIcon,
         titleTr: 'Muhatap Sistemi',       titleEn: 'Addressee System',
-        descTr: "'Ey iman edenler' — kim, ne zaman?",
-        descEn: "'O you who believe' — who, when?",
+        descTr: "'Ey iman edenler': kim, ne zaman?",
+        descEn: "'O you who believe': who, when?",
       },
       {
         id:     'yeminler',

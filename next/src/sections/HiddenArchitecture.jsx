@@ -24,8 +24,8 @@ const SURAHS = {
     refTr: '7 ayet', refEn: '7 verses',
     titleTr: 'Fatiha Sûresi\'nde Halka Kompozisyon',
     titleEn: 'Ring Composition in Al-Fatiha',
-    subtitleTr: 'A-B-C-D-C\'-B\'-A\' — Altı ayetin ayna simetrisi (Besmele hariç)',
-    subtitleEn: 'A-B-C-D-C\'-B\'-A\' — Mirror symmetry across six verses (basmala excluded)',
+    subtitleTr: 'A-B-C-D-C\'-B\'-A\': altı ayetin ayna simetrisi (Besmele hariç)',
+    subtitleEn: 'A-B-C-D-C\'-B\'-A\': mirror symmetry across six verses (basmala excluded)',
     // 2026-08-14 — DÜZELTİLDİ. Önceki sürüm Besmele'yi (1:1) "A" pozisyonuna
     // koyuyordu; Farrin'in kendi analizi Besmele'yi sûrenin yapısına
     // SAYMIYOR (Ersin Kabakcı, kitap eleştirisi, Hitit Üniv. SBE Dergisi,
@@ -45,17 +45,17 @@ const SURAHS = {
         left:  { label: 'C',   ar: 'مَالِكِ يَوْمِ الدِّينِ',                      themeTr: 'Din Günü', themeEn: 'Day of Judgment' },
         right: { label: "C'",  ar: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',           themeTr: 'Hidayet',  themeEn: 'Guidance' } },
     ],
-    center: { label: 'D', ar: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ', themeTr: 'Eksen — "Sana"', themeEn: 'Pivot — "You"' },
+    center: { label: 'D', ar: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ', themeTr: 'Eksen: "Sana"', themeEn: 'Pivot: "You"' },
     introTr: "Fatiha'nın Besmele hariç 6 ayeti bir ayna gibi yapılanmış: ikinci ayet sonuncuyla, üçüncüsü sondan ikinciyle eşleşiyor. Ortadaki 5. ayet ise döngünün eksenini oluşturuyor.",
     introEn: "Al-Fatiha's 6 verses (excluding the basmala) are structured like a mirror: the second corresponds to the last, the third to the second-to-last. The 5th verse in the middle is the pivot of the ring.",
     pairsTr: [
-      { label: "A ↔ A'", desc: "A, Allah'ı bütün âlemlerin Rabbi olarak tanıtır — evrensel bir açılış. A' ise sûrenin kapanışında insanları ayıran iki olumsuz kategoriyi anar: gazaba uğrayanlar ve sapanlar. Rablik iddiası hesap verilebilirlikle kapanıyor." },
+      { label: "A ↔ A'", desc: "A, Allah'ı bütün âlemlerin Rabbi olarak tanıtır, evrensel bir açılış. A' ise sûrenin kapanışında insanları ayıran iki olumsuz kategoriyi anar: gazaba uğrayanlar ve sapanlar. Rablik iddiası hesap verilebilirlikle kapanıyor." },
       { label: "B ↔ B'", desc: "B, Allah'ın Rahmân ve Rahîm olduğunu bildirir. B' bu rahmetin somut karşılığını gösterir: nimet verilenlerin yolu. Merhamet soyut bir sıfat değil, yönlendirdiği bir sonuç." },
       { label: "C ↔ C'", desc: "C, hesap gününün sahibini anar. C' buna hazırlık ister: doğru yola iletilme talebi. Hesap bilinci duayı doğuruyor." },
       { label: "D — Merkez", desc: "'Yalnız Sana kulluk eder, yalnız Senden yardım dileriz.' D'den önce Allah üçüncü şahısla anlatılır, D'den sonra doğrudan Ona seslenilir. Dilbilgisel dönüm noktası, sûrenin yapısal merkeziyle aynı âyete düşüyor." },
     ],
     pairsEn: [
-      { label: "A ↔ A'", desc: "A introduces Allah as Lord of all the worlds — a universal opening. A' names two negative categories at the sura's close: those who incur wrath and those who go astray. The claim of Lordship closes with accountability." },
+      { label: "A ↔ A'", desc: "A introduces Allah as Lord of all the worlds, a universal opening. A' names two negative categories at the sura's close: those who incur wrath and those who go astray. The claim of Lordship closes with accountability." },
       { label: "B ↔ B'", desc: "B declares Allah as al-Raḥmān and al-Raḥīm. B' shows this mercy's concrete counterpart: the path of those who have been favoured. Mercy is not an abstract attribute but a result it directs toward." },
       { label: "C ↔ C'", desc: "C names the Master of the Day of Judgment. C' asks for preparation for that reckoning: guidance to the straight path. Awareness of accountability gives rise to prayer." },
       { label: "D — Center", desc: "'You alone we worship, You alone we ask for help.' Before D, Allah is described in the third person; after D, we address Him directly. The grammatical turning point falls on the same verse as the structural centre." },
@@ -66,8 +66,8 @@ const SURAHS = {
     refTr: 'Bakara 2:255', refEn: 'Al-Baqarah 2:255',
     titleTr: 'Âyetel Kürsî\'de Halka Kompozisyon',
     titleEn: 'Ring Composition in Ayatul Kursi',
-    subtitleTr: 'Tek bir ayet — yedi bölüm — mükemmel simetri',
-    subtitleEn: 'One verse — seven sections — perfect symmetry',
+    subtitleTr: 'Tek bir ayet, yedi bölüm, ayna simetrisi',
+    subtitleEn: 'One verse, seven sections, mirror symmetry',
     pairs: [
       { idx: 0,
         left:  { label: 'A',   ar: 'الْحَىُّ الْقَيُّومُ',                              themeTr: 'Hayy & Kayyum',         themeEn: 'Ever-Living, Self-Subsisting' },
@@ -80,8 +80,8 @@ const SURAHS = {
         right: { label: "C'",  ar: 'يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ',  themeTr: 'Mutlak İlim',           themeEn: 'Absolute Knowledge' } },
     ],
     center: { label: 'D', ar: 'مَن ذَا الَّذِى يَشْفَعُ عِندَهُٓ إِلَّا بِإِذْنِهِ', themeTr: 'Şefaat Yalnız İzniyle', themeEn: 'No Intercession Except By His Leave' },
-    introTr: "Ayetel Kürsî tek bir ayet içinde bu yapıyı barındırıyor — bu da onu belki daha da çarpıcı kılıyor. Yedi bölüm, birbirini ayna gibi yansıtıyor.",
-    introEn: "Ayatul Kursi contains this structure within a single verse — making it perhaps even more striking. Seven sections mirror each other perfectly.",
+    introTr: "Ayetel Kürsî bu yapıyı tek bir ayet içinde barındırıyor. Yedi bölüm birbirini ayna gibi yansıtıyor.",
+    introEn: "Ayatul Kursi contains this structure within a single verse. Seven sections mirror each other.",
     pairsTr: [
       { label: "A ↔ A'", desc: "Her ikisi çift ilahî sıfat. 'Hayy-Kayyum' (diri, ayakta tutan) ile 'Aliyy-Azim' (yüce, büyük). Ayet bu iki sıfat çiftiyle açılıp kapanıyor." },
       { label: "B ↔ B'", desc: "Her ikisi yaratılmışın sınırlılığını anlatıyor. B: Allah uyumaz (fizyolojik sınır yok). B': İnsanlar O'nun ilmini kavrayamaz (bilişsel sınır var)." },
@@ -110,10 +110,10 @@ const NUR_LAYERS = [
     conceptsTr: ['Nur (Işık)', 'Mişkat', 'Zücace (Cam)', 'Misbah (Kandil)', 'Zeytun Yağı'],
     conceptsEn: ['Light (Nur)', 'Mishkat (Niche)', 'Zujaja (Glass)', 'Misbah (Lamp)', 'Olive Oil'],
     scholarTr: 'Fahreddin Razi\'ye atfedilen okuma', scholarEn: 'Reading attributed to Fahreddin Razi',
-    quoteTr: 'Bu misalde her unsurun ayrı bir hikmeti vardır: Mişkat nefsi, zücace kalbi, misbah imanı, zeytun ağacı ise Hz. İbrahim\'in soyunu temsil eder. Fiziksel unsurlar, ilahi gerçeklerin sembolleridir — dış katman, içtekini taşır.',
-    quoteEn: 'Each element in this parable carries a separate wisdom: the niche represents the soul, the glass the heart, the lamp faith, and the olive tree the lineage of Abraham (AS). Physical elements carry divine truths — the outer layer holds what is within.',
-    questionTr: 'Eğer bu fiziksel unsurların her biri daha derin bir gerçeğe işaret ediyorsa — asıl ışık hangisi?',
-    questionEn: 'If each physical element points to a deeper truth — which is the real light?',
+    quoteTr: 'Bu misalde her unsurun ayrı bir hikmeti vardır: Mişkat nefsi, zücace kalbi, misbah imanı, zeytun ağacı ise Hz. İbrahim\'in soyunu temsil eder. Fiziksel unsurlar ilahî gerçeklerin sembolleridir; dış katman içtekini taşır.',
+    quoteEn: 'Each element in this parable carries a separate wisdom: the niche represents the soul, the glass the heart, the lamp faith, and the olive tree the lineage of Abraham (AS). Physical elements carry divine truths; the outer layer holds what is within.',
+    questionTr: 'Eğer bu fiziksel unsurların her biri daha derin bir gerçeğe işaret ediyorsa, asıl ışık hangisi?',
+    questionEn: 'If each physical element points to a deeper truth, which is the real light?',
   },
   {
     numTr: '02', nameTr: 'Manevi',     subTr: 'Metaforik',
@@ -122,10 +122,10 @@ const NUR_LAYERS = [
     conceptsTr: ['İlahi Rehberlik', 'Karanlık = Dalalet', 'Nur = İman', 'Kalp Nuru', 'Hidayet Işığı'],
     conceptsEn: ['Divine Guidance', 'Darkness = Misguidance', 'Light = Faith', 'Light of the Heart', 'The Light of Guidance'],
     scholarTr: 'İmam Gazali\'ye atfedilen okuma', scholarEn: 'Reading attributed to Imam Al-Ghazali',
-    quoteTr: 'Allah\'ın nuru, O\'nun hidayetidir; karanlık ise dalaletin ta kendisidir. Hidayete eren kalp, karanlık gecede bile yolunu bulur — çünkü içindeki ışık, dışarısından daha güçlüdür.',
-    quoteEn: "Allah's light is His guidance; darkness is misguidance itself. A heart guided is like a lantern in the darkest night — finding the path, for the light within is stronger than what is outside.",
-    questionTr: 'Senin kalbinde bu ışığın yoğunluğu ne kadar — ve onu ne köreltir, ne parlak kılar?',
-    questionEn: 'What is the intensity of this light within your heart — and what dims it, what makes it shine?',
+    quoteTr: 'Allah\'ın nuru, O\'nun hidayetidir; karanlık ise dalaletin ta kendisidir. Hidayete eren kalp, karanlık gecede bile yolunu bulur, çünkü içindeki ışık dışarıdakinden daha güçlüdür.',
+    quoteEn: "Allah's light is His guidance; darkness is misguidance itself. A heart guided is like a lantern in the darkest night, finding the path, for the light within is stronger than what is outside.",
+    questionTr: 'Senin kalbinde bu ışığın yoğunluğu ne kadar, ve onu ne köreltir, ne parlak kılar?',
+    questionEn: 'What is the intensity of this light within your heart, and what dims it, what makes it shine?',
   },
   {
     numTr: '03', nameTr: 'Bilimsel',   subTr: 'Kozmolojik',
@@ -148,10 +148,10 @@ const NUR_LAYERS = [
     conceptsTr: ['Nur = Bilgi', 'Zulmet = Cehalet', 'Akıl Nuru', 'Aydınlanma', 'Hakikat Arayışı'],
     conceptsEn: ['Light = Knowledge', 'Darkness = Ignorance', 'Light of Reason', 'Enlightenment', 'The Search for Truth'],
     scholarTr: 'İbn Sina\'ya atfedilen okuma', scholarEn: 'Reading attributed to Ibn Sina',
-    quoteTr: 'Akıl, ruhun gözüdür; nur ise aklın görebileceği hakikattir. Bilgisiz bir akıl, ışıksız bir göz gibidir — var ama işlevsizdir.',
-    quoteEn: "Reason is the eye of the soul; light is the truth that reason can see. A mind without knowledge is like an eye without light — present but non-functional.",
-    questionTr: 'Bilgi ışığı dışarıdan mı gelir — yoksa içimizde zaten var olan bir şeyi mi uyandırır?',
-    questionEn: 'Does the light of knowledge come from outside — or does it awaken something already within us?',
+    quoteTr: 'Akıl, ruhun gözüdür; nur ise aklın görebileceği hakikattir. Bilgisiz bir akıl, ışıksız bir göz gibidir: var ama işlevsizdir.',
+    quoteEn: "Reason is the eye of the soul; light is the truth that reason can see. A mind without knowledge is like an eye without light: present but non-functional.",
+    questionTr: 'Bilgi ışığı dışarıdan mı gelir, yoksa içimizde zaten var olan bir şeyi mi uyandırır?',
+    questionEn: 'Does the light of knowledge come from outside, or does it awaken something already within us?',
   },
   {
     numTr: '05', nameTr: 'İç Dünya',   subTr: 'Psikolojik',
@@ -160,10 +160,10 @@ const NUR_LAYERS = [
     conceptsTr: ['Ruhun İç Işığı', 'Bilinç', 'Farkındalık', 'Nefs Tezkiyesi', 'Kalp Aynası'],
     conceptsEn: ['Inner Light of the Soul', 'Consciousness', 'Awareness', 'Purification of the Self', 'Mirror of the Heart'],
     scholarTr: 'İbn Kayyım el-Cevziyye', scholarEn: 'Ibn Qayyim Al-Jawziyyah',
-    quoteTr: 'Kalp bir aynadır; günahlar onu karartır, ibadet ve tevbe ise cilalar. Arınmış kalp nuru yansıtır — ve yansıyan nur, kaynağından daha az değildir.',
-    quoteEn: "The heart is a mirror; sins darken it, while worship and repentance polish it. A purified heart reflects light — and reflected light is no less than its source.",
-    questionTr: 'İç sesin en yüksek olduğu anlarda — ya da en sustuğu anlarda — hangi ışık yanar içinde?',
-    questionEn: 'In moments when your inner voice is loudest — or most silent — what light burns within you?',
+    quoteTr: 'Kalp bir aynadır; günahlar onu karartır, ibadet ve tevbe ise cilalar. Arınmış kalp nuru yansıtır, ve yansıyan nur kaynağından daha az değildir.',
+    quoteEn: "The heart is a mirror; sins darken it, while worship and repentance polish it. A purified heart reflects light, and reflected light is no less than its source.",
+    questionTr: 'İç sesin en yüksek olduğu anlarda, ya da en sustuğu anlarda, hangi ışık yanar içinde?',
+    questionEn: 'In moments when your inner voice is loudest, or most silent, what light burns within you?',
   },
   {
     numTr: '06', nameTr: 'Tasavvufi', subTr: 'Mistik',
@@ -174,10 +174,10 @@ const NUR_LAYERS = [
     scholarTr: 'Muhyiddin İbn Arabi', scholarEn: 'Muhyiddin Ibn Arabi',
     quoteTr: 'Nur-u Muhammedi, Allah\'ın ilk yarattığı varlıktır; tüm kainat bu nurdan zuhur etmiştir.',
     quoteEn: "Nur al-Muhammadi is the first thing Allah created; the entire universe emerged from this light.",
-    noteTr: 'Bu doktrin İbn Arabî ve Vahdetü\'l-Vücûd ekolüne özgüdür. Selefî/Hanbelî gelenekte (İbn Teymiyye, İbn Kayyim) reddedilir; Sünnî ana akım tasavvufta (Gazâlî, Cüneyd-i Bağdâdî) dolaylı kabul vardır. Atfedilen rivayet (أوّل ما خلق الله نوري) hadis âlimlerinin çoğunluğuna göre — Albânî dahil — mevzûdur (uydurma); metin bu doktrini sahih bir kaynak olarak değil, İbn Arabî\'nin teolojik yorumu bağlamında sunar.',
-    noteEn: "This doctrine is specific to Ibn Arabi and the Wahdat al-Wujūd school. It is rejected in the Salafī/Ḥanbalī tradition (Ibn Taymiyyah, Ibn Qayyim); mainstream Sunni Sufism (Ghazālī, Junayd) accepts it indirectly. The narration cited in its support (أوّل ما خلق الله نوري) is considered fabricated (mawḍūʿ) by the majority of hadith scholars — including al-Albānī. This text presents the doctrine within the context of Ibn Arabi's theological interpretation, not as an established source.",
-    questionTr: 'Eğer her şey O\'nun nurundan yaratıldıysa — sen kim oluyorsun, o nur sende nasıl tecelli ediyor?',
-    questionEn: 'If everything was created from his light — who are you, and how does that light manifest in you?',
+    noteTr: 'Bu doktrin İbn Arabî ve Vahdetü\'l-Vücûd ekolüne özgüdür. Selefî/Hanbelî gelenekte (İbn Teymiyye, İbn Kayyim) reddedilir; Sünnî ana akım tasavvufta (Gazâlî, Cüneyd-i Bağdâdî) dolaylı kabul vardır. Atfedilen rivayet (أوّل ما خلق الله نوري) hadis âlimlerinin çoğunluğuna göre, Albânî dahil, mevzûdur (uydurma); metin bu doktrini sahih bir kaynak olarak değil, İbn Arabî\'nin teolojik yorumu bağlamında sunar.',
+    noteEn: "This doctrine is specific to Ibn Arabi and the Wahdat al-Wujūd school. It is rejected in the Salafī/Ḥanbalī tradition (Ibn Taymiyyah, Ibn Qayyim); mainstream Sunni Sufism (Ghazālī, Junayd) accepts it indirectly. The narration cited in its support (أوّل ما خلق الله نوري) is considered fabricated (mawḍūʿ) by the majority of hadith scholars, including al-Albānī. This text presents the doctrine within the context of Ibn Arabi's theological interpretation, not as an established source.",
+    questionTr: 'Eğer her şey O\'nun nurundan yaratıldıysa, sen kim oluyorsun, o nur sende nasıl tecelli ediyor?',
+    questionEn: 'If everything was created from His light, who are you, and how does that light manifest in you?',
   },
   {
     numTr: '07', nameTr: 'İlahi',   subTr: 'Teolojik',
@@ -185,11 +185,11 @@ const NUR_LAYERS = [
     color: '#E8D070',
     conceptsTr: ['Nurun Nuru', 'Mutlak Varlık', 'Tüm Benzetmelerin Ötesi', 'La İlahe İllallah', 'Cemâl Sıfatı'],
     conceptsEn: ['Light of Lights', 'Absolute Being', 'Beyond All Metaphors', 'La Ilaha Illallah', 'Attribute of Beauty'],
-    scholarTr: 'İmam Gazali — Mişkâtü\'l-Envâr', scholarEn: "Imam Al-Ghazali — Mishkat al-Anwar",
-    quoteTr: 'Allah\'ın ismi "Nur" yalnızca mecaz olarak kullanılır; zira gerçek nur O\'ndan gelir. O nur değildir — O, nurun da nurudur.',
-    quoteEn: "Allah's name 'Light' is used only metaphorically; for the true light comes from Him. He is not light — He is the Light of lights.",
-    questionTr: 'Nurun ötesindeki Nur\'a ulaşmak için — nurun kendisini nasıl aşarsın?',
-    questionEn: 'To reach the Light beyond light — how do you transcend light itself?',
+    scholarTr: 'İmam Gazali, Mişkâtü\'l-Envâr', scholarEn: "Imam Al-Ghazali, Mishkat al-Anwar",
+    quoteTr: 'Allah\'ın ismi "Nur" yalnızca mecaz olarak kullanılır; zira gerçek nur O\'ndan gelir. O nur değildir; O, nurun da nurudur.',
+    quoteEn: "Allah's name 'Light' is used only metaphorically; for the true light comes from Him. He is not light; He is the Light of lights.",
+    questionTr: 'Nurun ötesindeki Nur\'a ulaşmak için nurun kendisini nasıl aşarsın?',
+    questionEn: 'To reach the Light beyond light, how do you transcend light itself?',
   },
 ];
 
@@ -298,15 +298,15 @@ export default function HiddenArchitecture() {
           </p>
           <p className="text-silver/40 text-xs text-center mb-5 font-body">
             {language === 'tr'
-              ? 'Bir çift veya merkeze tıkla — açıklamasını gör'
-              : 'Click a pair or the center — see its explanation'}
+              ? 'Bir çifte ya da merkeze tıkla, açıklamasını gör'
+              : 'Click a pair or the center to see its explanation'}
           </p>
 
           {activeSurah === 'fatiha' && (
             <p className="text-silver/40 text-xs mb-5 font-body italic max-w-3xl leading-relaxed">
               {language === 'tr'
-                ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfadaki âyet numaraları (1:2, 1:3 …) Şafiî sayımını izler — ama Bismillah\'ın kendisi bu halka şemasının bir pozisyonu DEĞİL: Farrin\'in kendi analizi de Bismillah\'ı sûrenin yapısına saymaz.'
-                : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. The verse numbers here (1:2, 1:3, …) follow the Shāfiʿī count — but Bismillah itself is not a position in this ring: Farrin\'s own analysis likewise does not count it as part of the sura\'s structure.'}
+                ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfadaki âyet numaraları (1:2, 1:3 …) Şafiî sayımını izler; ama Bismillah\'ın kendisi bu halka şemasının bir pozisyonu DEĞİL: Farrin\'in kendi analizi de Bismillah\'ı sûrenin yapısına saymaz.'
+                : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. The verse numbers here (1:2, 1:3, …) follow the Shāfiʿī count; but Bismillah itself is not a position in this ring: Farrin\'s own analysis likewise does not count it as part of the sura\'s structure.'}
             </p>
           )}
 
@@ -533,8 +533,8 @@ export default function HiddenArchitecture() {
             Metin değişmedi, yalnız render yolu. */}
         <p className="text-off-white/80 text-sm leading-relaxed font-body italic">
           {renderInlineMarkdown(language === 'tr'
-            ? 'Halka kompozisyon — klasik retorikte chiasmus olarak biliniyordu — büyük ölçekli metinlere sistematik uygulanması 20. yüzyıl ürünüdür: Cedric Whitman\'ın Homer çalışması (1958) ve Mary Douglas\'ın *Thinking in Circles*\'ı (2007). Klasik İslam geleneği bu yapıları görmedi mi? Hayır — Bikâî *Nazmü\'d-Dürer*\'de, Suyûtî *İtkân*\'da ve Râzî *Mefâtîhu\'l-Gayb*\'da ayetler/sûreler arası bağlantıları (münâsebât) kapsamlı çalıştı. Modern akademinin asıl katkısı: varolan örüntüleri **A-B-C-D-C\'-B\'-A\'** gibi şematik bir dile çevirmek. 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı mimariyi nasıl taşıdığı sorusu ise hâlâ yanıtsız.'
-            : 'Ring composition — known in classical rhetoric as chiasmus — was systematically applied to large-scale texts only in the 20th century: Cedric Whitman\'s Homer studies (1958) and Mary Douglas\'s *Thinking in Circles* (2007). Did classical Islamic tradition miss these structures? No — Biqāʿī in *Naẓm al-Durar*, Suyūṭī in *al-Itqān*, and Rāzī in *Mafātīḥ al-Ghayb* extensively studied inter-verse and inter-sura connections (munāsabāt). The real contribution of modern scholarship: translating existing patterns into schematic notation like **A-B-C-D-C\'-B\'-A\'**. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.')}
+            ? 'Halka kompozisyon klasik retorikte chiasmus olarak biliniyordu; büyük ölçekli metinlere sistematik uygulanması 20. yüzyıl ürünüdür: Cedric Whitman\'ın Homer çalışması (1958) ve Mary Douglas\'ın *Thinking in Circles*\'ı (2007). Klasik İslam geleneği bu yapıları görmedi mi? Gördü: Bikâî *Nazmü\'d-Dürer*\'de, Suyûtî *İtkân*\'da ve Râzî *Mefâtîhu\'l-Gayb*\'da ayetler/sûreler arası bağlantıları (münâsebât) kapsamlı çalıştı. Modern akademinin asıl katkısı: varolan örüntüleri **A-B-C-D-C\'-B\'-A\'** gibi şematik bir dile çevirmek. 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı mimariyi nasıl taşıdığı sorusu ise hâlâ yanıtsız.'
+            : 'Ring composition, known in classical rhetoric as chiasmus, was systematically applied to large-scale texts only in the 20th century: Cedric Whitman\'s Homer studies (1958) and Mary Douglas\'s *Thinking in Circles* (2007). Did the classical Islamic tradition miss these structures? No: Biqāʿī in *Naẓm al-Durar*, Suyūṭī in *al-Itqān*, and Rāzī in *Mafātīḥ al-Ghayb* extensively studied inter-verse and inter-sura connections (munāsabāt). The real contribution of modern scholarship: translating existing patterns into schematic notation like **A-B-C-D-C\'-B\'-A\'**. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.')}
         </p>
       </motion.div>
 
@@ -602,7 +602,7 @@ export default function HiddenArchitecture() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ İLK VE SON KELİMELER — ATLASI AÇ' : '↗ FIRST AND LAST WORDS — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ İLK VE SON KELİMELER: ATLASI AÇ' : '↗ FIRST AND LAST WORDS: OPEN THE ATLAS'}
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
@@ -639,7 +639,7 @@ export default function HiddenArchitecture() {
       {/* Academic disclaimer — 7-layer taxonomy is a modern construct */}
       <motion.p variants={fadeUpItem} className="text-silver/45 text-xs leading-relaxed max-w-3xl mb-6 font-body italic">
         {language === 'tr'
-          ? 'ℹ Bu 7 katmanlı yorum, Râzî–Gazâlî–İbn Arabî geleneğini modern fizik, psikoloji ve felsefe perspektifleriyle harmanlayan çağdaş bir okumadır. Klasik tefsirin standart taksonomisi 4 katmandır: zâhir (literal), bâtın (ezoterik), hadd (sınır/hudud), muttala\' (yüksek makam) — İbn Mes\'ûd rivayetine dayanır.'
+          ? 'ℹ Bu 7 katmanlı yorum, Râzî–Gazâlî–İbn Arabî geleneğini modern fizik, psikoloji ve felsefe perspektifleriyle harmanlayan çağdaş bir okumadır. Klasik tefsirin standart taksonomisi 4 katmandır: zâhir (literal), bâtın (ezoterik), hadd (sınır/hudud), muttala\' (yüksek makam); İbn Mes\'ûd rivayetine dayanır.'
           : 'ℹ This 7-layer reading is a modern synthesis blending the Rāzī–Ghazālī–Ibn Arabi tradition with contemporary perspectives from physics, psychology, and philosophy. The standard classical taxonomy is 4-layer: ẓāhir (literal), bāṭin (esoteric), ḥadd (limits), muṭṭalaʿ (highest), based on a tradition reported from Ibn Masʿūd.'}
       </motion.p>
 
@@ -1068,7 +1068,7 @@ export default function HiddenArchitecture() {
             className="font-body uppercase tracking-[0.24em] text-xs"
             style={{ color: COLORS.gold, opacity: 0.75 }}
           >
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
@@ -1085,8 +1085,8 @@ export default function HiddenArchitecture() {
               href: `/${language}/oku/2`,
               titleTr: 'Bakara 2:255 (Âyet\'el-Kürsî)',
               titleEn: 'al-Baqara 2:255 (Āyat al-Kursī)',
-              descTr: 'Tek bir ayet içinde halka simetrisi — Bakara sûresinin kalbi.',
-              descEn: 'Ring symmetry within a single verse — the heart of Sura al-Baqara.',
+              descTr: 'Tek bir ayet içinde halka simetrisi; Bakara sûresinin kalbi.',
+              descEn: 'Ring symmetry within a single verse; the heart of Sura al-Baqara.',
             },
             {
               href: `/${language}/oku/24`,

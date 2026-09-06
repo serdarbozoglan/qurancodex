@@ -124,9 +124,9 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Meryem, Âsiye, Belkıs ve daha fazlası — kıssaların içindeki bağlam.', descEn: 'Maryam, Āsiya, Bilqīs and more — the narrative context.' },
+          { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Meryem, Âsiye, Belkıs ve diğerleri: kıssaların içindeki bağlam.', descEn: 'Maryam, Āsiya, Bilqīs and others: the narrative context.' },
           { href: `/${language}/atlas/peygamber`, titleTr: 'Peygamberler Atlası', titleEn: 'Prophets Atlas', descTr: '25 peygamberin hanımları ve aile örüntüleri Kur\'an nassıyla.', descEn: 'Wives and family patterns of 25 prophets from Quranic text.' },
-          { href: `/${language}/arac/dualar`, titleTr: 'Kur\'ânî Dualar', titleEn: 'Quranic Duas', descTr: 'Meryem\'in duası, Âsiye\'nin duası — kadın figürlerin yakarışları.', descEn: "Maryam's prayer, Āsiya's prayer — supplications of female figures." },
+          { href: `/${language}/arac/dualar`, titleTr: 'Kur\'ânî Dualar', titleEn: 'Quranic Duas', descTr: 'Meryem\'in duası, Âsiye\'nin duası: kadın figürlerin yakarışları.', descEn: "Maryam's prayer, Āsiya's prayer: supplications of female figures." },
         ]}
       />
     </div>
@@ -476,8 +476,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
         margin: '0 0 22px', maxWidth: '780px',
       }}>
         {tr
-          ? "Yalnız bir kadın Kur'an'da adıyla anılır — geri kalanı sıfatları ve konumlarıyla."
-          : "Only one woman is named in the Quran — the rest are referenced by attribute and station."}
+          ? "Yalnız bir kadın Kur'an'da adıyla anılır; geri kalanı sıfatları ve konumlarıyla."
+          : "Only one woman is named in the Quran; the rest are referenced by attribute and station."}
       </p>
 
       <p className="mq-fs" style={{
@@ -898,8 +898,8 @@ const OBSERVATIONS = [
     statValue: '1 / 14',
     labelTr: 'Adıyla anılan',
     labelEn: 'Named',
-    bodyTr: 'On dört figürden yalnız Hz. Meryem Kur\'an\'da özel adıyla anılır; bir sûre (Meryem 19) onun ismini taşır. Geriye kalan on üç kadın ya akrabalıkla ("İmran\'ın eşi", "Hz. Mûsâ\'nın annesi"), ya konumla ("Firavun\'un karısı"), ya da unvanla ("Saba Melikesi") anılır. Bu nüans atlasın merkezi akademik bulgusudur — kadın figürlerin "anonim" değil, **sıfaten tanımlı** olduğunu gösterir.',
-    bodyEn: 'Of fourteen figures, only Maryam is named in the Quran; one chapter (Maryam 19) bears her name. The remaining thirteen women are referenced by kinship ("Imran\'s wife", "Mother of Moses"), station ("Pharaoh\'s wife"), or title ("Queen of Sheba"). This nuance is the atlas\'s central academic finding — female figures are not "anonymous" but **identified by attribute**.',
+    bodyTr: 'On dört figürden yalnız Hz. Meryem Kur\'an\'da özel adıyla anılır; bir sûre (Meryem 19) onun ismini taşır. Geriye kalan on üç kadın ya akrabalıkla ("İmran\'ın eşi", "Hz. Mûsâ\'nın annesi"), ya konumla ("Firavun\'un karısı"), ya da unvanla ("Saba Melikesi") anılır. Bu nüans atlasın merkezi bulgusudur: kadın figürler "anonim" değil, sıfaten tanımlıdır.',
+    bodyEn: 'Of fourteen figures, only Maryam is named in the Quran; one chapter (Maryam 19) bears her name. The remaining thirteen women are referenced by kinship ("Imran\'s wife", "Mother of Moses"), station ("Pharaoh\'s wife"), or title ("Queen of Sheba"). This nuance is the atlas\'s central finding: female figures are not "anonymous" but identified by attribute.',
     groups: [
       {
         labelTr: 'ADIYLA', labelEn: 'BY NAME',
@@ -930,8 +930,8 @@ const OBSERVATIONS = [
     statValue: '1 + 1',
     labelTr: 'Vahy lafzı vs melek hitabı',
     labelEn: 'Waḥy term vs angelic address',
-    bodyTr: 'Kur\'an\'da kendisine doğrudan وحي (vahy) lafzıyla bildirimde bulunulan tek kadın Hz. Mûsâ\'nın annesidir (Kasas 28:7). Hz. Meryem farklı bir teolojik kategoride — meleklerin doğrudan ona hitap ettiği belirtilir. Klasik tefsir (Râzî, Kurtubî) bu ayrımı dikkatle korur. Bu hitabın "nübüvvet" mi "ilham" mı olduğu tartışmalı; Cumhûr ilham görüşündedir.',
-    bodyEn: 'Only one woman in the Quran is addressed with the direct term وحي (waḥy): the Mother of Moses (Q 28:7). Maryam belongs to a distinct theological category — angels speak directly to her. Classical tafsir (Razi, Qurtubi) carefully preserves this distinction. Whether this constitutes prophetic revelation or ilham is debated; the majority hold the ilham view.',
+    bodyTr: 'Kur\'an\'da kendisine doğrudan وحي (vahy) lafzıyla bildirimde bulunulan tek kadın Hz. Mûsâ\'nın annesidir (Kasas 28:7). Hz. Meryem farklı bir teolojik kategoridedir; meleklerin doğrudan ona hitap ettiği belirtilir. Klasik tefsir (Râzî, Kurtubî) bu ayrımı dikkatle korur. Bu hitabın "nübüvvet" mi "ilham" mı olduğu tartışmalı; Cumhûr ilham görüşündedir.',
+    bodyEn: 'Only one woman in the Quran is addressed with the direct term وحي (waḥy): the Mother of Moses (Q 28:7). Maryam belongs to a distinct theological category; angels speak directly to her. Classical tafsir (Razi, Qurtubi) carefully preserves this distinction. Whether this constitutes prophetic revelation or ilham is debated; the majority hold the ilham view.',
     groups: [
       {
         labelTr: 'VAHY (وحي) LAFZIYLA', labelEn: 'WITH THE TERM WAḤY',
@@ -993,9 +993,9 @@ const OBSERVATIONS = [
       {
         labelTr: 'ÜÇ TEPKİ', labelEn: 'THREE RESPONSES',
         chips: [
-          { name: 'Asiye — iman', ref: 'Tahrîm 66:11' },
-          { name: "Aziz'in karısı — tutku → tevbe", ref: 'Yûsuf 12:51' },
-          { name: 'Belkıs — hidayet', ref: 'Neml 27:44' },
+          { name: 'Asiye: iman', ref: 'Tahrîm 66:11' },
+          { name: "Aziz'in karısı: tutkudan tevbeye", ref: 'Yûsuf 12:51' },
+          { name: 'Belkıs: hidayet', ref: 'Neml 27:44' },
         ],
       },
     ],
@@ -1040,7 +1040,7 @@ const OBSERVATIONS = [
     labelTr: 'Üç nesil soy zinciri',
     labelEn: 'A three-generation thread',
     bodyTr: 'İmran\'ın eşi karnındaki çocuğu mâbede adar (3:35) → Hz. Meryem mâbedde Hz. Zekeriyya\'nın himayesinde yetişir (3:37) → Hz. İsa, babasız mucize doğumla dünyaya gelir (3:45). Tek bir adakla başlayan üç nesillik zincir, atlasta birden fazla figürün ortak çerçevede buluştuğu nadir örüntüdür.',
-    bodyEn: 'Imran\'s wife pledges her unborn child to the temple (3:35) → Maryam is raised in the temple under Zechariah\'s care (3:37) → Jesus is born by fatherless miracle (3:45). A three-generation chain springing from a single vow — a rare pattern where multiple atlas figures meet within one unified frame.',
+    bodyEn: 'Imran\'s wife pledges her unborn child to the temple (3:35) → Maryam is raised in the temple under Zechariah\'s care (3:37) → Jesus is born by fatherless miracle (3:45). A three-generation chain springing from a single vow; a rare pattern where several atlas figures meet within one frame.',
     groups: [
       {
         labelTr: 'ÜÇ NESİL', labelEn: 'THREE GENERATIONS',
@@ -1059,8 +1059,8 @@ const OBSERVATIONS = [
     statValue: '2 / 14',
     labelTr: 'Karşıt örnek olarak takdim',
     labelEn: 'Presented as counter-example',
-    bodyTr: 'Tahrîm 66:10\'da Allah, "inkar edenlere örnek" (mathalan li\'l-ladhīna kafarū) olarak iki figürü zikreder: Hz. Lût ve Hz. Nuh\'un eşleri. Bu ifade, sonraki ayetlerdeki "müminlere örnek" çerçevesine (Asiye 66:11, Hz. Meryem 66:12) tam paralel ama zıt bir teolojik kategoridir. Aynı sûrede, aynı yapı — biri olumlu, diğeri olumsuz arketip.',
-    bodyEn: 'In Q 66:10 Allah cites two figures as "an example for those who disbelieved" (mathalan li\'l-ladhīna kafarū): the wives of Lot and Noah. This stands in exact parallel — but opposite — to the subsequent "example for believers" frame (Asiya 66:11, Maryam 66:12). The same surah, the same structure — one a positive, the other a negative archetype.',
+    bodyTr: 'Tahrîm 66:10\'da Allah, "inkar edenlere örnek" (mathalan li\'l-ladhīna kafarū) olarak iki figürü zikreder: Hz. Lût ve Hz. Nuh\'un eşleri. Bu ifade, sonraki ayetlerdeki "müminlere örnek" çerçevesine (Asiye 66:11, Hz. Meryem 66:12) tam paralel ama zıt bir teolojik kategoridir. Aynı sûrede, aynı yapı: biri olumlu, diğeri olumsuz arketip.',
+    bodyEn: 'In Q 66:10 Allah cites two figures as "an example for those who disbelieved" (mathalan li\'l-ladhīna kafarū): the wives of Lot and Noah. This stands in exact but opposite parallel to the subsequent "example for believers" frame (Asiya 66:11, Maryam 66:12). The same surah, the same structure: one a positive, the other a negative archetype.',
     groups: [
       {
         labelTr: 'KARŞIT ÖRNEK', labelEn: 'COUNTER-EXAMPLE',
@@ -1083,8 +1083,8 @@ const OBSERVATIONS = [
     statValue: '1',
     labelTr: 'Bir sûreye ad veren kadın',
     labelEn: 'A woman who names a surah',
-    bodyTr: 'Mücâdele (58.) sûresi adını, kocasının zıharına itiraz eden Havle bint Sa\'lebe\'den alır — "el-Mücâdile" (tartışan/ısrarcı kadın) ondaki sûre başlığıdır. Bir kadının sosyal-hukuki şikâyetinin doğrudan sûre adına dönüştüğü tek olaydır. Esbâbu\'n-nüzûl literatüründe (Vâhidî, Buhârî) zıhar hükmünün bu olay üzerine indiği belgelenir.',
-    bodyEn: 'Surah al-Mujadila (58) takes its name from Khawla bint Tha\'laba, who disputed her husband\'s zihar — "al-Mujadila" (the woman who pleads/disputes). It is the only instance where a woman\'s social-legal complaint becomes the very title of a surah. The asbāb an-nuzūl literature (Wahidi, Bukhari) documents that the ruling on zihar was revealed in response to this incident.',
+    bodyTr: 'Mücâdele (58.) sûresi adını, kocasının zıharına itiraz eden Havle bint Sa\'lebe\'den alır; "el-Mücâdile" (tartışan, ısrarcı kadın) ondan gelen sûre başlığıdır. Bir kadının sosyal-hukuki şikâyetinin doğrudan sûre adına dönüştüğü tek olaydır. Esbâbu\'n-nüzûl literatüründe (Vâhidî, Buhârî) zıhar hükmünün bu olay üzerine indiği belgelenir.',
+    bodyEn: 'Surah al-Mujadila (58) takes its name from Khawla bint Tha\'laba, who disputed her husband\'s zihar; "al-Mujadila" means the woman who pleads or disputes. It is the only instance where a woman\'s social-legal complaint becomes the very title of a surah. The asbāb an-nuzūl literature (Wahidi, Bukhari) documents that the ruling on zihar was revealed in response to this incident.',
     groups: [
       {
         labelTr: 'SÛREYE AD VEREN', labelEn: 'NAMING THE SURAH',
@@ -1097,8 +1097,8 @@ const OBSERVATIONS = [
     statValue: '4',
     labelTr: 'İki hadiste anılan dört seçkin kadın',
     labelEn: 'Four honored women across two hadiths',
-    bodyTr: 'İki AYRI hadis söz konusudur: (1) "Kemâl" hadisi (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe) — "erkeklerden birçoğu kemâle erdi; kadınlardan ise Hz. Meryem ile Hz. Âsiye\'den başkası kemâle ermedi" — yalnız İKİ kadın. (2) "Cennet kadınlarının en faziletlileri" hadisi — Hz. Hatice, Hz. Fâtıma, Hz. Meryem ve Hz. Âsiye. Meryem ve Âsiye her iki hadiste ve Kur\'ân\'da yer alır; Hatice ile Fâtıma yalnız ikinci hadistedir. (Kemâl hadisini "dört kadın" olarak sunmak iki rivayeti karıştırmaktır.)',
-    bodyEn: 'These are TWO separate hadiths: (1) the "kamāl" hadith (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba) — "many men reached perfection, but among women none reached it except Maryam and Asiya" — only two women. (2) the "foremost women of Paradise" hadith — Khadija, Fatima, Maryam, and Asiya. Maryam and Asiya appear in both and in the Quran; Khadija and Fatima only in the second. (Attributing four women to the kamāl hadith conflates the two narrations.)',
+    bodyTr: 'İki AYRI hadis söz konusudur: (1) "Kemâl" hadisi (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe): "erkeklerden birçoğu kemâle erdi; kadınlardan ise Hz. Meryem ile Hz. Âsiye\'den başkası kemâle ermedi", yani yalnız İKİ kadın. (2) "Cennet kadınlarının en faziletlileri" hadisi: Hz. Hatice, Hz. Fâtıma, Hz. Meryem ve Hz. Âsiye. Meryem ve Âsiye her iki hadiste ve Kur\'ân\'da yer alır; Hatice ile Fâtıma yalnız ikinci hadistedir. (Kemâl hadisini "dört kadın" olarak sunmak iki rivayeti karıştırmaktır.)',
+    bodyEn: 'These are TWO separate hadiths: (1) the "kamāl" hadith (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba): "many men reached perfection, but among women none reached it except Maryam and Asiya", so only two women. (2) the "foremost women of Paradise" hadith: Khadija, Fatima, Maryam and Asiya. Maryam and Asiya appear in both and in the Quran; Khadija and Fatima only in the second. (Attributing four women to the kamāl hadith conflates the two narrations.)',
     groups: [
       {
         labelTr: "KUR'AN'DA", labelEn: 'IN THE QURAN',

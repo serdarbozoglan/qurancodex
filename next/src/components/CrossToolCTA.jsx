@@ -49,7 +49,7 @@ export default function CrossToolCTA({ language, isMobile: _isMobile, links, lab
           color: ACC,
           opacity: 0.78,
         }}>
-          {tr ? (labelTr || 'Daha Derine — İlgili Araçlar') : (labelEn || 'Go Deeper — Related Tools')}
+          {tr ? (labelTr || 'Daha Derine: İlgili Araçlar') : (labelEn || 'Go Deeper: Related Tools')}
         </h2>
       </div>
 

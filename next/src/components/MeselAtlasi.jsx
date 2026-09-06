@@ -196,8 +196,8 @@ function Hero({ language, isMobile }) {
           maxWidth: '700px', margin: '0 auto 24px',
         }}>
           {tr
-            ? <>Aynı Türkçe kelimeye çevrilen iki mesel çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şeyi</em> anlatmaz — her motif kendi bağlamında, kendi <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>hikmetini</em> taşır.</>
-            : <>Two parables that translate the same way often do not mean the <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>same thing</em> — each image carries its own <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>wisdom</em> within its context.</>}
+            ? <>Aynı Türkçe kelimeye çevrilen iki mesel çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şeyi</em> anlatmaz; her motif kendi bağlamında, kendi <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>hikmetini</em> taşır.</>
+            : <>Two parables that translate the same way often do not mean the <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>same thing</em>; each image carries its own <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>wisdom</em> within its context.</>}
         </p>
 
         <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
@@ -215,7 +215,7 @@ function Hero({ language, isMobile }) {
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
           '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
-        }}>{tr ? 'Su, ışık, bitki, hayvan — her motif bir hikmet taşır' : 'Water, light, plant, animal — every motif carries a wisdom'}</p>
+        }}>{tr ? 'Su, ışık, bitki, hayvan: her motif bir hikmet taşır' : 'Water, light, plant, animal: every motif carries a wisdom'}</p>
       </div>
     </div>
   );
@@ -330,8 +330,8 @@ function TabMotifAlanlari({ data, onDomainFilter, language, isMobile }) {
           </h2>
           <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', color: COLORS.silver, opacity: 0.85, maxWidth: 560, margin: '0 auto' }}>
             {language === 'tr'
-              ? `Kur'ân mesellerinin çekildiği ${domains.length} motif alanı — ${totalNodes} motif. Bir alana dokun, Mesel Kataloğu'na filtreli geç.`
-              : `The ${domains.length} motif domains Quranic parables draw from — ${totalNodes} motifs. Tap a domain to jump to the filtered catalogue.`}
+              ? `Kur'ân mesellerinin çekildiği ${domains.length} motif alanı, ${totalNodes} motif. Bir alana dokun, Mesel Kataloğu'na filtreli geç.`
+              : `The ${domains.length} motif domains Quranic parables draw from, ${totalNodes} motifs. Tap a domain to jump to the filtered catalogue.`}
           </p>
         </div>
 
@@ -590,7 +590,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                     )}
                     {verseData && !verseData.loading && !verseData.arabic && (
                       <div style={{ color: COLORS.softRed, fontSize: '0.8rem', fontFamily: FONTS.body }}>
-                        {language === 'tr' ? 'Ayet şu anda yüklenemedi — kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now — the source service is unreachable. Please try again later.'}
+                        {language === 'tr' ? 'Ayet şu anda yüklenemedi; kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now; the source service is unreachable. Please try again later.'}
                       </div>
                     )}
                   </div>
@@ -696,7 +696,7 @@ function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language,
         )}
         {verse && !verse.loading && !verse.arabic && (
           <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.softRed, fontSize: '0.78rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Ayet şu anda yüklenemedi — kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now — the source service is unreachable. Please try again later.'}
+            {language === 'tr' ? 'Ayet şu anda yüklenemedi; kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now; the source service is unreachable. Please try again later.'}
           </div>
         )}
       </div>
@@ -881,8 +881,8 @@ function TabNurZulumat({ data, language, isMobile }) {
           ) : (
             <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.88rem', fontStyle: 'italic', lineHeight: 1.7, margin: 0 }}>
               {language === 'tr'
-                ? "Âyet en-Nûr, Kur'an'ın en derin meseli. Her halka bir sembol katmanını temsil eder — tıkla ve keşfet."
-                : "Āyat al-Nūr is the Quran's deepest parable. Each ring represents a layer of symbolism — click to explore."}
+                ? "Âyet en-Nûr katman katman okunan bir meseldir. Her halka bir sembol katmanını temsil eder; tıkla ve keşfet."
+                : "Āyat al-Nūr is a parable read layer by layer. Each ring represents a layer of symbolism; click to explore."}
             </p>
           )}
         </div>
@@ -937,7 +937,7 @@ function TabNurZulumat({ data, language, isMobile }) {
                 {loaded?.loading && <div style={{ marginTop: '6px', color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</div>}
                 {loaded && !loaded.loading && !loaded.arabic && (
                   <div style={{ marginTop: '6px', color: COLORS.softRed, fontSize: '0.75rem', fontFamily: FONTS.body }}>
-                    {language === 'tr' ? 'Ayet şu anda yüklenemedi — kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now — the source service is unreachable. Please try again later.'}
+                    {language === 'tr' ? 'Ayet şu anda yüklenemedi; kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now; the source service is unreachable. Please try again later.'}
                   </div>
                 )}
               </div>
@@ -965,8 +965,8 @@ const ANIMAL_CTX_LABELS = {
 
 
 const FUN_FACTS_TR = [
-  "Kur'an'da mesel olarak geçen hayvanlar çoğunlukla küçük veya alçak görülen türlerdir — sivrisinek, sinek, örümcek. Bu, meselin boyut tanımaz mantığını pekiştirir.",
-  "Kur'an'daki ilk öğretici bir hayvandır — Karga, Kabil'e cesedi nasıl gömeceğini öğretir (5:31).",
+  "Kur'an'da mesel olarak geçen hayvanlar çoğunlukla küçük veya alçak görülen türlerdir: sivrisinek, sinek, örümcek. Bu, meselin boyut tanımaz mantığını pekiştirir.",
+  "Kur'an'daki ilk öğretici bir hayvandır: karga, Kabil'e cesedi nasıl gömeceğini öğretir (5:31).",
 ];
 
 function TabHayvanlar({ animals, language, isMobile }) {
@@ -1084,9 +1084,9 @@ const PARABLE_TYPES_DATA = [
     key: 'sarih',
     labelTr: 'Sarîh (Açık)',
     labelAr: 'الأمثال المصرّحة',
-    defTr: '"Mesel" kelimesi açıkça geçer — benzetme kalıbı doğrudan kullanılır.',
+    defTr: '"Mesel" kelimesi açıkça geçer; benzetme kalıbı doğrudan kullanılır.',
     exampleRef: '2:17',
-    exampleTr: 'Ateş Yakan — "كَمَثَلِ الَّذِي اسْتَوْقَدَ نَارًا"',
+    exampleTr: 'Ateş Yakan: "كَمَثَلِ الَّذِي اسْتَوْقَدَ نَارًا"',
   },
   {
     key: 'kamin',
@@ -1094,7 +1094,7 @@ const PARABLE_TYPES_DATA = [
     labelAr: 'الأمثال الكامنة',
     defTr: '"Mesel" kelimesi geçmez, ama anlam benzetme içerir. Bağlam okuyucuya meseli çıkartır.',
     exampleRef: '7:179',
-    exampleTr: '"Kalpleri var anlamaz, gözleri var görmez" — organlar üzerinden küfür tasviri.',
+    exampleTr: '"Kalpleri var anlamaz, gözleri var görmez": organlar üzerinden küfür tasviri.',
   },
   {
     key: 'mursel',
@@ -1279,8 +1279,8 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px' }} />
           <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
             {language === 'tr'
-              ? "Modern Türk Müslüman düşüncesinde Üstad Bediüzzaman Said Nursi, Risâle-i Nur'da temsîlî metodu sistematik olarak kullanmıştır. Özellikle Yirmi İkinci Söz, Sâni‑i Hakîm (her şeyi hikmetle yapan Yapıcı) hakikatini birden fazla büyük temsil üzerinden işler. Nursi'ye göre kâinat 'açık bir Kur'ân'dır — her atom, her hücre, her gezegen Yaratıcı'nın hikmetinin temsîlî bir aynasıdır. Bu yaklaşım klasik mesel‑temsîl geleneğinin modern bir uzantısı olarak okunabilir."
-              : "In modern Turkish Muslim thought, Said Nursi employs the parabolic method systematically in the Risāle-i Nūr. The Twenty-Second Word in particular unfolds the truth of Ṣāniʿ-i Ḥakīm (the All-Wise Maker) through multiple grand parables. For Nursi, the cosmos is 'an open Qurʾān' — every atom, cell, and planet a parabolic mirror of the Creator's wisdom. This approach can be read as a modern extension of the classical mathal–tamthīl tradition."}
+              ? "Modern Türk Müslüman düşüncesinde Üstad Bediüzzaman Said Nursi, Risâle-i Nur'da temsîlî metodu sistematik olarak kullanmıştır. Özellikle Yirmi İkinci Söz, Sâni‑i Hakîm (her şeyi hikmetle yapan Yapıcı) hakikatini birden fazla büyük temsil üzerinden işler. Nursi'ye göre kâinat 'açık bir Kur'ân'dır; her atom, her hücre, her gezegen Yaratıcı'nın hikmetinin temsîlî bir aynasıdır. Bu yaklaşım klasik mesel‑temsîl geleneğinin modern bir uzantısı olarak okunabilir."
+              : "In modern Turkish Muslim thought, Said Nursi employs the parabolic method systematically in the Risāle-i Nūr. The Twenty-Second Word in particular unfolds the truth of Ṣāniʿ-i Ḥakīm (the All-Wise Maker) through multiple grand parables. For Nursi, the cosmos is 'an open Qurʾān'; every atom, cell and planet a parabolic mirror of the Creator's wisdom. This approach can be read as a modern extension of the classical mathal–tamthīl tradition."}
           </p>
         </div>
       </div>
@@ -1296,11 +1296,11 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {[
-            { key: 'retorigi', tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Mesel & temsil belâgat sanatının parçası — teşbîh, istiâre, kinâye',                   descEn: 'Parables as part of rhetorical art — tashbīh, istiʿāra, kināya' },
-            { key: 'kevni',    tr: 'DOĞA ATLASI',         en: 'NATURE ATLAS',     descTr: 'Arı, deve, sığır — hayvanların kevniyye/yaratılış bağlamı',                          descEn: 'Bee, camel, cattle — animals in their cosmological context' },
-            { key: 'munafik',  tr: 'MÜNAFIK PROFİLİ',     en: 'HYPOCRITE PROFILE', descTr: 'Bakara 2:17-19 — münafık çift mesellerinin klinik analizi',                           descEn: 'Bakara 2:17-19 — clinical analysis of paired hypocrite parables' },
-            { key: 'cennet',   tr: 'CENNET & CEHENNEM',   en: 'PARADISE & HELL',  descTr: 'Muhammed 47:15 — cennet nehirlerinin (paradise-rivers) detaylı tasviri',              descEn: 'Muhammad 47:15 — detailed description of paradise rivers' },
-            { key: 'kiyamet',  tr: 'KIYAMET SAHNELERİ',   en: 'SCENES OF QIYĀMAH', descTr: 'Yâsîn 36:78 (kuru kemikler), Bakara 2:259 (yıkık kasaba) — diriliş meselleri',     descEn: 'Yāsīn 36:78 (dry bones), Bakara 2:259 (ruined town) — resurrection parables' },
+            { key: 'retorigi', tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Mesel ve temsil belâgat sanatının parçası: teşbîh, istiâre, kinâye',                   descEn: 'Parables as part of rhetorical art: tashbīh, istiʿāra, kināya' },
+            { key: 'kevni',    tr: 'DOĞA ATLASI',         en: 'NATURE ATLAS',     descTr: 'Arı, deve, sığır: hayvanların kevniyye ve yaratılış bağlamı',                          descEn: 'Bee, camel, cattle: animals in their cosmological context' },
+            { key: 'munafik',  tr: 'MÜNAFIK PROFİLİ',     en: 'HYPOCRITE PROFILE', descTr: 'Bakara 2:17-19: münafık çift mesellerinin analizi',                           descEn: 'Bakara 2:17-19: analysis of the paired hypocrite parables' },
+            { key: 'cennet',   tr: 'CENNET & CEHENNEM',   en: 'PARADISE & HELL',  descTr: 'Muhammed 47:15: cennet nehirlerinin ayrıntılı tasviri',              descEn: 'Muhammad 47:15: detailed description of the rivers of paradise' },
+            { key: 'kiyamet',  tr: 'KIYAMET SAHNELERİ',   en: 'SCENES OF QIYĀMAH', descTr: 'Yâsîn 36:78 (kuru kemikler), Bakara 2:259 (yıkık kasaba): diriliş meselleri',     descEn: 'Yāsīn 36:78 (dry bones), Bakara 2:259 (ruined town): resurrection parables' },
           ].map(cta => (
             <button
               key={cta.key}
@@ -1426,8 +1426,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/doga`, titleTr: 'Tabiat Atlası', titleEn: 'Nature Atlas', descTr: 'Meselerdeki tabiat motifleri — su, ateş, ağaç, sivrisinek, örümcek.', descEn: 'Nature motifs in parables — water, fire, tree, mosquito, spider.' },
-          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Mesel — belâgat sanatları içinde teşbih ve temsilin doruğu.', descEn: 'Parable — the peak of simile and analogy in rhetorical arts.' },
+          { href: `/${language}/atlas/doga`, titleTr: 'Tabiat Atlası', titleEn: 'Nature Atlas', descTr: 'Mesellerdeki tabiat motifleri: su, ateş, ağaç, sivrisinek, örümcek.', descEn: 'Nature motifs in parables: water, fire, tree, mosquito, spider.' },
+          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Mesel: belâgat sanatları içinde teşbih ve temsilin doruğu.', descEn: 'Parable: the peak of simile and analogy in rhetorical arts.' },
           { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Meselleri okuyucuya emanet eden retorik yapıların diğer örneği.', descEn: 'Another example of rhetorical structures that entrust parables to the reader.' },
         ]}
       />
@@ -1461,8 +1461,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
           workTr: "el-İtkān fî Ulûmi'l-Kurʾân",
           workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
           period: '1445–1505 (Kahire)',
-          noteTr: "Emsâl bahsi (bölüm 66) — meselin Kurʾân retoriği içindeki yerini konumlandırır.",
-          noteEn: 'Chapter on amthāl (§66) — positions parables within Quranic rhetoric.',
+          noteTr: "Emsâl bahsi (bölüm 66); meselin Kurʾân retoriği içindeki yerini konumlandırır.",
+          noteEn: 'Chapter on amthāl (§66); positions parables within Quranic rhetoric.',
         },
         {
           author: 'er-Râzî',

@@ -44,9 +44,9 @@ Etki × görünürlük sırasıyla:
 - [x] **P1 · Sayfa başlıkları ve meta açıklamaları** (2026-09-06; başlıklarda yalnız slogan yarıları değişti, Title Case tutarlılık için ertelendi, bkz. §3 notu) (80 `page.js` dosyasında `TITLE_TR/EN`, `DESC_TR/EN`). Google snippet'i ve `<h1>` altı bunlar. Detay: §3.
 - [x] **P2 · Tefekkür tldr'ları ve criticalNote'lar** ✅ (2026-09-06: 53 tldr TR+EN yeniden yazıldı; criticalNote'lar bekliyor) (`public/tefekkur/_index.json` + 53 yazı). Gövde yazarın; tldr ve not kutuları sitenin. Detay: §4.
 - [x] **P2 · Uzun anlatı bölümleri** ✅ (2026-09-06: 182 TR + 203 EN dize) (`src/i18n/tr.json` + `en.json`: linguisticDNA, hiddenSymmetry, scientificSigns, historicalProof, livingPreservation, zeroRedundancy, highlights, humanDefinition, psychology, impossibleRhythm, soundArchitecture). Bu bölümler Next tarafında `src/sections/*.jsx` üzerinden araç sayfalarında render ediliyor. Detay: §5.
-- [ ] **P3 · Araç ve atlas bileşenleri** (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.
-- [ ] **P3 · Katalog ve gezinme metinleri** (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
-- [ ] **P4 · Yardımcı sayfalar** (hakkında, kaynakça, sor, kütüphanem, not-found). Çoğu temiz; küçük dokunuşlar. Detay: §8.
+- [x] **P3 · Araç ve atlas bileşenleri** ✅ (2026-09-06; kalan tireler yalnız âyet çevirisi, kaynak atfı, sayfa başlığı ayracı ve kod yorumu) (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.
+- [x] **P3 · Katalog ve gezinme metinleri** ✅ (2026-09-06) (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
+- [x] **P4 · Yardımcı sayfalar** ✅ (2026-09-06) (hakkında, kaynakça, sor, kütüphanem, not-found). Çoğu temiz; küçük dokunuşlar. Detay: §8.
 - [ ] **P0 · Önce karar:** Uzun tire tasarım tercihi mi, alışkanlık mı? 8.364 tire "hepsini kaldır" ile çözülmez; bir stil kuralı gerekir (bkz. §9).
 
 ---
@@ -109,7 +109,7 @@ Dosyalar: `public/tefekkur/_index.json` (53 tldr) · `public/tefekkur/*.json` (g
 - [ ] **"X değil — Y"**: 862 hit'in ~400'ü tefekkür. lehv 12, kaynak-yuzey 19, enerji-krizi 30, ruhun-termostati 33, inception-hayatlar 21, ruhsal-cografya 29.
 - [ ] **"Asıl soru / asıl mesele" (§27)**: kaynak-yuzey 5, rahmetin-grameri-4, anlam-yaratilis-senteni, yaratilis-hikayesi-1 ("Belki de asıl soru şu:"), Isimlendirme.jsx ("asıl mesele o kısalıkta").
 - [ ] **EN çevirilerde AI kelimeleri**: "A crucial qualifier", "the crucial point is this", "underscores this fundamental role", "fundamentally how human comprehension works", "The unique role is never discovered". TR'de bu kelimeler yokken EN'de belirmesi çeviri katmanının makine olduğunu gösteriyor. EN gövdeleri ayrı bir geçiş ister.
-- [ ] **Bilimsel ad-anma (§2/§5)**: "Nörobilim (Schubert 2005, embodied cognition) bunu doğrular", "Termodinamiğin ikonu Rod Swenson", "fMRI studies show" (en.json psychology). Kaynak varsa tamam; "doğrular" fiili §13.24 kuralına aykırı (bilim tasdik etmez).
+- [~] **Bilimsel ad-anma (§2/§5)** (2026-09-06: "doğrular/confirms" → "bulur/finds" yapıldı; "fMRI çalışmaları gösteriyor" atıfsız kaldı, kaynak eklenmesi yazar kararı): "Nörobilim (Schubert 2005, embodied cognition) bunu doğrular", "Termodinamiğin ikonu Rod Swenson", "fMRI studies show" (en.json psychology). Kaynak varsa tamam; "doğrular" fiili §13.24 kuralına aykırı (bilim tasdik etmez).
 - [ ] **Başlıklarda Title Case + "X: Y" çift başlık**: "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi", "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi", "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak" (iki ayraç birden). Bunlar yazarın başlıkları olabilir; kontrol edilmeli.
 
 ---
@@ -145,12 +145,20 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **ahiret-yolculugu.json** ✅ (2026-09-06: 194 dize; âyet alıntıları hariç) (230 tire, 44 "değil"): "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder." açılış cümlesi; EN "not as an event but as a moment of transition". 11 aşamanın girişleri aynı kalıpta mı, kontrol.
 - [x] **KuranRenkleri.jsx** ✅ (2026-09-06: 170 dize) (164 tire), **ZamanBoyutlari.jsx** (21 "değil"), **EsmaFrekans.jsx** (15 "değil", 5 satış: "sarsılmaz kudret", "yegane sığınak"), **KuranYeminleri.jsx** ("Modern astronomi açısından da dikkat çekici"), **HumanDefinition.jsx** (23 "değil" / 53 tire), **QuranDua.jsx** (6 kicker üçlüsü), **KiraatAtlasi.jsx**, **Melekler.jsx** ("Benzersiz Melek Sıfatları"), **CennetCehennem.jsx** ("tek isimle değil … Her isim, öteki alemin ayrı bir yüzünü aydınlatır").
 - [x] **KuranYeminleri.jsx, KavimlerAtlasi.jsx, QuranDua.jsx** ✅ (2026-09-06: 64 + 67 + 82 dize; âyet alıntıları hariç)
-- [ ] **EsmaTanimlari.jsx** EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
-- [ ] **TefsirIhtilaflari.jsx**: "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
-- [ ] **KorumaZinciri.jsx**: "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
-- [ ] **Isimlendirme.jsx**: "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
-- [ ] **Ok zincirleri (1.242)**: neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
-- [ ] **Hata mesajları da aynı kalıpta**: MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
+- [x] **EsmaFrekans.jsx, KiyametSahneleri.jsx, ZamanBoyutlari.jsx, IlkSonKelimeler.jsx** ✅ (2026-09-06: 68 + 74 + 72 + 52 dize)
+- [x] **Melekler.jsx, LinguisticDNA.jsx, RingExtensions.jsx, HiddenArchitecture.jsx, CennetCehennem.jsx** ✅ (2026-09-06: 52 + 62 + 60 + 51 + 45 dize)
+- [x] **KiraatAtlasi.jsx, HumanDefinition.jsx, ImpossibleRhythm.jsx, Isimlendirme.jsx, ProphetMap.jsx, MeselAtlasi.jsx** ✅ (2026-09-06: 39 + 44 + 32 + 36 + 29 + 26 dize; âyet çevirileri, kaynak atıfları ve kod yorumları hariç)
+- [x] **ReadingMode.jsx, KadinlarAtlasi.jsx, InsanPsikolojisi.jsx, SunnetullahAtlasi.jsx** ✅ (2026-09-06: 30 + 18 + 24 + 25 dize; Okuma Modu'nda yalnız araç ipuçları/aria etiketleri; İnsan Psikolojisi'nde CBT/Freud/nörobilim iddiaları yumuşatıldı)
+- [x] **DogaAtlasi.jsx, Mukattaa.jsx, BilimselIsaretler.jsx, data/iblis-passages.js** ✅ (2026-09-06: 27 + 15 + 14 + 24 dize; gök cismi notlarındaki "modern astronomi ile uyumlu / dikkat çekici" ifadeleri §13.24 düzeyine çekildi)
+- [x] **SurahComparator.jsx, MukattaaViews.jsx, SoundExtensions.jsx, QuranRhetoric.jsx, MunasebatAtlasi.jsx, KorumaZinciri.jsx** ✅ (2026-09-06: 21 + 21 + 20 + 10 + 7 + 16 dize)
+- [x] **WordHeatmap, VerseGraph, ConceptGraph, KuranRetorigi, MukattaaEvidence, ZeroRedundancy, ElestirelCerceve, FurukAtlasi, NefisMertebeleri, IbadetlerPillar, EsmaTanimlari, TefsirIhtilaflari** ✅ (2026-09-06: 126 dize)
+- [x] **Kalan 44 bileşen/sayfa** (PsychologySection, TarihselKanitlar, SoundArchitecture, TekrarAnatomi, MukattaaTable, SesMimarisi, MunafikProfili, KitapKavrami, IbadetlerHub, HalkaKompozisyon, iblis-observations, RhythmExtensions, RevelationTimeline, InsanYolculugu, InsanTanimi, AltiKonu, AddresseeSystem, QuranCommands, KissaAtlas, SemanticMap, DuaVerses, DiyalogAgi, Highlights, Ritim, RetorikSorular, NedenSonuc, IblisSatan, DuaDili, ScientificSigns, HistoricalProof, YakinAnlamliNuanslar, SebebiNuzul, MushafInlineView, HifzModu, FatihaAtlasi, LivingPreservation, küçük UI etiketleri) ✅ (2026-09-06: 223 dize). Gerileme düzeltmesi: AhiretYolculugu aşama sekmeleri (split ayracı `/ — |: /`).
+- [x] **EsmaTanimlari.jsx** ✅ (2026-09-06: "the question is what the servant takes") EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
+- [x] **TefsirIhtilaflari.jsx** ✅ (2026-09-06: "Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar"): "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
+- [x] **KorumaZinciri.jsx** ✅ (2026-09-06: "sıfır varyasyon ilkesinin bugünkü görünümü"): "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
+- [x] **Isimlendirme.jsx** ✅ (2026-09-06: "Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj"): "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
+- [~] **Ok zincirleri (1.242)** (2026-09-06: tools.jsx descLong, tr/en.json psikoloji girişi ve tarihsel kanıt listesi düz cümle oldu; tefekkür gövdeleri ve public/*.json diyagram alanları yazar kararına bırakıldı): neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
+- [x] **Hata mesajları da aynı kalıpta** (MeselAtlasi ✅, not-found ✅ 2026-09-06): MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
 
 Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorRoute.jsx`, `exploreCategories.jsx`.
 
@@ -161,19 +169,19 @@ Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorR
 Dosyalar: `src/data/toolCatalog.js`, `src/data/tools.jsx`, `src/data/exploreCategories.jsx`, Navbar mega menü, `arac/tum-araclar`.
 
 - [ ] Katalog açıklamaları "N · N · N" etiket formatında ("73 mesel · 8 motif alanı", "10 imam · 20 râvî · coğrafi dağılım", "88 emir ve yasak · 8 kategori"). Bunlar etiket, cümle değil; kısa kart altında kabul edilebilir. Ancak aynı format sayfa DESC'ine, kicker'a ve tldr'a taşınınca kalıp oluyor. Karar: bu format yalnız katalog/menü kartlarında kalsın, cümle beklenen yerlerden çıksın.
-- [ ] "Az bilinen, şaşırtan gerçekler / Hidden gems & surprising facts" (kurani-tani) satış dili.
-- [ ] "23 yıla yayılan anlatıların gizli haritası / The hidden narrative map" (peygamber) — "gizli" sitenin ana metaforu ama katalogda her ikinci kartta "gizli/görünmeyen/şifre" var: "14 gizemli harf ve şifresi", "gizli harita", "Görünmeyen Mimari". Sayı azaltılabilir.
-- [ ] Navbar mega menü tefekkür tanıtımı: "Psikolojik, içsel ve pratik denemeler", "Kur'an Semantiği, Tefekkür ve Tasavvufî Düşünce", tefekkür listesi girişi "kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler" (§12 sahte aralık "X'ten Y'ye", §4 "derinlikli"). `conclusion.discovery.desc` de aynı: "Kıraat farklarından diyalog ağlarına, mesellerden nüzul sebeplerine — her biri ayrı bir keşif yolculuğu."
-- [ ] Tefekkür sayfası teşekkür paragrafı EN: "We extend our heartfelt gratitude to … to share these selected essays. All interpretations and syntheses reflect the author's personal reflection; QuranCodex carries these texts respectfully" — chatbot nezaketi (§20/§22). TR'si daha sade; EN TR'ye çekilsin.
+- [x] "Az bilinen, şaşırtan gerçekler / Hidden gems & surprising facts" (kurani-tani) satış dili. ✅ (2026-09-06: "Az bilinen, kaynaklı gerçekler / Little-known, sourced facts")
+- [x] (2026-09-06: peygamber kartında "gizli/hidden" kaldırıldı; diğerleri sitenin ana metaforu olarak kaldı) "23 yıla yayılan anlatıların gizli haritası / The hidden narrative map" (peygamber) — "gizli" sitenin ana metaforu ama katalogda her ikinci kartta "gizli/görünmeyen/şifre" var: "14 gizemli harf ve şifresi", "gizli harita", "Görünmeyen Mimari". Sayı azaltılabilir.
+- [x] (2026-09-06: Navbar + TefekkurHighlight + Tefekkür dizini girişi düzeltildi; `conclusion.discovery.desc` tr/en.json partisinde) Navbar mega menü tefekkür tanıtımı: "Psikolojik, içsel ve pratik denemeler", "Kur'an Semantiği, Tefekkür ve Tasavvufî Düşünce", tefekkür listesi girişi "kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler" (§12 sahte aralık "X'ten Y'ye", §4 "derinlikli"). `conclusion.discovery.desc` de aynı: "Kıraat farklarından diyalog ağlarına, mesellerden nüzul sebeplerine — her biri ayrı bir keşif yolculuğu."
+- [x] (2026-09-06: "We thank … presents these texts as an invitation to think") Tefekkür sayfası teşekkür paragrafı EN: "We extend our heartfelt gratitude to … to share these selected essays. All interpretations and syntheses reflect the author's personal reflection; QuranCodex carries these texts respectfully" — chatbot nezaketi (§20/§22). TR'si daha sade; EN TR'ye çekilsin.
 
 ---
 
 ## 8. Yardımcı sayfalar (P4)
 
-- [ ] **Hakkında** (`src/app/[locale]/hakkinda/`): Gövde büyük ölçüde insani ve net (epistemik duruş, kaynaklar, sınırlar). Küçük: "kuru bir ders değil, bir keşif yolculuğuna dönüştürmektir" (§9 + "journey"), "yalnızca bilgilendirmeyi değil, tefekküre davet etmeyi" (§9), "sinematik ve etkileşimli araçlarla" (CLAUDE.md dilinden sızmış pazarlama kelimesi), DESC sonu "— açıkça." / "— stated openly." (kırık vurgu).
-- [ ] **Kaynakça**: temiz; tek satırlık eser açıklamaları doğal. "Pinnacle of rational/theological exegesis" ("doruğu") tek satış kelimesi. Dokunma.
+- [x] **Hakkında** ✅ (2026-09-06: "keşfedilebilir hâle getirmek", ara söz tireleri ayraç oldu, DESC sonu düzeldi; "sinematik" CLAUDE.md dilinden geldiği için bırakıldı) (`src/app/[locale]/hakkinda/`): Gövde büyük ölçüde insani ve net (epistemik duruş, kaynaklar, sınırlar). Küçük: "kuru bir ders değil, bir keşif yolculuğuna dönüştürmektir" (§9 + "journey"), "yalnızca bilgilendirmeyi değil, tefekküre davet etmeyi" (§9), "sinematik ve etkileşimli araçlarla" (CLAUDE.md dilinden sızmış pazarlama kelimesi), DESC sonu "— açıkça." / "— stated openly." (kırık vurgu).
+- [x] **Kaynakça** (2026-09-06: bölüm başlıkları "Tefsir — Klasik Dönem" → "Tefsir: Klasik Dönem", not tireleri): temiz; tek satırlık eser açıklamaları doğal. "Pinnacle of rational/theological exegesis" ("doruğu") tek satış kelimesi. Dokunma.
 - [x] **Sor**: "Sistem yorum katmaz — sadece rehberler." (fiil hatası + tire; ana sayfa concierge'de de aynı). Fetva uyarısı iyi, kalsın. Örnek sorular doğal.
-- [ ] **Kütüphanem**, **not-found**: yalnız tire.
+- [x] **Kütüphanem**, **not-found**: yalnız tire. ✅ (2026-09-06: not-found iki cümleye bölündü)
 - [x] **Footer** `support.description`: "Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar." (§3 -ing uzantısı + journey). İlk cümle yeter.
 
 ---

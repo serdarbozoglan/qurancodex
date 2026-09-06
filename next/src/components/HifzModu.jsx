@@ -338,8 +338,8 @@ export default function HifzModu() {
             }}
           >
             {language === 'en'
-              ? 'The tap-to-play verse list is only ready for the first pages of the prototype (Al-Fatiha, Al-Baqarah 1–24) — this page does not have it yet.'
-              : 'Ayete dokunup dinleme listesi şimdilik yalnız prototipin ilk sayfaları için hazır (Fâtiha, Bakara 1–24) — bu sayfada henüz yok.'}
+              ? 'The tap-to-play verse list is only ready for the first pages of the prototype (Al-Fatiha, Al-Baqarah 1–24); this page does not have it yet.'
+              : 'Ayete dokunup dinleme listesi şimdilik yalnız prototipin ilk sayfaları için hazır (Fâtiha, Bakara 1–24); bu sayfada henüz yok.'}
           </div>
         )}
       </div>

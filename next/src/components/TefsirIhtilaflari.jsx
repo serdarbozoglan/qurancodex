@@ -291,9 +291,9 @@ export default function TefsirIhtilaflari() {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/mesel`, titleTr: 'Meseller Atlası', titleEn: 'Parables Atlas', descTr: 'Kur\'ân\'daki 73 mesel — motif ağı, çift meseller, belâgat yapısı.', descEn: '73 Quranic parables — motif network, paired parables, rhetorical structure.' },
-          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Teşbih, istiâre, temsil — beş büyük belâgat ailesi.', descEn: 'Simile, metaphor, analogy — the five major rhetorical families.' },
-          { href: `/${language}/arac/elestirel-cerceve`, titleTr: 'Eleştirel Çerçeve', titleEn: 'Critical Frame', descTr: 'Zorlu sorular ve ulemânın cevabı — itiraz, cevap, netice.', descEn: "Hard questions and the scholars' answers — objection, answer, verdict." },
+          { href: `/${language}/atlas/mesel`, titleTr: 'Meseller Atlası', titleEn: 'Parables Atlas', descTr: 'Kur\'ân\'daki 73 mesel: motif ağı, çift meseller, belâgat yapısı.', descEn: '73 Quranic parables: motif network, paired parables, rhetorical structure.' },
+          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Teşbih, istiâre, temsil: beş büyük belâgat ailesi.', descEn: 'Simile, metaphor, analogy: the five major rhetorical families.' },
+          { href: `/${language}/arac/elestirel-cerceve`, titleTr: 'Eleştirel Çerçeve', titleEn: 'Critical Frame', descTr: 'Zorlu sorular ve ulemânın cevabı: itiraz, cevap, netice.', descEn: "Hard questions and the scholars' answers: objection, answer, verdict." },
         ]}
       />
     </div>
@@ -348,8 +348,8 @@ export default function TefsirIhtilaflari() {
             maxWidth: 640, margin: '0 auto', lineHeight: 1.75, opacity: 0.9,
           }}>
             {tr
-              ? 'Bu ayet, müfessirlerin neden aynı ayeti farklı okuduğunu açıklayan klasik referans noktasıdır — anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur.'
-              : 'This verse is the classical reference point for why exegetes read the same verse differently — disagreement here is not a flaw, but a natural consequence of the text\'s layered nature.'}
+              ? 'Bu ayet, müfessirlerin neden aynı ayeti farklı okuduğunu açıklayan klasik referans noktasıdır. Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar.'
+              : 'This verse is the classical reference point for why exegetes read the same verse differently. Disagreement here is not treated as a flaw; it arises from the text\'s layered nature.'}
           </p>
         </div>
       </div>

@@ -128,8 +128,8 @@ export default function SurahPagination({ locale, surah, srOnly = true }) {
           <li>
             <Link href={`/${locale}`}>
               {isEN
-                ? `Back to home — leave ${currentName}`
-                : `Ana sayfaya dön — ${currentName} suresinden çık`}
+                ? `Back to home, leave ${currentName}`
+                : `Ana sayfaya dön, ${currentName} suresinden çık`}
             </Link>
           </li>
         </ul>

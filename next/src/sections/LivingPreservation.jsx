@@ -306,14 +306,14 @@ export default function LivingPreservation() {
       <motion.div variants={fadeUpItem} className="mt-10">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
             { surahNum: 15, titleTr: 'Hicr Sûresi (15)', titleEn: 'Sura al-Ḥijr (15)', descTr: 'Korumayı garanti eden ilahî beyan: "Zikri Biz indirdik, koruyucu da Biziz" (15:9).', descEn: 'The divine guarantee of preservation: "We sent down the Reminder, and We shall preserve it" (15:9).' },
-            { surahNum: 1, titleTr: 'Fâtiha Sûresi (1)', titleEn: 'Sura al-Fātiḥa (1)', descTr: 'Her Müslümanın günde en az 17 kez okuduğu sûre — sözel naklin örnek omurgası.', descEn: 'Recited by every Muslim at least 17 times daily — the exemplary backbone of oral transmission.' },
+            { surahNum: 1, titleTr: 'Fâtiha Sûresi (1)', titleEn: 'Sura al-Fātiḥa (1)', descTr: 'Her Müslümanın günde en az 17 kez okuduğu sûre; sözlü naklin örnek omurgası.', descEn: 'Recited by every Muslim at least 17 times daily; the exemplary backbone of oral transmission.' },
             { surahNum: 2, titleTr: 'Bakara Sûresi (2)', titleEn: 'Sura al-Baqara (2)', descTr: 'Kur\'an\'ın en uzun sûresinin (286 ayet) her detayı 1.400 yıldır kelimesi kelimesine korunuyor.', descEn: 'The Quran\'s longest sura (286 verses) preserved word-by-word for 1,400 years.' },
           ].map((tt, i) => (
             <motion.div

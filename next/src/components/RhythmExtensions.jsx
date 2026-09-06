@@ -69,8 +69,8 @@ const RAHMAN_SECTIONS = [
   { start: 14, end: 25, themeTr: 'Cin ve İns', themeEn: 'Jinn and Man', color: '#a78bfa' },
   { start: 26, end: 36, themeTr: 'Fenâ ve Bekâ', themeEn: 'Passing and Endurance', color: '#f39c12' },
   { start: 37, end: 45, themeTr: 'Kıyâmet', themeEn: 'The Day of Reckoning', color: COLORS.softRed },
-  { start: 46, end: 61, themeTr: 'İki Cennet — 1', themeEn: 'Two Gardens — 1', color: '#2ecc71' },
-  { start: 62, end: 77, themeTr: 'İki Cennet — 2', themeEn: 'Two Gardens — 2', color: '#3498db' },
+  { start: 46, end: 61, themeTr: 'İki Cennet (1)', themeEn: 'Two Gardens (1)', color: '#2ecc71' },
+  { start: 62, end: 77, themeTr: 'İki Cennet (2)', themeEn: 'Two Gardens (2)', color: '#3498db' },
   { start: 78, end: 78, themeTr: 'Kapanış', themeEn: 'Closing', color: COLORS.gold },
 ];
 
@@ -96,7 +96,7 @@ export default function RhythmExtensions({ language, isMobile }) {
             fontFamily: FONTS.display, color: COLORS.offWhite,
             '--fs-d': '2rem', '--fs-m': '1.6rem',
             margin: '0 0 12px', fontWeight: 700,
-          }}>{tr ? "Ne Şiir, Ne Nesir — Kur'ânî Yapı" : "Neither Verse nor Prose — Qur'anic Form"}</h2>
+          }}>{tr ? "Ne Şiir, Ne Nesir: Kur'ânî Yapı" : "Neither Verse nor Prose: Qur'anic Form"}</h2>
           <p style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
             color: COLORS.gold, opacity: 0.85,
@@ -116,8 +116,8 @@ export default function RhythmExtensions({ language, isMobile }) {
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 24px', maxWidth: '760px',
           }}>{tr
-            ? "Klasik Arap şiiri on altı aruz vezninden birine bağlıdır — on beşini el-Halîl b. Ahmed (ö. 791) sistemleştirdi, on altıncısını (Mütedârik) öğrencisi el-Ahfeş ekledi. Kur'ân bu vezinlerin hiçbirine uymaz — ne şiir ne düzyazı olan bir yapıya sahiptir."
-            : "Classical Arabic poetry is bound to one of the sixteen ʿarūḍ metres — fifteen systematised by al-Khalīl ibn Aḥmad (d. 791), the sixteenth (al-Mutadārik) added by his student al-Akhfash. The Qur'an conforms to none of them — its structure is neither verse nor prose."}
+            ? "Klasik Arap şiiri on altı aruz vezninden birine bağlıdır; on beşini el-Halîl b. Ahmed (ö. 791) sistemleştirdi, on altıncısını (Mütedârik) öğrencisi el-Ahfeş ekledi. Kur'ân bu vezinlerin hiçbirine uymaz; ne şiir ne düzyazı olan bir yapıya sahiptir."
+            : "Classical Arabic poetry is bound to one of the sixteen ʿarūḍ metres; fifteen were systematised by al-Khalīl ibn Aḥmad (d. 791), the sixteenth (al-Mutadārik) added by his student al-Akhfash. The Qur'an conforms to none of them; its structure is neither verse nor prose."}
           </p>
 
           <div style={{
@@ -130,7 +130,7 @@ export default function RhythmExtensions({ language, isMobile }) {
                 <button key={m.id}
                   onClick={() => setActiveMetre(isActive ? null : i)}
                   aria-expanded={isActive}
-                  aria-label={`${i + 1}. ${tr ? m.tr : m.en} — ${tr ? 'aruz vezni' : 'aruz metre'}`}
+                  aria-label={`${i + 1}. ${tr ? m.tr : m.en}, ${tr ? 'aruz vezni' : 'aruz metre'}`}
                   style={{
                     padding: '12px 14px',
                     background: isActive
@@ -185,8 +185,8 @@ export default function RhythmExtensions({ language, isMobile }) {
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 20px', maxWidth: '760px',
           }}>{tr
-            ? "Rahmân Sûresi (55) 78 ayetlik yapısında bir soru refrain'ini otuz bir kez tekrarlar. Her tekrar bir düşünme kesitini kapatır ve sıradaki temayı açar — Kur'ân'ın en açık ritmik yapı örneği."
-            : "Sūrat al-Raḥmān (55), across its 78 verses, repeats a single question thirty-one times. Each occurrence closes a reflective interval and opens the next theme — the clearest rhythmic scaffold in the Qur'an."}
+            ? "Rahmân Sûresi (55) 78 ayetlik yapısında bir soru refrain'ini otuz bir kez tekrarlar. Her tekrar bir düşünme kesitini kapatır ve sıradaki temayı açar; Kur'ân'ın en açık ritmik yapı örneği."
+            : "Sūrat al-Raḥmān (55), across its 78 verses, repeats a single question thirty-one times. Each occurrence closes a reflective interval and opens the next theme; the clearest rhythmic scaffold in the Qur'an."}
           </p>
 
           {/* The refrain */}

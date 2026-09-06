@@ -387,8 +387,8 @@ export default function RevelationTimeline({ onClose }) {
             </div>
             <div style={{ color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.7 }}>
               {language === 'tr'
-                ? <>Kur&apos;an&apos;ın mushaf sırası (1–114) ile vahiy sırası birbirinden farklıdır. Örneğin en uzun sûre El-Bakara (2. sûre) nüzul sırasında 87. sıradadır — ancak parça parça, yıllara yayılarak indiği için bu, sûrenin <em>inmeye başladığı</em> sırayı gösterir. İlk inen sûre El-Alak&apos;tır (mushafta 96. sûre); onun 96. sırada olması ise sayısal bir tesadüftür. <strong>Ayetlerin sûre içindeki sırası</strong> Peygamber (s.a.v.) döneminde, onun tarifiyle belirlenmiştir (ulema arasında icmâ vardır). <strong>Sûrelerin birbirine göre sırası</strong> ise ihtilaflıdır: kimi âlime göre bu da Peygamber&apos;e dayanır (tevkîfî), kimine göre sahâbe içtihadıyla oturmuştur. Hz. Osman bu düzeni <em>belirlememiş</em>, mevcut sıralamayı tek resmî mushafta birleştirip standartlaştırmıştır (ilk derleme Hz. Ebû Bekir dönemindedir).</>
-                : <>The Quran&apos;s mushaf order (1–114) differs from its revelation order. Al-Baqara (2nd surah), the longest chapter, ranks 87th in revelation order — though, since it came down piecemeal over years, this marks when its revelation <em>began</em>. The first surah revealed is Al-Alaq (96th in the mushaf); its landing at position 96 is a numerical coincidence. The <strong>order of verses within each surah</strong> was fixed in the Prophet&apos;s (peace be upon him) lifetime, by his own instruction — a point of scholarly consensus. The <strong>order of the surahs relative to one another</strong> is debated: some scholars trace it too to the Prophet (tawqīfī), others to the companions&apos; judgment. Uthman did not <em>determine</em> this order; he unified the existing arrangement into a single official codex (the first compilation was under Abu Bakr).</>}
+                ? <>Kur&apos;an&apos;ın mushaf sırası (1–114) ile vahiy sırası birbirinden farklıdır. Örneğin en uzun sûre El-Bakara (2. sûre) nüzul sırasında 87. sıradadır; ancak parça parça, yıllara yayılarak indiği için bu, sûrenin <em>inmeye başladığı</em> sırayı gösterir. İlk inen sûre El-Alak&apos;tır (mushafta 96. sûre); onun 96. sırada olması ise sayısal bir tesadüftür. <strong>Ayetlerin sûre içindeki sırası</strong> Peygamber (s.a.v.) döneminde, onun tarifiyle belirlenmiştir (ulema arasında icmâ vardır). <strong>Sûrelerin birbirine göre sırası</strong> ise ihtilaflıdır: kimi âlime göre bu da Peygamber&apos;e dayanır (tevkîfî), kimine göre sahâbe içtihadıyla oturmuştur. Hz. Osman bu düzeni <em>belirlememiş</em>, mevcut sıralamayı tek resmî mushafta birleştirip standartlaştırmıştır (ilk derleme Hz. Ebû Bekir dönemindedir).</>
+                : <>The Quran&apos;s mushaf order (1–114) differs from its revelation order. Al-Baqara (2nd surah), the longest chapter, ranks 87th in revelation order; though, since it came down piecemeal over years, this marks when its revelation <em>began</em>. The first surah revealed is Al-Alaq (96th in the mushaf); its landing at position 96 is a numerical coincidence. The <strong>order of verses within each surah</strong> was fixed in the Prophet&apos;s (peace be upon him) lifetime, by his own instruction, a point of scholarly consensus. The <strong>order of the surahs relative to one another</strong> is debated: some scholars trace it too to the Prophet (tawqīfī), others to the companions&apos; judgment. Uthman did not <em>determine</em> this order; he unified the existing arrangement into a single official codex (the first compilation was under Abu Bakr).</>}
             </div>
           </div>
 
@@ -413,22 +413,22 @@ export default function RevelationTimeline({ onClose }) {
               href: `/${language}/arac/sebebi-nuzul`,
               titleTr: 'Sebeb-i Nüzûl',
               titleEn: 'Occasions of Revelation',
-              descTr: '~570 ayet — her ayetin hangi olay üzerine indiği; nüzul sırasının bağlamı.',
-              descEn: '~570 verses — the event behind each verse; the context of the revelation order.',
+              descTr: 'Yaklaşık 570 ayet: her ayetin hangi olay üzerine indiği; nüzul sırasının bağlamı.',
+              descEn: 'Roughly 570 verses: the event behind each verse; the context of the revelation order.',
             },
             {
               href: `/${language}/atlas/munasebat`,
               titleTr: 'Münâsebât Atlası',
               titleEn: 'Munāsabāt Atlas',
-              descTr: '114 sûrenin mushaf sırasındaki tematik-dilsel bağlantıları — nüzul ↔ mushaf dengesi.',
-              descEn: 'Thematic-linguistic ties across the mushaf order of 114 sūras — the nūzul ↔ mushaf balance.',
+              descTr: '114 sûrenin mushaf sırasındaki tematik ve dilsel bağlantıları; nüzul ↔ mushaf dengesi.',
+              descEn: 'Thematic and linguistic ties across the mushaf order of 114 sūras; the nūzul ↔ mushaf balance.',
             },
             {
               href: `/${language}/atlas/kissa`,
               titleTr: 'Kıssa Atlası',
               titleEn: 'Story Atlas',
-              descTr: 'Peygamber kıssalarının vahiy kronolojisinde açılışı — parçalı anlatının zamansal haritası.',
-              descEn: 'Unfolding of prophet stories across the revelation chronology — temporal map of fragmented narrative.',
+              descTr: 'Peygamber kıssalarının vahiy kronolojisinde açılışı: parçalı anlatının zamansal haritası.',
+              descEn: 'Unfolding of prophet stories across the revelation chronology: a temporal map of fragmented narrative.',
             },
           ]}
         />

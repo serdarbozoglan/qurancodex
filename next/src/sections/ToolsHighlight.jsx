@@ -66,8 +66,8 @@ const FEATURED_TOOLS = [
     overlay: 'prophet',
     titleTr: 'Peygamberler Atlası',
     titleEn: 'Prophets Atlas',
-    descTr: '23 yıla yayılan anlatıların gizli haritası',
-    descEn: 'The hidden map of narratives across 23 years',
+    descTr: '23 yıla yayılan anlatıların haritası',
+    descEn: 'The map of narratives across 23 years',
     icon: (
       <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="5"  cy="12" r="2" />
@@ -98,8 +98,8 @@ const FEATURED_TOOLS = [
     overlay: 'kissa',
     titleTr: 'Kıssa Atlası',
     titleEn: 'Story Atlas',
-    descTr: '12 peygamber — hangi sûrede hangi sahne?',
-    descEn: '12 prophets — which scene in which surah?',
+    descTr: '12 peygamber: hangi sûrede hangi sahne?',
+    descEn: '12 prophets: which scene in which surah?',
     icon: (
       <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />

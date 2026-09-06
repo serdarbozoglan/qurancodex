@@ -387,9 +387,9 @@ export default function TarihselKanitlar({ onClose }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Atlas of Divine Patterns', descTr: 'Tarihin ilâhî yasaları — kavimlerin yükseliş ve çöküş örüntüleri.', descEn: 'Divine laws of history — patterns of rise and fall of nations.' },
-              { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Ad, Semûd, Firavun ve diğerleri — arkeolojik bağlamlarıyla.', descEn: 'ʿĀd, Thamūd, Pharaoh and others — with archaeological context.' },
-              { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Peygamber kıssalarının yapısı — anlatım ve tarihsel arka plan.', descEn: 'Structure of prophetic narratives — narrative and historical background.' },
+              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Atlas of Divine Patterns', descTr: 'Tarihin ilâhî yasaları: kavimlerin yükseliş ve çöküş örüntüleri.', descEn: 'Divine laws of history: patterns of rise and fall of nations.' },
+              { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Ad, Semûd, Firavun ve diğerleri, arkeolojik bağlamlarıyla.', descEn: 'ʿĀd, Thamūd, Pharaoh and others, with archaeological context.' },
+              { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Peygamber kıssalarının yapısı: anlatım ve tarihsel arka plan.', descEn: 'Structure of prophetic narratives: narrative and historical background.' },
             ]}
           />
         </div>
@@ -739,8 +739,8 @@ function TimelineTab({ timeline, language, isMobile }) {
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
-          ? 'Çizelge iki ayrı çağa yayılır: önce nüzûl çevresindeki olaylar, sonra bunları çok sonra kayda geçiren modern keşifler. İkisinin arasında yaklaşık 1.200 yıl vardır — bu boşluk önemlidir, çünkü Kur\'ân\'ın haberi ile o haberin dışarıdan belgelenmesi arasındaki mesafeyi gösterir. Altın noktalar Kur\'ânî kaynakları, mor noktalar tarihsel olayları, mavi-yeşil noktalar modern keşifleri işaretler.'
-          : 'The chart spans two distinct ages: first the events around the revelation, then the modern discoveries that recorded them long afterwards. Roughly 1,200 years lie between them — a gap that matters, for it shows the distance between what the Qur\'an reported and when that report was documented from outside. Gold points mark Qur\'anic sources, purple points historical events, blue-green points modern discoveries.'}
+          ? 'Çizelge iki ayrı çağa yayılır: önce nüzûl çevresindeki olaylar, sonra bunları çok sonra kayda geçiren modern keşifler. İkisinin arasında yaklaşık 1.200 yıl vardır. Bu boşluk önemlidir, çünkü Kur\'ân\'ın haberi ile o haberin dışarıdan belgelenmesi arasındaki mesafeyi gösterir. Altın noktalar Kur\'ânî kaynakları, mor noktalar tarihsel olayları, mavi-yeşil noktalar modern keşifleri işaretler.'
+          : 'The chart spans two distinct ages: first the events around the revelation, then the modern discoveries that recorded them long afterwards. Roughly 1,200 years lie between them. That gap matters, for it shows the distance between what the Qur\'an reported and when that report was documented from outside. Gold points mark Qur\'anic sources, purple points historical events, blue-green points modern discoveries.'}
       </p>
       <div className="mq-box" style={{
         '--pt-d': "32px", '--pt-m': "22px", '--pr-d': "28px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "22px", '--pl-d': "28px", '--pl-m': "14px",
@@ -802,15 +802,15 @@ function TimelineTab({ timeline, language, isMobile }) {
           color: COLORS.offWhite, fontFamily: FONTS.body, lineHeight: 1.8,
         }}>
           {(tr ? [
-            'Boşluk asıl mesajdır. Kur\'ân bu olayları 7. yüzyılda haber verdi; dışarıdan ilk belge ancak 19. yüzyılda geldi. Arada geçen ~1.200 yıl boyunca bu haberler hiçbir arkeolojik desteğe dayanmadan taşındı — çünkü dayanağı arkeoloji değil, vahiydi.',
+            'Boşluk asıl mesajdır. Kur\'ân bu olayları 7. yüzyılda haber verdi; dışarıdan ilk belge ancak 19. yüzyılda geldi. Arada geçen ~1.200 yıl boyunca bu haberler hiçbir arkeolojik desteğe dayanmadan taşındı, çünkü dayanağı arkeoloji değil, vahiydi.',
             'Keşiflerin yönü tek taraflıdır. Hiçbir bulgu Kur\'ân\'ı düzeltmedi; bulgular Kur\'ân\'a ulaştı. Beşerî bilgi her yeni veriyle kendini tashih ederek ilerler; buradaki sabit nokta ise baştan beri yerinde duruyordu.',
-            'Bulgular ispat değil, itiraz düşürücüdür. Bir yazıt Kur\'ân\'ı doğrulayamaz — doğrulayanın doğrulanandan üstün olması gerekir. Ry 507 yazıtının yaptığı şey, "Necran katliamı uydurmadır" iddiasını temelsiz bırakmaktır.',
+            'Bulgular ispat değil, itiraz düşürücüdür. Bir yazıt Kur\'ân\'ı doğrulayamaz; doğrulayanın doğrulanandan üstün olması gerekir. Ry 507 yazıtının yaptığı şey, "Necran katliamı uydurmadır" iddiasını temelsiz bırakmaktır.',
             'Birmingham folyoları çizelgenin en yakın temas noktasıdır: bir Kur\'ân yazmasının parşömeni, radyokarbonla Peygamber\'in (s.a.v.) hayatına denk ya da ondan önceki bir aralığa tarihlenir.',
             'Ölçü değişmez: Kur\'ân haber verir, biz tasdik ederiz. Çizelge bir delil tablosu değil, tasdikin tarih içinde nasıl göründüğünün kaydıdır.',
           ] : [
-            'The gap is the message. The Qur\'an reported these events in the 7th century; the first outside documentation arrived only in the 19th. Across the intervening ~1,200 years these reports were carried without any archaeological support — because their ground was not archaeology but revelation.',
+            'The gap is the message. The Qur\'an reported these events in the 7th century; the first outside documentation arrived only in the 19th. Across the intervening ~1,200 years these reports were carried without any archaeological support, because their ground was not archaeology but revelation.',
             'The direction of discovery runs one way. No finding corrected the Qur\'an; the findings arrived at it. Human knowledge advances by correcting itself with each new datum; the fixed point here had been standing all along.',
-            'Findings are not proof but defeaters of objections. An inscription cannot verify the Qur\'an — a verifier must stand above what it verifies. What Ry 507 does is leave the claim that "the Najrān massacre is an invention" without foundation.',
+            'Findings are not proof but defeaters of objections. An inscription cannot verify the Qur\'an; a verifier must stand above what it verifies. What Ry 507 does is leave the claim that "the Najrān massacre is an invention" without foundation.',
             'The Birmingham folios are the chart\'s closest point of contact: the parchment of a Qur\'anic manuscript is radiocarbon-dated to a range coinciding with, or preceding, the lifetime of the Prophet ﷺ.',
             'The measure does not change: the Qur\'an reports, and we affirm. The chart is not a table of proofs but a record of how that affirmation looks across history.',
           ]).map((s, i) => <li key={i} style={{ marginBottom: '7px' }}>{s}</li>)}
@@ -850,8 +850,8 @@ function ScholarsTab({ scholars, language, isMobile }) {
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
-          ? 'Klasik tefsir (İbn Kesîr, Elmalılı) ve modern akademik Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) alanının önde gelen 6 referansı — Tarihsel İzler araştırmasının epistemik omurgası.'
-          : 'Six leading references from classical tafsir (Ibn Kathīr, Elmalılı) and modern academic Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) — the epistemic backbone of Historical Traces research.'}
+          ? 'Klasik tefsir (İbn Kesîr, Elmalılı) ve modern akademik Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) alanının önde gelen 6 referansı; Tarihsel İzler araştırmasının epistemik omurgası.'
+          : 'Six leading references from classical tafsir (Ibn Kathīr, Elmalılı) and modern academic Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche); the epistemic backbone of Historical Traces research.'}
       </p>
       <div className="g-1-2" style={{
         display: 'grid',

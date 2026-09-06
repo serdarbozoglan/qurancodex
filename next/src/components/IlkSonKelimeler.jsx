@@ -382,8 +382,8 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
                 }}>
                   {isFiltered ? (
                     language === 'tr'
-                      ? <>Filtrelenmiş <strong style={{ color: COLORS.gold }}>{filtered.length}</strong> sûre — yukarıdaki örüntüleri burada doğrulayın.</>
-                      : <>Filtered to <strong style={{ color: COLORS.gold }}>{filtered.length}</strong> surahs — verify the patterns above here.</>
+                      ? <>Filtrelenmiş <strong style={{ color: COLORS.gold }}>{filtered.length}</strong> sûre; yukarıdaki örüntüleri burada doğrulayın.</>
+                      : <>Filtered to <strong style={{ color: COLORS.gold }}>{filtered.length}</strong> surahs; verify the patterns above here.</>
                   ) : (
                     language === 'tr'
                       ? 'Tüm sûrelerin ilk ve son kelimelerini tarayın. Yukarıda anlattıklarımızı burada doğrulayabilirsiniz.'
@@ -428,9 +428,9 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/arac/renkler`, titleTr: "Kur'an'ın Renkleri", titleEn: 'Colors of the Quran', descTr: 'İlk-son gibi bir tekrar sistemi — 11 renk evreni.', descEn: 'Another recurrence system — 11 color domains.' },
+          { href: `/${language}/arac/renkler`, titleTr: "Kur'an'ın Renkleri", titleEn: 'Colors of the Quran', descTr: 'İlk-son gibi bir tekrar sistemi: 11 renk evreni.', descEn: 'Another recurrence system: 11 color domains.' },
           { href: `/${language}/arac/mukattaa`, titleTr: 'Mukattaa Harfleri', titleEn: 'Mukaṭṭaʿāt Letters', descTr: "Kur'an'ın en gizemli açılışları.", descEn: "The Quran's most mysterious openings." },
-          { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Açılış ↔ Kapanış mimarisi — büyük ölçek.', descEn: 'Opening ↔ closing architecture — macro scale.' },
+          { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Açılış ↔ Kapanış mimarisi, büyük ölçek.', descEn: 'Opening ↔ closing architecture, macro scale.' },
         ]}
       />
     </div>
@@ -569,7 +569,7 @@ function Card({ surah, onClick, selected, language }) {
           item={{
             id: `ilk-son:${surah.surah}`,
             type: 'ilk-son',
-            title: `${name} — ${language === 'tr' ? 'İlk-Son' : 'First-Last'}`,
+            title: `${name}: ${language === 'tr' ? 'İlk-Son' : 'First-Last'}`,
             subtitle: `${String(surah.surah).padStart(3, '0')} · ${isMedeni ? (language === 'tr' ? 'Medenî' : 'Medinan') : (language === 'tr' ? 'Mekkî' : 'Meccan')}`,
             description: `${surah.firstWord?.ar || ''} → ${surah.lastWord?.ar || ''}`,
             url: `/${language}/arac/ilk-son-kelimeler`,
@@ -1018,7 +1018,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         }}>
           {tr
             ? 'Her sûre bir mektup gibi açılır, ve bir cevapla kapanır.'
-            : 'Every surah opens like a letter — and closes with a reply.'}
+            : 'Every surah opens like a letter and closes with a reply.'}
         </p>
         </div>
       </div>
@@ -1032,8 +1032,8 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           maxWidth: '760px',
         }}>
           {tr
-            ? 'Her sûrenin ilk ve son kelimesi tesadüf değildir. Klasik İslâm âlimliğinde bunun bir adı vardır: Münâsebât-ı Süver — sûreler arası ve sûre içi bağıntılar bilimi. Süyûtî el-İtkân\'da, Bikâî Nazmü\'d-Dürer\'de, Râzî Mefâtîhu\'l-Gayb\'da bu örüntüleri ciltler dolusu çalıştı. Modern Batı akademisinde Mustansir Mir ve Raymond Farrin bu konuyu yeniden gündeme getirdi.'
-            : 'The first and last words of every surah are no accident. Classical Islamic scholarship has a name for this: Munāsabāt al-Suwar — the science of inter- and intra-surah connections. Al-Suyūṭī in al-Itqān, al-Biqāʿī in Naẓm al-Durar, and al-Rāzī in Mafātīḥ al-Ghayb devoted volumes to these patterns. In modern Western scholarship, Mustansir Mir and Raymond Farrin have revived the field.'}
+            ? 'Her sûrenin ilk ve son kelimesi tesadüf değildir. Klasik İslâm âlimliğinde bunun bir adı vardır: Münâsebât-ı Süver, sûreler arası ve sûre içi bağıntılar bilimi. Süyûtî el-İtkân\'da, Bikâî Nazmü\'d-Dürer\'de, Râzî Mefâtîhu\'l-Gayb\'da bu örüntüleri ciltler dolusu çalıştı. Modern Batı akademisinde Mustansir Mir ve Raymond Farrin bu konuyu yeniden gündeme getirdi.'
+            : 'The first and last words of every surah are no accident. Classical Islamic scholarship has a name for this: Munāsabāt al-Suwar, the science of inter- and intra-surah connections. Al-Suyūṭī in al-Itqān, al-Biqāʿī in Naẓm al-Durar, and al-Rāzī in Mafātīḥ al-Ghayb devoted volumes to these patterns. In modern Western scholarship, Mustansir Mir and Raymond Farrin have revived the field.'}
         </p>
         <p className="mq-fs" style={{
           fontFamily: FONTS.body,
@@ -1042,8 +1042,8 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           maxWidth: '760px',
         }}>
           {tr
-            ? 'Aşağıdaki yedi örnek, 114 sûrenin damgalarında saklı duran bağıntıları açar — bir sûre bittiği yerden bir sonrakine köprü kurar; bazen kendi başlangıcına döner; bazen yedi sûre tek imzayla aynı kapanışı paylaşır.'
-            : 'The seven examples below open the connections hidden in the seals of the 114 surahs — one surah bridges from where it ends to where the next begins; sometimes it returns to its own beginning; sometimes seven surahs share one signature with parallel endings.'}
+            ? 'Aşağıdaki yedi örnek, 114 sûrenin damgalarında saklı duran bağıntıları açar: bir sûre bittiği yerden bir sonrakine köprü kurar; bazen kendi başlangıcına döner; bazen yedi sûre tek imzayla aynı kapanışı paylaşır.'
+            : 'The seven examples below open the connections hidden in the seals of the 114 surahs: one surah bridges from where it ends to where the next begins; sometimes it returns to its own beginning; sometimes seven surahs share one signature with parallel endings.'}
         </p>
 
         {/* Çekirdek örnek pointer */}
@@ -1070,7 +1070,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
             fontSize: '0.82rem', fontFamily: FONTS.body,
             color: COLORS.offWhite, opacity: 0.85,
           }}>
-            {tr ? 'Fâtiha 7 → Bakara 2 — duâ ve cevap köprüsü' : 'Al-Fātiḥa 7 → Al-Baqara 2 — the prayer-and-answer bridge'}
+            {tr ? 'Fâtiha 7 → Bakara 2: duâ ve cevap köprüsü' : 'Al-Fātiḥa 7 → Al-Baqara 2: the prayer-and-answer bridge'}
           </span>
         </div>
       </div>
@@ -1149,8 +1149,8 @@ function ClosingSynthesis({ language, isMobile }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>114 sûre arasında, açılışta vaad edilen rahmet sonunda sığınılan koruma olur. <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>Mushaf bir döngüdür</strong> — ama döngü her seferinde aynı yere bağlanmaz; yeni bir mühre açılır.</>
-          : <>Across the 114 surahs, the mercy promised at the opening becomes the refuge sought at the end. <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>The Mushaf is a cycle</strong> — but the cycle never returns to the same place; it opens onto a new seal.</>}
+          ? <>114 sûre arasında, açılışta vaad edilen rahmet sonunda sığınılan koruma olur. <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>Mushaf bir döngüdür</strong> , ama döngü her seferinde aynı yere bağlanmaz; yeni bir mühre açılır.</>
+          : <>Across the 114 surahs, the mercy promised at the opening becomes the refuge sought at the end. <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>The Mushaf is a cycle</strong> , but the cycle never returns to the same place; it opens onto a new seal.</>}
       </p>
 
       {/* Cross-tool CTA strip — 3 derin link */}
@@ -1163,7 +1163,7 @@ function ClosingSynthesis({ language, isMobile }) {
             letterSpacing: '0.24em', textTransform: 'uppercase',
             color: COLORS.gold, opacity: 0.75,
           }}>
-            {tr ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
+            {tr ? 'Daha Derine: İlgili Araçlar' : 'Go Deeper: Related Tools'}
           </span>
         </div>
 
@@ -1172,8 +1172,8 @@ function ClosingSynthesis({ language, isMobile }) {
           gap: '12px',
         }}>
           {[
-            { href: `/${language}/oku/1`, titleTr: 'Fâtiha\'dan Başla', titleEn: 'Begin with Al-Fātiḥa', descTr: 'Mushafın açılış mührü — namazın ve duanın yapı taşı.', descEn: 'The opening seal of the Mushaf — the foundation of prayer and supplication.' },
-            { href: `/${language}/oku/114`, titleTr: 'Nâs ile Mührle', titleEn: 'Seal with An-Nās', descTr: 'Son sûre — "İnsanların Rabbi" sığınma mührüyle Mushafı kapat ve döngüyü yaşa.', descEn: 'The final sura — close the Mushaf with the refuge-seal of "the Lord of mankind."' },
+            { href: `/${language}/oku/1`, titleTr: 'Fâtiha\'dan Başla', titleEn: 'Begin with Al-Fātiḥa', descTr: 'Mushafın açılış mührü; namazın ve duanın yapı taşı.', descEn: 'The opening seal of the Mushaf; the foundation of prayer and supplication.' },
+            { href: `/${language}/oku/114`, titleTr: 'Nâs ile Mührle', titleEn: 'Seal with An-Nās', descTr: 'Son sûre: "İnsanların Rabbi" sığınma mührüyle Mushafı kapat ve döngüyü yaşa.', descEn: 'The final sura: close the Mushaf with the refuge-seal of "the Lord of mankind."' },
             { href: `/${language}/graf/kavram`, titleTr: 'Sûreler Arası Ağı Gör', titleEn: 'See the Inter-Sura Network', descTr: 'Kavram Grafiği: 114 sûrenin tematik bağlantılarını ağ olarak gezin.', descEn: 'Concept Graph: explore the thematic connections between the 114 suras as a network.' },
           ].map((t, i) => (
             <a className="mq-box"
@@ -1240,29 +1240,29 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'mukattaaOpener',
       count: surahs.filter(s => s.hasMukattaa).length,
       labelTr: 'Mukattaa ile açılan', labelEn: 'Muqaṭṭaʿāt opener',
-      insightTr: '14 farklı harf kombinasyonu, 29 sûreyi şifre ile açar — anlamı sadece Allah\'ın bildiği. Çoğu hemen vahiy/Kitap atfıyla devam eder; şifreden vaade yolculuk — ama bu mutlak bir kural değil, klasik tefsirin dikkat çektiği baskın bir edebi eğilimdir.',
-      insightEn: '14 different letter combinations open 29 surahs with a cipher — meaning known only to God. Most are immediately followed by a reference to revelation/the Book; a journey from cipher to promise — though not an absolute rule, but a dominant literary pattern noted by classical tafsīr.',
+      insightTr: '14 farklı harf kombinasyonu 29 sûreyi açar; anlamını yalnızca Allah bilir. Çoğu hemen vahiy ya da Kitap atfıyla devam eder; harflerden vaade geçiş. Bu mutlak bir kural değil, klasik tefsirin işaret ettiği baskın bir edebî eğilimdir.',
+      insightEn: '14 different letter combinations open 29 surahs; their meaning is known only to God. Most are immediately followed by a reference to revelation or the Book; a passage from letters to promise. Not an absolute rule, but a dominant literary pattern noted by classical tafsīr.',
     },
     {
       filterId: 'oathOpener',
       count: surahs.filter(s => s.hasOath).length,
       labelTr: 'Yemin ile açılan', labelEn: 'Oath opener',
-      insightTr: 'Allah\'ın yarattığı varlıklar üzerine yemin ederek açan 17 sûre — gece, gündüz, asır, kalem, melekler. Şahit gösterilerek başlayan retorik.',
-      insightEn: 'Seventeen surahs open with God swearing by something He created — night, day, the age, the pen, the angels. A rhetoric that opens by calling forth a witness.',
+      insightTr: 'Allah\'ın yarattığı varlıklar üzerine yemin ederek açan 17 sûre: gece, gündüz, asır, kalem, melekler. Şahit gösterilerek başlayan retorik.',
+      insightEn: 'Seventeen surahs open with God swearing by something He created: night, day, the age, the pen, the angels. A rhetoric that opens by calling forth a witness.',
     },
     {
       filterId: 'divineNameCloser',
       count: surahs.filter(s => (s.closerTags || []).includes('divine-name-closer')).length,
       labelTr: 'İlâhî sıfatla biten', labelEn: 'Divine attribute closer',
-      insightTr: 'Esmâ-i Hüsnâ\'dan biriyle mühürlenen 9 sûre — Hakîm, Habîr, Muhît, Tevvâb… Sûrenin son kelimesi Allah\'ın bir sıfatıyla mühürlenir.',
-      insightEn: 'Nine surahs sealed with one of God\'s Beautiful Names — al-Ḥakīm, al-Khabīr, al-Muḥīṭ, al-Tawwāb… Each surah\'s closing word is one of God\'s attributes.',
+      insightTr: 'Esmâ-i Hüsnâ\'dan biriyle mühürlenen 9 sûre: Hakîm, Habîr, Muhît, Tevvâb… Sûrenin son kelimesi Allah\'ın bir sıfatıyla mühürlenir.',
+      insightEn: 'Nine surahs sealed with one of God\'s Beautiful Names: al-Ḥakīm, al-Khabīr, al-Muḥīṭ, al-Tawwāb… Each surah\'s closing word is one of God\'s attributes.',
     },
     {
       filterId: 'kulOpener',
       count: surahs.filter(s => (s.openerTags || []).includes('kul-opener')).length,
       labelTr: '"Kul" ile açılan', labelEn: '"Qul" opener',
-      insightTr: '"Söyle!" emrinin saf hâli — Hz. Peygamber\'e doğrudan iletilen 5 sûre. Beş ufuk: ilim, akide, tevhid, dış korunma, iç korunma.',
-      insightEn: 'The pure form of the command "Say!" — five surahs delivered directly to the Prophet. Five horizons: knowledge, creed, unity, external refuge, internal refuge.',
+      insightTr: '"Söyle!" emrinin saf hâli: Hz. Peygamber\'e doğrudan iletilen 5 sûre. Beş ufuk: ilim, akide, tevhid, dış korunma, iç korunma.',
+      insightEn: 'The pure form of the command "Say!": five surahs delivered directly to the Prophet. Five horizons: knowledge, creed, unity, external refuge, internal refuge.',
     },
     {
       filterId: 'innaOpener',
@@ -1275,15 +1275,15 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'vocativeOpener',
       count: surahs.filter(s => (s.openerTags || []).includes('vocative')).length,
       labelTr: '"Yâ eyyuhâ" ile açılan', labelEn: '"Yā ayyuhā" opener',
-      insightTr: '10 sûre "Yâ eyyuhâ" vokatifiyle açar; yalnız 2\'si — Müzzemmil ve Müddessir — Hz. Peygamber\'e kişisel bir lakapla (örtüsüne bürünen) doğrudan seslenir. Her ikisi de erken Mekkî döneme aittir.',
-      insightEn: 'Ten surahs open with the "Yā ayyuhā" vocative; only two — al-Muzzammil and al-Muddaththir — address the Prophet by a personal epithet. Both belong to the early Meccan period.',
+      insightTr: '10 sûre "Yâ eyyuhâ" vokatifiyle açar; yalnız 2\'si, Müzzemmil ve Müddessir, Hz. Peygamber\'e kişisel bir lakapla (örtüsüne bürünen) doğrudan seslenir. Her ikisi de erken Mekkî döneme aittir.',
+      insightEn: 'Ten surahs open with the "Yā ayyuhā" vocative; only two, al-Muzzammil and al-Muddaththir, address the Prophet by a personal epithet. Both belong to the early Meccan period.',
     },
     {
       filterId: 'imperativeOpener',
       count: surahs.filter(s => (s.openerTags || []).includes('imperative') && !(s.openerTags || []).includes('kul-opener')).length,
       labelTr: 'Emir fiili ile açılan', labelEn: 'Imperative opener',
-      insightTr: '"Kul" dışı emir fiilleriyle açan sûreler — "İqra\'" (Alak), "Sebbih" (A\'lâ). Mutlak emir kipinde başlayan tebliğ.',
-      insightEn: 'Surahs that open with imperatives other than "Qul" — "Iqraʾ" (al-ʿAlaq), "Sabbiḥ" (al-Aʿlā). Proclamation that begins in pure command form.',
+      insightTr: '"Kul" dışı emir fiilleriyle açan sûreler: "İqra\'" (Alak), "Sebbih" (A\'lâ). Mutlak emir kipinde başlayan tebliğ.',
+      insightEn: 'Surahs that open with imperatives other than "Qul": "Iqraʾ" (al-ʿAlaq), "Sabbiḥ" (al-Aʿlā). Proclamation that begins in pure command form.',
     },
   ].filter(ins => ins.count > 0);
 
@@ -1312,8 +1312,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
           maxWidth: '760px',
         }}>
           {tr
-            ? '114 sûrenin damgaları rastgele dağılmaz — kalıplara göre kümelenir. Aşağıdaki istatistikler her örüntünün arkasındaki klasik mantığı gösterir; karta tıklayarak ilgili sûreleri ızgarada filtreleyebilirsin.'
-            : 'The seals of the 114 surahs do not scatter at random — they cluster by pattern. The statistics below show the classical logic behind each pattern; click a card to filter the grid by that category.'}
+            ? '114 sûrenin damgaları rastgele dağılmaz; kalıplara göre kümelenir. Aşağıdaki istatistikler her örüntünün arkasındaki klasik mantığı gösterir; karta tıklayarak ilgili sûreleri ızgarada filtreleyebilirsin.'
+            : 'The seals of the 114 surahs do not scatter at random; they cluster by pattern. The statistics below show the classical logic behind each pattern; click a card to filter the grid by that category.'}
         </p>
       </div>
 
@@ -1435,8 +1435,8 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       themeBorder: 'rgba(46,204,113,0.25)',
       headlineTr: 'Mushaf, kendi sonundan başına dönen bir halkadır.',
       headlineEn: 'The Mushaf is a loop that returns from its own end to its beginning.',
-      bodyTr: 'Nâs sûresi insanın şerlerden sığınmasıyla biter — Fâtiha hemen ardından Allah\'a hamd ile başlar. Mushaf\'ı bitiren kişi onu kapatmaz, çevirir.',
-      bodyEn: 'Surah Al-Nās ends with refuge from evil — Al-Fātiḥa immediately begins with praise. Whoever finishes the Mushaf does not close it; they turn it over.',
+      bodyTr: 'Nâs sûresi insanın şerlerden sığınmasıyla biter; Fâtiha hemen ardından Allah\'a hamd ile başlar. Mushaf\'ı bitiren kişi onu kapatmaz, çevirir.',
+      bodyEn: 'Surah Al-Nās ends with refuge from evil; Al-Fātiḥa immediately begins with praise. Whoever finishes the Mushaf does not close it; they turn it over.',
       tagTr: 'Mushaf Halkası',
       tagEn: 'Mushaf Cycle',
     },
@@ -1444,8 +1444,8 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       themeColor: '#d4a574',      // gold — family signature
       themeBg: 'rgba(212,165,116,0.05)',
       themeBorder: 'rgba(212,165,116,0.28)',
-      headlineTr: 'Yedi sûre aynı iki harfle başlar — حم — ve hepsi ardışık.',
-      headlineEn: 'Seven surahs begin with the same two letters — ḥā-mīm — and all are consecutive.',
+      headlineTr: 'Yedi sûre aynı iki harfle, حم ile başlar ve hepsi ardışıktır.',
+      headlineEn: 'Seven surahs begin with the same two letters, ḥā-mīm, and all are consecutive.',
       bodyTr: '40-46 arası kesintisiz bir blok. Aralarında mushaf akışı kırılmaz; her biri imanın farklı bir yüzünü gösterir.',
       bodyEn: 'Surahs 40–46 form an unbroken block. The Mushaf flow is never interrupted; each shows a different face of faith.',
       tagTr: 'Aile İmzası',
@@ -1456,9 +1456,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       themeBg: 'rgba(42,181,160,0.05)',
       themeBorder: 'rgba(42,181,160,0.28)',
       headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
-      headlineEn: '"The path of those who went astray" ends Al-Fātiḥa — Al-Baqara opens with "this is the guidance."',
-      bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar. Burada bağ kelime sınırını aşar — Fâtiha\'nın son ayet teması ile Bakara\'nın 2. ayetinin teması arasındadır; bu sayfadaki tek ayet-düzeyi örnektir.',
-      bodyEn: 'One surah answers the other. Al-Rāzī says: the servant asks for guidance in Al-Fātiḥa, and God offers it at the start of Al-Baqara. Here the bond crosses the word boundary — between the theme of Al-Fātiḥa\'s final verse and that of Al-Baqara\'s second verse; this is the only verse-level example on this page.',
+      headlineEn: '"The path of those who went astray" ends Al-Fātiḥa; Al-Baqara opens with "this is the guidance."',
+      bodyTr: 'Sûrelerin biri diğerine cevap verir. Râzî der ki: kul Fâtiha\'da hidayet ister, Allah Bakara\'nın açılışında onu sunar. Burada bağ kelime sınırını aşar; Fâtiha\'nın son ayetinin teması ile Bakara\'nın 2. ayetinin teması arasındadır; bu sayfadaki tek ayet-düzeyi örnektir.',
+      bodyEn: 'One surah answers the other. Al-Rāzī says: the servant asks for guidance in Al-Fātiḥa, and God offers it at the start of Al-Baqara. Here the bond crosses the word boundary; it lies between the theme of Al-Fātiḥa\'s final verse and that of Al-Baqara\'s second verse; this is the only verse-level example on this page.',
       tagTr: 'Klasik Münâsebe',
       tagEn: 'Classical Munāsabah',
     },
@@ -1466,10 +1466,10 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       themeColor: COLORS.skyBadgeSafe,      // sky blue — tasbîh/takbîr remembrance
       themeBg: 'rgba(52,152,219,0.05)',
       themeBorder: 'rgba(52,152,219,0.28)',
-      headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir — namaz sonrası tesbihâtın iki ucu.',
-      headlineEn: 'Al-Isrāʾ opens with tasbīḥ and is sealed with takbīr — the two ends of post-prayer remembrance.',
+      headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir; namaz sonrası tesbihâtın iki ucu.',
+      headlineEn: 'Al-Isrāʾ opens with tasbīḥ and is sealed with takbīr; the two ends of post-prayer remembrance.',
       bodyTr: 'Sübhân ile başlar (subḥâne\'llezî esrâ), kebbir ile biter (ve kebbirhu tekbîrâ). Mü\'minin her namaz sonrası söylediği Sübhânallah ve Allahu Ekber zikrinin iki kelimesi, sûrenin iki ucudur.',
-      bodyEn: 'It opens with subḥān (subḥāna alladhī asrā) and ends with kabbir (wa-kabbirhu takbīrā). The two words at the heart of the believer\'s post-prayer remembrance — Subḥānallāh and Allāhu Akbar — frame the surah.',
+      bodyEn: 'It opens with subḥān (subḥāna alladhī asrā) and ends with kabbir (wa-kabbirhu takbīrā). The two words at the heart of the believer\'s post-prayer remembrance, Subḥānallāh and Allāhu Akbar, frame the surah.',
       tagTr: 'Sûre İçi Halka',
       tagEn: 'Intra-Surah Ring',
     },
@@ -1515,8 +1515,8 @@ function KnowYouDidNotKnow({ language, isMobile }) {
           maxWidth: '620px',
         }}>
           {tr
-            ? 'Klasik tefsirin işaret ettiği beş örüntü — sayfanın geri kalanı bunların her birini ayrı ayrı açar.'
-            : 'Five patterns pointed out by classical tafsīr — the rest of the page opens each one in turn.'}
+            ? 'Klasik tefsirin işaret ettiği beş örüntü; sayfanın geri kalanı bunların her birini ayrı ayrı açar.'
+            : 'Five patterns pointed out by classical tafsīr; the rest of the page opens each one in turn.'}
         </p>
       </div>
 
@@ -2122,8 +2122,8 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
               const el = document.getElementById(`ilk-son-card-${s.surah}`);
               if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }}
-            aria-label={`${s.surah}. ${tr ? s.nameTr : s.nameEn} — ${side === 'ilk' ? (tr ? 'açılış' : 'opener') : (tr ? 'kapanış' : 'closer')}: ${word?.meaning || ''}`}
-            title={`${s.surah}. ${tr ? s.nameTr : s.nameEn} — ${word?.meaning || ''}`}
+            aria-label={`${s.surah}. ${tr ? s.nameTr : s.nameEn}, ${side === 'ilk' ? (tr ? 'açılış' : 'opener') : (tr ? 'kapanış' : 'closer')}: ${word?.meaning || ''}`}
+            title={`${s.surah}. ${tr ? s.nameTr : s.nameEn}: ${word?.meaning || ''}`}
             style={{
               width: `${tileSize}px`,
               height: `${tileSize}px`,
@@ -2163,8 +2163,8 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
         </div>
         <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: 0, opacity: 0.8, lineHeight: 1.4, maxWidth: '620px', marginLeft: 'auto', marginRight: 'auto' }}>
           {tr
-            ? 'İki satır aynı 114 sûreyi aynı sırayla gösterir (soldan sağa 1. Fâtiha → 114. Nâs) — bir sütun bir sûredir. Üstteki kare o sûrenin AÇILIŞ kelimesinin Arapça kökünü, hemen altındaki kare aynı sûrenin KAPANIŞ kelimesinin kökünü renklendirir. İki kare aynı renkteyse, o sûre aynı anlam ailesiyle (ör. Rabb, Rahmet) açılıp kapanıyor demektir.'
-            : 'The two rows show the same 114 surahs in the same order (left to right, 1. Al-Fatiha → 114. An-Nas) — one column = one surah. The top square colors that surah\'s OPENING word root; the square directly below it colors the same surah\'s CLOSING word root. If the two squares share a color, that surah opens and closes within the same semantic family (e.g. Rabb, Mercy).'}
+            ? 'İki satır aynı 114 sûreyi aynı sırayla gösterir (soldan sağa 1. Fâtiha → 114. Nâs); bir sütun bir sûredir. Üstteki kare o sûrenin AÇILIŞ kelimesinin Arapça kökünü, hemen altındaki kare aynı sûrenin KAPANIŞ kelimesinin kökünü renklendirir. İki kare aynı renkteyse, o sûre aynı anlam ailesiyle (ör. Rabb, Rahmet) açılıp kapanıyor demektir.'
+            : 'The two rows show the same 114 surahs in the same order (left to right, 1. Al-Fatiha → 114. An-Nas); one column is one surah. The top square colors that surah\'s OPENING word root; the square directly below it colors the same surah\'s CLOSING word root. If the two squares share a color, that surah opens and closes within the same semantic family (e.g. Rabb, Mercy).'}
         </p>
       </div>
 

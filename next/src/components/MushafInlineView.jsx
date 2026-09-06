@@ -197,8 +197,8 @@ export default function MushafInlineView({ language, selectedSurah, isMobile, da
         const attribution = (
           <p style={{ fontSize: '0.7rem', color: theme.faint, fontFamily: FONTS.body, margin: 0, textAlign: 'center' }}>
             {language === 'en'
-              ? 'Page image sourced from kuran.hayrat.com.tr (Ahmed Hüsrev calligraphy). Prototype — not final.'
-              : 'Sayfa görseli kuran.hayrat.com.tr kaynağından alınmıştır (Ahmed Hüsrev hattı). Prototip — henüz kesinleşmedi.'}
+              ? 'Page image sourced from kuran.hayrat.com.tr (Ahmed Hüsrev calligraphy). Prototype, not final.'
+              : 'Sayfa görseli kuran.hayrat.com.tr kaynağından alınmıştır (Ahmed Hüsrev hattı). Prototip, henüz kesinleşmedi.'}
           </p>
         );
 
@@ -281,8 +281,8 @@ export default function MushafInlineView({ language, selectedSurah, isMobile, da
         ) : (
           <div style={{ flex: sideBySide ? '1 1 45%' : undefined, maxWidth: sideBySide ? undefined : '520px', margin: sideBySide ? 0 : '0 auto', padding: '18px 16px', borderRadius: RADIUS.md, border: `1px dashed ${theme.border}`, color: theme.faint, fontFamily: FONTS.body, fontSize: '0.8rem', textAlign: 'center' }}>
             {language === 'en'
-              ? 'The tap-to-play verse list is only ready for the prototype\'s first pages (Al-Fatiha, Al-Baqarah 1–24) — not yet on this page.'
-              : 'Ayete dokunup dinleme listesi şimdilik yalnız prototipin ilk sayfaları için hazır (Fâtiha, Bakara 1–24) — bu sayfada henüz yok.'}
+              ? 'The tap-to-play verse list is only ready for the prototype\'s first pages (Al-Fatiha, Al-Baqarah 1–24); not yet on this page.'
+              : 'Ayete dokunup dinleme listesi şimdilik yalnız prototipin ilk sayfaları için hazır (Fâtiha, Bakara 1–24); bu sayfada henüz yok.'}
           </div>
         );
 

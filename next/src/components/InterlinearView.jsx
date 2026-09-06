@@ -281,7 +281,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
             gold={badgeGold} bg={pageBg} currentFont={arabicFont} isMobile={isMobile}
             onClick={(e) => { e.stopPropagation(); if (onCompareClick) onCompareClick(verse.surah, verse.ayah); }}
             title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
-            ariaLabel={language === 'tr' ? `Ayet ${verseData.ayah} — mealleri karşılaştır` : `Verse ${verseData.ayah} — compare translations`}
+            ariaLabel={language === 'tr' ? `Ayet ${verseData.ayah}: mealleri karşılaştır` : `Verse ${verseData.ayah}: compare translations`}
           >{verseData.ayah}</MealAyahBadge>
           <p style={{
             margin: 0, flex: 1,

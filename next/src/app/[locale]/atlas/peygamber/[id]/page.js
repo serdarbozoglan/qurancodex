@@ -43,8 +43,8 @@ export async function generateMetadata({ params }) {
   const nameEn = p.nameEn || p.nameTr || id;
   const titleTr = `${nameTr} — Kıssalar ve Sureler`;
   const titleEn = `${nameEn} — Narratives and Surahs`;
-  const descTr = `${nameTr} ile ilgili ${surahCount} sure, ${sceneCount} kıssa sahnesi ve ayet referansları — Kur'an'daki tüm anlatım izleri.`;
-  const descEn = `${sceneCount} narrative scenes from ${surahCount} surahs about ${nameEn} — every Quranic reference, mapped.`;
+  const descTr = `${nameTr} ile ilgili ${surahCount} sure, ${sceneCount} kıssa sahnesi ve ayet referansları; Kur'an'daki tüm anlatım izleri.`;
+  const descEn = `${sceneCount} narrative scenes from ${surahCount} surahs about ${nameEn}; every Quranic reference, mapped.`;
   return pageMetadata({
     params,
     path: `${PATH_PREFIX}/${id}`,

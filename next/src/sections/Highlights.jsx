@@ -421,14 +421,14 @@ export default function Highlights() {
       <motion.div variants={fadeUpItem} className="mt-12">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {language === 'tr' ? 'Daha Derine — Wow Anlarının Bağlamı' : 'Go Deeper — Context for the Wow Moments'}
+            {language === 'tr' ? 'Daha Derine: Wow Anlarının Bağlamı' : 'Go Deeper: Context for the Wow Moments'}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { surahNum: 18, titleTr: 'Kehf Sûresi (18)', titleEn: 'Sura al-Kahf (18)', descTr: '300 + 9 yıl çevirisi (18:25) — Ashâb-ı Kehf kıssası tam metinde.', descEn: '300 + 9 year conversion (18:25) — the full story of the People of the Cave.' },
-            { surahNum: 75, titleTr: 'Kıyâmet Sûresi (75)', titleEn: 'Sura al-Qiyāma (75)', descTr: 'Parmak izi ayeti (75:3-4) — diriliş ve insanın tanımsız kimliği.', descEn: 'The fingerprint verse (75:3-4) — resurrection and humanity\'s unique identity.' },
+            { surahNum: 18, titleTr: 'Kehf Sûresi (18)', titleEn: 'Sura al-Kahf (18)', descTr: '300 + 9 yıl çevirisi (18:25); Ashâb-ı Kehf kıssası tam metinde.', descEn: '300 + 9 year conversion (18:25); the full story of the People of the Cave.' },
+            { surahNum: 75, titleTr: 'Kıyâmet Sûresi (75)', titleEn: 'Sura al-Qiyāma (75)', descTr: 'Parmak izi ayeti (75:3-4); diriliş ve insanın tekil kimliği.', descEn: 'The fingerprint verse (75:3-4); resurrection and the singular identity of each person.' },
             { surahNum: 96, titleTr: 'Alak Sûresi (96)', titleEn: 'Sura al-ʿAlaq (96)', descTr: 'İlk inen ayetler (96:1-5) + prefrontal korteks (96:15-16) "nâsiyatun kâzibah".', descEn: 'First-revealed verses (96:1-5) + prefrontal cortex (96:15-16) "nāṣiya kādhiba".' },
           ].map((tt, i) => (
             <motion.div

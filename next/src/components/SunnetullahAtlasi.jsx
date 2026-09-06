@@ -253,8 +253,8 @@ export default function SunnetullahAtlasi({ onClose }) {
             workTr: "el-Keşşâf",
             workEn: 'al-Kashshāf',
             period: '1075–1144 (Harezm)',
-            noteTr: "Sünnetullah bahsi (Fetih 48:23, Ahzâb 33:62) — Allah'ın değişmeyen yasasının tefsir perspektifinden kapsamlı analizi.",
-            noteEn: "On sunnatullāh (Fatḥ 48:23, Aḥzāb 33:62) — comprehensive exegetical analysis of God's unchanging law.",
+            noteTr: "Sünnetullah bahsi (Fetih 48:23, Ahzâb 33:62): Allah'ın değişmeyen yasasının tefsir perspektifinden kapsamlı analizi.",
+            noteEn: "On sunnatullāh (Fatḥ 48:23, Aḥzāb 33:62): comprehensive exegetical analysis of God's unchanging law.",
           },
           {
             author: 'er-Râzî',
@@ -269,16 +269,16 @@ export default function SunnetullahAtlasi({ onClose }) {
             workTr: "es-Sünenü't-Târîhiyye fi'l-Kur'ân",
             workEn: 'al-Sunan al-Tarikhiyya fi\'l-Qur\'an',
             period: '1935–1980 (Necef)',
-            noteTr: "Modern Kurʾânî sosyoloji — sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik.",
-            noteEn: 'Modern Quranic sociology — contemporary classic theorizing sunnatullāh as historical laws of change.',
+            noteTr: "Modern Kurʾânî sosyoloji; sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik.",
+            noteEn: 'Modern Quranic sociology; a contemporary classic theorizing sunnatullāh as historical laws of change.',
           },
           {
             author: 'Muhammed İkbal',
             workTr: "İslam'da Dinî Düşüncenin Yeniden İnşası",
             workEn: 'The Reconstruction of Religious Thought in Islam',
             period: '1930 (Lahor)',
-            noteTr: "Sünnetullah'ı tarih felsefesi + dinamik ilâhî yasa çerçevesinde okuyan modern islam düşüncesinin dönüm noktası.",
-            noteEn: 'A turning point in modern Islamic thought — reading sunnatullāh as philosophy of history and dynamic divine law.',
+            noteTr: "Sünnetullah'ı tarih felsefesi ve dinamik ilâhî yasa çerçevesinde okuyan modern İslâm düşüncesinin dönüm noktası.",
+            noteEn: 'A turning point in modern Islamic thought; it reads sunnatullāh as philosophy of history and dynamic divine law.',
           },
         ]}
       />
@@ -427,8 +427,8 @@ export default function SunnetullahAtlasi({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
-              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em> — this is Allah&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}
+              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur; bu, Allah&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
+              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em>; this is Allah&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}
           </p>
 
           {/* Filigree divider */}
@@ -635,9 +635,9 @@ export default function SunnetullahAtlasi({ onClose }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/kavim`,        titleTr: 'Kavimler Atlası',      titleEn: 'Nations Atlas',         descTr: 'Sünnetullah\'ın somut kayıtları — 20+ kavmin helak biçimleri ve gerekçeleri.',     descEn: 'Concrete records of sunnatullāh — modes of destruction of 20+ peoples and their causes.' },
-              { href: `/${language}/atlas/kissa`,        titleTr: 'Kıssa Atlası',         titleEn: 'Story Atlas',           descTr: 'Peygamberlerin tekrarlanan örüntüsü: davet, ret, helak — sünnetullah\'ın yapısı.', descEn: 'The repeated pattern of prophets: call, rejection, destruction — the structure of sunnatullāh.' },
-              { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Self',  descTr: 'İçsel sünnetullah — nefs-i emmâreden mutmainneye giden değişmeyen yasalar.',       descEn: 'Inner sunnatullāh — the unchanging laws from ammāra to muṭmaʾinna.' },
+              { href: `/${language}/atlas/kavim`,        titleTr: 'Kavimler Atlası',      titleEn: 'Nations Atlas',         descTr: 'Sünnetullah\'ın somut kayıtları: 20\'den fazla kavmin helak biçimleri ve gerekçeleri.',     descEn: 'Concrete records of sunnatullāh: modes of destruction of more than 20 peoples and their causes.' },
+              { href: `/${language}/atlas/kissa`,        titleTr: 'Kıssa Atlası',         titleEn: 'Story Atlas',           descTr: 'Peygamberlerin tekrarlanan örüntüsü: davet, ret, helak; sünnetullah\'ın yapısı.', descEn: 'The repeated pattern of prophets: call, rejection, destruction; the structure of sunnatullāh.' },
+              { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Self',  descTr: 'İçsel sünnetullah: nefs-i emmâreden mutmainneye giden değişmeyen yasalar.',       descEn: 'Inner sunnatullāh: the unchanging laws from ammāra to muṭmaʾinna.' },
             ]}
           />
 
@@ -662,8 +662,8 @@ function TabLafziAyetler({ items, language, isMobile }) {
         maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Kur'ân-ı Kerîm'de 'sünnetullâh' ifadesi lafzen altı ayette geçer. Her birinin bağlamı farklıdır; ama ortak iddiası aynıdır — Allah'ın kanunları değişmez."
-          : "The expression *sunnatullāh* appears literally in six verses of the Qur'an. Each has a different context, yet they share a single claim — God's laws do not change."
+          ? "Kur'ân-ı Kerîm'de 'sünnetullâh' ifadesi lafzen altı ayette geçer. Her birinin bağlamı farklıdır; ama ortak iddiası aynıdır: Allah'ın kanunları değişmez."
+          : "The expression *sunnatullāh* appears literally in six verses of the Qur'an. Each has a different context, yet they share a single claim: God's laws do not change."
         }
       </p>
 
@@ -886,8 +886,8 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
         maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Lafzî geçişlerin ötesinde, Kur'ân sünnetullâh'ı on iki tematik kanun olarak ortaya koyar. Her biri farklı bir kavim örneğiyle — ama hepsi aynı ilke etrafında."
-          : "Beyond literal occurrences, the Qur'an presents *sunnatullāh* as twelve thematic laws. Each illustrated by different peoples — all revolving around the same principle."
+          ? "Lafzî geçişlerin ötesinde, Kur'ân sünnetullâh'ı on iki tematik kanun olarak ortaya koyar. Her biri farklı bir kavim örneğiyle, ama hepsi aynı ilke etrafında."
+          : "Beyond literal occurrences, the Qur'an presents *sunnatullāh* as twelve thematic laws. Each illustrated by different peoples, all revolving around the same principle."
         }
       </p>
 
@@ -1038,7 +1038,7 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
       {(active.scienceNoteTr || active.scienceNoteEn) && (
         <WarningNote
           kind="science"
-          label={language === 'tr' ? 'Bilimsel Paralellik — Dikkat' : 'Scientific Parallel — Caveat'}
+          label={language === 'tr' ? 'Bilimsel Paralellik: Dikkat' : 'Scientific Parallel: Caveat'}
           body={language === 'tr' ? active.scienceNoteTr : active.scienceNoteEn}
           isMobile={isMobile}
         />
@@ -1083,8 +1083,8 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5 }}>
               {language === 'tr'
-                ? 'Bu kanunun somut tarihsel uygulamaları: Âd · Semûd · Lût kavmi · Firavun · Sebe — helâk biçimleri ve arkeolojik izler'
-                : 'Concrete historical applications of this law: ʿĀd · Thamūd · the people of Lot · Pharaoh · Sabaʾ — modes of destruction and archaeological traces'}
+                ? 'Bu kanunun somut tarihsel uygulamaları: Âd · Semûd · Lût kavmi · Firavun · Sebe; helâk biçimleri ve arkeolojik izler'
+                : 'Concrete historical applications of this law: ʿĀd · Thamūd · the people of Lot · Pharaoh · Sabaʾ; modes of destruction and archaeological traces'}
             </p>
           </div>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
@@ -1227,8 +1227,8 @@ function TabUlemaGorusleri({ views, language, isMobile }) {
         maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Sünnetullâh kavramı klasik ve çağdaş ulemanın üzerinde yüzyıllarca çalıştığı bir meseledir. Aşağıda dört temsilî ses — klasik tefsir, eş'arî kelâm ve çağdaş akademi."
-          : "*Sunnatullāh* is a concept scholars have engaged for centuries. Below are four representative voices — classical tafsīr, Ashʿarite *kalām*, and contemporary academia."
+          ? "Sünnetullâh kavramı klasik ve çağdaş ulemanın üzerinde yüzyıllarca çalıştığı bir meseledir. Aşağıda dört temsilî ses: klasik tefsir, Eş'arî kelâm ve çağdaş akademi."
+          : "*Sunnatullāh* is a concept scholars have engaged for centuries. Below are four representative voices: classical tafsīr, Ashʿarite *kalām* and contemporary academia."
         }
       </p>
 
@@ -1340,7 +1340,7 @@ function ScholarCard({ view, language, isMobile }) {
             marginBottom: '10px',
           }}>
             <AlertTriangleIcon size={14} strokeWidth={2.2} />
-            {language === 'tr' ? 'Tartışmalı Kaynak — Uyarı Notu' : 'Contested Source — Caveat'}
+            {language === 'tr' ? 'Tartışmalı Kaynak: Uyarı Notu' : 'Contested Source: Caveat'}
           </div>
           <p style={{
             color: COLORS.offWhite,
@@ -1531,7 +1531,7 @@ function FormulaBox({ formula, language, isMobile }) {
           fontFamily: FONTS.body, fontStyle: 'italic',
           textAlign: 'center', margin: '14px 0 0', opacity: 0.78,
         }}>
-          {tr ? '↑ bir parçaya tıkla — dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}
+          {tr ? '↑ bir parçaya tıkla, dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}
         </p>
       )}
     </div>
@@ -1551,8 +1551,8 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
-          ? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 10 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir — ama örüntü aynıdır: peygamber → uyarı → yalanlama → delil → sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '
-          : 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 10 nations. Each has a different prophet\'s warning, a different mode of destruction, and a different cause — but the pattern is identical: prophet → warning → rejection → sign → outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}
+          ? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 10 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir, ama örüntü aynıdır: peygamber, uyarı, yalanlama, delil, sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '
+          : 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 10 nations. Each has a different prophet\'s warning, a different mode of destruction and a different cause, but the pattern is identical: prophet, warning, rejection, sign, outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}
         <a href={`/${language}/atlas/kavim`} style={{ color: COLORS.gold, borderBottom: `1px dashed ${COLORS.gold}55`, textDecoration: 'none' }}>
           {tr ? 'Kavimler Atlası' : 'the Nations Atlas'}
         </a>.
@@ -1588,7 +1588,7 @@ function KavimComparisonGrid({ patterns, language, isMobile }) {
         fontFamily: FONTS.body, fontWeight: 700,
         opacity: 0.85, marginBottom: '18px', textAlign: 'center',
       }}>
-        {tr ? 'Örüntü Panoraması — On Kavim, Tek Yasa' : 'Pattern Panorama — Ten Nations, One Law'}
+        {tr ? 'Örüntü Panoraması: On Kavim, Tek Yasa' : 'Pattern Panorama: Ten Nations, One Law'}
       </div>
       <div className="g-2-6" style={{
         display: 'grid',

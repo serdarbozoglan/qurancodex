@@ -145,13 +145,13 @@ export default function ZeroRedundancy() {
       <motion.div variants={fadeUpItem} className="glass-card p-6 md:p-8 mb-12 border-l-4 border-gold/40">
         <h3 className="font-display text-lg md:text-xl font-bold text-off-white mb-3">
           {language === 'tr'
-            ? '"Ama bazı ayetler birebir tekrar ediyor" — Haklı bir itiraz'
-            : '"But some verses repeat word-for-word" — A fair objection'}
+            ? '"Ama bazı ayetler birebir tekrar ediyor." Haklı bir itiraz.'
+            : '"But some verses repeat word for word." A fair objection.'}
         </h3>
         <p className="text-silver text-base leading-relaxed mb-6">
           {language === 'tr'
-            ? 'Rahman Sûresi\'nde aynı ayet 31 kez geçiyor. Mürselat\'ta 10 kez, Kamer\'de 4 kez. Bunlar gerçek, literal tekrarlardır — inkâr edilemez.'
-            : 'In Surah Rahman, the same verse appears 31 times. In Al-Mursalat 10 times, in Al-Qamar 4 times. These are real, literal repetitions — undeniable.'}
+            ? 'Rahman Sûresi\'nde aynı ayet 31 kez geçiyor. Mürselat\'ta 10 kez, Kamer\'de 4 kez. Bunlar gerçek, birebir tekrarlardır; inkâr edilemez.'
+            : 'In Surah Rahman, the same verse appears 31 times. In Al-Mursalat 10 times, in Al-Qamar 4 times. These are real, literal repetitions; undeniable.'}
         </p>
 
         {/* Three examples — each card gets its own accent color + icon */}
@@ -215,24 +215,24 @@ export default function ZeroRedundancy() {
         <div className="border-t border-white/10 pt-5 space-y-3">
           <p className="text-silver text-base leading-relaxed">
             {language === 'tr'
-              ? 'Fark şu: Gereksiz tekrar, aynı bağlamda, hiçbir ek anlam katmadan tekrar etmektir. Bu ayetlerde bağlam her seferinde değişiyor — farklı bir nimet, farklı bir azap sahnesi, farklı bir kavim. Nakarat aynı, ama her seferinde farklı bir şeyi soruyor ya da farklı bir gerçeği pekiştiriyor.'
-              : 'The difference: Redundancy is repeating in the same context with no added meaning. In these verses, the context shifts each time — a different blessing, a different scene, a different destroyed nation. The refrain is the same, but each time it addresses something new.'}
+              ? 'Fark şu: Gereksiz tekrar, aynı bağlamda, hiçbir ek anlam katmadan tekrar etmektir. Bu ayetlerde bağlam her seferinde değişiyor: farklı bir nimet, farklı bir azap sahnesi, farklı bir kavim. Nakarat aynı, ama her seferinde farklı bir şeyi soruyor ya da farklı bir gerçeği pekiştiriyor.'
+              : 'The difference: Redundancy is repeating in the same context with no added meaning. In these verses, the context shifts each time: a different blessing, a different scene, a different destroyed nation. The refrain is the same, but each time it addresses something new.'}
           </p>
           <p className="text-silver text-base leading-relaxed">
             {language === 'tr' ? (
               <>
-                Klasik Arap belagatı bu tekniği 1.000 yıl önce <strong className="text-gold/80">tekrîr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span> olarak sistematize etmiş, birden fazla işlevini (te&apos;kîd, tafhîm, istis&apos;âr…) ayırt etmişti — Zerkeşî, <em>el-Burhân fî Ulûmi&apos;l-Kur&apos;an</em> (14. yy). Modern edebiyat aynı yapıyı yüzyıllar sonra &quot;anafora&quot; veya &quot;refrein&quot; olarak yeniden adlandırdı. Beatles&apos;ın &quot;Let it be&quot; nakaratı gereksiz mi? Bir avukatın her delil için &quot;Bu delile ne diyeceksiniz?&quot; sorusunu tekrarlaması boş mu? Hayır — birikimli bir etki yaratıyor.
+                Klasik Arap belagatı bu tekniği 1.000 yıl önce <strong className="text-gold/80">tekrîr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span> olarak sistematize etmiş, birden fazla işlevini (te&apos;kîd, tafhîm, istis&apos;âr…) ayırt etmişti: Zerkeşî, <em>el-Burhân fî Ulûmi&apos;l-Kur&apos;an</em> (14. yy). Modern edebiyat aynı yapıyı yüzyıllar sonra &quot;anafora&quot; veya &quot;refrein&quot; olarak yeniden adlandırdı. Beatles&apos;ın &quot;Let it be&quot; nakaratı gereksiz mi? Bir avukatın her delil için &quot;Bu delile ne diyeceksiniz?&quot; sorusunu tekrarlaması boş mu? Hayır — birikimli bir etki yaratıyor.
               </>
             ) : (
               <>
-                Classical Arabic rhetoric had systematized this technique a thousand years ago as <strong className="text-gold/80">takrīr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span>, distinguishing multiple functions (ta&apos;kīd, tafhīm, istis&apos;ār…) — al-Zarkashī, <em>al-Burhān fī &apos;Ulūm al-Qur&apos;ān</em> (14th c.). Modern literature later renamed the same structure &quot;anaphora&quot; or &quot;refrain.&quot; Is the Beatles&apos; &quot;Let it be&quot; chorus redundant? Is a lawyer&apos;s repeated &quot;What do you say to this evidence?&quot; for each piece of evidence unnecessary? No — it creates a cumulative effect.
+                Classical Arabic rhetoric had systematized this technique a thousand years ago as <strong className="text-gold/80">takrīr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span>, distinguishing multiple functions (ta&apos;kīd, tafhīm, istis&apos;ār…): al-Zarkashī, <em>al-Burhān fī &apos;Ulūm al-Qur&apos;ān</em> (14th c.). Modern literature later renamed the same structure &quot;anaphora&quot; or &quot;refrain.&quot; Is the Beatles&apos; &quot;Let it be&quot; chorus redundant? Is a lawyer&apos;s repeated &quot;What do you say to this evidence?&quot; for each piece of evidence unnecessary? No — it creates a cumulative effect.
               </>
             )}
           </p>
           <p className="text-gold/80 text-base font-semibold leading-relaxed">
             {language === 'tr'
-              ? 'Kur\'an\'daki tekrarlar, bilgi teorisindeki "gereksiz tekrar" değil — retorik amplifikasyon, yapısal menteşe ve psikolojik içselleştirme mekanizmasıdır.'
-              : 'The Quran\'s repetitions are not "redundancy" in the information-theory sense — they are rhetorical amplification, structural hinges, and psychological internalization.'}
+              ? 'Kur\'an\'daki tekrarlar, bilgi teorisindeki "gereksiz tekrar" değildir; retorik güçlendirme, yapısal menteşe ve psikolojik içselleştirme işlevi görür.'
+              : 'The Quran\'s repetitions are not "redundancy" in the information-theory sense; they work as rhetorical amplification, structural hinges and psychological internalization.'}
           </p>
         </div>
       </motion.div>
@@ -245,7 +245,7 @@ export default function ZeroRedundancy() {
           </h3>
           {language === 'en' && (
             <span className="text-xs font-body text-silver/50 italic">
-              ℹ (AS) = <em>Alayhis Salaam</em> — peace be upon him
+              (AS) = <em>Alayhis Salaam</em>, peace be upon him
             </span>
           )}
         </div>
@@ -519,15 +519,15 @@ export default function ZeroRedundancy() {
       <motion.div variants={fadeUpItem} className="mt-10">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { surahNum: 55, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: '"Fe-bi-eyyi âlâ\'i Rabbikumâ tukezzibân" — aynı ayet 31 kez. Her tekrar farklı bir nimet için.', descEn: '"Fa-bi-ayyi ālāʾi rabbikumā tukadhdhibān" — the same verse 31 times. Each repetition follows a different blessing.' },
-            { surahNum: 77, titleTr: 'Mürselât Sûresi (77)', titleEn: 'Sura al-Mursalāt (77)', descTr: '"Veylun yevmeizin lil-mukezzibîn" — 10 kez tekrar; her tekrar farklı bir uyarı bağlamında.', descEn: '"Waylun yawmaʾidhin lil-mukadhdhibīn" — 10 repetitions, each anchored to a different warning.' },
-            { surahNum: 54, titleTr: 'Kamer Sûresi (54)', titleEn: 'Sura al-Qamar (54)', descTr: '"Velekad yessernel-Kur\'âne lizzikri fe hel min muddekir" — 4 kez; her kıssayı kapatan didaktik mühür.', descEn: '"Wa-laqad yassarnā l-Qurʾāna li-dh-dhikri fa-hal min muddakir" — 4 repetitions, each closing a sealing didactic call.' },
+            { surahNum: 55, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: '"Fe-bi-eyyi âlâ\'i Rabbikumâ tukezzibân": aynı ayet 31 kez. Her tekrar farklı bir nimet için.', descEn: '"Fa-bi-ayyi ālāʾi rabbikumā tukadhdhibān": the same verse 31 times. Each repetition follows a different blessing.' },
+            { surahNum: 77, titleTr: 'Mürselât Sûresi (77)', titleEn: 'Sura al-Mursalāt (77)', descTr: '"Veylun yevmeizin lil-mukezzibîn": 10 kez tekrar; her tekrar farklı bir uyarı bağlamında.', descEn: '"Waylun yawmaʾidhin lil-mukadhdhibīn": 10 repetitions, each anchored to a different warning.' },
+            { surahNum: 54, titleTr: 'Kamer Sûresi (54)', titleEn: 'Sura al-Qamar (54)', descTr: '"Velekad yessernel-Kur\'âne lizzikri fe hel min muddekir": 4 kez; her kıssayı kapatan didaktik mühür.', descEn: '"Wa-laqad yassarnā l-Qurʾāna li-dh-dhikri fa-hal min muddakir": 4 repetitions, each a didactic seal closing a story.' },
           ].map((tt, i) => (
             <motion.div
               key={tt.surahNum}

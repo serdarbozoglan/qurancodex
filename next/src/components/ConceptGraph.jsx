@@ -563,8 +563,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
               maxWidth: '640px',
             }}>
               {language === 'tr'
-                ? 'Bir kavrama dokunun — birlikte anılan diğer kavramların oluşturduğu ağı 6.236 ayet üzerinde görün.'
-                : 'Touch a concept — see the network of ideas that appear alongside it across 6,236 verses.'}
+                ? 'Bir kavrama dokunun; birlikte anılan diğer kavramların oluşturduğu ağı 6.236 ayet üzerinde görün.'
+                : 'Touch a concept and see the network of ideas that appear alongside it across 6,236 verses.'}
             </p>
 
             {/* Micro-stat ribbon */}
@@ -643,18 +643,18 @@ export default function ConceptGraph({ onClose, restore = null }) {
               rows={[
                 {
                   labelTr: 'Eşleştirme yöntemi', labelEn: 'Matching method',
-                  valueTr: 'Her kavramın önceden belirlenmiş anahtar kelimeleri, meal metninde (Türkçe çeviri, Arapça asıl DEĞİL) harf-normalize edilmiş alt-dizi araması ile aranır. Kavram küratörünün seçtiği kelime listesine bağlıdır — otomatik/istatistiksel bir çıkarım değildir.',
-                  valueEn: 'Each concept\'s pre-selected keywords are searched as a diacritic-normalized substring match against the Turkish translation text (not the Arabic original). This depends on the curator\'s chosen keyword list — it is not an automated/statistical inference.',
+                  valueTr: 'Her kavramın önceden belirlenmiş anahtar kelimeleri, meal metninde (Türkçe çeviri, Arapça asıl DEĞİL) harf-normalize edilmiş alt-dizi araması ile aranır. Kavram küratörünün seçtiği kelime listesine bağlıdır; otomatik veya istatistiksel bir çıkarım değildir.',
+                  valueEn: 'Each concept\'s pre-selected keywords are searched as a diacritic-normalized substring match against the Turkish translation text (not the Arabic original). This depends on the curator\'s chosen keyword list; it is not an automated or statistical inference.',
                 },
                 {
                   labelTr: 'Bağlantı ağırlığı', labelEn: 'Connection weight',
-                  valueTr: 'İki kavram arasındaki çizgi kalınlığı, ortak ayet sayısının küçük kümenin boyutuna oranıdır (paylaşılan / min). En yüksek ağırlıklı 12 bağlantı gösterilir — geri kalanı grafikte yer almaz.',
-                  valueEn: 'The line weight between two concepts is the shared-verse count divided by the smaller concept\'s total verse count (shared / min). Only the top 12 highest-weight connections are shown — the rest are not rendered.',
+                  valueTr: 'İki kavram arasındaki çizgi kalınlığı, ortak ayet sayısının küçük kümenin boyutuna oranıdır (paylaşılan / min). En yüksek ağırlıklı 12 bağlantı gösterilir; geri kalanı grafikte yer almaz.',
+                  valueEn: 'The line weight between two concepts is the shared-verse count divided by the smaller concept\'s total verse count (shared / min). Only the top 12 highest-weight connections are shown; the rest are not rendered.',
                 },
               ]}
               note={{
-                tr: 'Bu bir kesin tematik analiz değil, çeviri metnindeki kelime örtüşmesinin bir göstergesidir — Türkçe morfoloji (ek/çekim) yüzünden yanlış-pozitif veya kaçırılmış eşleşmeler olabilir.',
-                en: 'This is not a definitive thematic analysis but an indicator of keyword overlap in the translation text — Turkish morphology (suffixes/inflection) can cause false positives or missed matches.',
+                tr: 'Bu bir kesin tematik analiz değil, çeviri metnindeki kelime örtüşmesinin bir göstergesidir. Türkçe morfoloji (ek, çekim) yüzünden yanlış pozitif veya kaçırılmış eşleşmeler olabilir.',
+                en: 'This is not a definitive thematic analysis but an indicator of keyword overlap in the translation text. Turkish morphology (suffixes, inflection) can cause false positives or missed matches.',
               }}
             />
           </div>
@@ -1240,9 +1240,9 @@ export default function ConceptGraph({ onClose, restore = null }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Anlamca yakın ayetlerin oluşturduğu 20 küme — kavramların kendiliğinden gruplaşması.', descEn: 'Twenty clusters formed by verses close in meaning — concepts grouping on their own.' },
-            { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Kavram başına ayet ağı — bir kavramın tüm ayetlerinin komşuluk analizi.', descEn: 'Verse network per concept — neighborhood analysis of a concept\'s verses.' },
-            { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler — kavram ağının kelime düzeyindeki temeli.', descEn: 'Near-synonym words — the word-level foundation of the concept graph.' },
+            { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Anlamca yakın ayetlerin oluşturduğu 20 küme: kavramların kendiliğinden gruplaşması.', descEn: 'Twenty clusters formed by verses close in meaning: concepts grouping on their own.' },
+            { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Kavram başına ayet ağı: bir kavramın tüm ayetlerinin komşuluk analizi.', descEn: 'Verse network per concept: neighborhood analysis of a concept\'s verses.' },
+            { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler: kavram ağının kelime düzeyindeki temeli.', descEn: 'Near-synonym words: the word-level foundation of the concept graph.' },
           ]}
         />
       </div>

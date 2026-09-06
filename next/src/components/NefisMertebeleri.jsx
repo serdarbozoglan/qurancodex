@@ -226,8 +226,8 @@ export default function NefisMertebeleri({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir — Kur&apos;an yedi tabakanın üçünü açıkça anar.</>
-              : <>The self is not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>fixed</em>. It is a <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>graded system</em> reaching from ammāra to muṭmaʾinna — the Quran names three of the seven stations explicitly.</>}
+              ? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir; Kur&apos;an yedi tabakanın üçünü açıkça anar.</>
+              : <>The self is not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>fixed</em>. It is a <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>graded system</em> reaching from ammāra to muṭmaʾinna; the Quran names three of the seven stations explicitly.</>}
           </p>
 
           {/* Filigree divider */}
@@ -416,7 +416,7 @@ export default function NefisMertebeleri({ onClose }) {
         {/* ───────────────── SECTION 1: QUR'ANIC CORE ───────────────── */}
         <SectionHeader
           label={language === 'tr' ? 'Bölüm 1' : 'Section 1'}
-          title={language === 'tr' ? "Kur'ânî Çekirdek — 3 Mertebe" : "Qur'anic Core — 3 Stages"}
+          title={language === 'tr' ? "Kur'ânî Çekirdek: 3 Mertebe" : "Qur'anic Core: 3 Stages"}
           subtitle={language === 'tr'
             ? "Kur'ân'da isim olarak geçen, klasik tefsirin üzerinde icmâ ettiği üç mertebe."
             : "The three stages named in the Qur'an, on which classical exegesis agrees."}
@@ -452,7 +452,7 @@ export default function NefisMertebeleri({ onClose }) {
         {/* ───────────────── SECTION 2: SUFI EXTENSION ───────────────── */}
         <SectionHeader
           label={language === 'tr' ? 'Bölüm 2' : 'Section 2'}
-          title={language === 'tr' ? 'Tasavvufî Genişleme — 4 Ek Mertebe' : 'Sufi Extension — 4 Added Stages'}
+          title={language === 'tr' ? 'Tasavvufî Genişleme: 4 Ek Mertebe' : 'Sufi Extension: 4 Added Stages'}
           subtitle={language === 'tr'
             ? "Kur'ân'da isim olarak geçmeyen; tasavvuf ekolünün bâtınî okumayla eklediği dört mertebe."
             : "Four stages not named in the Qur'an; added by the Sufi tradition through esoteric reading."}
@@ -498,7 +498,7 @@ export default function NefisMertebeleri({ onClose }) {
         {/* ───────────────── SECTION 3: CLASSICAL FRAMEWORKS ───────────────── */}
         <SectionHeader
           label={language === 'tr' ? 'Bölüm 3' : 'Section 3'}
-          title={language === 'tr' ? 'Klasik Çerçeveler — Dengeleyici Zâhirî Perspektif' : 'Classical Frameworks — Balancing Exoteric Perspective'}
+          title={language === 'tr' ? 'Klasik Çerçeveler: Dengeleyici Zâhirî Perspektif' : 'Classical Frameworks: Balancing Exoteric Perspective'}
           subtitle={language === 'tr'
             ? 'Tasavvufî genişlemeye karşı ölçü getiren iki klasik sistem.'
             : 'Two classical systems that bring measure against the Sufi extension.'}
@@ -556,8 +556,8 @@ export default function NefisMertebeleri({ onClose }) {
               </p>
               <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5 }}>
                 {language === 'tr'
-                  ? "Mutmainne'nin tam zıddı: müzebzeb (bocalayan) hâli — Nisâ 4:143. İki yol, aynı insan psikolojisi, farklı sonuç."
-                  : "The exact opposite of muṭmaʾinna: muzabzab ('the wavering') — Q 4:143. Two paths, the same human psychology, different outcomes."}
+                  ? "Mutmainne'nin tam zıddı: müzebzeb (bocalayan) hâli (Nisâ 4:143). İki yol, aynı insan psikolojisi, farklı sonuç."
+                  : "The exact opposite of muṭmaʾinna: muzabzab ('the wavering') (Q 4:143). Two paths, the same human psychology, different outcomes."}
               </p>
             </div>
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
@@ -595,10 +595,10 @@ export default function NefisMertebeleri({ onClose }) {
             language={language}
             isMobile={isMobile}
             sources={[
-              { author: 'İmam Gazâlî',             workTr: 'İhyâ\'u Ulûmi\'d-Dîn',     workEn: 'Iḥyāʾ ʿUlūm al-Dīn',       period: '1058–1111 (Tûs)',    noteTr: 'Nefs terbiyesi (Riyâzetü\'n-Nefs) — emmâreden mutmainneye yöntem.', noteEn: 'Discipline of the self (Riyāḍa al-Nafs) — the path from ammāra to muṭmaʾinna.' },
+              { author: 'İmam Gazâlî',             workTr: 'İhyâ\'u Ulûmi\'d-Dîn',     workEn: 'Iḥyāʾ ʿUlūm al-Dīn',       period: '1058–1111 (Tûs)',    noteTr: 'Nefs terbiyesi (Riyâzetü\'n-Nefs); emmâreden mutmainneye yöntem.', noteEn: 'Discipline of the self (Riyāḍa al-Nafs); the path from ammāra to muṭmaʾinna.' },
               { author: 'İbn Kayyim el-Cevziyye',  workTr: 'Medâricu\'s-Sâlikîn',       workEn: 'Madārij al-Sālikīn',        period: '1292–1350 (Şâm)',    noteTr: 'Kur\'ânî üç nefis mertebesinin (emmâre-levvâme-mutmainne) işlendiği tasavvufî klasik.', noteEn: 'A classical Sufi work treating the Qur\'anic three-stage nafs framework (ammāra–lawwāma–muṭmaʾinna).' },
-              { author: 'Necmüddîn-i Kübrâ',       workTr: 'Fevâihu\'l-Cemâl',           workEn: 'Fawāʾiḥ al-Jamāl',          period: '1145–1221 (Hârizm)', noteTr: 'Tasavvufî 7 mertebe — Kübreviyye geleneğinin temel metni.', noteEn: 'The Sufi sevenfold stations — foundational text of the Kubrāwiyya order.' },
-              { author: 'er-Râzî',                 workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',          period: '1149–1209 (Rey)',    noteTr: 'Fecr 89:27–28 tefsiri — \"mutmainne\" mertebesinin kelâmî okunuşu.', noteEn: 'Commentary on Fajr 89:27–28 — kalāmic reading of the muṭmaʾinna station.' },
+              { author: 'Necmüddîn-i Kübrâ',       workTr: 'Fevâihu\'l-Cemâl',           workEn: 'Fawāʾiḥ al-Jamāl',          period: '1145–1221 (Hârizm)', noteTr: 'Tasavvufî 7 mertebe; Kübreviyye geleneğinin temel metni.', noteEn: 'The Sufi sevenfold stations; foundational text of the Kubrāwiyya order.' },
+              { author: 'er-Râzî',                 workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',          period: '1149–1209 (Rey)',    noteTr: 'Fecr 89:27–28 tefsiri; \"mutmainne\" mertebesinin kelâmî okunuşu.', noteEn: 'Commentary on Fajr 89:27–28; kalāmic reading of the muṭmaʾinna station.' },
             ]}
           />
         </div>
@@ -610,8 +610,8 @@ export default function NefisMertebeleri({ onClose }) {
             isMobile={isMobile}
             links={[
               { href: `/${language}/atlas/munafik`,        titleTr: 'Münâfık Profili',      titleEn: 'Profile of the Hypocrite', descTr: 'Nefs-i emmârenin sosyal yüzü: 300+ ayet tek karakter tipine ayrılır.', descEn: 'The social face of the commanding self: 300+ verses devoted to one character type.' },
-              { href: `/${language}/arac/iblis-seytan`,    titleTr: 'İblîs & Şeytan',       titleEn: 'Iblis & Satan',             descTr: 'Nefsin baş düşmanı — vesvese kanalı (Nâs 114:5), 7 sûrede aynı sahne.',     descEn: 'The self\'s chief enemy — the waswasa channel (Nās 114:5), the same scene across 7 surahs.' },
-              { href: `/${language}/arac/melekler`,        titleTr: 'Melekler',             titleEn: 'Angels',                    descTr: 'İlham ve vahy-i tabîî — nefse rağmen kalbe inen doğru sesler.',          descEn: 'Ilhām and natural revelation — voices descending into the heart despite the self.' },
+              { href: `/${language}/arac/iblis-seytan`,    titleTr: 'İblîs & Şeytan',       titleEn: 'Iblis & Satan',             descTr: 'Nefsin baş düşmanı: vesvese kanalı (Nâs 114:5), 7 sûrede aynı sahne.',     descEn: 'The self\'s chief enemy: the waswasa channel (Nās 114:5), the same scene across 7 surahs.' },
+              { href: `/${language}/arac/melekler`,        titleTr: 'Melekler',             titleEn: 'Angels',                    descTr: 'İlham ve vahy-i tabîî: nefse rağmen kalbe inen doğru sesler.',          descEn: 'Ilhām and natural revelation: voices descending into the heart despite the self.' },
             ]}
           />
         </div>

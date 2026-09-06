@@ -193,8 +193,8 @@ export default function BilimselIsaretler({ onClose }) {
               '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>{tr
-              ? <>Kur&apos;ân bir bilim kitabı değildir — ancak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>kelime seçimi</em> ile modern bilim keşifleriyle <em style={{ fontStyle: 'normal', color: COLORS.gold }}>uyumlu</em> anlatım geliştirir.</>
-              : <>The Qur&apos;an is not a science book — but its <em style={{ fontStyle: 'normal', color: COLORS.gold }}>word choice</em> develops narrative that is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>compatible</em> with modern scientific discoveries.</>}</p>
+              ? <>Kur&apos;ân bir bilim kitabı değildir; ancak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>kelime seçimi</em> ile modern bilim keşifleriyle <em style={{ fontStyle: 'normal', color: COLORS.gold }}>uyumlu</em> anlatım geliştirir.</>
+              : <>The Qur&apos;an is not a science book, but its <em style={{ fontStyle: 'normal', color: COLORS.gold }}>word choice</em> develops narrative that is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>compatible</em> with modern scientific discoveries.</>}</p>
             <div aria-hidden="true" style={{
               width: '120px', height: '1px',
               background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
@@ -221,8 +221,8 @@ export default function BilimselIsaretler({ onClose }) {
             <FramingBadge
               language={language}
               isMobile={isMobile}
-              labelTr="Örtüşme Okuması — 'Bilimsel Mucize' İddiası Değil"
-              labelEn="Alignment Reading — Not a 'Scientific Miracle' Claim"
+              labelTr="Örtüşme Okuması: 'Bilimsel Mucize' İddiası Değil"
+              labelEn="Alignment Reading: Not a 'Scientific Miracle' Claim"
             />
             <p style={{
               color: COLORS.silver, fontSize: '0.9rem',
@@ -300,18 +300,18 @@ export default function BilimselIsaretler({ onClose }) {
           <SourcesCitation
             language={language} isMobile={isMobile}
             sources={[
-              { author: 'er-Râzî',    workTr: "Mefâtîhu'l-Ğayb",              workEn: 'Mafātīḥ al-Ghayb',           period: '1149–1209 (Rey)',       noteTr: 'Kevnî ayetlerin klasik tefsirinde en zengin damar — felsefî-kelâmî çerçeve.', noteEn: 'The richest classical vein for cosmic verses — philosophical-kalāmic framework.' },
-              { author: 'ez-Zamahşerî', workTr: "el-Keşşâf",                    workEn: 'al-Kashshāf',                period: '1075–1144 (Hârizm)',    noteTr: 'Belağî okuma — kevnî ayetlerin dilsel imalarının klasik referansı.',            noteEn: 'Rhetorical reading — the classical reference for the linguistic implications of cosmic verses.' },
-              { author: 'İbn Kesîr',   workTr: "Tefsîru'l-Kur'âni'l-Azîm",     workEn: "Tafsīr al-Qur'ān al-ʿAẓīm",  period: '1301–1373 (Dımaşk)',    noteTr: 'Rivayet ağırlıklı tefsir — kevnî ayetlerin selef yorumu.',                        noteEn: 'Riwāya-heavy commentary — the salaf reading of cosmic verses.' },
-              { author: 'el-Kurtubî',  workTr: "el-Câmiʿu li-Ahkâmi'l-Kur'ân", workEn: "al-Jāmiʿ li-Aḥkām al-Qur'ān", period: '1214–1273 (Kurtuba)', noteTr: 'Fıkhî + dilsel + kevnî — çok boyutlu klasik referans.',                          noteEn: 'Fiqh + linguistic + cosmic — a multi-dimensional classical reference.' },
+              { author: 'er-Râzî',    workTr: "Mefâtîhu'l-Ğayb",              workEn: 'Mafātīḥ al-Ghayb',           period: '1149–1209 (Rey)',       noteTr: 'Kevnî ayetlerin klasik tefsirinde en zengin damar; felsefî ve kelâmî çerçeve.', noteEn: 'The richest classical vein for cosmic verses; a philosophical and kalāmic framework.' },
+              { author: 'ez-Zamahşerî', workTr: "el-Keşşâf",                    workEn: 'al-Kashshāf',                period: '1075–1144 (Hârizm)',    noteTr: 'Belâğî okuma; kevnî ayetlerin dilsel imalarının klasik referansı.',            noteEn: 'Rhetorical reading; the classical reference for the linguistic implications of cosmic verses.' },
+              { author: 'İbn Kesîr',   workTr: "Tefsîru'l-Kur'âni'l-Azîm",     workEn: "Tafsīr al-Qur'ān al-ʿAẓīm",  period: '1301–1373 (Dımaşk)',    noteTr: 'Rivayet ağırlıklı tefsir; kevnî ayetlerin selef yorumu.',                        noteEn: 'Riwāya-heavy commentary; the salaf reading of cosmic verses.' },
+              { author: 'el-Kurtubî',  workTr: "el-Câmiʿu li-Ahkâmi'l-Kur'ân", workEn: "al-Jāmiʿ li-Aḥkām al-Qur'ān", period: '1214–1273 (Kurtuba)', noteTr: 'Fıkhî, dilsel ve kevnî; çok boyutlu klasik referans.',                          noteEn: 'Fiqh, linguistic and cosmic; a multi-dimensional classical reference.' },
             ]}
           />
 
           <CrossToolCTA
             language={language} isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/doga`, titleTr: 'Doğa Atlası', titleEn: 'Nature Atlas', descTr: '55 hayvan · bitki · gök cismi — Kur\'ân\'ın tabiat panelinin genişliği.', descEn: '55 animals · plants · celestial objects — the breadth of the Qur\'an\'s nature panel.' },
-              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa — kâinatın işleyişinin metafizik çerçevesi.', descEn: 'Divine law — the metaphysical frame of the cosmos\'s workings.' },
+              { href: `/${language}/atlas/doga`, titleTr: 'Doğa Atlası', titleEn: 'Nature Atlas', descTr: '55 hayvan · bitki · gök cismi: Kur\'ân\'ın tabiat panelinin genişliği.', descEn: '55 animals · plants · celestial objects: the breadth of the Qur\'an\'s nature panel.' },
+              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa: kâinatın işleyişinin metafizik çerçevesi.', descEn: 'Divine law: the metaphysical frame of the cosmos\'s workings.' },
               { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: 'Kur\'ân\'ın arkeoloji + metin filolojisi ile örtüşen kanıtları.', descEn: 'Qur\'anic correspondences with archaeology and text philology.' },
             ]}
           />
@@ -610,13 +610,13 @@ function BucaillismTab({ intro, language, isMobile }) {
             'Klasik tefsir (Râzî, İbn Kesîr, Kurtubî) modern okumalardan önce okunmalı.',
             'Ölçü "kanıt" değil "uyum"dur: Kur\'ân haber verir, biz tasdik ederiz.',
             'Uyum-veren âyetler seçilirken, uyum vermeyenler görmezden gelinmemeli (cherry-picking eleştirisi).',
-            'Bilim değişir, vahiy sabittir — bilimsel iddia bugün güçlü ise yarın çürütülebilir.'
+            'Bilim değişir, vahiy sabittir; bugün güçlü görünen bir bilimsel iddia yarın çürütülebilir.'
           ] : [
             'The Qur\'an\'s metaphorical-ethical language is primary; scientific reference is secondary.',
             'Classical exegesis (Rāzī, Ibn Kathīr, Qurṭubī) should be read before modern readings.',
             'The measure is "alignment," not "proof": the Qur\'an reports, we affirm.',
             'When compatible verses are chosen, incompatible ones should not be hidden (cherry-picking critique).',
-            'Science changes; revelation is fixed — a strong scientific claim today may be refuted tomorrow.'
+            'Science changes; revelation is fixed. A strong scientific claim today may be refuted tomorrow.'
           ]).map((p, i) => <li key={i} style={{ marginBottom: '4px' }}>{p}</li>)}
         </ul>
       </div>
@@ -635,8 +635,8 @@ function BucaillismTab({ intro, language, isMobile }) {
           fontFamily: FONTS.body, lineHeight: 1.7,
         }}>
           {tr
-            ? 'Nidhal Guessoum, Islam\'s Quantum Question (2011) — Bucaillism\'i eleştiren en detaylı Islamic Studies eseri. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017) — akademik konsensüs.'
-            : 'Nidhal Guessoum, Islam\'s Quantum Question (2011) — the most detailed Islamic Studies work critiquing Bucaillism. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017) — academic consensus.'}
+            ? 'Nidhal Guessoum, Islam\'s Quantum Question (2011): Bucaillism\'i eleştiren en ayrıntılı İslâm çalışmaları eseri. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017): akademik konsensüs.'
+            : 'Nidhal Guessoum, Islam\'s Quantum Question (2011): the most detailed Islamic Studies work critiquing Bucaillism. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017): academic consensus.'}
         </p>
       </div>
     </div>

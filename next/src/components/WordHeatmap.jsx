@@ -684,17 +684,17 @@ export default function WordHeatmap({ onClose }) {
     if (isBaseline) {
       const verseCount = surahVerseCounts[surah] || 0;
       return tr
-        ? `${name} — ${verseCount} âyet`
-        : `${name} — ${verseCount} verses`;
+        ? `${name}: ${verseCount} âyet`
+        : `${name}: ${verseCount} verses`;
     }
     if (count > 0) {
       return tr
-        ? `${name} — "${searchTerm}" ${count} kez geçiyor`
-        : `${name} — "${searchTerm}" occurs ${count} times`;
+        ? `${name}: "${searchTerm}" ${count} kez geçiyor`
+        : `${name}: "${searchTerm}" occurs ${count} times`;
     }
     return tr
-      ? `${name} — "${searchTerm}" geçmiyor`
-      : `${name} — "${searchTerm}" not found`;
+      ? `${name}: "${searchTerm}" geçmiyor`
+      : `${name}: "${searchTerm}" not found`;
   };
 
   // Color: dark-blue (zero) → gold based on normalized frequency
@@ -832,8 +832,8 @@ export default function WordHeatmap({ onClose }) {
                 : 'Searched in translation (whole word). For Quranic accuracy, type in Arabic.'
             ) : (
               language === 'tr'
-                ? 'Türkçe veya Arapça yazabilirsiniz — yaygın kavramlar otomatik Arapça\'ya yönlendirilir.'
-                : 'Type in Latin or Arabic — common concepts auto-redirect to Quranic Arabic.'
+                ? 'Türkçe veya Arapça yazabilirsiniz; yaygın kavramlar otomatik olarak Arapça\'ya yönlendirilir.'
+                : 'Type in Latin or Arabic; common concepts auto-redirect to Quranic Arabic.'
             )}
           </div>
 
@@ -845,8 +845,8 @@ export default function WordHeatmap({ onClose }) {
               rows={[
                 {
                   labelTr: 'Kaynak metin', labelEn: 'Source text',
-                  valueTr: 'Kanonik Kur\'ân metni (6236 âyet), Hafs an Âsım kıraati — Diyanet resmî mushaf standardı.',
-                  valueEn: 'The canonical Qur\'anic text (6236 verses), Ḥafṣ ʿan ʿĀṣim reading — the Diyanet official muṣḥaf standard.',
+                  valueTr: 'Kanonik Kur\'ân metni (6236 âyet), Hafs an Âsım kıraati; Diyanet resmî mushaf standardı.',
+                  valueEn: 'The canonical Qur\'anic text (6236 verses), Ḥafṣ ʿan ʿĀṣim reading; the Diyanet official muṣḥaf standard.',
                 },
                 {
                   labelTr: 'Sayım birimi', labelEn: 'Counting unit',
@@ -855,8 +855,8 @@ export default function WordHeatmap({ onClose }) {
                 },
                 {
                   labelTr: 'Girdi', labelEn: 'Input',
-                  valueTr: 'Latince (TR/EN) arama, yaygın kavramlarda kanonik Arapça forma yönlendirilir — böylece çevirmen eklemeleri değil, âyetteki lafız sayılır. Doğrudan Arapça da yazılabilir.',
-                  valueEn: 'Latin (TR/EN) queries for common concepts auto-redirect to the canonical Arabic form — so the count reflects the Qur\'anic wording, not translator additions. Arabic input is also supported.',
+                  valueTr: 'Latince (TR/EN) arama, yaygın kavramlarda kanonik Arapça forma yönlendirilir; böylece çevirmen eklemeleri değil, âyetteki lafız sayılır. Doğrudan Arapça da yazılabilir.',
+                  valueEn: 'Latin (TR/EN) queries for common concepts auto-redirect to the canonical Arabic form, so the count reflects the Qur\'anic wording, not translator additions. Arabic input is also supported.',
                 },
               ]}
               note={{

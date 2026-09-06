@@ -183,8 +183,8 @@ function HadisBadge({ language }) {
 function HapaxBadge({ language }) {
   const [tip, setTip] = useState(false);
   const tipText = language === 'tr'
-    ? "Hapax legomenon — Kur'an'da yalnızca 1 kez geçen kelime"
-    : "Hapax legomenon — a word that appears only once in the Quran";
+    ? "Hapax legomenon: Kur'an'da yalnızca 1 kez geçen kelime"
+    : "Hapax legomenon: a word that appears only once in the Quran";
 
   return (
     <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
@@ -531,7 +531,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
             }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: GOLD, lineHeight: 1.6 }} lang="ar" dir="rtl">{n.arabic}</span>
               <span style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint }}>{n.ref}</span>
-              {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü — Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view — Quran does not equate explicitly'} language={language} />}
+              {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü; Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view; the Quran does not equate explicitly'} language={language} />}
             </span>
           ))}
         </div>
@@ -619,7 +619,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
           {tr ? "Vahyin Dört Katmanı" : "Four Levels of Revelation"}
         </p>
         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
-          {tr ? "Allah sadece peygamberlere değil — arılara da, göklere de vahyeder" : "Allah reveals not only to prophets — but also to bees and to the heavens"}
+          {tr ? "Allah yalnızca peygamberlere değil, arılara da, göklere de vahyeder" : "Allah reveals not only to prophets but also to bees and to the heavens"}
         </p>
         <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: '0 0 16px', fontFamily: FONTS.body }}>
           {tr
@@ -640,7 +640,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
               {tr ? "2. İlhâm (peygamber olmayan insanlara)" : "2. Ilhām (to non-prophets)"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
-              {tr ? "Kasas 28:7'de Hz. Mûsâ'nın annesine \"vahyettik\" denir — peygamber olmayan biridir. Anlamı: kalbe ilkâ, içsel yönlendirme." : "In Qaṣaṣ 28:7, Allah says He 'revealed to' Moses's mother — yet she is not a prophet. Meaning: ilqāʾ to the heart, inner guidance."}
+              {tr ? "Kasas 28:7'de Hz. Mûsâ'nın annesine \"vahyettik\" denir; peygamber olmayan biridir. Anlamı: kalbe ilkâ, içsel yönlendirme." : "In Qaṣaṣ 28:7, Allah says He 'revealed to' Moses's mother; yet she is not a prophet. Meaning: ilqāʾ to the heart, inner guidance."}
             </p>
           </div>
           <div>
@@ -648,15 +648,15 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
               {tr ? "3. Vahy-i Tabîî (hayvanlara, göklere)" : "3. Waḥy-i Ṭabīʿī (to animals, to the heavens)"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
-              {tr ? "Nahl 16:68: \"Rabbin arıya vahyetti.\" Fussilet 41:12: \"Her göğe görevini vahyetti.\" Doğal içgüdü ve fiziksel yasalar — meleklerin tasarrufu olarak okunabilir (klasik Eşârî/Mâturîdî pozisyon)." : "Naḥl 16:68: 'Your Lord revealed to the bee.' Fuṣṣilat 41:12: 'He revealed to each sky its command.' Natural instinct and physical laws — readable as angelic mediation (classical Ashʿarī/Māturīdī position)."}
+              {tr ? "Nahl 16:68: \"Rabbin arıya vahyetti.\" Fussilet 41:12: \"Her göğe görevini vahyetti.\" Doğal içgüdü ve fiziksel yasalar meleklerin tasarrufu olarak okunabilir (klasik Eşârî/Mâturîdî pozisyon)." : "Naḥl 16:68: 'Your Lord revealed to the bee.' Fuṣṣilat 41:12: 'He revealed to each sky its command.' Natural instinct and physical laws, readable as angelic mediation (classical Ashʿarī/Māturīdī position)."}
             </p>
           </div>
           <div>
             <p style={{ fontSize: '0.82rem', fontWeight: 700, color: GOLD, margin: '0 0 4px', fontFamily: FONTS.body }}>
-              {tr ? "4. Vesvese (şeytanın fısıltısı — anti-vahy)" : "4. Waswasa (Satanic whisper — anti-revelation)"}
+              {tr ? "4. Vesvese (şeytanın fısıltısı; vahyin tersi)" : "4. Waswasa (Satanic whisper; the reverse of revelation)"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
-              {tr ? "Nâs 114:5: \"İnsanların göğüslerine vesvese veren.\" Vahy ile aynı kanalı kullanır — kalbe ilkâ — ama tersi yönde. Klasik tasavvuf bu ikisini ayırt etmenin yöntemlerini geliştirir." : "Nās 114:5: 'who whispers into the breasts of mankind.' It uses the same channel as waḥy — ilqāʾ to the heart — but in the opposite direction. Classical Sufism develops methods to distinguish the two."}
+              {tr ? "Nâs 114:5: \"İnsanların göğüslerine vesvese veren.\" Vahy ile aynı kanalı, kalbe ilkâyı kullanır, ama tersi yönde. Klasik tasavvuf bu ikisini ayırt etmenin yöntemlerini geliştirir." : "Nās 114:5: 'who whispers into the breasts of mankind.' It uses the same channel as waḥy, ilqāʾ to the heart, but in the opposite direction. Classical Sufism develops methods to distinguish the two."}
             </p>
           </div>
         </div>
@@ -701,8 +701,8 @@ function TabKissalar({ data, language, isMobile }) {
     <div>
       <p style={{ fontSize: '0.85rem', color: SEMANTIC.textFaint, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
         {tr
-          ? 'Melekler kıssalarda pasif değil — müjde taşır, şehri helak eder, peygambere yoldaş olur.'
-          : 'Angels in Quranic narratives are not passive — they announce, destroy cities, accompany prophets.'}
+          ? 'Melekler kıssalarda pasif değildir: müjde taşır, şehri helak eder, peygambere yoldaş olur.'
+          : 'Angels in Quranic narratives are not passive: they announce, destroy cities, accompany prophets.'}
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {(data.kissalar || []).map((k, i) => {
@@ -791,8 +791,8 @@ const ANALYSIS_CARDS = [
   {
     titleTr: "Neden meleklerin çoğu isimsiz?",
     titleEn: "Why are most angels unnamed?",
-    bodyTr: "Kur'an melekleri işlevle tanımlar — isimle değil. 'Ölüm meleği', 'vahiy meleği', 'koruyucu melekler' — görev ön planda, kişilik değil. Klasik Sünnî kelâmında bu 'melek bağımsız bir fail değil, ilâhi bir araçtır' anlayışıyla okunur. Mu'tezile, Mâturîdî ve İslam filozofları aynı ayetleri farklı çıkarımlarla okur (bkz. ‘4 kelâmî pozisyon’ kartı).",
-    bodyEn: "The Quran identifies angels by function, not name. 'Angel of death,' 'angel of revelation,' 'guardian angels' — role is primary, not personality. In classical Ash'ari Sunni kalām this is read as 'angels are instruments of divine will, not independent agents.' Mu'tazila, Maturidi and the Islamic philosophers draw different conclusions from the same verses (see ‘4 theological positions’ card below).",
+    bodyTr: "Kur'an melekleri isimle değil işlevle tanımlar. 'Ölüm meleği', 'vahiy meleği', 'koruyucu melekler': görev ön planda, kişilik değil. Klasik Sünnî kelâmında bu 'melek bağımsız bir fail değil, ilâhi bir araçtır' anlayışıyla okunur. Mu'tezile, Mâturîdî ve İslam filozofları aynı ayetleri farklı çıkarımlarla okur (bkz. ‘4 kelâmî pozisyon’ kartı).",
+    bodyEn: "The Quran identifies angels by function, not name. 'Angel of death,' 'angel of revelation,' 'guardian angels': role is primary, not personality. In classical Ash'ari Sunni kalām this is read as 'angels are instruments of divine will, not independent agents.' Mu'tazila, Maturidi and the Islamic philosophers draw different conclusions from the same verses (see ‘4 theological positions’ card below).",
   },
   {
     titleTr: "Melek mi cin mi? İblis örneği",
@@ -803,20 +803,20 @@ const ANALYSIS_CARDS = [
   {
     titleTr: "Melekler cinsiyetsiz mi?",
     titleEn: "Are angels genderless?",
-    bodyTr: "Saffat 37:150, Zuhruf 43:19 — Kur'an Arap geleneğindeki 'melekler Allah'ın kızlarıdır' iddiasını reddeder. Meleklere cinsiyet atfetmek Kur'an'a göre delilsiz bir iddiadır.",
+    bodyTr: "Saffat 37:150, Zuhruf 43:19: Kur'an Arap geleneğindeki 'melekler Allah'ın kızlarıdır' iddiasını reddeder. Meleklere cinsiyet atfetmek Kur'an'a göre delilsiz bir iddiadır.",
     bodyEn: "As-Saffat 37:150 and Az-Zukhruf 43:19 reject the Arab cultural claim that 'angels are daughters of God.' The Quran explicitly refutes this. Attributing gender to angels is presented as an unfounded claim.",
   },
   {
     titleTr: "Melekler hakkında 4 kelâmî pozisyon",
     titleEn: "Four theological positions on angels",
-    bodyTr: "Aynı Kur'ânî ayetlerden klasik İslam kelâmı dört farklı sonuç çıkarır: (1) Eş'arî — melekler 'latîf cisimler', nurdan yaratılmış varlıklardır. (2) Mâturîdî — Eş'arî pozisyonuyla uyumlu, ancak meleklerin varlığının akılla da kabul edilebilir olduğunu söyler. (3) Mu'tezile — bazı temsilciler meleklerin ilâhi güçlerin yansıması olduğunu, müstakil cisimsel varlıklar olmayabileceğini öne sürer. (4) İslam filozofları (Fârâbî, İbn Sînâ) — melekleri 'mücerred akıllar' (al-uqūl al-mufāriqa) ile özdeşleştirir; aktif akıl olarak Cebrail. Atlas çoğunluk Sünnî pozisyonu birincil sunar; diğerlerini akademik dürüstlükle açık tutar.",
-    bodyEn: "Classical Islamic kalām draws four distinct conclusions from the same Quranic verses: (1) Ash'ari — angels are 'subtle bodies' (latīf), beings created from light. (2) Maturidi — aligns with the Ash'ari view but adds that the existence of angels is also rationally accessible. (3) Mu'tazila — some representatives suggest angels are reflections of divine powers, not necessarily independent corporeal beings. (4) Islamic philosophers (Farabi, Ibn Sina) — identify angels with 'separate intellects' (al-ʿuqūl al-mufāriqa); Jibril as the Active Intellect. The Atlas presents the majority Sunni position as primary while keeping the others academically open.",
+    bodyTr: "Aynı Kur'ânî ayetlerden klasik İslam kelâmı dört farklı sonuç çıkarır: Eş'arîler: melekler 'latîf cisimler', nurdan yaratılmış varlıklardır. Mâturîdîler: Eş'arî pozisyonuyla uyumlu, ancak meleklerin varlığının akılla da kabul edilebilir olduğunu söyler. Mu'tezile: bazı temsilciler meleklerin ilâhi güçlerin yansıması olduğunu, müstakil cisimsel varlıklar olmayabileceğini öne sürer. İslam filozofları (Fârâbî, İbn Sînâ): melekleri 'mücerred akıllar' (al-uqūl al-mufāriqa) ile özdeşleştirir; aktif akıl olarak Cebrail. Atlas çoğunluk Sünnî pozisyonu birincil sunar; diğerlerini akademik dürüstlükle açık tutar.",
+    bodyEn: "Classical Islamic kalām draws four distinct conclusions from the same Quranic verses: Ash'ari: angels are 'subtle bodies' (latīf), beings created from light. Maturidi: aligns with the Ash'ari view but adds that the existence of angels is also rationally accessible. Mu'tazila: some representatives suggest angels are reflections of divine powers, not necessarily independent corporeal beings. Islamic philosophers (Farabi, Ibn Sina): identify angels with 'separate intellects' (al-ʿuqūl al-mufāriqa); Jibril as the Active Intellect. The Atlas presents the majority Sunni position as primary while keeping the others academically open.",
   },
   {
     titleTr: "Said Nursi'nin Risâle perspektifi",
     titleEn: "Said Nursi's Risale perspective",
-    bodyTr: "Said Nursi, Yirmi Dokuzuncu Söz'de meleklere ve ruhanîlere en kapsamlı Risâle bölümünü ayırır. Pozisyonu klasik Sünnî inanca bağlıdır: melekler ilâhi isimlerin tecellisidir, doğa kuvvetleriyle özdeşleştirilemez. Mi'râc Risâlesi'nde (Otuz Birinci Söz) Cebrail'in vahyi taşıması ve Sidretü'l-Müntehâ ayrıntılı işlenir. Nursi modern bilim ile melek dünyası arasında felsefî bir paralellik kurar — özdeşlik değil. Bu yaklaşım, Türk Müslüman okuyucu için Atlas'ın klasik pozisyonu bağlam içinde okumasını kolaylaştırır.",
-    bodyEn: "Said Nursi devotes the most comprehensive Risale-i Nur treatment of angels to the Twenty-Ninth Word. His position remains within classical Sunni doctrine: angels are manifestations of divine names, not to be identified with the forces of nature. The Mi'raj Treatise (Thirty-First Word) elaborates Jibril's bearing of revelation and Sidrat al-Muntaha. Nursi draws a philosophical parallel — not an identification — between modern science and the angelic realm. This framing helps Turkish-Muslim readers situate the Atlas's classical position within a familiar interpretive horizon.",
+    bodyTr: "Said Nursi, Yirmi Dokuzuncu Söz'de meleklere ve ruhanîlere en kapsamlı Risâle bölümünü ayırır. Pozisyonu klasik Sünnî inanca bağlıdır: melekler ilâhi isimlerin tecellisidir, doğa kuvvetleriyle özdeşleştirilemez. Mi'râc Risâlesi'nde (Otuz Birinci Söz) Cebrail'in vahyi taşıması ve Sidretü'l-Müntehâ ayrıntılı işlenir. Nursi modern bilim ile melek dünyası arasında felsefî bir paralellik kurar, özdeşlik değil. Bu yaklaşım, Türk Müslüman okuyucu için Atlas'ın klasik pozisyonu bağlam içinde okumasını kolaylaştırır.",
+    bodyEn: "Said Nursi devotes the most comprehensive Risale-i Nur treatment of angels to the Twenty-Ninth Word. His position remains within classical Sunni doctrine: angels are manifestations of divine names, not to be identified with the forces of nature. The Mi'raj Treatise (Thirty-First Word) elaborates Jibril's bearing of revelation and Sidrat al-Muntaha. Nursi draws a philosophical parallel, not an identification, between modern science and the angelic realm. This framing helps Turkish-Muslim readers situate the Atlas's classical position within a familiar interpretive horizon.",
   },
 ];
 
@@ -960,7 +960,7 @@ function TabDilbilim({ data, language, isMobile }) {
 
       {/* Cebrail'in 4 ismi */}
       <div>
-        <SectionTitle color="#B8860B">{tr ? "D. Cebrail'in Dört İsmi — Kur'an'da" : "D. Jibril's Four Names in the Quran"}</SectionTitle>
+        <SectionTitle color="#B8860B">{tr ? "D. Cebrail'in Kur'an'daki Dört İsmi" : "D. Jibril's Four Names in the Quran"}</SectionTitle>
         <p style={{ fontSize: '0.75rem', color: `${GOLD}70`, fontStyle: 'italic', margin: '0 0 12px', lineHeight: 1.5 }}>
           ℹ️ {tr ? d.karsilastirmaNotTr : d.karsilastirmaNotEn}
         </p>
@@ -990,10 +990,10 @@ function TabDilbilim({ data, language, isMobile }) {
 
 // ── TAB 6: KAYNAKLAR ────────────────────────────────────────────────────────────
 const RELATED_PAGES = [
-  { overlay: 'iblisSatan', tr: 'İBLİS / ŞEYTAN ATLASI', en: 'IBLIS / SHAYTAN ATLAS', descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'The same scene across seven suras — the origin of pride' },
-  { overlay: 'munafik',    tr: 'MÜNÂFIK PROFİLİ',        en: 'PROFILE OF THE MUNAFIQ', descTr: 'İnsan psikolojisi — kalbin gizli hastalığı',     descEn: 'Human psychology — the hidden disease of the heart' },
+  { overlay: 'iblisSatan', tr: 'İBLİS / ŞEYTAN ATLASI', en: 'IBLIS / SHAYTAN ATLAS', descTr: 'Yedi sûrede aynı sahne: kibrin başlangıcı', descEn: 'The same scene across seven suras: the origin of pride' },
+  { overlay: 'munafik',    tr: 'MÜNÂFIK PROFİLİ',        en: 'PROFILE OF THE MUNAFIQ', descTr: 'İnsan psikolojisi: kalbin gizli hastalığı',     descEn: 'Human psychology: the hidden disease of the heart' },
   { overlay: 'kiyamet',    tr: 'KIYAMET SAHNELERİ',      en: 'SCENES OF QIYAMAH',      descTr: 'Sûr üfleyen melek ve eskatolojik sahneler',       descEn: 'The angel of the trumpet and eschatological scenes' },
-  { overlay: 'kavimler',   tr: 'KAVİMLER ATLASI',        en: 'NATIONS ATLAS',          descTr: 'Lût helakının melekleri — tarihsel kıssalar',     descEn: 'The angels of Lot\'s destruction — historical narratives' },
+  { overlay: 'kavimler',   tr: 'KAVİMLER ATLASI',        en: 'NATIONS ATLAS',          descTr: 'Lût helakının melekleri: tarihsel kıssalar',     descEn: 'The angels of Lot\'s destruction: historical narratives' },
 ];
 
 function TabKaynaklar({ data, language }) {
@@ -1163,8 +1163,8 @@ function HeroStats({ language }) {
       color: '#B8860B',
       labelTr: 'Kur\'an\'da İsimle Anılan Melek',
       labelEn: 'Angels Named in the Quran',
-      refTr: 'Cebrail + Mikail — Bakara 2:97-98',
-      refEn: 'Jibril + Mika\'il — Al-Baqarah 2:97-98',
+      refTr: 'Cebrail ve Mikail: Bakara 2:97-98',
+      refEn: 'Jibril and Mika\'il: Al-Baqarah 2:97-98',
       tooltipAr: 'قُلْ مَن كَانَ عَدُوًّا لِّجِبْرِيلَ فَإِنَّهُ نَزَّلَهُ عَلَىٰ قَلْبِكَ بِإِذْنِ اللَّهِ\nمَن كَانَ عَدُوًّا لِّلَّهِ وَمَلَائِكَتِهِ وَرُسُلِهِ وَجِبْرِيلَ وَمِيكَالَ فَإِنَّ اللَّهَ عَدُوٌّ لِّلْكَافِرِينَ',
       tooltipTr: '(2:97) Cebrail adı geçiyor: vahyi kalbe indiren. (2:98) Mikail adı geçiyor: her ikisi de aynı ayette. Kur\'an\'da adıyla anılan tek iki melek.',
       tooltipEn: '(2:97) Jibril named: the one who brought revelation to your heart. (2:98) Mika\'il named: both in the same verse. The only two angels named in the Quran.',
@@ -1174,22 +1174,22 @@ function HeroStats({ language }) {
       color: '#8C919C',
       labelTr: 'İsimli ama Kimliği Tartışmalı',
       labelEn: 'Named but Identity Debated',
-      refTr: 'Harut + Marut — melek mi, değil mi?',
-      refEn: 'Harut + Marut — angels or not?',
+      refTr: 'Harut ve Marut: melek mi, değil mi?',
+      refEn: 'Harut and Marut: angels or not?',
       tooltipAr: 'وَمَا أُنزِلَ عَلَى الْمَلَكَيْنِ بِبَابِلَ هَارُوتَ وَمَارُوتَ',
-      tooltipTr: 'الْمَلَكَيْنِ: "iki melek" (çoğunluk okuyuşu). Tartışma iki noktada: (1) Azınlık görüş meliki "iki kral" okur. (2) Meleklerin sihir öğretmesi teolojik sorun teşkil eder — bazı alimler bu nedenle "iki insan/kral" yorumunu savunmuştur.',
-      tooltipEn: 'al-malakayni: "two angels" (majority reading). Debate has two axes: (1) A minority reading parses it as "two kings." (2) Angels teaching sorcery raises theological concerns — some scholars argued for a human/king interpretation for this reason.',
+      tooltipTr: 'الْمَلَكَيْنِ: "iki melek" (çoğunluk okuyuşu). Tartışma iki noktada: azınlık görüş meliki "iki kral" okur; meleklerin sihir öğretmesi de teolojik sorun teşkil eder, bazı âlimler bu nedenle "iki insan/kral" yorumunu savunmuştur.',
+      tooltipEn: 'al-malakayni: "two angels" (majority reading). The debate has two axes: a minority reading parses it as "two kings"; and angels teaching sorcery raises theological concerns, so some scholars argued for a human/king interpretation for this reason.',
     },
     {
       value: '1',
       color: '#DE734F',
       labelTr: 'Cehennemde İsmi Geçen Melek',
       labelEn: 'Angel Named in Hell',
-      refTr: 'Malik — Zuhruf 43:77',
-      refEn: 'Malik — Az-Zukhruf 43:77',
+      refTr: 'Malik: Zuhruf 43:77',
+      refEn: 'Malik: Az-Zukhruf 43:77',
       tooltipAr: 'وَنَادَوْا يَا مَالِكُ لِيَقْضِ عَلَيْنَا رَبُّكَ',
-      tooltipTr: '"Ey Malik! Rabbin bizim işimizi bitirsin." — Cehennem ehlinin sözü. İsim, bizzat onların ağzından geçiyor.',
-      tooltipEn: '"O Malik! Let your Lord finish us off." — The name comes from Hell\'s inhabitants themselves.',
+      tooltipTr: '"Ey Malik! Rabbin bizim işimizi bitirsin." Cehennem ehlinin sözü. İsim, bizzat onların ağzından geçiyor.',
+      tooltipEn: '"O Malik! Let your Lord finish us off." The name comes from Hell\'s inhabitants themselves.',
     },
     {
       value: '19',
@@ -1199,8 +1199,8 @@ function HeroStats({ language }) {
       refTr: 'Müddessir 74:30',
       refEn: 'Al-Muddaththir 74:30',
       tooltipAr: 'عَلَيْهَا تِسْعَةَ عَشَرَ\nوَمَا جَعَلْنَا أَصْحَابَ النَّارِ إِلَّا مَلَائِكَةً',
-      tooltipTr: '(74:30) "Onun üzerinde on dokuz vardır." (74:31) "Cehennem sahiplerini yalnızca melek kıldık." — Sayı, kâfirleri sınamak, inkârcıları şüpheye düşürmek ve müminleri artırmak için verilmiştir.',
-      tooltipEn: '(74:30) "Over it are nineteen." (74:31) "We have not appointed the keepers of the Fire except as angels." — The number is given to test disbelievers, disturb rejectors, and increase believers.',
+      tooltipTr: '(74:30) "Onun üzerinde on dokuz vardır." (74:31) "Cehennem sahiplerini yalnızca melek kıldık." Sayı, kâfirleri sınamak, inkârcıları şüpheye düşürmek ve müminleri artırmak için verilmiştir.',
+      tooltipEn: '(74:30) "Over it are nineteen." (74:31) "We have not appointed the keepers of the Fire except as angels." The number is given to test disbelievers, disturb rejectors, and increase believers.',
     },
     {
       value: '2–4',
@@ -1221,8 +1221,8 @@ function HeroStats({ language }) {
       refTr: 'el-Melâike / Ruh / Cebrail dahil',
       refEn: 'Including al-Mala\'ika, Ruh, Jibril',
       tooltipAr: 'وَمَا يَعْلَمُ جُنُودَ رَبِّكَ إِلَّا هُوَ',
-      tooltipTr: '"Rabbinin ordularını ancak O bilir." — Müddessir 74:31. Meleklerin tam sayısı Kur\'an\'a göre yalnızca Allah\'a aittir.',
-      tooltipEn: '"None knows the soldiers of your Lord except Him." — Al-Muddaththir 74:31. The true number of angels belongs to Allah alone.',
+      tooltipTr: '"Rabbinin ordularını ancak O bilir." (Müddessir 74:31). Meleklerin tam sayısı Kur\'an\'a göre yalnızca Allah\'a aittir.',
+      tooltipEn: '"None knows the soldiers of your Lord except Him." (Al-Muddaththir 74:31). The true number of angels belongs to Allah alone.',
     },
   ];
 
@@ -1429,8 +1429,8 @@ export default function Melekler({ onClose }) {
             opacity: 0.88,
           }}>
             {tr
-              ? <>Kur&apos;an meleği <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tasvir etmez</em> — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>işlevini anlatır</em>. İsim verir, görev verir; geri kalanı hadise bırakır.</>
-              : <>The Quran does not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> the angel — it tells you <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>what it does</em>. Names and tasks; the rest is left to hadith.</>}
+              ? <>Kur&apos;an meleği <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tasvir etmez</em>; <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>işlevini anlatır</em>. İsim verir, görev verir; geri kalanı hadise bırakır.</>
+              : <>The Quran does not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> the angel; it tells you <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>what it does</em>. Names and tasks; the rest is left to hadith.</>}
           </p>
 
           {/* Filigree divider */}
@@ -1472,8 +1472,8 @@ export default function Melekler({ onClose }) {
             opacity: 0.92,
           }}>
             {tr
-              ? 'Cebrail vahyi getirir. Mikail rızkı dağıtır. Münker-Nekir kabri sorgular. Yedi melek tipi — yedi farklı boyut.'
-              : 'Jibril brings revelation. Mika\'il distributes provision. Munkar-Nakir question the grave. Seven angel roles — seven distinct dimensions.'}
+              ? 'Cebrail vahyi getirir. Mikail rızkı dağıtır. Münker-Nekir kabri sorgular. Yedi melek tipi, yedi farklı boyut.'
+              : 'Jibril brings revelation. Mika\'il distributes provision. Munkar-Nakir question the grave. Seven angel roles, seven distinct dimensions.'}
           </p>
 
           {/* Description (left-aligned body) */}
@@ -1486,7 +1486,7 @@ export default function Melekler({ onClose }) {
             textAlign: 'left',
           }}>
             {tr
-              ? "Kur'an melekleri tasvir etmez — işlevlerini anlatır. Cebrail ve Mikail bizzat anılır, Harut-Marut zikredilir, ötekiler görevle tanınır. Nurdan yaratıldıkları, kanat sayıları hadis geleneğine aittir. Bu sayfa yalnızca Kur'an'da ne geçtiğini gösterir; geri kalanı ℹ️ ile işaretler."
+              ? "Kur'an melekleri tasvir etmez; işlevlerini anlatır. Cebrail ve Mikail bizzat anılır, Harut-Marut zikredilir, ötekiler görevle tanınır. Nurdan yaratıldıkları, kanat sayıları hadis geleneğine aittir. Bu sayfa yalnızca Kur'an'da ne geçtiğini gösterir; geri kalanı ℹ️ ile işaretler."
               : "The Quran defines angels by function, not description. Jibril and Mika'il are named; Harut and Marut are mentioned; the rest are known by role. Details like being created from light come from hadith. This page shows only what the Quran says; everything else is marked ℹ️."}
           </p>
           <div style={{ marginTop: '8px' }}>
@@ -1561,9 +1561,9 @@ export default function Melekler({ onClose }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Resurrection', descTr: "Sûr sahnesi — meleklerin son evredeki görevi (Kur'ân melekleri isimsiz anar; klasik hadis geleneğinde: İsrâfîl).", descEn: "The trumpet scene — the angels' final-stage role (unnamed in the Qur'an; classical hadith: Isrāfīl)." },
+            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Resurrection', descTr: "Sûr sahnesi: meleklerin son evredeki görevi (Kur'ân melekleri isimsiz anar; klasik hadis geleneğinde: İsrâfîl).", descEn: "The trumpet scene: the angels' final-stage role (unnamed in the Qur'an; classical hadith: Isrāfīl)." },
             { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Heaven & Hell', descTr: 'Melekler bu iki mekânın da hâdim ve muhafızları.', descEn: 'Angels are stewards of both realms.' },
-            { href: `/${language}/tefekkur?cat=kozmoloji`, titleTr: 'Kozmoloji & Yaratılış', titleEn: 'Cosmology & Creation', descTr: 'Melekler yaratılışın görünmez katı.', descEn: 'Angels — the invisible layer of creation.' },
+            { href: `/${language}/tefekkur?cat=kozmoloji`, titleTr: 'Kozmoloji & Yaratılış', titleEn: 'Cosmology & Creation', descTr: 'Melekler yaratılışın görünmez katı.', descEn: 'Angels: the invisible layer of creation.' },
           ]}
         />
       </div>

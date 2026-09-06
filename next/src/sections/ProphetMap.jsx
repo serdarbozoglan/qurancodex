@@ -12,7 +12,7 @@ const LOCATIONS = {
   musa: [
     {
       id: 'nil', lat: 30.5, lon: 31.2,
-      nameTr: 'Nil Deltası — Mısır', nameEn: 'Nile Delta — Egypt',
+      nameTr: 'Nil Deltası, Mısır', nameEn: 'Nile Delta, Egypt',
       phaseTr: 'Doğum & Firavun’un Sarayında Büyüme',
       phaseEn: 'Birth & Upbringing in Pharaoh’s Palace',
     },
@@ -24,15 +24,15 @@ const LOCATIONS = {
     },
     {
       id: 'misir', lat: 30.06, lon: 31.24,
-      nameTr: 'Mısır — Firavun Sarayı', nameEn: 'Egypt — Pharaoh’s Court',
+      nameTr: 'Mısır: Firavun Sarayı', nameEn: 'Egypt: Pharaoh’s Court',
       phaseTr: 'Firavun’a Karşı 9 Mucize',
       phaseEn: '9 Miracles Against Pharaoh',
     },
     {
       id: 'kizildeniz', lat: 29.9, lon: 32.6,
       nameTr: 'Kızıldeniz Geçişi', nameEn: 'Red Sea Crossing',
-      phaseTr: 'Denizin Yarılması — Firavun’un Boğulması',
-      phaseEn: 'Parting of the Sea — Pharaoh’s Drowning',
+      phaseTr: 'Denizin Yarılması, Firavun’un Boğulması',
+      phaseEn: 'Parting of the Sea, Pharaoh’s Drowning',
     },
     {
       id: 'tur-i-sina', lat: 28.54, lon: 33.97,
@@ -50,15 +50,15 @@ const LOCATIONS = {
   ibrahim: [
     {
       id: 'ur', lat: 30.96, lon: 46.1,
-      nameTr: 'Ur — Irak', nameEn: 'Ur — Iraq',
+      nameTr: 'Ur, Irak', nameEn: 'Ur, Iraq',
       phaseTr: 'Doğum, Putlara Başkaldırı & Ateşe Atılma',
       phaseEn: 'Birth, Revolt Against Idols & Cast into Fire',
     },
     {
       id: 'harran', lat: 36.87, lon: 39.02,
-      nameTr: 'Harran — Güneydoğu Türkiye', nameEn: 'Harran — SE Turkey',
-      phaseTr: 'Hicret Güzergâhı — Babası ile Son Ayrılık',
-      phaseEn: 'Migration Route — Final Parting from Father',
+      nameTr: 'Harran, Güneydoğu Türkiye', nameEn: 'Harran, SE Turkey',
+      phaseTr: 'Hicret Güzergâhı: Babası ile Son Ayrılık',
+      phaseEn: 'Migration Route: Final Parting from Father',
     },
     {
       id: 'kenan-ibrahim', lat: 31.5, lon: 35.0,
@@ -110,27 +110,27 @@ const LOCATIONS = {
   nuh: [
     {
       id: 'mezopotamya', lat: 32.5, lon: 44.4,
-      nameTr: 'Mezopotamya — Irak', nameEn: 'Mesopotamia — Iraq',
-      phaseTr: '950 Yıllık Davet — Kavminin Sürekli İnkârı',
-      phaseEn: '950 Years of Calling — People’s Constant Denial',
+      nameTr: 'Mezopotamya, Irak', nameEn: 'Mesopotamia, Iraq',
+      phaseTr: '950 Yıllık Davet: Kavminin Sürekli İnkârı',
+      phaseEn: '950 Years of Calling: People’s Constant Denial',
     },
     {
       id: 'cudi', lat: 37.37, lon: 42.47,
-      nameTr: 'Cudi Dağı — Şırnak, Türkiye', nameEn: 'Mount Judi — Şırnak, Turkey',
-      phaseTr: 'Geminin İnişi — Tufanın Sonu & Yeni Başlangıç',
-      phaseEn: 'Ark’s Landing — End of the Flood & New Beginning',
+      nameTr: 'Cudi Dağı, Şırnak, Türkiye', nameEn: 'Mount Judi, Şırnak, Turkey',
+      phaseTr: 'Geminin İnişi: Tufanın Sonu ve Yeni Başlangıç',
+      phaseEn: 'Ark’s Landing: End of the Flood and New Beginning',
     },
   ],
   adem: [
     {
       id: 'kabe', lat: 21.4225, lon: 39.8262,
-      nameTr: 'Mekke — Kâbe\'nin İlk Yeri', nameEn: 'Mecca — First Site of the Kaaba',
+      nameTr: 'Mekke: Kâbe\'nin İlk Yeri', nameEn: 'Mecca: First Site of the Kaaba',
       phaseTr: 'Bazı klasik rivayetler: Âdem yeryüzünde ilk mabedi buraya inşa etti',
       phaseEn: 'Classical tradition: Adam built the first sanctuary here',
     },
     {
       id: 'adem-peak', lat: 6.809, lon: 80.499,
-      nameTr: 'Adam\'s Peak — Sri Lanka', nameEn: "Adam's Peak — Sri Lanka",
+      nameTr: 'Adam\'s Peak — Sri Lanka', nameEn: "Adam's Peak, Sri Lanka",
       phaseTr: 'Bazı klasik rivayetler: Âdem\'in cennetten inişini konumlandırır',
       phaseEn: 'Some classical narrations locate Adam\'s earthly descent here',
     },
@@ -138,13 +138,13 @@ const LOCATIONS = {
   lut: [
     {
       id: 'sodom', lat: 31.15, lon: 35.40,
-      nameTr: 'Sedum & Amora — Lut Gölü çevresi', nameEn: 'Sodom & Gomorrah — Dead Sea region',
+      nameTr: 'Sedum ve Amora, Lut Gölü çevresi', nameEn: 'Sodom and Gomorrah, Dead Sea region',
       phaseTr: 'Kavmin şehirleri; helâk sonrası altüst edilen bölge',
       phaseEn: "His people's cities; the region overturned in destruction",
     },
     {
       id: 'zoar', lat: 30.90, lon: 35.51,
-      nameTr: 'Zoar — Kurtuluş yeri', nameEn: 'Zoar — Site of Refuge',
+      nameTr: 'Zoar: kurtuluş yeri', nameEn: 'Zoar: site of refuge',
       phaseTr: 'Lût ve kızlarının kurtuluş noktası',
       phaseEn: "Where Lot and his daughters found refuge",
     },
@@ -152,13 +152,13 @@ const LOCATIONS = {
   eyyub: [
     {
       id: 'uz', lat: 32.55, lon: 36.35,
-      nameTr: 'Uz Diyarı — Havran/Şam bölgesi', nameEn: 'Land of Uz — Ḥawrān / Damascus region',
+      nameTr: 'Uz Diyarı, Havran ve Şam bölgesi', nameEn: 'Land of Uz, Ḥawrān and Damascus region',
       phaseTr: 'Klasik rivayetler Eyyub\'un yaşadığı yeri Havran\'a konumlandırır',
       phaseEn: 'Classical tradition places Job in the Ḥawrān region',
     },
     {
       id: 'eyyub-well', lat: 32.28, lon: 36.05,
-      nameTr: 'Şeyh Sa\'d — İyileşme pınarı', nameEn: "Shaykh Saʿd — Healing spring",
+      nameTr: 'Şeyh Sa\'d: iyileşme pınarı', nameEn: "Shaykh Saʿd: healing spring",
       phaseTr: '"Ayak vurup su çıkarma" ile ilişkilendirilen ziyaret yeri',
       phaseEn: "Traditional site associated with the healing water Job struck forth",
     },
@@ -166,7 +166,7 @@ const LOCATIONS = {
   davud: [
     {
       id: 'kudus-davud', lat: 31.7784, lon: 35.2354,
-      nameTr: 'Kudüs — Beyt-i Makdis', nameEn: 'Jerusalem — Bayt al-Maqdis',
+      nameTr: 'Kudüs, Beyt-i Makdis', nameEn: 'Jerusalem, Bayt al-Maqdis',
       phaseTr: 'Hükümdarlığın merkezi + Zebûr\'un okunduğu şehir',
       phaseEn: 'Center of his kingship + city where the Psalter was recited',
     },
@@ -178,7 +178,7 @@ const LOCATIONS = {
     },
     {
       id: 'elah', lat: 31.68, lon: 34.95,
-      nameTr: 'Elâh Vadisi — Câlût mücadelesi', nameEn: 'Valley of Elah — Battle with Goliath',
+      nameTr: 'Elâh Vadisi: Câlût mücadelesi', nameEn: 'Valley of Elah: battle with Goliath',
       phaseTr: 'Câlût\'la (Golyat) karşılaşılan vadi',
       phaseEn: 'The valley where he defeated Goliath (Jālūt)',
     },
@@ -186,19 +186,19 @@ const LOCATIONS = {
   suleyman: [
     {
       id: 'kudus-suleyman', lat: 31.7784, lon: 35.2354,
-      nameTr: 'Kudüs — Süleyman Mabedi', nameEn: "Jerusalem — Solomon's Temple site",
+      nameTr: 'Kudüs: Süleyman Mabedi', nameEn: "Jerusalem: Solomon's Temple site",
       phaseTr: 'Hükümdarlık merkezi ve mabed inşası',
       phaseEn: 'Center of kingship and construction of the temple',
     },
     {
       id: 'saba', lat: 15.42, lon: 45.35,
-      nameTr: 'Sebe\' — Mârib, Yemen', nameEn: "Sabaʾ — Maʾrib, Yemen",
-      phaseTr: 'Belkıs\'ın memleketi — Hüdhüd\'ün getirdiği haber',
-      phaseEn: "Bilqīs's realm — the news brought by the Hoopoe",
+      nameTr: 'Sebe\', Mârib, Yemen', nameEn: "Sabaʾ, Maʾrib, Yemen",
+      phaseTr: 'Belkıs\'ın memleketi: Hüdhüd\'ün getirdiği haber',
+      phaseEn: "Bilqīs's realm: the news brought by the Hoopoe",
     },
     {
       id: 'wadi-naml', lat: 30.5, lon: 34.9,
-      nameTr: 'Karınca Vadisi — Neml sûresi 27:18', nameEn: 'Valley of the Ant — Sūrah al-Naml 27:18',
+      nameTr: 'Karınca Vadisi, Neml sûresi 27:18', nameEn: 'Valley of the Ant, Sūrah al-Naml 27:18',
       phaseTr: 'Karıncanın uyarı sahnesi (klasik lokalizasyon: Şam-Filistin arası)',
       phaseEn: "Scene of the ant's warning (classical localization: between Syria and Palestine)",
     },
@@ -206,7 +206,7 @@ const LOCATIONS = {
   yunus: [
     {
       id: 'ninova', lat: 36.359, lon: 43.152,
-      nameTr: 'Ninova — Musul, Irak', nameEn: 'Nineveh — Mosul, Iraq',
+      nameTr: 'Ninova, Musul, Irak', nameEn: 'Nineveh, Mosul, Iraq',
       phaseTr: 'Gönderildiği kavim; imana dönen tek millet',
       phaseEn: 'The people he was sent to; the only nation that turned to faith',
     },
@@ -220,7 +220,7 @@ const LOCATIONS = {
   'zekeriya-yahya': [
     {
       id: 'kudus-zekeriya', lat: 31.7784, lon: 35.2354,
-      nameTr: 'Kudüs — Beyt-i Makdis (mihrap)', nameEn: 'Jerusalem — Bayt al-Maqdis (miḥrāb)',
+      nameTr: 'Kudüs, Beyt-i Makdis (mihrap)', nameEn: 'Jerusalem, Bayt al-Maqdis (miḥrāb)',
       phaseTr: 'Zekeriya\'nın Meryem\'i himaye ettiği + Yahyâ\'nın müjdesini aldığı mekân',
       phaseEn: "Where Zechariah guarded Mary + received the tidings of John",
     },

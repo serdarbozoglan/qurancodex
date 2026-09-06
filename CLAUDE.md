@@ -1800,6 +1800,58 @@ kendi güvenilirlik iddiasını zayıflatır. Sabitler dosyanın en üstünde,
 bulunması kolay bir yerde tutulur — elle güncellemenin unutulma riski
 düşük olsun diye.
 
+### 13.34 Humanizer Kontrolü — YENİ İÇERİK ÜRETİMİNDE ZORUNLU, NO-GO (ENFORCE ALWAYS) (2026-09-06+)
+
+**Kullanıcıya görünen HER yeni metin, `humanizer` skill'i (kullanıcı düzeyi
+skill: `~/.claude/skills/humanizer/SKILL.md`) ile ÜRETİLİR ve commit'ten
+önce aynı skill ile KONTROL EDİLİR. Kontrolden geçmemiş içerik push
+edilmez; bu bir no-go koşuludur.** Kullanıcı direktifi (2026-09-06): "yeni
+bir içerik üretildiğinde humanizer skill mutlaka kontrol etmeli ve ona
+uygun üretilmeli; bu no-go feature, eğer uyulmazsa."
+
+**Kapsam (hepsi):** `page.js` `TITLE_*`/`DESC_*` sabitleri, bileşen ve
+section içi TR/EN dizeleri (kart açıklamaları, kaynak notları, araç
+ipuçları, `aria-label`), `src/i18n/tr.json` / `en.json`, `src/data/*`
+(homeCards, tools.jsx, toolCatalog, exploreCategories), tefekkür
+`tldrTr`/`tldrEn` ve `_index.json`, Navbar/mega menü metinleri, hata
+mesajları, OG/metadata açıklamaları, concierge sistem metinleri.
+
+**Uygulama — üretirken ve commit'ten önce:**
+1. Metni skill'in kalıp listesine göre yaz: uzun tire (—) ve kısa tire (–)
+   yok; "X değil — Y" / "not X but Y" kalıbı yok; zorlanmış üçlü yok;
+   satış sıfatı yok (eşsiz, çarpıcı, dikkat çekici, benzersiz / unique,
+   striking, remarkable, crucial, profound); belirsiz kaynak yok ("uzmanlar",
+   "çalışmalar gösteriyor"); emoji/ℹ️ yok; "asıl soru / the real question"
+   yok; ok zinciri (→) düz metinde yok; kalın etiket listesi yok; "bilim
+   doğrular/kanıtlar" fiili yok (§13.24 ile birlikte: "örtüşür").
+2. Skill'i çalıştır (`/humanizer <metin>` ya da dosya) ve bulguları
+   düzelt; düzeltilmiş hâli commit et. Değişiklikler ÖNCE→SONRA olarak
+   `tasks/humanizer-changelog.md`'ye eklenir.
+3. Sadece dize içeriği değişir: id, href, veri alanı adı, yapı, stil,
+   `kicker` gibi render'ı etkileyen alanlar boşaltılmaz (§13.23 ile aynı
+   disiplin). Bir başlık değişirse aynı başlığın geçtiği HER yer (ToolHeader,
+   toolCatalog, tools.jsx, TefekkurHighlight, Navbar) aynı commit'te güncellenir.
+4. `split(' — ')` gibi metne bağımlı kod var mı kontrol et; varsa ayraç
+   kodu güncellenir (örnek: `AhiretYolculugu.jsx` aşama sekmeleri,
+   `split(/ — |: /)`).
+
+**İstisnalar (dokunulmaz):** âyet çevirileri ve Arapça metin; kaynak atfı
+tiresi ("— Yûsuf 12:53", "— Ref"); araç adı başlık ayracı ("Furûk — Kelime
+Farkları" biçimindeki `TITLE_TR/EN`, karar §9 `tasks/Todo_humanizer.md`);
+diyagram etiketleri ("D — Merkez", "Yaratılış → Yaratıcı"); boş değer yer
+tutucusu `'—'`; tecvid kısaltmaları; `visualMotif`, `workRef` gibi
+render edilmeyen alanlar; katalog kartındaki "N · N · N" etiketi.
+
+**Referans:** site geneli tespit ve stil kararları `tasks/Todo_humanizer.md`
+(§9 tire, "değil", kalın, ok, sayı-etiketi, Türkçe başlık, satış sıfatı,
+§13.24 tutarlılığı, EN ayrı geçiş); uygulanmış örnekler
+`tasks/humanizer-changelog.md` §1–§17 (`humanizer` dalı, 2026-09-06).
+
+**Neden bu kural var:** 2026-09-06 site taramasında 8.364 uzun tire, 862
+"X değil — Y", 1.242 ok zinciri ve onlarca satış sıfatı bulundu; hepsi
+üretim aşamasında önlenebilirdi. Sonradan temizlik 17 commit ve 241 dosya
+sürdü. Yeni içerik aynı borcu yeniden biriktirmemeli.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

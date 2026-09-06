@@ -38,13 +38,13 @@ const ALLAH_SURFACE_COUNT = 1813;   // JSON'daki yüzey lafz sayımı
 const TEMEL_AYETLER_TR = [
   { ref: "A'RÂF 7:180",  arabic: "وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا", quote: "En güzel isimler Allah'ındır; O'na o isimlerle dua edin." },
   { ref: "İSRÂ 17:110",  arabic: "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "İster Allah deyin, ister Rahmân; hangisini deseniz en güzel isimler O'nundur." },
-  { ref: "TÂHÂ 20:8",    arabic: "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Allah — O'ndan başka ilah yoktur; en güzel isimler O'nundur." },
+  { ref: "TÂHÂ 20:8",    arabic: "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Allah: O'ndan başka ilah yoktur; en güzel isimler O'nundur." },
   { ref: "HAŞR 59:24",   arabic: "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "O, yaratan, kusursuzca var eden, şekil veren Allah'tır. En güzel isimler O'nundur." },
 ];
 const TEMEL_AYETLER_EN = [
   { ref: "A'RĀF 7:180",  arabic: "وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا", quote: "To Allah belong the best names; so invoke Him by them." },
-  { ref: "ISRĀ 17:110",  arabic: "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Say Allah or say Ar-Raḥmān — by whichever you call, the best names are His." },
-  { ref: "ṬĀHĀ 20:8",    arabic: "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Allah — there is no deity except Him; to Him belong the best names." },
+  { ref: "ISRĀ 17:110",  arabic: "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Say Allah or say Ar-Raḥmān; by whichever you call, the best names are His." },
+  { ref: "ṬĀHĀ 20:8",    arabic: "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "Allah: there is no deity except Him; to Him belong the best names." },
   { ref: "ḤASHR 59:24",  arabic: "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى", quote: "He is Allah, the Creator, the Inventor, the Fashioner. To Him belong the best names." },
 ];
 
@@ -333,8 +333,8 @@ function Hero({ tr }) {
           }}
         >
           {tr
-            ? <>İsimleri konuşacağız — ama &quot;O&apos;nun benzeri bir şey yoktur&quot; diyen ayetle başlamak şart. 114 isim O&apos;nu <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tanır</em>, ama <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kuşatmaz</em>.</>
-            : <>We will speak of His names — but we must begin with the verse that says &quot;nothing is like Him.&quot; 114 names <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> Him, they do not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>contain</em> Him.</>}
+            ? <>İsimleri konuşacağız, ama &quot;O&apos;nun benzeri bir şey yoktur&quot; diyen ayetle başlamak şart. 114 isim O&apos;nu <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tanır</em>, ama <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kuşatmaz</em>.</>
+            : <>We will speak of His names, but we must begin with the verse that says &quot;nothing is like Him.&quot; 114 names <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> Him, they do not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>contain</em> Him.</>}
         </motion.p>
 
         {/* Filigree divider 2 */}
@@ -683,8 +683,8 @@ function Manifesto({ tr, data }) {
           marginBottom: '50px',
         }}>
           {tr
-            ? "Allah kendisini hem sarsılmaz kudretiyle (Celal: Cebbâr, Kahhâr, Azîz), hem de sığınılacak şefkatiyle (Cemal: Vedûd, Latîf, Gafûr) birlikte tanıtır. O yegane sığınaktır — fakat sığınak olmasıyla birlikte mutlak hâkim ve kahir olduğunu da gizlemez. Kur'an'ın ilah tasavvuru bu iki yüzün kopmaz dengesidir."
-            : "God describes Himself with both unshakable might (Jalāl: al-Jabbār, al-Qahhār, al-ʿAzīz) and embracing mercy (Jamāl: al-Wadūd, al-Laṭīf, al-Ghafūr) at once. He is the sole refuge — yet alongside being a refuge, He never veils that He is the absolute Sovereign and Subduer. The Quran's vision of divinity is the inseparable balance of these two faces."}
+            ? "Allah kendisini hem kudretiyle (Celal: Cebbâr, Kahhâr, Azîz), hem de şefkatiyle (Cemal: Vedûd, Latîf, Gafûr) birlikte tanıtır. O yegâne sığınaktır; fakat sığınak olmasıyla birlikte mutlak hâkim ve kahir olduğunu da gizlemez. Kur'an'ın ilah tasavvuru bu iki yüzün kopmaz dengesidir."
+            : "God describes Himself with both might (Jalāl: al-Jabbār, al-Qahhār, al-ʿAzīz) and mercy (Jamāl: al-Wadūd, al-Laṭīf, al-Ghafūr) at once. He is the sole refuge; yet alongside being a refuge, He never veils that He is the absolute Sovereign and Subduer. The Quran's vision of divinity is the inseparable balance of these two faces."}
         </p>
 
         <div style={{
@@ -911,8 +911,8 @@ function CelalCemalBalance({ tr, balance }) {
         margin: '14px 0 0',
       }}>
         {tr
-          ? `Bu 12 örnek isimden Cemal grubu Kur'an'da yaklaşık ${Math.round(balance.cemal / balance.celal * 10) / 10}× daha sık geçer — Allah kendisini şefkat ve mağfiretle daha sık tanıtır.`
-          : `Among these 12 sample names, the Jamāl group appears about ${Math.round(balance.cemal / balance.celal * 10) / 10}× more often in the Quran — God describes Himself through mercy and forgiveness more frequently.`}
+          ? `Bu 12 örnek isimden Cemal grubu Kur'an'da yaklaşık ${Math.round(balance.cemal / balance.celal * 10) / 10}× daha sık geçer; Allah kendisini şefkat ve mağfiretle daha sık tanıtır.`
+          : `Among these 12 sample names, the Jamāl group appears about ${Math.round(balance.cemal / balance.celal * 10) / 10}× more often in the Quran; God describes Himself through mercy and forgiveness more frequently.`}
       </p>
     </motion.div>
   );
@@ -928,7 +928,7 @@ const AYET_KURSI = {
   title: 'Âyetü\'l-Kürsî',
   titleEn: 'Āyat al-Kursī',
   playRange: { surah: 2, from: 255, to: 255 },
-  intro: 'Allah\'ın zatını uyuklamayan, tüm evreni canlı tutan sarsılmaz bir güç olarak tanımlayan en meşhur ayet.',
+  intro: 'Allah\'ın zatını uyuklamayan, tüm evreni ayakta tutan bir güç olarak tanımlayan en meşhur ayet.',
   introEn: 'The most famous verse describing God as the unsleeping, ever-sustaining power who holds all existence.',
   arabic: 'اللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّومُ  لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ  لَّهُۥ مَا فِى السَّمَٰوَٰتِ وَمَا فِى الْأَرْضِ  مَن ذَا الَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِ   يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ  وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِ ٓ إِلَّا بِمَا شَآءَ  وَسِعَ كُرْسِيُّهُ السَّمَٰوَٰتِ وَالْأَرْضَ  وَلَا يَـُٔودُهُۥ حِفْظُهُمَا  وَهُوَ الْعَلِىُّ الْعَظِيمُ',
   mealTr: "Allah, O'ndan başka tanrı yoktur; O, Hayy'dır, Kayyûm'dur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
@@ -948,8 +948,8 @@ const HASR_VERSE = {
   title: 'Haşr 59:22-24',
   titleEn: 'Ḥashr 59:22-24',
   playRange: { surah: 59, from: 22, to: 24 },
-  intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan — 14 isim peş peşe.",
-  introEn: "The densest gathering of divine names in the Quran — 14 names in succession.",
+  intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan: 14 isim peş peşe.",
+  introEn: "The densest gathering of divine names in the Quran: 14 names in succession.",
   arabic: 'هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ  عَٰلِمُ الْغَيْبِ وَالشَّهَٰدَةِ  هُوَ الرَّحْمَٰنُ الرَّحِيمُ  هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ الْمَلِكُ الْقُدُّوسُ السَّلَٰمُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ  سُبْحَٰنَ اللَّهِ عَمَّا يُشْرِكُونَ  هُوَ اللَّهُ الْخَٰلِقُ الْبَارِئُ الْمُصَوِّرُ  لَهُ الْأَسْمَآءُ الْحُسْنَىٰ  يُسَبِّحُ لَهُۥ مَا فِى السَّمَٰوَٰتِ وَالْأَرْضِ  وَهُوَ الْعَزِيزُ الْحَكِيمُ',
   mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. (23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. (24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
   mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. (23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. (24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
@@ -977,8 +977,8 @@ const IHLAS_VERSE = {
   title: 'İhlâs Suresi',
   titleEn: 'Sūrat al-Ikhlāṣ',
   playRange: { surah: 112, from: 1, to: 4 },
-  intro: "Mutlak teklik — negatif tanım ile eşsizlik (Ehad + Samed + 'kimseden doğmamış, kimseyi doğurmamış').",
-  introEn: "Absolute oneness — uniqueness through negative description (al-Aḥad + aṣ-Ṣamad + 'neither begotten nor begetting').",
+  intro: "Mutlak teklik: olumsuz tanımla benzersizlik (Ehad, Samed, 'kimseden doğmamış, kimseyi doğurmamış').",
+  introEn: "Absolute oneness: singularity through negative description (al-Aḥad, aṣ-Ṣamad, 'neither begotten nor begetting').",
   arabic: 'قُلْ هُوَ اللَّهُ أَحَدٌ  اللَّهُ الصَّمَدُ  لَمْ يَلِدْ وَلَمْ يُولَدْ  وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ',
   mealTr: "(1) De ki: O, Allah birdir. (2) Allah sameddir. (3) O, doğurmamış ve doğmamıştır. (4) Onun hiçbir dengi yoktur.",
   mealEn: "(1) Say: He is Allah, the One. (2) Allah, the Eternal Refuge. (3) He neither begets nor is born. (4) Nor is there to Him any equivalent.",
@@ -1266,8 +1266,8 @@ function FrequencyLandscape({ data, tr }) {
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '40px', maxWidth: '720px' }}>
           {tr
-            ? 'Allah lafzası 2.699 geçişle uzak ara önde — yaklaşık her 2,3 ayette bir. Sonra El-Hakk, El-Alîm, Er-Rahîm gibi sıfat-isimler gelir.'
-            : 'The name Allah leads by far with 2,699 occurrences — roughly every 2.3 verses. Then come attribute-names like al-Ḥaqq, al-ʿAlīm, ar-Raḥīm.'}
+            ? 'Allah lafzı 2.699 geçişle uzak ara öndedir; yaklaşık her 2,3 ayette bir. Sonra El-Hakk, El-Alîm, Er-Rahîm gibi sıfat-isimler gelir.'
+            : 'The name Allah leads by far with 2,699 occurrences; roughly every 2.3 verses. Then come attribute-names like al-Ḥaqq, al-ʿAlīm, ar-Raḥīm.'}
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -1452,8 +1452,8 @@ const NAME_PAIRS = [
     enName: 'as-Samīʿ · al-Baṣīr',
     trMeaning: 'İşiten + Gören',
     enMeaning: 'The All-Hearing + The All-Seeing',
-    trGloss: 'Algı bölünmez — duyu organına bağlı değil, kuşatıcıdır.',
-    enGloss: 'Perception is undivided — not bound by organs, but all-encompassing.',
+    trGloss: 'Algı bölünmez; duyu organına bağlı değil, kuşatıcıdır.',
+    enGloss: 'Perception is undivided; not bound by organs, but all-encompassing.',
   },
   {
     id: 'aziz-hakim',
@@ -1462,8 +1462,8 @@ const NAME_PAIRS = [
     enName: 'al-ʿAzīz · al-Ḥakīm',
     trMeaning: 'Üstün + Hikmet sahibi',
     enMeaning: 'The Almighty + The Wise',
-    trGloss: 'Kudret keyfî değil — daima hikmetle dengelidir.',
-    enGloss: 'Might is never arbitrary — always paired with wisdom.',
+    trGloss: 'Kudret keyfî değil, daima hikmetle dengelidir.',
+    enGloss: 'Might is never arbitrary; it is always paired with wisdom.',
   },
   {
     id: 'alim-hakim',
@@ -1472,8 +1472,8 @@ const NAME_PAIRS = [
     enName: 'al-ʿAlīm · al-Ḥakīm',
     trMeaning: 'Bilen + Hikmet sahibi',
     enMeaning: 'The Knowing + The Wise',
-    trGloss: 'Bilgi yığın değil — anlam ve hüküm üreten bir hikmettir.',
-    enGloss: 'Knowledge is not accumulation — it yields meaning and judgment.',
+    trGloss: 'Bilgi yığın değil, anlam ve hüküm üreten bir hikmettir.',
+    enGloss: 'Knowledge is not accumulation; it yields meaning and judgment.',
   },
   {
     id: 'tevvab-rahim',
@@ -1482,8 +1482,8 @@ const NAME_PAIRS = [
     enName: 'at-Tawwāb · ar-Raḥīm',
     trMeaning: 'Tevbeleri kabul eden + Merhametli',
     enMeaning: 'Accepting of repentance + The Merciful',
-    trGloss: 'Tevbe kapısı kapanmaz — açan ve karşılayan aynı şefkattir.',
-    enGloss: 'The door of repentance never closes — the One who opens and receives is the same mercy.',
+    trGloss: 'Tevbe kapısı kapanmaz; açan ve karşılayan aynı şefkattir.',
+    enGloss: 'The door of repentance never closes; the One who opens and receives is the same mercy.',
   },
   // ── v2 ek pair'ler (build-name-pairs.mjs ile doğrulanmış) ──────────────────
   {
@@ -1495,8 +1495,8 @@ const NAME_PAIRS = [
     enMeaning: 'Most kind + Most merciful',
     // Râzî & Râgıb el-İsfahanî: Râfet = acıyı uzaklaştırma; Rahmet = iyiliği
     // verme. Önce acı kalkar, sonra iyilik gelir.
-    trGloss: 'Râfet acıyı uzaklaştırır, rahmet iyiliği verir — önce yara dindirilir, sonra hediye.',
-    enGloss: 'Raʾfa removes pain, raḥma bestows kindness — the wound is soothed first, then the gift arrives.',
+    trGloss: 'Râfet acıyı uzaklaştırır, rahmet iyiliği verir; önce yara dindirilir, sonra hediye gelir.',
+    enGloss: 'Raʾfa removes pain, raḥma bestows kindness; the wound is soothed first, then the gift arrives.',
   },
   {
     id: 'vasi-alim',
@@ -1507,8 +1507,8 @@ const NAME_PAIRS = [
     enMeaning: 'Boundlessly vast + All-encompassing in knowledge',
     // Râgıb el-İsfahanî: vüsʿat hem rahmet/rızık hem ilim genişliği. Sınırsız
     // genişlik + ihmali olmayan dikkat.
-    trGloss: 'Sınırsız genişlik ve ihmali olmayan dikkat — rahmet kuşatıcıdır, gözden kaçan yoktur.',
-    enGloss: 'Boundless expanse with attention that misses nothing — mercy encompasses, nothing escapes notice.',
+    trGloss: 'Uçsuz genişlik ve ihmali olmayan dikkat; rahmet kuşatıcıdır, gözden kaçan yoktur.',
+    enGloss: 'Boundless expanse with attention that misses nothing; mercy encompasses, nothing escapes notice.',
   },
   {
     id: 'latif-habir',
@@ -1519,8 +1519,8 @@ const NAME_PAIRS = [
     enMeaning: 'Penetrating subtlety + Aware of all',
     // Mülk 67:14, En'âm 6:103. Latîf hem "iyilik eden" hem "ince/gözden kaçan".
     // İnce + haberdar = görünmeyene erişen lütuf.
-    trGloss: 'Görünmeyenin içine sızar, bilinmeyene erişir — lütuf ve bilgi birleşir.',
-    enGloss: 'Penetrates the unseen, reaches the unknown — gentleness and awareness merged.',
+    trGloss: 'Görünmeyenin içine sızar, bilinmeyene erişir; lütuf ve bilgi birleşir.',
+    enGloss: 'Penetrates the unseen, reaches the unknown; gentleness and awareness merged.',
   },
   {
     id: 'gafur-sekur',
@@ -1531,8 +1531,8 @@ const NAME_PAIRS = [
     enMeaning: 'Forgives great error + Appreciates small good',
     // Fâtır 35:30, Şûrâ 42:23, Teğâbun 64:17. Klasik tefsirde dikkat çekilen
     // tezat: hata silinir, hayır kat kat artırılır.
-    trGloss: 'Hata silinir, küçük hayır kat kat artırılır — hesaplama Allah\'a göre asimetriktir.',
-    enGloss: 'Errors are erased, small acts of good are multiplied — His accounting is asymmetric in our favor.',
+    trGloss: 'Hata silinir, küçük hayır kat kat artırılır; Allah\'ın hesabı kulun lehine asimetriktir.',
+    enGloss: 'Errors are erased, small acts of good are multiplied; His accounting is asymmetric in our favor.',
   },
 ];
 
@@ -1578,7 +1578,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
           maxWidth: '780px',
           letterSpacing: '-0.01em',
         }}>
-          {tr ? 'İkili Geçen İsimler — Birlikte Üretilen Anlam' : 'Names That Travel Together'}
+          {tr ? 'İkili Geçen İsimler: Birlikte Üretilen Anlam' : 'Names That Travel Together'}
         </h2>
         <p style={{
           color: COLORS.silver,
@@ -1600,8 +1600,8 @@ function NamePairs({ tr, pairsData, triplesData }) {
           maxWidth: '760px',
         }}>
           {tr
-            ? "Sayım: QuranCodex korpusu — tüm i'rab varyantları (nominative · accusative tanvin · definite · lām emphasis) ve gerekli yerde ters sıra dahil substring tarama."
-            : 'Counting: QuranCodex corpus — substring scan covering all iʿrāb variants (nominative · accusative tanwīn · definite · lām emphasis) with reverse order where applicable.'}
+            ? "Sayım: QuranCodex korpusu; tüm i'rab varyantları (nominative · accusative tanvin · definite · lām emphasis) ve gerekli yerde ters sıra dahil substring tarama."
+            : 'Counting: QuranCodex corpus; substring scan covering all iʿrāb variants (nominative · accusative tanwīn · definite · lām emphasis) with reverse order where applicable.'}
         </p>
 
         {/* Fâsıla bulgusu — siyak-sibak veri kanıtı */}
@@ -1664,8 +1664,8 @@ function NamePairs({ tr, pairsData, triplesData }) {
                 lineHeight: 1.55,
               }}>
                 {tr
-                  ? <>İncelenen <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> geçişin tamamı ayetin son çeyreğinde — çiftler ayet metnine değil, kapanış mührüne yerleşir.</>
-                  : <>All <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> occurrences scanned land in the final quarter of the verse — pairs sit not in the body but on the closing seal.</>}
+                  ? <>İncelenen <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> geçişin tamamı ayetin son çeyreğinde; çiftler ayet metnine değil, kapanış mührüne yerleşir.</>
+                  : <>All <strong style={{ color: COLORS.offWhite }}>{pairsData.positionStats.total}</strong> occurrences scanned land in the final quarter of the verse; pairs sit not in the body but on the closing seal.</>}
               </div>
             </div>
           </motion.div>
@@ -1710,8 +1710,8 @@ function NamePairs({ tr, pairsData, triplesData }) {
               maxWidth: '760px',
             }}>
               {tr
-                ? 'İkililerin ötesi — tek ayette 3, 4 ve hatta 8 isim ardarda. Bu kümeler Kur\'an\'da isim yoğunluğunun zirve noktaları.'
-                : 'Beyond pairs — clusters of 3, 4, and even 8 names in a single verse. These are the peak densities of divine names in the Quran.'}
+                ? 'İkililerin ötesi: tek ayette 3, 4 ve hatta 8 isim art arda. Bu kümeler Kur\'an\'da isim yoğunluğunun zirve noktaları.'
+                : 'Beyond pairs: clusters of 3, 4 and even 8 names in a single verse. These are the peak densities of divine names in the Quran.'}
             </p>
             <div style={{
               display: 'grid',
@@ -1737,8 +1737,8 @@ function NamePairs({ tr, pairsData, triplesData }) {
             lineHeight: 1.75,
           }}>
             {tr
-              ? "Yöntem: Her ayet, harekeleri çıkarılmış surface form üzerinde regex pattern ile taranır. Pattern; lām al-tawkīd prefix'i (لـ), definite article (ال), ve accusative tanvin sonunu opsiyonel kabul eder — böylece 'لغفور رحيم' (Nahl 16:110), 'غفورا رحيما' (Nisâ 4:96) ve 'الرحيم الغفور' (Sebe 34:2) formlarının hepsi yakalanır. Gafûr-Rahîm ve Alîm-Hakîm gibi çiftlerde ters sıra ('الرحيم الغفور') da sayılır. Semî'-Basîr için ters sıra dahil edilmedi: Hûd 11:24'teki 'الْبَصِيرُ وَالسَّمِيعُ' zıtlık karşılaştırmasıdır, Esmâ çifti değildir."
-              : "Method: Each verse is scanned on a diacritic-stripped surface form using regex patterns. The pattern allows optional lām al-tawkīd prefix (li-), definite article (al-), and accusative tanwīn ending — so 'la-ghafūr raḥīm' (al-Naḥl 16:110), 'ghafūran raḥīman' (Nisāʾ 4:96), and 'al-raḥīm al-ghafūr' (Sabaʾ 34:2) are all captured. For pairs like Ghafūr-Raḥīm and ʿAlīm-Ḥakīm, reverse order is also counted. Reverse not included for Samīʿ-Baṣīr: Hūd 11:24's 'al-baṣīr wa-l-samīʿ' is a contrast comparison, not a name pair."}
+              ? "Yöntem: Her ayet, harekeleri çıkarılmış surface form üzerinde regex pattern ile taranır. Pattern; lām al-tawkīd prefix'i (لـ), definite article (ال), ve accusative tanvin sonunu opsiyonel kabul eder; böylece 'لغفور رحيم' (Nahl 16:110), 'غفورا رحيما' (Nisâ 4:96) ve 'الرحيم الغفور' (Sebe 34:2) formlarının hepsi yakalanır. Gafûr-Rahîm ve Alîm-Hakîm gibi çiftlerde ters sıra ('الرحيم الغفور') da sayılır. Semî'-Basîr için ters sıra dahil edilmedi: Hûd 11:24'teki 'الْبَصِيرُ وَالسَّمِيعُ' zıtlık karşılaştırmasıdır, Esmâ çifti değildir."
+              : "Method: Each verse is scanned on a diacritic-stripped surface form using regex patterns. The pattern allows optional lām al-tawkīd prefix (li-), definite article (al-), and accusative tanwīn ending, so 'la-ghafūr raḥīm' (al-Naḥl 16:110), 'ghafūran raḥīman' (Nisāʾ 4:96), and 'al-raḥīm al-ghafūr' (Sabaʾ 34:2) are all captured. For pairs like Ghafūr-Raḥīm and ʿAlīm-Ḥakīm, reverse order is also counted. Reverse not included for Samīʿ-Baṣīr: Hūd 11:24's 'al-baṣīr wa-l-samīʿ' is a contrast comparison, not a name pair."}
           </p>
         )}
       </div>
@@ -2299,8 +2299,8 @@ function KokAileleri({ tr, koklerData }) {
           lineHeight: 1.6,
         }}>
           {tr
-            ? "Korpus geçiş sayıları (kök ailesinin Kur'an'da yaklaşık toplam görünümü): 3 kök harfinin 0-2 harflik aralıkla ardarda göründüğü tüm geçişler — kesin morfolojik root extraction değil, üst-sınır proxy'sidir."
-            : "Corpus occurrence counts (the root family's approximate total in the Quran): all instances where the 3 root letters appear consecutively within a small gap — a proxy upper-bound, not strict morphological extraction."}
+            ? "Korpus geçiş sayıları (kök ailesinin Kur'an'da yaklaşık toplam görünümü): 3 kök harfinin 0-2 harflik aralıkla art arda göründüğü tüm geçişler; kesin morfolojik kök çıkarımı değil, üst sınır tahminidir."
+            : "Corpus occurrence counts (the root family's approximate total in the Quran): all instances where the 3 root letters appear consecutively within a small gap; a proxy upper bound, not strict morphological extraction."}
         </p>
       </div>
     </section>
@@ -2482,8 +2482,8 @@ function SurahNameHeatmap({ tr, heatmapData }) {
           maxWidth: '760px',
         }}>
           {tr
-            ? 'En sık görünen isimlerin, en isim-yoğun 20 sure üzerindeki dağılımı. İsim sütunları soldan sağa azalan frekans sırasında (top 20 sure içi toplama göre). Koyu altın hücreler kümelendiği yeri gösterir — Bakara hukuk ekseninde, Şûrâ rahmet, Hadîd kudret diline kayar.'
-            : "Distribution of the most frequent names across the 20 most name-dense surahs. Name columns are ordered by descending frequency (within top-20 surahs). Deeper gold cells mark clustering — Bakara leans on jurisprudence, Shūrā on mercy, Ḥadīd on power."}
+            ? 'En sık görünen isimlerin, en isim-yoğun 20 sure üzerindeki dağılımı. İsim sütunları soldan sağa azalan frekans sırasında (top 20 sure içi toplama göre). Koyu altın hücreler kümelenme yerini gösterir: Bakara hukuk eksenine, Şûrâ rahmete, Hadîd kudret diline kayar.'
+            : "Distribution of the most frequent names across the 20 most name-dense surahs. Name columns are ordered by descending frequency (within top-20 surahs). Deeper gold cells mark clustering: Bakara leans on jurisprudence, Shūrā on mercy, Ḥadīd on power."}
         </p>
         <p style={{
           color: `${COLORS.gold}C7`,
@@ -2618,8 +2618,8 @@ function SurahNameHeatmap({ tr, heatmapData }) {
           lineHeight: 1.7,
         }}>
           {tr
-            ? "İpucu: Her hücre o ismin o suredeki tekil görünüm sayısıdır. Mobilde yatay kaydırılır. Heatmap top 20 sureyi (en isim-yoğun) içerir — atlama eksikse altta tam atlas'tan ulaşılır."
-            : "Tip: Each cell is the name's distinct occurrences in that surah. Scrolls horizontally on mobile. Heatmap includes the top 20 name-dense surahs — for any name, use the full atlas below."}
+            ? "İpucu: Her hücre o ismin o suredeki tekil görünüm sayısıdır. Mobilde yatay kaydırılır. Isı haritası en isim yoğun 20 sureyi içerir; aradığın isim yoksa aşağıdaki tam atlastan ulaşabilirsin."
+            : "Tip: Each cell is the name's distinct occurrences in that surah. Scrolls horizontally on mobile. The heatmap includes the top 20 name-dense surahs; for any name, use the full atlas below."}
         </p>
 
         {/* Şeffaflık notu — fiil/türev vs isim ayrımı */}
@@ -2650,8 +2650,8 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             margin: 0,
           }}>
             {tr
-              ? <>Sadece <strong style={{ color: COLORS.offWhite }}>isim formları</strong> sayılır — fiil çekimleri ve kök türevleri sayılmaz. Örnek: Bakara 2:163&apos;teki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> Er-Rahmân ismidir <em>(sayılır)</em>; 2:286&apos;daki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> &quot;bize rahmet et&quot; fiilidir <em>(sayılmaz)</em>. Regex pattern&apos;ında kelime sınırı (boşluk veya satır başı/sonu) zorunlu — gömülü kök sequence&apos;ları atlanır.</>
-              : <>Only <strong style={{ color: COLORS.offWhite }}>name forms</strong> are counted — verb conjugations and root derivatives are excluded. Example: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> at Baqara 2:163 is the name ar-Raḥmān <em>(counted)</em>; <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> at 2:286 is the verb &quot;have mercy on us&quot; <em>(skipped)</em>. The regex enforces word boundaries — embedded root sequences are ignored.</>}
+              ? <>Sadece <strong style={{ color: COLORS.offWhite }}>isim formları</strong> sayılır; fiil çekimleri ve kök türevleri sayılmaz. Örnek: Bakara 2:163&apos;teki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> Er-Rahmân ismidir <em>(sayılır)</em>; 2:286&apos;daki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> &quot;bize rahmet et&quot; fiilidir <em>(sayılmaz)</em>. Regex pattern&apos;ında kelime sınırı (boşluk veya satır başı/sonu) zorunlu; gömülü kök dizileri atlanır.</>
+              : <>Only <strong style={{ color: COLORS.offWhite }}>name forms</strong> are counted; verb conjugations and root derivatives are excluded. Example: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> at Baqara 2:163 is the name ar-Raḥmān <em>(counted)</em>; <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> at 2:286 is the verb &quot;have mercy on us&quot; <em>(skipped)</em>. The regex enforces word boundaries; embedded root sequences are ignored.</>}
           </p>
         </div>
       </div>
@@ -3454,8 +3454,8 @@ function NameDetail({ item, tr, isAllah }) {
           {kok.terkip && (
             <p style={{ color: COLORS.silver, fontSize: '0.76rem', lineHeight: 1.6, margin: '8px 0 0', textAlign: 'center' }}>
               {tr
-                ? 'Terkip hâlinde bir isim — kök, belirleyici kelimesine aittir.'
-                : 'A compound name — the root belongs to its head word.'}
+                ? 'Terkip hâlinde bir isim; kök, belirleyici kelimesine aittir.'
+                : 'A compound name; the root belongs to its head word.'}
             </p>
           )}
           {kok.sarfIzni && (
@@ -3505,7 +3505,7 @@ function NameDetail({ item, tr, isAllah }) {
             <strong>{tr ? 'Klasik konkordans: ' : 'Classical concordance: '}</strong>
             {ALLAH_CLASSIC_COUNT.toLocaleString(tr ? 'tr-TR' : 'en-US')}
             <span style={{ color: COLORS.silver, fontSize: '0.78rem', marginLeft: '6px' }}>
-              ({tr ? 'lemma — tüm morfolojik formlar dahil' : 'lemma — all morphological forms included'})
+              ({tr ? 'lemma; tüm morfolojik formlar dahil' : 'lemma; all morphological forms included'})
             </span>
           </p>
           <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 8px' }}>
@@ -3573,7 +3573,7 @@ function NameDetail({ item, tr, isAllah }) {
           margin: '16px 0 0',
         }}>
           {tr
-            ? 'Bu isim Kur’an’da tam olarak bu kelime hâliyle geçmez; doksan dokuzluk listeye hadis yoluyla girmiştir. Yukarıdaki âyetler ismin kökünün — fiil veya terkip hâlinde — geçtiği yerlerdir.'
+            ? 'Bu isim Kur’an’da tam olarak bu kelime hâliyle geçmez; doksan dokuzluk listeye hadis yoluyla girmiştir. Yukarıdaki âyetler ismin kökünün fiil veya terkip hâlinde geçtiği yerlerdir.'
             : 'This name does not occur in the Qurʾān in exactly this word-form; it enters the list of ninety-nine through hadith. The verses above are where its root occurs, as a verb or within a phrase.'}
         </p>
       )}
@@ -3627,8 +3627,8 @@ function ClosingReflection({ tr, language }) {
       href: `/${language}/graf/ayet`,
       titleTr: 'Ayet Grafiği',
       titleEn: 'Verse Graph',
-      descTr: 'Tek bir ismin geçtiği her ayeti — semantik komşularıyla birlikte — ağ olarak inceleyin.',
-      descEn: 'Examine every verse containing a single name — together with its semantic neighbors — as a network.',
+      descTr: 'Tek bir ismin geçtiği her ayeti semantik komşularıyla birlikte ağ olarak inceleyin.',
+      descEn: 'Examine every verse containing a single name, together with its semantic neighbors, as a network.',
     },
   ];
 
@@ -3746,13 +3746,13 @@ function ClosingReflection({ tr, language }) {
           }}
         >
           {tr
-            ? <>Açılışta dedik: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;O&apos;nu kuşatamayız.&quot;</em> Şimdi söylüyoruz: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;O bize bizden daha yakındır.&quot;</em> İki ayet birbirini iptal etmez — tek hakikati iki yönden gösterir. Tanzîh ve yakınlık aynı anda.</>
-            : <>At the opening we said: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;We cannot contain Him.&quot;</em> Now we say: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;He is nearer than our own selves.&quot;</em> The two verses do not cancel — they show one truth from two sides. Transcendence and nearness, at once.</>}
+            ? <>Açılışta dedik: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;O&apos;nu kuşatamayız.&quot;</em> Şimdi söylüyoruz: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;O bize bizden daha yakındır.&quot;</em> İki ayet birbirini iptal etmez; tek hakikati iki yönden gösterir. Tanzîh ve yakınlık aynı anda.</>
+            : <>At the opening we said: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;We cannot contain Him.&quot;</em> Now we say: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;He is nearer than our own selves.&quot;</em> The two verses do not cancel each other; they show one truth from two sides. Transcendence and nearness, at once.</>}
         </motion.p>
 
         {/* Cross-tool CTA strip — 3 araç */}
         <div style={{ ...sectionLabel, textAlign: 'center', marginBottom: '16px' }}>
-          {tr ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
+          {tr ? 'Daha Derine: İlgili Araçlar' : 'Go Deeper: Related Tools'}
         </div>
         <p style={{
           color: COLORS.silver,
@@ -3965,12 +3965,12 @@ function Methodology({ data, tr }) {
                 "Şart" claim'i burada somut yorumlama kuralına bağlanıyor:
                 isimler tanır, kuşatmaz; bu sayfa tanzîh çerçevesi içinde okunmalıdır. */}
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
-              {tr ? 'Yorumlama İlkesi — Tanzîh' : 'Interpretive Principle — Tanzīh'}
+              {tr ? 'Yorumlama İlkesi: Tanzîh' : 'Interpretive Principle: Tanzīh'}
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
               {tr
-                ? <>Sayfa açılışında Şûrâ 42:11&apos;i (&quot;O&apos;nun benzeri bir şey yoktur&quot;) koymamız tesadüf değil — tüm okuma <strong style={{ color: COLORS.offWhite }}>tanzîh</strong> çerçevesinde yapılır: <strong style={{ color: COLORS.offWhite }}>isimler O&apos;nu tarif eder, sınırlamaz</strong>. Beşerî dilden ödünç aldığımız her sıfat (&quot;hayy&quot;, &quot;semîʿ&quot;, &quot;basîr&quot;…) insan referansından arınmış olarak anlaşılır; antropomorfik okuma yanılgıdır. &quot;El-Hayy&quot; (Diri) insan canlılığı değil; &quot;Es-Semîʿ&quot; (İşiten) kulak organı değil. Bu sayfada görülen 114 isim O&apos;nu <strong style={{ color: COLORS.offWhite }}>tanır</strong>, ama O&apos;nu kuşatmaz — kuşatamaz.</>
-                : <>Opening with Shūrā 42:11 (&quot;There is nothing like Him&quot;) is not incidental — the entire reading operates within the framework of <strong style={{ color: COLORS.offWhite }}>tanzīh</strong>: <strong style={{ color: COLORS.offWhite }}>the names describe Him, they do not delimit Him</strong>. Every attribute we borrow from human language (&quot;ḥayy&quot;, &quot;samīʿ&quot;, &quot;baṣīr&quot;…) is understood stripped of its anthropomorphic reference; reading these as human-like attributes is the central error. &quot;al-Ḥayy&quot; (Living) is not biological life; &quot;as-Samīʿ&quot; (Hearing) is not an auditory organ. The 114 names on this page <strong style={{ color: COLORS.offWhite }}>describe</strong> Him — they do not contain Him, and cannot.</>}
+                ? <>Sayfa açılışında Şûrâ 42:11&apos;i (&quot;O&apos;nun benzeri bir şey yoktur&quot;) koymamız tesadüf değil; tüm okuma <strong style={{ color: COLORS.offWhite }}>tanzîh</strong> çerçevesinde yapılır: <strong style={{ color: COLORS.offWhite }}>isimler O&apos;nu tarif eder, sınırlamaz</strong>. Beşerî dilden ödünç aldığımız her sıfat (&quot;hayy&quot;, &quot;semîʿ&quot;, &quot;basîr&quot;…) insan referansından arınmış olarak anlaşılır; antropomorfik okuma yanılgıdır. &quot;El-Hayy&quot; (Diri) insan canlılığı değil; &quot;Es-Semîʿ&quot; (İşiten) kulak organı değil. Bu sayfada görülen 114 isim O&apos;nu <strong style={{ color: COLORS.offWhite }}>tanır</strong>, ama O&apos;nu kuşatmaz; kuşatamaz.</>
+                : <>Opening with Shūrā 42:11 (&quot;There is nothing like Him&quot;) is not incidental; the entire reading operates within the framework of <strong style={{ color: COLORS.offWhite }}>tanzīh</strong>: <strong style={{ color: COLORS.offWhite }}>the names describe Him, they do not delimit Him</strong>. Every attribute we borrow from human language (&quot;ḥayy&quot;, &quot;samīʿ&quot;, &quot;baṣīr&quot;…) is understood stripped of its anthropomorphic reference; reading these as human-like attributes is the central error. &quot;al-Ḥayy&quot; (Living) is not biological life; &quot;as-Samīʿ&quot; (Hearing) is not an auditory organ. The 114 names on this page <strong style={{ color: COLORS.offWhite }}>describe</strong> Him; they do not contain Him, and cannot.</>}
             </p>
 
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>

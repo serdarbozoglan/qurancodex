@@ -53,8 +53,8 @@ const SURAS = [
     verseRef: '74:26',
     harshLetters: ['ص', 'ق'],
     softLetters: ['ل', 'ي', 'ه', 'ر'],
-    descTr: 'Kısa bir cümlede iki patlayıcı ünsüz (ص، ق) — azabın sertliği sese yansır.',
-    descEn: 'Two explosive consonants (ص، ق) in a single short phrase — the harshness of punishment echoes in the sound.',
+    descTr: 'Kısa bir cümlede iki patlayıcı ünsüz (ص، ق); azabın sertliği sese yansır.',
+    descEn: 'Two explosive consonants (ص، ق) in a single short phrase; the harshness of punishment echoes in the sound.',
     audioKey: '074026',
   },
   {
@@ -67,8 +67,8 @@ const SURAS = [
     verseRef: '19:13',
     harshLetters: ['د', 'ت', 'ق'],
     softLetters: ['و', 'ح', 'ن', 'م', 'ل'],
-    descTr: 'ح، ن، م، ل — nazal ve akıcı sesler rahmetin yumuşaklığını taşır; kapanış "takıyyâ" da bu yumuşaklıkla uyum içinde.',
-    descEn: 'ح، ن، م، ل — nasal and liquid consonants carry the tenderness of mercy; even the closing "taqiyyā" flows in that same softness.',
+    descTr: 'ح، ن، م، ل: nazal ve akıcı sesler rahmetin yumuşaklığını taşır; kapanış "takıyyâ" da bu yumuşaklıkla uyum içinde.',
+    descEn: 'ح، ن، م، ل: nasal and liquid consonants carry the tenderness of mercy; even the closing "taqiyyā" flows in that same softness.',
     audioKey: '019013',
   },
   {
@@ -95,8 +95,8 @@ const SURAS = [
     verseRef: '55:1-2',
     harshLetters: ['ق'],
     softLetters: ['ر', 'ح', 'م', 'ن', 'ل'],
-    descTr: 'ر، ح، م، ن — dört yumuşak ses, dört nimetin müziği.',
-    descEn: 'ر، ح، م، ن — four flowing sounds for four opening blessings.',
+    descTr: 'ر، ح، م، ن: dört yumuşak ses, dört nimetin müziği.',
+    descEn: 'ر، ح، م، ن: four flowing sounds for four opening blessings.',
     // #197 (2026-07-19) — Ekranda 55:1-2 iki ayet gösteriliyor; audio da her ikisini
     // sırayla çalar (55:1 tek başına yalnız "er-Rahmân"; ekran-audio parity gerekli).
     audioKey: ['055001', '055002'],
@@ -1165,7 +1165,7 @@ export default function SoundArchitecture() {
       {/* ── 2. Four Sura Tabs ── */}
       <motion.div variants={fadeUpItem} className="mb-4">
         <p className="text-silver/60 text-xs font-body mb-4 uppercase tracking-widest">
-          {language === 'tr' ? 'Bir sûre seçin — ayeti duyun' : 'Select a surah — hear the verse'}
+          {language === 'tr' ? 'Bir sûre seçin, ayeti duyun' : 'Select a surah and hear the verse'}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {SURAS.map(sura => {
@@ -1332,8 +1332,8 @@ export default function SoundArchitecture() {
                         fontSize: '0.7rem', color: COLORS.silver, fontFamily: 'Inter, sans-serif', lineHeight: 1.6,
                       }}>
                         {language === 'tr'
-                          ? 'Bu gösterim sûrenin fonetik dokusunu sezgisel olarak temsil eder; kesin bir dilbilimsel ölçüm değil, işitsel bir rehberdir. Sert: ق ك ط ت د ض ص ب خ غ — Yumuşak: م ن ل ر و ي ه ح ف'
-                          : 'This bar illustrates the phonetic texture intuitively — not a precise linguistic measurement, but an auditory guide. Hard: ق ك ط ت د ض ص ب خ غ — Soft: م ن ل ر و ي ه ح ف'}
+                          ? 'Bu gösterim sûrenin fonetik dokusunu sezgisel olarak temsil eder; kesin bir dilbilimsel ölçüm değil, işitsel bir rehberdir. Sert: ق ك ط ت د ض ص ب خ غ · Yumuşak: م ن ل ر و ي ه ح ف'
+                          : 'This bar illustrates the phonetic texture intuitively; not a precise linguistic measurement, but an auditory guide. Hard: ق ك ط ت د ض ص ب خ غ · Soft: م ن ل ر و ي ه ح ف'}
                       </div>
                     )}
                   </div>
@@ -1458,7 +1458,7 @@ export default function SoundArchitecture() {
             className="font-body uppercase tracking-[0.24em] text-xs"
             style={{ color: COLORS.gold, opacity: 0.75 }}
           >
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 

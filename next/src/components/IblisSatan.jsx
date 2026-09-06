@@ -915,9 +915,9 @@ export default function IblisSatan({ onClose }) {
         isMobile={isMobile}
         sources={[
           { author: 'er-Râzî',                  workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',           period: '1149–1209 (Rey)',     noteTr: 'A\'râf 7:12 ateş-çamur diyaloğunun kelâmî analizi.',           noteEn: 'Kalāmic analysis of the fire-clay dialogue in Aʿrāf 7:12.' },
-          { author: 'et-Taberî',                workTr: 'Câmiu\'l-Beyân',              workEn: 'Jāmiʿ al-Bayān',             period: '839–923 (Âmûl)',      noteTr: '7 sûrenin karşılaştırmalı tefsiri — İblis kıssasının ayrıntıları.', noteEn: 'Comparative commentary on the 7 surahs — details of the Iblis narrative.' },
-          { author: 'el-Mâturîdî',              workTr: 'Te\'vîlâtu\'l-Kur\'ân',       workEn: 'Taʾwīlāt al-Qurʾān',         period: '853–944 (Semerkand)', noteTr: 'İblis\'in cin kimliği (Kehf 18:50) — yaratılış ve isyân ilişkisi.', noteEn: 'Iblis\'s jinn identity (Kahf 18:50) — creation and rebellion.' },
-          { author: 'İbn Kayyim el-Cevziyye',   workTr: 'İğâsetü\'l-Lehfân',           workEn: 'Ighāthat al-Lahfān',         period: '1292–1350 (Şâm)',     noteTr: 'Şeytan\'ın hile yöntemleri — Kur\'an ve hadis kaynaklı tipoloji.',  noteEn: 'Satan\'s methods of deception — typology from Qurʾan and ḥadīth.' },
+          { author: 'et-Taberî',                workTr: 'Câmiu\'l-Beyân',              workEn: 'Jāmiʿ al-Bayān',             period: '839–923 (Âmûl)',      noteTr: '7 sûrenin karşılaştırmalı tefsiri; İblis kıssasının ayrıntıları.', noteEn: 'Comparative commentary on the 7 surahs; details of the Iblis narrative.' },
+          { author: 'el-Mâturîdî',              workTr: 'Te\'vîlâtu\'l-Kur\'ân',       workEn: 'Taʾwīlāt al-Qurʾān',         period: '853–944 (Semerkand)', noteTr: 'İblis\'in cin kimliği (Kehf 18:50); yaratılış ve isyân ilişkisi.', noteEn: 'Iblis\'s jinn identity (Kahf 18:50); creation and rebellion.' },
+          { author: 'İbn Kayyim el-Cevziyye',   workTr: 'İğâsetü\'l-Lehfân',           workEn: 'Ighāthat al-Lahfān',         period: '1292–1350 (Şâm)',     noteTr: 'Şeytan\'ın hile yöntemleri; Kur\'an ve hadis kaynaklı tipoloji.',  noteEn: 'Satan\'s methods of deception; a typology from Qurʾan and ḥadīth.' },
         ]}
       />
 
@@ -925,9 +925,9 @@ export default function IblisSatan({ onClose }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefis Mertebeleri', titleEn: 'Stations of the Self', descTr: 'İç yolun haritası — nefs-i emmâreden mutmainneye.', descEn: 'Map of the inner path — from the commanding self to the tranquil.' },
+          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefis Mertebeleri', titleEn: 'Stations of the Self', descTr: 'İç yolun haritası: nefs-i emmâreden mutmainneye.', descEn: 'Map of the inner path: from the commanding self to the tranquil.' },
           { href: `/${language}/atlas/munafik`, titleTr: 'Münâfık Profili', titleEn: 'The Hypocrite Profile', descTr: "İblis'in insan yüzü.", descEn: "Iblis's human face." },
-          { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'İçsel ekosistem — kalp, nefs, kalp gözü.', descEn: "Inner ecosystem — heart, self, heart's eye." },
+          { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'İçsel ekosistem: kalp, nefs, kalp gözü.', descEn: "Inner ecosystem: heart, self, heart's eye." },
         ]}
       />
       </div>
