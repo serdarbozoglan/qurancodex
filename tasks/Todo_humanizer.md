@@ -43,7 +43,7 @@ Etki × görünürlük sırasıyla:
 - [x] **P1 · Ana sayfa** (2026-09-05, commit b77d53e1) (`src/data/homeCards.js`, `src/i18n/tr.json` → `hero`/`conclusion`, `src/sections/SixGates.jsx`, `ConciergePrompt.jsx`, `page.js` ClusterWhisper satırları, `Hero.jsx:353`). Detay: §2.
 - [x] **P1 · Sayfa başlıkları ve meta açıklamaları** (2026-09-06; başlıklarda yalnız slogan yarıları değişti, Title Case tutarlılık için ertelendi, bkz. §3 notu) (80 `page.js` dosyasında `TITLE_TR/EN`, `DESC_TR/EN`). Google snippet'i ve `<h1>` altı bunlar. Detay: §3.
 - [x] **P2 · Tefekkür tldr'ları ve criticalNote'lar** ✅ (2026-09-06: 53 tldr TR+EN yeniden yazıldı; criticalNote'lar bekliyor) (`public/tefekkur/_index.json` + 53 yazı). Gövde yazarın; tldr ve not kutuları sitenin. Detay: §4.
-- [ ] **P2 · Uzun anlatı bölümleri** (`src/i18n/tr.json` + `en.json`: linguisticDNA, hiddenSymmetry, scientificSigns, historicalProof, livingPreservation, zeroRedundancy, highlights, humanDefinition, psychology, impossibleRhythm, soundArchitecture). Bu bölümler Next tarafında `src/sections/*.jsx` üzerinden araç sayfalarında render ediliyor. Detay: §5.
+- [x] **P2 · Uzun anlatı bölümleri** ✅ (2026-09-06: 182 TR + 203 EN dize) (`src/i18n/tr.json` + `en.json`: linguisticDNA, hiddenSymmetry, scientificSigns, historicalProof, livingPreservation, zeroRedundancy, highlights, humanDefinition, psychology, impossibleRhythm, soundArchitecture). Bu bölümler Next tarafında `src/sections/*.jsx` üzerinden araç sayfalarında render ediliyor. Detay: §5.
 - [ ] **P3 · Araç ve atlas bileşenleri** (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.
 - [ ] **P3 · Katalog ve gezinme metinleri** (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
 - [ ] **P4 · Yardımcı sayfalar** (hakkında, kaynakça, sor, kütüphanem, not-found). Çoğu temiz; küçük dokunuşlar. Detay: §8.
@@ -122,16 +122,16 @@ Dosyalar: `src/i18n/tr.json` (237 tire, 64 "değil", 51 Title Case), `src/i18n/e
 
 Genel gözlem: Bu bölümler sitenin en dengeli metinleri; kaynak adı veriyor, "akademik nüans" notu düşüyor. Sorun üslup değil, ritim: her paragraf aynı 3 hamleyle kurulmuş (şok cümle → kısa kırık cümleler → "Ama…" dönüşü).
 
-- [ ] **hiddenSymmetry**: "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi." Kırık cümle dizisi (§31) + "mükemmel".
-- [ ] **psychology** (404 string, en büyük bölüm): "Tek bir şey değil — bir yolculuk." "Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı." Zaferci ton, ardından "Akademik nüans:" ile geri alınıyor. Cümleyi baştan dengeli yazmak iki cümleyi bir yapar (§24: önce abart, sonra düzelt).
-- [ ] **impossibleRhythm**: "Bir benzeri getirin meydan okuması 1.400 yıldır yanıtsız." EN `ImpossibleRhythm.jsx`: "A work that created its own category. Unique in the history of literature — neither poetry nor prose, beyond both, a form entirely its own. ... no one has produced its equal in 1,400 years." Dört üstünlük iddiası üst üste.
-- [ ] **scientificSigns**: "Yarattık değil, inşa ettik değil: indirdik." (üçlü değil), "Modern astrofizik ise bu seçimi neden dikkat çekici kıldığını gösteren…"
-- [ ] **livingPreservation**: "Mekke'deki Kur'an = Medine'deki = İstanbul'daki = Kahire'deki = Jakarta'daki." (eşittir zinciri; homeCards'ta da tekrar ediyor).
-- [ ] **humanDefinition**: "Ama bu dönüşümün hedefi belirsiz değil — çok net tanımlanmış. Mü'min kim? Muhsin kim? Muttakî ne demek? Bu terimler eş anlamlı değil; her biri…" Peş peşe üç retorik soru + iki "değil".
-- [ ] **highlights**: "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor." Simetrik cümle çifti; bir tane yeter.
-- [ ] **conclusion.points** (tr.json): "Bazı ayetleri modern bilimin keşifleriyle paralel okunmaktadır" dilbilgisi bozuk (ayetleri → ayetleri … okunuyor). Bu dizi Next ana sayfasında render edilmiyor ama tr.json'da duruyor; ya düzelt ya sil.
-- [ ] **Title Case (51)**: bölüm h2/h3'leri: "Dilbilimsel Gözlemler — Dua Dilinin Üç Penceresi", "Klasik Çerçeveler — Dengeleyici Zâhirî Perspektif", "Daha Derine — İlgili Sûreler", "Klasik Tefsir Çeşitliliği".
-- [ ] **Belirsiz kaynak**: "Bazı araştırmacılar … checksum … ileri sürmüştür. Bu yorum akademik bir hipotezdir" (linguisticDNA). Kim? Kaynakça'da varsa adı verilsin; yoksa cümle kalksın.
+- [x] **hiddenSymmetry**: "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi." Kırık cümle dizisi (§31) + "mükemmel".
+- [x] **psychology** (404 string, en büyük bölüm): "Tek bir şey değil — bir yolculuk." "Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı." Zaferci ton, ardından "Akademik nüans:" ile geri alınıyor. Cümleyi baştan dengeli yazmak iki cümleyi bir yapar (§24: önce abart, sonra düzelt).
+- [x] **impossibleRhythm**: "Bir benzeri getirin meydan okuması 1.400 yıldır yanıtsız." EN `ImpossibleRhythm.jsx`: "A work that created its own category. Unique in the history of literature — neither poetry nor prose, beyond both, a form entirely its own. ... no one has produced its equal in 1,400 years." Dört üstünlük iddiası üst üste.
+- [x] **scientificSigns**: "Yarattık değil, inşa ettik değil: indirdik." (üçlü değil), "Modern astrofizik ise bu seçimi neden dikkat çekici kıldığını gösteren…"
+- [x] **livingPreservation**: "Mekke'deki Kur'an = Medine'deki = İstanbul'daki = Kahire'deki = Jakarta'daki." (eşittir zinciri; homeCards'ta da tekrar ediyor).
+- [x] **humanDefinition**: "Ama bu dönüşümün hedefi belirsiz değil — çok net tanımlanmış. Mü'min kim? Muhsin kim? Muttakî ne demek? Bu terimler eş anlamlı değil; her biri…" Peş peşe üç retorik soru + iki "değil".
+- [x] **highlights**: "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor." Simetrik cümle çifti; bir tane yeter.
+- [x] **conclusion.points** (tr.json): "Bazı ayetleri modern bilimin keşifleriyle paralel okunmaktadır" dilbilgisi bozuk (ayetleri → ayetleri … okunuyor). Bu dizi Next ana sayfasında render edilmiyor ama tr.json'da duruyor; ya düzelt ya sil.
+- [x] **Title Case (51)** ✅ (kısa başlıklarda tire → iki nokta yapıldı; büyük harf düzeni §9 kararına bağlı): bölüm h2/h3'leri: "Dilbilimsel Gözlemler — Dua Dilinin Üç Penceresi", "Klasik Çerçeveler — Dengeleyici Zâhirî Perspektif", "Daha Derine — İlgili Sûreler", "Klasik Tefsir Çeşitliliği".
+- [x] **Belirsiz kaynak**: "Bazı araştırmacılar … checksum … ileri sürmüştür. Bu yorum akademik bir hipotezdir" (linguisticDNA). Kim? Kaynakça'da varsa adı verilsin; yoksa cümle kalksın.
 - [ ] Temiz örnekler (dokunma): historicalProof'un eleştirel paragrafları (Dever, Bucaille reddi, 'Edna el-ard' notu), zeroRedundancy'nin Musa kıssası paragrafı, scientificSigns'ın alaka paragrafı. Bunlar hedef ton.
 
 ---
@@ -173,7 +173,7 @@ Dosyalar: `src/data/toolCatalog.js`, `src/data/tools.jsx`, `src/data/exploreCate
 - [ ] **Kaynakça**: temiz; tek satırlık eser açıklamaları doğal. "Pinnacle of rational/theological exegesis" ("doruğu") tek satış kelimesi. Dokunma.
 - [x] **Sor**: "Sistem yorum katmaz — sadece rehberler." (fiil hatası + tire; ana sayfa concierge'de de aynı). Fetva uyarısı iyi, kalsın. Örnek sorular doğal.
 - [ ] **Kütüphanem**, **not-found**: yalnız tire.
-- [ ] **Footer** `support.description`: "Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar." (§3 -ing uzantısı + journey). İlk cümle yeter.
+- [x] **Footer** `support.description`: "Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar." (§3 -ing uzantısı + journey). İlk cümle yeter.
 
 ---
 

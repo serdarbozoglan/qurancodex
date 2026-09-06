@@ -1477,3 +1477,1176 @@ Kaynak: `next/public/tefekkur/*.json` + `_index.json` (+ `TefekkurHighlight.jsx`
 - ÖNCE: tldrEn: 'Garden, jinn, majnun, shield, fetus, heart — all from one root. The common thread: concealment. Garden veils with leaves, jinn is invisible, the intellect has a veil over it in majnun.',
   SONRA: tldrEn: 'Garden, jinn, majnun, shield, fetus and heart come from one root. The common thread is concealment: the garden veils with leaves, the jinn is invisible, and in majnun a veil falls over the intellect.',
 
+
+## 4. Uzun anlatı bölümleri: tr.json / en.json (2026-09-06)
+
+Kapsam: araç sayfalarında render edilen bölümler (linguisticDNA, impossibleRhythm, soundArchitecture, hiddenSymmetry, scientificSigns, livingPreservation, zeroRedundancy, highlights, humanDefinition, iblisSatan, psychology) + footer.support. historicalProof hiçbir yerden import edilmediği için dokunulmadı. Anahtarlar aynı; yalnız değerler değişti. Diyagram etiketleri (A — Allah'ın İsmi), tecvid ezberleri ve kaynakça adları olduğu gibi bırakıldı.
+
+### `next/src/i18n/en.json`
+
+- ÖNCE: "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No human has been able to establish with certainty what they mean. A pattern that has resisted scholarly consensus for 1,400 years, drawing multiple interpretations across the tradition. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have remained open to interpretation for 1,400 years. A divine mystery? A system of balance? Only Allah, the Lord of all worlds, knows.",
+  SONRA: "intro": "Twenty-nine chapters of the Quran open with sequences of letters: Alif-Lam-Mim, Ha-Mim, Ya-Sin. No one has been able to establish with certainty what they mean; the pattern has resisted scholarly consensus for 1,400 years and drawn many interpretations. What we do know is this: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14, and why precisely half the alphabet? The questions have remained open for 1,400 years. A divine mystery, or a system of balance? Only Allah, the Lord of all worlds, knows.",
+
+- ÖNCE: "description": "Some researchers have proposed that, just as modern digital systems use checksums to protect data integrity, these letters may have served a similar built-in verification function for the Quranic text. This remains an academic hypothesis — the Quran itself does not explain the purpose of these letters."
+  SONRA: "description": "Some researchers have proposed that, just as modern digital systems use checksums to protect data integrity, these letters may have served a similar built-in verification function for the Quranic text. This remains an academic hypothesis; the Quran itself does not explain the purpose of these letters."
+
+- ÖNCE: "intro": "In 7th-century Arabia, the dominant literary forms were metrical poetry and rhymed/free oratory; the Quran's style was perceived by many contemporaries as not fully fitting these molds — rhythmic yet not reducible to a fixed meter. The classical rhetorical tradition (al-Bāqillānī, al-Jurjānī) regards this 'neither poetry nor prose' form as unique within the framework of iʿjāz al-bayān — a category of its own.",
+  SONRA: "intro": "In 7th-century Arabia, the dominant literary forms were metrical poetry and rhymed or free oratory. Many contemporaries perceived the Quran's style as fitting neither mold: rhythmic, yet not reducible to a fixed meter. The classical rhetorical tradition (al-Bāqillānī, al-Jurjānī) treats this \"neither poetry nor prose\" form as a category of its own within the framework of iʿjāz al-bayān.",
+
+- ÖNCE: "label": "The Literary Challenge — I'jaz",
+  SONRA: "label": "The Literary Challenge: I'jaz",
+
+- ÖNCE: "text": "The Meccan opponents tried to dismiss it as 'poetry' — yet it fit none of the 16 Arabic poetic meters. They called it 'soothsayer's speech' — but it transcended even the saj' (rhymed prose) form. The challenge to \"bring something like it\" has gone unanswered for 1,400 years."
+  SONRA: "text": "The Meccan opponents tried to dismiss it as \"poetry\", yet it fit none of the 16 Arabic poetic meters. They called it \"soothsayer's speech\", but it went beyond even the saj' (rhymed prose) form. The challenge to \"bring something like it\" has gone unanswered for 1,400 years."
+
+- ÖNCE: "desc": "Every sura in the Quran has its own distinctive closing sound — called 'fasila'. This pattern at the end of each verse does not appear reducible to either a simple rhyme rule or coincidence — it suggests a deliberate sound architecture.",
+  SONRA: "desc": "Every sura in the Quran has its own distinctive closing sound, called \"fasila\". The pattern at the end of each verse does not appear reducible to a simple rhyme rule or to coincidence; it suggests a deliberate sound architecture.",
+
+- ÖNCE: "title": "Sura Ad-Duha — The '-â' Fasila",
+  SONRA: "title": "Sura Ad-Duha: The '-â' Fasila",
+
+- ÖNCE: "note": "The first 8 of the sura's 11 verses end with the same long '-ā' sound (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aghnā). In the final 3 verses the sound shifts as the sura moves from describing divine grace to issuing moral commands — sound and meaning break together.",
+  SONRA: "note": "The first 8 of the sura's 11 verses end with the same long '-ā' sound (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aghnā). In the final 3 verses the sound shifts as the sura moves from describing divine grace to issuing moral commands; sound and meaning break together.",
+
+- ÖNCE: "detail": "The dominant closing sound remains consistent across 62 verses. The Arabic qaṣīda tradition can also sustain the same rhyme over long stretches; yet the Quran achieves this sonic coherence without requiring strict meter — a distinctive form.",
+  SONRA: "detail": "The dominant closing sound remains consistent across 62 verses. The Arabic qaṣīda tradition can also sustain the same rhyme over long stretches; the Quran achieves this sonic coherence without requiring strict meter, which makes it a distinctive form.",
+
+- ÖNCE: "detail": "After every two verses, the refrain 'Which of your Lord's favors will you deny?' returns — fasila and refrain working together, interwoven.",
+  SONRA: "detail": "After every two verses the refrain \"Which of your Lord's favors will you deny?\" returns; fasila and refrain work together, interwoven.",
+
+- ÖNCE: "infoText": "Refrain: A line repeated at intervals in poetry. In Al-Qamar, 'And We have certainly made the Quran easy to remember — so is there any who will take heed?' (54:17) is repeated 4 times."
+  SONRA: "infoText": "Refrain: a line repeated at intervals in poetry. In Al-Qamar, \"And We have certainly made the Quran easy to remember, so is there any who will take heed?\" (54:17) is repeated 4 times."
+
+- ÖNCE: "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط — tension in throat, tongue, palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. This contrast is striking — modern linguistics studies similar phenomena under 'phonetic symbolism.' (Note: the classical tajwīd terms tafhīm/tarqīq are rules for the heavy/light articulation of letters, not the same thing as modern sound-meaning symbolism.)",
+  SONRA: "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط; tension in the throat, tongue and palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. The contrast is striking, and modern linguistics studies similar phenomena under \"phonetic symbolism\". (Note: the classical tajwīd terms tafhīm and tarqīq are rules for the heavy and light articulation of letters, not the same thing as modern sound-meaning symbolism.)",
+
+- ÖNCE: "title": "Phonetic Symbolism — Two Traditions, One Phenomenon",
+  SONRA: "title": "Phonetic Symbolism: Two Traditions, One Phenomenon",
+
+- ÖNCE: "description": "Modern phonetics (Sapir 1929; Köhler's bouba/kiki effect, 1929) shows that sounds carry meaning in themselves: plosives (ق ك ط) evoke tension; nasals (م ن) and liquids (ل ر) evoke release. The classical Islamic science of tajwid had already classified the same phenomenon — thick/thin (tafhīm/tarqīq), hard/soft (shidda/rakhāwa), echoing/static (qalqala). In the Quran, this pattern reveals a systematic correspondence between subject matter and sonic texture."
+  SONRA: "description": "Modern phonetics (Sapir 1929; Köhler's bouba/kiki effect, 1929) shows that sounds carry meaning in themselves: plosives (ق ك ط) evoke tension; nasals (م ن) and liquids (ل ر) evoke release. The classical Islamic science of tajwid had already classified the same phenomenon: thick and thin (tafhīm/tarqīq), hard and soft (shidda/rakhāwa), echoing and static (qalqala). In the Quran, this pattern reveals a systematic correspondence between subject matter and sonic texture."
+
+- ÖNCE: "title": "Sonic Texture — Side by Side",
+  SONRA: "title": "Sonic Texture, Side by Side",
+
+- ÖNCE: "feature": "The sound itself enacts 'the striking'",
+  SONRA: "feature": "The sound itself enacts \"the striking\"",
+
+- ÖNCE: "noteEn": "ق returns in each of the three verses — clogged in the throat, then bursting. 'Qāriʿa' literally means 'the striker' — sound becomes meaning."
+  SONRA: "noteEn": "ق returns in each of the three verses; clogged in the throat, then bursting. \"Qāriʿa\" literally means \"the striker\"; sound becomes meaning."
+
+- ÖNCE: "feature": "Flowing, open sounds — the 'bride of the Quran'",
+  SONRA: "feature": "Flowing, open sounds; the \"bride of the Quran\"",
+
+- ÖNCE: "methodologyEn": "This comparison is intuitive, not statistical — an audible illustration of how sound texture aligns with message, not a precise count."
+  SONRA: "methodologyEn": "This comparison is intuitive, not statistical: an audible illustration of how sound texture aligns with message, not a precise count."
+
+- ÖNCE: "subtitle": "Muslims have known these categories for 1,400 years — Western linguistics rediscovered them in the 20th century",
+  SONRA: "subtitle": "Tajwid has defined these categories for centuries; Western linguistics arrived at similar distinctions in the 20th century",
+
+- ÖNCE: "name": "Tafhīm — Heavy Sounds",
+  SONRA: "name": "Tafhīm: Heavy Sounds",
+
+- ÖNCE: "function": "Weight, authority, majesty — carries jalāl"
+  SONRA: "function": "Weight, authority, majesty; carries jalāl"
+
+- ÖNCE: "name": "Tarqīq — Light Sounds",
+  SONRA: "name": "Tarqīq: Light Sounds",
+
+- ÖNCE: "function": "Lightness, fluidity, intimacy — carries jamāl"
+  SONRA: "function": "Lightness, fluidity, intimacy; carries jamāl"
+
+- ÖNCE: "name": "Qalqala — Echoing Sounds",
+  SONRA: "name": "Qalqala: Echoing Sounds",
+
+- ÖNCE: "function": "Emphasis, attention — underlines the word"
+  SONRA: "function": "Emphasis and attention; underlines the word"
+
+- ÖNCE: "noteEn": "Ibn Sina described the physiology of every Arabic sound in 'Asbāb Ḥudūth al-Ḥurūf' — 900 years before the modern phonetic academy. Tajwid then internalized this knowledge into the practice of Quranic recitation."
+  SONRA: "noteEn": "Ibn Sina described the physiology of every Arabic sound in \"Asbāb Ḥudūth al-Ḥurūf\", nine centuries before modern phonetics. Tajwid then internalized this knowledge into the practice of Quranic recitation."
+
+- ÖNCE: "subtitle": "Three verses — each verse's sound tells you its theme. Can you guess?",
+  SONRA: "subtitle": "Three verses; each verse's sound tells you its theme. Can you guess?",
+
+- ÖNCE: "revealEn": "Punishment. الْحَاقَّةُ keeps returning across the two verses — each ق is geminated by shadda ('ḥāq-qa'). The sound enacts striking, slamming. 'Ḥāqqa' = 'the inevitable reality.'",
+  SONRA: "revealEn": "Punishment. الْحَاقَّةُ keeps returning across the two verses; each ق is geminated by shadda (\"ḥāq-qa\"). The sound enacts striking, slamming. \"Ḥāqqa\" means \"the inevitable reality\".",
+
+- ÖNCE: "revealEn": "Mercy. ن ل ر م — liquids and nasals flow. Description of paradise drinks.",
+  SONRA: "revealEn": "Mercy. ن ل ر م; liquids and nasals flow. A description of the drinks of paradise.",
+
+- ÖNCE: "revealEn": "Punishment. ص ق — two emphatic plosives in a single short phrase. 'Saqar' = a name of hellfire.",
+  SONRA: "revealEn": "Punishment. ص ق; two emphatic plosives in a single short phrase. \"Saqar\" is a name of hellfire.",
+
+- ÖNCE: "perfectClosingEn": "See? Even without knowing Arabic, your ear recognizes this sonic architecture. The Quran's sounds are not random — they carry meaning.",
+  SONRA: "perfectClosingEn": "See? Even without knowing Arabic, your ear recognizes this sonic architecture. The Quran's sounds are not random; they carry meaning.",
+
+- ÖNCE: "partialClosingEn": "You caught some. The bond between sound and meaning isn't always conscious — the ear often senses before the mind catches up."
+  SONRA: "partialClosingEn": "You caught some. The bond between sound and meaning is not always conscious; the ear often senses before the mind catches up."
+
+- ÖNCE: "closing": "In the Quran, sound and meaning are two faces of one fabric — each carries the other."
+  SONRA: "closing": "In the Quran, sound and meaning are two faces of one fabric; each carries the other."
+
+- ÖNCE: "intro": "Consider Al-Fatihah. Seven verses. Deceptively simple. But look at its structure: perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. Ring composition is a modern analytic language developed in the 20th century by Western literary theorists such as Mary Douglas. Classical tafsir addressed these structural symmetries under the headings munāsabāt and tanāsub — most notably Al-Biqāʿī's Naẓm al-Durar fī Tanāsub al-Āyi wa'l-Suwar, a monumental work analyzing exactly this verse-and-sura structure. Modern ring-composition terminology brings that classical tradition into contemporary narrative theory; the framework is not new — its name is.",
+  SONRA: "intro": "Al-Fatihah has seven verses and looks simple. Its structure, however, shows a mirror symmetry: A-B-C-CENTER-C'-B'-A'. Ring composition is an analytic language developed in the 20th century by Western literary theorists such as Mary Douglas. Classical tafsir addressed these structural symmetries under the headings munāsabāt and tanāsub; most notably, Al-Biqāʿī's Naẓm al-Durar fī Tanāsub al-Āyi wa'l-Suwar is a monumental work analyzing exactly this verse-and-sura structure. Modern ring-composition terminology brings that classical tradition into contemporary narrative theory; the framework is not new, only its name is.",
+
+- ÖNCE: "closing": "This structure could only be formally named in the modern era. But it had always been there — unnamed, within the text, from the very beginning."
+  SONRA: "closing": "This structure could only be formally named in the modern era. But it had always been there, unnamed, within the text, from the very beginning."
+
+- ÖNCE: "body": "In modern scholarship, \"Bucaillism\" — named after Maurice Bucaille's *La Bible, le Coran et la Science* (1976), the systematic effort to \"locate\" modern scientific discoveries within Quranic verses — is widely critiqued. Critics (Ziauddin Sardar; Stefano Bigliardi, *Islam and the Quest for Modern Science*; Taner Edis) note that it risks selective reading, can sideline classical exegesis, and remains hostage to shifting scientific theories. Classical Islamic scholars (al-Shāṭibī, *al-Muwāfaqāt*) emphasized that the Quran is a book of guidance, not science. This page does **not** advance a definitive miracle claim — it presents the parallels classical exegetes recognized as ishārāt / iʿjāz as **possible alignments** with modern context; the critical notes within each tab are part of this frame."
+  SONRA: "body": "In modern scholarship, \"Bucaillism\", named after Maurice Bucaille's La Bible, le Coran et la Science (1976) and meaning the systematic effort to \"locate\" modern scientific discoveries within Quranic verses, is widely critiqued. Critics (Ziauddin Sardar; Stefano Bigliardi, Islam and the Quest for Modern Science; Taner Edis) note that it risks selective reading, can sideline classical exegesis, and remains hostage to shifting scientific theories. Classical Islamic scholars (al-Shāṭibī, al-Muwāfaqāt) emphasized that the Quran is a book of guidance, not of science. This page does not advance a definitive miracle claim; it presents the parallels classical exegetes recognized as ishārāt or iʿjāz as possible alignments with the modern context. The critical notes within each tab are part of this frame."
+
+- ÖNCE: "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. At first glance, since iron is a metal 'extracted from the ground,' this expression may evoke different associations for some readers. Modern astrophysics offers a background that makes this word choice notable. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives — in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017) — and scattered into space. The iron on Earth comes from material produced by stellar processes before the Solar System formed; Earth inherited this cosmic material at its formation. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
+  SONRA: "content": "The Quran chooses an extraordinary verb for iron: anzalnā, \"We sent down\". Not \"created\", not \"formed\": sent down. Since iron is a metal extracted from the ground, the expression may at first evoke different associations for some readers. Modern astrophysics offers a background that makes this word choice notable. Iron cannot form in medium-sized stars like our Sun; the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives, in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017), and scattered into space. The iron on Earth comes from material produced by stellar processes before the Solar System formed; Earth inherited this cosmic material at its formation. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across the centuries.",
+
+- ÖNCE: "Hadid 57:25 — the verb 'anzalnā' (We sent down) is used specifically for iron",
+  SONRA: "Hadid 57:25: the verb \"anzalnā\" (We sent down) is used specifically for iron",
+
+- ÖNCE: "Iron-group elements are produced in supernovae and in neutron-star mergers (kilonovae) — the 2017 GW170817 event directly observed this process",
+  SONRA: "Iron-group elements are produced in supernovae and in neutron-star mergers (kilonovae); the 2017 GW170817 event directly observed this process",
+
+- ÖNCE: "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' Important linguistic nuance: the same verb is used in the Quran for rain, the Book, clothing (Al-An'ām 7:26), and animals (Al-Zumar 39:6) — meaning 'anzalnā' is not a special term reserved for cosmic origin, but a broad pattern of 'We bestowed / We brought into being.' The astrophysical interpretation is a reading that became prominent in the 20th century."
+  SONRA: "criticalNote": "Whether \"anzalnā\" in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean \"We bestowed\" or \"We provided\". An important linguistic nuance: the same verb is used in the Quran for rain, the Book, clothing (Al-A'rāf 7:26) and animals (Al-Zumar 39:6). \"Anzalnā\" is therefore not a special term reserved for cosmic origin, but a broad pattern of \"We bestowed\" or \"We brought into being\". The astrophysical interpretation is a reading that became prominent in the 20th century."
+
+- ÖNCE: "content": "In 1929, Edwin Hubble reported a relation between galaxies' distances and the redshift in their spectra. This finding provided a strong observational basis that the universe may not be static, and it became one of the cornerstones of modern cosmology. Verse 47 of Sura Al-Dhariyat states: 'We constructed the heaven with power, and indeed We are its expander.' The Arabic word mūsi'ūn is grammatically notable and can be read in more than one way — e.g., as 'One who expands / gives breadth' or as 'One of vast power'; linking it specifically to cosmic expansion depends on linguistic and contextual judgment. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
+  SONRA: "content": "In 1929, Edwin Hubble reported a relation between galaxies' distances and the redshift in their spectra. This finding gave strong observational grounds for thinking the universe may not be static, and it became one of the cornerstones of modern cosmology. Verse 47 of Sura Al-Dhariyat states: \"We constructed the heaven with power, and indeed We are its expander.\" The Arabic word mūsi'ūn is grammatically notable and can be read in more than one way, for example as \"One who expands, gives breadth\" or as \"One of vast power\"; linking it specifically to cosmic expansion depends on linguistic and contextual judgment. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
+
+- ÖNCE: "1929: Edwin Hubble established the redshift–distance relation, providing strong observational support for cosmic expansion",
+  SONRA: "1929: Edwin Hubble established the relation between redshift and distance, providing strong observational support for cosmic expansion",
+
+- ÖNCE: "Mūsi'ūn — active participle, present tense, indicating continuous and active expansion",
+  SONRA: "Mūsi'ūn: active participle, present tense; indicates continuous and active expansion",
+
+- ÖNCE: "Al-Anbiya 21:30 — ratq (joined) and fatq (split apart): heavens and earth separating from a single whole",
+  SONRA: "Al-Anbiya 21:30: ratq (joined) and fatq (split apart); heavens and earth separating from a single whole",
+
+- ÖNCE: "content": "Two distinct bodies of water flow side by side, yet they do not mix. An invisible boundary separates them. This is what modern oceanography calls a halocline: a natural boundary layer formed by differences in salinity, density, and temperature. The Atlantic and the Mediterranean at the Strait of Gibraltar, and the Black Sea and the Sea of Marmara at the Bosphorus, separate in exactly this way. The Quran describes this phenomenon in two separate verses: in Al-Rahman 55:19-20, two seas meet without transgressing each other; in Al-Furqan 25:53, a barzakh (barrier) lies between them. When compared to modern oceanographic terminology, the technical precision of these descriptions is striking.",
+  SONRA: "content": "Two distinct bodies of water flow side by side, yet they do not mix. An invisible boundary separates them. Modern oceanography calls this a halocline: a natural boundary layer formed by differences in salinity, density and temperature. The Atlantic and the Mediterranean at the Strait of Gibraltar, and the Black Sea and the Sea of Marmara at the Bosphorus, separate in exactly this way. The Quran describes this phenomenon in two separate verses: in Al-Rahman 55:19-20, two seas meet without transgressing each other; in Al-Furqan 25:53, a barzakh (barrier) lies between them. Set beside modern oceanographic terminology, the precision of these descriptions is notable.",
+
+- ÖNCE: "Al-Rahman 55:19-20: two seas meet but yabghiyān — they do not transgress upon each other",
+  SONRA: "Al-Rahman 55:19-20: two seas meet but \"lā yabghiyān\", they do not transgress upon each other",
+
+- ÖNCE: "Barzakh: an impassable intermediate zone — corresponds precisely to the halocline definition"
+  SONRA: "Barzakh: an impassable intermediate zone; corresponds to the definition of a halocline"
+
+- ÖNCE: "criticalNote": "Important contextual note: classical exegesis (Ṭabarī, Rāzī, Ibn Kathīr) typically reads barzakh in the context of fresh-versus-salt water at river–sea junctions, rather than as a halocline between two open seas. The halocline reading (density/salinity stratification, e.g., the Gibraltar–Mediterranean example) is a modern interpretation. Additionally, Quranic statements about the seas are exaggerated in some popular narratives: the widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources, and no such statement appears in Cousteau's own writings."
+  SONRA: "criticalNote": "Important contextual note: classical exegesis (Ṭabarī, Rāzī, Ibn Kathīr) typically reads barzakh in the context of fresh versus salt water at river and sea junctions, rather than as a halocline between two open seas. The halocline reading (density and salinity stratification, e.g. the Gibraltar and Mediterranean example) is a modern interpretation. In addition, Quranic statements about the seas are exaggerated in some popular narratives: the widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources, and no such statement appears in Cousteau's own writings."
+
+- ÖNCE: "title": "Embryology — The Word 'Alaqah'",
+  SONRA: "title": "Embryology: The Word 'Alaqah'",
+
+- ÖNCE: "explanation": "The embryo clings to the uterine wall — implantation, days 6–12"
+  SONRA: "explanation": "The embryo clings to the uterine wall: implantation, days 6-12"
+
+- ÖNCE: "Alaqah — glossed in classical lexicons as 'clinging substance' and 'leech' (and, in some readings, blood/clot); analogies with the early embryo have been drawn",
+  SONRA: "Alaqah: glossed in classical lexicons as \"clinging substance\" and \"leech\" (and, in some readings, blood or clot); analogies with the early embryo have been drawn",
+
+- ÖNCE: "Days 6–12: embryo clings to the uterine wall — matches 'clinging substance'",
+  SONRA: "Days 6-12: the embryo clings to the uterine wall; matches \"clinging substance\"",
+
+- ÖNCE: "criticalNote": "Keith Moore's interpretations are disputed regarding academic independence: the 'Islamic Additions to Embryology' sections appear only in the Saudi Arabia edition of The Developing Human and were supported by King Abdulaziz University (source: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). This does not question Moore's anatomical expertise but does open the independence of his interpretations to debate. The Galen comparison also requires nuance: Galen's embryological views are inconsistent across his works (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — the one-way claim 'Galen was wrong, the Quran corrected him' is not academically defensible. In modern embryology, bone and muscle tissue develop in parallel; the Quran's 'bones → flesh' sequence is not a literal chronology but a roughly compatible phrasing. The linguistic richness of alaqah, however, can be evaluated independently of Moore."
+  SONRA: "criticalNote": "Keith Moore's interpretations are disputed regarding academic independence: the \"Islamic Additions to Embryology\" sections appear only in the Saudi Arabia edition of The Developing Human and were supported by King Abdulaziz University (source: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). This does not question Moore's anatomical expertise, but it does open the independence of his interpretations to debate. The Galen comparison also requires nuance: Galen's embryological views are inconsistent across his works (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983), so the one-way claim \"Galen was wrong, the Quran corrected him\" is not academically defensible. In modern embryology, bone and muscle tissue develop in parallel; the Quran's \"bones, then flesh\" sequence is not a literal chronology but a roughly compatible phrasing. The linguistic richness of alaqah, however, can be evaluated independently of Moore."
+
+- ÖNCE: "intro": "The Quran in Mecca = the Quran in Medina = Istanbul = Cairo = Jakarta. The consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages. All read the same text — variations among the ten canonical readings (qirāʾāt) belong to oral recitation tradition.",
+  SONRA: "intro": "The Quran read in Mecca, Medina, Istanbul, Cairo and Jakarta is the same text; the consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages, all reading the same text. Variations among the ten canonical readings (qirāʾāt) belong to the oral recitation tradition.",
+
+- ÖNCE: "description": "Sana'a parchment: 578–669 CE (95% confidence). The Prophet's own era.",
+  SONRA: "description": "Sana'a parchment: 578-669 CE (95% confidence). The Prophet's own era.",
+
+- ÖNCE: "description": "Millions of huffaz (people who have memorized the entire Quran) worldwide — estimates range between 3-10 million; no precise demographic data exists. Each hafiz learns from their teacher, who learned from theirs — an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
+  SONRA: "description": "There are millions of huffaz worldwide, people who have memorized the entire Quran; estimates range between 3 and 10 million, and no precise demographic data exists. Each hafiz learns from a teacher, who learned from theirs, in an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
+
+- ÖNCE: "description": "2015: The parchment of a manuscript at the University of Birmingham was carbon-dated to 568-645 CE — overlapping with the Prophet Muhammad's (pbuh) lifetime. (Note: the date is of the parchment; the ink was typically applied later and has not been separately analyzed.)"
+  SONRA: "description": "2015: The parchment of a manuscript at the University of Birmingham was carbon-dated to 568-645 CE, a range that overlaps with the Prophet Muhammad's (pbuh) lifetime. (Note: the date is of the parchment; the ink was typically applied later and has not been separately analyzed.)"
+
+- ÖNCE: "intro": "At first glance, the Quran appears to repeat itself. The story of Moses (AS) is told in over 30 chapters. But each retelling emphasizes a DIFFERENT aspect. This is not redundancy - it is pedagogical design. Like a textbook: teaching the same subject from different angles.",
+  SONRA: "intro": "At first glance, the Quran appears to repeat itself. The story of Moses (AS) is told in over 30 chapters. But each retelling emphasizes a different aspect. This is not redundancy but pedagogical design, like a textbook teaching the same subject from different angles.",
+
+- ÖNCE: "mosesTitle": "The Story of Moses (AS) — Different Chapters, Different Lessons",
+  SONRA: "mosesTitle": "The Story of Moses (AS): Different Chapters, Different Lessons",
+
+- ÖNCE: "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). Count varies 400–500 by method."
+  SONRA: "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). The count varies between 400 and 500 by method."
+
+- ÖNCE: "body": "Badr al-Dīn al-Zarkashī (d. 1392) addresses repetition under its own heading in al-Burhān fī ʿUlūm al-Qur'ān, within his forty-seven-fold classification of Quranic sciences. A century later, Jalāl al-Dīn al-Suyūṭī (d. 1505) revisits and expands the same question in al-Itqān fī ʿUlūm al-Qur'ān. Both treat takrīr not as a single defect but as a rhetorical structure that produces layers of meaning.",
+  SONRA: "body": "Badr al-Dīn al-Zarkashī (d. 1392) addresses repetition under its own heading in al-Burhān fī ʿUlūm al-Qur'ān, within his forty-seven-fold classification of Quranic sciences. A century later, Jalāl al-Dīn al-Suyūṭī (d. 1505) revisits and expands the same question in al-Itqān fī ʿUlūm al-Qur'ān. Both treat takrīr not as a defect in itself but as a rhetorical structure that produces layers of meaning.",
+
+- ÖNCE: "body2": "They pose the question explicitly: Does saying the same thing twice weaken or strengthen the discourse? Within classical Arabic rhetoric, the answer depends on context. If the same expression in the same context adds nothing, it is ḥashw (redundant filler); if the context shifts or the repetition performs a specific function, it is takrīr — a rhetorical art.",
+  SONRA: "body2": "They pose the question explicitly: does saying the same thing twice weaken or strengthen the discourse? Within classical Arabic rhetoric, the answer depends on context. If the same expression in the same context adds nothing, it is ḥashw (redundant filler); if the context shifts or the repetition performs a specific function, it is takrīr, a rhetorical art.",
+
+- ÖNCE: "title": "Takrīr Is a Rhetorical Art — Three Typical Functions",
+  SONRA: "title": "Takrīr Is a Rhetorical Art: Three Typical Functions",
+
+- ÖNCE: "lead": "Classical Arabic rhetoric catalogued takrīr as an art performing multiple functions. The three below are among the most commonly emphasized in the classical takrīr/ta'kīd literature — the term ta'kīd is drawn from the Turkish Religious Foundation Islamic Encyclopedia's \"tekit\" entry; tafṣīl and ihtimām are drawn from the repetition chapters of al-Burhān and al-Itqān.",
+  SONRA: "lead": "Classical Arabic rhetoric catalogued takrīr as an art performing multiple functions. The three below are among the most commonly emphasized in the classical takrīr and ta'kīd literature. The term ta'kīd is drawn from the \"tekit\" entry of the Turkish Religious Foundation's Islamic Encyclopedia; tafṣīl and ihtimām are drawn from the repetition chapters of al-Burhān and al-Itqān.",
+
+- ÖNCE: "example": "\"No! You shall know. Again, no! You shall know.\" (al-Takāthur 102:3–4). The same expression repeats across two adjacent verses — fixing the certainty and urgency of the warning at both the phonetic and semantic levels."
+  SONRA: "example": "\"No! You shall know. Again, no! You shall know.\" (al-Takāthur 102:3-4). The same expression repeats across two adjacent verses, fixing the certainty and urgency of the warning at both the phonetic and the semantic level."
+
+- ÖNCE: "desc": "Recalling a truth at every occasion — the matter is so central that the narrative returns to it through different doors.",
+  SONRA: "desc": "Recalling a truth at every occasion. The matter is so central that the narrative returns to it through different doors.",
+
+- ÖNCE: "example": "\"Then which of your Lord's blessings will you both deny?\" (al-Raḥmān 55:13 and following). This refrain, repeated thirty-one times, each time follows a different blessing. The refrain stays fixed while the surrounding content shifts — the fixedness signals centrality, the variation reveals different facets."
+  SONRA: "example": "\"Then which of your Lord's blessings will you both deny?\" (al-Raḥmān 55:13 and following). This refrain, repeated thirty-one times, each time follows a different blessing. The refrain stays fixed while the surrounding content shifts: the fixedness signals centrality, the variation reveals different facets."
+
+- ÖNCE: "title": "Same Story, Different Surahs — The Classical Commentators' Response",
+  SONRA: "title": "Same Story, Different Surahs: The Classical Commentators' Response",
+
+- ÖNCE: "body": "The most visible form of Quranic repetition is the retelling of stories across multiple surahs. Fakhr al-Dīn al-Rāzī (d. 1210) in Mafātīḥ al-Ghayb and Ṭāhir Ibn ʿĀshūr (d. 1973) in al-Taḥrīr wa-l-Tanwīr address this question systematically. The shared emphasis of the classical commentary tradition: when the same story is retold across different surahs, each retelling foregrounds a different element — character, scene, dialogue, lesson — opening a single event to multi-layered semantic readings.",
+  SONRA: "body": "The most visible form of Quranic repetition is the retelling of stories across multiple surahs. Fakhr al-Dīn al-Rāzī (d. 1210) in Mafātīḥ al-Ghayb and Ṭāhir Ibn ʿĀshūr (d. 1973) in al-Taḥrīr wa-l-Tanwīr address this question systematically. The shared emphasis of the classical commentary tradition: when the same story is retold across different surahs, each retelling foregrounds a different element (character, scene, dialogue, lesson), opening a single event to multi-layered semantic readings.",
+
+- ÖNCE: "body2": "This is most visible in the Moses (AS) narrative: the narrative style, the starting point, which dialogues are reported and which are passed over, all shift between surahs (al-A'rāf foregrounds the prophetic struggle and dialogue with Pharaoh; Ṭāhā emphasizes Moses (AS)'s inner world and the revelation to his mother; al-Qaṣaṣ traces the biographical flow from birth through the Madyan years). Ibn ʿĀshūr frames the retellings as a method of audience pedagogy — the listener encounters a different facet of the event each time and so internalizes the matter in multiple layers.",
+  SONRA: "body2": "This is most visible in the Moses (AS) narrative: the narrative style, the starting point, and which dialogues are reported or passed over all shift between surahs (al-A'rāf foregrounds the prophetic struggle and the dialogue with Pharaoh; Ṭāhā emphasizes Moses (AS)'s inner world and the revelation to his mother; al-Qaṣaṣ traces the biographical flow from birth through the Madyan years). Ibn ʿĀshūr frames the retellings as a method of audience pedagogy: the listener encounters a different facet of the event each time and so internalizes the matter in multiple layers.",
+
+- ÖNCE: "nazmConsensusLabel": "Summary of the Classical I'jāz Tradition — Not a Verbatim Quote",
+  SONRA: "nazmConsensusLabel": "Summary of the Classical I'jāz Tradition (Not a Verbatim Quote)",
+
+- ÖNCE: "nazmConsensusSource": "A foundational view of the classical i'jāz al-Qur'ān tradition — summarising the concept of 'naẓm' (structural composition) developed by al-Bāqillānī (I'jāz al-Qur'ān, d. 1013) and al-Zarkashī (al-Burhān, d. 1392)."
+  SONRA: "nazmConsensusSource": "A foundational view of the classical i'jāz al-Qur'ān tradition, summarising the concept of \"naẓm\" (structural composition) developed by al-Bāqillānī (I'jāz al-Qur'ān, d. 1013) and al-Zarkashī (al-Burhān, d. 1392)."
+
+- ÖNCE: "content": "The Quran says the liar will be seized by his 'forelock' — the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) plays a central role in moral reasoning, planning, and deceptive behavior. Its function was mapped in the 20th century using fMRI technology.",
+  SONRA: "content": "The Quran says the liar will be seized by his \"forelock\", the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) plays a central role in moral reasoning, planning and deceptive behavior. Its function was mapped in the 20th century using fMRI technology.",
+
+- ÖNCE: "note": "Classical exegesis (al-Tabari, al-Razi, Ibn Kathir) reads 'seizing by the forelock' as an Arabic idiom for taking control — not a direct anatomical claim about the brain. Modern neuroscience also locates lying in distributed function rather than a single region (Sean Spence et al., 2001+). The parallel is striking, but the reading 'the Quran identified the prefrontal cortex' carries selective-reading risk — part of the broader Bucaillism debate."
+  SONRA: "note": "Classical exegesis (al-Tabari, al-Razi, Ibn Kathir) reads \"seizing by the forelock\" as an Arabic idiom for taking control, not as a direct anatomical claim about the brain. Modern neuroscience also locates lying in distributed function rather than a single region (Sean Spence et al., 2001 onward). The parallel is interesting, but the reading \"the Quran identified the prefrontal cortex\" carries selective-reading risk and belongs to the broader Bucaillism debate."
+
+- ÖNCE: "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Classical exegesis interprets this verse as being about the power of resurrection; some contemporary commentators have additionally noted a connection to fingerprint uniqueness. The uniqueness of fingerprints was scientifically documented from the 1880s onward (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
+  SONRA: "content": "\"We are able to restore even his fingertips\" (Al-Qiyama 75:4): God's answer to those who deny resurrection, demonstrating the power to recreate in the finest detail. Classical exegesis interprets this verse as being about the power of resurrection; some contemporary commentators have additionally noted a connection to fingerprint uniqueness. The uniqueness of fingerprints was scientifically documented from the 1880s onward (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
+
+- ÖNCE: "note": "The card title reflects a modern reading; the classical tradition (al-Razi, al-Tabari) reads 'banān' as 'the precision of creation, the power of resurrection.' The fingerprint reading is modern — the verse's primary theological point is the power of resurrection itself."
+  SONRA: "note": "The card title reflects a modern reading; the classical tradition (al-Razi, al-Tabari) reads \"banān\" as \"the precision of creation, the power of resurrection\". The fingerprint reading is modern; the verse's primary theological point is the power of resurrection itself."
+
+- ÖNCE: "content": "Moses (AS)'s story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. This structure is called 'modular narrative': the same event, different emphases. For example: Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh. Surah Al-Qasas gives a full biography from birth to exile. Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. Same story — a different lesson each time.",
+  SONRA: "content": "The story of Moses (AS) is distributed across more than 30 chapters in 10 distinct \"blocks\". Each block reads independently, yet together they form a unified whole. This structure is called \"modular narrative\": the same event, different emphases. Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh; Surah Al-Qasas gives a full biography from birth to exile; Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. The same story, a different lesson each time.",
+
+- ÖNCE: "note": "Modular narrative (retelling the same event with different emphases) and non-linear narrative (deliberately disrupting chronology) are distinct techniques. The Quran uses modularity — chronology within each surah is preserved. Modular structure also appears in classical literature (Homer's Odyssey 'in medias res', 8th c. BCE); however, the Quran's systematic distribution across 30+ surahs is characteristic."
+  SONRA: "note": "Modular narrative (retelling the same event with different emphases) and non-linear narrative (deliberately disrupting chronology) are distinct techniques. The Quran uses modularity; chronology within each surah is preserved. Modular structure also appears in classical literature (Homer's Odyssey, \"in medias res\", 8th century BCE); what is characteristic of the Quran is the systematic distribution across more than 30 surahs."
+
+- ÖNCE: "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Faith/disbelief ratio ≈ 1.55 (811/525): the Quran carries a positive-hope bias. Hapax legomena rate (~18-20% vs ~15%) is approximate (Leeds Quranic Arabic Corpus).",
+  SONRA: "statsNote": "Punishment (343) appears to exceed mercy (294), but most \"punishment\" verses recount the historical fates of past peoples rather than direct threats, while mercy is predominantly direct promise. The faith to disbelief ratio is about 1.55 (811/525): the Quran leans toward hope. The hapax legomena rate (about 18-20% versus about 15%) is approximate (Leeds Quranic Arabic Corpus).",
+
+- ÖNCE: "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference corresponds exactly to the solar-lunar calendar conversion. Surah Ar-Rum, revealed around 614 CE while Byzantium had just been defeated (ghulibat — past tense), foretold that within a few years 'they WILL be victorious' (sayaghlibūn — future tense). Byzantium won in 628 CE.",
+  SONRA: "content": "In the Quran, future events are described in the past tense (al-māḍī bi-maʿnā al-mustaqbal), as though they had already occurred; and past events are narrated in the present tense, as though happening now. The Sleepers of the Cave: 300 solar years correspond to 309 lunar years, and the difference is exactly the solar-lunar calendar conversion. Surah Ar-Rum, revealed around 614 CE while Byzantium had just been defeated (ghulibat, past tense), foretold that within a few years \"they will be victorious\" (sayaghlibūn, future tense). Byzantium won in 628 CE.",
+
+- ÖNCE: "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, etc.) — the solar-to-lunar reading is a modern one, not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+  SONRA: "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, and so on); the solar-to-lunar reading is a modern one and is not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+
+- ÖNCE: "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature, this is known as 'polyphonic voice.' Verses 1–3 speak about God — third person ('He'). Then suddenly in verse 5: 'You alone we worship' — a shift to second person. Then: 'Guide us to the straight path' — first person plural. Seven verses, three voices.",
+  SONRA: "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature this is known as \"polyphonic voice\". Verses 1-3 speak about God in the third person (\"He\"). Then suddenly in verse 5: \"You alone we worship\", a shift to the second person. Then: \"Guide us to the straight path\", the first person plural. Seven verses, three voices.",
+
+- ÖNCE: "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. Person-shifting is not unique to the Quran in world literature (Psalms, Vedic Sanskrit, Egyptian texts contain similar examples); however, its systematic use in the Quran — notably three perspectives across the seven verses of Surah al-Fatiha — has been treated as a sign of i'jāz al-Qur'ān in the classical Islamic tradition (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+  SONRA: "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. Person-shifting is not unique to the Quran in world literature (the Psalms, Vedic Sanskrit and Egyptian texts contain similar examples). Its systematic use in the Quran, notably three perspectives across the seven verses of Surah al-Fatiha, has been treated as a sign of i'jāz al-Qur'ān in the classical Islamic tradition (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+
+- ÖNCE: "intro": "The Quran descends on two fundamental axes: to introduce Allah (mārifatullāh — مَعْرِفَةُ اللهِ) and to transform the human being (tazkiyah — تَزْكِيَة and tarbiyah — تَرْبِيَة). But the destination of that transformation is not vague — it is precisely defined. Who is the Muʾmin? Who is the Muḥsin? What does Muttaqī mean? These terms are not synonyms; each defines a different level of maturity, a different inner state. This section dissects the anatomy of that definition.",
+  SONRA: "intro": "The Quran descends on two fundamental axes: to introduce Allah (mārifatullāh, مَعْرِفَةُ اللهِ) and to transform the human being (tazkiyah, تَزْكِيَة and tarbiyah, تَرْبِيَة). The destination of that transformation is precisely defined. Who is the Muʾmin? Who is the Muḥsin? What does Muttaqī mean? These terms are not synonyms; each defines a different level of maturity, a different inner state. This section dissects the anatomy of that definition.",
+
+- ÖNCE: "infoBody": "The physical verse count of the Quran is 6,236. The number 6,666 is a thematic classification by classical scholars who grouped verses by subject — it is not the actual verse count.\n\nThe classical breakdown:\n• 1,000 verses — Commands\n• 1,000 verses — Prohibitions\n• 1,000 verses — Promises (glad tidings)\n• 1,000 verses — Warnings\n• 1,000 verses — Stories and news\n• 1,000 verses — Parables\n• 500 verses — Lawful and unlawful\n• 100 verses — Prayers and glorifications\n• 66 verses — Abrogating and abrogated\n= Total 6,666\n\nThis memorable breakdown was passed down through generations as a teaching aid and gradually came to be mistaken for the physical verse count."
+  SONRA: "infoBody": "The physical verse count of the Quran is 6,236. The number 6,666 is a thematic classification by classical scholars who grouped verses by subject; it is not the actual verse count.\n\nThe classical breakdown:\n• 1,000 verses: Commands\n• 1,000 verses: Prohibitions\n• 1,000 verses: Promises (glad tidings)\n• 1,000 verses: Warnings\n• 1,000 verses: Stories and news\n• 1,000 verses: Parables\n• 500 verses: Lawful and unlawful\n• 100 verses: Prayers and glorifications\n• 66 verses: Abrogating and abrogated\n= Total 6,666\n\nThis memorable breakdown was passed down through generations as a teaching aid and gradually came to be mistaken for the physical verse count."
+
+- ÖNCE: "termsSubtitle": "The Quran uses 4 different Arabic words for the human being. Each carries a different layer of meaning — not coincidental, but a deliberate terminological system.",
+  SONRA: "termsSubtitle": "The Quran uses 4 different Arabic words for the human being. Each carries a different layer of meaning; this is a deliberate terminological system, not a coincidence.",
+
+- ÖNCE: "muminIntro": "The Quran's most comprehensive definition of the 'ideal human' appears in Al-Muʾminun, verses 1–11. Seven traits form an interconnected system.",
+  SONRA: "muminIntro": "The Quran's most comprehensive definition of the \"ideal human\" appears in Al-Muʾminun, verses 1-11. Seven traits form an interconnected system.",
+
+- ÖNCE: "muminWow1": "All traits use the active participle (ism-i fail) — not a momentary act, but a continuous character state.",
+  SONRA: "muminWow1": "All traits use the active participle (ism-i fail): not a momentary act, but a continuous character state.",
+
+- ÖNCE: "muminWow2": "\"قَدْ أَفْلَحَ\" is written in the past tense but refers to the future — emphasis on absolute certainty (see Time Flexibility — Highlights).",
+  SONRA: "muminWow2": "\"قَدْ أَفْلَحَ\" is written in the past tense but refers to the future; an emphasis on certainty (see Time Flexibility, Highlights).",
+
+- ÖNCE: "muminWow3": "The sura opens with humility in prayer and closes with preserving prayer — both the beginning and destination: salah.",
+  SONRA: "muminWow3": "The sura opens with humility in prayer and closes with preserving prayer; both the beginning and the destination are salah.",
+
+- ÖNCE: "istikaametIntro": "The Quran contains hundreds of directives. But the one verse the Prophet described as having aged him is a single verse: Hud 112. Because 'be upright as you have been commanded' is not an action — it is a continuous state.",
+  SONRA: "istikaametIntro": "The Quran contains hundreds of directives. But the one verse the Prophet described as having aged him is a single verse: Hud 112. Because \"be upright as you have been commanded\" is not an action; it is a continuous state.",
+
+- ÖNCE: "istikaametTr": "\"Be upright as you have been commanded — and those who repented with you. Do not transgress. Indeed, He is fully aware of what you do.\"",
+  SONRA: "istikaametTr": "\"Be upright as you have been commanded, and those who repented with you. Do not transgress. Indeed, He is fully aware of what you do.\"",
+
+- ÖNCE: "transformationHadithNote": "The definition of iḥsān ('worship Allah as though you see Him') is from the Hadith of Gabriel — a hadith source (Muslim), not the Quran."
+  SONRA: "transformationHadithNote": "The definition of iḥsān (\"worship Allah as though you see Him\") is from the Hadith of Gabriel; its source is hadith (Muslim), not the Quran."
+
+- ÖNCE: "subtitle": "The command for Adam's prostration and Iblis's refusal appears in seven surahs — no two are identical.",
+  SONRA: "subtitle": "The command for Adam's prostration and Iblis's refusal appears in seven surahs; no two are identical.",
+
+- ÖNCE: "intro": "Baqarah, A'raf, Hijr, Isra, Kahf, Ta-Ha, and Sād. Seven surahs, one event: the angels' prostration to Adam and Iblis's refusal. In one (Ta-Ha 20:116) Iblis offers no reasoning, says nothing at all; the entire scene collapses into a single verb — abā (he refused). In another, the fire-versus-clay comparison surfaces. Another states Iblis was of the jinn; yet another contains Allah's phrase \"whom I created with My two hands.\" Placed side by side, the seven tellings reveal that each retelling foregrounds a different dimension of the same event.",
+  SONRA: "intro": "Baqarah, A'raf, Hijr, Isra, Kahf, Ta-Ha and Sād. Seven surahs, one event: the angels' prostration to Adam and Iblis's refusal. In one (Ta-Ha 20:116) Iblis offers no reasoning and says nothing at all; the entire scene collapses into a single verb, abā, \"he refused\". In another, the fire-versus-clay comparison surfaces. Another states that Iblis was of the jinn; yet another contains Allah's phrase \"whom I created with My two hands\". Placed side by side, the seven tellings show that each retelling foregrounds a different dimension of the same event.",
+
+- ÖNCE: "statsTitle": "The Seven Tellings — In Numbers",
+  SONRA: "statsTitle": "The Seven Tellings, in Numbers",
+
+- ÖNCE: "closing": "Seven surahs, one event, distinct windows. How a single narrative expands and contracts by context — the Quran uses narrative economy as a rhetorical device. Each retelling foregrounds a different word, a different reasoning, a different identity element; the common core remains. This is the seven-fold registration of pride's origin."
+  SONRA: "closing": "Seven surahs, one event, distinct windows. They show how a single narrative expands and contracts by context; the Quran uses narrative economy as a rhetorical device. Each retelling foregrounds a different word, a different reasoning, a different identity element; the common core remains. This is the seven-fold registration of pride's origin."
+
+- ÖNCE: "description": "QuranCodex is a solo endeavor with no institutional backing. Your contribution covers hosting, API, and content development costs — and helps us continue this journey together.",
+  SONRA: "description": "QuranCodex is a solo endeavor with no institutional backing. Your contribution covers hosting, API and content development costs.",
+
+- ÖNCE: "intro": "For over a century, modern psychology has developed a biological-cognitive vocabulary: Freud named the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning — each within its own framework. The Quran addresses the same human experience in a different language: a moral-theological one. This page presents the parallels between the two frameworks as an academic observation; it does not claim that the Quran predicted modern psychology.",
+  SONRA: "intro": "For over a century, modern psychology has developed a biological and cognitive vocabulary: Freud named the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning, each within its own framework. The Quran addresses the same human experience in a different language, a moral and theological one. This page presents the parallels between the two frameworks as an academic observation; it does not claim that the Quran predicted modern psychology.",
+
+- ÖNCE: "methodologyNote": "The modern psychology parallels in this section (Freud, Jung, Maslow, Frankl, Seligman, etc.) reflect different epistemological frameworks describing the same human experience in different languages. The classical Islamic position (Shatibi, al-Muwafaqat) understands the Quran as a book of guidance — not a text that anticipates or validates a scientific theory. These parallels are philosophical observations and carry no claim of '1,400-year-old prediction.'",
+  SONRA: "methodologyNote": "The modern psychology parallels in this section (Freud, Jung, Maslow, Frankl, Seligman and others) reflect different epistemological frameworks describing the same human experience in different languages. The classical Islamic position (Shatibi, al-Muwafaqat) understands the Quran as a book of guidance, not as a text that anticipates or validates a scientific theory. These parallels are philosophical observations and carry no claim of a \"1,400-year-old prediction\".",
+
+- ÖNCE: "intro": "The Quran describes the inner world of the human being through the concept of 'nafs'. Not a single static thing — but a journey. The nafs transforms, develops through stages. While modern psychology is only now discovering these stages, the Quran named them fourteen centuries ago. Academic nuance: only three stages are explicitly named in the Quran — ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). Mulhima and rāḍiya/marḍiyya are advanced stations elaborated by the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi) from Quranic categories. The full 7-station system (rāḍiya + marḍiyya + ṣāfiya separated) is presented in the Stages of the Soul Atlas; this page uses the popular 5-stage summary.",
+  SONRA: "intro": "The Quran describes the inner world of the human being through the concept of \"nafs\". The nafs is not a single static thing; it transforms and develops through stages, a journey. The Quran named these stages fourteen centuries ago; modern psychology describes the same experience in its own language. Academic nuance: only three stages are explicitly named in the Quran: ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). Mulhima and rāḍiya/marḍiyya are advanced stations elaborated by the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi) from Quranic categories. The full seven-station system (rāḍiya, marḍiyya and ṣāfiya separated) is presented in the Stages of the Soul Atlas; this page uses the popular five-stage summary.",
+
+- ÖNCE: "title": "Ammāra — The Self Commanding Evil",
+  SONRA: "title": "Ammāra: The Self Commanding Evil",
+
+- ÖNCE: "title": "Lawwāma — The Self-Reproaching Self",
+  SONRA: "title": "Lawwāma: The Self-Reproaching Self",
+
+- ÖNCE: "description": "The conscience has awakened. The person blames themselves when they err, feels remorse. This is the mark of healthy moral development. Not constant self-flagellation — but the effort to notice mistakes and correct them. The Quran swears by this soul, honoring it.",
+  SONRA: "description": "The conscience has awakened. The person blames themselves when they err and feels remorse. This is the mark of healthy moral development: not constant self-flagellation, but the effort to notice mistakes and correct them. The Quran swears by this soul, honoring it.",
+
+- ÖNCE: "title": "Mulhima — The Inspired Self",
+  SONRA: "title": "Mulhima: The Inspired Self",
+
+- ÖNCE: "title": "Mutma'inna — The Tranquil Self",
+  SONRA: "title": "Mutma'inna: The Tranquil Self",
+
+- ÖNCE: "title": "Rāḍiya / Marḍiyya — The Pleased and Pleasing Self",
+  SONRA: "title": "Rāḍiya / Marḍiyya: The Pleased and Pleasing Self",
+
+- ÖNCE: "description": "The highest rung of the journey. Not one-sided but mutual: the servant pleased with Allah, and Allah pleased with the servant. This stage is not just inner peace — it is the completion of a divine relationship. Even death is not a threat, but a reunion.",
+  SONRA: "description": "The highest rung of the journey. Not one-sided but mutual: the servant pleased with Allah, and Allah pleased with the servant. This stage is more than inner peace; it is the completion of a divine relationship. Even death is not a threat, but a reunion.",
+
+- ÖNCE: "intro": "In the Quran, the heart (qalb) is not merely a physical organ — in classical Sunni kalām (Ghazali, Iḥyāʾ) it is the seat of consciousness, will, and morality, a spiritual locus. The Quran describes this center in five distinct states. The modern neuroscience finding of an intrinsic cardiac nervous system stands on a different epistemological plane; drawing a parallel between the two is methodologically debated in the academic literature.",
+  SONRA: "intro": "In the Quran, the heart (qalb) is more than a physical organ; in classical Sunni kalām (Ghazali, Iḥyāʾ) it is the seat of consciousness, will and morality, a spiritual locus. The Quran describes this center in five distinct states. The modern neuroscience finding of an intrinsic cardiac nervous system stands on a different epistemological plane; drawing a parallel between the two is methodologically debated in the academic literature.",
+
+- ÖNCE: "title": "Qalb Salīm — The Sound, Purified Heart",
+  SONRA: "title": "Qalb Salīm: The Sound, Purified Heart",
+
+- ÖNCE: "description": "The ideal heart state in the Quran. Purified of envy, arrogance, and hypocrisy; oriented toward Allah. This is the attribute of Prophet Ibrahim. On the Day of Judgment, neither wealth nor children will avail — only this heart.",
+  SONRA: "description": "The ideal heart state in the Quran. Purified of envy, arrogance and hypocrisy; oriented toward Allah. This is the attribute of Prophet Ibrahim. On the Day of Judgment, neither wealth nor children will avail; only this heart will.",
+
+- ÖNCE: "title": "Qalb Munīb — The Returning, Repentant Heart",
+  SONRA: "title": "Qalb Munīb: The Returning, Repentant Heart",
+
+- ÖNCE: "description": "The heart that constantly turns toward Allah, returning when it strays. The mechanism of repentance lies here — not a one-time event but a chronic tendency to return. The Munib heart makes mistakes but does not surrender.",
+  SONRA: "description": "The heart that constantly turns toward Allah and returns when it strays. The mechanism of repentance lies here: not a one-time event but a chronic tendency to return. The Munib heart makes mistakes but does not surrender.",
+
+- ÖNCE: "title": "Qalb Marīḍ — The Diseased Heart",
+  SONRA: "title": "Qalb Marīḍ: The Diseased Heart",
+
+- ÖNCE: "description": "After prolonged denial and obstinacy, the heart no longer responds to external stimuli. This is not a divine punishment — it is the natural consequence of a person's own choices. In psychology, it resembles 'learned helplessness' and 'emotional numbness'.",
+  SONRA: "description": "After prolonged denial and obstinacy, the heart no longer responds to external stimuli. This is not a divine punishment; it is the natural consequence of a person's own choices. In psychology, it resembles \"learned helplessness\" and \"emotional numbness\".",
+
+- ÖNCE: "title": "The Rusted Heart — Rān",
+  SONRA: "title": "The Rusted Heart: Rān",
+
+- ÖNCE: "title": "Hawf — Natural Fear",
+  SONRA: "title": "Hawf: Natural Fear",
+
+- ÖNCE: "description": "Fear arising from consequences. The normal human response to pain, loss, and danger. The Quran does not deny this fear — it even says the friends of Allah experience fear in this world. It is not pathological; it is a functional warning system.",
+  SONRA: "description": "Fear arising from consequences. The normal human response to pain, loss and danger. The Quran does not deny this fear; it even says the friends of Allah experience fear in this world. It is not pathological; it is a functional warning system.",
+
+- ÖNCE: "title": "Khashya — Deep Reverence Born of Knowledge",
+  SONRA: "title": "Khashya: Deep Reverence Born of Knowledge",
+
+- ÖNCE: "description": "Deeper than Hawf. Khashya is the deep reverence-fear created by truly knowing Allah — born not from punishment but from helplessness before greatness. The more you know, the more khashya you feel. This overlaps with psychology's 'awe' experience.",
+  SONRA: "description": "Deeper than hawf. Khashya is the deep reverence and fear created by truly knowing Allah; it is born not of punishment but of helplessness before greatness. The more you know, the more khashya you feel. This overlaps with psychology's experience of awe.",
+
+- ÖNCE: "title": "Huzn — Healthy Grief and Sorrow",
+  SONRA: "title": "Huzn: Healthy Grief and Sorrow",
+
+- ÖNCE: "description": "Prophet Ya'qub wept for years after losing Yusuf — until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love, and human pain. Grief should not be suppressed — it must be experienced.",
+  SONRA: "description": "Prophet Ya'qub wept for years after losing Yusuf, until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love and human pain. Grief should not be suppressed; it must be experienced.",
+
+- ÖNCE: "title": "Sakīna — Divine Tranquility, Deep Serenity",
+  SONRA: "title": "Sakīna: Divine Tranquility, Deep Serenity",
+
+- ÖNCE: "description": "Sakina is not tranquility achieved through human effort — it is a state that is 'sent down'. A state of mind that descends upon the prophet and companions in moments of war, danger, and uncertainty. Not the opposite of anxiety — but a foundation that exists within anxiety.",
+  SONRA: "description": "Sakina is not tranquility achieved through human effort; it is a state that is \"sent down\". A state of mind that descends upon the prophet and his companions in moments of war, danger and uncertainty. It is not the opposite of anxiety; it is a foundation that exists within anxiety.",
+
+- ÖNCE: "intro": "Freud's daughter Anna Freud described defense mechanisms in the systematic language of modern psychology in 1936. The Quran points to similar behavioural patterns much earlier — through concrete human stories rather than conceptual terminology, in a moral-narrative register. The parallel between the two languages is an academic observation, not a claim that the Quran anticipated Anna Freud's conceptual system.",
+  SONRA: "intro": "Freud's daughter Anna Freud described defense mechanisms in the systematic language of modern psychology in 1936. The Quran points to similar behavioural patterns much earlier, through concrete human stories rather than conceptual terminology, in a moral and narrative register. The parallel between the two languages is an academic observation, not a claim that the Quran anticipated Anna Freud's conceptual system.",
+
+- ÖNCE: "title": "Rationalization — Creating Excuses",
+  SONRA: "title": "Rationalization: Creating Excuses",
+
+- ÖNCE: "description": "Producing seemingly rational explanations to justify wrong actions. The classic mechanism of hypocrites: they are causing harm, but they call it 'reform'. It is an unconscious process — they genuinely believe it.",
+  SONRA: "description": "Producing seemingly rational explanations to justify wrong actions. The classic mechanism of hypocrites: they are causing harm, but they call it \"reform\". It is an unconscious process; they genuinely believe it.",
+
+- ÖNCE: "title": "Projection — Displacing Blame onto Others",
+  SONRA: "title": "Projection: Displacing Blame onto Others",
+
+- ÖNCE: "modernNote": "Classic psychoanalytic projection: 'Not me, them!' — externalizing one's own rejected feelings."
+  SONRA: "modernNote": "Classic psychoanalytic projection: \"Not me, them!\" Externalizing one's own rejected feelings."
+
+- ÖNCE: "title": "Denial — Rejecting Reality",
+  SONRA: "title": "Denial: Rejecting Reality",
+
+- ÖNCE: "description": "Pharaoh's attitude in the face of miracles. Seeing, understanding, but not accepting. This is denial born not from ignorance — but from arrogance. In psychology, 'conscious denial': knowing the truth but rejecting it for ego protection.",
+  SONRA: "description": "Pharaoh's attitude in the face of miracles. Seeing, understanding, but not accepting. This is denial born of arrogance, not of ignorance. In psychology, \"conscious denial\": knowing the truth but rejecting it for ego protection.",
+
+- ÖNCE: "title": "Procrastination — 'I'll Repent Tomorrow'",
+  SONRA: "title": "Procrastination: \"I'll Repent Tomorrow\"",
+
+- ÖNCE: "description": "Constantly postponing change — both a defense mechanism and a trap. The Quran clearly warns of this procrastination: there is a threshold beyond which repentance on the last breath is not accepted. The psychological root of procrastination: escape from the anxiety that change creates.",
+  SONRA: "description": "Constantly postponing change; both a defense mechanism and a trap. The Quran clearly warns of this procrastination: there is a threshold beyond which repentance on the last breath is not accepted. The psychological root of procrastination: escape from the anxiety that change creates.",
+
+- ÖNCE: "title": "Conformity Pressure — Following the Herd",
+  SONRA: "title": "Conformity Pressure: Following the Herd",
+
+- ÖNCE: "modernNote": "Asch's conformity experiments (1951): tendency to give clearly wrong answers to conform to the group — the power of social pressure."
+  SONRA: "modernNote": "Asch's conformity experiments (1951): the tendency to give clearly wrong answers to conform to the group; the power of social pressure."
+
+- ÖNCE: "title": "The Pride Shield — Defensive Grandiosity",
+  SONRA: "title": "The Pride Shield: Defensive Grandiosity",
+
+- ÖNCE: "title": "Trauma and Healing — The Story of Prophet Yusuf",
+  SONRA: "title": "Trauma and Healing: The Story of Prophet Yusuf",
+
+- ÖNCE: "intro": "The Quran calls the story of Yusuf 'ahsanul-qasas' — the best of stories. Not merely a beautiful narrative: it is a complete trauma recovery map encompassing jealousy, betrayal, slavery, false accusation, imprisonment, rise, and forgiveness.",
+  SONRA: "intro": "The Quran calls the story of Yusuf \"ahsanul-qasas\", the best of stories. It is more than a beautiful narrative: it is a complete map of trauma recovery, encompassing jealousy, betrayal, slavery, false accusation, imprisonment, rise and forgiveness.",
+
+- ÖNCE: "description": "The beginning of trauma: betrayal from those most trusted. Being thrown by brothers — attachment figures becoming a threat. In modern trauma theory, this is the deepest wound: betrayal experienced within a trust relationship.",
+  SONRA: "description": "The beginning of trauma: betrayal from those most trusted. Being cast out by brothers means attachment figures becoming a threat. In modern trauma theory this is the deepest wound: betrayal experienced within a trust relationship.",
+
+- ÖNCE: "description": "Identity stripped away. His name, freedom, family taken. But the Quran drops a critical note: 'Allah was with him.' The divine foundation present in the trauma experience — a framework of meaning that does not completely vanish.",
+  SONRA: "description": "Identity stripped away. His name, freedom and family taken. But the Quran drops a critical note: \"Allah was with him.\" The divine foundation present in the trauma experience, a framework of meaning that does not completely vanish.",
+
+- ÖNCE: "description": "Falsely accused and imprisoned while innocent. Yet Yusuf didn't scream, didn't rebel — he chose prayer. Psychology's locus of control: choosing not one's external circumstances but one's response. Directly overlaps with what Viktor Frankl learned from the camp.",
+  SONRA: "description": "Falsely accused and imprisoned while innocent. Yet Yusuf did not scream or rebel; he chose prayer. Psychology's locus of control: choosing not one's external circumstances but one's response. This directly overlaps with what Viktor Frankl learned in the camp.",
+
+- ÖNCE: "modernNote": "Frankl: 'The last freedom — the freedom to choose one's response to circumstances.' Even prison cannot take this freedom."
+  SONRA: "modernNote": "Frankl: \"The last freedom is the freedom to choose one's response to circumstances.\" Even prison cannot take this freedom."
+
+- ÖNCE: "description": "Years pass. No guarantee of release. Yet Yusuf continues interpreting dreams, helping people. Producing meaning — serving meaning even while imprisoned — is the foundation of healing.",
+  SONRA: "description": "Years pass. No guarantee of release. Yet Yusuf continues interpreting dreams and helping people. Producing meaning, serving meaning even while imprisoned, is the foundation of healing.",
+
+- ÖNCE: "title": "Stage 5: Rise — Transformation of Trauma",
+  SONRA: "title": "Stage 5: Rise, the Transformation of Trauma",
+
+- ÖNCE: "description": "From slavery to position of power. His traumatic past did not destroy him — on the contrary, it prepared him for that position. The pinnacle of posttraumatic growth: the painful experience transformed into the capacity to serve others.",
+  SONRA: "description": "From slavery to a position of power. His traumatic past did not destroy him; on the contrary, it prepared him for that position. The pinnacle of posttraumatic growth: the painful experience transformed into the capacity to serve others.",
+
+- ÖNCE: "title": "Stage 6: Forgiveness — The Peak of Healing",
+  SONRA: "title": "Stage 6: Forgiveness, the Peak of Healing",
+
+- ÖNCE: "description": "The Quran's most powerful forgiveness scene. Yusuf said 'No blame upon you today' to the brothers who had thrown him into the well. Forgiveness when he had every right to revenge. Forgiveness is not the weakness of the wronged — it is the strength of the healed.",
+  SONRA: "description": "The Quran's most powerful forgiveness scene. Yusuf said \"No blame upon you today\" to the brothers who had thrown him into the well. Forgiveness when he had every right to revenge. Forgiveness is not the weakness of the wronged; it is the strength of the healed.",
+
+- ÖNCE: "modernNote": "Forgiveness therapy: forgiveness reduces anxiety and depression, and liberates the victim — not the perpetrator."
+  SONRA: "modernNote": "Forgiveness therapy: forgiveness reduces anxiety and depression, and it liberates the victim rather than the perpetrator."
+
+- ÖNCE: "intro": "The Quran defines the human being as a social creature. It goes to the root of social diseases and provides their cure. Arrogance, envy, and backbiting — three fundamental pathologies that destroy social bonds.",
+  SONRA: "intro": "The Quran defines the human being as a social creature. It goes to the root of social diseases and provides their cure. Arrogance, envy and backbiting: three fundamental pathologies that destroy social bonds.",
+
+- ÖNCE: "title": "Arrogance — The Pathology of Grandiosity",
+  SONRA: "title": "Arrogance: The Pathology of Grandiosity",
+
+- ÖNCE: "description": "The most criticized character trait. Iblis fell because of arrogance. Pharaoh met his end because of arrogance. The Quran presents arrogance from a transcendent source: a created being claiming greatness against the Creator — an ontological contradiction.",
+  SONRA: "description": "The most criticized character trait. Iblis fell because of arrogance; Pharaoh met his end because of arrogance. The Quran presents arrogance from a transcendent angle: a created being claiming greatness against the Creator, an ontological contradiction.",
+
+- ÖNCE: "title": "Envy and Righteous Emulation — Destructive vs. Constructive",
+  SONRA: "title": "Envy and Righteous Emulation: Destructive and Constructive",
+
+- ÖNCE: "description": "The Quran uses two separate concepts: Hasad (wanting another's blessing to be taken away) and Ghib'ta (wanting to have the same). Hasad is destructive, ghib'ta is acceptable. Getting rich without effort, appearing successful without working — these trigger hasad.",
+  SONRA: "description": "The Quran uses two separate concepts: hasad (wanting another's blessing to be taken away) and ghib'ta (wanting to have the same). Hasad is destructive; ghib'ta is acceptable. Getting rich without effort and appearing successful without working trigger hasad.",
+
+- ÖNCE: "title": "Backbiting — Destruction of Social Fabric",
+  SONRA: "title": "Backbiting: Destruction of the Social Fabric",
+
+- ÖNCE: "description": "The metaphor the Quran gives for backbiting is shocking: eating dead flesh. Why so severe? Because backbiting targets the defenseless — those who cannot respond. Psychology's function of gossip: building group identity, gaining status, diverting attention from one's own failures.",
+  SONRA: "description": "The metaphor the Quran gives for backbiting is shocking: eating dead flesh. Why so severe? Because backbiting targets the defenseless, those who cannot respond. Psychology's account of gossip's function: building group identity, gaining status, diverting attention from one's own failures.",
+
+- ÖNCE: "intro": "The Quran doesn't just diagnose problems — it gives the tools for solutions. Four fundamental tools: Patience, Gratitude, Remembrance (Dhikr), and Prayer. They carry remarkable overlaps with modern therapy techniques — tested psychological strategies.",
+  SONRA: "intro": "The Quran does not only diagnose problems; it also gives the tools for solutions. Four fundamental tools: patience, gratitude, remembrance (dhikr) and prayer. They overlap with modern therapy techniques; tested psychological strategies.",
+
+- ÖNCE: "title": "Patience — Active Resistance, Not Passive Endurance",
+  SONRA: "title": "Patience: Active Resistance, Not Passive Endurance",
+
+- ÖNCE: "description": "Patience in English suggests 'endurance' but in the Quran it is active resistance. Perseverance, not giving up, continuing to move forward. The Quran calls us not away from impatience but away from cowardly surrender. It is no coincidence that patience appears in over 90 verses.",
+  SONRA: "description": "In English, patience suggests endurance, but in the Quran it is active resistance: perseverance, not giving up, continuing to move forward. The Quran calls us away from cowardly surrender, not from impatience. The Quran gives patience clear weight; it appears in over 90 verses.",
+
+- ÖNCE: "title": "Gratitude — A Practice That Changes Brain Chemistry",
+  SONRA: "title": "Gratitude: A Practice That Shifts the Focus",
+
+- ÖNCE: "description": "Gratitude is not a courtesy ritual — it is a cognitive reframing practice. Shifting focus from 'what is missing' to 'what is present'. The Quran says gratitude brings 'increase' — neuroscience confirms this happens through dopamine and serotonin increases.",
+  SONRA: "description": "Gratitude is not a courtesy ritual; it is a cognitive reframing practice, shifting focus from what is missing to what is present. The Quran says gratitude brings \"increase\"; neuroscience studies associate gratitude practice with increases in dopamine and serotonin.",
+
+- ÖNCE: "title": "Dhikr — The Medicine of the Heart",
+  SONRA: "title": "Dhikr: The Medicine of the Heart",
+
+- ÖNCE: "description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement — changes brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",
+  SONRA: "description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement change brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",
+
+- ÖNCE: "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol, activates the parasympathetic nervous system. Academic nuance: the same findings appear in Buddhist meditation, Christian prayer, and secular mindfulness — the effect is real but not religion-specific."
+  SONRA: "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol and activates the parasympathetic nervous system. Academic nuance: the same findings appear in Buddhist meditation, Christian prayer and secular mindfulness; the effect is real but not specific to one religion."
+
+- ÖNCE: "title": "Prayer (Du'a) — Conscious Surrender",
+  SONRA: "title": "Prayer (Du'a): Conscious Surrender",
+
+- ÖNCE: "description": "Prayer is not a wish list — it is a practice of conscious surrender. The Quran says 'He will respond to those who ask'; but this response is not always the granting of what was asked. Prayer transfers anxiety externally, making it easier to let go of the illusion of control.",
+  SONRA: "description": "Prayer is not a wish list; it is a practice of conscious surrender. The Quran says \"He will respond to those who ask\", but this response is not always the granting of what was asked. Prayer transfers anxiety outward, making it easier to let go of the illusion of control.",
+
+- ÖNCE: "title": "Purpose of Creation — The Foundation of Existence",
+  SONRA: "title": "Purpose of Creation: The Foundation of Existence",
+
+- ÖNCE: "description": "The Quran's framework of meaning is not existential — it is cosmological. The human being was created not randomly but with a conscious purpose. 'Worship' is not a narrow ritual — it is an orientation that makes all of life meaningful. On this foundation, no suffering is meaningless.",
+  SONRA: "description": "The Quran's framework of meaning is not existential but cosmological. The human being was created not randomly but with a conscious purpose. \"Worship\" is not a narrow ritual; it is an orientation that makes all of life meaningful. On this foundation, no suffering is meaningless.",
+
+- ÖNCE: "title": "The Meaning of Suffering — The Trial Framework",
+  SONRA: "title": "The Meaning of Suffering: The Trial Framework",
+
+- ÖNCE: "description": "Suffering is not punishment — it is a development mechanism. The Quran's trial framework takes suffering from meaningless to a layer of meaning. The Quran's answer to 'Why me?' is not 'Because you can bear it' but 'Because this will transform you.'",
+  SONRA: "description": "Suffering is not punishment; it is a mechanism of development. The Quran's trial framework moves suffering from meaninglessness into a layer of meaning. The Quran's answer to \"Why me?\" is not \"Because you can bear it\" but \"Because this will transform you.\"",
+
+- ÖNCE: "description": "Existential psychology sees escape from death as the greatest source of anxiety (death anxiety). The Quran makes death inevitable but meaningful: not an end but a transition. This framework does not eliminate death anxiety — it transforms it.",
+  SONRA: "description": "Existential psychology sees escape from death as the greatest source of anxiety (death anxiety). The Quran makes death inevitable but meaningful: not an end but a transition. This framework does not eliminate death anxiety; it transforms it.",
+
+- ÖNCE: "modernNote": "Ernest Becker, 'Denial of Death' (1973): much of life is spent in strategies denying death anxiety. The Quran calls not to denial but to confrontation."
+  SONRA: "modernNote": "Ernest Becker, The Denial of Death (1973): much of life is spent in strategies denying death anxiety. The Quran calls not to denial but to confrontation."
+
+- ÖNCE: "title": "Sense of Coherence — The Ground of Resilience",
+  SONRA: "title": "Sense of Coherence: The Ground of Resilience",
+
+- ÖNCE: "description": "The center of Aaron Antonovsky's 'salutogenesis' theory: sense of coherence — the feeling that the world is comprehensible, manageable, and meaningful. The Quran systematically builds this coherence: difficulty is always temporary, ease always accompanies it.",
+  SONRA: "description": "At the center of Aaron Antonovsky's \"salutogenesis\" theory is the sense of coherence: the feeling that the world is comprehensible, manageable and meaningful. The Quran systematically builds this coherence: difficulty is always temporary, and ease always accompanies it.",
+
+- ÖNCE: "modernNote": "Antonovsky's salutogenesis model: meaningfulness, manageability, and comprehensibility — the three pillars of psychological health."
+  SONRA: "modernNote": "Antonovsky's salutogenesis model: meaningfulness, manageability and comprehensibility; the three pillars of psychological health."
+
+- ÖNCE: "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions — they are differences of complementarity and depth. The Quran had long defined dimensions that modern psychology couldn't see or recognized late.",
+  SONRA: "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions; they are differences of complementarity and depth. The Quran had long defined dimensions that modern psychology could not see or recognized late.",
+
+- ÖNCE: "description": "Freud: id (drives) / ego (reality) / superego (morality) — three static structures. The Quran: Ammāra → Lawwāma → Mulhima → Mutma'inna → Rāḍiya — a five-stage developmental journey. Freud's model describes; the Quran's model shows transformation. The most critical difference: the Quran sees the nafs as changeable.",
+  SONRA: "description": "Freud: id (drives), ego (reality), superego (morality); three static structures. The Quran: ammāra, lawwāma, mulhima, mutma'inna, rāḍiya; a five-stage developmental journey. Freud's model describes; the Quran's model shows transformation. The most critical difference: the Quran sees the nafs as changeable.",
+
+- ÖNCE: "title": "The Divine Dimension — The Limit of Secular Psychology",
+  SONRA: "title": "The Divine Dimension: The Limit of Secular Psychology",
+
+- ÖNCE: "title": "Sin and Repentance — A Psychological Cleansing Mechanism",
+  SONRA: "title": "Sin and Repentance: A Psychological Cleansing Mechanism",
+
+- ÖNCE: "description": "In Freud, guilt is pathological — a neurotic burden created by repressed desires. In the Quran, sin is real but can be erased through repentance. This mechanism is liberating: a mistake is not a permanent mark, it is an erasable condition. Not constant self-criticism but active pursuit of forgiveness.",
+  SONRA: "description": "In Freud, guilt is pathological: a neurotic burden created by repressed desires. In the Quran, sin is real but can be erased through repentance. This mechanism is liberating: a mistake is not a permanent mark but an erasable condition. Not constant self-criticism, but the active pursuit of forgiveness.",
+
+- ÖNCE: "description": "Maslow: physiological → safety → belonging → esteem → self-actualization. Peak point: realization of individual potential. The Quran presents going beyond the self — the soul's orientation toward God — as a higher stage. Maslow, late in life, added a similar concept ('self-transcendence') to his theory.",
+  SONRA: "description": "Maslow: physiological needs, safety, belonging, esteem, self-actualization. The peak is the realization of individual potential. The Quran presents going beyond the self, the soul's orientation toward God, as a higher stage. Late in life, Maslow added a similar concept (\"self-transcendence\") to his theory.",
+
+- ÖNCE: "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. The Sufi concept of fanā (annihilation of the self in God) carries a meaningful parallel to this idea — developed on different metaphysical grounds but meeting at the point of 'movement beyond the individual self.'"
+  SONRA: "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. The Sufi concept of fanā (annihilation of the self in God) carries a meaningful parallel to this idea, developed on different metaphysical grounds but meeting at the point of movement beyond the individual self."
+
+- ÖNCE: "intro": "The Quran does not idealize human nature. It defines both the potential and the limitations with crystal clarity. These weaknesses are not fate — they are a call to transformation.",
+  SONRA: "intro": "The Quran does not idealize human nature. It defines both the potential and the limitations clearly. These weaknesses are not fate; they are a call to transformation.",
+
+- ÖNCE: "title": "Hastiness — Wanting It Now",
+  SONRA: "title": "Hastiness: Wanting It Now",
+
+- ÖNCE: "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets, and missed opportunities. The Quran defines this as a fitrah (innate nature) characteristic — it can be overcome but cannot be ignored."
+  SONRA: "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets and missed opportunities. The Quran defines this as a characteristic of fitrah (innate nature): it can be overcome but cannot be ignored."
+
+- ÖNCE: "title": "Greed — Never Having Enough",
+  SONRA: "title": "Greed: Never Having Enough",
+
+- ÖNCE: "description": "Not getting rich — but when rich, knowing no bounds. Greed initially looks like motivation, then takes over identity. The Quran defines 'tughyan' (transgression) as a psychological threat born of excess."
+  SONRA: "description": "The problem is not getting rich but knowing no bounds once rich. Greed initially looks like motivation, then takes over identity. The Quran defines \"tughyan\" (transgression) as a psychological threat born of excess."
+
+- ÖNCE: "title": "Ingratitude — Not Seeing the Blessings",
+  SONRA: "title": "Ingratitude: Not Seeing the Blessings",
+
+- ÖNCE: "description": "Seeing what one doesn't have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued."
+  SONRA: "description": "Seeing what one does not have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued."
+
+- ÖNCE: "title": "Argumentativeness — The Need to Be Right",
+  SONRA: "title": "Argumentativeness: The Need to Be Right",
+
+- ÖNCE: "description": "Not seeking truth — but appearing right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected."
+  SONRA: "description": "The aim is not to seek truth but to appear right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected."
+
+- ÖNCE: "title": "Weakness — Vulnerability",
+  SONRA: "title": "Weakness: Vulnerability",
+
+- ÖNCE: "description": "The recognition of human fragility — not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength."
+  SONRA: "description": "The recognition of human fragility; not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength."
+
+- ÖNCE: "translation": "And within yourselves — will you not see?",
+  SONRA: "translation": "And within yourselves, will you not see?",
+
+- ÖNCE: "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations, and weak points — it is the foundation of psychological health. Muraqaba (self-monitoring) practice is the Islamic counterpart of self-awareness."
+  SONRA: "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations and weak points is the foundation of psychological health. The practice of muraqaba (self-monitoring) is the Islamic counterpart of self-awareness."
+
+- ÖNCE: "title": "Empathy — Entering the Other's Interior",
+  SONRA: "title": "Empathy: Entering the Other's Interior",
+
+- ÖNCE: "description": "Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)."
+  SONRA: "description": "Empathy is not a feeling; it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)."
+
+- ÖNCE: "description": "The Quran does not deny anger — it rewards 'swallowing' it. Not emotional suppression but conscious regulation. The Prophet: 'The strong one is not who wins in wrestling, but who can restrain themselves in anger.' Anger energy preserves existence but requires direction."
+  SONRA: "description": "The Quran does not deny anger; it rewards \"swallowing\" it. Not emotional suppression but conscious regulation. The Prophet: \"The strong one is not the one who wins in wrestling, but the one who can restrain themselves in anger.\" Anger energy preserves existence but requires direction."
+
+- ÖNCE: "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds, and vulnerabilities. This is the social version of taqwa (God-consciousness)."
+  SONRA: "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds and vulnerabilities. This is the social version of taqwa (God-consciousness)."
+
+- ÖNCE: "title": "Relationship Management — Justice and Compassion",
+  SONRA: "title": "Relationship Management: Justice and Compassion",
+
+- ÖNCE: "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict — it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity."
+  SONRA: "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict; it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity."
+
+- ÖNCE: "description": "The Quran uses the concept of 'tazyin': beautifying, making attractive. Desire distorts reality — the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting not objective reality but desire."
+  SONRA: "description": "The Quran uses the concept of \"tazyin\": beautifying, making attractive. Desire distorts reality; the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting desire rather than objective reality."
+
+- ÖNCE: "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox — it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward-punishment) but internalized meaning motivation."
+  SONRA: "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox; it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward and punishment) but internalized motivation by meaning."
+
+### `next/src/i18n/tr.json`
+
+- ÖNCE: "intro": "Kur'an'ın 29 sûresi gizemli harflerle başlar: Elif-Lâm-Mîm. Hâ-Mîm. Yâ-Sîn. Bu harflerin mânâsını insanlardan hiçbiri kesin olarak tespit edebilmiş değildir. 1.400 yıldır üzerinde icma sağlanamayan, çoklu yorumlanan bir yapı. Ama bildiğimiz şey şu: Bu 14 harf, Arap alfabesinin tam yarısı. Neden tam olarak bu 14 harfin seçildiği, neden alfabenin yarısı olduğu — 1.400 yıldır farklı yorumlara açık sorular. Bir sır mı? Bir denge sistemi mi? Yalnızca âlemlerin Rabbi olan Allah bilir.",
+  SONRA: "intro": "Kur'an'ın 29 sûresi harf dizileriyle başlar: Elif-Lâm-Mîm, Hâ-Mîm, Yâ-Sîn. Bu harflerin mânâsını kimse kesin olarak tespit edebilmiş değildir; 1.400 yıldır üzerinde icma sağlanamayan, çok yorumlu bir yapıdır. Bildiğimiz şu: bu 14 harf Arap alfabesinin tam yarısıdır. Neden tam olarak bu 14 harf, neden alfabenin yarısı? Bu sorular 1.400 yıldır farklı yorumlara açık. Bir sır mı, bir denge sistemi mi? Yalnızca âlemlerin Rabbi olan Allah bilir.",
+
+- ÖNCE: "intro": "7. yüzyıl Arabistan'ında baskın edebî formlar ölçülü şiir ve secili/serbest hitabetti; Kur'an'ın üslubu ise çağdaşlarınca bu kalıplarla tam örtüşmeyen, ritmik ama ölçüye indirgenemeyen bir söyleyiş olarak algılandı. Klasik belâgat geleneği (Bâkıllânî, Cürcânî) bu 'ne şiir ne düzyazı' formunu i'câz-ı beyân çerçevesinde eşsiz sayar — kendine özgü bir kategori.",
+  SONRA: "intro": "7. yüzyıl Arabistan'ında baskın edebî formlar ölçülü şiir ve secili ya da serbest hitabetti. Kur'an'ın üslubu ise çağdaşlarınca bu kalıplarla tam örtüşmeyen, ritmik ama ölçüye indirgenemeyen bir söyleyiş olarak algılandı. Klasik belâgat geleneği (Bâkıllânî, Cürcânî) bu \"ne şiir ne düzyazı\" formunu i'câz-ı beyân çerçevesinde kendine özgü bir kategori sayar.",
+
+- ÖNCE: "label": "Edebî Meydan Okuma — İ'câz",
+  SONRA: "label": "Edebî Meydan Okuma: İ'câz",
+
+- ÖNCE: "text": "Mekke muhalifleri 'şair' yaftasıyla reddetmek istedi — ama Arap şiirinin 16 vezninden hiçbirine uymuyordu. 'Kâhin sözü' dediler — onun saj' (seci) kalıbını da aşıyordu. \"Bir benzeri getirin\" meydan okuması 1.400 yıldır yanıtsız."
+  SONRA: "text": "Mekke muhalifleri onu \"şair\" yaftasıyla reddetmek istedi, ama metin Arap şiirinin 16 vezninden hiçbirine uymuyordu. \"Kâhin sözü\" dediler; onun saj' (seci) kalıbını da aşıyordu. \"Bir benzeri getirin\" meydan okuması 1.400 yıldır yanıtsız."
+
+- ÖNCE: "desc": "Kur'an'da her sûrenin kendine özgü bir bitiş sesi var — buna 'fasıla' denir. Ayet sonlarındaki bu ses örüntüsü ne basit bir kafiye kuralına ne de rastlantıya indirgenebilir gibi görünür — bir ses mimarisi sezdirir.",
+  SONRA: "desc": "Kur'an'da her sûrenin kendine özgü bir bitiş sesi vardır; buna \"fasıla\" denir. Ayet sonlarındaki bu ses örüntüsü ne basit bir kafiye kuralına ne de rastlantıya indirgenebilir görünür; bir ses mimarisi sezdirir.",
+
+- ÖNCE: "title": "Duhâ Sûresi — '-â' Fasılası",
+  SONRA: "title": "Duhâ Sûresi: '-â' Fasılası",
+
+- ÖNCE: "note": "11 ayetin ilk 8'i aynı uzun '-â' sesiyle biter (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aġnā). Son 3 ayette ses değişir ve anlam düzleminden eylem emrine geçiş yapılır — ses ve mânâ birlikte kırılır.",
+  SONRA: "note": "11 ayetin ilk 8'i aynı uzun '-â' sesiyle biter (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aġnā). Son 3 ayette ses değişir ve anlam düzleminden eylem emrine geçilir; ses ve mânâ birlikte kırılır.",
+
+- ÖNCE: "detail": "62 ayet boyunca baskın bitiş sesi sabit kalır. Arap kaside geleneği de aynı kafiyeyi uzun mesafeler koruyabilir; ama Kur'ân katı bir vezin gerektirmeksizin bu ses tutarlılığını sağlar — bu kendine özgü bir biçimdir.",
+  SONRA: "detail": "62 ayet boyunca baskın bitiş sesi sabit kalır. Arap kaside geleneği de aynı kafiyeyi uzun mesafeler koruyabilir; ama Kur'ân bu ses tutarlılığını katı bir vezin gerektirmeksizin sağlar. Bu, kendine özgü bir biçimdir.",
+
+- ÖNCE: "detail": "Her iki ayette bir 'Rabbinizin hangi nimetlerini yalanlıyorsunuz?' refreni gelir — fasıla ve refrein aynı anda, iç içe işliyor.",
+  SONRA: "detail": "Her iki ayette bir \"Rabbinizin hangi nimetlerini yalanlıyorsunuz?\" nakaratı gelir; fasıla ile nakarat aynı anda, iç içe işler.",
+
+- ÖNCE: "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Yoğun, patlayıcı ünsüzler duyarsınız: ق ك ط — boğazda, dilde, damakta gerilim. Şimdi rahmet ve cennet ayetlerini okuyun. Akıcı sesler duyarsınız: م ن (nazal), ل ر (likit). Nefes yumuşar. Bu kontrast dikkat çekicidir — modern dilbilim benzer olguları 'ses sembolizmi' başlığında inceler. (Not: klasik tecvidin tafhîm/tarqîq'i harflerin kalın/ince telaffuz kuralıdır; modern ses-anlam sembolizmiyle birebir aynı olgu değildir.)",
+  SONRA: "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Yoğun, patlayıcı ünsüzler duyarsınız: ق ك ط; boğazda, dilde ve damakta gerilim. Şimdi rahmet ve cennet ayetlerini okuyun. Akıcı sesler duyarsınız: م ن (nazal), ل ر (likit). Nefes yumuşar. Bu kontrast dikkat çeker; modern dilbilim benzer olguları \"ses sembolizmi\" başlığında inceler. (Not: klasik tecvidin tafhîm ve tarqîq'i harflerin kalın ve ince telaffuz kuralıdır; modern ses-anlam sembolizmiyle birebir aynı olgu değildir.)",
+
+- ÖNCE: "title": "Ses Sembolizmi — İki Gelenek, Tek Olgu",
+  SONRA: "title": "Ses Sembolizmi: İki Gelenek, Tek Olgu",
+
+- ÖNCE: "description": "Modern fonetik (Sapir 1929; Köhler'in bouba/kiki etkisi, 1929) seslerin kendi başlarına anlam taşıdığını gösterir: patlayıcı ünsüzler (ق ك ط) gerilim, nazaller (م ن) ve likitler (ل ر) gevşeme çağrıştırır. Klasik İslamî tecvid bilimi ise aynı olguyu çok daha önce kategorilere ayırmıştı — kalın/ince (tafhīm/tarqīq), sert/yumuşak (şiddet/rahâvet), titrek/durağan (qalqala). Kur'an'da bu örüntü, sözün konusuyla sesin dokusu arasındaki sistematik uyumu işaret eder."
+  SONRA: "description": "Modern fonetik (Sapir 1929; Köhler'in bouba/kiki etkisi, 1929) seslerin kendi başlarına anlam çağrıştırdığını gösterir: patlayıcı ünsüzler (ق ك ط) gerilim, nazaller (م ن) ve likitler (ل ر) gevşeme çağrıştırır. Klasik İslamî tecvid bilimi aynı olguyu çok daha önce kategorilere ayırmıştı: kalın ve ince (tafhīm/tarqīq), sert ve yumuşak (şiddet/rahâvet), titrek ve durağan (qalqala). Kur'an'da bu örüntü, sözün konusuyla sesin dokusu arasındaki sistematik uyuma işaret eder."
+
+- ÖNCE: "subtitle": "İki sûrenin ses imzası — yan yana",
+  SONRA: "subtitle": "İki sûrenin ses imzası, yan yana",
+
+- ÖNCE: "noteTr": "Üç ayette ق sesi her seferinde geri döner — boğazda tıkanan, sonra patlayan harf. 'Kāria' kelimesinin anlamı zaten 'çarpan, vuran' — ses anlamın kendisi olur."
+  SONRA: "noteTr": "Üç ayette ق sesi her seferinde geri döner; boğazda tıkanan, sonra patlayan harf. \"Kāria\" kelimesinin anlamı zaten \"çarpan, vuran\"dır; ses anlamın kendisi olur."
+
+- ÖNCE: "feature": "Akıcı, dalgalı, açık sesler — Kur'an'ın 'gelini' (arûs)",
+  SONRA: "feature": "Akıcı, dalgalı, açık sesler; Kur'an'ın \"gelini\" (arûs)",
+
+- ÖNCE: "noteTr": "Klasik gelenek bu sûreyi 'arûsü'l-Kur'an' (Kur'an'ın gelini) olarak adlandırır. Sebep: sesin estetiği. ر ل م ن — dört likit/nazal süreklilik içinde yankılanır."
+  SONRA: "noteTr": "Klasik gelenek bu sûreyi \"arûsü'l-Kur'an\" (Kur'an'ın gelini) olarak adlandırır. Sebep sesin estetiğidir: ر ل م ن, dört likit ve nazal, süreklilik içinde yankılanır."
+
+- ÖNCE: "methodologyTr": "Bu karşılaştırma sezgisel bir gösterimdir — kesin bir fonetik istatistik değil, ses dokusunun mesajla nasıl uyumlu çalıştığını işitilebilir kılan bir örnek."
+  SONRA: "methodologyTr": "Bu karşılaştırma sezgisel bir gösterimdir. Kesin bir fonetik istatistik değil, ses dokusunun mesajla nasıl uyumlu çalıştığını işitilebilir kılan bir örnektir."
+
+- ÖNCE: "subtitle": "Müslümanlar bu kategorileri 1.400 yıldır biliyor — Batı dilbilimi 20. yüzyılda buldu",
+  SONRA: "subtitle": "Tecvid bu kategorileri yüzyıllardır tanımlıyor; Batı dilbilimi benzer ayrımlara 20. yüzyılda ulaştı",
+
+- ÖNCE: "name": "Tafhīm — Kalın Sesler",
+  SONRA: "name": "Tafhīm: Kalın Sesler",
+
+- ÖNCE: "function": "Ağırlık, otorite, azamet — celâl sıfatlarını taşır"
+  SONRA: "function": "Ağırlık, otorite, azamet; celâl sıfatlarını taşır"
+
+- ÖNCE: "name": "Tarqīq — İnce Sesler",
+  SONRA: "name": "Tarqīq: İnce Sesler",
+
+- ÖNCE: "function": "Hafiflik, akıcılık, yakınlık — cemâl sıfatlarını taşır"
+  SONRA: "function": "Hafiflik, akıcılık, yakınlık; cemâl sıfatlarını taşır"
+
+- ÖNCE: "name": "Qalqala — Titrek Sesler",
+  SONRA: "name": "Qalqala: Titrek Sesler",
+
+- ÖNCE: "function": "Vurgu, dikkat çekme — sözün altını çizer"
+  SONRA: "function": "Vurgu ve dikkat çekme; sözün altını çizer"
+
+- ÖNCE: "subtitle": "Üç ayet — her birinin sesi konusunu söylüyor. Sen seçer misin?",
+  SONRA: "subtitle": "Üç ayet; her birinin sesi konusunu söylüyor. Sen seçer misin?",
+
+- ÖNCE: "revealTr": "Azap. İki ayet boyunca الْحَاقَّةُ kelimesi tekrar tekrar — her ق şedde ile çift telaffuz: 'ḥāq-qa'. Sesin kendisi vurmayı, yere çarpmayı taklit eder. 'Hâkka' = 'gerçekleşen kıyamet'.",
+  SONRA: "revealTr": "Azap. İki ayet boyunca الْحَاقَّةُ kelimesi tekrar tekrar gelir; her ق şedde ile çift telaffuz edilir: \"ḥāq-qa\". Sesin kendisi vurmayı, yere çarpmayı taklit eder. \"Hâkka\", gerçekleşen kıyamet demektir.",
+
+- ÖNCE: "revealTr": "Rahmet. ن ل ر م — likitler ve nazaller akar. Cennet içeceklerinin tanımı.",
+  SONRA: "revealTr": "Rahmet. ن ل ر م; likitler ve nazaller akar. Cennet içeceklerinin tanımı.",
+
+- ÖNCE: "revealTr": "Azap. ص ق — kısa bir cümlede iki emphatik patlayıcı. 'Sekar' = cehennem isimlerinden biri.",
+  SONRA: "revealTr": "Azap. ص ق; kısa bir cümlede iki emphatik patlayıcı. \"Sekar\", cehennemin isimlerinden biridir.",
+
+- ÖNCE: "perfectClosingTr": "Gördün mü? Arapça bilmesen de ruhun bu ses mimarisini tanıyor. Kur'an'ın sesleri rastgele değil — anlamın taşıyıcısı.",
+  SONRA: "perfectClosingTr": "Gördün mü? Arapça bilmesen de kulağın bu ses mimarisini tanıyor. Kur'an'ın sesleri rastgele değil; anlamı taşıyor.",
+
+- ÖNCE: "partialClosingTr": "Bazısını yakaladın. Ses ve anlamın bağı her zaman bilinçli değil — kulak çoğu zaman zihinden önce sezer."
+  SONRA: "partialClosingTr": "Bazısını yakaladın. Ses ile anlamın bağı her zaman bilinçli değildir; kulak çoğu zaman zihinden önce sezer."
+
+- ÖNCE: "closing": "Kur'an'da ses ve anlam tek bir dokunun iki yüzüdür — biri diğerini taşır."
+  SONRA: "closing": "Kur'an'da ses ve anlam tek bir dokunun iki yüzüdür; biri diğerini taşır."
+
+- ÖNCE: "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Halka kompozisyon, Mary Douglas gibi Batı edebiyat teorisyenlerinin 20. yüzyılda geliştirdiği modern bir analitik dildir. Klasik tefsir bu tür yapısal simetrileri münâsebât ve tenâsub başlıkları altında ele almıştır — özellikle Bikaî'nin Nazmü'd-Dürer fî Tenâsübi'l-Âyi ve's-Süver'i tam olarak bu ayet ve sûre yapısını inceleyen dev bir eserdir. Modern halka kompozisyon terminolojisi bu klasik geleneği çağdaş anlatı teorisiyle buluşturur; çerçeve yeni değil, adı yeni.",
+  SONRA: "intro": "Fatiha suresi yedi ayettir ve ilk bakışta basit görünür. Yapısına bakıldığında ise bir ayna simetrisi çıkar: A-B-C-MERKEZ-C'-B'-A'. Halka kompozisyon, Mary Douglas gibi Batı edebiyat teorisyenlerinin 20. yüzyılda geliştirdiği bir analitik dildir. Klasik tefsir bu tür yapısal simetrileri münâsebât ve tenâsub başlıkları altında ele almıştır; özellikle Bikaî'nin Nazmü'd-Dürer fî Tenâsübi'l-Âyi ve's-Süver'i tam olarak bu ayet ve sûre yapısını inceleyen dev bir eserdir. Modern halka kompozisyon terminolojisi bu klasik geleneği çağdaş anlatı teorisiyle buluşturur; çerçeve yeni değil, adı yeni.",
+
+- ÖNCE: "body": "Modern akademide \"Bucaillism\" — Maurice Bucaille'in La Bible, le Coran et la Science (1976) eserinden adını alan, modern bilimsel keşifleri Kur'an ayetlerinde sistematik olarak \"bulma\" yaklaşımı — eleştirilmektedir. Eleştirmenler (Ziauddin Sardar; Stefano Bigliardi, Islam and the Quest for Modern Science; Taner Edis) bunun selektif okuma riski taşıdığını, klasik müfessirlerin yorumlarını göz ardı edebileceğini ve değişen bilimsel teorilere bağımlı olduğunu söyler. Klasik İslam alimleri (Şâtıbî, El-Muvâfakât) Kur'an'ın hidayet kitabı olduğunu, bilim kitabı olmadığını vurgular. Atlas burada kesin bir mucize iddiası sunmaz — klasik tefsir geleneğinin işaret/i'caz olarak kabul ettiği örtüşmeleri, modern bağlamla olası paralellikler olarak sunar; her tab altındaki eleştirel notlar bu çerçevenin bir parçasıdır."
+  SONRA: "body": "Modern akademide \"Bucaillism\", yani Maurice Bucaille'in La Bible, le Coran et la Science (1976) eserinden adını alan ve modern bilimsel keşifleri Kur'an ayetlerinde sistematik olarak \"bulma\" yaklaşımı, eleştirilmektedir. Eleştirmenler (Ziauddin Sardar; Stefano Bigliardi, Islam and the Quest for Modern Science; Taner Edis) bunun selektif okuma riski taşıdığını, klasik müfessirlerin yorumlarını göz ardı edebileceğini ve değişen bilimsel teorilere bağımlı olduğunu söyler. Klasik İslam alimleri (Şâtıbî, El-Muvâfakât) Kur'an'ın hidayet kitabı olduğunu, bilim kitabı olmadığını vurgular. Atlas burada kesin bir mucize iddiası sunmaz; klasik tefsir geleneğinin işaret ya da i'caz olarak kabul ettiği örtüşmeleri modern bağlamla olası paralellikler olarak sunar. Her tab altındaki eleştirel notlar bu çerçevenin bir parçasıdır."
+
+- ÖNCE: "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ — indirdik. Yarattık değil, inşa ettik değil: indirdik. İlk bakışta demir 'yerden çıkarılan' bir maden olduğu için bu ifade bazı okuyuculara farklı çağrışımlar yapabilir. Modern astrofizik ise bu seçimi neden dikkat çekici kıldığını gösteren bir arka plan sunar. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz — bunun için gereken füzyon enerjisi mevcut değildir. Demir-grup elementler dev yıldızların ömürlerinin sonunda gerçekleşen süpernova patlamalarında ve nötron yıldızı çarpışmalarında (kilonova; 2017'de gözlemlenen GW170817 olayı) sentezlenir ve uzaya saçılır. Dünya'daki demir, Güneş Sistemi oluşmadan önceki yıldız süreçlerinde üretilmiş maddeden gelir; Dünya da oluştuğu bu kozmik malzemeyi miras almıştır. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
+  SONRA: "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ, yani indirdik. \"Yarattık\" ya da \"inşa ettik\" değil, \"indirdik\". Demir yerden çıkarılan bir maden olduğu için bu ifade ilk bakışta bazı okuyuculara farklı çağrışımlar yapabilir. Modern astrofizik ise bu seçimi neden dikkat çekici kıldığını gösteren bir arka plan sunar. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz; bunun için gereken füzyon enerjisi mevcut değildir. Demir grubu elementler dev yıldızların ömürlerinin sonunda gerçekleşen süpernova patlamalarında ve nötron yıldızı çarpışmalarında (kilonova; 2017'de gözlemlenen GW170817 olayı) sentezlenir ve uzaya saçılır. Dünya'daki demir, Güneş Sistemi oluşmadan önceki yıldız süreçlerinde üretilmiş maddeden gelir; Dünya bu kozmik malzemeyi miras almıştır. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
+
+- ÖNCE: "Hadid 57:25 — demir için özellikle 'enzelnâ' (indirdik) fiili kullanılır",
+  SONRA: "Hadid 57:25: demir için özellikle \"enzelnâ\" (indirdik) fiili kullanılır",
+
+- ÖNCE: "Demir-grup elementler süpernovalarda ve nötron yıldızı çarpışmalarında (kilonova) üretilir — 2017 GW170817 olayı bu süreci doğrudan gözlemledi",
+  SONRA: "Demir grubu elementler süpernovalarda ve nötron yıldızı çarpışmalarında (kilonova) üretilir; 2017 GW170817 olayında bu süreç doğrudan gözlemlendi",
+
+- ÖNCE: "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Önemli bir dilsel nüans: aynı fiil Kur'an'da yağmur, Kitap, elbise (En'âm 7:26) ve hayvanlar (Zümer 39:6) için de kullanılır — yani 'enzelnâ' demir için kozmik köken bildiren özel bir kullanım değil, geniş bir 'ihsan ettik / var ettik' kalıbıdır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
+  SONRA: "criticalNote": "\"Enzelnâ\" kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili \"lütfettik, ihsan ettik\" anlamında yorumlamıştır. Önemli bir dilsel nüans: aynı fiil Kur'an'da yağmur, Kitap, elbise (A'râf 7:26) ve hayvanlar (Zümer 39:6) için de kullanılır. Yani \"enzelnâ\" demir için kozmik köken bildiren özel bir kullanım değil, geniş bir \"ihsan ettik, var ettik\" kalıbıdır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
+
+- ÖNCE: "1929: Edwin Hubble kırmızıya kayma–uzaklık ilişkisini ortaya koyarak evrenin genişlemesi fikrine güçlü gözlemsel dayanak sağladı",
+  SONRA: "1929: Edwin Hubble kırmızıya kayma ile uzaklık arasındaki ilişkiyi ortaya koyarak evrenin genişlemesi fikrine güçlü gözlemsel dayanak sağladı",
+
+- ÖNCE: "Mûsi'ûn — ism-i fail, şimdiki zaman kipi, sürekli ve aktif bir genişlemeyi ifade eder",
+  SONRA: "Mûsi'ûn: ism-i fail, şimdiki zaman kipi; sürekli ve aktif bir genişlemeyi ifade eder",
+
+- ÖNCE: "Enbiya 21:30 — ratk (birleşik) ve fetk (ayrılmış): gökler ve yerin tek bir bütünden ayrılması",
+  SONRA: "Enbiya 21:30: ratk (birleşik) ve fetk (ayrılmış); göklerin ve yerin tek bir bütünden ayrılması",
+
+- ÖNCE: "Rahman 55:19-20: iki deniz buluşur ama yebğiyân — birbirine tecavüz etmezler",
+  SONRA: "Rahman 55:19-20: iki deniz buluşur ama \"lâ yebğiyân\", birbirine tecavüz etmezler",
+
+- ÖNCE: "Berzah kelimesi: iki şey arasındaki geçit vermez ara bölge — halocline tanımıyla örtüşür"
+  SONRA: "Berzah kelimesi: iki şey arasındaki geçit vermez ara bölge; halocline tanımıyla örtüşür"
+
+- ÖNCE: "title": "Embriyoloji — Alaka Kelimesi",
+  SONRA: "title": "Embriyoloji: Alaka Kelimesi",
+
+- ÖNCE: "explanation": "Embriyo, rahim duvarına yapışır — implantasyon, gün 6-12"
+  SONRA: "explanation": "Embriyo rahim duvarına yapışır: implantasyon, gün 6-12"
+
+- ÖNCE: "Alaka — klasik sözlüklerde 'yapışan şey' ve 'sülük' gibi anlamlarla anılır; 'kan/pıhtı' ilişkisi de literatürde geçer, erken embriyoyla benzetmeler kurulmuştur",
+  SONRA: "Alaka: klasik sözlüklerde \"yapışan şey\" ve \"sülük\" gibi anlamlarla anılır; \"kan, pıhtı\" ilişkisi de literatürde geçer, erken embriyoyla benzetmeler kurulmuştur",
+
+- ÖNCE: "Gün 6-12: embriyo rahim duvarına yapışır — 'yapışan şey' tanımıyla örtüşür",
+  SONRA: "Gün 6-12: embriyo rahim duvarına yapışır; \"yapışan şey\" tanımıyla örtüşür",
+
+- ÖNCE: "criticalNote": "Keith Moore'un yorumları akademik bağımsızlık açısından tartışmalıdır: 'Islamic Additions to Embryology' bölümleri yalnızca The Developing Human'ın Suudi Arabistan baskısında bulunur ve King Abdulaziz Üniversitesi tarafından desteklenmiştir (kaynak: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). Bu, Moore'un anatomik uzmanlığını sorgulamaz ama yorumlarının bağımsızlığını tartışmaya açar. Galen karşılaştırması da nüans gerektirir: Galen'in embriyoloji görüşleri çelişkilidir (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — 'Galen tamamen yanlış, Kur'an doğru' tek-yönlü iddia akademik olarak desteklenmez. Modern embriyolojide kemik ve kas dokusu paralel gelişir; Kur'an'ın 'kemik → et' sırası literal bir kronoloji değil, kabaca uyumlu bir ifadedir. Alaka kelimesinin dilbilimsel zenginliği ise Moore'dan bağımsız olarak değerlendirilebilir."
+  SONRA: "criticalNote": "Keith Moore'un yorumları akademik bağımsızlık açısından tartışmalıdır: \"Islamic Additions to Embryology\" bölümleri yalnızca The Developing Human'ın Suudi Arabistan baskısında bulunur ve King Abdulaziz Üniversitesi tarafından desteklenmiştir (kaynak: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). Bu, Moore'un anatomik uzmanlığını sorgulamaz ama yorumlarının bağımsızlığını tartışmaya açar. Galen karşılaştırması da nüans gerektirir: Galen'in embriyoloji görüşleri çelişkilidir (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983); \"Galen tamamen yanlış, Kur'an doğru\" biçimindeki tek yönlü iddia akademik olarak desteklenmez. Modern embriyolojide kemik ve kas dokusu paralel gelişir; Kur'an'daki \"kemik, sonra et\" sırası literal bir kronoloji değil, kabaca uyumlu bir ifadedir. Alaka kelimesinin dilbilimsel zenginliği ise Moore'dan bağımsız olarak değerlendirilebilir."
+
+- ÖNCE: "intro": "Mekke'deki Kur'an = Medine'deki = İstanbul'daki = Kahire'deki = Jakarta'daki. Konsonant iskelet (rasm) harf harf aynı. 1.8 milyar müslüman, farklı mezhep, farklı ülke, farklı dil. Hepsi aynı metni okuyor — on kanonik kıraat (qirâʾât) farklılıkları okuyuş geleneğine özgüdür.",
+  SONRA: "intro": "Mekke'de, Medine'de, İstanbul'da, Kahire'de ve Jakarta'da okunan Kur'an aynı metindir; konsonant iskelet (rasm) harf harf aynıdır. 1,8 milyar Müslüman, farklı mezhep, farklı ülke, farklı dil; hepsi aynı metni okuyor. On kanonik kıraat (qirâʾât) arasındaki farklar okuyuş geleneğine özgüdür.",
+
+- ÖNCE: "description": "Sana'a parşömeni: MS 578–669 (%95 güven). Hz. Peygamber'in yaşadığı dönem.",
+  SONRA: "description": "Sana'a parşömeni: MS 578-669 (%95 güven). Hz. Peygamber'in yaşadığı dönem.",
+
+- ÖNCE: "description": "Dünya çapında milyonlarca hafız (tüm Kur'an'ı ezbere bilen insan) — tahminler 3-10 milyon arasında değişir, kesin demografik veri yoktur. Her hafız hocasından öğrenir, o da kendi hocasından; kesintisiz bir zincir Hz. Muhammed (s.a.v.)'e kadar uzanır."
+  SONRA: "description": "Dünya çapında milyonlarca hafız var, yani Kur'an'ın tamamını ezbere bilen insan; tahminler 3 ile 10 milyon arasında değişir, kesin demografik veri yoktur. Her hafız hocasından öğrenir, o da kendi hocasından; kesintisiz bir zincir Hz. Muhammed'e (s.a.v.) kadar uzanır."
+
+- ÖNCE: "description": "2015: Birmingham Üniversitesi'nde bulunan el yazmasının parşömeni karbon-14 testiyle MS 568-645 aralığına tarihlendi — Hz. Muhammed (s.a.v.)'in yaşadığı dönemle örtüşüyor. (Not: Tarih parşömene aittir; mürekkebin yazım tarihi bundan genellikle sonradır ve ayrıca analiz edilmemiştir.)"
+  SONRA: "description": "2015: Birmingham Üniversitesi'nde bulunan el yazmasının parşömeni karbon-14 testiyle MS 568-645 aralığına tarihlendi; bu aralık Hz. Muhammed'in (s.a.v.) yaşadığı dönemle örtüşüyor. (Not: Tarih parşömene aittir; mürekkebin yazım tarihi bundan genellikle sonradır ve ayrıca analiz edilmemiştir.)"
+
+- ÖNCE: "intro": "İlk bakışta Kur'an tekrar ediyor gibi görünür. Hz. Musa'nın hikayesi 30'dan fazla sûrede anlatılır. Ama her anlatımda FARKLI bir yön vurgulanır. Bu redundancy (gereksiz tekrar) değil, pedagojik tasarım. Bir ders kitabı gibi: aynı konuyu farklı açılardan öğretmek.",
+  SONRA: "intro": "İlk bakışta Kur'an tekrar ediyor gibi görünür. Hz. Musa'nın kıssası 30'dan fazla sûrede anlatılır. Ama her anlatımda farklı bir yön vurgulanır. Bu gereksiz tekrar değil, pedagojik bir tasarımdır; bir ders kitabının aynı konuyu farklı açılardan öğretmesi gibi.",
+
+- ÖNCE: "tooltip": "Hapax legomenon — tüm Kur'an'da yalnızca bir kez geçen kelime formu. Örnekler: 'أَبًّا' (abben, otlak — Abese 80:31), 'غِسْلِينٍ' (gıslîn, irin — Hâkka 69:36), 'صَلْدًا' (salden, kaygan taş — Bakara 2:264). Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400–500 arası."
+  SONRA: "tooltip": "Hapax legomenon: tüm Kur'an'da yalnızca bir kez geçen kelime formu. Örnekler: 'أَبًّا' (abben, otlak; Abese 80:31), 'غِسْلِينٍ' (gıslîn, irin; Hâkka 69:36), 'صَلْدًا' (salden, kaygan taş; Bakara 2:264). Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400 ile 500 arası."
+
+- ÖNCE: "title": "Tekrir Bir Belâgat Sanatıdır — Üç Tipik İşlev",
+  SONRA: "title": "Tekrir Bir Belâgat Sanatıdır: Üç Tipik İşlev",
+
+- ÖNCE: "lead": "Klasik Arap belâgatinde tekrir farklı işlevleri yerine getiren bir sanat olarak kodlanmıştır. Aşağıdaki üç işlev, klasik belâgat geleneğinin tekrir/te'kîd literatüründe en sık vurgulananlardır — te'kîd terimi için TDV İslâm Ansiklopedisi \"tekit\" maddesi, tafsîl ve ihtimâm için el-Burhân ve el-Itkân'ın tekrar bahisleri esas alınmıştır.",
+  SONRA: "lead": "Klasik Arap belâgatinde tekrir, farklı işlevleri yerine getiren bir sanat olarak kodlanmıştır. Aşağıdaki üç işlev, klasik belâgat geleneğinin tekrir ve te'kîd literatüründe en sık vurgulananlardır. Te'kîd terimi için TDV İslâm Ansiklopedisi \"tekit\" maddesi, tafsîl ve ihtimâm için el-Burhân ve el-Itkân'ın tekrar bahisleri esas alınmıştır.",
+
+- ÖNCE: "example": "\"Hayır, ilerde bileceksiniz! Yine hayır, ilerde bileceksiniz!\" (Tekâsür 102:3-4). Aynı ifade iki ardışık ayette yinelenir — uyarının kesinliğini ve aciliyetini ses ve anlam düzleminde sabitlemek için."
+  SONRA: "example": "\"Hayır, ilerde bileceksiniz! Yine hayır, ilerde bileceksiniz!\" (Tekâsür 102:3-4). Aynı ifade iki ardışık ayette yinelenir; amaç, uyarının kesinliğini ve aciliyetini ses ve anlam düzleminde sabitlemektir."
+
+- ÖNCE: "desc": "Bir hakikatin her vesileyle hatırlatılması — söz konusu mesele o kadar merkezîdir ki anlatı boyunca farklı kapılardan geri döner.",
+  SONRA: "desc": "Bir hakikatin her vesileyle hatırlatılması. Söz konusu mesele o kadar merkezîdir ki anlatı boyunca farklı kapılardan geri döner.",
+
+- ÖNCE: "example": "\"Rabbinizin hangi nimetlerini yalanlıyorsunuz?\" (Rahmân 55:13 ve devamı). Otuz bir kez yinelenen bu refren, her seferinde farklı bir nimet ile birlikte gelir — refrenin sabit oluşu hatırlatılan hakikatin merkezîliğini, etrafındaki içeriğin değişmesi ise farklı vechelerini gösterir."
+  SONRA: "example": "\"Rabbinizin hangi nimetlerini yalanlıyorsunuz?\" (Rahmân 55:13 ve devamı). Otuz bir kez yinelenen bu nakarat her seferinde farklı bir nimetle birlikte gelir. Nakaratın sabit oluşu hatırlatılan hakikatin merkezîliğini, etrafındaki içeriğin değişmesi ise farklı vechelerini gösterir."
+
+- ÖNCE: "title": "Aynı Kıssa, Farklı Sûreler — Klasik Müfessirlerin Cevabı",
+  SONRA: "title": "Aynı Kıssa, Farklı Sûreler: Klasik Müfessirlerin Cevabı",
+
+- ÖNCE: "body": "Kur'an'ın en belirgin tekrar formu kıssaların birden fazla sûrede anlatılmasıdır. Fahreddin Râzî (ö. 1210) Mefâtîhu'l-Gayb'ta ve Tâhir İbn Âşûr (ö. 1973) et-Tahrîr ve't-Tenvîr'de bu meseleye sistematik olarak değinir. Klasik tefsir geleneğinin ortak vurgusu şudur: Aynı kıssa farklı sûrelerde anlatıldığında, her anlatımda farklı bir öğe öne çıkarılır — kahraman, sahne, diyalog, ders — ve böylece tek bir olay anlamsal olarak çoğul okumalara açılır.",
+  SONRA: "body": "Kur'an'ın en belirgin tekrar formu kıssaların birden fazla sûrede anlatılmasıdır. Fahreddin Râzî (ö. 1210) Mefâtîhu'l-Gayb'ta ve Tâhir İbn Âşûr (ö. 1973) et-Tahrîr ve't-Tenvîr'de bu meseleye sistematik olarak değinir. Klasik tefsir geleneğinin ortak vurgusu şudur: aynı kıssa farklı sûrelerde anlatıldığında her anlatımda farklı bir öğe öne çıkarılır (kahraman, sahne, diyalog, ders) ve böylece tek bir olay anlamsal olarak çoğul okumalara açılır.",
+
+- ÖNCE: "nazmConsensusLabel": "Klasik İ'câz Geleneğinin Özeti — Birebir Alıntı Değil",
+  SONRA: "nazmConsensusLabel": "Klasik İ'câz Geleneğinin Özeti (Birebir Alıntı Değil)",
+
+- ÖNCE: "nazmConsensusSource": "Klasik İ'câzu'l-Kur'an geleneğinin temel kanaati — Bâkıllānī (İ'câzu'l-Kur'an, ö. 1013) ve Zerkeşî (el-Burhân, ö. 1392) işlediği 'nazm' (yapısal düzen) anlayışının özeti."
+  SONRA: "nazmConsensusSource": "Klasik İ'câzu'l-Kur'an geleneğinin temel kanaati; Bâkıllānī'nin (İ'câzu'l-Kur'an, ö. 1013) ve Zerkeşî'nin (el-Burhân, ö. 1392) işlediği \"nazm\" (yapısal düzen) anlayışının özeti."
+
+- ÖNCE: "note": "Klasik tefsir (Taberî, Razi, İbn Kesîr) 'nâsiye yakalamak'ı Arap idiomu olarak okur — kontrol etme metaforu, beyin anatomisi hakkında doğrudan bir iddia değil. Modern nörobilim de yalanı tek bir bölgeye değil, distribuye bir fonksiyona bağlar (Sean Spence vd., 2001+). Bu paralellik dikkat çekici olsa da 'Kur'an prefrontal korteksi gösterdi' okuması selektif okuma riski taşır — Bucaillism akademik tartışmasının bir parçasıdır."
+  SONRA: "note": "Klasik tefsir (Taberî, Razi, İbn Kesîr) \"nâsiye yakalamak\"ı bir Arap deyimi olarak okur: kontrol etme metaforu, beyin anatomisi hakkında doğrudan bir iddia değil. Modern nörobilim de yalanı tek bir bölgeye değil, dağıtık bir fonksiyona bağlar (Sean Spence vd., 2001 ve sonrası). Paralellik ilgi çekici olsa da \"Kur'an prefrontal korteksi gösterdi\" okuması selektif okuma riski taşır ve Bucaillism akademik tartışmasının bir parçasıdır."
+
+- ÖNCE: "content": "'Parmak uçlarını bile düzeltmeye kadiriz' (Kıyamet 75:4) — diriliş inkârcılarına Allah'ın kudretini en ince ayrıntıyla ortaya koyan cevap. Klasik tefsir bu ayeti yeniden yaratma kudreti olarak yorumlar; bazı çağdaş yorumcular ise parmak izinin benzersizliğine bağlantı kurmuştur. Parmak izi benzersizliği 1880'lerden itibaren bilimsel olarak belgelendi (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
+  SONRA: "content": "\"Parmak uçlarını bile düzeltmeye kadiriz\" (Kıyamet 75:4): diriliş inkârcılarına, Allah'ın kudretini en ince ayrıntıyla ortaya koyan cevap. Klasik tefsir bu ayeti yeniden yaratma kudreti olarak yorumlar; bazı çağdaş yorumcular ise parmak izinin benzersizliğiyle bağlantı kurmuştur. Parmak izinin kişiye özgü oluşu 1880'lerden itibaren bilimsel olarak belgelendi (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
+
+- ÖNCE: "note": "Kart başlığı modern okumayı yansıtır; klasik gelenek (Razi, Taberî) bunu 'bunân = yaratılışın inceliği, diriliş kudreti' olarak okur. Parmak izi yorumu modern bir okumadır — ayetin teolojik ana fikri yeniden inşa kudretidir."
+  SONRA: "note": "Kart başlığı modern okumayı yansıtır; klasik gelenek (Razi, Taberî) bunu \"bunân, yani yaratılışın inceliği ve diriliş kudreti\" olarak okur. Parmak izi yorumu modern bir okumadır; ayetin teolojik ana fikri yeniden inşa kudretidir."
+
+- ÖNCE: "content": "Hz. Musa'nın hikayesi 10 farklı 'blok' halinde 30+ sûreye dağıtılmış. Her blok bağımsız okunabilir, ama birlikte bir bütün oluşturur. Bu yapıya 'modüler anlatı' denir: aynı olay, farklı vurgular. Örneğin: Tâ-Hâ sûresi yalnızca vahiy anını ve Firavun'la diyaloğu anlatır. Kasas doğumdan kaçışa tam bir biyografi verir. Şuara büyücülerle karşılaşmaya odaklanır. Aynı hikaye — her seferinde farklı bir ders.",
+  SONRA: "content": "Hz. Musa'nın kıssası 10 farklı \"blok\" hâlinde 30'dan fazla sûreye dağıtılmıştır. Her blok bağımsız okunabilir, ama birlikte bir bütün oluşturur. Bu yapıya \"modüler anlatı\" denir: aynı olay, farklı vurgular. Tâ-Hâ sûresi yalnızca vahiy anını ve Firavun'la diyaloğu anlatır; Kasas doğumdan kaçışa tam bir biyografi verir; Şuara büyücülerle karşılaşmaya odaklanır. Aynı kıssa, her seferinde farklı bir ders.",
+
+- ÖNCE: "note": "Modüler anlatı (aynı olayı farklı vurgularla yeniden anlatma) ve non-linear anlatı (kronolojik sırayı kasıtlı olarak bozma) farklı tekniklerdir. Kur'an'ın tekniği modülerdir — her sûre içinde kronolojik sıra korunur. Modüler yapı klasik edebiyatta da görülür (Homer'ın Odyssey'inde 'in medias res', MÖ 8. yy); ancak Kur'an'ın 30+ sûreye sistematik dağılımı karakteristiktir."
+  SONRA: "note": "Modüler anlatı (aynı olayı farklı vurgularla yeniden anlatma) ile doğrusal olmayan anlatı (kronolojik sırayı kasıtlı olarak bozma) farklı tekniklerdir. Kur'an'ın tekniği modülerdir; her sûre içinde kronolojik sıra korunur. Modüler yapı klasik edebiyatta da görülür (Homeros'un Odysseia'sında \"in medias res\", MÖ 8. yüzyıl); Kur'an'da karakteristik olan, 30'dan fazla sûreye sistematik dağılımdır."
+
+- ÖNCE: "statsNote": "Azap (343) rahmetten (294) fazla görünür — ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihi ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. İman/Küfür oranı ≈ 1.55 (811/525): Kur'ân umut yönünde ağırlıklıdır. Hapax legomena oranı (~%18-20 vs ~%15) yaklaşıktır (Leeds Quranic Arabic Corpus).",
+  SONRA: "statsNote": "Azap (343) rahmetten (294) fazla görünür; ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihî ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. İman ile küfür oranı yaklaşık 1,55'tir (811/525): Kur'ân umut yönünde ağırlıklıdır. Hapax legomena oranı (yaklaşık %18-20'ye karşı %15) yaklaşıktır (Leeds Quranic Arabic Corpus).",
+
+- ÖNCE: "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (Prophetic Perfect) — sanki zaten olmuş gibi. Ve geçmiş, şimdiki zamanla anlatılır (Historical Present) — sanki şu an yaşanıyor. Ashab-ı Kehf: 300 güneş yılı = 309 ay yılı. Fark tam olarak güneş-ay takvimi dönüşümüne karşılık gelir. Rum sûresi, 614 civarında Bizans yeni yenilmişken (غُلِبَتِ — geçmiş kip: yenildiler) 'birkaç yıl içinde galip GELECEKLER' (سَيَغْلِبُونَ — gelecek kip) diye önceden bildirdi. Bizans 628'de gerçekten galip geldi.",
+  SONRA: "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (mâzî bi-ma'na'l-müstakbel), sanki zaten olmuş gibi; geçmiş ise şimdiki zamanla anlatılır, sanki şu an yaşanıyor gibi. Ashab-ı Kehf: 300 güneş yılı 309 ay yılına karşılık gelir; fark tam olarak güneş-ay takvimi dönüşümüdür. Rum sûresi, 614 civarında Bizans yeni yenilmişken (غُلِبَتِ, geçmiş kip: yenildiler) \"birkaç yıl içinde galip gelecekler\" (سَيَغْلِبُونَ, gelecek kip) diye önceden bildirdi. Bizans 628'de galip geldi.",
+
+- ÖNCE: "note": "Solar-Lunar dönüşüm matematik açısından birebir uyumludur (300 × 365.25 / 354.37 ≈ 309.017). Ancak klasik tefsirde Razi ve Taberî bu farkı 3 farklı şekilde yorumlar (yanılma payı, ay yıllarına atıf, vb.) — solar-lunar dönüşüm modern bir okumadır, klasik gelenekte 'mucize' olarak özel olarak vurgulanmaz. El-mâzî bi-ma'na'l-müstakbel (gelecek anlamında geçmiş zaman) tekniği klasik Arap dilbiliminde yerleşiktir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
+  SONRA: "note": "Güneş-ay dönüşümü matematik açısından birebir uyumludur (300 × 365,25 / 354,37 ≈ 309,017). Ancak klasik tefsirde Razi ve Taberî bu farkı üç farklı şekilde yorumlar (yanılma payı, ay yıllarına atıf vb.); güneş-ay dönüşümü modern bir okumadır ve klasik gelenekte özel olarak \"mucize\" diye vurgulanmaz. El-mâzî bi-ma'na'l-müstakbel (gelecek anlamında geçmiş zaman) tekniği klasik Arap dilbiliminde yerleşiktir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
+
+- ÖNCE: "content": "Fatiha sûresi, sadece 7 ayette 3 farklı bakış açısı kullanır: 3. kişi (O), 2. kişi (Sen), 1. kişi çoğul (Biz). Bu, modern edebiyatta 'polyphonic voice' (çok sesli anlatı) olarak bilinir. 1-3. ayetler Allah'tan söz eder — 'O' kipi. 5. ayette birdenbire 'Yalnız Sana ibadet ederiz' — 'Sen' kipine ani geçiş. Sonra 'Bizi doğru yola ilet' — 'Biz' kipi. Yedi ayette üç farklı ses.",
+  SONRA: "content": "Fatiha sûresi yalnızca 7 ayette 3 farklı bakış açısı kullanır: üçüncü kişi (O), ikinci kişi (Sen), birinci çoğul kişi (Biz). Modern edebiyat buna \"polyphonic voice\", çok sesli anlatı der. 1-3. ayetler Allah'tan \"O\" kipiyle söz eder. 5. ayette birdenbire \"Yalnız Sana ibadet ederiz\" gelir; \"Sen\" kipine ani geçiş. Sonra \"Bizi doğru yola ilet\"; \"Biz\" kipi. Yedi ayette üç farklı ses.",
+
+- ÖNCE: "note": "İltifât sanatı klasik Arap belağatında tanımlanmıştır: İbn Ebu'l-İsba' ve Zerkeşî'nin el-Burhân'ı bu sanata kapsamlı yer verir. Perspektif değişimi dünya edebiyatında tek değildir (Zebur/Mezmurlar, Vedik Sanskrit, Eski Mısır metinleri benzer örnekler taşır); ancak Kur'an'daki sistematik kullanımı — özellikle Fatiha'da 7 ayette 3 farklı perspektif — klasik İslamî gelenekte i'jâzü'l-Kur'an'ın bir göstergesi olarak değerlendirilmiştir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
+  SONRA: "note": "İltifât sanatı klasik Arap belâgatinde tanımlanmıştır: İbn Ebu'l-İsba' ve Zerkeşî'nin el-Burhân'ı bu sanata kapsamlı yer verir. Perspektif değişimi dünya edebiyatında tek değildir (Zebur/Mezmurlar, Vedik Sanskrit, Eski Mısır metinleri benzer örnekler taşır). Kur'an'daki sistematik kullanımı, özellikle Fatiha'da 7 ayette 3 farklı perspektif, klasik İslamî gelenekte i'câzü'l-Kur'an'ın bir göstergesi sayılmıştır (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
+
+- ÖNCE: "intro": "Kur'an iki temel eksende iner: Allah'ı tanıtmak (mârifetullah — مَعْرِفَةُ اللهِ) ve insanı dönüştürmek (tezkiye — تَزْكِيَة ve terbiye — تَرْبِيَة). Ama bu dönüşümün hedefi belirsiz değil — çok net tanımlanmış. Mü'min kim? Muhsin kim? Muttakî ne demek? Bu terimler eş anlamlı değil; her biri farklı bir olgunluk seviyesini, farklı bir iç hali tanımlıyor. Bu bölüm o tanımın anatomisini çıkarıyor.",
+  SONRA: "intro": "Kur'an iki temel eksende iner: Allah'ı tanıtmak (mârifetullah, مَعْرِفَةُ اللهِ) ve insanı dönüştürmek (tezkiye, تَزْكِيَة ve terbiye, تَرْبِيَة). Bu dönüşümün hedefi de çok net tanımlanmıştır. Mü'min kim? Muhsin kim? Muttakî ne demek? Bu terimler eş anlamlı değildir; her biri farklı bir olgunluk seviyesini, farklı bir iç hâli tanımlar. Bu bölüm o tanımın anatomisini çıkarıyor.",
+
+- ÖNCE: "infoBody": "Kur'an'da fiziksel olarak sayılan ayet sayısı 6.236'dır. 6.666 rakamı ise eski dönem alimlerin ayetleri konularına göre grupladığı bir tematik sınıflandırmadır — gerçek ayet sayısı değildir.\n\nKlasik kaynaklarda bu sınıflandırma şöyledir:\n• 1.000 ayet — Emirler\n• 1.000 ayet — Yasaklar\n• 1.000 ayet — Va'd (Müjdeler)\n• 1.000 ayet — Va'îd (Uyarılar)\n• 1.000 ayet — Kıssalar ve Haberler\n• 1.000 ayet — Misaller\n• 500 ayet — Helal ve Haramlar\n• 100 ayet — Dualar ve Tesbihler\n• 66 ayet — Nâsih ve Mensûh\n= Toplam 6.666\n\nBu liste, akılda kalıcı olduğu için nesilden nesile aktarılmış; zamanla fiziksel ayet sayısı sanılmıştır."
+  SONRA: "infoBody": "Kur'an'da fiziksel olarak sayılan ayet sayısı 6.236'dır. 6.666 rakamı ise eski dönem âlimlerinin ayetleri konularına göre grupladığı tematik bir sınıflandırmadır; gerçek ayet sayısı değildir.\n\nKlasik kaynaklarda bu sınıflandırma şöyledir:\n• 1.000 ayet: Emirler\n• 1.000 ayet: Yasaklar\n• 1.000 ayet: Va'd (Müjdeler)\n• 1.000 ayet: Va'îd (Uyarılar)\n• 1.000 ayet: Kıssalar ve Haberler\n• 1.000 ayet: Misaller\n• 500 ayet: Helal ve Haramlar\n• 100 ayet: Dualar ve Tesbihler\n• 66 ayet: Nâsih ve Mensûh\n= Toplam 6.666\n\nBu liste akılda kalıcı olduğu için nesilden nesile aktarılmış; zamanla fiziksel ayet sayısı sanılmıştır."
+
+- ÖNCE: "termsSubtitle": "Kur'an insan için 4 farklı Arapça kelime kullanır. Her biri farklı bir anlam katmanı taşır — her biri farklı bir anlam katmanı taşır.",
+  SONRA: "termsSubtitle": "Kur'an insan için 4 farklı Arapça kelime kullanır. Her biri farklı bir anlam katmanı taşır.",
+
+- ÖNCE: "muminWow1": "Tüm vasıflar ism-i fail (sıfat-fiil) formunda — anlık eylem değil, sürekli karakter hali.",
+  SONRA: "muminWow1": "Tüm vasıflar ism-i fail (sıfat-fiil) formundadır: anlık eylem değil, sürekli karakter hâli.",
+
+- ÖNCE: "muminWow2": "\"قَدْ أَفْلَحَ\" geçmiş zaman kipiyle yazılmış, ama geleceği ifade ediyor — kesinlik vurgusu (bkz. Zaman Esnekliği — Highlights).",
+  SONRA: "muminWow2": "\"قَدْ أَفْلَحَ\" geçmiş zaman kipiyle yazılmıştır ama geleceği ifade eder; kesinlik vurgusu (bkz. Zaman Esnekliği, Öne Çıkanlar).",
+
+- ÖNCE: "muminWow3": "Sûre huşu ile başlayıp namazı 'korumak' ile bitiyor — başlangıç ve varış noktası: namaz.",
+  SONRA: "muminWow3": "Sûre huşu ile başlayıp namazı \"korumak\" ile bitiyor; başlangıç ve varış noktası namaz.",
+
+- ÖNCE: "istikaametIntro": "Kur'an'da yüzlerce direktif var. Ama Hz. Peygamber'in 'beni ihtiyarlatan ayet' dediği tek bir ayet var: Hûd 112. Çünkü 'emrolunduğun gibi dosdoğru ol' bir eylem değil — sürekli bir hal.",
+  SONRA: "istikaametIntro": "Kur'an'da yüzlerce direktif var. Ama Hz. Peygamber'in \"beni ihtiyarlatan ayet\" dediği tek bir ayet var: Hûd 112. Çünkü \"emrolunduğun gibi dosdoğru ol\" bir eylem değil, sürekli bir hâldir.",
+
+- ÖNCE: "istikaametTr": "\"Emrolunduğun gibi dosdoğru ol — seninle tevbe edenlerle birlikte. Aşırıya gitmeyin. Şüphesiz O, yaptıklarınızı hakkıyla görmektedir.\"",
+  SONRA: "istikaametTr": "\"Emrolunduğun gibi dosdoğru ol, seninle tevbe edenlerle birlikte. Aşırıya gitmeyin. Şüphesiz O, yaptıklarınızı hakkıyla görmektedir.\"",
+
+- ÖNCE: "transformationHadithNote": "İhsan tanımı (\"Allah'ı görüyormuşçasına ibadet et\") Cebrail hadisinden alınmıştır — hadis kaynağı (Müslim), Kur'an'dan değil."
+  SONRA: "transformationHadithNote": "İhsan tanımı (\"Allah'ı görüyormuşçasına ibadet et\") Cebrail hadisinden alınmıştır; kaynağı hadistir (Müslim), Kur'an değil."
+
+- ÖNCE: "subtitle": "Hz. Âdem'e secde emri ve İblis'in reddi yedi sûrede geçer — hiçbiri diğerinin aynısı değil.",
+  SONRA: "subtitle": "Hz. Âdem'e secde emri ve İblis'in reddi yedi sûrede geçer; hiçbiri diğerinin aynısı değil.",
+
+- ÖNCE: "intro": "Bakara, A'râf, Hicr, İsrâ, Kehf, Tâhâ ve Sâd. Yedi sûre, tek bir olay: meleklere Hz. Âdem'e secde emri ve İblis'in reddi. Bir sûrede (Tâhâ 20:116) İblis hiçbir gerekçe sunmaz, hiçbir söz etmez; ayet bütün sahneyi tek bir fiile — ebā (diretti) — sıkıştırır. Bir başkasında ateş-çamur karşılaştırması öne çıkar. Bir diğerinde İblis'in cin olduğu belirtilir; bir başkasında ise Allah'ın (c.c.) \"iki elimle yarattığım\" ifadesi geçer. Yedi anlatımı yan yana koyduğumuzda, tek olayın her tekrarında başka bir boyutun öne çıktığı görülür.",
+  SONRA: "intro": "Bakara, A'râf, Hicr, İsrâ, Kehf, Tâhâ ve Sâd. Yedi sûre, tek bir olay: meleklere Hz. Âdem'e secde emri ve İblis'in reddi. Bir sûrede (Tâhâ 20:116) İblis hiçbir gerekçe sunmaz, hiçbir söz etmez; ayet bütün sahneyi tek bir fiile sıkıştırır: ebā, diretti. Bir başkasında ateş ile çamur karşılaştırması öne çıkar. Bir diğerinde İblis'in cin olduğu belirtilir; bir başkasında ise Allah'ın (c.c.) \"iki elimle yarattığım\" ifadesi geçer. Yedi anlatımı yan yana koyduğumuzda, tek olayın her tekrarında başka bir boyutun öne çıktığı görülür.",
+
+- ÖNCE: "closing": "Yedi sûre, tek olay, başka başka pencereler. Bir anlatının bağlama göre nasıl genişleyip daraldığı — Kur'an, anlatı ekonomisini retorik bir araç olarak kullanır. Her tekrarda başka bir kelime, başka bir gerekçe, başka bir kimlik öğesi öne çıkar; ortak çekirdek değişmez. Bu, kibrin başlangıcının yedi farklı kayda geçirilişidir."
+  SONRA: "closing": "Yedi sûre, tek olay, başka başka pencereler. Bir anlatının bağlama göre nasıl genişleyip daraldığını gösterir; Kur'an anlatı ekonomisini retorik bir araç olarak kullanır. Her tekrarda başka bir kelime, başka bir gerekçe, başka bir kimlik öğesi öne çıkar; ortak çekirdek değişmez. Bu, kibrin başlangıcının yedi farklı kayda geçirilişidir."
+
+- ÖNCE: "description": "QuranCodex hiçbir kurumsal desteği olmayan, tek kişilik bir çalışmadır. Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar.",
+  SONRA: "description": "QuranCodex hiçbir kurumsal desteği olmayan, tek kişilik bir çalışmadır. Katkın hosting, API ve içerik geliştirme masraflarını karşılar.",
+
+- ÖNCE: "intro": "Modern psikoloji, insan zihnini anlamak için yüzyıllardır biyolojik-bilişsel bir dil geliştirdi: Freud benliği, Jung arketipleri, Maslow ihtiyaç hiyerarşisini, Frankl anlamı kendi çerçeveleriyle adlandırdı. Kur'an aynı insan deneyimini farklı bir dille — ahlâkî-teolojik dille — anlatır. Bu sayfa, iki çerçeve arasındaki paralellikleri akademik bir gözlem olarak sunar; Kur'an'ın modern psikolojiyi öngördüğü iddiası taşımaz.",
+  SONRA: "intro": "Modern psikoloji, insan zihnini anlamak için yüzyıllardır biyolojik ve bilişsel bir dil geliştirdi: Freud benliği, Jung arketipleri, Maslow ihtiyaç hiyerarşisini, Frankl anlamı kendi çerçeveleriyle adlandırdı. Kur'an aynı insan deneyimini farklı bir dille, ahlâkî ve teolojik bir dille anlatır. Bu sayfa iki çerçeve arasındaki paralellikleri akademik bir gözlem olarak sunar; Kur'an'ın modern psikolojiyi öngördüğü iddiasını taşımaz.",
+
+- ÖNCE: "methodologyNote": "Bu bölüm boyunca yapılan modern psikoloji paralellikleri (Freud, Jung, Maslow, Frankl, Seligman vb.) farklı epistemolojik çerçevelerin aynı insan deneyimini farklı dillerde tarif ettiğini gösterir. Klasik İslamî pozisyon (Şâtıbî, El-Muvâfakât) Kur'an'ı hidâyet kitabı olarak tanımlar — bilimsel bir teoriyi öngören ya da doğrulayan bir metin değil. Buradaki paralellikler felsefî gözlemdir, 'Kur'an bu kavramı 1.400 yıl önce öngördü' iddiası taşımaz.",
+  SONRA: "methodologyNote": "Bu bölüm boyunca yapılan modern psikoloji paralellikleri (Freud, Jung, Maslow, Frankl, Seligman vb.), farklı epistemolojik çerçevelerin aynı insan deneyimini farklı dillerde tarif ettiğini gösterir. Klasik İslamî pozisyon (Şâtıbî, El-Muvâfakât) Kur'an'ı hidâyet kitabı olarak tanımlar; bilimsel bir teoriyi öngören ya da doğrulayan bir metin olarak değil. Buradaki paralellikler felsefî gözlemdir; \"Kur'an bu kavramı 1.400 yıl önce öngördü\" iddiası taşımaz.",
+
+- ÖNCE: "intro": "Kur'an, insanın iç dünyasını 'nefis' kavramıyla tanımlar. Tek bir şey değil — bir yolculuk. Nefis, aşamalar boyunca dönüşen, gelişen bir varlık. Modern psikoloji bu aşamaları yeni yeni keşfederken, Kur'an onları on dört asır önce adlandırmıştı. Akademik nüans: Kur'an'da yalnızca üç nefs aşaması ismen geçer — emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Mülhime ve râdıye/mardıyye, tasavvuf geleneğinin (Necmeddin Kübra, Said Nursi) Kur'ânî kategorilerden türettiği ileri makâmlardır. Tam 7-makâm sistemi (râdıye + mardıyye + sâfiye ayrı) için bk. Nefsin Mertebeleri Atlas; burada popüler 5'li özet sunulmuştur.",
+  SONRA: "intro": "Kur'an, insanın iç dünyasını \"nefis\" kavramıyla tanımlar. Nefis tek bir şey değil, aşamalar boyunca dönüşen ve gelişen bir varlıktır; bir yolculuk. Kur'an bu aşamaları on dört asır önce adlandırmıştır; modern psikoloji aynı deneyimi kendi diliyle tarif eder. Akademik nüans: Kur'an'da yalnızca üç nefs aşaması ismen geçer: emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Mülhime ile râdıye ve mardıyye, tasavvuf geleneğinin (Necmeddin Kübra, Said Nursi) Kur'ânî kategorilerden türettiği ileri makamlardır. Tam yedi makamlı sistem (râdıye, mardıyye ve sâfiye ayrı) için bkz. Nefs Mertebeleri Atlası; burada popüler beşli özet sunulmuştur.",
+
+- ÖNCE: "title": "Emmâre — Kötülüğü Emreden Nefis",
+  SONRA: "title": "Emmâre: Kötülüğü Emreden Nefis",
+
+- ÖNCE: "title": "Levvâme — Kınayan, Pişmanlık Duyan Nefis",
+  SONRA: "title": "Levvâme: Kınayan, Pişmanlık Duyan Nefis",
+
+- ÖNCE: "description": "Vicdan uyanmıştır. Kişi hata yaptığında kendini kınar, pişmanlık duyar. Bu, sağlıklı ahlaki gelişimin işaretidir. Sürekli öz-kıyı değil — hatayı fark edip düzeltme çabası. Kur'an bu nefse yemin ederek ona değer verir.",
+  SONRA: "description": "Vicdan uyanmıştır. Kişi hata yaptığında kendini kınar, pişmanlık duyar. Bu, sağlıklı ahlâkî gelişimin işaretidir; sürekli bir öz kıyım değil, hatayı fark edip düzeltme çabasıdır. Kur'an bu nefse yemin ederek ona değer verir.",
+
+- ÖNCE: "title": "Mülhime — İlham Alan Nefis",
+  SONRA: "title": "Mülhime: İlham Alan Nefis",
+
+- ÖNCE: "title": "Mutmainne — Huzura Kavuşmuş Nefis",
+  SONRA: "title": "Mutmainne: Huzura Kavuşmuş Nefis",
+
+- ÖNCE: "title": "Râdıye / Mardıyye — Razı Olan ve Razı Olunan Nefis",
+  SONRA: "title": "Râdıye / Mardıyye: Razı Olan ve Razı Olunan Nefis",
+
+- ÖNCE: "description": "Yolculuğun en üst basamağı. Tek taraflı değil karşılıklı: kul Allah'tan, Allah kuldan razı. Bu aşama sadece iç huzur değil, ilahi bir ilişkinin tamamlanmasıdır. Ölüm bile tehdit değil, bir kavuşmadır.",
+  SONRA: "description": "Yolculuğun en üst basamağı. Tek taraflı değil, karşılıklıdır: kul Allah'tan, Allah kuldan razı. Bu aşama yalnızca iç huzur değil, ilahî bir ilişkinin tamamlanmasıdır. Ölüm bile bir tehdit değil, bir kavuşmadır.",
+
+- ÖNCE: "intro": "Kur'an'da kalp (qalb) sadece fiziksel bir organ değil, klasik Sünnî kelâmında (Gazâlî, İhya) bilinç, irade ve ahlâkın merkezi olarak — ruhî/manevî bir mahal olarak — ele alınır. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilimin kalpteki sinir ağı (intrinsic cardiac nervous system) bulguları farklı bir epistemolojik düzlemde durur; iki düzlem arasında paralellik kurmak akademik literatürde tartışmalı bir yaklaşımdır.",
+  SONRA: "intro": "Kur'an'da kalp (qalb) yalnızca fiziksel bir organ değildir; klasik Sünnî kelâmında (Gazâlî, İhya) bilinç, irade ve ahlâkın merkezi, ruhî ve manevî bir mahal olarak ele alınır. Kur'an bu merkezi beş farklı hâlde tanımlar. Modern nörobilimin kalpteki sinir ağına (intrinsic cardiac nervous system) dair bulguları farklı bir epistemolojik düzlemde durur; iki düzlem arasında paralellik kurmak akademik literatürde tartışmalı bir yaklaşımdır.",
+
+- ÖNCE: "title": "Kalb-i Selîm — Sağlam, Arınmış Kalp",
+  SONRA: "title": "Kalb-i Selîm: Sağlam, Arınmış Kalp",
+
+- ÖNCE: "description": "Kur'an'ın ideal kalp hâli. Hasetten, kibirden, ikiyüzlülükten arınmış; Allah'a yönelmiş. Hz. İbrahim'in vasfıdır. Kıyamet günü mal ve evlat değil, yalnızca bu kalp fayda verir.",
+  SONRA: "description": "Kur'an'ın ideal kalp hâli. Hasetten, kibirden, ikiyüzlülükten arınmış; Allah'a yönelmiş. Hz. İbrahim'in vasfıdır. Kıyamet günü mal ve evlat fayda vermez; yalnızca bu kalp fayda verir.",
+
+- ÖNCE: "title": "Kalb-i Münîb — Dönen, Tevbeden Dönen Kalp",
+  SONRA: "title": "Kalb-i Münîb: Dönen, Tevbeyle Dönen Kalp",
+
+- ÖNCE: "description": "Sürekli Allah'a yönelen, uzaklaşınca geri dönen kalp. Tevbe mekanizması burada yatar — tek seferlik değil, kronik bir dönüş eğilimi. Münib kalp hata yapar ama teslim olmaz.",
+  SONRA: "description": "Sürekli Allah'a yönelen, uzaklaşınca geri dönen kalp. Tevbe mekanizması burada yatar: tek seferlik değil, kronik bir dönüş eğilimi. Münib kalp hata yapar ama teslim olmaz.",
+
+- ÖNCE: "title": "Kalb-i Marîz — Hasta Kalp",
+  SONRA: "title": "Kalb-i Marîz: Hasta Kalp",
+
+- ÖNCE: "description": "Uzun süreli inkâr ve inat sonucu kalp artık dış uyarılara tepki vermez hâle gelir. Bu ilahi bir ceza değil, insanın kendi tercihlerinin doğal sonucudur. Psikolojide 'öğrenilmiş çaresizlik' ve 'duygusal körelme'ye benzer.",
+  SONRA: "description": "Uzun süreli inkâr ve inat sonucu kalp artık dış uyarılara tepki vermez hâle gelir. Bu ilahî bir ceza değil, insanın kendi tercihlerinin doğal sonucudur. Psikolojide \"öğrenilmiş çaresizlik\" ve \"duygusal körelme\"ye benzer.",
+
+- ÖNCE: "title": "Paslı Kalp — Rân",
+  SONRA: "title": "Paslı Kalp: Rân",
+
+- ÖNCE: "title": "Havf — Doğal Korku",
+  SONRA: "title": "Havf: Doğal Korku",
+
+- ÖNCE: "description": "Sonuçtan doğan korku. Acı, kayıp, tehlike karşısında hissedilen normal insanî tepki. Kur'an bu korkuyu inkâr etmez — Allah'ın dostlarının bile dünyada korku yaşadığını söyler. Patolojik değil, işlevsel bir uyarı sistemidir.",
+  SONRA: "description": "Sonuçtan doğan korku. Acı, kayıp ve tehlike karşısında hissedilen normal insanî tepki. Kur'an bu korkuyu inkâr etmez; Allah'ın dostlarının bile dünyada korku yaşadığını söyler. Patolojik değil, işlevsel bir uyarı sistemidir.",
+
+- ÖNCE: "title": "Haşyet — Bilgiden Doğan Derin Saygı-Korku",
+  SONRA: "title": "Haşyet: Bilgiden Doğan Derin Saygı ve Korku",
+
+- ÖNCE: "description": "Havf'tan derin. Haşyet, Allah'ı tanımanın yarattığı derin saygı-korkudur — cezadan değil, büyüklük karşısındaki aczden doğar. Ne kadar çok bilirsen o kadar çok haşyet duyarsın. Bu, psikolojideki 'huşu' (awe) deneyimiyle örtüşür.",
+  SONRA: "description": "Havf'tan daha derindir. Haşyet, Allah'ı tanımanın yarattığı derin saygı ve korkudur; cezadan değil, büyüklük karşısındaki aczden doğar. Ne kadar çok bilirsen o kadar çok haşyet duyarsın. Bu, psikolojideki huşu (awe) deneyimiyle örtüşür.",
+
+- ÖNCE: "title": "Hüzün — Sağlıklı Yas ve Üzüntü",
+  SONRA: "title": "Hüzün: Sağlıklı Yas ve Üzüntü",
+
+- ÖNCE: "description": "Hz. Yakup, Yusuf'u kaybedince yıllarca ağladı — gözleri aktı. Kur'an bunu zayıflık olarak göstermez; derinlemenin, sevginin ve beşerî acının doğal ifadesi olarak aktarır. Hüzün bastırılmamalı; yaşanmalı.",
+  SONRA: "description": "Hz. Yakup, Yusuf'u kaybedince yıllarca ağladı; gözleri aktı. Kur'an bunu zayıflık olarak göstermez; derin bağlılığın, sevginin ve beşerî acının doğal ifadesi olarak aktarır. Hüzün bastırılmamalı, yaşanmalıdır.",
+
+- ÖNCE: "title": "Sekînet — İlahi Huzur, Derin Sükunet",
+  SONRA: "title": "Sekînet: İlahî Huzur, Derin Sükûnet",
+
+- ÖNCE: "description": "Sekinat, insan çabasıyla ulaşılan bir huzur değil — 'indirilmiş' bir hâldir. Savaş, tehlike, belirsizlik anlarında peygamber ve sahabelerine inen bir ruh hâli. Kaygının tam karşısında değil — ama kaygının içinde var olan bir temel.",
+  SONRA: "description": "Sekînet, insan çabasıyla ulaşılan bir huzur değil, \"indirilmiş\" bir hâldir. Savaş, tehlike ve belirsizlik anlarında peygambere ve sahabelerine inen bir ruh hâli. Kaygının tam karşısında durmaz; kaygının içinde var olan bir temeldir.",
+
+- ÖNCE: "intro": "Freud'un kızı Anna Freud, 1936'da savunma mekanizmalarını modern psikolojinin sistematik dilinde tanımladı. Kur'an, somut insan hikayeleri üzerinden — kavramsal terminolojiye değil ahlâkî-anlatısal bir dile dayanarak — benzer davranış kalıplarını çok daha önce işaret eder. İki dil arasında paralellik akademik bir gözlemdir; Kur'an'ın Anna Freud'un kavramsal sistemini öngördüğü anlamına gelmez.",
+  SONRA: "intro": "Freud'un kızı Anna Freud, 1936'da savunma mekanizmalarını modern psikolojinin sistematik dilinde tanımladı. Kur'an ise benzer davranış kalıplarına çok daha önce, somut insan hikâyeleri üzerinden ve kavramsal terminolojiye değil ahlâkî bir anlatı diline dayanarak işaret eder. İki dil arasındaki paralellik akademik bir gözlemdir; Kur'an'ın Anna Freud'un kavramsal sistemini öngördüğü anlamına gelmez.",
+
+- ÖNCE: "title": "Rasyonalizasyon — Bahaneler Üretmek",
+  SONRA: "title": "Rasyonalizasyon: Bahaneler Üretmek",
+
+- ÖNCE: "description": "Yanlış eylemi meşrulaştırmak için mantıklı görünen açıklamalar üretmek. Münafıkların klasik mekanizması: zarar veriyorlar, ama buna 'ıslah' diyorlar. Bilinçsiz bir süreçtir — gerçekten inanırlar.",
+  SONRA: "description": "Yanlış eylemi meşrulaştırmak için mantıklı görünen açıklamalar üretmek. Münafıkların klasik mekanizması: zarar veriyorlar, ama buna \"ıslah\" diyorlar. Bilinçsiz bir süreçtir; gerçekten inanırlar.",
+
+- ÖNCE: "title": "Projeksiyon — Suçu Başkasına Yüklemek",
+  SONRA: "title": "Projeksiyon: Suçu Başkasına Yüklemek",
+
+- ÖNCE: "modernNote": "Klasik psikanalitik projeksiyon: 'Ben değil, o!' — kendi reddedilen duygularını dışarıya atma."
+  SONRA: "modernNote": "Klasik psikanalitik projeksiyon: \"Ben değil, o!\" Kendi reddedilen duygularını dışarıya atma."
+
+- ÖNCE: "title": "İnkâr — Gerçeği Reddetmek",
+  SONRA: "title": "İnkâr: Gerçeği Reddetmek",
+
+- ÖNCE: "description": "Firavun'un mucizeler karşısındaki tutumu. Gören, anlayan ama kabul etmeyen. Bu, bilgisizlikten değil — kibirden kaynaklanan inkârdır. Psikolojide 'bilinçli inkâr': gerçeği bilmek ama ego koruması için reddetmek.",
+  SONRA: "description": "Firavun'un mucizeler karşısındaki tutumu. Gören, anlayan ama kabul etmeyen. Bu, bilgisizlikten değil kibirden kaynaklanan inkârdır. Psikolojide \"bilinçli inkâr\": gerçeği bilmek ama ego koruması için reddetmek.",
+
+- ÖNCE: "title": "Erteleme — 'Yarın Tevbe Ederim'",
+  SONRA: "title": "Erteleme: \"Yarın Tevbe Ederim\"",
+
+- ÖNCE: "title": "Sosyal Uyum Baskısı — Sürüye Uymak",
+  SONRA: "title": "Sosyal Uyum Baskısı: Sürüye Uymak",
+
+- ÖNCE: "modernNote": "Asch'ın uyum deneyleri (1951): Gruba uymak için açıkça yanlış cevap verme eğilimi — sosyal baskının gücü."
+  SONRA: "modernNote": "Asch'ın uyum deneyleri (1951): gruba uymak için açıkça yanlış cevap verme eğilimi; sosyal baskının gücü."
+
+- ÖNCE: "title": "Kibir Kalkanı — Savunmacı Büyüklenme",
+  SONRA: "title": "Kibir Kalkanı: Savunmacı Büyüklenme",
+
+- ÖNCE: "title": "Travma ve İyileşme — Hz. Yusuf Kıssası",
+  SONRA: "title": "Travma ve İyileşme: Hz. Yusuf Kıssası",
+
+- ÖNCE: "intro": "Kur'an, Yusuf kıssasını 'ahsenü'l-kasas' — kıssaların en güzeli olarak tanımlar. Sadece güzel bir hikaye değil: kıskançlık, ihanet, kölelik, iftira, hapis, yükseliş ve bağışlamayı kapsayan eksiksiz bir travma iyileşme haritası.",
+  SONRA: "intro": "Kur'an, Yusuf kıssasını \"ahsenü'l-kasas\", kıssaların en güzeli olarak tanımlar. Yalnızca güzel bir hikâye değildir: kıskançlık, ihanet, kölelik, iftira, hapis, yükseliş ve bağışlamayı kapsayan eksiksiz bir travma iyileşme haritasıdır.",
+
+- ÖNCE: "description": "Travmanın başlangıcı: en güvendiği insanlardan gelen ihanet. Kardeşler tarafından atılmak — bağlanma figürlerinin tehdit kaynağı haline gelmesi. Modern travma teorisinde en derin yara budur: güven ilişkisi içinde yaşanan ihanet.",
+  SONRA: "description": "Travmanın başlangıcı: en güvendiği insanlardan gelen ihanet. Kardeşleri tarafından atılmak, bağlanma figürlerinin tehdit kaynağı hâline gelmesidir. Modern travma teorisinde en derin yara budur: güven ilişkisi içinde yaşanan ihanet.",
+
+- ÖNCE: "description": "Kimlik soyulması. İsmi, özgürlüğü, ailesi elinden alındı. Ancak Kur'an kritik bir notu düşer: 'Allah onun yanındaydı.' Travma deneyiminde var olan ilahi zemin — tamamen yok olmayan bir anlam çerçevesi.",
+  SONRA: "description": "Kimliğin soyulması. İsmi, özgürlüğü, ailesi elinden alındı. Ancak Kur'an kritik bir not düşer: \"Allah onun yanındaydı.\" Travma deneyiminde var olan ilahî zemin, tamamen yok olmayan bir anlam çerçevesi.",
+
+- ÖNCE: "description": "Masum olduğu hâlde iftiraya uğradı, hapsedildi. Ama Yusuf bağırmadı, isyan etmedi — duayı seçti. Psikolojide kontrol odağı (locus of control): dış koşulları değil, tepkisini seçmek. Viktor Frankl'ın kamptan öğrendikleriyle birebir örtüşür.",
+  SONRA: "description": "Masum olduğu hâlde iftiraya uğradı, hapsedildi. Ama Yusuf bağırmadı, isyan etmedi; duayı seçti. Psikolojide kontrol odağı (locus of control): dış koşulları değil, tepkisini seçmek. Viktor Frankl'ın kamptan öğrendikleriyle birebir örtüşür.",
+
+- ÖNCE: "modernNote": "Frankl: 'Son özgürlük — koşullara verilen tepkiyi seçme özgürlüğü.' Hapishane bile bu özgürlüğü alamaz."
+  SONRA: "modernNote": "Frankl: \"Son özgürlük, koşullara verilen tepkiyi seçme özgürlüğüdür.\" Hapishane bile bu özgürlüğü alamaz."
+
+- ÖNCE: "description": "Yıllar geçiyor. Çıkış garantisi yok. Ama Yusuf rüyaları yorumlamaya, insanlara yardım etmeye devam ediyor. Anlam üretmek — hapse düşmüş bile olsa anlama hizmet etmek — iyileşmenin temelidir.",
+  SONRA: "description": "Yıllar geçiyor. Çıkış garantisi yok. Ama Yusuf rüyaları yorumlamaya, insanlara yardım etmeye devam ediyor. Anlam üretmek, hapse düşmüş bile olsa anlama hizmet etmek, iyileşmenin temelidir.",
+
+- ÖNCE: "modernNote": "Frankl'ın logoterapi: anlam bulmak acıyı katlanılır kılar. Çaresizlik değil, misyon bilinci."
+  SONRA: "modernNote": "Frankl'ın logoterapisi: anlam bulmak acıyı katlanılır kılar. Çaresizlik değil, misyon bilinci."
+
+- ÖNCE: "title": "5. Aşama: Yükseliş — Travmanın Dönüşümü",
+  SONRA: "title": "5. Aşama: Yükseliş, Travmanın Dönüşümü",
+
+- ÖNCE: "description": "Kölelikten vezirliğe. Travma geçmişi onu yok etmedi — aksine o makama hazırladı. Posttraumatic growth'un doruk noktası: acı deneyim, başkalarına hizmet kapasitesine dönüştü.",
+  SONRA: "description": "Kölelikten vezirliğe. Travma geçmişi onu yok etmedi; aksine o makama hazırladı. Travma sonrası büyümenin doruk noktası: acı deneyim, başkalarına hizmet kapasitesine dönüştü.",
+
+- ÖNCE: "title": "6. Aşama: Bağışlama — İyileşmenin Zirvesi",
+  SONRA: "title": "6. Aşama: Bağışlama, İyileşmenin Zirvesi",
+
+- ÖNCE: "description": "Kur'an'ın en güçlü bağışlama sahnesi. Yusuf, onu kuyuya atan kardeşlerine 'Bugün size kınama yok' dedi. İntikam hakkı varken seçtiği bağışlama. Bağışlama, mazlumun zayıflığı değil — iyileşmiş insanın gücüdür.",
+  SONRA: "description": "Kur'an'ın en güçlü bağışlama sahnesi. Yusuf, onu kuyuya atan kardeşlerine \"Bugün size kınama yok\" dedi. İntikam hakkı varken bağışlamayı seçti. Bağışlama mazlumun zayıflığı değil, iyileşmiş insanın gücüdür.",
+
+- ÖNCE: "modernNote": "Forgiveness therapy: bağışlama, anksiyete ve depresyonu azaltır, kurbanı özgürleştirir — suçluyu değil."
+  SONRA: "modernNote": "Bağışlama terapisi: bağışlama anksiyete ve depresyonu azaltır; özgürleştirdiği kişi suçlu değil, kurbandır."
+
+- ÖNCE: "intro": "Kur'an, insanı toplumsal bir varlık olarak tanımlar. Toplumsal hastalıkların kökenine iner ve tedavisini verir. Kibir, haset ve gıybet — sosyal bağları tahrip eden üç temel patoloji.",
+  SONRA: "intro": "Kur'an, insanı toplumsal bir varlık olarak tanımlar. Toplumsal hastalıkların kökenine iner ve tedavisini verir. Kibir, haset ve gıybet: sosyal bağları tahrip eden üç temel patoloji.",
+
+- ÖNCE: "title": "Kibir — Büyüklenme Patolojisi",
+  SONRA: "title": "Kibir: Büyüklenme Patolojisi",
+
+- ÖNCE: "description": "Kibir, en çok eleştirilen karakter özelliği. İblis'in düşüşü kibir yüzünden. Firavun'un felaketi kibir yüzünden. Kur'an kibri aşkın bir kaynaktan gösterir: yaratılmışın Yaratıcı'ya rağmen büyüklük iddiası — ontolojik bir çelişki.",
+  SONRA: "description": "Kibir, en çok eleştirilen karakter özelliğidir. İblis'in düşüşü kibir yüzündendir; Firavun'un felaketi de. Kur'an kibri aşkın bir kaynaktan gösterir: yaratılmışın Yaratıcı'ya rağmen büyüklük iddiası, ontolojik bir çelişki.",
+
+- ÖNCE: "title": "Haset ve Gıbta — Yıkıcı ve Yapıcı Kıskançlık",
+  SONRA: "title": "Haset ve Gıbta: Yıkıcı ve Yapıcı Kıskançlık",
+
+- ÖNCE: "description": "Kur'an iki ayrı kavram kullanır: Haset (başkasının nimetinin elinden gitmesini istemek) ve Gıbta (aynısına sahip olmak istemek). Haset yıkıcı, gıbta kabul edilebilir. Sefer etmeden zengin olmak, çalışmadan başarılı görünmek — hasedi tetikler.",
+  SONRA: "description": "Kur'an iki ayrı kavram kullanır: haset (başkasının nimetinin elinden gitmesini istemek) ve gıbta (aynısına sahip olmak istemek). Haset yıkıcıdır, gıbta kabul edilebilir. Emek vermeden zengin olmak, çalışmadan başarılı görünmek hasedi tetikler.",
+
+- ÖNCE: "title": "Gıybet — Sosyal Doku Tahribatı",
+  SONRA: "title": "Gıybet: Sosyal Doku Tahribatı",
+
+- ÖNCE: "description": "Kur'an'ın gıybete verdiği metafor şoke edicidir: ölü et yemek. Neden bu kadar ağır? Çünkü gıybet, savunmasızı hedef alır — cevap veremeyeni. Psikolojide gıybetin işlevi: grup kimliği oluşturma, statü kazanma, kendi başarısızlığından dikkati çekme.",
+  SONRA: "description": "Kur'an'ın gıybete verdiği metafor sarsıcıdır: ölü et yemek. Neden bu kadar ağır? Çünkü gıybet savunmasızı, cevap veremeyeni hedef alır. Psikolojide gıybetin işlevi: grup kimliği oluşturma, statü kazanma, kendi başarısızlığından dikkati çekme.",
+
+- ÖNCE: "intro": "Kur'an sadece sorunları teşhis etmez — çözüm araçlarını da verir. Dört temel araç: Sabır, Şükür, Zikir ve Dua. Modern terapi teknikleriyle dikkat çekici örtüşmeler taşıyan, test edilmiş psikolojik stratejiler.",
+  SONRA: "intro": "Kur'an yalnızca sorunları teşhis etmez; çözüm araçlarını da verir. Dört temel araç: sabır, şükür, zikir ve dua. Modern terapi teknikleriyle örtüşen, denenmiş psikolojik stratejiler.",
+
+- ÖNCE: "title": "Sabır — Aktif Direnç, Pasif Katlanma Değil",
+  SONRA: "title": "Sabır: Pasif Katlanma Değil, Aktif Direnç",
+
+- ÖNCE: "description": "Sabır Türkçede 'katlanmak' çağrışımı taşır ama Kur'an'da aktif bir dirençtir. Sebat etmek, vazgeçmemek, ilerlemeye devam etmek. Kur'an sabırsızlıktan değil, korkakça teslimiyetten kaçınmamızı ister. Kur'an sabra belirgin bir ağırlık verir; doksanı aşkın ayette geçer.",
+  SONRA: "description": "Sabır Türkçede \"katlanmak\" çağrışımı taşır, ama Kur'an'da aktif bir dirençtir: sebat etmek, vazgeçmemek, ilerlemeye devam etmek. Kur'an sabırsızlıktan değil, korkakça teslimiyetten kaçınmamızı ister. Kur'an sabra belirgin bir ağırlık verir; doksanı aşkın ayette geçer.",
+
+- ÖNCE: "title": "Şükür — Beyin Kimyasını Değiştiren Pratik",
+  SONRA: "title": "Şükür: Odağı Değiştiren Pratik",
+
+- ÖNCE: "description": "Şükür bir kibarlık biçimi değil — bir bilişsel yeniden çerçeveleme (reframing) pratiği. Odağı 'eksik olanlar'dan 'mevcut olanlar'a kaydırmak. Kur'an şükrün 'artırmayı' getireceğini söylüyor — nörobilim bunun dopamin ve serotonin artışıyla gerçekleştiğini doğruluyor.",
+  SONRA: "description": "Şükür bir kibarlık biçimi değil, bir bilişsel yeniden çerçeveleme (reframing) pratiğidir: odağı eksik olanlardan mevcut olanlara kaydırmak. Kur'an şükrün \"artırmayı\" getireceğini söyler; nörobilim çalışmaları da şükür pratiğini dopamin ve serotonin artışıyla ilişkilendirir.",
+
+- ÖNCE: "title": "Zikir — Kalbin İlacı",
+  SONRA: "title": "Zikir: Kalbin İlacı",
+
+- ÖNCE: "description": "Kur'an kalpler için tek bir reçete yazar: Allah'ın zikri. Tekrarlayan, ritimli ses ve hareket — beyin frekansını değiştirir. fMRI çalışmaları, tekrarlayan dini pratik sırasında amigdala aktivitesinin düştüğünü, prefrontal korteks aktivitesinin arttığını gösteriyor.",
+  SONRA: "description": "Kur'an kalpler için tek bir reçete yazar: Allah'ın zikri. Tekrarlayan, ritimli ses ve hareket beyin frekansını değiştirir. fMRI çalışmaları, tekrarlayan dinî pratik sırasında amigdala aktivitesinin düştüğünü, prefrontal korteks aktivitesinin arttığını gösteriyor.",
+
+- ÖNCE: "title": "Dua — Bilinçli Teslim",
+  SONRA: "title": "Dua: Bilinçli Teslim",
+
+- ÖNCE: "description": "Dua bir dilekçe listesi değil — bilinçli bir teslim pratiği. Kur'an 'isteyenlere karşılık vereceğini' söyler; ama bu karşılık her zaman istenenin verilmesi değildir. Dua kaygıyı dışa transfer eder, kontrol yanılsamasını bırakmayı kolaylaştırır.",
+  SONRA: "description": "Dua bir dilek listesi değil, bilinçli bir teslim pratiğidir. Kur'an \"isteyenlere karşılık vereceğini\" söyler; ama bu karşılık her zaman istenenin verilmesi değildir. Dua kaygıyı dışa aktarır, kontrol yanılsamasını bırakmayı kolaylaştırır.",
+
+- ÖNCE: "title": "Yaratılış Amacı — Varoluşun Temeli",
+  SONRA: "title": "Yaratılış Amacı: Varoluşun Temeli",
+
+- ÖNCE: "description": "Kur'an'ın anlam çerçevesi varoluşsal değil — kozmolojik. İnsan rastgele değil, bilinçli bir amaçla yaratılmış. 'İbadet' kelimesi dar bir biçim değil — tüm yaşamı anlamlı kılacak bir yönelim. Bu zemin üzerinde hiçbir acı anlamsız değildir.",
+  SONRA: "description": "Kur'an'ın anlam çerçevesi varoluşsal değil, kozmolojiktir. İnsan rastgele değil, bilinçli bir amaçla yaratılmıştır. \"İbadet\" kelimesi dar bir biçim değil, tüm yaşamı anlamlı kılacak bir yönelimdir. Bu zemin üzerinde hiçbir acı anlamsız değildir.",
+
+- ÖNCE: "title": "Acının Anlamı — Sınav Çerçevesi",
+  SONRA: "title": "Acının Anlamı: Sınav Çerçevesi",
+
+- ÖNCE: "description": "Acı, cezalandırma değil — gelişim mekanizması. Kur'an'ın sınav çerçevesi, acıyı anlamsız kılmak yerine anlam katmanına taşır. 'Neden ben?' sorusuna Kur'an'ın cevabı: 'Çünkü sen kaldırabilirsin' değil, 'Çünkü bu seni dönüştürecek.'",
+  SONRA: "description": "Acı bir cezalandırma değil, gelişim mekanizmasıdır. Kur'an'ın sınav çerçevesi, acıyı anlamsız kılmak yerine anlam katmanına taşır. \"Neden ben?\" sorusuna Kur'an'ın cevabı \"Çünkü sen kaldırabilirsin\" değil, \"Çünkü bu seni dönüştürecek\"tir.",
+
+- ÖNCE: "description": "Varoluşçu psikoloji ölümden kaçışı en büyük kaygı kaynağı olarak görür (death anxiety). Kur'an ölümü kaçınılmaz ama anlamlı kılar: bir son değil, geçiş. Bu çerçeve ölüm kaygısını ortadan kaldırmaz ama dönüştürür.",
+  SONRA: "description": "Varoluşçu psikoloji ölümden kaçışı en büyük kaygı kaynağı olarak görür (ölüm kaygısı). Kur'an ölümü kaçınılmaz ama anlamlı kılar: bir son değil, geçiş. Bu çerçeve ölüm kaygısını ortadan kaldırmaz ama dönüştürür.",
+
+- ÖNCE: "title": "Tutarlılık Duygusu — Koherans",
+  SONRA: "title": "Tutarlılık Duygusu: Koherans",
+
+- ÖNCE: "description": "Aaron Antonovsky'nin 'salutogenesis' (sağlık yaratma) teorisinin merkezi: koherans duygusu — dünyanın anlaşılabilir, yönetilebilir ve anlamlı olduğu hissi. Kur'an bu koheransı sistematik olarak inşa eder: güçlük daima geçicidir, kolaylık daima beraberindedir.",
+  SONRA: "description": "Aaron Antonovsky'nin \"salutogenesis\" (sağlık yaratma) teorisinin merkezinde koherans duygusu vardır: dünyanın anlaşılabilir, yönetilebilir ve anlamlı olduğu hissi. Kur'an bu koheransı sistematik olarak inşa eder: güçlük daima geçicidir, kolaylık daima beraberindedir.",
+
+- ÖNCE: "modernNote": "Antonovsky'nin salutogenesis modeli: anlam, yönetilebilirlik ve kavranılırlık — psikolojik sağlığın üç sütunu."
+  SONRA: "modernNote": "Antonovsky'nin salutogenesis modeli: anlam, yönetilebilirlik ve kavranılırlık; psikolojik sağlığın üç sütunu."
+
+- ÖNCE: "intro": "Kur'an ve modern psikoloji aynı insanı inceler, ama farklı çerçevelerden. Bu farklar çelişki değil — tamamlayıcılık ve derinlik farkı. Modern psikolojinin göremediği ya da geç fark ettiği boyutları Kur'an çoktan tanımlamıştı.",
+  SONRA: "intro": "Kur'an ve modern psikoloji aynı insanı inceler, ama farklı çerçevelerden. Bu farklar çelişki değil, tamamlayıcılık ve derinlik farkıdır. Modern psikolojinin göremediği ya da geç fark ettiği boyutları Kur'an çoktan tanımlamıştı.",
+
+- ÖNCE: "description": "Freud: id (dürtü) / ego (gerçeklik) / süperego (ahlak) — üç statik yapı. Kur'an: Emmâre → Levvâme → Mülhime → Mutmainne → Râdıye — beş aşamalı gelişim yolculuğu. Freud'un modeli tanımlar; Kur'an'ın modeli dönüşümü gösterir. İki model arasındaki en kritik fark: Kur'an nefsi değiştirilebilir görür.",
+  SONRA: "description": "Freud: id (dürtü), ego (gerçeklik), süperego (ahlak); üç statik yapı. Kur'an: emmâre, levvâme, mülhime, mutmainne, râdıye; beş aşamalı bir gelişim yolculuğu. Freud'un modeli tanımlar; Kur'an'ın modeli dönüşümü gösterir. İki model arasındaki en kritik fark: Kur'an nefsi değiştirilebilir görür.",
+
+- ÖNCE: "title": "İlahi Boyut — Seküler Psikolojinin Sınırı",
+  SONRA: "title": "İlahî Boyut: Seküler Psikolojinin Sınırı",
+
+- ÖNCE: "title": "Günah ve Tevbe — Psikolojik Temizlik Mekanizması",
+  SONRA: "title": "Günah ve Tevbe: Psikolojik Temizlik Mekanizması",
+
+- ÖNCE: "description": "Freud'da suçluluk duygusu patolojiktir — bastırılmış arzuların yarattığı nevrotik yük. Kur'an'da günah gerçektir ama tevbeyle silinebilir. Bu mekanizma özgürleştiricidir: hata kalıcı bir iz değil, silinebilir bir durumdur. Sürekli özeleştiri değil, eylemli bağışlanma arayışı.",
+  SONRA: "description": "Freud'da suçluluk duygusu patolojiktir: bastırılmış arzuların yarattığı nevrotik yük. Kur'an'da günah gerçektir ama tevbeyle silinebilir. Bu mekanizma özgürleştiricidir: hata kalıcı bir iz değil, silinebilir bir durumdur. Sürekli özeleştiri değil, eylemli bir bağışlanma arayışı.",
+
+- ÖNCE: "description": "Maslow: fizyolojik → güvenlik → ait olma → saygınlık → öz-gerçekleştirme. Tepe noktası: bireysel potansiyelin gerçekleşmesi. Kur'an ise bireyin ötesine geçişi — nefsin Allah'a yöneliminin — yüksek bir aşama olarak sunar. Maslow hayatının sonunda benzer bir kavramı ('self-transcendence') teorisine eklemiştir.",
+  SONRA: "description": "Maslow: fizyolojik ihtiyaçlar, güvenlik, ait olma, saygınlık, öz gerçekleştirme. Tepe noktası bireysel potansiyelin gerçekleşmesidir. Kur'an ise bireyin ötesine geçişi, nefsin Allah'a yönelimini yüksek bir aşama olarak sunar. Maslow hayatının sonunda benzer bir kavramı (\"self-transcendence\") teorisine eklemiştir.",
+
+- ÖNCE: "intro": "Kur'an insan doğasını idealize etmez. Hem potansiyeli hem de sınırları kristal netliğinde tanımlar. Bu zaafiyetler kader değil — dönüşüm çağrısı.",
+  SONRA: "intro": "Kur'an insan doğasını idealize etmez. Hem potansiyeli hem de sınırları açıkça tanımlar. Bu zaafiyetler kader değil, dönüşüm çağrısıdır.",
+
+- ÖNCE: "title": "Acelesizlik — Hemen İstemek",
+  SONRA: "title": "Acelecilik: Hemen İstemek",
+
+- ÖNCE: "description": "Anlık tatmini uzun vadeli faydanın önüne koymak. Sabırsızlık, ihtiyatsız kararların, pişmanlıkların ve fırsatları kaçırmanın ana kaynağı. Kur'an bunu bir fıtrat özelliği olarak tanımlar — aşılabilir ama göz ardı edilemez."
+  SONRA: "description": "Anlık tatmini uzun vadeli faydanın önüne koymak. Sabırsızlık; ihtiyatsız kararların, pişmanlıkların ve kaçırılan fırsatların ana kaynağı. Kur'an bunu bir fıtrat özelliği olarak tanımlar: aşılabilir ama göz ardı edilemez."
+
+- ÖNCE: "title": "Hırs — Asla Yetmemek",
+  SONRA: "title": "Hırs: Asla Yetmemek",
+
+- ÖNCE: "description": "Zenginleşmek değil — zenginleşince sınır tanımamak. Hırs başlangıçta motivasyon gibi görünür, sonunda kimliği ele geçirir. Kur'an 'tuğyan'ı (sınır aşma) fazlalıktan doğan bir psikolojik tehdit olarak tanımlar."
+  SONRA: "description": "Sorun zenginleşmek değil, zenginleşince sınır tanımamaktır. Hırs başlangıçta motivasyon gibi görünür, sonunda kimliği ele geçirir. Kur'an \"tuğyan\"ı (sınır aşma) fazlalıktan doğan bir psikolojik tehdit olarak tanımlar."
+
+- ÖNCE: "title": "Nankörlük — Nimetleri Görmemek",
+  SONRA: "title": "Nankörlük: Nimetleri Görmemek",
+
+- ÖNCE: "description": "Sahip olduklarını değil, sahip olmadıklarını görmek. Minnet körü. Kur'an'ın hedonik adaptasyon (edinilen şeyin cazibesini yitirmesi) tespiti: insan, kurtarılınca kurtaranı unutur."
+  SONRA: "description": "Sahip olduklarını değil, sahip olmadıklarını görmek. Minnet körlüğü. Kur'an'ın hedonik adaptasyon (edinilen şeyin cazibesini yitirmesi) tespiti: insan, kurtarılınca kurtaranı unutur."
+
+- ÖNCE: "title": "Tartışmacılık — Haklı Olmak İhtiyacı",
+  SONRA: "title": "Tartışmacılık: Haklı Olma İhtiyacı",
+
+- ÖNCE: "description": "Gerçeği aramak değil — haklı görünmek. Tartışmacılık zekâyı hakikatten ayırır ve onu ego korumasına yöneltir. Kur'an bu eğilimi uyarı olarak vurgular: en zekî zihinler yanlış yönlendirilebilir."
+  SONRA: "description": "Amaç gerçeği aramak değil, haklı görünmektir. Tartışmacılık zekâyı hakikatten ayırır ve onu ego korumasına yöneltir. Kur'an bu eğilimi uyarı olarak vurgular: en zeki zihinler bile yanlış yönlendirilebilir."
+
+- ÖNCE: "title": "Zaaf — Kırılganlık",
+  SONRA: "title": "Zaaf: Kırılganlık",
+
+- ÖNCE: "description": "İnsanın kırılganlığının tanınması — bir suçlama değil, bir gerçeklik tespiti. Ve Allah bu gerçekliği görerek insanın yükünü hafifletir. Zayıflığı bilmek, güç arayışının başlangıcıdır."
+  SONRA: "description": "İnsanın kırılganlığının tanınması; bir suçlama değil, bir gerçeklik tespiti. Allah bu gerçekliği görerek insanın yükünü hafifletir. Zayıflığı bilmek, güç arayışının başlangıcıdır."
+
+- ÖNCE: "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek — psikolojik sağlığın temelidir. Murakebe (öz denetim) pratiği, öz farkındalığın İslami karşılığıdır."
+  SONRA: "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek psikolojik sağlığın temelidir. Murakabe (öz denetim) pratiği, öz farkındalığın İslamî karşılığıdır."
+
+- ÖNCE: "title": "Empati — Ötekinin İçine Girmek",
+  SONRA: "title": "Empati: Ötekinin İçine Girmek",
+
+- ÖNCE: "description": "Empati bir duygu değil — aktif bir yönelim: başkasının yükünü hissetmek ve ona doğru harekete geçmek. Hz. Peygamber'in empatisinin Kur'ânî tanımı budur. Sosyal uzantısı: iyilik ve takvada karşılıklı yardımlaşma (Maide 5:2)."
+  SONRA: "description": "Empati bir duygu değil, aktif bir yönelimdir: başkasının yükünü hissetmek ve ona doğru harekete geçmek. Hz. Peygamber'in empatisinin Kur'ânî tanımı budur. Sosyal uzantısı: iyilik ve takvada karşılıklı yardımlaşma (Maide 5:2)."
+
+- ÖNCE: "description": "Kur'an öfkeyiinkâr etmez — 'yutmayı' ödüllendirir. Duygusal baskılama değil, bilinçli düzenleme. Hz. Peygamber: 'Güçlü olan güreşi yenen değil, öfkesinde kendini tutabilen.' Öfke enerjisi varoluşunu korur ama yönlendirme gerektir."
+  SONRA: "description": "Kur'an öfkeyi inkâr etmez; \"yutmayı\" ödüllendirir. Duygusal baskılama değil, bilinçli düzenleme. Hz. Peygamber: \"Güçlü olan güreşi yenen değil, öfkesinde kendini tutabilendir.\" Öfke enerjisi varoluşu korur ama yönlendirme gerektirir."
+
+- ÖNCE: "description": "Kur'an çeşitliliği bir tehdit değil, tanışma fırsatı olarak sunar. Sosyal farkındalık: farklı deneyimlerin, arka planların, kırılganlıkların bilincinde olmak. Takvanın (Allah bilinci) sosyal versiyonu budur."
+  SONRA: "description": "Kur'an çeşitliliği bir tehdit değil, tanışma fırsatı olarak sunar. Sosyal farkındalık: farklı deneyimlerin, arka planların ve kırılganlıkların bilincinde olmak. Takvanın (Allah bilinci) sosyal versiyonu budur."
+
+- ÖNCE: "title": "İlişki Yönetimi — Adalet ve Şefkat",
+  SONRA: "title": "İlişki Yönetimi: Adalet ve Şefkat",
+
+- ÖNCE: "description": "İki temel ilişki ilkesi: adalet (hakkaniyetli olmak) ve ihsan (standartın üzerinde iyilik yapmak). İlişki yönetimi sadece çatışmadan kaçınmak değil — aktif olarak iyilik üretmek. İhsan, karşılık beklemeyen bir verme biçimidir."
+  SONRA: "description": "İki temel ilişki ilkesi: adalet (hakkaniyetli olmak) ve ihsan (standardın üzerinde iyilik yapmak). İlişki yönetimi yalnızca çatışmadan kaçınmak değil, aktif olarak iyilik üretmektir. İhsan, karşılık beklemeyen bir verme biçimidir."
+
+- ÖNCE: "description": "Kur'an 'tezyin' kavramını kullanır: süsleme, çekici hâle getirme. Arzu, gerçekliği bozar — insan arzuladığını doğru görür. Aaron Beck'in bilişsel çarpıtma teorisi: duygular düşünceyi filtreler, nesnel gerçeği değil arzuyu yansıtır."
+  SONRA: "description": "Kur'an \"tezyin\" kavramını kullanır: süsleme, çekici hâle getirme. Arzu gerçekliği bozar; insan arzuladığını doğru görür. Aaron Beck'in bilişsel çarpıtma teorisi: duygular düşünceyi filtreler, nesnel gerçeği değil arzuyu yansıtır."
+
+- ÖNCE: "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahi irade. Bu paradoks değil — sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçeve. Dışsal motivasyon (ödül-ceza) değil, içselleştirilmiş anlam motivasyonu."
+  SONRA: "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahî irade. Bu bir paradoks değil, sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçevedir. Dışsal motivasyon (ödül ve ceza) değil, içselleştirilmiş anlam motivasyonu."
+
