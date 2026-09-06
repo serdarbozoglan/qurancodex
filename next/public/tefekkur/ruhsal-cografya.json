@@ -38,8 +38,8 @@
       "type": "criticalNote",
       "headingTr": "Bu yazı nereden doğdu",
       "headingEn": "Where this piece came from",
-      "tr": "Yazar, Kur'an'daki **kavramsal ağı** graf ve veri analiziyle — yapay zekâ desteğiyle kurulan bir ilişkiler ağıyla — incelerken karşılaştığı âyetlerin ve bağlantıların kendisini sarstığını söylüyor: *“Ben de bunu sadece teknik bir analiz olarak bırakamam diyerek, düşüncelerimi paylaşmaya karar verdim.”* Teknik tarafı, yazarın *Systematic Analysis of a Concept Cluster in Quran* başlıklı ayrı çalışmasında duruyor. **Elinizdeki metin o analizin insanî tarafıdır.**",
-      "en": "The author recounts that while examining **the conceptual network** of the Qur'an through graph and data analysis — a web of relations built with the help of artificial intelligence — the verses and connections he met with shook him: *“I decided I could not leave this as a merely technical analysis, and so chose to share my thoughts.”* The technical side stands in his separate study, *Systematic Analysis of a Concept Cluster in Quran*. **The text before you is the human side of that analysis.**"
+      "tr": "Yazar, Kur'an'daki **kavramsal ağı** graf ve veri analiziyle (yapay zekâ desteğiyle kurulan bir ilişkiler ağıyla) incelerken karşılaştığı âyetlerin ve bağlantıların kendisini sarstığını söylüyor: *“Ben de bunu sadece teknik bir analiz olarak bırakamam diyerek, düşüncelerimi paylaşmaya karar verdim.”* Teknik tarafı, yazarın *Systematic Analysis of a Concept Cluster in Quran* başlıklı ayrı çalışmasında duruyor. Elinizdeki metin o analizin insanî tarafıdır.",
+      "en": "The author recounts that while examining **the conceptual network** of the Qur'an through graph and data analysis (a web of relations built with the help of artificial intelligence) the verses and connections he met with shook him: *“I decided I could not leave this as a merely technical analysis, and so chose to share my thoughts.”* The technical side stands in his separate study, *Systematic Analysis of a Concept Cluster in Quran*. The text before you is the human side of that analysis."
     },
     {
       "type": "section",
@@ -62,7 +62,7 @@
     {
       "type": "paragraph",
       "tr": "Bu âyeti ilk okuduğumda düşündüm: neden müstağni olmak, yani kendini yeterli görmek bir problem? Sonra anladım ki **buradaki sorun, gerçek bir yeterliliğe sahip olmak değil, kendini yeterli görmek**. Algı meselesi bu. Sahte bir özgüven, sahte bir bağımsızlık duygusu. Peki bu sahte duygu nasıl bir zincirleme tepki başlatıyor? İşte burada Kur'an'ın ruhsal coğrafyası devreye giriyor.",
-      "en": "When I first read this verse I wondered: why should being self-sufficient — seeing oneself as adequate — be a problem? Then I understood that **the trouble here is not possessing real sufficiency but deeming oneself sufficient**. It is a matter of perception. A false confidence, a false sense of independence. And what chain reaction does that false feeling set off? It is here that the spiritual geography of the Qur'an comes into play."
+      "en": "When I first read this verse I wondered: why should being self-sufficient (seeing oneself as adequate) be a problem? Then I understood that **the trouble here is not possessing real sufficiency but deeming oneself sufficient**. It is a matter of perception. A false confidence, a false sense of independence. And what chain reaction does that false feeling set off? It is here that the spiritual geography of the Qur'an comes into play."
     },
     {
       "type": "pullQuote",
@@ -73,13 +73,13 @@
     {
       "type": "section",
       "id": "takva-istigna",
-      "titleTr": "Takvâ — İstiğnâ Paradoksu",
-      "titleEn": "The Taqwā — Istighnāʾ Paradox"
+      "titleTr": "Takvâ: İstiğnâ Paradoksu",
+      "titleEn": "The Taqwā: Istighnāʾ Paradox"
     },
     {
       "type": "paragraph",
-      "tr": "Bu noktada Kur'an'ın çok çarpıcı bir zıtlığı ortaya koyduğunu fark ettim. **Leyl sûresinde** *“vettekā”* (takvâ sahibi olan) ile *“vestağnā”* (kendini yeterli gören) yan yana geliyor — **tam zıt karakterler** olarak.",
-      "en": "At this point I noticed that the Qur'an sets out a most striking contrast. In **Sūrat al-Layl**, *“wa-ttaqā”* (the one who is God-conscious) and *“wa-staghnā”* (the one who deems himself self-sufficient) stand side by side — **as exact opposites**."
+      "tr": "Bu noktada Kur'an'ın çok çarpıcı bir zıtlığı ortaya koyduğunu fark ettim. **Leyl sûresinde** *“vettekā”* (takvâ sahibi olan) ile *“vestağnā”* (kendini yeterli gören) yan yana geliyor: tam zıt karakterler olarak.",
+      "en": "At this point I noticed that the Qur'an sets out a most striking contrast. In **Sūrat al-Layl**, *“wa-ttaqā”* (the one who is God-conscious) and *“wa-staghnā”* (the one who deems himself self-sufficient) stand side by side: as exact opposites."
     },
     {
       "type": "verseInline",
@@ -97,8 +97,8 @@
     },
     {
       "type": "hierarchyTree",
-      "titleTr": "Takvânın anlam spektrumu — *vikāye* kökü",
-      "titleEn": "The semantic spectrum of taqwā — the root *wiqāya*",
+      "titleTr": "Takvânın anlam spektrumu: *vikāye* kökü",
+      "titleEn": "The semantic spectrum of taqwā: the root *wiqāya*",
       "root": {
         "tr": "**Muhtaç olma hissi** ile **işin ciddiyetinin farkındalığı** — hepsi tek çatı altında",
         "en": "**A sense of need** together with **an awareness of the gravity of the matter** — all under one roof"
@@ -154,15 +154,15 @@
       "captionTr": "Aynı kitap, iki alıcı",
       "captionEn": "The same Book, two receivers",
       "left": {
-        "titleTr": "Müstağnî — kendini yeterli gören",
+        "titleTr": "Müstağnî: kendini yeterli gören",
         "titleEn": "The self-sufficient",
         "accent": "#c0554d",
         "descTr": "İhtiyaç hissi yoktur; dolayısıyla **alacak bir kabı da** yoktur.",
         "descEn": "There is no sense of need; and therefore **no vessel to receive**.",
         "bullets": [
           {
-            "tr": "*“Yahu bildiğimiz şeyler”* — nasihat **kulak ardı edilir**",
-            "en": "*“We know all this already”* — counsel is **brushed aside**"
+            "tr": "*“Yahu bildiğimiz şeyler”*: nasihat **kulak ardı edilir**",
+            "en": "*“We know all this already”*: counsel is **brushed aside**"
           },
           {
             "tr": "Tam da **en çok ihtiyaç duyduğu rehberlikten** mahrum kalır",
@@ -171,7 +171,7 @@
         ]
       },
       "right": {
-        "titleTr": "Müttakî — eksikliğini bilen",
+        "titleTr": "Müttakî: eksikliğini bilen",
         "titleEn": "The God-conscious",
         "accent": "#1D9E75",
         "descTr": "Kendi eksikliğini ve **Allah'a muhtaç olduğunu** bilir.",
@@ -194,8 +194,8 @@
       "type": "criticalNote",
       "headingTr": "Mesaj dekodlama meselesi",
       "headingEn": "The matter of decoding the message",
-      "tr": "Burada çok kritik bir nokta var: **anlam sadece mesajın kendisinde değil, alıcının o mesajı nasıl dekode ettiğinde.** İç hâl kontekstiyle aynı mesaj farklı anlam derinliklerinde anlaşılabiliyor. Örnek: daha önce duyduğunuz, doğru olduğunu bildiğiniz bir tavsiyeyi kulak ardı etmek. *“Yahu bildiğimiz şeyler”* bahanesini kullanırız çoğunlukla. Ama aslında o *“bildiğimiz şey”*, **farklı bir ruh hâliyle tekrar duyulduğunda bambaşka kapılar açabiliyor.**",
-      "en": "A critical point stands here: **meaning lies not only in the message itself but in how the receiver decodes it.** With the context of one's inner state, the same message can be understood at different depths. An example: brushing aside a piece of advice you have heard before and know to be true. We usually reach for the excuse *“we know all this already.”* Yet that very *“thing we know”*, **heard again in a different state of soul, can open quite other doors.**"
+      "tr": "Burada çok kritik bir nokta var: **anlam sadece mesajın kendisinde değil, alıcının o mesajı nasıl dekode ettiğinde.** İç hâl kontekstiyle aynı mesaj farklı anlam derinliklerinde anlaşılabiliyor. Örnek: daha önce duyduğunuz, doğru olduğunu bildiğiniz bir tavsiyeyi kulak ardı etmek. *“Yahu bildiğimiz şeyler”* bahanesini kullanırız çoğunlukla. Ama aslında o *“bildiğimiz şey”*, farklı bir ruh hâliyle tekrar duyulduğunda bambaşka kapılar açabiliyor.",
+      "en": "A critical point stands here: **meaning lies not only in the message itself but in how the receiver decodes it.** With the context of one's inner state, the same message can be understood at different depths. An example: brushing aside a piece of advice you have heard before and know to be true. We usually reach for the excuse *“we know all this already.”* Yet that very *“thing we know”*, heard again in a different state of soul, can open quite other doors."
     },
     {
       "type": "section",
@@ -205,8 +205,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kur'an'ı dikkatli okuduğunuzda, **ruhsal sapmanın rastgele bir olay olmadığını** görüyorsunuz. Tersine, ortada çok net bir **patoloji** var.",
-      "en": "When you read the Qur'an attentively, you see that **spiritual straying is not a random event**. On the contrary, there is a very definite **pathology** at work."
+      "tr": "Kur'an'ı dikkatli okuduğunuzda, **ruhsal sapmanın rastgele bir olay olmadığını** görüyorsunuz. Tersine, ortada çok net bir patoloji var.",
+      "en": "When you read the Qur'an attentively, you see that **spiritual straying is not a random event**. On the contrary, there is a very definite pathology at work."
     },
     {
       "type": "flowChain",
@@ -245,25 +245,25 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Birinci aşama** şu: *“Ben yeterim, bana kimse lazım değil”* duygusu. Sonra doğal olarak sınırları zorlama gelir. Ne sınırları? Ahlâkî sınırları, ilâhî sınırları, toplumsal sınırları. Çünkü **sınır tanımak**; prensipleri, kuralları, kanunları kabul etmek, tavsiyelere ve kendini geliştirmeye açık bulunmak demektir. Kendini yeterli gören kişi ise neden maddî ve mânevî tekâmül yoluna girsin?",
-      "en": "**The first stage** is the feeling: *“I am enough; I need no one.”* Then, naturally, comes the pressing against limits. Which limits? Moral limits, divine limits, social limits. For **to recognise a limit** is to accept principles, rules and laws, to remain open to counsel and to self-improvement. And why should one who deems himself sufficient set out on any path of material or spiritual growth?"
+      "tr": "**Birinci aşama** şu: *“Ben yeterim, bana kimse lazım değil”* duygusu. Sonra doğal olarak sınırları zorlama gelir. Ne sınırları? Ahlâkî sınırları, ilâhî sınırları, toplumsal sınırları. Çünkü sınır tanımak; prensipleri, kuralları, kanunları kabul etmek, tavsiyelere ve kendini geliştirmeye açık bulunmak demektir. Kendini yeterli gören kişi ise neden maddî ve mânevî tekâmül yoluna girsin?",
+      "en": "**The first stage** is the feeling: *“I am enough; I need no one.”* Then, naturally, comes the pressing against limits. Which limits? Moral limits, divine limits, social limits. For to recognise a limit is to accept principles, rules and laws, to remain open to counsel and to self-improvement. And why should one who deems himself sufficient set out on any path of material or spiritual growth?"
     },
     {
       "type": "paragraph",
-      "tr": "**İkinci aşama** daha tehlikeli: sınırları aştığınızda artık sadece kendinizi değil, **başkalarını da etkilemeye** başlıyorsunuz. Bunun yanında başkalarından da etkileniyor, benzer şekilde tuğyan içinde olanlarla maddî veya mânevî dayanışıyorsunuz. Kendi tuğyanınızı meşrulaştırmak için **bir sisteme dâhil oluyorsunuz yahut bir sistem kuruyorsunuz.** İşte bu noktada **tağut** ortaya çıkıyor: Allah'tan başka tapınılası güçler, sahte otorite sistemleri. **Tağut, tuğyanın kurumsallaşmış hâlidir.**",
-      "en": "**The second stage** is more dangerous: once you have crossed the limits, you begin to affect **not only yourself but others**. You are affected by others in turn, and you close ranks — materially or spiritually — with those in a like state of transgression. To legitimise your own transgression you **join a system, or found one.** It is at this point that **ṭāghūt** appears: powers set up to be worshipped besides God, systems of false authority. **Ṭāghūt is transgression institutionalised.**"
+      "tr": "**İkinci aşama** daha tehlikeli: sınırları aştığınızda artık sadece kendinizi değil, başkalarını da etkilemeye başlıyorsunuz. Bunun yanında başkalarından da etkileniyor, benzer şekilde tuğyan içinde olanlarla maddî veya mânevî dayanışıyorsunuz. Kendi tuğyanınızı meşrulaştırmak için bir sisteme dâhil oluyorsunuz yahut bir sistem kuruyorsunuz. İşte bu noktada tağut ortaya çıkıyor: Allah'tan başka tapınılası güçler, sahte otorite sistemleri. Tağut, tuğyanın kurumsallaşmış hâlidir.",
+      "en": "**The second stage** is more dangerous: once you have crossed the limits, you begin to affect not only yourself but others. You are affected by others in turn, and you close ranks, materially or spiritually, with those in a like state of transgression. To legitimise your own transgression you join a system, or found one. It is at this point that ṭāghūt appears: powers set up to be worshipped besides God, systems of false authority. Ṭāghūt is transgression institutionalised."
     },
     {
       "type": "criticalNote",
       "headingTr": "Kızmayacaksanız şunu da ekleyeyim…",
       "headingEn": "If you will not take offence, let me add this…",
-      "tr": "**Modernizmin getirdiği birçok şey tağut kavramı içine girer.** Teknoloji ve bilimin gelişmesi *“ben kendime yeterim”* düşüncesini toplumsal ve kurumsal seviyeye çıkarınca, kişisel seviyedeki tuğyan da bir sistematik içinde otorite oluşturup tağut oluyor. Bilimi ve teknolojiyi **materyalist metafizik kalıbı** içine sokunca; siyasî, hukukî ve ahlâkî prensipler ve uzlaşılar da ona göre şekilleniyor.\n\n**Bilim ve teknoloji karşıtı değilim.** Aydınlanma sürecinde bilginin otoritesini suistimal eden kiliseye verilen tepkinin sonuçlarını yaşıyoruz, farkındayım. Ama kardeşim, **tüm bilimi materyalist/fizikalist bir zeminde okumaya zorlamak da nedir?**",
-      "en": "**Much of what modernity has brought falls under the concept of ṭāghūt.** When the advance of technology and science raises the thought *“I am sufficient unto myself”* to the social and institutional level, transgression at the personal level constitutes an authority within a system and becomes ṭāghūt. Once science and technology are forced into **a materialist metaphysical mould**, political, legal and ethical principles and settlements take their shape accordingly.\n\n**I am not against science and technology.** We are living with the consequences of the reaction against a Church that abused the authority of knowledge during the Enlightenment — I am aware of that. But my friend, **what is this insistence on reading the whole of science on a materialist, physicalist ground?**"
+      "tr": "**Modernizmin getirdiği birçok şey tağut kavramı içine girer.** Teknoloji ve bilimin gelişmesi *“ben kendime yeterim”* düşüncesini toplumsal ve kurumsal seviyeye çıkarınca, kişisel seviyedeki tuğyan da bir sistematik içinde otorite oluşturup tağut oluyor. Bilimi ve teknolojiyi materyalist metafizik kalıbı içine sokunca; siyasî, hukukî ve ahlâkî prensipler ve uzlaşılar da ona göre şekilleniyor.\n\n**Bilim ve teknoloji karşıtı değilim.** Aydınlanma sürecinde bilginin otoritesini suistimal eden kiliseye verilen tepkinin sonuçlarını yaşıyoruz, farkındayım. Ama kardeşim, tüm bilimi materyalist/fizikalist bir zeminde okumaya zorlamak da nedir?",
+      "en": "**Much of what modernity has brought falls under the concept of ṭāghūt.** When the advance of technology and science raises the thought *“I am sufficient unto myself”* to the social and institutional level, transgression at the personal level constitutes an authority within a system and becomes ṭāghūt. Once science and technology are forced into a materialist metaphysical mould, political, legal and ethical principles and settlements take their shape accordingly.\n\n**I am not against science and technology.** We are living with the consequences of the reaction against a Church that abused the authority of knowledge during the Enlightenment: I am aware of that. But my friend, what is this insistence on reading the whole of science on a materialist, physicalist ground?"
     },
     {
       "type": "paragraph",
-      "tr": "**Üçüncü aşama** en acı verici olanı: artık **kendi kurduğunuz sistemin içinde kayboluyorsunuz.** *“Tuğyanlarında körü körüne dolaşırlar”* diyor Kur'an. Gideceğiniz yer yok, amaç yok; sadece **döngüsel bir hareket** var.",
-      "en": "**The third stage** is the most painful: you are now **lost inside the very system you built.** *“They wander blindly in their transgression,”* says the Qur'an. There is nowhere to go, no purpose; only **circular motion**."
+      "tr": "**Üçüncü aşama** en acı verici olanı: artık kendi kurduğunuz sistemin içinde kayboluyorsunuz. *“Tuğyanlarında körü körüne dolaşırlar”* diyor Kur'an. Gideceğiniz yer yok, amaç yok; sadece döngüsel bir hareket var.",
+      "en": "**The third stage** is the most painful: you are now lost inside the very system you built. *“They wander blindly in their transgression,”* says the Qur'an. There is nowhere to go, no purpose; only circular motion."
     },
     {
       "type": "verseInline",
@@ -281,8 +281,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Âhirete ve gayba inanıp **sırât-ı müstakîmde yürümeye bedel**, tağuta tâbi olup şaşkın ve kör gibi bocalayıp dururlar: *“random walk”* yapar, **menzile varamazlar.** Bir nehirde akan suyun belli sınırları vardır; **o sınırları aşan su heba olur gider.** İşte hidayet ile sırât-ı müstakîme girmemiş kişiler, sarhoşça dünya hayatında gayesizce bir sağa bir sola hareket edip dururlar (**Neml 27:4**).",
-      "en": "Instead of believing in the hereafter and the unseen and **walking upon the straight path**, they follow ṭāghūt and stagger about bewildered and blind: they perform a *“random walk”* and **never reach the destination.** Water flowing in a river has definite banks; **water that breaks those banks is squandered.** Those who have not entered the straight path through guidance move drunkenly, aimlessly, now to the right and now to the left through the life of this world (**al-Naml 27:4**)."
+      "tr": "Âhirete ve gayba inanıp **sırât-ı müstakîmde yürümeye bedel**, tağuta tâbi olup şaşkın ve kör gibi bocalayıp dururlar: *“random walk”* yapar, menzile varamazlar. Bir nehirde akan suyun belli sınırları vardır; o sınırları aşan su heba olur gider. İşte hidayet ile sırât-ı müstakîme girmemiş kişiler, sarhoşça dünya hayatında gayesizce bir sağa bir sola hareket edip dururlar (Neml 27:4).",
+      "en": "Instead of believing in the hereafter and the unseen and **walking upon the straight path**, they follow ṭāghūt and stagger about bewildered and blind: they perform a *“random walk”* and never reach the destination. Water flowing in a river has definite banks; water that breaks those banks is squandered. Those who have not entered the straight path through guidance move drunkenly, aimlessly, now to the right and now to the left through the life of this world (al-Naml 27:4)."
     },
     {
       "type": "verseInline",
@@ -295,8 +295,8 @@
       "type": "criticalNote",
       "headingTr": "Peki tuğyanın işareti var mı?",
       "headingEn": "Is there a sign of transgression?",
-      "tr": "Var, hem de iki tane — **ve aslında ikisi aynı şey.**\n\n**Birincisi: kendini muhtaç hissetmemek (istiğnâ).** Yani nasihatten kaçınma, *“yahu bildiğimiz şeyler, geç bunları”* demek, uyarıları ciddiye almamak.\n\n**İkincisi: zorluk ve sıkıntı hâlindeyken dua edip, sıkıntı kaldırılınca sanki hiç dua etmemiş gibi yan çizmek** (Yûnus 10:11-12). Tanıdık geldi mi?",
-      "en": "There is — two of them, in fact, **and at bottom they are the same thing.**\n\n**The first: not feeling any need (istighnāʾ).** That is, evading counsel, saying *“we know all this, skip it,”* not taking warnings seriously.\n\n**The second: praying while in hardship and distress, and then, once the distress is lifted, slipping away as though one had never prayed at all** (Yūnus 10:11-12). Does it sound familiar?"
+      "tr": "Var, hem de iki tane: **ve aslında ikisi aynı şey.**\n\n**Birincisi: kendini muhtaç hissetmemek (istiğnâ).** Yani nasihatten kaçınma, *“yahu bildiğimiz şeyler, geç bunları”* demek, uyarıları ciddiye almamak.\n\n**İkincisi: zorluk ve sıkıntı hâlindeyken dua edip, sıkıntı kaldırılınca sanki hiç dua etmemiş gibi yan çizmek** (Yûnus 10:11-12). Tanıdık geldi mi?",
+      "en": "There is; two of them, in fact, **and at bottom they are the same thing.**\n\n**The first: not feeling any need (istighnāʾ).** That is, evading counsel, saying *“we know all this, skip it,”* not taking warnings seriously.\n\n**The second: praying while in hardship and distress, and then, once the distress is lifted, slipping away as though one had never prayed at all** (Yūnus 10:11-12). Does it sound familiar?"
     },
     {
       "type": "verseInline",
@@ -313,23 +313,23 @@
     },
     {
       "type": "paragraph",
-      "tr": "Ama Kur'an'da sadece dalâlet, şaşkınlık ve sapma anlatılmıyor tabii. Karşı tarafta **çok güçlü bir alternatif** var: **hidayet** (doğru yol gösterme) ve **sırât-ı müstakîm** (doğru yol).",
-      "en": "But of course the Qur'an does not speak only of straying, bewilderment and deviation. On the other side stands **a very powerful alternative**: **hidāya** (the showing of the right way) and **al-ṣirāṭ al-mustaqīm** (the straight path)."
+      "tr": "Ama Kur'an'da sadece dalâlet, şaşkınlık ve sapma anlatılmıyor tabii. Karşı tarafta **çok güçlü bir alternatif** var: hidayet (doğru yol gösterme) ve sırât-ı müstakîm (doğru yol).",
+      "en": "But of course the Qur'an does not speak only of straying, bewilderment and deviation. On the other side stands **a very powerful alternative**: hidāya (the showing of the right way) and al-ṣirāṭ al-mustaqīm (the straight path)."
     },
     {
       "type": "criticalNote",
       "headingTr": "Bir sayım notu: 316'ya karşı 191",
       "headingEn": "A note on counting: 316 against 191",
-      "tr": "Yazarın kendi sayımına göre Kur'an'da **hidayet kökünden gelen kelimeler 316 kez**, **dalâlet kökünden gelenler 191 kez** geçiyor. *“Bu bile bir şey söylüyor: doğruluk daha baskın, ama sapma da gerçek bir tehdit.”*\n\n**Kayıt:** Bu tür sayımlar, hangi türevlerin ve hangi kalıpların sayıma dâhil edildiğine göre kaynaktan kaynağa değişir; rakamları **bir oran işareti** olarak okumak, kesin bir envanter olarak okumaktan daha isabetlidir. Yazarın çıkardığı sonuç — **oranın yönü** — bu belirsizlikten etkilenmiyor.",
-      "en": "By the author's own count, words from the root of *hidāya* occur **316 times** in the Qur'an, and those from the root of *ḍalāl* **191 times**. *“Even this says something: rightness is the more dominant, yet straying is a real threat.”*\n\n**A caveat:** counts of this kind vary between sources according to which derivatives and which patterns are admitted; it is sounder to read the figures as **an indication of proportion** than as a precise inventory. The author's conclusion — **the direction of the ratio** — is unaffected by that uncertainty."
+      "tr": "Yazarın kendi sayımına göre Kur'an'da **hidayet kökünden gelen kelimeler 316 kez**, dalâlet kökünden gelenler 191 kez geçiyor. *“Bu bile bir şey söylüyor: doğruluk daha baskın, ama sapma da gerçek bir tehdit.”*\n\nKayıt: Bu tür sayımlar, hangi türevlerin ve hangi kalıpların sayıma dâhil edildiğine göre kaynaktan kaynağa değişir; rakamları **bir oran işareti** olarak okumak, kesin bir envanter olarak okumaktan daha isabetlidir. Yazarın çıkardığı sonuç, oranın yönü, bu belirsizlikten etkilenmiyor.",
+      "en": "By the author's own count, words from the root of *hidāya* occur **316 times** in the Qur'an, and those from the root of *ḍalāl* 191 times. *“Even this says something: rightness is the more dominant, yet straying is a real threat.”*\n\nA caveat: counts of this kind vary between sources according to which derivatives and which patterns are admitted; it is sounder to read the figures as **an indication of proportion** than as a precise inventory. The author's conclusion (the direction of the ratio) is unaffected by that uncertainty."
     },
     {
       "type": "contrastDuo",
       "captionTr": "Sırât tektir, sebil çoktur",
       "captionEn": "The ṣirāṭ is one, the sabīls are many",
       "left": {
-        "titleTr": "Sırât — ana yol",
-        "titleEn": "Ṣirāṭ — the main road",
+        "titleTr": "Sırât: ana yol",
+        "titleEn": "Ṣirāṭ: the main road",
         "accent": "#d4a574",
         "descTr": "Arapçada **tekildir**. *“Doğru yollar”* diye bir şey yoktur.",
         "descEn": "In Arabic it is **singular**. There is no such thing as *“straight paths.”*",
@@ -345,15 +345,15 @@
         ]
       },
       "right": {
-        "titleTr": "Sebil — tâli yol",
-        "titleEn": "Sabīl — the branch road",
+        "titleTr": "Sebil: tâli yol",
+        "titleEn": "Sabīl: the branch road",
         "accent": "#1D9E75",
         "descTr": "O sırâta bağlanan, **zamana ve zemine bağlı** pratik gerçekleşmelerdir.",
         "descEn": "The practical realisations that join that ṣirāṭ, **bound to time and place**.",
         "bullets": [
           {
-            "tr": "**Çeşitli olabilir** — çokluk burada meşrudur",
-            "en": "**They may be various** — plurality is legitimate here"
+            "tr": "**Çeşitli olabilir**: çokluk burada meşrudur",
+            "en": "**They may be various**: plurality is legitimate here"
           },
           {
             "tr": "Çokluk **yolun kendisinde değil, ona çıkan patikalarda**",
@@ -485,8 +485,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kur'an'ın verdiği çözüm çok net: **alçakgönüllülük ve yönlenme talebi.** Bu süreçte önemli olan, teorik kalmayıp **pratik adımlar** atmak. Bu kavramsal haritadan çıkan en faydalı prensipler şunlar:",
-      "en": "The solution the Qur'an gives is very clear: **humility, and the request to be directed.** What matters in this process is not to remain theoretical but to take **practical steps**. These are the most useful principles that come out of the conceptual map:"
+      "tr": "Kur'an'ın verdiği çözüm çok net: **alçakgönüllülük ve yönlenme talebi.** Bu süreçte önemli olan, teorik kalmayıp pratik adımlar atmak. Bu kavramsal haritadan çıkan en faydalı prensipler şunlar:",
+      "en": "The solution the Qur'an gives is very clear: **humility, and the request to be directed.** What matters in this process is not to remain theoretical but to take practical steps. These are the most useful principles that come out of the conceptual map:"
     },
     {
       "type": "flowChain",
@@ -532,21 +532,21 @@
     },
     {
       "type": "paragraph",
-      "tr": "Sonuçta şunu anladım: **ruhsal sapma ve doğruluk, tesadüfî durumlar değil.** Çok belirli sebep-sonuç ilişkileri içinde gelişen süreçler. Ve **bu süreçlerin farkında olmak**, belki de kendimizi koruyabilmenin ilk adımı.",
-      "en": "In the end I understood this: **spiritual straying and spiritual soundness are not matters of chance.** They are processes that unfold within very definite relations of cause and effect. And **to be aware of those processes** may well be the first step in being able to protect ourselves."
+      "tr": "Sonuçta şunu anladım: **ruhsal sapma ve doğruluk, tesadüfî durumlar değil.** Çok belirli sebep-sonuç ilişkileri içinde gelişen süreçler. Ve bu süreçlerin farkında olmak, belki de kendimizi koruyabilmenin ilk adımı.",
+      "en": "In the end I understood this: **spiritual straying and spiritual soundness are not matters of chance.** They are processes that unfold within very definite relations of cause and effect. And to be aware of those processes may well be the first step in being able to protect ourselves."
     },
     {
       "type": "pullQuote",
-      "tr": "Kur'an'daki kavramlar sadece dinî terimler değil, aynı zamanda **çok ayrıntılı bir ruh hâli haritası.** Ve bu harita, **1400 yıl sonra hâlâ güncelliğini koruyor.**",
-      "en": "The concepts of the Qur'an are not merely religious terms but **a highly detailed map of states of the soul.** And that map **retains its currency 1400 years on.**",
+      "tr": "Kur'an'daki kavramlar sadece dinî terimler değil, aynı zamanda **çok ayrıntılı bir ruh hâli haritası.** Ve bu harita, 1400 yıl sonra hâlâ güncelliğini koruyor.",
+      "en": "The concepts of the Qur'an are not merely religious terms but **a highly detailed map of states of the soul.** And that map retains its currency 1400 years on.",
       "source": "Felsufi"
     },
     {
       "type": "criticalNote",
       "headingTr": "İlgili okuma ve metin hakkında",
       "headingEn": "Related reading, and about this text",
-      "tr": "Bu yazının merkezindeki kavram, sitedeki **Semantik Analizi-4: Tuğyan** yazısında kök düzeyinde ayrıca incelenmiştir; oradaki *tuğyan* tahlili ile buradaki **istiğnâ → tuğyan → tağut** patolojisi birbirini tamamlar. Âyet metinleri sitedeki **âyet grafiğinden** doğrudan alınmış, Osmanlı imlâsı görüntü için normalize edilmiştir. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.**",
-      "en": "The concept at the centre of this piece is examined at root level in **Semantic Analysis-4: Ṭughyān** on this site; the analysis of *ṭughyān* there and the **istighnāʾ → ṭughyān → ṭāghūt** pathology here complete one another. The verse texts are taken directly from **the verse graph** on this site, with the Uthmani orthography normalised for display. **The Turkish is the author's own pen; the English is a translation.**"
+      "tr": "Bu yazının merkezindeki kavram, sitedeki **Semantik Analizi-4: Tuğyan** yazısında kök düzeyinde ayrıca incelenmiştir; oradaki *tuğyan* tahlili ile buradaki istiğnâ, ardından tuğyan, ardından tağut patolojisi birbirini tamamlar. Âyet metinleri sitedeki âyet grafiğinden doğrudan alınmış, Osmanlı imlâsı görüntü için normalize edilmiştir. Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.",
+      "en": "The concept at the centre of this piece is examined at root level in **Semantic Analysis-4: Ṭughyān** on this site; the analysis of *ṭughyān* there and the istighnāʾ, then ṭughyān, then ṭāghūt pathology here complete one another. The verse texts are taken directly from the verse graph on this site, with the Uthmani orthography normalised for display. The Turkish is the author's own pen; the English is a translation."
     }
   ]
 }

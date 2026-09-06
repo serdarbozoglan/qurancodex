@@ -7577,3 +7577,22 @@ Psikoloji bölümünde meta-analiz için "doğrular / confirms" → "bulur / fin
 - ÖNCE: `"modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis confirms gratitude interventions show moderate effects on clinical depression and anxiety."`
   SONRA: `"modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis finds that gratitude interventions show moderate effects on clinical depression and anxiety."`
 
+
+## 18. Tefekkür gövde metinleri (2026-09-06)
+
+53 makalenin `blocks` içeriği: 2.052 alan, 3.411 cümle. Tam ÖNCE→SONRA listesi ayrı dosyada: `tasks/humanizer-changelog-tefekkur.md`. Kurallar §9 kararları; âyet çevirileri, sûre kaynaklı pullQuote'lar, diyagram blokları ve kaynak listeleri dokunulmadı.
+
+## 19. tr.json / en.json: zikir kartındaki atıfsız fMRI cümlesi (2026-09-06)
+
+"fMRI çalışmaları ... amigdala düşer, prefrontal artar" cümlesinin kaynağı yoktu (§5). Doğrulanan iki kaynakla yeniden yazıldı: Newberg ve ark., J Physiol Paris 2015 (SPECT, yoğun İslâmî dua, frontal/parietal kan akışı azalır) ve Hölzel ve ark., SCAN 2010 (8 haftalık MBSR, amigdala gri madde azalır). Not: Newberg bulgusu "prefrontal artar" iddiasını desteklemediği için o iddia çıkarıldı; §13.24 gereği "örtüşen gözlem, kanıt değil" eklendi.
+
+### `next/src/i18n/tr.json`
+
+- ÖNCE: `"description": "Kur'an kalpler için tek bir reçete yazar: Allah'ın zikri. Tekrarlayan, ritimli ses ve hareket beyin frekansını değiştirir. fMRI çalışmaları, tekrarlayan dinî pratik sırasında amigdala aktivitesinin düştüğünü, prefrontal korteks aktivitesinin arttığını gösteriyor.",`
+  SONRA: `"description": "Kur'an kalpler için tek bir reçete yazar: Allah'ın zikri. Tekrarlayan, ritimli ses ve hareket beyin etkinliğini değiştirir. Newberg ve ekibinin yoğun İslâmî dua üzerine SPECT vaka serisi (Journal of Physiology-Paris, 2015) frontal ve parietal bölgelerde kan akışının azaldığını; Hölzel ve ekibinin sekiz haftalık farkındalık meditasyonu çalışması (Social Cognitive and Affective Neuroscience, 2010) amigdala gri madde yoğunluğunun azaldığını bildirir. İkisi de dinî pratikle örtüşen bir gözlemdir, kanıt değil.",`
+
+### `next/src/i18n/en.json`
+
+- ÖNCE: `"description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement change brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",`
+  SONRA: `"description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement change brain activity. Newberg and colleagues' SPECT case series on intense Islamic prayer (Journal of Physiology-Paris, 2015) reports reduced blood flow in frontal and parietal regions; Hölzel and colleagues' eight-week mindfulness study (Social Cognitive and Affective Neuroscience, 2010) reports reduced amygdala gray-matter density. Both are observations that align with religious practice, not proof.",`
+

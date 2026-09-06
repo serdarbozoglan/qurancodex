@@ -34,8 +34,8 @@
   "blocks": [
     {
       "type": "paragraph",
-      "tr": "Bu seride daha önce de kısaca **İnsan-Kâinat-Kur'an tek bir hakikatin üç yüzüdür** demiştik. Bu üçlü aslında **gözlemci**, **gözlemlenen** ve **anlamlandıran** ontolojik kategorilerinin en kâmil temsilcileridir. Ancak günümüzde yaygın olan modern anlayış, sadece gözlemleneni var sayan — onu da madde ve enerjiden ibaret sayan — **fizikalizm**dir. Bu yazıda fizikalizmin ne olduğunu ve neden sorunlu olduğunu anlatacağız.",
-      "en": "Earlier in this series we said briefly that **the Human, the Cosmos and the Qur'an are three faces of a single reality**. This triad is in fact the most complete representative of the ontological categories of **observer**, **observed** and **that which gives meaning**. Yet the modern understanding prevalent today is **physicalism**, which posits only the observed — and takes even that to consist of matter and energy. In this essay we set out what physicalism is and why it is problematic."
+      "tr": "Bu seride daha önce de kısaca **İnsan-Kâinat-Kur'an tek bir hakikatin üç yüzüdür** demiştik. Bu üçlü aslında gözlemci, gözlemlenen ve anlamlandıran ontolojik kategorilerinin en kâmil temsilcileridir. Ancak günümüzde yaygın olan modern anlayış, sadece gözlemleneni var sayan; onu da madde ve enerjiden ibaret sayan; fizikalizmdir. Bu yazıda fizikalizmin ne olduğunu ve neden sorunlu olduğunu anlatacağız.",
+      "en": "Earlier in this series we said briefly that **the Human, the Cosmos and the Qur'an are three faces of a single reality**. This triad is in fact the most complete representative of the ontological categories of observer, observed and that which gives meaning. Yet the modern understanding prevalent today is physicalism, which posits only the observed, and takes even that to consist of matter and energy. In this essay we set out what physicalism is and why it is problematic."
     },
     {
       "type": "hierarchyTree",
@@ -93,7 +93,7 @@
     {
       "type": "paragraph",
       "tr": "Fizikalizm, var olan her şeyin temelde **fiziksel** olduğu fikridir. Başka bir deyişle; zihinsel, sosyal veya biyolojik olsun, her şey bilim tarafından tanımlanabilen fiziksel süreçlere indirgenebilir. Bu bakış açısı dünyayı anlamamıza yardımcı olmuş ve bilimin gerçeklikle ilgili birçok şeyi açıklamasında oldukça etkili olmuştur. Ancak cazip görünmesine rağmen fizikalizmin bazı büyük zorlukları vardır.",
-      "en": "Physicalism is the idea that everything that exists is fundamentally **physical**. In other words, everything — mental, social or biological — reduces to physical processes definable by science. This view has helped us understand the world and has been highly effective in letting science explain a great deal about reality. Yet for all its appeal, physicalism faces some large difficulties."
+      "en": "Physicalism is the idea that everything that exists is fundamentally **physical**. In other words, everything (mental, social or biological) reduces to physical processes definable by science. This view has helped us understand the world and has been highly effective in letting science explain a great deal about reality. Yet for all its appeal, physicalism faces some large difficulties."
     },
     {
       "type": "section",
@@ -193,8 +193,8 @@
     },
     {
       "type": "flowChain",
-      "captionTr": "Tanımlama oyunu — fizikalizmin savunma refleksi",
-      "captionEn": "The definition game — physicalism's defensive reflex",
+      "captionTr": "Tanımlama oyunu: fizikalizmin savunma refleksi",
+      "captionEn": "The definition game: physicalism's defensive reflex",
       "nodes": [
         {
           "titleTr": "Yeni bir soyutluk keşfedilir",
@@ -234,18 +234,18 @@
     {
       "type": "section",
       "id": "gozlemci",
-      "titleTr": "Gözlemci — Ayrı Bir Ontolojik Kategori",
-      "titleEn": "The Observer — A Distinct Ontological Category"
+      "titleTr": "Gözlemci: Ayrı Bir Ontolojik Kategori",
+      "titleEn": "The Observer: A Distinct Ontological Category"
     },
     {
       "type": "paragraph",
-      "tr": "Esasında dış dünyadaki varlık bir **deniz gibi birbiri içindedir**; objelerin etrafına sınır çizmek zordur. Bir yaprağı ağaçtan ayırmak, ağacı ormandan, ormanı doğadan, doğayı dünyadan ayırmak — bunu yapan **gözlemcidir**.",
-      "en": "In truth, existence out there is **interfused like a sea**; drawing boundaries around objects is hard. To separate a leaf from the tree, the tree from the forest, the forest from nature, nature from the world — this is the work of **the observer**."
+      "tr": "Esasında dış dünyadaki varlık bir **deniz gibi birbiri içindedir**; objelerin etrafına sınır çizmek zordur. Bir yaprağı ağaçtan ayırmak, ağacı ormandan, ormanı doğadan, doğayı dünyadan ayırmak; bunu yapan gözlemcidir.",
+      "en": "In truth, existence out there is **interfused like a sea**; drawing boundaries around objects is hard. To separate a leaf from the tree, the tree from the forest, the forest from nature, nature from the world; this is the work of the observer."
     },
     {
       "type": "paragraph",
-      "tr": "Kuantum mekaniğindeki **ölçüm problemi** de gözlemcinin bu temel rolünü vurgular: gözlemci, ölçüm eylemiyle sistemin durumunu belirler. Bu da bizi gözlemciyi ayrı ve temel bir varlık olarak kabul etmeye zorlar — **başka bir şeye indirgenemeyen bir bilgi işleme sistemi** olarak. Gözlemcinin gerçekliği şekillendirmede önemli bir rol oynadığı, fizikalizmin basit indirgemeciliğine doğrudan meydan okur. Bu konuyu ileride daha detaylı ele alacağız.",
-      "en": "The **measurement problem** in quantum mechanics underscores this fundamental role: through the act of measurement the observer determines the state of the system. This forces us to admit the observer as a distinct and fundamental existent — **an information-processing system irreducible to anything else**. That the observer plays a significant part in shaping reality challenges physicalism's simple reductionism head-on. We will treat this in more detail later."
+      "tr": "Kuantum mekaniğindeki **ölçüm problemi** de gözlemcinin bu temel rolünü vurgular: gözlemci, ölçüm eylemiyle sistemin durumunu belirler. Bu da bizi gözlemciyi ayrı ve temel bir varlık olarak kabul etmeye zorlar: başka bir şeye indirgenemeyen bir bilgi işleme sistemi olarak. Gözlemcinin gerçekliği şekillendirmede önemli bir rol oynadığı, fizikalizmin basit indirgemeciliğine doğrudan meydan okur. Bu konuyu ileride daha detaylı ele alacağız.",
+      "en": "The **measurement problem** in quantum mechanics underscores this fundamental role: through the act of measurement the observer determines the state of the system. This forces us to admit the observer as a distinct and fundamental existent: an information-processing system irreducible to anything else. That the observer plays a significant part in shaping reality challenges physicalism's simple reductionism head-on. We will treat this in more detail later."
     },
     {
       "type": "section",
@@ -260,8 +260,8 @@
     },
     {
       "type": "pullQuote",
-      "tr": "Bakış açımızı genişleterek, varlığın çok katmanlı doğasını — tek bir çerçeve tarafından tamamen kavranamayan bir şeyi — görmeye başlayabiliriz.",
-      "en": "By widening our view we may begin to see the many-layered nature of existence — something no single frame can wholly grasp."
+      "tr": "Bakış açımızı genişleterek, varlığın çok katmanlı doğasını (tek bir çerçeve tarafından tamamen kavranamayan bir şeyi) görmeye başlayabiliriz.",
+      "en": "By widening our view we may begin to see the many-layered nature of existence; something no single frame can wholly grasp."
     },
     {
       "type": "paragraph",
@@ -272,8 +272,8 @@
       "type": "criticalNote",
       "headingTr": "Seri hakkında",
       "headingEn": "About the series",
-      "tr": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin üçüncüsüdür. Önceki yazı *Parçalanamaz Bütünlerin Hikâyesi*'dir ve buradaki “zuhur eden fenomenler” tartışması doğrudan oraya dayanır. Serinin 7 yazısının tamamı sitede. — Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
-      "en": "This is the third essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. The previous is *The Story of Indivisible Wholes*, on which the discussion of emergent phenomena here directly rests. All 7 essays of the series are on the site. — This essay quotes no verses directly; it belongs to the series' conceptual preparations.",
+      "tr": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin üçüncüsüdür. Önceki yazı *Parçalanamaz Bütünlerin Hikâyesi*'dir ve buradaki “zuhur eden fenomenler” tartışması doğrudan oraya dayanır. Serinin 7 yazısının tamamı sitede. Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "en": "This is the third essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. The previous is *The Story of Indivisible Wholes*, on which the discussion of emergent phenomena here directly rests. All 7 essays of the series are on the site. This essay quotes no verses directly; it belongs to the series' conceptual preparations.",
       "tplTR": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin üçüncüsüdür. Önceki yazı *Parçalanamaz Bütünlerin Hikâyesi*'dir ve buradaki “zuhur eden fenomenler” tartışması doğrudan oraya dayanır. {{seri}} — Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
       "tplEN": "This is the third essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. The previous is *The Story of Indivisible Wholes*, on which the discussion of emergent phenomena here directly rests. {{seri}} — This essay quotes no verses directly; it belongs to the series' conceptual preparations."
     }

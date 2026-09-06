@@ -33,24 +33,24 @@
     {
       "type": "section",
       "id": "halk-emr",
-      "titleTr": "1. Halk ≠ Emr — Varlık ile İşleyiş Arasındaki Fark",
-      "titleEn": "1. Khalq ≠ Amr — The Difference Between Being and Operation"
+      "titleTr": "1. Halk ≠ Emr: Varlık ile İşleyiş Arasındaki Fark",
+      "titleEn": "1. Khalq ≠ Amr: The Difference Between Being and Operation"
     },
     {
       "type": "verseInline",
       "ref": "7:54",
-      "noteTr": "*A'râf 7:54* — اَلَا لَهُ الْخَلْقُ وَالْاَمْرُ — '**Halk (yaratma) da Emr de O'nundur.**' İki ayrı kategori — *aynı şey değiller*.",
-      "noteEn": "*Al-Aʿrāf 7:54* — اَلَا لَهُ الْخَلْقُ وَالْاَمْرُ — '**To Him belong both khalq and amr.**' Two distinct categories — *not the same thing*.",
+      "noteTr": "*A'râf 7:54* (اَلَا لَهُ الْخَلْقُ وَالْاَمْرُ) '**Halk (yaratma) da Emr de O'nundur.**' İki ayrı kategori — *aynı şey değiller*.",
+      "noteEn": "*Al-Aʿrāf 7:54* (اَلَا لَهُ الْخَلْقُ وَالْاَمْرُ) '**To Him belong both khalq and amr.**' Two distinct categories — *not the same thing*.",
       "ar": "اِنَّ رَبَّكُمُ اللّٰهُ الَّذِي خَلَقَ السَّمٰوَاتِ وَالْاَرْضَ فِي سِتَّةِ اَيَّامٍ ثُمَّ اسْتَوٰى عَلَى الْعَرْشِ يُغْشِي الَّيْلَ النَّهَارَ يَطْلُبُهُ حَثِيثاً وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومَ مُسَخَّرَاتٍ بِاَمْرِهِ اَلَا لَهُ الْخَلْقُ وَالْاَمْرُ تَبَارَكَ اللّٰهُ رَبُّ الْعَالَمِينَ"
     },
     {
       "type": "contrastDuo",
-      "captionTr": "Halk ⇄ Emr — Statik Varlık ⇄ Dinamik İşleyiş",
-      "captionEn": "Khalq ⇄ Amr — Static Being ⇄ Dynamic Operation",
+      "captionTr": "Halk ⇄ Emr: Statik Varlık ⇄ Dinamik İşleyiş",
+      "captionEn": "Khalq ⇄ Amr: Static Being ⇄ Dynamic Operation",
       "left": {
         "ar": "الْخَلْق",
-        "titleTr": "Halk — Mevcudiyet",
-        "titleEn": "Khalq — Existence",
+        "titleTr": "Halk: Mevcudiyet",
+        "titleEn": "Khalq: Existence",
         "descTr": "**Varlığa getirme**, *existence* olarak mevcudiyeti tahsis etme. **Bir kez** gerçekleşen yaratma.",
         "descEn": "**Bringing into being**, the assignment of existence. **A one-time** creative act.",
         "accent": "#3498db",
@@ -71,8 +71,8 @@
       },
       "right": {
         "ar": "الْأَمْر",
-        "titleTr": "Emr — İşleyiş",
-        "titleEn": "Amr — Operation",
+        "titleTr": "Emr: İşleyiş",
+        "titleEn": "Amr: Operation",
         "descTr": "**O varlığın işleyişi**, fonksiyonu, kanunu, süreci. **Sürekli devam eden** idare ve operasyon.",
         "descEn": "**The operation of that being**, its function, its law, its process. **The continuous** governance and operation.",
         "accent": "#c9a227",
@@ -159,80 +159,80 @@
     {
       "type": "section",
       "id": "imperatif",
-      "titleTr": "3. İmperatif Boyut — Kün Feyekün",
-      "titleEn": "3. The Imperative Dimension — Kun fa-Yakūn"
+      "titleTr": "3. İmperatif Boyut: Kün Feyekün",
+      "titleEn": "3. The Imperative Dimension: Kun fa-Yakūn"
     },
     {
       "type": "verseInline",
       "ref": "16:40",
-      "noteTr": "*Nahl 16:40* — اِنَّمَا قَوْلُنَا لِشَيْءٍ اِذَآ اَرَدْنَاهُ اَنْ نَقُولَ لَهُ كُنْ فَيَكُونُ — '**Bir şeyi dilediğimizde sözümüz sadece 'Ol!' dememizdir, o da hemen olur.**' Aracısız, mutlak aktualizasyon.",
-      "noteEn": "*Al-Naḥl 16:40* — اِنَّمَا قَوْلُنَا لِشَيْءٍ اِذَآ اَرَدْنَاهُ اَنْ نَقُولَ لَهُ كُنْ فَيَكُونُ — '**When We will a thing, Our word for it is only to say: \"Be!\" — and it is.**' Unmediated, absolute actualization.",
+      "noteTr": "*Nahl 16:40* (اِنَّمَا قَوْلُنَا لِشَيْءٍ اِذَآ اَرَدْنَاهُ اَنْ نَقُولَ لَهُ كُنْ فَيَكُونُ) '**Bir şeyi dilediğimizde sözümüz sadece 'Ol!' dememizdir, o da hemen olur.**' Aracısız, mutlak aktualizasyon.",
+      "noteEn": "*Al-Naḥl 16:40* (اِنَّمَا قَوْلُنَا لِشَيْءٍ اِذَآ اَرَدْنَاهُ اَنْ نَقُولَ لَهُ كُنْ فَيَكُونُ) '**When We will a thing, Our word for it is only to say: \"Be!\" — and it is.**' Unmediated, absolute actualization.",
       "ar": "اِنَّمَا قَوْلُنَا لِشَيْءٍ اِذٓا اَرَدْنَاهُ اَنْ نَقُولَ لَهُ كُنْ فَيَكُونُ"
     },
     {
       "type": "verseInline",
       "ref": "54:50",
-      "noteTr": "*Kamer 54:50* — وَمَآ اَمْرُنَآ اِلَّا وَاحِدَةٌ — '**Bizim emrimiz tek bir söz gibidir.**' **Anlık, aracısız, mutlak.**",
-      "noteEn": "*Al-Qamar 54:50* — وَمَآ اَمْرُنَآ اِلَّا وَاحِدَةٌ — '**Our amr is but a single word.**' **Instantaneous, unmediated, absolute.**",
+      "noteTr": "*Kamer 54:50* (وَمَآ اَمْرُنَآ اِلَّا وَاحِدَةٌ) '**Bizim emrimiz tek bir söz gibidir.**' **Anlık, aracısız, mutlak.**",
+      "noteEn": "*Al-Qamar 54:50* (وَمَآ اَمْرُنَآ اِلَّا وَاحِدَةٌ) '**Our amr is but a single word.**' **Instantaneous, unmediated, absolute.**",
       "ar": "وَمٓا اَمْرُنٓا اِلَّا وَاحِدَةٌ  كَلَمْحٍ بِالْبَصَرِ"
     },
     {
       "type": "paragraph",
-      "tr": "Bu boyutta Emr, **varlığın potansiyelden aktüele geçişinin ta kendisidir** — ontolojik bir sıçrama. Bu geçiş *gerçek-zamanlı hadiselerin realizasyon sırası değil*, **zaman-ötesi tasarım sırasını** ifade ettiğimiz **metatemporal boyutta** olur.\n\nBir evin tasarımındaki (Emr boyutu) öncelik sırası ile inşaasındaki (Halk boyutu) gerçekleşme sırası farklıdır. Yapı önce **mananın mertebesinde** karar bulur; sonra **maddenin akışında** zamansal olarak gerçekleşir.",
-      "en": "In this dimension, *amr* is **the very transition of being from potential to actual** — an ontological leap. This transition does *not* occur in *the temporal order of real-time events*, but in the **meta-temporal dimension** in which we name **the order of design beyond time**.\n\nThe order of priority in the design of a house (the *amr* dimension) differs from the order of its realization in construction (the *khalq* dimension). The structure first finds its decision at **the level of meaning**; only then is it temporally realized in **the flow of matter**."
+      "tr": "Bu boyutta Emr, **varlığın potansiyelden aktüele geçişinin ta kendisidir**: ontolojik bir sıçrama. Bu geçiş *gerçek-zamanlı hadiselerin realizasyon sırası değil*, zaman-ötesi tasarım sırasını ifade ettiğimiz metatemporal boyutta olur.\n\nBir evin tasarımındaki (Emr boyutu) öncelik sırası ile inşaasındaki (Halk boyutu) gerçekleşme sırası farklıdır. Yapı önce **mananın mertebesinde** karar bulur; sonra maddenin akışında zamansal olarak gerçekleşir.",
+      "en": "In this dimension, *amr* is **the very transition of being from potential to actual**: an ontological leap. This transition does *not* occur in *the temporal order of real-time events*, but in the meta-temporal dimension in which we name the order of design beyond time.\n\nThe order of priority in the design of a house (the *amr* dimension) differs from the order of its realization in construction (the *khalq* dimension). The structure first finds its decision at **the level of meaning**; only then is it temporally realized in the flow of matter."
     },
     {
       "type": "section",
       "id": "operasyonel",
-      "titleTr": "4. Operasyonel Boyut — İşleyiş Yasaları",
-      "titleEn": "4. The Operational Dimension — The Laws of Operation"
+      "titleTr": "4. Operasyonel Boyut: İşleyiş Yasaları",
+      "titleEn": "4. The Operational Dimension: The Laws of Operation"
     },
     {
       "type": "paragraph",
-      "tr": "**Emr vahyedilebilen bir şeydir.** Fussilet 41:12'de her göğe *'emreha'* (kendi emri/işlevi) vahyedilir. Bu, Emrin **operasyonel yasalar ve süreçler** olarak anlaşılması gerektiğini gösterir:\n\n— **Fiziksel yasalar** — güneş, ay, yıldızlar Allah'ın emrine *müsahhardır* (A'râf 7:54)\n— **Fonksiyonel süreçler** — her göğün kendi işleyişi\n— **Kozmik düzen ve nizam**\n\nBu boyutta Emr, varlığın **'nasıl işlediği'**dir — *iş, proses, dinamik operasyon* anlamında.",
-      "en": "**Amr is something that can be revealed.** In Fuṣṣilat 41:12, to each heaven *'amrahā'* (its own amr/function) is revealed. This shows that *amr* should be understood as **operational laws and processes**:\n\n— **Physical laws** — sun, moon, and stars are *musakhkhar* under Allah's amr (Al-Aʿrāf 7:54)\n— **Functional processes** — the operation proper to each heaven\n— **Cosmic order**\n\nIn this dimension, *amr* is **'how a thing operates'** — in the sense of *work, process, dynamic operation*."
+      "tr": "**Emr vahyedilebilen bir şeydir.** Fussilet 41:12'de her göğe *'emreha'* (kendi emri/işlevi) vahyedilir. Bu, Emrin operasyonel yasalar ve süreçler olarak anlaşılması gerektiğini gösterir:\n\n— **Fiziksel yasalar**: güneş, ay, yıldızlar Allah'ın emrine *müsahhardır* (A'râf 7:54)\n— Fonksiyonel süreçler: her göğün kendi işleyişi\n— Kozmik düzen ve nizam\n\nBu boyutta Emr, varlığın **'nasıl işlediği'**dir: *iş, proses, dinamik operasyon* anlamında.",
+      "en": "**Amr is something that can be revealed.** In Fuṣṣilat 41:12, to each heaven *'amrahā'* (its own amr/function) is revealed. This shows that *amr* should be understood as operational laws and processes:\n\n— **Physical laws**: sun, moon, and stars are *musakhkhar* under Allah's amr (Al-Aʿrāf 7:54)\n— Functional processes: the operation proper to each heaven\n— Cosmic order\n\nIn this dimension, *amr* is **'how a thing operates'**: in the sense of *work, process, dynamic operation*."
     },
     {
       "type": "section",
       "id": "idari",
-      "titleTr": "5. İdari Boyut — Sürekli Kayyumiyet",
-      "titleEn": "5. The Governing Dimension — Continuous Qayyūmiyya"
+      "titleTr": "5. İdari Boyut: Sürekli Kayyumiyet",
+      "titleEn": "5. The Governing Dimension: Continuous Qayyūmiyya"
     },
     {
       "type": "verseInline",
       "ref": "11:123",
-      "noteTr": "*Hud 11:123* — وَاِلَيْهِ يُرْجَعُ الْاَمْرُ كُلُّهُ — '**Tüm emr O'na döner.**' Tüm süreçler, etkileşimler, *qiyâm*ın kaynağı tek bir noktada toplanır.",
-      "noteEn": "*Hūd 11:123* — وَاِلَيْهِ يُرْجَعُ الْاَمْرُ كُلُّهُ — '**To Him returns the whole amr.**' All processes, all interactions, the source of *qiyām* — all gather at one point.",
+      "noteTr": "*Hud 11:123* (وَاِلَيْهِ يُرْجَعُ الْاَمْرُ كُلُّهُ) '**Tüm emr O'na döner.**' Tüm süreçler, etkileşimler, *qiyâm*ın kaynağı tek bir noktada toplanır.",
+      "noteEn": "*Hūd 11:123* (وَاِلَيْهِ يُرْجَعُ الْاَمْرُ كُلُّهُ) '**To Him returns the whole amr.**' All processes, all interactions, the source of *qiyām* — all gather at one point.",
       "ar": "وَلِلّٰهِ غَيْبُ السَّمٰوَاتِ وَالْاَرْضِ وَاِلَيْهِ يُرْجَعُ الْاَمْرُ كُلُّهُ فَاعْبُدْهُ وَتَوَكَّلْ عَلَيْهِ وَمَا رَبُّكَ بِغَافِلٍ عَمَّا تَعْمَلُونَ"
     },
     {
       "type": "paragraph",
-      "tr": "**İsm-i Kayyûm** bahsinde vurgulandığı gibi, Emr **Sırr-ı Kayyumiyetle** bağlantılıdır. Tüm süreçler (Emr), tüm etkileşimler, **varlığın sürekli *kıyam* halinde tutulması** sırrına dayanır. **Eğer bu bağ bir an kesilse, varlık çöker.**\n\nBu boyutta Emr, varlığın **sürekli idare edilmesi ve ayakta tutulmasıdır**.",
-      "en": "As emphasized in the discussion of **Ism al-Qayyūm**, *amr* is bound to the **secret of qayyūmiyya**. All processes (*amr*), all interactions, rest on **being held continuously in *qiyām*** (standing-in-being). **If that bond were severed for a single instant, being itself would collapse.**\n\nIn this dimension, *amr* is the **continuous governance and holding-up of being**."
+      "tr": "**İsm-i Kayyûm** bahsinde vurgulandığı gibi, Emr Sırr-ı Kayyumiyetle bağlantılıdır. Tüm süreçler (Emr), tüm etkileşimler, **varlığın sürekli *kıyam* halinde tutulması sırrına dayanır. Eğer bu bağ bir an kesilse, varlık çöker.**\n\nBu boyutta Emr, varlığın **sürekli idare edilmesi ve ayakta tutulmasıdır**.",
+      "en": "As emphasized in the discussion of **Ism al-Qayyūm**, *amr* is bound to the secret of qayyūmiyya. All processes (*amr*), all interactions, rest on **being held continuously in *qiyām* (standing-in-being). If that bond were severed for a single instant, being itself would collapse.**\n\nIn this dimension, *amr* is the **continuous governance and holding-up of being**."
     },
     {
       "type": "verseInline",
       "ref": "51:4",
-      "noteTr": "*Zariyat 51:4* — فَالْمُقَسِّمَاتِ اَمْرًا — '**Emri taksim eden (melekler).**' İlahi yönetimin **operasyonel dağıtımı** — ulvi *amr*ın mahlûkat sahnesine paylaştırılması.",
-      "noteEn": "*Al-Dhāriyāt 51:4* — فَالْمُقَسِّمَاتِ اَمْرًا — '**Those (angels) who apportion the amr.**' The **operational distribution** of the divine governance — the apportioning of the high *amr* across the stage of creation.",
+      "noteTr": "*Zariyat 51:4* (فَالْمُقَسِّمَاتِ اَمْرًا) '**Emri taksim eden (melekler).**' İlahi yönetimin **operasyonel dağıtımı** — ulvi *amr*ın mahlûkat sahnesine paylaştırılması.",
+      "noteEn": "*Al-Dhāriyāt 51:4* (فَالْمُقَسِّمَاتِ اَمْرًا) '**Those (angels) who apportion the amr.**' The **operational distribution** of the divine governance — the apportioning of the high *amr* across the stage of creation.",
       "ar": "فَالْمُقَسِّمَاتِ اَمْراً"
     },
     {
       "type": "section",
       "id": "epistemik",
-      "titleTr": "6. Epistemik Boyut — Gayb ↔ Şehadet Arayüzü",
-      "titleEn": "6. The Epistemic Dimension — The Ghayb ↔ Shahāda Interface"
+      "titleTr": "6. Epistemik Boyut: Gayb ↔ Şehadet Arayüzü",
+      "titleEn": "6. The Epistemic Dimension: The Ghayb ↔ Shahāda Interface"
     },
     {
       "type": "paragraph",
-      "tr": "Emr, **İmâm-ı Mübîn** kavramıyla da ilişkilidir. *Âlem-i Gayb*'dan *Âlem-i Şehâdet*'e geçecek işler, **Emr âleminde belirlenir**. Emr, **görünmez prensiplerin görünür tezahürlerinin ara noktası**dır:\n\n— **Karar ve kader defterinden** (İmâm-ı Mübîn) → **aktif operasyona** (dünya)\n— **Potansiyel nizamdan** (Gayb) → **manifest gerçekliğe** (Şehâdet)\n— **İlahî iradeden** → **somut icraata**\n\nBu yönüyle Emr, **ontolojik bir arayüz** görevi görür — *transendentin immanente müdahale ediş kipi*.",
-      "en": "*Amr* is also linked to the concept of **the Manifest Imām (Imām Mubīn)**. The matters that pass from *ʿālam al-ghayb* to *ʿālam al-shahāda* are **decided in the realm of amr**. *Amr* is the **midpoint between unseen principles and their visible manifestations**:\n\n— From **the ledger of decision and decree** (Imām Mubīn) → to **active operation** (the world)\n— From **potential order** (ghayb) → to **manifest reality** (shahāda)\n— From **divine will** → to **concrete enactment**\n\nIn this respect, *amr* serves as an **ontological interface** — *the mode of the transcendent's engagement with the immanent*."
+      "tr": "Emr, **İmâm-ı Mübîn** kavramıyla da ilişkilidir. *Âlem-i Gayb*'dan *Âlem-i Şehâdet*'e geçecek işler, Emr âleminde belirlenir. Emr, görünmez prensiplerin görünür tezahürlerinin ara noktasıdır:\n\n— **Karar ve kader defterinden** (İmâm-ı Mübîn), ardından aktif operasyona (dünya)\n— Potansiyel nizamdan (Gayb), ardından manifest gerçekliğe (Şehâdet)\n— İlahî iradeden, ardından somut icraata\n\nBu yönüyle Emr, **ontolojik bir arayüz** görevi görür: *transendentin immanente müdahale ediş kipi*.",
+      "en": "*Amr* is also linked to the concept of **the Manifest Imām (Imām Mubīn)**. The matters that pass from *ʿālam al-ghayb* to *ʿālam al-shahāda* are decided in the realm of amr. *Amr* is the midpoint between unseen principles and their visible manifestations:\n\n— From **the ledger of decision and decree** (Imām Mubīn), then to active operation (the world)\n— From potential order (ghayb), then to manifest reality (shahāda)\n— From divine will, then to concrete enactment\n\nIn this respect, *amr* serves as an **ontological interface**: *the mode of the transcendent's engagement with the immanent*."
     },
     {
       "type": "section",
       "id": "insani",
-      "titleTr": "7. İnsani Boyut — Karar ve Nefs-i Emmâre",
-      "titleEn": "7. The Human Dimension — Decision and the Nafs al-Ammāra"
+      "titleTr": "7. İnsani Boyut: Karar ve Nefs-i Emmâre",
+      "titleEn": "7. The Human Dimension: Decision and the Nafs al-Ammāra"
     },
     {
       "type": "verseInline",
@@ -245,25 +245,25 @@
     {
       "type": "verseInline",
       "ref": "12:53",
-      "noteTr": "*Yusuf 12:53* — اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُٓوءِ — '**Nefis kötülüğü emredendir.**' *Nefs-i emmâre* — **içsel bir zorlama, itici güç, compelling force**. Emr kökünün *iradeyi harekete geçiren dinamik* yönü.",
-      "noteEn": "*Yūsuf 12:53* — اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُٓوءِ — '**The self ever commands evil.**' *Al-nafs al-ammāra* — **an inner coercion, a driving force, a compelling force**. The *amr* root in its sense of *the dynamism that moves the will*.",
+      "noteTr": "*Yusuf 12:53* (اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُٓوءِ) '**Nefis kötülüğü emredendir.**' *Nefs-i emmâre* — **içsel bir zorlama, itici güç, compelling force**. Emr kökünün *iradeyi harekete geçiren dinamik* yönü.",
+      "noteEn": "*Yūsuf 12:53* (اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُٓوءِ) '**The self ever commands evil.**' *Al-nafs al-ammāra* — **an inner coercion, a driving force, a compelling force**. The *amr* root in its sense of *the dynamism that moves the will*.",
       "ar": "وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ"
     },
     {
       "type": "section",
       "id": "sonuc",
-      "titleTr": "Sonuç — Emr, Varlığın İşleyiş Halidir",
-      "titleEn": "Conclusion — Amr Is the Operation-State of Being"
+      "titleTr": "Sonuç: Emr, Varlığın İşleyiş Halidir",
+      "titleEn": "Conclusion: Amr Is the Operation-State of Being"
     },
     {
       "type": "contrastDuo",
-      "captionTr": "Halk ⇄ Emr — Final Tablosu",
-      "captionEn": "Khalq ⇄ Amr — The Summary Table",
+      "captionTr": "Halk ⇄ Emr: Final Tablosu",
+      "captionEn": "Khalq ⇄ Amr: The Summary Table",
       "left": {
         "titleTr": "Halk",
         "titleEn": "Khalq",
-        "descTr": "**Existence — bir kez** gerçekleşen yaratma. *Statik. 'Şey olması.'*",
-        "descEn": "**Existence — a one-time** act of creation. *Static. 'That a thing is.'*",
+        "descTr": "**Existence: bir kez** gerçekleşen yaratma. *Statik. 'Şey olması.'*",
+        "descEn": "**Existence: a one-time** act of creation. *Static. 'That a thing is.'*",
         "accent": "#3498db",
         "bullets": [
           {
@@ -279,8 +279,8 @@
       "right": {
         "titleTr": "Emr",
         "titleEn": "Amr",
-        "descTr": "**Operation — sürekli** devam eden idare ve işleyiş. *Dinamik. 'Şeyin ne yaptığı ve nasıl işlediği.'*",
-        "descEn": "**Operation — continuous** governance and functioning. *Dynamic. 'What a thing does and how it operates.'*",
+        "descTr": "**Operation: sürekli** devam eden idare ve işleyiş. *Dinamik. 'Şeyin ne yaptığı ve nasıl işlediği.'*",
+        "descEn": "**Operation: continuous** governance and functioning. *Dynamic. 'What a thing does and how it operates.'*",
         "accent": "#c9a227",
         "bullets": [
           {
@@ -288,8 +288,8 @@
             "en": "Operation"
           },
           {
-            "tr": "Bir süreç — İsm-i Kayyûm'a dayanır",
-            "en": "A process — rests on Ism al-Qayyūm"
+            "tr": "Bir süreç; İsm-i Kayyûm'a dayanır",
+            "en": "A process: rests on Ism al-Qayyūm"
           }
         ]
       },
@@ -299,10 +299,10 @@
     },
     {
       "type": "criticalNote",
-      "headingTr": "İsm-i Kayyûm ve metatemporal boyut — Nurcu çerçeve",
-      "headingEn": "Ism al-Qayyūm and the meta-temporal dimension — a Nurcu frame",
-      "tr": "Felsufi'nin **'Emr ↔ Sırr-ı Kayyumiyet'** bağı **Bediüzzaman'ın İsm-i Kayyûm bahsi** (Otuzuncu Lem'a, *Risale-i Nur*) zemininden gelir. Klasik kelâm (Eş'arî, Mâtürîdî, İbn Sînâ) **Halk-Emr ayrımını** *İcad–Kelâm-ı Nefsî* veya *İrâde–Kudret* hiyerarşilerinde formüle eder; Felsufi'nin **'metatemporal tasarım sırası ≠ inşa sırası'** dili **çağdaş felsefi vokabüler**dir (Aristoteles'in *telos* / Polanyi'nin *top-down causation* hattında). 'İmâm-ı Mübîn' (Yâsîn 36:12) → *gayb–şehadet arayüzü* okuması tasavvuf-kelâm geleneğinde mevcuttur ama Felsufi'nin **'ontolojik arayüz'** dili çağdaş bir aktarımdır. Üç-boyutlu sınıflandırma (imperatif / operasyonel / idari) Felsufi'nin **kendi analitik düzenlemesi**dir; klasik tefsirlerde *amr* genellikle **âyet-bağlamında** ele alınır — bu **sistematik analitik tasnif** çağdaş bir okuma katmanıdır.",
-      "en": "Felsufi's pairing **'amr ↔ the secret of qayyūmiyya'** is grounded in **Bediüzzaman's discussion of Ism al-Qayyūm** (the 30th Lemʿa, *Risale-i Nur*). Classical kalām (Ashʿarī, Māturīdī, Ibn Sīnā) formulates the **khalq–amr distinction** within hierarchies like *ījād–kalām nafsī* or *irāda–qudra*; Felsufi's **'meta-temporal order of design ≠ order of construction'** is **contemporary philosophical vocabulary** (in the line of Aristotle's *telos* / Polanyi's *top-down causation*). The reading of *Imām Mubīn* (Yā Sīn 36:12) → *ghayb–shahāda interface* exists in the kalām-Sufi tradition, but Felsufi's **'ontological interface'** language is a contemporary translation. The three-dimensional classification (imperative / operational / governing) is **Felsufi's own analytical ordering**; classical tafsīr generally treats *amr* **within its verse-context** — this **systematic analytical taxonomy** is a contemporary reading layer."
+      "headingTr": "İsm-i Kayyûm ve metatemporal boyut: Nurcu çerçeve",
+      "headingEn": "Ism al-Qayyūm and the meta-temporal dimension: a Nurcu frame",
+      "tr": "Felsufi'nin **'Emr ↔ Sırr-ı Kayyumiyet'** bağı Bediüzzaman'ın İsm-i Kayyûm bahsi (Otuzuncu Lem'a, *Risale-i Nur*) zemininden gelir. Klasik kelâm (Eş'arî, Mâtürîdî, İbn Sînâ) Halk-Emr ayrımını *İcad–Kelâm-ı Nefsî* veya *İrâde–Kudret* hiyerarşilerinde formüle eder; Felsufi'nin 'metatemporal tasarım sırası ≠ inşa sırası' dili çağdaş felsefi vokabülerdir (Aristoteles'in *telos* / Polanyi'nin *top-down causation* hattında). 'İmâm-ı Mübîn' (Yâsîn 36:12), ardından *gayb–şehadet arayüzü* okuması tasavvuf-kelâm geleneğinde mevcuttur ama Felsufi'nin 'ontolojik arayüz' dili çağdaş bir aktarımdır. Üç-boyutlu sınıflandırma (imperatif / operasyonel / idari) Felsufi'nin kendi analitik düzenlemesidir; klasik tefsirlerde *amr* genellikle âyet-bağlamında ele alınır; bu sistematik analitik tasnif çağdaş bir okuma katmanıdır.",
+      "en": "Felsufi's pairing **'amr ↔ the secret of qayyūmiyya'** is grounded in Bediüzzaman's discussion of Ism al-Qayyūm (the 30th Lemʿa, *Risale-i Nur*). Classical kalām (Ashʿarī, Māturīdī, Ibn Sīnā) formulates the khalq–amr distinction within hierarchies like *ījād–kalām nafsī* or *irāda–qudra*; Felsufi's 'meta-temporal order of design ≠ order of construction' is contemporary philosophical vocabulary (in the line of Aristotle's *telos* / Polanyi's *top-down causation*). The reading of *Imām Mubīn* (Yā Sīn 36:12), then *ghayb–shahāda interface* exists in the kalām-Sufi tradition, but Felsufi's 'ontological interface' language is a contemporary translation. The three-dimensional classification (imperative / operational / governing) is Felsufi's own analytical ordering; classical tafsīr generally treats *amr* within its verse-context: this systematic analytical taxonomy is a contemporary reading layer."
     },
     {
       "type": "pullQuote",

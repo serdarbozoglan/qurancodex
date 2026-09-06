@@ -65,19 +65,19 @@
   "blocks": [
     {
       "type": "paragraph",
-      "tr": "Hani bazen bir şeyi dinlersiniz ama anlamazsınız. Kelimeler yabancı olduğundan değil. Anlatılanlar düşünce yapınızdan uzak olduğu için konuşulanlar size yabancı gelir; ilginiz de yoksa anlamaya çalışmazsınız. Ötelerden gelen mesaj, ayetler için de bunu yaşıyor olabiliriz — yaşayanlar var.",
-      "en": "Sometimes you listen to something and do not understand it. Not because the words are foreign: what is being said lies far from your frame of thought, so it arrives as strange — and if you have no interest, you do not try. The same may happen with a message from beyond. It does happen."
+      "tr": "Hani bazen bir şeyi dinlersiniz ama anlamazsınız. Kelimeler yabancı olduğundan değil. Anlatılanlar düşünce yapınızdan uzak olduğu için konuşulanlar size yabancı gelir; ilginiz de yoksa anlamaya çalışmazsınız. Ötelerden gelen mesaj, ayetler için de bunu yaşıyor olabiliriz: yaşayanlar var.",
+      "en": "Sometimes you listen to something and do not understand it. Not because the words are foreign: what is being said lies far from your frame of thought, so it arrives as strange, and if you have no interest, you do not try. The same may happen with a message from beyond. It does happen."
     },
     {
       "type": "section",
       "id": "hud",
-      "titleTr": "Medyen'in Cevabı — “Kavrayıp anlamıyoruz”",
-      "titleEn": "Midian's Answer — “We do not grasp”"
+      "titleTr": "Medyen'in Cevabı: “Kavrayıp anlamıyoruz”",
+      "titleEn": "Midian's Answer: “We do not grasp”"
     },
     {
       "type": "paragraph",
       "tr": "Bir Elif-Lâm-Râ sûresi olan Hûd'da, Medyen halkı kendi içlerinden gönderilen Şuayb'a (a.s.) şöyle demişti:",
-      "en": "In Hūd — an Alif-Lām-Rā sura — the people of Midian said this to Shuʿayb (peace be upon him), sent from among themselves:"
+      "en": "In Hūd, an Alif-Lām-Rā sura, the people of Midian said this to Shuʿayb (peace be upon him), sent from among themselves:"
     },
     {
       "type": "verseInline",
@@ -100,7 +100,7 @@
     {
       "type": "paragraph",
       "tr": "Bir Hâ-Mîm sûresi olan Fussilet'in girişi bunu anlatır:",
-      "en": "The opening of Fuṣṣilat — a Ḥā-Mīm sura — describes it:"
+      "en": "The opening of Fuṣṣilat, a Ḥā-Mīm sura, describes it:"
     },
     {
       "type": "verseInline",
@@ -118,7 +118,7 @@
     },
     {
       "type": "paragraph",
-      "tr": "Yine bir Hâ-Mîm sûresi olan Câsiye'nin girişinde de — ki Fussilet'in girişiyle paraleldir — benzer bir mesaj vardır:",
+      "tr": "Yine bir Hâ-Mîm sûresi olan Câsiye'nin girişinde de (ki Fussilet'in girişiyle paraleldir) benzer bir mesaj vardır:",
       "en": "The opening of al-Jāthiya, also a Ḥā-Mīm sura and parallel to Fuṣṣilat's, carries a similar message:"
     },
     {
@@ -164,13 +164,13 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kalplerin kabuk bağladığını, bir kap içinde olduğunu ifade eden **ekinne** kelimesi, köken itibariyle bir şeyin içinde muhafaza edildiği, saklandığı, gizlendiği şeydir — barınak, sığınak, siper, ev, çardak gibi. Bu anlamda *kenentü'ş-şey'e kennen* denir ki, bir şeyi koruyacak bir yere saklamak anlamına gelir. *Kenentü* fiili özellikle bir ev, bir elbise ve benzeri bir şeyle örtünen, saklanan şey için kullanılır. *(Râgıb el-Isfahânî, el-Müfredât)*",
-      "en": "**Akinna** — the word for the hearts being shelled, held inside a vessel — denotes at root that within which a thing is kept, hidden, concealed: a shelter, a refuge, a screen, a house, a canopy. Hence *kanantu'sh-shay'a kannan*, to hide a thing in a place that protects it. The verb is used especially of what is covered by a house, a garment, and the like. *(al-Rāghib al-Iṣfahānī, al-Mufradāt)*"
+      "tr": "Kalplerin kabuk bağladığını, bir kap içinde olduğunu ifade eden **ekinne** kelimesi, köken itibariyle bir şeyin içinde muhafaza edildiği, saklandığı, gizlendiği şeydir: barınak, sığınak, siper, ev, çardak gibi. Bu anlamda *kenentü'ş-şey'e kennen* denir ki, bir şeyi koruyacak bir yere saklamak anlamına gelir. *Kenentü* fiili özellikle bir ev, bir elbise ve benzeri bir şeyle örtünen, saklanan şey için kullanılır. *(Râgıb el-Isfahânî, el-Müfredât)*",
+      "en": "**Akinna** (the word for the hearts being shelled, held inside a vessel) denotes at root that within which a thing is kept, hidden, concealed: a shelter, a refuge, a screen, a house, a canopy. Hence *kanantu'sh-shay'a kannan*, to hide a thing in a place that protects it. The verb is used especially of what is covered by a house, a garment, and the like. *(al-Rāghib al-Iṣfahānī, al-Mufradāt)*"
     },
     {
       "type": "pullQuote",
-      "tr": "Kabuk, kalbi dışarıdan korumak için değil — anlamı içeri almamak için oradadır.",
-      "en": "The shell is not there to protect the heart from without — it is there to keep meaning from entering."
+      "tr": "Kabuk, kalbi dışarıdan korumak için değil, anlamı içeri almamak için oradadır.",
+      "en": "The shell is not there to protect the heart from without; it is there to keep meaning from entering."
     },
     {
       "type": "section",
@@ -181,7 +181,7 @@
     {
       "type": "paragraph",
       "tr": "İnsanın ilgi alanının tamamen başkalaşması ile anlatılan mesajların ona çok yabancı kalması. Elhamdülillah sûrelerinden İsrâ ve En'âm'da da bu mesele işlenir:",
-      "en": "When a person's field of interest shifts entirely, the message becomes wholly foreign to him. Al-Isrāʾ and al-Anʿām — both Alḥamdulillāh suras — take up the same matter:"
+      "en": "When a person's field of interest shifts entirely, the message becomes wholly foreign to him. Al-Isrāʾ and al-Anʿām, both Alḥamdulillāh suras, take up the same matter:"
     },
     {
       "type": "verseInline",
@@ -209,8 +209,8 @@
       "captionTr": "“Dediler” ⇄ “Biz kıldık”",
       "captionEn": "“They said” ⇄ “We placed”",
       "left": {
-        "titleTr": "Hûd · Fussilet — kendi beyanları",
-        "titleEn": "Hūd · Fuṣṣilat — their own statement",
+        "titleTr": "Hûd · Fussilet: kendi beyanları",
+        "titleEn": "Hūd · Fuṣṣilat: their own statement",
         "accent": "#3498db",
         "descTr": "Kapanmayı **kendileri** dile getirir: “kalplerimizde kabuk var.”",
         "descEn": "They articulate the closure **themselves**: “our hearts are covered.”",
@@ -226,15 +226,15 @@
         ]
       },
       "right": {
-        "titleTr": "İsrâ · En'âm · Kehf — “ve cealnâ”",
-        "titleEn": "Al-Isrāʾ · al-Anʿām · al-Kahf — “wa jaʿalnā”",
+        "titleTr": "İsrâ · En'âm · Kehf: “ve cealnâ”",
+        "titleEn": "Al-Isrāʾ · al-Anʿām · al-Kahf: “wa jaʿalnā”",
         "accent": "#d4a574",
         "descTr": "Aynı kapanmayı bu kez Cenâb-ı Hak **kendine nispet eder**: “biz kıldık.”",
         "descEn": "The same closure is now **ascribed by God to Himself**: “We placed.”",
         "bullets": [
           {
-            "tr": "İrade ve sorumluluk değil — meşîet ve icra",
-            "en": "Not will and accountability — but decree and execution"
+            "tr": "İrade ve sorumluluk değil, meşîet ve icra",
+            "en": "Not will and accountability, but decree and execution"
           },
           {
             "tr": "Dilekçeyi değil, yönergeyi yürürlüğe koymak gibi",
@@ -256,7 +256,7 @@
     {
       "type": "paragraph",
       "tr": "Bu okuyuş bize şu soruyu sordurur: kalplerin kabuk bağlamasına, algıların kapanmasına ileten sebep nedir? Yine Elhamdülillah sûrelerinden Kehf'de şöyle geçer:",
-      "en": "This reading raises a question: what leads hearts to be shelled, perceptions to close? Al-Kahf — again an Alḥamdulillāh sura — answers:"
+      "en": "This reading raises a question: what leads hearts to be shelled, perceptions to close? Al-Kahf (again an Alḥamdulillāh sura) answers:"
     },
     {
       "type": "verseInline",
@@ -274,13 +274,13 @@
     },
     {
       "type": "paragraph",
-      "tr": "Hakkı bâtıl ile çürütmeye çalışmak; realiteyi, ontolojik esasları varsayımlar ve hayallerle çatıştırıp geçersiz olduğunu iddia etmektir. Mesela mesajı hafife alarak “bunlar öncekilerin — antik Mısır'ın, antik Yunan'ın, Sümerlerin, Akadların, Tevrat'ın — efsanelerinde de var, oradan alıntılanmış” derler. Konudaki **confounder** etkiyi, yani aynı Yaratıcı'nın aynı mesajı tarih boyunca defalarca göndermiş olabileceğini — ki Kur'an bunu zaten söylüyor — düşünecek kadar bile konuyu ciddiye almazlar.",
-      "en": "To refute truth with falsehood is to set reality and ontological ground against assumptions and imaginings, then declare them void. Taking the message lightly, they say: “this is in the legends of the ancients — Egypt, Greece, Sumer, Akkad, the Torah — it was borrowed from there.” They do not take the matter seriously enough even to weigh the **confounder**: that the same Creator may have sent the same message repeatedly through history — which is precisely what the Qur'an says of itself."
+      "tr": "Hakkı bâtıl ile çürütmeye çalışmak; realiteyi, ontolojik esasları varsayımlar ve hayallerle çatıştırıp geçersiz olduğunu iddia etmektir. Mesela mesajı hafife alarak “bunlar öncekilerin (antik Mısır'ın, antik Yunan'ın, Sümerlerin, Akadların, Tevrat'ın) efsanelerinde de var, oradan alıntılanmış” derler. Konudaki **confounder** etkiyi, yani aynı Yaratıcı'nın aynı mesajı tarih boyunca defalarca göndermiş olabileceğini (ki Kur'an bunu zaten söylüyor) düşünecek kadar bile konuyu ciddiye almazlar.",
+      "en": "To refute truth with falsehood is to set reality and ontological ground against assumptions and imaginings, then declare them void. Taking the message lightly, they say: “this is in the legends of the ancients (Egypt, Greece, Sumer, Akkad, the Torah) it was borrowed from there.” They do not take the matter seriously enough even to weigh the **confounder**: that the same Creator may have sent the same message repeatedly through history, which is precisely what the Qur'an says of itself."
     },
     {
       "type": "paragraph",
       "tr": "Sonra yine alaycı bir üslupla “Allah madem her şeye kadir, neden doğrudan yazılı bir kitap vermemiş de 23 sene içinde parça parça indirmiş?” yahut “neden doğrudan melek göndermedi?” gibi cerbezeye, cedele girerler. Hâlbuki:",
-      "en": "Then, again in a mocking register: “if God is capable of all things, why not hand down a written book at once instead of piecemeal over twenty-three years?” or “why not send an angel directly?” — sophistry, disputation. Yet:"
+      "en": "Then, again in a mocking register: “if God is capable of all things, why not hand down a written book at once instead of piecemeal over twenty-three years?” or “why not send an angel directly?”: sophistry, disputation. Yet:"
     },
     {
       "type": "verseInline",
@@ -313,33 +313,33 @@
     {
       "type": "paragraph",
       "tr": "Böyle bir yaklaşımda olanlar kendi varsayımları içinde kaldıkları için, kâinatta işleyen kanunlara karşı tevazu gösterip “yahu bilmediğim çok şey var, belki de varsayımlarım yanlış” demedikleri için **epistemik kafeste** hapsolmuşlardır; kalplerinde bir kabuk vardır.",
-      "en": "Those who take this stance remain inside their own assumptions. Because they will not show humility before the laws at work in the cosmos — will not say “there is much I do not know; perhaps my assumptions are wrong” — they are locked in the **epistemic cage**. There is a shell upon their hearts."
+      "en": "Those who take this stance remain inside their own assumptions. Because they will not show humility before the laws at work in the cosmos (will not say “there is much I do not know; perhaps my assumptions are wrong”) they are locked in the **epistemic cage**. There is a shell upon their hearts."
     },
     {
       "type": "pullQuote",
       "tr": "Anlayışların kapanması, varsayımlarını sorgulamadan mesajı hafife almak ve onunla mücadeleye girmekten geçiyor.",
-      "en": "Understanding closes by way of belittling the message without questioning one's assumptions — and setting out to fight it."
+      "en": "Understanding closes by way of belittling the message without questioning one's assumptions, and setting out to fight it."
     },
     {
       "type": "section",
       "id": "bakara",
-      "titleTr": "Bakara'nın Girişi — Aynı Konu",
-      "titleEn": "The Opening of al-Baqara — the Same Subject"
+      "titleTr": "Bakara'nın Girişi: Aynı Konu",
+      "titleEn": "The Opening of al-Baqara: the Same Subject"
     },
     {
       "type": "paragraph",
       "tr": "Hatırlarsanız bir Elif-Lâm-Mîm sûresi olan Bakara'nın girişi de bu konuyu işler. Uyarsan da uyarmasan da iman etmezler (2:6). Kalplerinde ve kulaklarında mühür vardır, gözleri de perdelidir (2:7). Allah'a ve âhirete iman ettik deyip Allah'ı ve müminleri aldattıklarını zannetseler de aslında kendilerini aldatırlar ve bunun farkında değillerdir (2:8-9). Kalplerinde iki yüzlülük, yalancılık hastalığı vardır; öyle bir hastalıktır ki, Allah bu hastalık nedeniyle onu daha da artırır (2:10).",
-      "en": "The opening of al-Baqara — an Alif-Lām-Mīm sura — takes up the same matter. Whether you warn them or not, they will not believe (2:6). There is a seal on their hearts and their hearing, and a covering over their eyes (2:7). Saying “we believe in God and the Last Day,” they think they deceive God and the believers, but deceive only themselves without perceiving it (2:8-9). In their hearts is a disease of duplicity, and God increases it by that very disease (2:10)."
+      "en": "The opening of al-Baqara, an Alif-Lām-Mīm sura, takes up the same matter. Whether you warn them or not, they will not believe (2:6). There is a seal on their hearts and their hearing, and a covering over their eyes (2:7). Saying “we believe in God and the Last Day,” they think they deceive God and the believers, but deceive only themselves without perceiving it (2:8-9). In their hearts is a disease of duplicity, and God increases it by that very disease (2:10)."
     },
     {
       "type": "paragraph",
       "tr": "Meselâ bu yalancılığın derecesi artınca, “yaptıklarınız yanlış, ifsat etmeyin, yıkım taraftarı olmayın” denildiğinde, *hayâtü'd-dünyâ* akışı içinde kapitalist sistemde ekonomik değer ürettiklerini düşünüp kendilerini ıslahçı görürler. Kalp hastalığı o derecededir ki yıkımın taraftarı olduklarının farkında bile değillerdir (2:11-12). “Siz de iman edenler gibi iman edin” denildiğinde, elitizm kibri içinde “göbeğini kaşıyan adamlar, beyinsizler gibi mi iman edelim” derler. Bu davranış kendilerini beyinsiz yapar da farkında olmazlar (2:13).",
-      "en": "As that duplicity deepens: told “what you do is wrong, do not spread corruption,” they consider themselves reformers — reasoning that within the flow of *ḥayāt al-dunyā* they produce economic value in the capitalist order. The heart's disease runs so deep that they do not perceive they are partisans of ruin (2:11-12). Told “believe as the people believe,” elitist pride answers: “shall we believe as the foolish believe?” The very posture makes them the foolish ones, unperceived (2:13)."
+      "en": "As that duplicity deepens: told “what you do is wrong, do not spread corruption,” they consider themselves reformers: reasoning that within the flow of *ḥayāt al-dunyā* they produce economic value in the capitalist order. The heart's disease runs so deep that they do not perceive they are partisans of ruin (2:11-12). Told “believe as the people believe,” elitist pride answers: “shall we believe as the foolish believe?” The very posture makes them the foolish ones, unperceived (2:13)."
     },
     {
       "type": "paragraph",
       "tr": "Hatta bu şekilde düşünenler bu ifadelerden de rahatsız olurlar. Çünkü dağdaki çobanla kendini Allah karşısında bir tutan bu öğreti, kendi değerler sistemini sarsacaktır. Küçük gördüğü müminlerle bir araya geldiğinde konuşur, hoş beş eder, “biz de iman ediyoruz” mesajını verir. Ama içten içe, onu Allah'tan uzaklaştıran dürtüleri veya kendi gibi arkadaşları yanındayken “onlarla eğleniyorum, alay ediyorum” der (2:14). Hâlbuki daha geniş çerçeveden bakılsa, asıl bu hareketler kendilerini alay konusu yapmıştır; tuğyan içinde bocalayıp yerinde sayarlar (2:15).",
-      "en": "Such thinking is itself irritated by these statements — for a teaching that levels the shepherd on the mountain with oneself before God unsettles one's whole value system. Meeting the believers he looks down on, he talks, exchanges pleasantries, signals “we believe too.” Yet inwardly, or among companions of his own kind, he says: “we are only mocking them” (2:14). Seen from a wider frame, it is this very posture that has made them the object of mockery; they flounder in transgression, going nowhere (2:15)."
+      "en": "Such thinking is itself irritated by these statements: for a teaching that levels the shepherd on the mountain with oneself before God unsettles one's whole value system. Meeting the believers he looks down on, he talks, exchanges pleasantries, signals “we believe too.” Yet inwardly, or among companions of his own kind, he says: “we are only mocking them” (2:14). Seen from a wider frame, it is this very posture that has made them the object of mockery; they flounder in transgression, going nowhere (2:15)."
     },
     {
       "type": "hierarchyTree",

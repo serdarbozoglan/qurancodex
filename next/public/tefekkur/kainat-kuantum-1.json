@@ -23,13 +23,13 @@
       "type": "criticalNote",
       "headingTr": "Bu yazı serisi hakkında",
       "headingEn": "About this series",
-      "tr": "Bu yazı serisinin amacı, **kuantum teorisinin tabiatından kaynaklanan metafiziksel çıkarımları** keşfetmektir. Elinizdeki ilk yazı zemini kurar ve geleneksel kuantum mekaniğinin beş temel sorununu özetler. Yazar serinin devamını ilân etmiştir; **toplam bölüm sayısı belirtilmemiştir**, bu yüzden burada numaralı bir seri olarak değil, bağımsız bir yazı olarak duruyor.",
-      "en": "The aim of this series is to explore **the metaphysical implications arising from the very nature of quantum theory**. This first piece lays the ground and summarises five foundational problems of conventional quantum mechanics. The author has announced further instalments; **the total number of parts is not stated**, and so the piece stands here as an independent article rather than a numbered series."
+      "tr": "Bu yazı serisinin amacı, **kuantum teorisinin tabiatından kaynaklanan metafiziksel çıkarımları** keşfetmektir. Elinizdeki ilk yazı zemini kurar ve geleneksel kuantum mekaniğinin beş temel sorununu özetler. Yazar serinin devamını ilân etmiştir; toplam bölüm sayısı belirtilmemiştir, bu yüzden burada numaralı bir seri olarak değil, bağımsız bir yazı olarak duruyor.",
+      "en": "The aim of this series is to explore **the metaphysical implications arising from the very nature of quantum theory**. This first piece lays the ground and summarises five foundational problems of conventional quantum mechanics. The author has announced further instalments; the total number of parts is not stated, and so the piece stands here as an independent article rather than a numbered series."
     },
     {
       "type": "flowChain",
-      "captionTr": "Serinin yol haritası — yazarın kendi tarifi",
-      "captionEn": "The roadmap of the series — in the author's own description",
+      "captionTr": "Serinin yol haritası: yazarın kendi tarifi",
+      "captionEn": "The roadmap of the series: in the author's own description",
       "nodes": [
         {
           "titleTr": "Beş temel sorun",
@@ -63,8 +63,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kuantum mekaniği, tabiatı tanımlamak için **en kesin ve güçlü çerçevelerden birini** temsil eder. Dalga fonksiyonları, Hilbert uzayları ve matris mekaniği gibi matematiksel yapıları muhteşem bir açıklama gücü sunar. Fakat bu yapılar aynı zamanda **gerçeklik hakkında derin sorular** ortaya koyar. Yorumlama, ölçekler arasındaki etkileşim ve evrenin yapısı gibi temel konularda cevaplanmayı bekleyen bu sorular, yalnızca fiziği şekillendirmek değil, **felsefeye de yeni bir açılım verme** potansiyeline sahiptir.",
-      "en": "Quantum mechanics represents **one of the most precise and powerful frameworks** for describing nature. Its mathematical structures — wave functions, Hilbert spaces, matrix mechanics — offer magnificent explanatory power. Yet these same structures raise **deep questions about reality**. Awaiting answers on such fundamental matters as interpretation, the interaction between scales, and the structure of the universe, these questions have the potential not merely to shape physics but **to open a new horizon for philosophy** as well."
+      "tr": "Kuantum mekaniği, tabiatı tanımlamak için **en kesin ve güçlü çerçevelerden birini** temsil eder. Dalga fonksiyonları, Hilbert uzayları ve matris mekaniği gibi matematiksel yapıları muhteşem bir açıklama gücü sunar. Fakat bu yapılar aynı zamanda gerçeklik hakkında derin sorular ortaya koyar. Yorumlama, ölçekler arasındaki etkileşim ve evrenin yapısı gibi temel konularda cevaplanmayı bekleyen bu sorular, yalnızca fiziği şekillendirmek değil, felsefeye de yeni bir açılım verme potansiyeline sahiptir.",
+      "en": "Quantum mechanics represents **one of the most precise and powerful frameworks** for describing nature. Its mathematical structures (wave functions, Hilbert spaces, matrix mechanics) offer magnificent explanatory power. Yet these same structures raise deep questions about reality. Awaiting answers on such fundamental matters as interpretation, the interaction between scales, and the structure of the universe, these questions have the potential not merely to shape physics but to open a new horizon for philosophy as well."
     },
     {
       "type": "hierarchyTree",
@@ -145,16 +145,16 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kuantum mekaniğinin merkezinde ölçüm problemi yer alır: **dalga fonksiyonunun** — Schrödinger denklemiyle yönetilen — **deterministik evriminden**, ölçüm sırasında gözlemlenen **olasılık sonuçlarına** geçiş. Ölçüm tam olarak nedir; **bir an mıdır, bir süreç midir**; tam olarak ne zaman gerçekleştiği nasıl tanımlanabilir? Ölçüm sırasında hangi fiziksel mekanizma, kuantum süperpozisyonlarını **tek bir sonuca** indirger? Ve gözlemcinin rolü bu süreçte ne kadar belirleyicidir?",
-      "en": "At the centre of quantum mechanics lies the measurement problem: the passage from **the deterministic evolution of the wave function** — governed by the Schrödinger equation — to **the probabilistic outcomes** observed upon measurement. What exactly is a measurement; is it **an instant or a process**; how can the moment at which it occurs be defined? Which physical mechanism reduces quantum superpositions to **a single outcome** during measurement? And how decisive is the observer's role in this process?"
+      "tr": "Kuantum mekaniğinin merkezinde ölçüm problemi yer alır: **dalga fonksiyonunun**: Schrödinger denklemiyle yönetilen: deterministik evriminden, ölçüm sırasında gözlemlenen olasılık sonuçlarına geçiş. Ölçüm tam olarak nedir; bir an mıdır, bir süreç midir; tam olarak ne zaman gerçekleştiği nasıl tanımlanabilir? Ölçüm sırasında hangi fiziksel mekanizma, kuantum süperpozisyonlarını tek bir sonuca indirger? Ve gözlemcinin rolü bu süreçte ne kadar belirleyicidir?",
+      "en": "At the centre of quantum mechanics lies the measurement problem: the passage from **the deterministic evolution of the wave function** (governed by the Schrödinger equation) to the probabilistic outcomes observed upon measurement. What exactly is a measurement; is it an instant or a process; how can the moment at which it occurs be defined? Which physical mechanism reduces quantum superpositions to a single outcome during measurement? And how decisive is the observer's role in this process?"
     },
     {
       "type": "contrastDuo",
       "captionTr": "Aynı sistemin iki rejimi",
       "captionEn": "Two regimes of the same system",
       "left": {
-        "titleTr": "Ölçümden önce — Schrödinger evrimi",
-        "titleEn": "Before measurement — Schrödinger evolution",
+        "titleTr": "Ölçümden önce: Schrödinger evrimi",
+        "titleEn": "Before measurement: Schrödinger evolution",
         "accent": "#3498db",
         "descTr": "Dalga fonksiyonu **deterministik** bir denkleme uyar; süreç kesintisiz ve tersinirdir.",
         "descEn": "The wave function obeys **a deterministic** equation; the process is continuous and reversible.",
@@ -170,8 +170,8 @@
         ]
       },
       "right": {
-        "titleTr": "Ölçüm anında — çökme",
-        "titleEn": "At measurement — collapse",
+        "titleTr": "Ölçüm anında: çökme",
+        "titleEn": "At measurement: collapse",
         "accent": "#c0554d",
         "descTr": "Dalga fonksiyonu *“çöker”* ve belirli bir duruma dönüşür; sonuç **olasılıksaldır**.",
         "descEn": "The wave function *“collapses”* into a definite state; the outcome is **probabilistic**.",
@@ -191,21 +191,21 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Anlamı:** Dalga fonksiyonunu *gerçek bir fiziksel varlık* olarak ele almak, çökmenin yerine **dallanan evrenleri** benimseyen Everett'in Çoklu Evrenler Teorisi gibi yorumlara yol açar. Bu teori, ölçüm sırasında dalga fonksiyonunun çökmediğini; bunun yerine evrenin **her bir olasılık için dallanarak** paralel gerçeklikler oluşturduğunu öne sürer. Bir elektronun yerini ölçerken, hem bir pozisyonda hem de diğerinde bulunabileceği her ihtimale karşılık gelen evrenler ortaya çıkar. Bu yaklaşım, gözlemcinin farklı sonuçlar deneyimlediği **sonsuz sayıda paralel evren** fikrini gündeme getirir.",
-      "en": "**Its meaning:** Treating the wave function as *a real physical entity* leads to interpretations such as Everett's Many-Worlds theory, which adopts **branching universes** in place of collapse. On this view the wave function does not collapse upon measurement; instead the universe **branches for each possibility**, producing parallel realities. In measuring an electron's position, universes arise corresponding to every possibility of its being at one position and at another. The approach raises the idea of **an infinity of parallel universes** in which the observer experiences different outcomes."
+      "tr": "Anlamı: Dalga fonksiyonunu *gerçek bir fiziksel varlık* olarak ele almak, çökmenin yerine **dallanan evrenleri** benimseyen Everett'in Çoklu Evrenler Teorisi gibi yorumlara yol açar. Bu teori, ölçüm sırasında dalga fonksiyonunun çökmediğini; bunun yerine evrenin her bir olasılık için dallanarak paralel gerçeklikler oluşturduğunu öne sürer. Bir elektronun yerini ölçerken, hem bir pozisyonda hem de diğerinde bulunabileceği her ihtimale karşılık gelen evrenler ortaya çıkar. Bu yaklaşım, gözlemcinin farklı sonuçlar deneyimlediği sonsuz sayıda paralel evren fikrini gündeme getirir.",
+      "en": "Its meaning: Treating the wave function as *a real physical entity* leads to interpretations such as Everett's Many-Worlds theory, which adopts **branching universes** in place of collapse. On this view the wave function does not collapse upon measurement; instead the universe branches for each possibility, producing parallel realities. In measuring an electron's position, universes arise corresponding to every possibility of its being at one position and at another. The approach raises the idea of an infinity of parallel universes in which the observer experiences different outcomes."
     },
     {
       "type": "pullQuote",
-      "tr": "Bu, **matematiksel çerçevenin sadece gözlemleri mi tanımladığı**, yoksa **altta yatan bir gerçekliği mi yansıttığı** konusunda derin bir felsefî gerilimi vurgular.",
-      "en": "This highlights a deep philosophical tension over whether **the mathematical framework merely describes observations** or **reflects an underlying reality**.",
+      "tr": "Bu, **matematiksel çerçevenin sadece gözlemleri mi tanımladığı**, yoksa altta yatan bir gerçekliği mi yansıttığı konusunda derin bir felsefî gerilimi vurgular.",
+      "en": "This highlights a deep philosophical tension over whether **the mathematical framework merely describes observations** or reflects an underlying reality.",
       "source": "Felsufi"
     },
     {
       "type": "criticalNote",
       "headingTr": "Neden felsefî bir mesele?",
       "headingEn": "Why this is a philosophical matter",
-      "tr": "Ölçüm probleminin ağırlığı, **fiziğin içinde kalmamasından** gelir. Dalga fonksiyonuna ontolojik statü vermek — yani onu *var olan bir şey* saymak — varoluş ve nedensellik anlayışımızı doğrudan etkileyecek sonuçlar üretir. Everett'in çoklu evrenler teorisinin ayrıntılı izahı ve eleştirisi, yazarın belirttiği üzere **serinin sonraki yazılarına** bırakılmıştır.",
-      "en": "The weight of the measurement problem comes from the fact that **it does not stay inside physics**. Granting the wave function ontological status — treating it as *a thing that exists* — produces consequences that bear directly on our understanding of existence and causality. The detailed exposition and critique of Everett's Many-Worlds theory is, as the author notes, left to **later pieces in the series**."
+      "tr": "Ölçüm probleminin ağırlığı, **fiziğin içinde kalmamasından** gelir. Dalga fonksiyonuna ontolojik statü vermek (yani onu *var olan bir şey* saymak) varoluş ve nedensellik anlayışımızı doğrudan etkileyecek sonuçlar üretir. Everett'in çoklu evrenler teorisinin ayrıntılı izahı ve eleştirisi, yazarın belirttiği üzere serinin sonraki yazılarına bırakılmıştır.",
+      "en": "The weight of the measurement problem comes from the fact that **it does not stay inside physics**. Granting the wave function ontological status (treating it as *a thing that exists*) produces consequences that bear directly on our understanding of existence and causality. The detailed exposition and critique of Everett's Many-Worlds theory is, as the author notes, left to later pieces in the series."
     },
     {
       "type": "section",
@@ -215,8 +215,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kuantum mekaniği, atomlar ve elektronlar gibi **mikroskobik** sistemlerin davranışını yönetirken, gözle görülebilir **makroskobik** nesneler klasik fiziğin kanunlarına uyar. Kuantum ve klasik alanlar arasındaki bu görünür kopukluk, gerçekliğin doğası ve **bu iki çerçevenin nasıl bir arada var olduğu** hakkında derin sorular ortaya koyar. Kuantum etkileri neden yalnızca mikroskobik sistemlerle sınırlıdır? Makroskobik nesneler neden aynı süperpozisyon ve dolanıklık özelliklerini göstermez?",
-      "en": "While quantum mechanics governs the behaviour of **microscopic** systems such as atoms and electrons, **macroscopic** objects visible to the eye obey the laws of classical physics. This apparent rupture between the quantum and classical domains raises deep questions about the nature of reality and about **how the two frameworks coexist**. Why are quantum effects confined to microscopic systems? Why do macroscopic objects not display the same superposition and entanglement?"
+      "tr": "Kuantum mekaniği, atomlar ve elektronlar gibi **mikroskobik** sistemlerin davranışını yönetirken, gözle görülebilir makroskobik nesneler klasik fiziğin kanunlarına uyar. Kuantum ve klasik alanlar arasındaki bu görünür kopukluk, gerçekliğin doğası ve bu iki çerçevenin nasıl bir arada var olduğu hakkında derin sorular ortaya koyar. Kuantum etkileri neden yalnızca mikroskobik sistemlerle sınırlıdır? Makroskobik nesneler neden aynı süperpozisyon ve dolanıklık özelliklerini göstermez?",
+      "en": "While quantum mechanics governs the behaviour of **microscopic** systems such as atoms and electrons, macroscopic objects visible to the eye obey the laws of classical physics. This apparent rupture between the quantum and classical domains raises deep questions about the nature of reality and about how the two frameworks coexist. Why are quantum effects confined to microscopic systems? Why do macroscopic objects not display the same superposition and entanglement?"
     },
     {
       "type": "contrastDuo",
@@ -230,12 +230,12 @@
         "descEn": "Distinctively quantum properties are **plainly displayed**.",
         "bullets": [
           {
-            "tr": "**Süperpozisyon** — birden çok hâlin aynı anda taşınması",
-            "en": "**Superposition** — several states carried at once"
+            "tr": "**Süperpozisyon**: birden çok hâlin aynı anda taşınması",
+            "en": "**Superposition**: several states carried at once"
           },
           {
-            "tr": "**Dolanıklık** — ayrı parçacıkların ortak bir hâl paylaşması",
-            "en": "**Entanglement** — separate particles sharing a single state"
+            "tr": "**Dolanıklık**: ayrı parçacıkların ortak bir hâl paylaşması",
+            "en": "**Entanglement**: separate particles sharing a single state"
           }
         ]
       },
@@ -247,8 +247,8 @@
         "descEn": "A deterministic order is followed in which those same properties **have disappeared**.",
         "bullets": [
           {
-            "tr": "Klasik fiziğin kanunları — **belirli konum, belirli sonuç**",
-            "en": "The laws of classical physics — **definite position, definite outcome**"
+            "tr": "Klasik fiziğin kanunları: **belirli konum, belirli sonuç**",
+            "en": "The laws of classical physics: **definite position, definite outcome**"
           },
           {
             "tr": "Günlük deneyimde kuantum etkileri **belirgin değildir**",
@@ -263,8 +263,8 @@
       "type": "criticalNote",
       "headingTr": "Dekoherans neyi çözer, neyi çözmez?",
       "headingEn": "What decoherence settles and what it does not",
-      "tr": "Dekoherans, süperpozisyonun **neden görünmez olduğunu** açıklar — çevreyle etkileşen bir sistemin girişim terimleri hızla bastırılır. Fakat bu, ihtimallerin **tekleşmesi** demek değildir: dekoherans sonrası hâl hâlâ bir ihtimaller kümesidir. *“Neden bu sonuç, ötekisi değil?”* sorusu **ölçüm problemine geri döner**. İki mesele bu yüzden birbirinden bağımsız değildir; ikincisi birincisinin ölçek cephesidir.",
-      "en": "Decoherence explains **why superposition becomes invisible** — the interference terms of a system interacting with its environment are rapidly suppressed. But this does not mean the possibilities **become one**: the post-decoherence state is still a set of possibilities. The question *“why this outcome and not the other?”* **returns to the measurement problem**. The two matters are therefore not independent; the second is the scale-facing side of the first."
+      "tr": "Dekoherans, süperpozisyonun **neden görünmez olduğunu** açıklar; çevreyle etkileşen bir sistemin girişim terimleri hızla bastırılır. Fakat bu, ihtimallerin tekleşmesi demek değildir: dekoherans sonrası hâl hâlâ bir ihtimaller kümesidir. *“Neden bu sonuç, ötekisi değil?”* sorusu ölçüm problemine geri döner. İki mesele bu yüzden birbirinden bağımsız değildir; ikincisi birincisinin ölçek cephesidir.",
+      "en": "Decoherence explains **why superposition becomes invisible**: the interference terms of a system interacting with its environment are rapidly suppressed. But this does not mean the possibilities become one: the post-decoherence state is still a set of possibilities. The question *“why this outcome and not the other?”* returns to the measurement problem. The two matters are therefore not independent; the second is the scale-facing side of the first."
     },
     {
       "type": "section",
@@ -274,8 +274,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kuantum mekaniği ve genel görelilik, **modern fiziğin iki temel direğidir**, fakat birbirleriyle uyumsuzdurlar. Kuantum mekaniği parçacıkların davranışını **olasılıklar** üzerinden açıklarken, genel görelilik **uzayzamanın sürekliliği** ve gravitasyonel etkiler üzerine kuruludur. Bir kara deliğin iç yapısı gibi durumlarda kuantum mekaniği, parçacık seviyesinde gravitasyonel kuvvetlerin etkisini açıklamakta yetersiz kalırken, genel görelilik kuantum ölçekteki belirsizlikleri göz ardı eder.",
-      "en": "Quantum mechanics and general relativity are **the two pillars of modern physics**, yet they are incompatible with one another. Quantum mechanics accounts for the behaviour of particles through **probabilities**, while general relativity is built upon **the continuity of spacetime** and gravitational effects. In situations such as the interior of a black hole, quantum mechanics falls short of explaining the effect of gravitational forces at the level of particles, while general relativity disregards the indeterminacies of the quantum scale."
+      "tr": "Kuantum mekaniği ve genel görelilik, **modern fiziğin iki temel direğidir**, fakat birbirleriyle uyumsuzdurlar. Kuantum mekaniği parçacıkların davranışını olasılıklar üzerinden açıklarken, genel görelilik uzayzamanın sürekliliği ve gravitasyonel etkiler üzerine kuruludur. Bir kara deliğin iç yapısı gibi durumlarda kuantum mekaniği, parçacık seviyesinde gravitasyonel kuvvetlerin etkisini açıklamakta yetersiz kalırken, genel görelilik kuantum ölçekteki belirsizlikleri göz ardı eder.",
+      "en": "Quantum mechanics and general relativity are **the two pillars of modern physics**, yet they are incompatible with one another. Quantum mechanics accounts for the behaviour of particles through probabilities, while general relativity is built upon the continuity of spacetime and gravitational effects. In situations such as the interior of a black hole, quantum mechanics falls short of explaining the effect of gravitational forces at the level of particles, while general relativity disregards the indeterminacies of the quantum scale."
     },
     {
       "type": "contrastDuo",
@@ -322,8 +322,8 @@
       "type": "criticalNote",
       "headingTr": "Bedeli: teorisiz kalan bölgeler",
       "headingEn": "The price: regions left without a theory",
-      "tr": "Kuantum gravitasyonu, kuantum mekaniğinin **olasılık doğasını**, genel göreliliğin **uzayzaman geometrisi** tanımıyla uzlaştırmayı amaçlar. Bu birleşim olmaksızın **kara delik tekillikleri** veya **evrenin ilk anları** gibi fenomenler tam bir teorik anlayışa ulaşamaz. Yani mesele soyut bir tutarlılık kaygısı değildir: kâinatın en kritik iki bölgesi — başlangıcı ve en yoğun noktaları — modelsiz kalır.",
-      "en": "Quantum gravity aims to reconcile the **probabilistic nature** of quantum mechanics with general relativity's account of **spacetime geometry**. Without that unification, phenomena such as **black-hole singularities** or **the first moments of the universe** cannot reach a complete theoretical understanding. The matter is therefore not an abstract worry about consistency: the two most critical regions of the cosmos — its beginning and its densest points — are left without a model."
+      "tr": "Kuantum gravitasyonu, kuantum mekaniğinin **olasılık doğasını**, genel göreliliğin uzayzaman geometrisi tanımıyla uzlaştırmayı amaçlar. Bu birleşim olmaksızın kara delik tekillikleri veya evrenin ilk anları gibi fenomenler tam bir teorik anlayışa ulaşamaz. Yani mesele soyut bir tutarlılık kaygısı değildir: kâinatın en kritik iki bölgesi (başlangıcı ve en yoğun noktaları) modelsiz kalır.",
+      "en": "Quantum gravity aims to reconcile the **probabilistic nature** of quantum mechanics with general relativity's account of spacetime geometry. Without that unification, phenomena such as black-hole singularities or the first moments of the universe cannot reach a complete theoretical understanding. The matter is therefore not an abstract worry about consistency: the two most critical regions of the cosmos (its beginning and its densest points) are left without a model."
     },
     {
       "type": "section",
@@ -333,8 +333,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Kuantum dolanıklık, Einstein tarafından **“uzaktan tuhaf etki”** (*spooky action at a distance*) olarak tanımlanan bir fenomendir ve klasik **lokalite** ile **nedensellik** kavramlarına meydan okur. Dolanıklığın nasıl işlediği ve korelasyonların neden bu kadar sıkı olduğu hâlâ gizemini koruyor. Non-lokalite, gerçekten **uzay ve zamanın temel yapısını mı** sorgulatıyor, yoksa henüz keşfedilmemiş **başka bir mekanizmanın mı** sonucu?",
-      "en": "Quantum entanglement — described by Einstein as **“spooky action at a distance”** — challenges the classical notions of **locality** and **causality**. How entanglement operates, and why the correlations are so tight, remains a mystery. Does non-locality genuinely call **the fundamental structure of space and time** into question, or is it the outcome of **some other mechanism** not yet discovered?"
+      "tr": "Kuantum dolanıklık, Einstein tarafından **“uzaktan tuhaf etki”** (*spooky action at a distance*) olarak tanımlanan bir fenomendir ve klasik lokalite ile nedensellik kavramlarına meydan okur. Dolanıklığın nasıl işlediği ve korelasyonların neden bu kadar sıkı olduğu hâlâ gizemini koruyor. Non-lokalite, gerçekten uzay ve zamanın temel yapısını mı sorgulatıyor, yoksa henüz keşfedilmemiş başka bir mekanizmanın mı sonucu?",
+      "en": "Quantum entanglement (described by Einstein as **“spooky action at a distance”**) challenges the classical notions of locality and causality. How entanglement operates, and why the correlations are so tight, remains a mystery. Does non-locality genuinely call the fundamental structure of space and time into question, or is it the outcome of some other mechanism not yet discovered?"
     },
     {
       "type": "flowChain",
@@ -375,13 +375,13 @@
       "type": "criticalNote",
       "headingTr": "Bir teknik ayrım: korelasyon ≠ sinyal",
       "headingEn": "A technical distinction: correlation ≠ signal",
-      "tr": "Dolanıklığın kurduğu bağ **lokal değildir**, fakat bu bağ üzerinden **kontrol edilebilir bir bilgi gönderilemez** — çünkü her ölçümün kendi tarafındaki sonucu rastgeledir; korelasyon ancak iki taraf sonuçlarını (klasik, ışık hızıyla sınırlı bir kanalla) karşılaştırdığında görünür hâle gelir. Literatürde bu **no-signalling** ilkesi olarak geçer. Yazarın vurguladığı sonuç — *korelasyonların klasik fizikle uyuşmadığı* — bu ayrımdan etkilenmez; ayrım yalnızca *neyin* non-lokal olduğunu keskinleştirir: **bağ**, evet; **sinyal**, hayır.",
-      "en": "The bond established by entanglement **is not local**, yet **no controllable information can be sent** across it — the outcome on each side is random in itself, and the correlation becomes visible only when the two parties compare results over a classical, light-speed-limited channel. In the literature this is the **no-signalling** principle. The conclusion the author stresses — *that the correlations do not accord with classical physics* — is untouched by this distinction; the distinction only sharpens *what* is non-local: **the bond**, yes; **a signal**, no."
+      "tr": "Dolanıklığın kurduğu bağ **lokal değildir**, fakat bu bağ üzerinden kontrol edilebilir bir bilgi gönderilemez: çünkü her ölçümün kendi tarafındaki sonucu rastgeledir; korelasyon ancak iki taraf sonuçlarını (klasik, ışık hızıyla sınırlı bir kanalla) karşılaştırdığında görünür hâle gelir. Literatürde bu no-signalling ilkesi olarak geçer. Yazarın vurguladığı sonuç (*korelasyonların klasik fizikle uyuşmadığı*) bu ayrımdan etkilenmez; ayrım yalnızca *neyin* non-lokal olduğunu keskinleştirir: bağ, evet; sinyal, hayır.",
+      "en": "The bond established by entanglement **is not local**, yet no controllable information can be sent across it; the outcome on each side is random in itself, and the correlation becomes visible only when the two parties compare results over a classical, light-speed-limited channel. In the literature this is the no-signalling principle. The conclusion the author stresses (*that the correlations do not accord with classical physics*) is untouched by this distinction; the distinction only sharpens *what* is non-local: the bond, yes; a signal, no."
     },
     {
       "type": "paragraph",
-      "tr": "**Anlamı:** Bu non-lokal korelasyonlar, **uzayzamanın yapısı** ve **bilginin doğası** hakkında yeniden düşünmeyi zorunlu kılarak, kuantum sistemlerinin birbirine bağlılığı hakkında derin sorular ortaya koyar. Fizik ile metafizik arasındaki sınır, tam olarak burada yeniden çizilmek durumundadır.",
-      "en": "**Its meaning:** These non-local correlations compel a rethinking of **the structure of spacetime** and **the nature of information**, raising deep questions about the interconnectedness of quantum systems. It is precisely here that the border between physics and metaphysics has to be redrawn."
+      "tr": "Anlamı: Bu non-lokal korelasyonlar, **uzayzamanın yapısı** ve bilginin doğası hakkında yeniden düşünmeyi zorunlu kılarak, kuantum sistemlerinin birbirine bağlılığı hakkında derin sorular ortaya koyar. Fizik ile metafizik arasındaki sınır, tam olarak burada yeniden çizilmek durumundadır.",
+      "en": "Its meaning: These non-local correlations compel a rethinking of **the structure of spacetime** and the nature of information, raising deep questions about the interconnectedness of quantum systems. It is precisely here that the border between physics and metaphysics has to be redrawn."
     },
     {
       "type": "section",
@@ -396,8 +396,8 @@
     },
     {
       "type": "flowChain",
-      "captionTr": "Wigner'in Arkadaşı — çökme tam olarak ne zaman?",
-      "captionEn": "Wigner's Friend — when exactly does collapse occur?",
+      "captionTr": "Wigner'in Arkadaşı: çökme tam olarak ne zaman?",
+      "captionEn": "Wigner's Friend: when exactly does collapse occur?",
       "nodes": [
         {
           "titleTr": "İzole laboratuvar",
@@ -433,8 +433,8 @@
       "type": "criticalNote",
       "headingTr": "Bilinç, bilgi işleme, fiziksel etkileşim",
       "headingEn": "Consciousness, information processing, physical interaction",
-      "tr": "Bu zorluk, **bilincin**, **bilgi işlemenin** ve **fiziksel etkileşimin** gerçekliği tanımlamadaki etkileşimi hakkında sorular ortaya koyar. Bir ölçümün gerçekleşmesi için bir gözlemcinin varlığının gerektiği fikri, bilincin kuantum süreçleri üzerindeki olası etkisi konusunda derin tartışmalara yol açar. Netice şudur: kuantum mekaniğinde ölçüm, klasik anlamda **nesnel bir olaydan ziyade gözlemciye bağlı bir süreç** gibi görünmektedir.",
-      "en": "This difficulty raises questions about the interplay of **consciousness**, **information processing** and **physical interaction** in defining reality. The idea that a measurement requires the presence of an observer leads to deep debates about the possible influence of consciousness upon quantum processes. The upshot is this: measurement in quantum mechanics appears to be **a process dependent on the observer rather than an objective event** in the classical sense."
+      "tr": "Bu zorluk, **bilincin**, bilgi işlemenin ve fiziksel etkileşimin gerçekliği tanımlamadaki etkileşimi hakkında sorular ortaya koyar. Bir ölçümün gerçekleşmesi için bir gözlemcinin varlığının gerektiği fikri, bilincin kuantum süreçleri üzerindeki olası etkisi konusunda derin tartışmalara yol açar. Netice şudur: kuantum mekaniğinde ölçüm, klasik anlamda nesnel bir olaydan ziyade gözlemciye bağlı bir süreç gibi görünmektedir.",
+      "en": "This difficulty raises questions about the interplay of **consciousness**, information processing and physical interaction in defining reality. The idea that a measurement requires the presence of an observer leads to deep debates about the possible influence of consciousness upon quantum processes. The upshot is this: measurement in quantum mechanics appears to be a process dependent on the observer rather than an objective event in the classical sense."
     },
     {
       "type": "section",
@@ -444,8 +444,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Soyut matematiksel yapılara dayanması nedeniyle kuantum mekaniği, **bu soyutlamaları fiziksel gerçeklikle eşleştirme** eğilimine sürükler. Fakat çoklu evrenler yorumu gibi örneklerle görüldüğü üzere, bu **ontolojik bağlılık** metafiziğe doğru bir yolculuğa çıkar. Hâlbuki matematiksel formülasyon çoğu kez gerçekliği modellemek yerine **bir araç olarak** kullanılır.",
-      "en": "Because it rests on abstract mathematical structures, quantum mechanics tempts us toward **matching those abstractions with physical reality**. Yet as instances like the many-worlds interpretation show, this **ontological commitment** sets out on a journey toward metaphysics. And yet the mathematical formulation is often used **as a tool** rather than as a model of reality."
+      "tr": "Soyut matematiksel yapılara dayanması nedeniyle kuantum mekaniği, **bu soyutlamaları fiziksel gerçeklikle eşleştirme** eğilimine sürükler. Fakat çoklu evrenler yorumu gibi örneklerle görüldüğü üzere, bu ontolojik bağlılık metafiziğe doğru bir yolculuğa çıkar. Hâlbuki matematiksel formülasyon çoğu kez gerçekliği modellemek yerine bir araç olarak kullanılır.",
+      "en": "Because it rests on abstract mathematical structures, quantum mechanics tempts us toward **matching those abstractions with physical reality**. Yet as instances like the many-worlds interpretation show, this ontological commitment sets out on a journey toward metaphysics. And yet the mathematical formulation is often used as a tool rather than as a model of reality."
     },
     {
       "type": "contrastDuo",
@@ -463,8 +463,8 @@
             "en": "The wave function is **an object of calculation**"
           },
           {
-            "tr": "Ontolojik borç yoktur — **çökme bir gizem olarak kalır**",
-            "en": "No ontological debt is incurred — **collapse remains a mystery**"
+            "tr": "Ontolojik borç yoktur; **çökme bir gizem olarak kalır**",
+            "en": "No ontological debt is incurred; **collapse remains a mystery**"
           }
         ]
       },
@@ -490,16 +490,16 @@
     },
     {
       "type": "pullQuote",
-      "tr": "Bu problemler üzerine daha derin düşünerek — **ölçüm probleminden gözlemcinin rolüne kadar** — mevcut çerçevelerimizin sınırlarını ve bunların çözümlemeye çalıştıkları **derin gizemleri** daha iyi anlayabiliriz.",
-      "en": "By thinking more deeply about these problems — **from the measurement problem to the role of the observer** — we may better understand the limits of our present frameworks and **the deep mysteries** they are attempting to resolve.",
+      "tr": "Bu problemler üzerine daha derin düşünerek (**ölçüm probleminden gözlemcinin rolüne kadar**) mevcut çerçevelerimizin sınırlarını ve bunların çözümlemeye çalıştıkları derin gizemleri daha iyi anlayabiliriz.",
+      "en": "By thinking more deeply about these problems (**from the measurement problem to the role of the observer**) we may better understand the limits of our present frameworks and the deep mysteries they are attempting to resolve.",
       "source": "Felsufi"
     },
     {
       "type": "criticalNote",
       "headingTr": "Devamı ve metin hakkında",
       "headingEn": "What follows, and about this text",
-      "tr": "Yazar, **bir sonraki yazıda kuantum teorisinin farklı formülasyon ve yorumlarını** ele alacağını bildirir; Everett'in çoklu evrenler teorisinin ayrıntılı izahı ve eleştirisi de oraya bırakılmıştır. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.** *“Korelasyon ≠ sinyal”* başlıklı not, yazının tezine dokunmayan bir **terminolojik açıklama** olarak editör tarafından eklenmiştir.",
-      "en": "The author announces that **the next piece will take up the various formulations and interpretations of quantum theory**; the detailed exposition and critique of Everett's Many-Worlds theory is left to it as well. **The Turkish is the author's own pen; the English is a translation.** The note headed *“correlation ≠ signal”* was added editorially as **a terminological clarification** that does not bear on the argument of the piece."
+      "tr": "Yazar, **bir sonraki yazıda kuantum teorisinin farklı formülasyon ve yorumlarını** ele alacağını bildirir; Everett'in çoklu evrenler teorisinin ayrıntılı izahı ve eleştirisi de oraya bırakılmıştır. Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir. *“Korelasyon ≠ sinyal”* başlıklı not, yazının tezine dokunmayan bir terminolojik açıklama olarak editör tarafından eklenmiştir.",
+      "en": "The author announces that **the next piece will take up the various formulations and interpretations of quantum theory**; the detailed exposition and critique of Everett's Many-Worlds theory is left to it as well. The Turkish is the author's own pen; the English is a translation. The note headed *“correlation ≠ signal”* was added editorially as a terminological clarification that does not bear on the argument of the piece."
     }
   ]
 }
