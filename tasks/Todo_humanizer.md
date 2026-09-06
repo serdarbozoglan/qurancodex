@@ -42,7 +42,7 @@ Etki × görünürlük sırasıyla:
 
 - [x] **P1 · Ana sayfa** (2026-09-05, commit b77d53e1) (`src/data/homeCards.js`, `src/i18n/tr.json` → `hero`/`conclusion`, `src/sections/SixGates.jsx`, `ConciergePrompt.jsx`, `page.js` ClusterWhisper satırları, `Hero.jsx:353`). Detay: §2.
 - [x] **P1 · Sayfa başlıkları ve meta açıklamaları** (2026-09-06; başlıklarda yalnız slogan yarıları değişti, Title Case tutarlılık için ertelendi, bkz. §3 notu) (80 `page.js` dosyasında `TITLE_TR/EN`, `DESC_TR/EN`). Google snippet'i ve `<h1>` altı bunlar. Detay: §3.
-- [ ] **P2 · Tefekkür tldr'ları ve criticalNote'lar** (`public/tefekkur/_index.json` + 53 yazı). Gövde yazarın; tldr ve not kutuları sitenin. Detay: §4.
+- [x] **P2 · Tefekkür tldr'ları ve criticalNote'lar** ✅ (2026-09-06: 53 tldr TR+EN yeniden yazıldı; criticalNote'lar bekliyor) (`public/tefekkur/_index.json` + 53 yazı). Gövde yazarın; tldr ve not kutuları sitenin. Detay: §4.
 - [ ] **P2 · Uzun anlatı bölümleri** (`src/i18n/tr.json` + `en.json`: linguisticDNA, hiddenSymmetry, scientificSigns, historicalProof, livingPreservation, zeroRedundancy, highlights, humanDefinition, psychology, impossibleRhythm, soundArchitecture). Bu bölümler Next tarafında `src/sections/*.jsx` üzerinden araç sayfalarında render ediliyor. Detay: §5.
 - [ ] **P3 · Araç ve atlas bileşenleri** (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.
 - [ ] **P3 · Katalog ve gezinme metinleri** (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
@@ -55,22 +55,22 @@ Etki × görünürlük sırasıyla:
 
 Dosyalar: `src/data/homeCards.js` · `src/i18n/tr.json` (`hero`, `conclusion`) · `src/i18n/en.json` · `src/sections/SixGates.jsx` · `src/sections/ConciergePrompt.jsx` · `src/sections/MethodologyRibbon.jsx` · `src/app/[locale]/page.js` (ClusterWhisper) · `src/components/Hero.jsx:353`
 
-- [ ] **Uzun tire**: 14 kartın 12'sinin blurb'ünde, hero taglinede, concierge'de, 3 whisper'dan 2'sinde, ProofSection'da. `homeCards.js` tek başına 50.
-- [ ] **"X değil — Y" 10 kez**: "Tekrar Değil — Nakarat", "retorik sorular bir didaktik araç değil, mimarinin kendisi", "Yakarış metin değil, yapı", "dua bir tek edebi formül değil", "İnsan tek bir kavramla değil", "Ne Şiir, Ne Düzyazı", "Yedi âyet düz bir liste değil", "çelişkisi değil, kanıtıdır", "bilimsel mucize iddiası değil", "Örüntü — kanıt değil". İkisi kalsın, sekizi olumlu cümleye dönsün.
-- [ ] **Kicker kalıbı 14/14**: "sayı · sayı · sayı — slogan". Sloganlar ("üç sütun, bir koruma", "üç ayna", "altı sır — altı keşif kapısı", "sınırsız diyalog", "1.400 yıllık derinlik", "1.400 yıllık eşsizlik") atılsın; sayı taşımayan kicker'lar boş kalsın.
-- [ ] **CTA 14/14 aynı**: "X Sayfasını Keşfet". Okurun orada ne yapacağını söyle: "14 harfin tablosunu aç", "31 nakaratı gör", "Halka şemasını aç", "Zaman çizelgesine bak". Yalnız blurb'de zaten geçen içeriğe dayan; yeni vaat ekleme.
-- [ ] **Aforizma cümleleri (§32)**: "Dil bir kapı; girene yeni bir oda açılır", "Yakarış metin değil, yapı", "İsnâd zinciri, sözel naklin bilim öncesi versiyonu", "Cevap her zaman okurun içinde", "Her boyut başka bir açıdan aynı sırrı gösterir", "Derinlere Daha Derinler". Kaf 50:16'ya bağlı whisper kalsın; diğer iki whisper ya kalksın ya somut cümleye dönsün.
-- [ ] **Kırık cümle dizisi**: `conclusion.summary` = "Kelimeleri dengeli. Sesleri duygusal. Yapısı simetrik. Anlamı katmanlı. 1.400 yıldır değişmemiş." → tek cümle.
-- [ ] **Satış sıfatları**: "eşsiz" ×3 (mukattaa, ritim ×2), "Gizemli", "sarsılmaz", "sınırsız", "sayısız iç sorgulama", "Dikkat çekici", "Sıfır Varyasyon", "sıfır gereksiz kelime". Metodoloji şeridindeki "Örtüşme ≠ kanıt" ile çelişiyor.
-- [ ] **Belirsiz kaynak**: "Korpus analizi: Kur'an'da sıfır gereksiz kelime" (tekrar kartı). Kaynak yoksa daraltılsın. `QuranRhetoric.jsx` bunu doğru yapıyor: "Bu yüzdeler sitenin kendi korpus analizinden türetilmiş tahminlerdir".
-- [ ] **Zaferci ton (§13.24 ile çelişki)**: psikoloji kartı "Kur'an modern psikolojiden 1.400 yıl önce ... isimlendirdi"; koruma kartı başlığı "1.400 Yıl · 1 Metin · Sıfır Varyasyon". İkinci whisper bu yüzden yumuşatılmıştı; bu ikisi kaldı.
-- [ ] **İkili karşıtlık kalıbı**: "ritmik ama vezinsiz, disiplinli ama özgür", "Sert Ünsüzler Korku · Yumuşak Akıcılar Şefkat", "Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal)". Bir tane yeter.
-- [ ] **Title Case (TR)**: "Arapça Bilmeden Görebileceğin Mimari", "Veriyle Keşfet, Görselle Anla", "Atlaslarda Detayda Kaybol", "Kul ile Rabbin Doğrudan Diyaloğu", "Yedi Mertebede İnsanın Haritası", "Nereden Başlamak İstiyorsun?". Türkçe başlık yalnız ilk harfi büyük yazar. Tamamı büyük harfli eyebrow'lar dışında.
-- [ ] **Hero'da aynı üçlü iki kez**: alt başlık "Dilbilimsel, Matematiksel ve Yapısal Katmanlarıyla" + tagline "dilsel, sayısal ve yapısal mimarisi" (`Hero.jsx:353`). Biri kalksın. "Bir metni okumak başka, yapısını görmek başkadır" sayfanın en iyi cümlesi; ona yer aç.
-- [ ] **Dil pürüzü**: Concierge "ayetleri ve içerikleri rehberler" → "rehberlik eder". `SorRoute.jsx` de aynı: "Sistem yorum katmaz — sadece rehberler."
-- [ ] **Terim tutarsızlığı**: SixGates "tool sayfasına geç", tum-araclar DESC "utility tool'lar", InventoryStrip "Araç". Tek terim.
-- [ ] **EN tarafı aynı kalıpları taşıyor**: "not a contradiction, but evidence of it", "Supplication is not text — it is structure", "He who knew you before you knew yourself — nearer...". TR ve EN birlikte düzeltilmeli.
-- [ ] **Test etkisi**: `tests/homepage-card-text.spec.js` kart metinlerini `tests/__baseline__/homepage-card-text-{tr,en}.json` ile karşılaştırıyor. Kart metni değişince `UPDATE_BASELINE=1` ile yeniden yazılmalı. `homepage-link-inventory` kart ID'lerine bağlı; ID'lere dokunma.
+- [x] **Uzun tire**: 14 kartın 12'sinin blurb'ünde, hero taglinede, concierge'de, 3 whisper'dan 2'sinde, ProofSection'da. `homeCards.js` tek başına 50.
+- [x] **"X değil — Y" 10 kez**: "Tekrar Değil — Nakarat", "retorik sorular bir didaktik araç değil, mimarinin kendisi", "Yakarış metin değil, yapı", "dua bir tek edebi formül değil", "İnsan tek bir kavramla değil", "Ne Şiir, Ne Düzyazı", "Yedi âyet düz bir liste değil", "çelişkisi değil, kanıtıdır", "bilimsel mucize iddiası değil", "Örüntü — kanıt değil". İkisi kalsın, sekizi olumlu cümleye dönsün.
+- [x] **Kicker kalıbı 14/14**: "sayı · sayı · sayı — slogan". Sloganlar ("üç sütun, bir koruma", "üç ayna", "altı sır — altı keşif kapısı", "sınırsız diyalog", "1.400 yıllık derinlik", "1.400 yıllık eşsizlik") atılsın; sayı taşımayan kicker'lar boş kalsın.
+- [x] **CTA 14/14 aynı**: "X Sayfasını Keşfet". Okurun orada ne yapacağını söyle: "14 harfin tablosunu aç", "31 nakaratı gör", "Halka şemasını aç", "Zaman çizelgesine bak". Yalnız blurb'de zaten geçen içeriğe dayan; yeni vaat ekleme.
+- [x] **Aforizma cümleleri (§32)**: "Dil bir kapı; girene yeni bir oda açılır", "Yakarış metin değil, yapı", "İsnâd zinciri, sözel naklin bilim öncesi versiyonu", "Cevap her zaman okurun içinde", "Her boyut başka bir açıdan aynı sırrı gösterir", "Derinlere Daha Derinler". Kaf 50:16'ya bağlı whisper kalsın; diğer iki whisper ya kalksın ya somut cümleye dönsün.
+- [x] **Kırık cümle dizisi**: `conclusion.summary` = "Kelimeleri dengeli. Sesleri duygusal. Yapısı simetrik. Anlamı katmanlı. 1.400 yıldır değişmemiş." → tek cümle.
+- [x] **Satış sıfatları**: "eşsiz" ×3 (mukattaa, ritim ×2), "Gizemli", "sarsılmaz", "sınırsız", "sayısız iç sorgulama", "Dikkat çekici", "Sıfır Varyasyon", "sıfır gereksiz kelime". Metodoloji şeridindeki "Örtüşme ≠ kanıt" ile çelişiyor.
+- [x] **Belirsiz kaynak**: "Korpus analizi: Kur'an'da sıfır gereksiz kelime" (tekrar kartı). Kaynak yoksa daraltılsın. `QuranRhetoric.jsx` bunu doğru yapıyor: "Bu yüzdeler sitenin kendi korpus analizinden türetilmiş tahminlerdir".
+- [x] **Zaferci ton (§13.24 ile çelişki)**: psikoloji kartı "Kur'an modern psikolojiden 1.400 yıl önce ... isimlendirdi"; koruma kartı başlığı "1.400 Yıl · 1 Metin · Sıfır Varyasyon". İkinci whisper bu yüzden yumuşatılmıştı; bu ikisi kaldı.
+- [x] **İkili karşıtlık kalıbı**: "ritmik ama vezinsiz, disiplinli ama özgür", "Sert Ünsüzler Korku · Yumuşak Akıcılar Şefkat", "Sarsılmaz kudret (Celal) ve sığınılacak şefkat (Cemal)". Bir tane yeter.
+- [x] **Title Case (TR)**: "Arapça Bilmeden ✅ (SixGates başlıkları cümle düzenine alındı; kart başlıkları da) Görebileceğin Mimari", "Veriyle Keşfet, Görselle Anla", "Atlaslarda Detayda Kaybol", "Kul ile Rabbin Doğrudan Diyaloğu", "Yedi Mertebede İnsanın Haritası", "Nereden Başlamak İstiyorsun?". Türkçe başlık yalnız ilk harfi büyük yazar. Tamamı büyük harfli eyebrow'lar dışında.
+- [x] **Hero'da aynı üçlü iki kez**: alt başlık "Dilbilimsel, Matematiksel ve Yapısal Katmanlarıyla" + tagline "dilsel, sayısal ve yapısal mimarisi" (`Hero.jsx:353`). Biri kalksın. "Bir metni okumak başka, yapısını görmek başkadır" sayfanın en iyi cümlesi; ona yer aç.
+- [x] **Dil pürüzü**: Concierge "ayetleri ve içerikleri rehberler" → "rehberlik eder". `SorRoute.jsx` de aynı: "Sistem yorum katmaz — sadece rehberler."
+- [x] **Terim tutarsızlığı**: SixGates "tool sayfasına geç", tum-araclar DESC "utility tool'lar", InventoryStrip "Araç". Tek terim.
+- [x] **EN tarafı aynı kalıpları taşıyor**: "not a contradiction, but evidence of it", "Supplication is not text — it is structure", "He who knew you before you knew yourself — nearer...". TR ve EN birlikte düzeltilmeli.
+- [x] **Test etkisi**: `tests/homepage-card-text.spec.js` kart metinlerini `tests/__baseline__/homepage-card-text-{tr,en}.json` ile karşılaştırıyor. Kart metni değişince `UPDATE_BASELINE=1` ile yeniden yazılmalı. `homepage-link-inventory` kart ID'lerine bağlı; ID'lere dokunma.
 
 Bozulmaması gerekenler: `ProofSection.jsx` (kaynağı adıyla veriyor, "Neden kesin kanıt değil?" başlığıyla sınırını çiziyor; sitenin en iyi yazılmış bölümü, diğer kartlar buna yaklaşmalı), hero açıklaması, Kaf 50:16 whisper'ı, footer metodoloji paragrafı, concierge "Hiçbir kişisel veri saklanmaz".
 
@@ -80,14 +80,14 @@ Bozulmaması gerekenler: `ProofSection.jsx` (kaynağı adıyla veriyor, "Neden k
 
 Dosyalar: 80 adet `src/app/[locale]/**/page.js` → `TITLE_TR/EN`, `DESC_TR/DESC_EN`.
 
-- [ ] **Başlık şablonu "X — Y"**: 80 başlığın ~30'u "Konu — Alt slogan" formunda: "Bilimsel İşaretler — 1.400 Yıl Sonra Keşfedilenler", "Ses Mimarisi — Sesler Tesadüf Değil", "Sıfır Gereksizlik — Her Kelime Bir Görev", "Yaşayan Koruma — Sıfır Varyasyon", "Zikir — Kalbin Suyu, Kur'ân'ın Nefesi", "Kurban — Teslimiyetin Aynası", "Tevbe — İki Taraftan Açılan Kapı", "Oruç — Takvanın Okulu", "Neden → Sonuç Atlası — Kur'ânî Zincirler". Sloganlar hem satış hem "X is the Y of Z" kalıbı (§32). Sade başlık + açıklayıcı desc daha insani.
-- [ ] **Desc şablonu "liste — liste; kaynak."**: 7 ibadet sayfasının 7'si aynı kalıp: "Terim, terim, terim — X'in Kur'ânî semantik alanı; ... Klasik tefsir kaynakları." Bir okur bunu ikinci sayfada fark eder. Her birine farklı bir giriş cümlesi.
-- [ ] **Desc'lerde uzun tire**: 80 desc'in ~65'inde. Meta description'da tire yerine nokta/virgül SERP'te de daha iyi kırılır.
-- [ ] **"Değil" kalıbı desc'lerde**: kitap-kavrami "yalnızca 'Kitap' değildir", ses-mimarisi "Sesler Tesadüf Değil", ritim "Ne Şiir, Ne Düzyazı", tarihsel-kanitlar "Kur'ân haber verir; bulgular tefekküre vesiledir" (bu sonuncusu iyi, kalsın).
-- [ ] **Sayı-nokta kicker'ları desc'te**: mukattaa "14 mukattaa harfi · 29 sûreyi açar · %25 kapsama." Meta açıklaması cümle olmalı.
-- [ ] **Satış dili**: kurani-tani "az bilinen, şaşırtan gerçekler" / "astonishing facts"; bilimsel-isaretler "1.400 Yıl Sonra Keşfedilenler" (site kuralı §13.24 ile çelişiyor: keşfeden bilim değil); koruma-zinciri "Sıfır Varyasyon" (aynı sayfanın kartı rasm/kıraat ayrımını zaten kabul ediyor).
+- [x] **Başlık şablonu "X — Y"** ✅ (9 slogan yarısı değişti; kalanlar tanımlayıcı olduğu için kaldı): 80 başlığın ~30'u "Konu — Alt slogan" formunda: "Bilimsel İşaretler — 1.400 Yıl Sonra Keşfedilenler", "Ses Mimarisi — Sesler Tesadüf Değil", "Sıfır Gereksizlik — Her Kelime Bir Görev", "Yaşayan Koruma — Sıfır Varyasyon", "Zikir — Kalbin Suyu, Kur'ân'ın Nefesi", "Kurban — Teslimiyetin Aynası", "Tevbe — İki Taraftan Açılan Kapı", "Oruç — Takvanın Okulu", "Neden → Sonuç Atlası — Kur'ânî Zincirler". Sloganlar hem satış hem "X is the Y of Z" kalıbı (§32). Sade başlık + açıklayıcı desc daha insani.
+- [x] **Desc şablonu "liste — liste; kaynak."**: 7 ibadet sayfasının 7'si aynı kalıp: "Terim, terim, terim — X'in Kur'ânî semantik alanı; ... Klasik tefsir kaynakları." Bir okur bunu ikinci sayfada fark eder. Her birine farklı bir giriş cümlesi.
+- [x] **Desc'lerde uzun tire**: 80 desc'in ~65'inde. Meta description'da tire yerine nokta/virgül SERP'te de daha iyi kırılır.
+- [x] **"Değil" kalıbı desc'lerde**: kitap-kavrami "yalnızca 'Kitap' değildir", ses-mimarisi "Sesler Tesadüf Değil", ritim "Ne Şiir, Ne Düzyazı", tarihsel-kanitlar "Kur'ân haber verir; bulgular tefekküre vesiledir" (bu sonuncusu iyi, kalsın).
+- [x] **Sayı-nokta kicker'ları desc'te**: mukattaa "14 mukattaa harfi · 29 sûreyi açar · %25 kapsama." Meta açıklaması cümle olmalı.
+- [x] **Satış dili**: kurani-tani "az bilinen, şaşırtan gerçekler" / "astonishing facts"; bilimsel-isaretler "1.400 Yıl Sonra Keşfedilenler" (site kuralı §13.24 ile çelişiyor: keşfeden bilim değil); koruma-zinciri "Sıfır Varyasyon" (aynı sayfanın kartı rasm/kıraat ayrımını zaten kabul ediyor).
 - [ ] **Türkçe Title Case**: neredeyse tüm TITLE_TR'ler. "Huruf-i Mukattaâ — Kur'an'ın Dilsel DNA'sı" tamam (özel ad), ama "İsimlendirme Ekonomisi — Kur'ân Kimi Adlandırır?", "Eleştirel Çerçeve — Zorlu Sorular ve Ulemânın Cevapları", "Tefsir İhtilafları — Kur'ân Mesellerinde Müfessir Karşılaştırması" İngilizce başlık kuralıyla yazılmış.
-- [ ] **İngilizce kelime TR desc'te**: "refrain", "sui generis", "curated şekilde", "utility tool'lar", "Prophetic Perfect", "Historical Present". Ya Türkçesi ya italik terim olarak açıklama.
+- [x] **İngilizce kelime TR desc'te**: "refrain", "sui generis", "curated şekilde", "utility tool'lar", "Prophetic Perfect", "Historical Present". Ya Türkçesi ya italik terim olarak açıklama.
 - [ ] Temiz örnekler (dokunma): `/graf/ayet` desc ("Bir ayete tıkla, ona en çok benzeyen ayetleri gör"), `/graf/karsilastir`, `/oku`, `/atlas/kissa`, `/hakkinda` gövde metni.
 
 ---
@@ -98,7 +98,7 @@ Dosyalar: `public/tefekkur/_index.json` (53 tldr) · `public/tefekkur/*.json` (g
 
 Önce karar: Gövde metinleri Felsufi'nin; tefekkür sayfası "yazarın şahsi içtihad ve okuma denemeleri" diyor ve kanonik kaynak Medium/Substack. **Yazarın sesine dokunulmamalı.** Sitenin ürettiği katman ise tldr, criticalNote, contrastDuo/flowChain etiketleri ve JSON'a dönüştürme sırasında eklenen biçimlendirme. Bu katman en AI-kokulu yer.
 
-- [ ] **tldr'lar (53/53) aynı şablonda**: "**Tez = tanım.** İki kutup: A ↔ B. Üç katman: (1)… (2)… (3)…" Örnekler:
+- [x] **tldr'lar (53/53) aynı şablonda** ✅ (2026-09-06: tamamı düz cümleyle yeniden yazıldı; TefekkurHighlight'taki 2 kısa tanıtım eşlendi): "**Tez = tanım.** İki kutup: A ↔ B. Üç katman: (1)… (2)… (3)…" Örnekler:
   - "**Şuur = farkındalık dengesi.** İki yanılgı arasında: delusion ↔ blindness. Dereceli — binary değil."
   - "**Kalem = encoder + recorder** — bilgiyi soyutlayıp sembolize edip kaydeden her şey"
   - "Temel tez: **Şuur, yerel fayda maksimizasyonunu kainatın evrensel fayda maksimizasyonuna hizalayan mekanizmadır.**"
@@ -113,6 +113,8 @@ Dosyalar: `public/tefekkur/_index.json` (53 tldr) · `public/tefekkur/*.json` (g
 - [ ] **Başlıklarda Title Case + "X: Y" çift başlık**: "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi", "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi", "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak" (iki ayraç birden). Bunlar yazarın başlıkları olabilir; kontrol edilmeli.
 
 ---
+
+> Yan bulgu (2026-09-06, humanizer dışı): `/tefekkur/[slug]` sayfasında iç içe iki `<main>` var (`#main` içinde ikinci bir `<main class="jsx-…">`). HTML'de `main` tek olmalı; erişilebilirlik ve Playwright strict-mode için ayrı bir düzeltme maddesi.
 
 ## 5. Uzun anlatı bölümleri — tr.json / en.json (P2)
 
@@ -169,7 +171,7 @@ Dosyalar: `src/data/toolCatalog.js`, `src/data/tools.jsx`, `src/data/exploreCate
 
 - [ ] **Hakkında** (`src/app/[locale]/hakkinda/`): Gövde büyük ölçüde insani ve net (epistemik duruş, kaynaklar, sınırlar). Küçük: "kuru bir ders değil, bir keşif yolculuğuna dönüştürmektir" (§9 + "journey"), "yalnızca bilgilendirmeyi değil, tefekküre davet etmeyi" (§9), "sinematik ve etkileşimli araçlarla" (CLAUDE.md dilinden sızmış pazarlama kelimesi), DESC sonu "— açıkça." / "— stated openly." (kırık vurgu).
 - [ ] **Kaynakça**: temiz; tek satırlık eser açıklamaları doğal. "Pinnacle of rational/theological exegesis" ("doruğu") tek satış kelimesi. Dokunma.
-- [ ] **Sor**: "Sistem yorum katmaz — sadece rehberler." (fiil hatası + tire; ana sayfa concierge'de de aynı). Fetva uyarısı iyi, kalsın. Örnek sorular doğal.
+- [x] **Sor**: "Sistem yorum katmaz — sadece rehberler." (fiil hatası + tire; ana sayfa concierge'de de aynı). Fetva uyarısı iyi, kalsın. Örnek sorular doğal.
 - [ ] **Kütüphanem**, **not-found**: yalnız tire.
 - [ ] **Footer** `support.description`: "Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar." (§3 -ing uzantısı + journey). İlk cümle yeter.
 
