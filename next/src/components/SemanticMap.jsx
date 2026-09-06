@@ -126,8 +126,8 @@ export default function SemanticMap({ onClose }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar — anlamsal kümelerin insan-tanımlı karşılığı.', descEn: 'Concept connections — human-defined counterpart of semantic clusters.' },
-          { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions Atlas', descTr: 'Yakın anlamlı kelimeler — kümelenmenin kelime düzeyindeki mekaniği.', descEn: 'Near-synonym words — the word-level mechanics of clustering.' },
+          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar: anlamsal kümelerin insan tanımlı karşılığı.', descEn: 'Concept connections: the human-defined counterpart of semantic clusters.' },
+          { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions Atlas', descTr: 'Yakın anlamlı kelimeler: kümelenmenin kelime düzeyindeki mekaniği.', descEn: 'Near-synonym words: the word-level mechanics of clustering.' },
           { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Tek ayet düzeyinde anlamca yakın ayetleri görselleştir.', descEn: 'Visualize the verses closest in meaning to a single verse.' },
         ]}
       />
@@ -202,13 +202,13 @@ export default function SemanticMap({ onClose }) {
               },
               {
                 labelTr: 'Gösterilen kümeler', labelEn: 'Clusters shown',
-                valueTr: `Algoritma toplam ${data.total_communities_found} topluluk buldu; bunlardan ${data.meaningful_communities}'i (çok küçük/dağınık olmayanlar) "anlamlı" sayılıp gösteriliyor — geri kalan ${data.total_communities_found - data.meaningful_communities} topluluk sayfada yer almaz.`,
-                valueEn: `The algorithm found ${data.total_communities_found} communities in total; ${data.meaningful_communities} of them (excluding very small/diffuse ones) are judged "meaningful" and shown here — the remaining ${data.total_communities_found - data.meaningful_communities} communities do not appear on this page.`,
+                valueTr: `Algoritma toplam ${data.total_communities_found} topluluk buldu; bunlardan ${data.meaningful_communities}'i (çok küçük/dağınık olmayanlar) "anlamlı" sayılıp gösteriliyor; geri kalan ${data.total_communities_found - data.meaningful_communities} topluluk sayfada yer almaz.`,
+                valueEn: `The algorithm found ${data.total_communities_found} communities in total; ${data.meaningful_communities} of them (excluding very small/diffuse ones) are judged "meaningful" and shown here; the remaining ${data.total_communities_found - data.meaningful_communities} communities do not appear on this page.`,
               },
               {
                 labelTr: 'Başlıklar', labelEn: 'Titles',
-                valueTr: 'Her kümenin başlığı ve özeti, algoritmanın ürettiği bir etiket DEĞİL — küme içindeki ayetler okunarak yazılmış editoryal bir isimlendirmedir.',
-                valueEn: 'Each cluster\'s title and summary is NOT an algorithmic label — it is an editorial name written after reading the verses within that cluster.',
+                valueTr: 'Her kümenin başlığı ve özeti, algoritmanın ürettiği bir etiket DEĞİL, küme içindeki ayetler okunarak yazılmış editoryal bir isimlendirmedir.',
+                valueEn: 'Each cluster\'s title and summary is NOT an algorithmic label; it is an editorial name written after reading the verses within that cluster.',
               },
             ]}
           />

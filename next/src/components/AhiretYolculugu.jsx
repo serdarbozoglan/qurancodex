@@ -396,9 +396,9 @@ export default function AhiretYolculugu({ onClose }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Paradise & Hell', descTr: 'Yolculuğun iki nihai varış noktası — Kur\'an\'daki tasvirlerle.', descEn: 'The journey\'s two final destinations — with Quranic descriptions.' },
-            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Yolculuğun başlangıcı — sûr\'un üflenişi ve kozmik son.', descEn: 'The journey\'s beginning — the trumpet blast and cosmic end.' },
-            { href: `/${language}/arac/melekler`, titleTr: 'Melekler Atlası', titleEn: 'Angels Atlas', descTr: 'Ölüm meleği, sûr meleği, sırât meleği — yolculuğun rehberleri.', descEn: 'Angel of death, trumpet angel, ṣirāṭ angel — guides of the journey.' },
+            { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Paradise & Hell', descTr: 'Yolculuğun iki nihai varış noktası, Kur\'an\'daki tasvirlerle.', descEn: 'The journey\'s two final destinations, with Quranic descriptions.' },
+            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Yolculuğun başlangıcı: sûr\'un üflenişi ve kozmik son.', descEn: 'The journey\'s beginning: the trumpet blast and cosmic end.' },
+            { href: `/${language}/arac/melekler`, titleTr: 'Melekler Atlası', titleEn: 'Angels Atlas', descTr: 'Ölüm meleği, sûr meleği, sırât meleği: yolculuğun rehberleri.', descEn: 'Angel of death, trumpet angel, ṣirāṭ angel: guides of the journey.' },
           ]}
         />
       </div>
@@ -730,7 +730,7 @@ function IndexRail({ stages, activeIdx, onJump, tr }) {
                     letterSpacing: '0.06em',
                   }}>{String(i + 1).padStart(2, '0')}</span>
                   <span style={{ flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {tr ? s.titleTr.split(' — ')[0] : s.titleEn.split(' — ')[0]}
+                    {tr ? s.titleTr.split(/ — |: /)[0] : s.titleEn.split(/ — |: /)[0]}
                   </span>
                 </button>
               </li>

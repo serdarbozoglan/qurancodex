@@ -172,9 +172,9 @@ export default function InsanTanimi({ onClose }) {
         <CrossToolCTA
           language={language} isMobile={isMobile}
           links={[
-            { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Soul', descTr: "İnsanın iç yolculuğu — emmâreden mutmainneye 7 basamak.", descEn: 'Human inner journey — 7 stations from ammāra to muṭmaʾinna.' },
-            { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Kalp, korku, savunma — Kur\'an\'ın iç haritası 9 tab.', descEn: 'Heart, fear, defense — the Qur\'an\'s inner map in 9 tabs.' },
-            { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: "İnsan denklemi kıssalarda nasıl işler — 25 peygamber.", descEn: 'How the human equation works in stories — 25 prophets.' },
+            { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Soul', descTr: "İnsanın iç yolculuğu: emmâreden mutmainneye 7 basamak.", descEn: 'Human inner journey: 7 stations from ammāra to muṭmaʾinna.' },
+            { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Kalp, korku, savunma: Kur\'an\'ın iç haritası, 9 sekme.', descEn: 'Heart, fear, defense: the Qur\'an\'s inner map in 9 tabs.' },
+            { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: "İnsan denklemi kıssalarda nasıl işler? 25 peygamber.", descEn: 'How does the human equation work in the stories? 25 prophets.' },
           ]}
         />
       </div>
@@ -401,8 +401,8 @@ function SourcesTab({ language, isMobile, sources }) {
           fontFamily: FONTS.body, margin: 0,
         }}>
           {language === 'tr'
-            ? "Kur'ân'ın insan tanımı üzerine kurulmuş klasik ve modern kaynaklar — kelime köklerinden denklem yapısına, fıkıhtan psikolojiye."
-            : "Classical and modern sources on the Qur'ān's definition of humanity — from word roots to equation structure, from jurisprudence to psychology."}
+            ? "Kur'ân'ın insan tanımı üzerine klasik ve modern kaynaklar: kelime kökleri, denklem yapısı, fıkıh ve psikoloji."
+            : "Classical and modern sources on the Qur'ān's definition of humanity: word roots, equation structure, jurisprudence and psychology."}
         </p>
       </div>
       <SourcesCitation language={language} isMobile={isMobile} sources={sources} />

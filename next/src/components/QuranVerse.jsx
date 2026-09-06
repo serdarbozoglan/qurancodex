@@ -179,7 +179,7 @@ export default function QuranVerse({
             onClick={handleToggle}
             disabled={hasFailed}
             title={hasFailed ? 'Ses yüklenemedi' : isPlaying ? 'Durdur' : 'Dinle'}
-            aria-label={hasFailed ? 'Ayet tilâveti — ses yüklenemedi' : isPlaying ? 'Ayet tilâvetini durdur' : 'Ayet tilâvetini oynat'}
+            aria-label={hasFailed ? 'Ayet tilâveti: ses yüklenemedi' : isPlaying ? 'Ayet tilâvetini durdur' : 'Ayet tilâvetini oynat'}
             style={{
               position: 'absolute', bottom: '14px', right: '14px',
               width: '44px', height: '44px', borderRadius: RADIUS.full,

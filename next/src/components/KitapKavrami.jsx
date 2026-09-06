@@ -56,9 +56,9 @@ export default function KitapKavrami() {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/insan-tanimi`, titleTr: 'İnsan Tanımı', titleEn: "Definition of the Human", descTr: "Kur'ân insanı nasıl tanımlar — bu sayfanın ayna eşi.", descEn: "How the Quran defines the human — the mirror pair to this page." },
-          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Hüdâ, nûr, zikr, hikmet — Kur\'ânî kavramların bağlantı haritası.', descEn: 'Hudā, nūr, dhikr, ḥikma — the connection map of Quranic concepts.' },
-          { href: `/${language}/atlas/furuk`, titleTr: 'Furûk Atlası', titleEn: 'Furūq Atlas', descTr: "Yakın anlamlı kelime nüansları — beyân ↔ tibyân ↔ mübîn farkı.", descEn: 'Nuances between near-synonyms — the difference between bayān ↔ tibyān ↔ mubīn.' },
+          { href: `/${language}/atlas/insan-tanimi`, titleTr: 'İnsan Tanımı', titleEn: "Definition of the Human", descTr: "Kur'ân insanı nasıl tanımlar? Bu sayfanın ayna eşi.", descEn: "How does the Quran define the human? The mirror pair to this page." },
+          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Hüdâ, nûr, zikr, hikmet: Kur\'ânî kavramların bağlantı haritası.', descEn: 'Hudā, nūr, dhikr, ḥikma: the connection map of Quranic concepts.' },
+          { href: `/${language}/atlas/furuk`, titleTr: 'Furûk Atlası', titleEn: 'Furūq Atlas', descTr: "Yakın anlamlı kelime nüansları: beyân ↔ tibyân ↔ mübîn farkı.", descEn: 'Nuances between near-synonyms: the difference between bayān ↔ tibyān ↔ mubīn.' },
         ]}
       />
     </div>
@@ -153,8 +153,8 @@ export default function KitapKavrami() {
               workTr: "el-Müfredât fî Garîbi\'l-Kurʾân",
               workEn: 'al-Mufradāt fī Gharīb al-Qurʾān',
               period: '?–1108 (İsfahan)',
-              noteTr: "Kur'ân\'daki her kelimenin kök + türev + tam anlam yelpazesi. Kur'ân\'ın kendi isimleri için temel başvuru — beyân, tibyân, mübîn ayrımı buradan.",
-              noteEn: "Root, derivation, and full meaning-spectrum of every word in the Quran. The foundational reference for the Quran\'s self-names — the distinction between bayān, tibyān, mubīn comes from here.",
+              noteTr: "Kur'ân\'daki her kelimenin kök + türev + tam anlam yelpazesi. Kur'ân\'ın kendi isimleri için temel başvuru; beyân, tibyân, mübîn ayrımı buradan.",
+              noteEn: "Root, derivation, and full meaning-spectrum of every word in the Quran. The foundational reference for the Quran\'s self-names; the distinction between bayān, tibyān, mubīn comes from here.",
             },
             {
               author: 'ez-Zerkeşî',
@@ -169,16 +169,16 @@ export default function KitapKavrami() {
               workTr: "el-İtkān fî Ulûmi\'l-Kurʾân",
               workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
               period: '1445–1505 (Kahire)',
-              noteTr: "Nev'i 17 'Kur'ân\'ın isim ve künyeleri' — 55 farklı isim ve sıfat inventarize eder; klasik referansın en kapsamlısı.",
-              noteEn: "Species 17, 'The names and epithets of the Quran' — inventories 55 different names and attributes; the most comprehensive classical reference.",
+              noteTr: "Nev'i 17 'Kur'ân\'ın isim ve künyeleri' 55 farklı isim ve sıfatı listeler; klasik referansın en kapsamlısı.",
+              noteEn: "Species 17, 'The names and epithets of the Quran', inventories 55 different names and attributes; the most comprehensive classical reference.",
             },
             {
               author: 'Gazâlî',
               workTr: "Cevâhirü\'l-Kurʾân",
               workEn: 'Jawāhir al-Qurʾān',
               period: '1058–1111',
-              noteTr: "Kur'ân\'ı bir mücevher hazinesi olarak okur — nûr, şifâ, hüdâ gibi isimleri deneyimsel çerçevede işler.",
-              noteEn: 'Reads the Quran as a jewel-treasure — treats names like nūr, shifāʾ, hudā within an experiential frame.',
+              noteTr: "Kur'ân\'ı bir mücevher hazinesi olarak okur; nûr, şifâ, hüdâ gibi isimleri deneyimsel çerçevede işler.",
+              noteEn: 'Reads the Quran as a jewel-treasure; treats names like nūr, shifāʾ, hudā within an experiential frame.',
             },
           ]}
         />

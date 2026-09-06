@@ -258,15 +258,15 @@ function AccordionItem({ item, accentColor }) {
 const TAB_CTA = {
   nefs: {
     event: 'openNefisMertebeleri',
-    labelTr: '↗ NEFSİN MERTEBELERİ ATLAS — TAM 7 MAKÂM',
-    labelEn: '↗ STAGES OF THE SOUL ATLAS — FULL 7 STATIONS',
-    descTr: 'Tasavvufî sistematik (Necmeddin Kübra) — bu sayfadaki 5\'li özetin tam karşılığı',
-    descEn: 'Sufi systematization (Najm al-Dīn Kubrā) — the full counterpart to this page\'s 5-stage summary',
+    labelTr: '↗ NEFSİN MERTEBELERİ ATLASI: TAM 7 MAKÂM',
+    labelEn: '↗ STAGES OF THE SOUL ATLAS: FULL 7 STATIONS',
+    descTr: 'Tasavvufî sistematik (Necmeddin Kübra); bu sayfadaki 5\'li özetin tam karşılığı',
+    descEn: 'Sufi systematization (Najm al-Dīn Kubrā); the full counterpart to this page\'s 5-stage summary',
   },
   yusuf: {
     event: 'openProphetAtlas',
-    labelTr: '↗ PEYGAMBERLER ATLAS — HZ. YUSUF',
-    labelEn: '↗ PROPHETS ATLAS — JOSEPH (AS)',
+    labelTr: '↗ PEYGAMBERLER ATLASI: HZ. YUSUF',
+    labelEn: '↗ PROPHETS ATLAS: JOSEPH (AS)',
     descTr: 'Kıssanın tam zaman çizelgesi, mekânlar ve aile bağları',
     descEn: 'Full timeline of the narrative, locations and family ties',
   },
@@ -649,7 +649,7 @@ export default function PsychologySection() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ KUR’AN’DA İBLİS / ŞEYTAN — ATLASI AÇ' : '↗ IBLĪS / SHAYṬĀN IN THE QUR’AN — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ KUR’AN’DA İBLİS / ŞEYTAN: ATLASI AÇ' : '↗ IBLĪS / SHAYṬĀN IN THE QUR’AN: OPEN THE ATLAS'}
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
@@ -667,15 +667,15 @@ export default function PsychologySection() {
       <motion.div variants={fadeUpItem} className="mt-6">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {language === 'tr' ? 'Daha Derine — Psikolojik Derinliği Yüksek Sûreler' : 'Go Deeper — Suras of Psychological Depth'}
+            {language === 'tr' ? 'Daha Derine: Psikolojik Derinliği Yüksek Sûreler' : 'Go Deeper: Suras of Psychological Depth'}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { surahNum: 12, titleTr: 'Yûsuf Sûresi (12)', titleEn: 'Sura Yūsuf (12)', descTr: 'Travma, hased, sabır, iyileşme — peygamber kıssalarının psikolojik atlası.', descEn: 'Trauma, envy, patience, healing — the psychological atlas of prophetic narratives.' },
-            { surahNum: 12, titleTr: 'Yûsuf 12:53', titleEn: 'Yūsuf 12:53', descTr: '"إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ" — nefs-i emmâre öğretisi.', descEn: '"Indeed, the soul is ever inclined to evil" — the doctrine of the commanding soul.' },
-            { surahNum: 75, titleTr: 'Kıyâmet 75:2', titleEn: 'al-Qiyāma 75:2', descTr: '"وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ" — nefs-i levvâme: kendini kınayan vicdan.', descEn: '"I swear by the self-reproaching soul" — al-nafs al-lawwāma: the reproaching conscience.' },
+            { surahNum: 12, titleTr: 'Yûsuf Sûresi (12)', titleEn: 'Sura Yūsuf (12)', descTr: 'Travma, hased, sabır, iyileşme: peygamber kıssalarının psikolojik atlası.', descEn: 'Trauma, envy, patience, healing: the psychological atlas of prophetic narratives.' },
+            { surahNum: 12, titleTr: 'Yûsuf 12:53', titleEn: 'Yūsuf 12:53', descTr: '"إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ": nefs-i emmâre öğretisi.', descEn: '"Indeed, the soul is ever inclined to evil": the doctrine of the commanding soul.' },
+            { surahNum: 75, titleTr: 'Kıyâmet 75:2', titleEn: 'al-Qiyāma 75:2', descTr: '"وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ": nefs-i levvâme, kendini kınayan vicdan.', descEn: '"I swear by the self-reproaching soul": al-nafs al-lawwāma, the reproaching conscience.' },
           ].map((tt, i) => (
             <motion.div
               key={i}

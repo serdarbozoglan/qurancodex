@@ -170,7 +170,7 @@ export default function HeroRing({ className }) {
         ctx.strokeStyle = 'rgba(212,165,116,.55)'; ctx.lineWidth = 2; ctx.stroke();
         const n = hovSura + 1, mk = MUKATTAA[n], lc = langRef.current;
         const ayetLbl = lc === 'en' ? 'verses' : 'âyet';
-        const readLbl = lc === 'en' ? 'CLICK — READ SURA' : 'TIKLA — SÛREYİ OKU';
+        const readLbl = lc === 'en' ? 'CLICK: READ SURA' : 'TIKLA: SÛREYİ OKU';
         tip.style.opacity = 1; tip.style.left = mx + 'px';
         if (my < 150) { tip.style.top = (my + 18) + 'px'; tip.style.transform = 'translate(-50%,0)'; }
         else { tip.style.top = my + 'px'; tip.style.transform = 'translate(-50%,-140%)'; }

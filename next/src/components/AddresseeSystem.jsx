@@ -88,22 +88,22 @@ export default function AddresseeSystem({ onClose }) {
             href: `/${language}/graf/diyalog`,
             titleTr: 'Diyalog Ağı',
             titleEn: 'Dialogue Network',
-            descTr: 'Kur\'an\'da ~300 diyalog — muhatap sistemi\'nin canlı sahneleri.',
-            descEn: '~300 dialogues in the Quran — the addressee system in living scenes.',
+            descTr: 'Kur\'an\'da yaklaşık 300 diyalog: muhatap sisteminin canlı sahneleri.',
+            descEn: 'Roughly 300 dialogues in the Quran: the addressee system in living scenes.',
           },
           {
             href: `/${language}/arac/retorik`,
             titleTr: "Kur'an Belâgatı",
             titleEn: 'Quranic Rhetoric',
-            descTr: 'Muhatap seçimi retoriğin çekirdeğidir — iltifât, takdîm-tehîr.',
-            descEn: 'Choice of addressee is the core of rhetoric — iltifāt, syntactic shifts.',
+            descTr: 'Muhatap seçimi retoriğin çekirdeğidir: iltifât, takdîm-tehîr.',
+            descEn: 'Choice of addressee is the core of rhetoric: iltifāt, syntactic shifts.',
           },
           {
             href: `/${language}/arac/dua-dili`,
             titleTr: 'Dua Dili',
             titleEn: 'Language of Prayer',
-            descTr: 'İnsanın Allah\'a hitabı — muhatap sisteminin özel bir alt-tipi.',
-            descEn: "The human's address to God — a special subtype of the addressee system.",
+            descTr: 'İnsanın Allah\'a hitabı: muhatap sisteminin özel bir alt tipi.',
+            descEn: "The human's address to God: a special subtype of the addressee system.",
           },
         ]}
       />
@@ -159,8 +159,8 @@ export default function AddresseeSystem({ onClose }) {
         </p>
         <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
           {language === 'tr'
-            ? <>Kur&apos;an&apos;ın en sık üç hitap ekseni <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;n-nâs</em> (tüm insanlar), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;l-lezîne âmenû</em> (müminler) ve <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;n-nebî</em> (Resul) — ama sesleniş bununla bitmez: İsrailoğulları&apos;ndan Ehl-i Kitap&apos;a, Âdemoğulları&apos;ndan Peygamber&apos;in eşlerine <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 farklı muhatap</em> vardır. Hitap değişimi anlam değişimidir.</>
-            : <>The Quran&apos;s three most frequent registers are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;n-nās</em> (all mankind), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;l-ladhīna āmanū</em> (believers), and <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;n-nabī</em> (the Messenger) — yet the address goes further: from the Children of Israel to the People of the Book, the children of Adam to the wives of the Prophet, there are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 distinct addressees</em>. A shift in address is a shift in meaning.</>}
+            ? <>Kur&apos;an&apos;ın en sık üç hitap ekseni <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;n-nâs</em> (tüm insanlar), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;l-lezîne âmenû</em> (müminler) ve <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;n-nebî</em> (Resul). Ama sesleniş bununla bitmez: İsrailoğulları&apos;ndan Ehl-i Kitap&apos;a, Âdemoğulları&apos;ndan Peygamber&apos;in eşlerine <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 farklı muhatap</em> vardır. Hitap değişimi anlam değişimidir.</>
+            : <>The Quran&apos;s three most frequent registers are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;n-nās</em> (all mankind), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;l-ladhīna āmanū</em> (believers), and <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;n-nabī</em> (the Messenger). Yet the address goes further: from the Children of Israel to the People of the Book, the children of Adam to the wives of the Prophet, there are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 distinct addressees</em>. A shift in address is a shift in meaning.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>

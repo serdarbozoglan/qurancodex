@@ -89,8 +89,8 @@ export default function InsanYolculugu({ onClose }) {
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18" /></svg>}
         titleTr="İnsan Yolculuğu"
         titleEn="The Human Journey"
-        subtitleTr="Fıtrattan Cemâlullah'a — 10 aşama"
-        subtitleEn="From Fiṭra to Jamāl Allāh — 10 stages"
+        subtitleTr="Fıtrattan Cemâlullah'a 10 aşama"
+        subtitleEn="From Fiṭra to Jamāl Allāh in 10 stages"
         language={language}
       />
 
@@ -425,7 +425,7 @@ export default function InsanYolculugu({ onClose }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Âhiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'Yolculuğun ötesi — sekerâttan rü\'yetullâha 11 aşama.', descEn: 'Beyond the journey — 11 stages from death throes to the vision of God.' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Âhiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'Yolculuğun ötesi: sekerâttan rü\'yetullâha 11 aşama.', descEn: 'Beyond the journey: 11 stages from death throes to the vision of God.' },
               { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Levels of the Self', descTr: 'Emmâre → Levvâme → Mülhime → Mutmainne → Râzıye → Marzıyye → Kâmile.', descEn: 'Ammāra → Lawwāma → Mulhima → Muṭmaʾinna → Rāḍiya → Marḍiyya → Kāmila.' },
               { href: `/${language}/arac/esma-frekans`, titleTr: 'Esmâ-i Hüsnâ', titleEn: 'The Beautiful Names', descTr: 'Yolculuğun her aşamasında farklı bir isim çağrılır.', descEn: 'Each stage of the journey calls a different Divine Name.' },
             ]}

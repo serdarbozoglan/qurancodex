@@ -191,8 +191,8 @@ export default function RetorikSorular({ onClose }) {
               '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>{tr
-              ? <>Kur&apos;ân&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold }}>retoriği</em> tek bir sanat değil — istifhâm, iltifât, tibâk, istiʿâre, kinâye ve cinâs — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>altı sanat ailesinin</em> ortak dansı.</>
-              : <>The Qur&apos;an&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold }}>rhetoric</em> is not one art — istifhām, iltifāt, ṭibāq, istiʿāra, kināya, and jinās — the shared dance of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>six art families</em>.</>}</p>
+              ? <>Kur&apos;ân&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold }}>retoriği</em> tek bir sanat değil; istifhâm, iltifât, tibâk, istiʿâre, kinâye ve cinâs olmak üzere <em style={{ fontStyle: 'normal', color: COLORS.gold }}>altı sanat ailesinin</em> ortak dansı.</>
+              : <>The Qur&apos;an&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold }}>rhetoric</em> is not one art; istifhām, iltifāt, ṭibāq, istiʿāra, kināya and jinās form the shared dance of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>six art families</em>.</>}</p>
             <div aria-hidden="true" style={{
               width: '120px', height: '1px',
               background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
@@ -266,8 +266,8 @@ export default function RetorikSorular({ onClose }) {
                 fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
               }}>
                 {tr
-                  ? 'İstifhâm — Kur\'ân\'ın en yaygın belâgat sanatı. 1200+ soru ayeti, 4 alt-kategori (İnkârî, İrşâdî, Tevbîhî, Taʿaccübî). Bu bölüm mevcut istifhâm analizini gösterir; diğer 5 belâgat ailesi üstteki chip\'lerden seçilebilir.'
-                  : 'Istifhām — the Qur\'an\'s most widespread rhetorical art. 1200+ question verses, 4 subcategories (Inkārī, Irshādī, Tawbīkhī, Taʿajjubī). This section shows the existing istifhām analysis; the other 5 belāgha families can be selected from the chips above.'}
+                  ? 'İstifhâm: Kur\'ân\'ın en yaygın belâgat sanatı. 1200\'den fazla soru ayeti, 4 alt-kategori (İnkârî, İrşâdî, Tevbîhî, Taʿaccübî). Bu bölüm mevcut istifhâm analizini gösterir; diğer 5 belâgat ailesi üstteki chip\'lerden seçilebilir.'
+                  : 'Istifhām: the Qur\'an\'s most widespread rhetorical art. More than 1200 question verses, 4 subcategories (Inkārī, Irshādī, Tawbīkhī, Taʿajjubī). This section shows the existing istifhām analysis; the other 5 belāgha families can be selected from the chips above.'}
               </p>
               <QuranRhetoric />
             </div>

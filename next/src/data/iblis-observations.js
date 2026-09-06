@@ -9,7 +9,7 @@ export const OBSERVATIONS = [
     labelTr: 'Ayet aralığı',
     labelEn: 'Verse range',
     bodyTr: 'Aynı olay 1 ayetten 16 ayete esnetilmiş; aralarında 16 katlık fark vardır.',
-    bodyEn: 'The same event ranges from 1 to 16 verses — a sixteenfold spread.',
+    bodyEn: 'The same event ranges from 1 to 16 verses, a sixteenfold spread.',
     groups: [
       {
         labelTr: 'EN KISA', labelEn: 'SHORTEST',
@@ -76,8 +76,8 @@ export const OBSERVATIONS = [
     statValue: '3 + 3 + 3',
     labelTr: 'Üç diyalog turu',
     labelEn: 'Three dialogue turns',
-    bodyTr: "A'râf, Hicr ve Sâd anlatımlarında İblis tam üç diyalog turunda konuşur — her tur Allah'ın bir sözüne karşılık. İsrâ'da iki tur, kalan üç sûrede İblis hiç konuşmaz.",
-    bodyEn: "In Aʿrāf, Ḥijr and Ṣād, Iblis speaks across exactly three dialogue turns — each a reply to a divine address. Two turns in Isrāʾ, and silence in the remaining three.",
+    bodyTr: "A'râf, Hicr ve Sâd anlatımlarında İblis tam üç diyalog turunda konuşur; her tur Allah'ın bir sözüne karşılık. İsrâ'da iki tur, kalan üç sûrede İblis hiç konuşmaz.",
+    bodyEn: "In Aʿrāf, Ḥijr and Ṣād, Iblis speaks across exactly three dialogue turns, each a reply to a divine address. Two turns in Isrāʾ, and silence in the remaining three.",
     groups: [
       {
         labelTr: "A'RÂF (3)", labelEn: "A'RAF (3)",
@@ -142,8 +142,8 @@ export const OBSERVATIONS = [
     statValue: '1 / 7',
     labelTr: 'Soy hedefi açıkça vurgulanır',
     labelEn: 'Lineage target explicitly stated',
-    bodyTr: 'Yedi anlatımdan yalnız İsrâ\'da hedef bireyden soya kayar (lā-aḥtanikanne ẕurriyyatahu). Kehf\'te de "soy" geçer, fakat bu İblis\'in kendi soyudur (şeytanlar) — İsrâ\'daki gibi doğrudan bir tehdit ifadesi değildir; klasik tefsirde (Taberî dahil) zamirin İblis\'e ait olduğu nettir.',
-    bodyEn: 'Only in Isra does the target shift from individual to lineage (lā-aḥtanikanne ẕurriyyatahu). Kahf also mentions "progeny," but this is Iblis\'s own offspring (the devils) — not a direct threat as in Isra; classical exegesis (including al-Ṭabarī) clearly reads the pronoun as referring to Iblis.',
+    bodyTr: 'Yedi anlatımdan yalnız İsrâ\'da hedef bireyden soya kayar (lā-aḥtanikanne ẕurriyyatahu). Kehf\'te de "soy" geçer, fakat bu İblis\'in kendi soyudur (şeytanlar); İsrâ\'daki gibi doğrudan bir tehdit ifadesi değildir ve klasik tefsirde (Taberî dahil) zamirin İblis\'e ait olduğu nettir.',
+    bodyEn: 'Only in Isra does the target shift from individual to lineage (lā-aḥtanikanne ẕurriyyatahu). Kahf also mentions "progeny," but this is Iblis\'s own offspring (the devils), not a direct threat as in Isra; classical exegesis (including al-Ṭabarī) clearly reads the pronoun as referring to Iblis.',
     groups: [
       {
         labelTr: 'AÇIK İFADE', labelEn: 'EXPLICIT',
@@ -164,7 +164,7 @@ export const OBSERVATIONS = [
     statValue: '3 / 7',
     labelTr: 'Mühlet talebi',
     labelEn: 'Request for respite',
-    bodyTr: 'enẓirnī ("bana süre ver") yalnız üç anlatımda doğrudan talep olarak geçer. İsrâ\'daki "kıyamete kadar yaşatırsan" şartlı bir önerme — biçimsel talep değildir.',
+    bodyTr: 'enẓirnī ("bana süre ver") yalnız üç anlatımda doğrudan talep olarak geçer. İsrâ\'daki "kıyamete kadar yaşatırsan" şartlı bir önermedir, biçimsel talep değildir.',
     bodyEn: 'enẓirnī ("grant me respite") appears as a direct request in only three tellings. Isra\'s "if You delay me until Resurrection" is a conditional clause, not a formal request.',
     groups: [
       {
@@ -188,8 +188,8 @@ export const OBSERVATIONS = [
     statValue: '38 → 87',
     labelTr: 'Nüzul kronolojisi',
     labelEn: 'Revelation chronology',
-    bodyTr: 'Mushaf sırası ile nüzul sırası farklı bir hikâye anlatır. En erken inen Sâd anlatımı en uzun ve dramatik (15 ayet, "bi-ʿizzetik" — izzete yemin). En geç inen Bakara anlatımı en kısa (1 ayet, üç fiil). Vahyin akışında **kronolojik daralma**: aynı sahne, yıllar geçtikçe daha az kelimeyle. (Sıralama Suyûtî, el-İtkān.)',
-    bodyEn: 'Mushaf order and revelation order tell different stories. The earliest telling (Ṣād) is the longest and most dramatic (15 verses, "bi-ʿizzatik" — an oath on God\'s might). The latest (Baqara) is the shortest (1 verse, three verbs). A **chronological compression** across revelation: the same scene told with fewer words as years pass. (Order per al-Suyūṭī, al-Itqān.)',
+    bodyTr: 'Mushaf sırası ile nüzul sırası farklı bir hikâye anlatır. En erken inen Sâd anlatımı en uzun ve dramatik (15 ayet, "bi-ʿizzetik", izzete yemin). En geç inen Bakara anlatımı en kısa (1 ayet, üç fiil). Vahyin akışında **kronolojik daralma**: aynı sahne, yıllar geçtikçe daha az kelimeyle. (Sıralama Suyûtî, el-İtkān.)',
+    bodyEn: 'Mushaf order and revelation order tell different stories. The earliest telling (Ṣād) is the longest and most dramatic (15 verses, "bi-ʿizzatik", an oath on God\'s might). The latest (Baqara) is the shortest (1 verse, three verbs). A **chronological compression** across revelation: the same scene told with fewer words as years pass. (Order per al-Suyūṭī, al-Itqān.)',
     groups: [
       {
         labelTr: 'EN ERKEN', labelEn: 'EARLIEST',

@@ -28,8 +28,8 @@ export async function generateMetadata({ params }) {
     path: `/oku/${s}`,
     title: isEN ? `${nameTr} (Surah ${s})` : `${nameTr} — Sure ${s}`,
     description: isEN
-      ? `Read Surah ${nameTr} (${s}) — Quranic recitation by 6 reciters, karaoke word-sync, tajweed rendering, tafsir panel (Ibn Kathir + Elmalili), and word-by-word interlinear translation.`
-      : `${nameTr} suresini (${s}. sure) oku — 6 kâri ile tilavet, karaoke kelime senkronizasyonu, tajweed render, Elmalılı + Ibn Kathir tefsir paneli, kelime-kelime interlinear çeviri.`,
+      ? `Read Surah ${nameTr} (${s}): Quranic recitation by 6 reciters, karaoke word-sync, tajweed rendering, tafsir panel (Ibn Kathir + Elmalili), and word-by-word interlinear translation.`
+      : `${nameTr} suresini (${s}. sure) oku: 6 kâri ile tilavet, karaoke kelime senkronizasyonu, tajweed render, Elmalılı + Ibn Kathir tefsir paneli, kelime-kelime interlinear çeviri.`,
   });
 }
 
@@ -43,7 +43,7 @@ export default async function Page({ params }) {
   const isEN = locale === 'en';
   const title = isEN ? `${nameTr} (Surah ${s})` : `${nameTr} — Sure ${s}`;
   const description = isEN
-    ? `Surah ${nameTr} (${s}) — full recitation, tajweed, tafsir, and word-level interlinear.`
+    ? `Surah ${nameTr} (${s}): full recitation, tajweed, tafsir and word-level interlinear.`
     : `${nameTr} suresinin tam okuması, tajweed, tefsir paneli ve interlinear çeviri.`;
   return (
     <>

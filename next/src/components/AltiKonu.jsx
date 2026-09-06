@@ -60,9 +60,9 @@ const TOPIC_DEPTH = [
   {
     id: 'iltifat',
     verses: [
-      { ref: '1:1-4', refLabel: 'Fâtiha 1:1-4 — "O" kipi', arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ', trTr: 'Rahmân ve Rahîm olan Allah’ın adıyla. Hamd, âlemlerin Rabbi Allah’a mahsustur.', trEn: 'In the name of Allah, the Most Gracious, the Most Merciful. Praise be to Allah, Lord of the worlds.' },
-      { ref: '1:5', refLabel: 'Fâtiha 1:5 — "Sen" kipine geçiş', arabic: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ', trTr: 'Ancak Sana kulluk ederiz ve yalnız Senden yardım dileriz.', trEn: 'You alone we worship, and You alone we ask for help.' },
-      { ref: '1:6-7', refLabel: 'Fâtiha 1:6-7 — "Biz" kipi', arabic: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَق۪يمَ', trTr: 'Bizi doğru yola ilet.', trEn: 'Guide us to the straight path.' },
+      { ref: '1:1-4', refLabel: 'Fâtiha 1:1-4: "O" kipi', arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ', trTr: 'Rahmân ve Rahîm olan Allah’ın adıyla. Hamd, âlemlerin Rabbi Allah’a mahsustur.', trEn: 'In the name of Allah, the Most Gracious, the Most Merciful. Praise be to Allah, Lord of the worlds.' },
+      { ref: '1:5', refLabel: 'Fâtiha 1:5: "Sen" kipine geçiş', arabic: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ', trTr: 'Ancak Sana kulluk ederiz ve yalnız Senden yardım dileriz.', trEn: 'You alone we worship, and You alone we ask for help.' },
+      { ref: '1:6-7', refLabel: 'Fâtiha 1:6-7: "Biz" kipi', arabic: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَق۪يمَ', trTr: 'Bizi doğru yola ilet.', trEn: 'Guide us to the straight path.' },
     ],
     sourcesTr: ['İbn Ebu’l-İsba’', 'Zerkeşî, el-Burhân'],
     sourcesEn: ['Ibn Abī al-Iṣbaʿ', 'al-Zarkashī, al-Burhān'],
@@ -274,15 +274,15 @@ export default function AltiKonu({ onClose }) {
               href: `/${language}/atlas/insan-tanimi`,
               titleTr: "Kur'an'da İnsan",
               titleEn: 'The Human in the Quran',
-              descTr: 'Nefs, kalp, ruh, akıl — insanın çok-boyutlu tanımı.',
-              descEn: 'Nafs, qalb, rūḥ, ʿaql — the multi-dimensional definition of the human.',
+              descTr: 'Nefs, kalp, ruh, akıl: insanın çok boyutlu tanımı.',
+              descEn: 'Nafs, qalb, rūḥ, ʿaql: the multi-dimensional definition of the human.',
             },
             {
               href: `/${language}/atlas/insan-psikolojisi`,
               titleTr: 'İnsan Psikolojisi',
               titleEn: 'Human Psychology',
-              descTr: "Kur'an'ın iç dünya haritası — 7 psikolojik davranış deseni.",
-              descEn: "The Quran's inner-world map — 7 psychological behavior patterns.",
+              descTr: "Kur'an'ın iç dünya haritası: 7 psikolojik davranış deseni.",
+              descEn: "The Quran's inner-world map: 7 psychological behavior patterns.",
             },
             {
               href: `/${language}/graf/kavram`,

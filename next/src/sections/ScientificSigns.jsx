@@ -518,7 +518,7 @@ export default function ScientificSigns() {
       <motion.div variants={fadeUpItem} className="mt-12">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
@@ -597,12 +597,12 @@ export default function ScientificSigns() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ ÂYÂT-I KEVNİYYE — ATLASI AÇ' : '↗ ĀYĀT KAWNIYYA — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ ÂYÂT-I KEVNİYYE: ATLASI AÇ' : '↗ ĀYĀT KAWNIYYA: OPEN THE ATLAS'}
             </p>
             <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
-                ? 'Kur’an’ın kevnî ayetleri: gök & yer · gece-gündüz · su & deniz · bitki, hayvan, dağlar — doğanın tam haritası'
-                : 'The Quran’s cosmic signs (āyāt kawniyya): sky & earth · night-day · water & seas · plants, animals, mountains — a full map of nature'}
+                ? 'Kur’an’ın kevnî ayetleri: gök & yer · gece-gündüz · su & deniz · bitki, hayvan, dağlar: doğanın tam haritası'
+                : 'The Quran’s cosmic signs (āyāt kawniyya): sky & earth · night-day · water & seas · plants, animals, mountains: a full map of nature'}
             </p>
           </div>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>

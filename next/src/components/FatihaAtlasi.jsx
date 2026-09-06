@@ -71,8 +71,8 @@ function Hero({ language, isMobile }) {
           maxWidth: '720px', margin: '0 auto 26px',
         }}>
           {tr
-            ? <>Yedi âyet, iki yarım, tek bir eksen. Fâtiha&apos;nın her kelimesi <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>tartılarak</em> seçilmiş — ve on asırlık bir tefsir geleneği hâlâ onun katmanlarını <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>açmaya</em> devam ediyor.</>
-            : <>Seven verses, two halves, one axis. Every word of the Fātiḥa was <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>weighed</em> in its choosing — and ten centuries of exegesis are still <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>unfolding</em> its layers.</>}
+            ? <>Yedi âyet, iki yarım, tek bir eksen. Fâtiha&apos;nın her kelimesi <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>tartılarak</em> seçilmiş; on asırlık bir tefsir geleneği hâlâ onun katmanlarını <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>açmaya</em> devam ediyor.</>
+            : <>Seven verses, two halves, one axis. Every word of the Fātiḥa was <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>weighed</em> in its choosing, and ten centuries of exegesis are still <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>unfolding</em> its layers.</>}
         </p>
 
         <div style={{ width: '120px', height: '1px', margin: '0 auto 26px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
@@ -90,7 +90,7 @@ function Hero({ language, isMobile }) {
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
           '--fs-d': 'clamp(1.1rem, 1.9vw, 1.25rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.15rem)',
           margin: 0,
-        }}>{tr ? 'Klasikten çağdaşa — tek sûrenin yedi katmanı' : 'From classical to contemporary — seven layers of a single surah'}</p>
+        }}>{tr ? 'Klasikten çağdaşa, tek sûrenin yedi katmanı' : 'From classical to contemporary, seven layers of a single surah'}</p>
       </div>
     </div>
   );
@@ -310,7 +310,7 @@ function TabRing({ data, language, isMobile }) {
           <div style={{ width: 2, height: 20, background: `linear-gradient(180deg, ${CATEGORY_SCALE[0]}60, ${COLORS.gold}60)` }} />
           <div className="mq-box" style={{ position: 'relative', '--pt-d': "26px", '--pt-m': "22px", '--pr-d': "36px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "22px", '--pl-d': "36px", '--pl-m': "18px", background: `${COLORS.gold}14`, border: `1.5px solid ${COLORS.gold}55`, borderRadius: 20, textAlign: 'center', boxShadow: `0 0 40px -12px ${COLORS.gold}80`, width: '100%' }}>
             <div style={{ fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, marginBottom: 14 }}>
-              {tr ? 'Merkez — Eksen' : 'Center — the Axis'}
+              {tr ? 'Merkez: Eksen' : 'Center: the Axis'}
             </div>
             <div style={{ display: 'flex', gap: isMobile ? 12 : 24, justifyContent: 'center', flexWrap: 'wrap' }}>
               {center.map(n => (

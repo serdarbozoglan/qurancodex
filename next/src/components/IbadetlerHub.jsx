@@ -54,9 +54,9 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'İbadetlerin metin dayanakları — doğrudan emirler ve tavsiyeler.', descEn: 'Textual bases of worship — direct commands and recommendations.' },
-              { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'İbadet emirlerinin kime yönelik olduğu — müminler, insanlık, ehl-i kitap.', descEn: 'Who worship commands address — believers, humanity, People of the Book.' },
-              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetlerin nihai gayesi — hesap, mîzân, cennet ile buluşma.', descEn: 'The final purpose of worship — reckoning, scales, and meeting Paradise.' },
+              { href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'İbadetlerin metin dayanakları: doğrudan emirler ve tavsiyeler.', descEn: 'Textual bases of worship: direct commands and recommendations.' },
+              { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'İbadet emirlerinin kime yönelik olduğu: müminler, insanlık, ehl-i kitap.', descEn: 'Who worship commands address: believers, humanity, People of the Book.' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetlerin nihai gayesi: hesap, mîzân, cennet ile buluşma.', descEn: 'The final purpose of worship: reckoning, scales and meeting Paradise.' },
             ]}
           />
         </div>
@@ -255,11 +255,11 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
             if (language === 'tr') {
               return allReady
                 ? `${readyCount}/${total} sütun hazır`
-                : `${readyCount}/${total} hazır — kalanı hazırlanıyor`;
+                : `${readyCount}/${total} hazır; kalanı hazırlanıyor`;
             }
             return allReady
               ? `${readyCount}/${total} pillars ready`
-              : `${readyCount}/${total} ready — others coming soon`;
+              : `${readyCount}/${total} ready; others coming soon`;
           })()}
         </div>
       </div>
@@ -286,7 +286,7 @@ function PillarCard({ pillar, language, isMobile, router }) {
     <button className="mq-box"
       onClick={handleClick}
       disabled={!isReady}
-      aria-label={`${language === 'tr' ? pillar.titleTr : pillar.titleEn} · ${isReady ? (language === 'tr' ? 'Hazır — sayfaya git' : 'Ready — go to page') : (language === 'tr' ? 'Yakında' : 'Coming soon')}`}
+      aria-label={`${language === 'tr' ? pillar.titleTr : pillar.titleEn} · ${isReady ? (language === 'tr' ? 'Hazır, sayfaya git' : 'Ready, go to page') : (language === 'tr' ? 'Yakında' : 'Coming soon')}`}
       style={{
         display: 'flex', flexDirection: 'column',
         '--pt-d': "24px", '--pt-m': "22px", '--pr-d': "24px", '--pr-m': "20px", '--pb-d': "24px", '--pb-m': "22px", '--pl-d': "24px", '--pl-m': "20px",
@@ -845,7 +845,7 @@ function PeygamberIzleriSection({ data, language, isMobile, router }) {
               <button
                 onClick={() => setExpanded(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                aria-label={`${p.name} — ${p.occurrenceCount} ${tr ? 'ibadet kaydı' : 'worship records'}`}
+                aria-label={`${p.name}: ${p.occurrenceCount} ${tr ? 'ibadet kaydı' : 'worship records'}`}
                 style={{
                   display: 'flex', alignItems: 'center', gap: '14px',
                   width: '100%', padding: 0, background: 'transparent',

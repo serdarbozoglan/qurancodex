@@ -206,8 +206,8 @@ export default function KissaAtlas({ onClose }) {
         isMobile={isMobile}
         links={[
           { href: `/${language}/atlas/peygamber`, titleTr: 'Peygamberler Atlası', titleEn: 'Prophets Atlas', descTr: '25 peygamberin nüzul sırasına göre sûrelerdeki dağılımı ve karşılaştırması.', descEn: 'Distribution of 25 prophets across surahs by revelation order.' },
-          { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Kıssalardaki kavimler — coğrafi + tarihsel arka planlarıyla.', descEn: 'The nations in prophetic narratives — with geographic and historical context.' },
-          { href: `/${language}/graf/diyalog`, titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Kıssalardaki konuşma partnerleri — kim kime ne dedi.', descEn: 'Speech partners in prophetic narratives — who said what to whom.' },
+          { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Kıssalardaki kavimler, coğrafi ve tarihsel arka planlarıyla.', descEn: 'The nations in prophetic narratives, with geographic and historical context.' },
+          { href: `/${language}/graf/diyalog`, titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Kıssalardaki konuşma partnerleri: kim kime ne dedi.', descEn: 'Speech partners in prophetic narratives: who said what to whom.' },
         ]}
       />
     </div>
@@ -653,8 +653,8 @@ export default function KissaAtlas({ onClose }) {
                       : `"${selectedScene.titleEn}" is narrated in:`)
                   : selectedSurah
                     ? (language === 'tr'
-                        ? `Sûre ${selectedSurah} — ${SURAH_NAMES_TR[selectedSurah]} — ${language === 'tr' ? prophet.nameTr : prophet.nameEn} sahneleri:`
-                        : `Surah ${selectedSurah} — ${SURAH_NAMES_EN[selectedSurah]} — scenes of ${prophet.nameEn}:`)
+                        ? `Sûre ${selectedSurah} (${SURAH_NAMES_TR[selectedSurah]}), ${language === 'tr' ? prophet.nameTr : prophet.nameEn} sahneleri:`
+                        : `Surah ${selectedSurah} (${SURAH_NAMES_EN[selectedSurah]}), scenes of ${prophet.nameEn}:`)
                     : (language === 'tr'
                         ? `${prophet.nameTr}'nın kıssasını içeren ${activeSurahs.size} sûre:`
                         : `${activeSurahs.size} surahs containing ${prophet.nameEn}'s story:`)}
@@ -750,7 +750,7 @@ export default function KissaAtlas({ onClose }) {
 
                 const tileName = language === 'tr' ? SURAH_NAMES_TR[num] : SURAH_NAMES_EN[num];
                 const tileTitle = isActive
-                  ? `${num}. ${tileName} — ${scenesHere.length} ${language === 'tr' ? 'sahne' : 'scene'}${scenesHere.length !== 1 ? (language === 'tr' ? '' : 's') : ''}`
+                  ? `${num}. ${tileName}: ${scenesHere.length} ${language === 'tr' ? 'sahne' : 'scene'}${scenesHere.length !== 1 ? (language === 'tr' ? '' : 's') : ''}`
                   : `${num}. ${tileName}`;
                 return (
                   <motion.button

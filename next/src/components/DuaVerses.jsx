@@ -150,8 +150,8 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
           ayah={dua.ayah}
           style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }}
           ariaLabel={language === 'tr'
-            ? `${ref} — oku`
-            : `${ref} — read`}
+            ? `${ref}: oku`
+            : `${ref}: read`}
         >
           {ref}
         </SurahLink>
@@ -205,7 +205,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
           title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
           aria-label={
             isFailed
-              ? (language === 'tr' ? 'Tilâvet — ses yüklenemedi' : 'Recitation — audio unavailable')
+              ? (language === 'tr' ? 'Tilâvet: ses yüklenemedi' : 'Recitation: audio unavailable')
               : isPlaying
                 ? (language === 'tr' ? 'Tilâveti durdur' : 'Stop recitation')
                 : (language === 'tr' ? 'Tilâveti oynat' : 'Play recitation')
@@ -479,8 +479,8 @@ export default function DuaVerses({ onClose }) {
                 onClick={() => setActiveCategory(isActive ? 'all' : cat)}
                 aria-label={
                   language === 'tr'
-                    ? `${label} kategorisi — ${count} dua${isActive ? ' — seçili' : ''}`
-                    : `${label} category — ${count} duas${isActive ? ' — selected' : ''}`
+                    ? `${label} kategorisi: ${count} dua${isActive ? ' (seçili)' : ''}`
+                    : `${label} category: ${count} duas${isActive ? ' (selected)' : ''}`
                 }
                 aria-pressed={isActive}
                 style={{

@@ -40,7 +40,7 @@ export default function TopicCard({
       type="button"
       onClick={onClick}
       title={tooltip}
-      aria-label={`${title} — ${tooltip}`}
+      aria-label={`${title}: ${tooltip}`}
       whileHover={
         reduced
           ? undefined
