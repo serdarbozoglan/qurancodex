@@ -527,8 +527,8 @@ function AyahPlayStrip({ verses, playingVerseId, onSelect, dayMode, language, cu
                     isSajda={isSajda} isActive={active} dayMode={dayMode}
                     gold={gold} bg={bg} currentFont={currentFont} isMobile={false}
                     onClick={() => onSelect(v)}
-                    title={isSajda ? `${label} — ${language === 'en' ? 'Prostration verse' : 'Secde âyeti'}` : label}
-                    ariaLabel={isSajda ? `${label} — ${language === 'en' ? 'prostration verse' : 'secde ayeti'}` : label}
+                    title={isSajda ? `${label}: ${language === 'en' ? 'Prostration verse' : 'Secde âyeti'}` : label}
+                    ariaLabel={isSajda ? `${label}: ${language === 'en' ? 'prostration verse' : 'secde ayeti'}` : label}
                   >
                     {active ? <PauseIcon size={11} /> : v.ayah}
                   </MealAyahBadge>
@@ -908,7 +908,7 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
           title={failed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
           aria-label={
             failed
-              ? (language === 'tr' ? 'Ayet tilâveti — ses yüklenemedi' : 'Verse recitation — audio unavailable')
+              ? (language === 'tr' ? 'Ayet tilâveti: ses yüklenemedi' : 'Verse recitation: audio unavailable')
               : playing
                 ? (language === 'tr' ? 'Ayet tilâvetini durdur' : 'Stop verse recitation')
                 : (language === 'tr' ? 'Ayet tilâvetini oynat' : 'Play verse recitation')
@@ -3574,7 +3574,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => { setShowSurahPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
               title={language === 'tr' ? 'Sûre seçici' : 'Surah picker'}
-              aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}
+              aria-label={language === 'tr' ? `Sûre seçici. Şu an: ${surahName}` : `Surah picker. Current: ${surahName}`}
               aria-expanded={showSurahPicker}
               style={{
                 display: 'flex', flexDirection: 'column', minWidth: 0, alignItems: 'flex-start', textAlign: 'left',
@@ -3808,7 +3808,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <button
                 onClick={() => { setShowSurahPicker(p => !p); setShowJuzPicker(false); setShowHizbPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
                 title={language === 'tr' ? 'Sûre seçici' : 'Surah picker'}
-                aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}
+                aria-label={language === 'tr' ? `Sûre seçici. Şu an: ${surahName}` : `Surah picker. Current: ${surahName}`}
                 aria-expanded={showSurahPicker}
                 style={{
                   display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
@@ -3867,7 +3867,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <button
                     onClick={() => { setShowJuzPicker(p => !p); setShowHizbPicker(false); setShowPagePicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
                     title={language === 'tr' ? 'Cüz seçici' : 'Juz picker'}
-                    aria-label={language === 'tr' ? `Cüz seçici — Şu an: Cüz ${currentDisplayJuz}` : `Juz picker — Current: Juz ${currentDisplayJuz}`}
+                    aria-label={language === 'tr' ? `Cüz seçici. Şu an: Cüz ${currentDisplayJuz}` : `Juz picker. Current: Juz ${currentDisplayJuz}`}
                     aria-expanded={showJuzPicker}
                     style={{
                       padding: '4px 10px', height: '30px',
@@ -3930,7 +3930,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <button
                       onClick={() => { setShowPagePicker(p => !p); setShowJuzPicker(false); setShowHizbPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
                       title={language === 'tr' ? 'Sayfa seçici' : 'Page picker'}
-                      aria-label={language === 'tr' ? `Sayfa seçici — Şu an: ${currentPage}` : `Page picker — Current: ${currentPage}`}
+                      aria-label={language === 'tr' ? `Sayfa seçici. Şu an: ${currentPage}` : `Page picker. Current: ${currentPage}`}
                       aria-expanded={showPagePicker}
                       style={{
                         padding: '0 12px',
@@ -4042,7 +4042,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   setSearchQuery('');
                   setShowSearch(true);
                 }}
-                title={language === 'tr' ? 'Ara — sûre, ayet, cüz, sayfa, kelime (⌘K)' : 'Search — surah, verse, juz, page, word (⌘K)'}
+                title={language === 'tr' ? 'Ara: sûre, ayet, cüz, sayfa, kelime (⌘K)' : 'Search: surah, verse, juz, page, word (⌘K)'}
                 aria-label={language === 'tr' ? 'Ara' : 'Search'}
                 className="fd-row"
                 style={{
@@ -4110,7 +4110,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                   onMouseLeave={e => { e.currentTarget.style.background = wordMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = wordMode ? navC.btnBorderActive : navC.btnBorder; }}
-                  title={language === 'tr' ? 'Kelime modu — her kelimenin anlamı' : 'Word mode — per-word meaning'}
+                  title={language === 'tr' ? 'Kelime modu: her kelimenin anlamı' : 'Word mode: per-word meaning'}
                 >
                   <span className="mq-fs" style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, '--fs-d': '1.15rem', '--fs-m': '1rem', fontWeight: 700 }}>
                     ك
@@ -4135,7 +4135,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = (showTranslation || showMealPicker) ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = (showTranslation || showMealPicker) ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? `Meal — ${selectedMealAuthor.shortLabel}` : `Meaning — ${selectedMealAuthor.shortLabel}`}
+                title={language === 'tr' ? `Meal: ${selectedMealAuthor.shortLabel}` : `Meaning: ${selectedMealAuthor.shortLabel}`}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px', transform: 'translateY(-1px)' }}>
                   م
@@ -4158,7 +4158,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = tafsirOpen ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = tafsirOpen ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? 'Tefsir — Elmalılı Hamdi Yazır' : 'Tafsir — Elmalılı Hamdi Yazır'}
+                title={language === 'tr' ? 'Tefsir: Elmalılı Hamdi Yazır' : 'Tafsir: Elmalılı Hamdi Yazır'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <BookOpenIcon size={isMobile ? 15 : 18} />
@@ -4187,7 +4187,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = drawMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = drawMode ? navC.btnBorderActive : navC.btnBorder; }}
-                title={drawMode ? (language === 'tr' ? 'Tahtayı kapat' : 'Close board') : (language === 'tr' ? 'Tahta — ders için kalemle çiz' : 'Board — draw with pen for teaching')}
+                title={drawMode ? (language === 'tr' ? 'Tahtayı kapat' : 'Close board') : (language === 'tr' ? 'Tahta: ders için kalemle çiz' : 'Board: draw with pen for teaching')}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <TahtaIcon size={isMobile ? 15 : 18} />
@@ -4304,7 +4304,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = showSettingsPicker ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showSettingsPicker ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? 'Ayarlar — görünüm modu, meal, kıraat, font boyutu, tecvid, mushaf' : 'Settings — view mode, translation, reciter, font, tajweed, mushaf'}
+                title={language === 'tr' ? 'Ayarlar: görünüm modu, meal, kıraat, font boyutu, tecvid, mushaf' : 'Settings: view mode, translation, reciter, font, tajweed, mushaf'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <GearIcon size={isMobile ? 16 : 18} />
@@ -4322,7 +4322,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <BookmarkIcon size={isMobile ? 15 : 18} filled={isCurrentPageBookmarked} />,
                 undefined, undefined,
                 isCurrentPageBookmarked
-                  ? (language === 'tr' ? 'Yer imlerini aç — bu sayfa zaten kayıtlı' : 'Open bookmarks — this page is saved')
+                  ? (language === 'tr' ? 'Yer imlerini aç; bu sayfa zaten kayıtlı' : 'Open bookmarks; this page is saved')
                   : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'),
                 '66px')}
 
@@ -5659,7 +5659,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {language === 'tr' ? 'Arapça Yazı Boyutu' : 'Arabic Font Size'}
               {isMushafImageActive && (
                 <span style={{ textTransform: 'none', letterSpacing: 'normal' }}>
-                  {' '}— {language === 'tr' ? 'mushaf görselinde geçersiz' : 'not applicable in mushaf image mode'}
+                  {' '}({language === 'tr' ? 'mushaf görselinde geçersiz' : 'not applicable in mushaf image mode'})
                 </span>
               )}
             </span>
@@ -6259,7 +6259,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 marginTop: '6px', fontSize: '0.62rem',
                 color: dropC.textMuted, lineHeight: 1.4,
               }}>
-                {language === 'tr' ? 'Yedek kaynak aktif — kelime takibi geçici olarak kapalı.' : 'Fallback source active — word highlighting paused.'}
+                {language === 'tr' ? 'Yedek kaynak aktif; kelime takibi geçici olarak kapalı.' : 'Fallback source active; word highlighting paused.'}
               </div>
             )}
           </div>
@@ -7601,7 +7601,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               gold={C.gold} bg={C.bg} currentFont={currentFont} isMobile={isMobile}
                               onClick={(e) => { e.stopPropagation(); setCompareVerse({ surah: verse.surah, ayah: verse.ayah }); }}
                               title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
-                              ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
+                              ariaLabel={language === 'tr' ? `Ayet ${verse.ayah}: mealleri karşılaştır` : `Verse ${verse.ayah}: compare translations`}
                             >{verse.ayah}</MealAyahBadge>
                             {isRangeFollower ? (
                               <p className="mq-fs" style={{
@@ -7616,8 +7616,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               }}>
                                 <span style={{ fontSize: '0.9em', opacity: 0.7 }}>↑</span>
                                 {language === 'tr'
-                                  ? `${rangeStart}-${rangeEnd}. ayetlerle birlikte çevrilmiş — bkz. ayet ${rangeStart}`
-                                  : `Translated together with verses ${rangeStart}-${rangeEnd} — see verse ${rangeStart}`}
+                                  ? `${rangeStart}-${rangeEnd}. ayetlerle birlikte çevrilmiş; bkz. ayet ${rangeStart}`
+                                  : `Translated together with verses ${rangeStart}-${rangeEnd}; see verse ${rangeStart}`}
                               </p>
                             ) : (
                               <p style={{
@@ -7740,16 +7740,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       const startLabel = `${sName(SURAH_NAMES_TR)} ${sStart}:${aStart}`;
                       if (!next) {
                         return language === 'tr'
-                          ? `Cüz ${num} — ${startLabel} → sonuna kadar`
-                          : `Juz ${num} — ${startLabel} → end`;
+                          ? `Cüz ${num}: ${startLabel} → sonuna kadar`
+                          : `Juz ${num}: ${startLabel} → end`;
                       }
                       const [sEnd, aEnd] = next;
                       const endLabel = aEnd === 1
                         ? `${SURAH_NAMES_TR[sEnd - 2]} sonu`
                         : `${SURAH_NAMES_TR[sEnd - 1]} ${sEnd}:${aEnd - 1}`;
                       return language === 'tr'
-                        ? `Cüz ${num} — ${startLabel} → ${endLabel}`
-                        : `Juz ${num} — ${startLabel} → ${endLabel}`;
+                        ? `Cüz ${num}: ${startLabel} → ${endLabel}`
+                        : `Juz ${num}: ${startLabel} → ${endLabel}`;
                     })();
                     return (
                       <span className="mq-box"
@@ -8364,8 +8364,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     const startLabel = `${sName(SURAH_NAMES_TR)} ${sStart}:${aStart}`;
                     if (!next) {
                       return language === 'tr'
-                        ? `Cüz ${num} — ${startLabel} → sonuna kadar`
-                        : `Juz ${num} — ${startLabel} → end`;
+                        ? `Cüz ${num}: ${startLabel} → sonuna kadar`
+                        : `Juz ${num}: ${startLabel} → end`;
                     }
                     const [sEnd, aEnd] = next;
                     // end = verse before next juz start. If next juz starts at
@@ -8375,8 +8375,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       ? `${SURAH_NAMES_TR[sEnd - 2]} sonu`
                       : `${SURAH_NAMES_TR[sEnd - 1]} ${sEnd}:${aEnd - 1}`;
                     return language === 'tr'
-                      ? `Cüz ${num} — ${startLabel} → ${endLabel}`
-                      : `Juz ${num} — ${startLabel} → ${endLabel}`;
+                      ? `Cüz ${num}: ${startLabel} → ${endLabel}`
+                      : `Juz ${num}: ${startLabel} → ${endLabel}`;
                   })();
                   return (
                     <span className="mq-box"
@@ -9971,7 +9971,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       gold={C.gold} bg={C.bg} currentFont={currentFont} isMobile={isMobile}
                       onClick={(e) => { e.stopPropagation(); setCompareVerse({ surah: verse.surah, ayah: verse.ayah }); }}
                       title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
-                      ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
+                      ariaLabel={language === 'tr' ? `Ayet ${verse.ayah}: mealleri karşılaştır` : `Verse ${verse.ayah}: compare translations`}
                     >{verse.ayah}</MealAyahBadge>
                     </div>
                     )}
@@ -11627,7 +11627,7 @@ function VerseCompareModal({
         type="button"
         onClick={() => toggleAuthor(author.id)}
         disabled={isCurrent}
-        title={isCurrent ? (language === 'tr' ? 'Aktif meal — kaldırılamaz' : 'Active translation — cannot remove') : undefined}
+        title={isCurrent ? (language === 'tr' ? 'Aktif meal; kaldırılamaz' : 'Active translation; cannot remove') : undefined}
         className="mq-fs" style={{
           display: 'inline-flex', alignItems: 'center', gap: '6px',
           '--pt-d': "6px", '--pt-m': "5px", '--pr-d': "12px", '--pr-m': "10px", '--pb-d': "6px", '--pb-m': "5px", '--pl-d': "12px", '--pl-m': "10px",
@@ -12176,7 +12176,7 @@ function VerseCompareModal({
                       color: '#e74c3c',
                       fontStyle: 'italic',
                     }}>
-                      {language === 'tr' ? 'Yüklenemedi — bağlantıyı kontrol edip tekrar deneyin.' : 'Failed to load — check connection and try again.'}
+                      {language === 'tr' ? 'Yüklenemedi. Bağlantıyı kontrol edip tekrar deneyin.' : 'Failed to load. Check your connection and try again.'}
                     </p>
                   ) : isLoading || text === null ? (
                     <p className="mq-fs" style={{

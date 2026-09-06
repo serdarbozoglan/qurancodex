@@ -5854,3 +5854,214 @@ Harita etiketleri ("Nil Deltası — Mısır") virgül veya iki nokta ile ayrıl
 - ÖNCE: `noteEn: 'Chapter on amthāl (§66) — positions parables within Quranic rhetoric.',`
   SONRA: `noteEn: 'Chapter on amthāl (§66); positions parables within Quranic rhetoric.',`
 
+
+## 11. Bileşen içi metinler, 7. parti: Okuma Modu + Kadınlar Atlası + İnsan Psikolojisi + Sünnetullah Atlası (2026-09-06)
+
+Okuma Modu'nda yalnızca araç ipuçları ve erişilebilirlik etiketleri ("Meal — X" → "Meal: X") değişti; paylaşım metnindeki kaynak tiresi ve kod yorumları aynen kaldı. İnsan Psikolojisi'nde "modern psikolojinin ... ulema tarafından geliştirilmiş versiyonları", "ilk düzenleyici teori", "nörobilim aynı katmanları tanımlar" gibi iddialar "benzetilebilir / erken bir" düzeyine çekildi (§13.24, §1). Sayfa başlığı "İnsan Psikolojisi — İç Dünyanın Haritası" page.js ile tutarlı kaldığı için dokunulmadı. Kadınlar Atlası'nda "merkezi akademik bulgu" → "merkezi bulgu", kalın vurgu kaldırıldı; âyet atıf tireleri ve boş "—" yer tutucuları kaldı.
+
+### `next/src/components/ReadingMode.jsx`
+
+- ÖNCE: `title={isSajda ? `${label} — ${language === 'en' ? 'Prostration verse' : 'Secde âyeti'}` : label}`
+  SONRA: `title={isSajda ? `${label}: ${language === 'en' ? 'Prostration verse' : 'Secde âyeti'}` : label}`
+- ÖNCE: `ariaLabel={isSajda ? `${label} — ${language === 'en' ? 'prostration verse' : 'secde ayeti'}` : label}`
+  SONRA: `ariaLabel={isSajda ? `${label}: ${language === 'en' ? 'prostration verse' : 'secde ayeti'}` : label}`
+- ÖNCE: `? (language === 'tr' ? 'Ayet tilâveti — ses yüklenemedi' : 'Verse recitation — audio unavailable')`
+  SONRA: `? (language === 'tr' ? 'Ayet tilâveti: ses yüklenemedi' : 'Verse recitation: audio unavailable')`
+- ÖNCE: `aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}`
+  SONRA: `aria-label={language === 'tr' ? `Sûre seçici. Şu an: ${surahName}` : `Surah picker. Current: ${surahName}`}`
+- ÖNCE: `aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}`
+  SONRA: `aria-label={language === 'tr' ? `Sûre seçici. Şu an: ${surahName}` : `Surah picker. Current: ${surahName}`}`
+- ÖNCE: `aria-label={language === 'tr' ? `Cüz seçici — Şu an: Cüz ${currentDisplayJuz}` : `Juz picker — Current: Juz ${currentDisplayJuz}`}`
+  SONRA: `aria-label={language === 'tr' ? `Cüz seçici. Şu an: Cüz ${currentDisplayJuz}` : `Juz picker. Current: Juz ${currentDisplayJuz}`}`
+- ÖNCE: `aria-label={language === 'tr' ? `Sayfa seçici — Şu an: ${currentPage}` : `Page picker — Current: ${currentPage}`}`
+  SONRA: `aria-label={language === 'tr' ? `Sayfa seçici. Şu an: ${currentPage}` : `Page picker. Current: ${currentPage}`}`
+- ÖNCE: `title={language === 'tr' ? 'Ara — sûre, ayet, cüz, sayfa, kelime (⌘K)' : 'Search — surah, verse, juz, page, word (⌘K)'}`
+  SONRA: `title={language === 'tr' ? 'Ara: sûre, ayet, cüz, sayfa, kelime (⌘K)' : 'Search: surah, verse, juz, page, word (⌘K)'}`
+- ÖNCE: `title={language === 'tr' ? 'Kelime modu — her kelimenin anlamı' : 'Word mode — per-word meaning'}`
+  SONRA: `title={language === 'tr' ? 'Kelime modu: her kelimenin anlamı' : 'Word mode: per-word meaning'}`
+- ÖNCE: `title={language === 'tr' ? `Meal — ${selectedMealAuthor.shortLabel}` : `Meaning — ${selectedMealAuthor.shortLabel}`}`
+  SONRA: `title={language === 'tr' ? `Meal: ${selectedMealAuthor.shortLabel}` : `Meaning: ${selectedMealAuthor.shortLabel}`}`
+- ÖNCE: `title={language === 'tr' ? 'Tefsir — Elmalılı Hamdi Yazır' : 'Tafsir — Elmalılı Hamdi Yazır'}`
+  SONRA: `title={language === 'tr' ? 'Tefsir: Elmalılı Hamdi Yazır' : 'Tafsir: Elmalılı Hamdi Yazır'}`
+- ÖNCE: `title={drawMode ? (language === 'tr' ? 'Tahtayı kapat' : 'Close board') : (language === 'tr' ? 'Tahta — ders için kalemle çiz' : 'Board — draw with pen for teaching')}`
+  SONRA: `title={drawMode ? (language === 'tr' ? 'Tahtayı kapat' : 'Close board') : (language === 'tr' ? 'Tahta: ders için kalemle çiz' : 'Board: draw with pen for teaching')}`
+- ÖNCE: `title={language === 'tr' ? 'Ayarlar — görünüm modu, meal, kıraat, font boyutu, tecvid, mushaf' : 'Settings — view mode, translation, reciter, font, tajweed, mushaf'}`
+  SONRA: `title={language === 'tr' ? 'Ayarlar: görünüm modu, meal, kıraat, font boyutu, tecvid, mushaf' : 'Settings: view mode, translation, reciter, font, tajweed, mushaf'}`
+- ÖNCE: `? (language === 'tr' ? 'Yer imlerini aç — bu sayfa zaten kayıtlı' : 'Open bookmarks — this page is saved')`
+  SONRA: `? (language === 'tr' ? 'Yer imlerini aç; bu sayfa zaten kayıtlı' : 'Open bookmarks; this page is saved')`
+- ÖNCE: `{' '}— {language === 'tr' ? 'mushaf görselinde geçersiz' : 'not applicable in mushaf image mode'}`
+  SONRA: `{' '}({language === 'tr' ? 'mushaf görselinde geçersiz' : 'not applicable in mushaf image mode'})`
+- ÖNCE: `{language === 'tr' ? 'Yedek kaynak aktif — kelime takibi geçici olarak kapalı.' : 'Fallback source active — word highlighting paused.'}`
+  SONRA: `{language === 'tr' ? 'Yedek kaynak aktif; kelime takibi geçici olarak kapalı.' : 'Fallback source active; word highlighting paused.'}`
+- ÖNCE: `ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}`
+  SONRA: `ariaLabel={language === 'tr' ? `Ayet ${verse.ayah}: mealleri karşılaştır` : `Verse ${verse.ayah}: compare translations`}`
+- ÖNCE: `? `${rangeStart}-${rangeEnd}. ayetlerle birlikte çevrilmiş — bkz. ayet ${rangeStart}``
+  SONRA: `? `${rangeStart}-${rangeEnd}. ayetlerle birlikte çevrilmiş; bkz. ayet ${rangeStart}``
+- ÖNCE: `: `Translated together with verses ${rangeStart}-${rangeEnd} — see verse ${rangeStart}`}`
+  SONRA: `: `Translated together with verses ${rangeStart}-${rangeEnd}; see verse ${rangeStart}`}`
+- ÖNCE: `? `Cüz ${num} — ${startLabel} → sonuna kadar``
+  SONRA: `? `Cüz ${num}: ${startLabel} → sonuna kadar``
+- ÖNCE: `: `Juz ${num} — ${startLabel} → end`;`
+  SONRA: `: `Juz ${num}: ${startLabel} → end`;`
+- ÖNCE: `? `Cüz ${num} — ${startLabel} → ${endLabel}``
+  SONRA: `? `Cüz ${num}: ${startLabel} → ${endLabel}``
+- ÖNCE: `: `Juz ${num} — ${startLabel} → ${endLabel}`;`
+  SONRA: `: `Juz ${num}: ${startLabel} → ${endLabel}`;`
+- ÖNCE: `? `Cüz ${num} — ${startLabel} → sonuna kadar``
+  SONRA: `? `Cüz ${num}: ${startLabel} → sonuna kadar``
+- ÖNCE: `: `Juz ${num} — ${startLabel} → end`;`
+  SONRA: `: `Juz ${num}: ${startLabel} → end`;`
+- ÖNCE: `? `Cüz ${num} — ${startLabel} → ${endLabel}``
+  SONRA: `? `Cüz ${num}: ${startLabel} → ${endLabel}``
+- ÖNCE: `: `Juz ${num} — ${startLabel} → ${endLabel}`;`
+  SONRA: `: `Juz ${num}: ${startLabel} → ${endLabel}`;`
+- ÖNCE: `ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}`
+  SONRA: `ariaLabel={language === 'tr' ? `Ayet ${verse.ayah}: mealleri karşılaştır` : `Verse ${verse.ayah}: compare translations`}`
+- ÖNCE: `title={isCurrent ? (language === 'tr' ? 'Aktif meal — kaldırılamaz' : 'Active translation — cannot remove') : undefined}`
+  SONRA: `title={isCurrent ? (language === 'tr' ? 'Aktif meal; kaldırılamaz' : 'Active translation; cannot remove') : undefined}`
+- ÖNCE: `{language === 'tr' ? 'Yüklenemedi — bağlantıyı kontrol edip tekrar deneyin.' : 'Failed to load — check connection and try again.'}`
+  SONRA: `{language === 'tr' ? 'Yüklenemedi. Bağlantıyı kontrol edip tekrar deneyin.' : 'Failed to load. Check your connection and try again.'}`
+
+### `next/src/components/KadinlarAtlasi.jsx`
+
+- ÖNCE: `{ href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Meryem, Âsiye, Belkıs ve daha fazlası — kıssaların içindeki bağlam.', descEn: 'Maryam, Āsiya, Bilqīs and more — the narrative context.' },`
+  SONRA: `{ href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Meryem, Âsiye, Belkıs ve diğerleri: kıssaların içindeki bağlam.', descEn: 'Maryam, Āsiya, Bilqīs and others: the narrative context.' },`
+- ÖNCE: `{ href: `/${language}/arac/dualar`, titleTr: 'Kur\'ânî Dualar', titleEn: 'Quranic Duas', descTr: 'Meryem\'in duası, Âsiye\'nin duası — kadın figürlerin yakarışları.', descEn: "Maryam's prayer, Āsiya's prayer — supplications of female figures." },`
+  SONRA: `{ href: `/${language}/arac/dualar`, titleTr: 'Kur\'ânî Dualar', titleEn: 'Quranic Duas', descTr: 'Meryem\'in duası, Âsiye\'nin duası: kadın figürlerin yakarışları.', descEn: "Maryam's prayer, Āsiya's prayer: supplications of female figures." },`
+- ÖNCE: `? "Yalnız bir kadın Kur'an'da adıyla anılır — geri kalanı sıfatları ve konumlarıyla."`
+  SONRA: `? "Yalnız bir kadın Kur'an'da adıyla anılır; geri kalanı sıfatları ve konumlarıyla."`
+- ÖNCE: `: "Only one woman is named in the Quran — the rest are referenced by attribute and station."}`
+  SONRA: `: "Only one woman is named in the Quran; the rest are referenced by attribute and station."}`
+- ÖNCE: `bodyTr: 'On dört figürden yalnız Hz. Meryem Kur\'an\'da özel adıyla anılır; bir sûre (Meryem 19) onun ismini taşır. Geriye kalan on üç kadın ya akrabalıkla ("İmran\'ın eşi", "Hz. Mûsâ\'nın annesi"), ya konumla ("Firavun\'un karısı"), ya da unvanla ("Saba Melikesi") anılır. Bu nüans atlasın merkezi akademik bulgusudur — kadın figürlerin "anonim" değil, **sıfaten tanımlı** olduğunu gösterir.',`
+  SONRA: `bodyTr: 'On dört figürden yalnız Hz. Meryem Kur\'an\'da özel adıyla anılır; bir sûre (Meryem 19) onun ismini taşır. Geriye kalan on üç kadın ya akrabalıkla ("İmran\'ın eşi", "Hz. Mûsâ\'nın annesi"), ya konumla ("Firavun\'un karısı"), ya da unvanla ("Saba Melikesi") anılır. Bu nüans atlasın merkezi bulgusudur: kadın figürler "anonim" değil, sıfaten tanımlıdır.',`
+- ÖNCE: `bodyEn: 'Of fourteen figures, only Maryam is named in the Quran; one chapter (Maryam 19) bears her name. The remaining thirteen women are referenced by kinship ("Imran\'s wife", "Mother of Moses"), station ("Pharaoh\'s wife"), or title ("Queen of Sheba"). This nuance is the atlas\'s central academic finding — female figures are not "anonymous" but **identified by attribute**.',`
+  SONRA: `bodyEn: 'Of fourteen figures, only Maryam is named in the Quran; one chapter (Maryam 19) bears her name. The remaining thirteen women are referenced by kinship ("Imran\'s wife", "Mother of Moses"), station ("Pharaoh\'s wife"), or title ("Queen of Sheba"). This nuance is the atlas\'s central finding: female figures are not "anonymous" but identified by attribute.',`
+- ÖNCE: `bodyTr: 'Kur\'an\'da kendisine doğrudan وحي (vahy) lafzıyla bildirimde bulunulan tek kadın Hz. Mûsâ\'nın annesidir (Kasas 28:7). Hz. Meryem farklı bir teolojik kategoride — meleklerin doğrudan ona hitap ettiği belirtilir. Klasik tefsir (Râzî, Kurtubî) bu ayrımı dikkatle korur. Bu hitabın "nübüvvet" mi "ilham" mı olduğu tartışmalı; Cumhûr ilham görüşündedir.',`
+  SONRA: `bodyTr: 'Kur\'an\'da kendisine doğrudan وحي (vahy) lafzıyla bildirimde bulunulan tek kadın Hz. Mûsâ\'nın annesidir (Kasas 28:7). Hz. Meryem farklı bir teolojik kategoridedir; meleklerin doğrudan ona hitap ettiği belirtilir. Klasik tefsir (Râzî, Kurtubî) bu ayrımı dikkatle korur. Bu hitabın "nübüvvet" mi "ilham" mı olduğu tartışmalı; Cumhûr ilham görüşündedir.',`
+- ÖNCE: `bodyEn: 'Only one woman in the Quran is addressed with the direct term وحي (waḥy): the Mother of Moses (Q 28:7). Maryam belongs to a distinct theological category — angels speak directly to her. Classical tafsir (Razi, Qurtubi) carefully preserves this distinction. Whether this constitutes prophetic revelation or ilham is debated; the majority hold the ilham view.',`
+  SONRA: `bodyEn: 'Only one woman in the Quran is addressed with the direct term وحي (waḥy): the Mother of Moses (Q 28:7). Maryam belongs to a distinct theological category; angels speak directly to her. Classical tafsir (Razi, Qurtubi) carefully preserves this distinction. Whether this constitutes prophetic revelation or ilham is debated; the majority hold the ilham view.',`
+- ÖNCE: `{ name: 'Asiye — iman', ref: 'Tahrîm 66:11' },`
+  SONRA: `{ name: 'Asiye: iman', ref: 'Tahrîm 66:11' },`
+- ÖNCE: `{ name: "Aziz'in karısı — tutku → tevbe", ref: 'Yûsuf 12:51' },`
+  SONRA: `{ name: "Aziz'in karısı: tutkudan tevbeye", ref: 'Yûsuf 12:51' },`
+- ÖNCE: `{ name: 'Belkıs — hidayet', ref: 'Neml 27:44' },`
+  SONRA: `{ name: 'Belkıs: hidayet', ref: 'Neml 27:44' },`
+- ÖNCE: `bodyEn: 'Imran\'s wife pledges her unborn child to the temple (3:35) → Maryam is raised in the temple under Zechariah\'s care (3:37) → Jesus is born by fatherless miracle (3:45). A three-generation chain springing from a single vow — a rare pattern where multiple atlas figures meet within one unified frame.',`
+  SONRA: `bodyEn: 'Imran\'s wife pledges her unborn child to the temple (3:35) → Maryam is raised in the temple under Zechariah\'s care (3:37) → Jesus is born by fatherless miracle (3:45). A three-generation chain springing from a single vow; a rare pattern where several atlas figures meet within one frame.',`
+- ÖNCE: `bodyTr: 'Tahrîm 66:10\'da Allah, "inkar edenlere örnek" (mathalan li\'l-ladhīna kafarū) olarak iki figürü zikreder: Hz. Lût ve Hz. Nuh\'un eşleri. Bu ifade, sonraki ayetlerdeki "müminlere örnek" çerçevesine (Asiye 66:11, Hz. Meryem 66:12) tam paralel ama zıt bir teolojik kategoridir. Aynı sûrede, aynı yapı — biri olumlu, diğeri olumsuz arketip.',`
+  SONRA: `bodyTr: 'Tahrîm 66:10\'da Allah, "inkar edenlere örnek" (mathalan li\'l-ladhīna kafarū) olarak iki figürü zikreder: Hz. Lût ve Hz. Nuh\'un eşleri. Bu ifade, sonraki ayetlerdeki "müminlere örnek" çerçevesine (Asiye 66:11, Hz. Meryem 66:12) tam paralel ama zıt bir teolojik kategoridir. Aynı sûrede, aynı yapı: biri olumlu, diğeri olumsuz arketip.',`
+- ÖNCE: `bodyEn: 'In Q 66:10 Allah cites two figures as "an example for those who disbelieved" (mathalan li\'l-ladhīna kafarū): the wives of Lot and Noah. This stands in exact parallel — but opposite — to the subsequent "example for believers" frame (Asiya 66:11, Maryam 66:12). The same surah, the same structure — one a positive, the other a negative archetype.',`
+  SONRA: `bodyEn: 'In Q 66:10 Allah cites two figures as "an example for those who disbelieved" (mathalan li\'l-ladhīna kafarū): the wives of Lot and Noah. This stands in exact but opposite parallel to the subsequent "example for believers" frame (Asiya 66:11, Maryam 66:12). The same surah, the same structure: one a positive, the other a negative archetype.',`
+- ÖNCE: `bodyTr: 'Mücâdele (58.) sûresi adını, kocasının zıharına itiraz eden Havle bint Sa\'lebe\'den alır — "el-Mücâdile" (tartışan/ısrarcı kadın) ondaki sûre başlığıdır. Bir kadının sosyal-hukuki şikâyetinin doğrudan sûre adına dönüştüğü tek olaydır. Esbâbu\'n-nüzûl literatüründe (Vâhidî, Buhârî) zıhar hükmünün bu olay üzerine indiği belgelenir.',`
+  SONRA: `bodyTr: 'Mücâdele (58.) sûresi adını, kocasının zıharına itiraz eden Havle bint Sa\'lebe\'den alır; "el-Mücâdile" (tartışan, ısrarcı kadın) ondan gelen sûre başlığıdır. Bir kadının sosyal-hukuki şikâyetinin doğrudan sûre adına dönüştüğü tek olaydır. Esbâbu\'n-nüzûl literatüründe (Vâhidî, Buhârî) zıhar hükmünün bu olay üzerine indiği belgelenir.',`
+- ÖNCE: `bodyEn: 'Surah al-Mujadila (58) takes its name from Khawla bint Tha\'laba, who disputed her husband\'s zihar — "al-Mujadila" (the woman who pleads/disputes). It is the only instance where a woman\'s social-legal complaint becomes the very title of a surah. The asbāb an-nuzūl literature (Wahidi, Bukhari) documents that the ruling on zihar was revealed in response to this incident.',`
+  SONRA: `bodyEn: 'Surah al-Mujadila (58) takes its name from Khawla bint Tha\'laba, who disputed her husband\'s zihar; "al-Mujadila" means the woman who pleads or disputes. It is the only instance where a woman\'s social-legal complaint becomes the very title of a surah. The asbāb an-nuzūl literature (Wahidi, Bukhari) documents that the ruling on zihar was revealed in response to this incident.',`
+- ÖNCE: `bodyTr: 'İki AYRI hadis söz konusudur: (1) "Kemâl" hadisi (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe) — "erkeklerden birçoğu kemâle erdi; kadınlardan ise Hz. Meryem ile Hz. Âsiye\'den başkası kemâle ermedi" — yalnız İKİ kadın. (2) "Cennet kadınlarının en faziletlileri" hadisi — Hz. Hatice, Hz. Fâtıma, Hz. Meryem ve Hz. Âsiye. Meryem ve Âsiye her iki hadiste ve Kur\'ân\'da yer alır; Hatice ile F`
+  SONRA: `bodyTr: 'İki AYRI hadis söz konusudur: (1) "Kemâl" hadisi (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe): "erkeklerden birçoğu kemâle erdi; kadınlardan ise Hz. Meryem ile Hz. Âsiye\'den başkası kemâle ermedi", yani yalnız İKİ kadın. (2) "Cennet kadınlarının en faziletlileri" hadisi: Hz. Hatice, Hz. Fâtıma, Hz. Meryem ve Hz. Âsiye. Meryem ve Âsiye her iki hadiste ve Kur\'ân\'da yer alır; Hatice ile`
+- ÖNCE: `bodyEn: 'These are TWO separate hadiths: (1) the "kamāl" hadith (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba) — "many men reached perfection, but among women none reached it except Maryam and Asiya" — only two women. (2) the "foremost women of Paradise" hadith — Khadija, Fatima, Maryam, and Asiya. Maryam and Asiya appear in both and in the Quran; Khadija and Fatima only in the second. (Attribut`
+  SONRA: `bodyEn: 'These are TWO separate hadiths: (1) the "kamāl" hadith (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba): "many men reached perfection, but among women none reached it except Maryam and Asiya", so only two women. (2) the "foremost women of Paradise" hadith: Khadija, Fatima, Maryam and Asiya. Maryam and Asiya appear in both and in the Quran; Khadija and Fatima only in the second. (Attributi`
+
+### `next/src/components/InsanPsikolojisi.jsx`
+
+- ÖNCE: `{ href: `/${language}/atlas/munafik`, titleTr: 'Münâfık Profili', titleEn: 'The Hypocrite Profile', descTr: 'İç dünyanın karanlık kutbu — 7 davranış deseni.', descEn: "The inner world's dark pole — 7 behavioral patterns." },`
+  SONRA: `{ href: `/${language}/atlas/munafik`, titleTr: 'Münâfık Profili', titleEn: 'The Hypocrite Profile', descTr: 'İç dünyanın karanlık kutbu: 7 davranış deseni.', descEn: "The inner world's dark pole: 7 behavioral patterns." },`
+- ÖNCE: `{ href: `/${language}/arac/iblis-seytan`, titleTr: 'İblis / Şeytan', titleEn: 'Iblis / Satan', descTr: 'Vesvesenin dış kanalı — nefsin baş rakibi.', descEn: "The outer channel of whispers — the self's chief adversary." },`
+  SONRA: `{ href: `/${language}/arac/iblis-seytan`, titleTr: 'İblis / Şeytan', titleEn: 'Iblis / Satan', descTr: 'Vesvesenin dış kanalı: nefsin baş rakibi.', descEn: "The outer channel of whispers: the self's chief adversary." },`
+- ÖNCE: `noteTr: 'İslâm ahlâk psikolojisinin klasik anıtı — nefsin hastalıkları (kibir, hased, ucub) + iyileşme yolları (tevbe, sabır, tevekkül) sistematik olarak.',`
+  SONRA: `noteTr: 'İslâm ahlâk psikolojisinin klasik eseri: nefsin hastalıkları (kibir, hased, ucub) ve iyileşme yolları (tevbe, sabır, tevekkül) sistematik olarak.',`
+- ÖNCE: `noteEn: 'Classical monument of Islamic moral psychology — diseases of the self (pride, envy, self-admiration) + paths of healing (repentance, patience, trust) systematically laid out.',`
+  SONRA: `noteEn: 'The classical work of Islamic moral psychology: diseases of the self (pride, envy, self-admiration) and paths of healing (repentance, patience, trust) systematically laid out.',`
+- ÖNCE: `noteTr: 'Kalp hastalıkları ve manevî iyileşmenin adım-adım yolculuğu — 100+ makam üzerinden nefs analizi.',`
+  SONRA: `noteTr: 'Kalp hastalıkları ve manevî iyileşmenin adım adım yolculuğu; 100\'den fazla makam üzerinden nefs analizi.',`
+- ÖNCE: `noteEn: 'Diseases of the heart and the step-by-step journey of spiritual healing — self-analysis across 100+ stations.',`
+  SONRA: `noteEn: 'Diseases of the heart and the step-by-step journey of spiritual healing; self-analysis across more than 100 stations.',`
+- ÖNCE: `noteTr: 'Kur\'ânî ahlâk kavramlarının felsefî-psikolojik açılımı — Gazâlî\'nin doğrudan kaynaklarından biri.',`
+  SONRA: `noteTr: 'Kur\'ânî ahlâk kavramlarının felsefî ve psikolojik açılımı; Gazâlî\'nin doğrudan kaynaklarından biri.',`
+- ÖNCE: `noteEn: 'Philosophical-psychological unpacking of Quranic ethical concepts — one of Ghazālī\'s direct sources.',`
+  SONRA: `noteEn: 'Philosophical and psychological unpacking of Quranic ethical concepts; one of Ghazālī\'s direct sources.',`
+- ÖNCE: `noteTr: 'Aristo etik + Kur\'ânî fıtrat sentezi — İslâm ahlâk psikolojisinin ilk sistemli eseri.',`
+  SONRA: `noteTr: 'Aristo etiği ile Kur\'ânî fıtrat sentezi; İslâm ahlâk psikolojisinin ilk sistemli eseri.',`
+- ÖNCE: `noteEn: 'Aristotelian ethics + Quranic fiṭra synthesis — the first systematic work in Islamic moral psychology.',`
+  SONRA: `noteEn: 'A synthesis of Aristotelian ethics and Quranic fiṭra; the first systematic work in Islamic moral psychology.',`
+- ÖNCE: `insightTr: "Kalp muhâsebesinin (ölçme-tartma) çok aşamalı yöntemi — modern CBT'nin öz-gözlem katmanına 12 asır önce benzetilebilecek bir yaklaşım: durum → düşünce → duygu → tepki çerçevesi bu yönteme modern bir okumayla eşlenebilir. 'Riâye' (özen) klasik terminoloji.",`
+  SONRA: `insightTr: "Kalp muhâsebesinin (ölçme, tartma) çok aşamalı yöntemi. Modern CBT'nin öz-gözlem katmanına 12 asır önceden benzetilebilecek bir yaklaşım: durum, düşünce, duygu, tepki çerçevesi bu yönteme modern bir okumayla eşlenebilir. 'Riâye' (özen) klasik terimdir.",`
+- ÖNCE: `insightEn: "A multi-stage method of muḥāsaba (self-accounting) — an approach that can be likened to the self-observation layer in modern CBT some 12 centuries earlier: the situation → thought → emotion → response frame is a modern reading mapped onto this method. 'Riʿāya' (attentive care) is the classical term.",`
+  SONRA: `insightEn: "A multi-stage method of muḥāsaba (self-accounting). It can be likened to the self-observation layer in modern CBT some 12 centuries earlier: the situation, thought, emotion, response frame is a modern reading mapped onto this method. 'Riʿāya' (attentive care) is the classical term.",`
+- ÖNCE: `insightTr: "Kalbin 4 boyutu modeli: akıl-hikmet (melek) + gazap (kelb) + şehvet (hınzîr) + kışkırtma-hile (şeytan) — iç ekosistem. Şifâʾ (kalp iyileşmesi) için 3 aşama: takvâ, teberri (uzaklaşma), teheccî (ışığa yönelme).",`
+  SONRA: `insightTr: "Kalbin 4 boyutu modeli: akıl ve hikmet (melek), gazap (kelb), şehvet (hınzîr), kışkırtma ve hile (şeytan); bir iç ekosistem. Şifâʾ (kalp iyileşmesi) için 3 aşama: takvâ, teberri (uzaklaşma), teheccî (ışığa yönelme).",`
+- ÖNCE: `insightEn: "Four-dimensions-of-the-heart model: intellect-wisdom (angel) + rage (dog) + desire (pig) + instigation-guile (devil) — inner ecosystem. Three-stage healing (shifāʾ): taqwā, tabarrī (distancing), tahajjī (turning toward light).",`
+  SONRA: `insightEn: "A four-dimensional model of the heart: intellect and wisdom (angel), rage (dog), desire (pig), instigation and guile (devil); an inner ecosystem. Three-stage healing (shifāʾ): taqwā, tabarrī (distancing), tahajjī (turning toward light).",`
+- ÖNCE: `insightTr: "Eserde işlenen 5 basamaklı bir iyileşme teması: tevbe → sabr → şükür → rızâ → itmi'nân — modern pozitif psikolojinin 'flourishing' aşamalarına benzetilebilir bir çerçeve.",`
+  SONRA: `insightTr: "Eserde işlenen 5 basamaklı bir iyileşme teması: tevbe, sabr, şükür, rızâ, itmi'nân. Modern pozitif psikolojinin 'flourishing' aşamalarına benzetilebilir bir çerçeve.",`
+- ÖNCE: `insightEn: "A five-stage healing theme found in the work: tawba → ṣabr → shukr → riḍā → iṭmiʾnān — a framework comparable to positive psychology's 'flourishing' stages.",`
+  SONRA: `insightEn: "A five-stage healing theme found in the work: tawba, ṣabr, shukr, riḍā, iṭmiʾnān. A framework comparable to positive psychology's 'flourishing' stages.",`
+- ÖNCE: `insightTr: "Nefs psikolojisinin kelâmî sistematiği: kuvve-i akliyye, gadabiyye, şehvâniyye. İç güçler dengesi — modern Freud'un id/ego/superego yapısına konsept-eş. Sistemlerin kırılma noktalarını haritalayan ilk düzenleyici teori.",`
+  SONRA: `insightTr: "Nefs psikolojisinin kelâmî sistematiği: kuvve-i akliyye, gadabiyye, şehvâniyye. İç güçler dengesi, Freud'un id/ego/süperego yapısına kavram düzeyinde benzetilebilir. Bu güçlerin kırılma noktalarını haritalayan erken bir düzenleyici teori.",`
+- ÖNCE: `insightEn: "Kalāmic systematization of nafs psychology: rational faculty, irascible faculty, appetitive faculty. Balance of inner faculties — conceptually parallel to Freud's id/ego/superego. First regulatory theory mapping break-points of the systems.",`
+  SONRA: `insightEn: "Kalāmic systematization of nafs psychology: rational faculty, irascible faculty, appetitive faculty. The balance of inner faculties can be compared at a conceptual level to Freud's id/ego/superego. An early regulatory theory mapping the break-points of these faculties.",`
+- ÖNCE: `insightTr: "İnsan nefsinin 5 içsel duyu (havâss-ı bâtına) analizi: hiss-i müşterek (ortak duyu), hayâl, vehm, hâfıza, müteḫayyile. Kognitif katmanların ilk sistematik haritası — modern nörobilim 'working memory + executive function' aynı katmanları tanımlar.",`
+  SONRA: `insightTr: "İnsan nefsinin 5 içsel duyu (havâss-ı bâtına) analizi: hiss-i müşterek (ortak duyu), hayâl, vehm, hâfıza, müteḫayyile. Kognitif katmanların erken bir sistematik haritası; modern nörobilimin 'çalışma belleği' ve 'yürütücü işlev' kavramlarıyla benzer katmanlar tarif eder.",`
+- ÖNCE: `insightEn: "Ibn Sīnā's 5 inner senses (ḥawāss bāṭina) analysis: common sense (ḥiss mushtarak), imagination/representation (khayāl), estimation (wahm), memory (ḥāfiẓa), and cogitation (mutakhayyila). First systematic map of cognitive layers — modern neuroscience 'working memory + executive function' identifies the same strata.",`
+  SONRA: `insightEn: "Ibn Sīnā's 5 inner senses (ḥawāss bāṭina) analysis: common sense (ḥiss mushtarak), imagination/representation (khayāl), estimation (wahm), memory (ḥāfiẓa), and cogitation (mutakhayyila). An early systematic map of cognitive layers; modern neuroscience's 'working memory' and 'executive function' describe similar strata.",`
+- ÖNCE: `? "Modern psikolojinin (CBT, pozitif psikoloji, Freud tipolojisi) 8. yüzyıldan itibaren klasik ulema tarafından farklı isimlerle geliştirilmiş versiyonları — kalp psikolojisinin bin yıllık silsilesi."`
+  SONRA: `? "Modern psikolojinin bazı kavramlarına (CBT, pozitif psikoloji, Freud tipolojisi) benzetilebilecek yaklaşımlar, 8. yüzyıldan itibaren klasik ulema tarafından farklı isimlerle geliştirildi. Kalp psikolojisinin bin yıllık silsilesi."`
+- ÖNCE: `: "Versions of what modern psychology (CBT, positive psych, Freud typology) later called by different names — developed by classical scholars from the 8th century onward. A millennium-long lineage of the psychology of the heart."}</p>`
+  SONRA: `: "Approaches comparable to some concepts of modern psychology (CBT, positive psychology, Freud's typology) were developed under different names by classical scholars from the 8th century onward. A millennium-long lineage of the psychology of the heart."}</p>`
+- ÖNCE: `{ n: 4, tr: 'İTHÂM', en: 'ACCUSATION', descTr: 'İftira, adaletsiz hükm — kendi ahlâkına karşı saldırı (Yûsuf 12:25-26).', descEn: 'Slander, unjust ruling — attack on one\'s own morality (Yūsuf 12:25-26).', color: '#a78bfa' },`
+  SONRA: `{ n: 4, tr: 'İTHÂM', en: 'ACCUSATION', descTr: 'İftira, adaletsiz hüküm; kendi ahlâkına karşı saldırı (Yûsuf 12:25-26).', descEn: 'Slander, unjust ruling; an attack on one\'s own morality (Yūsuf 12:25-26).', color: '#a78bfa' },`
+- ÖNCE: `{ n: 5, tr: 'HAPİS', en: 'IMPRISONMENT', descTr: 'Sonuç: özgürlüğün alınması. Ama iç dünya derinleşir — rüyalar, bilgelik (Yûsuf 12:36).', descEn: 'Consequence: freedom taken. But the inner world deepens — dreams, wisdom (Yūsuf 12:36).', color: '#3498db' },`
+  SONRA: `{ n: 5, tr: 'HAPİS', en: 'IMPRISONMENT', descTr: 'Sonuç: özgürlüğün alınması. Ama iç dünya derinleşir: rüyalar, bilgelik (Yûsuf 12:36).', descEn: 'Consequence: freedom taken. But the inner world deepens: dreams, wisdom (Yūsuf 12:36).', color: '#3498db' },`
+
+### `next/src/components/SunnetullahAtlasi.jsx`
+
+- ÖNCE: `noteTr: "Sünnetullah bahsi (Fetih 48:23, Ahzâb 33:62) — Allah'ın değişmeyen yasasının tefsir perspektifinden kapsamlı analizi.",`
+  SONRA: `noteTr: "Sünnetullah bahsi (Fetih 48:23, Ahzâb 33:62): Allah'ın değişmeyen yasasının tefsir perspektifinden kapsamlı analizi.",`
+- ÖNCE: `noteEn: "On sunnatullāh (Fatḥ 48:23, Aḥzāb 33:62) — comprehensive exegetical analysis of God's unchanging law.",`
+  SONRA: `noteEn: "On sunnatullāh (Fatḥ 48:23, Aḥzāb 33:62): comprehensive exegetical analysis of God's unchanging law.",`
+- ÖNCE: `noteTr: "Modern Kurʾânî sosyoloji — sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik.",`
+  SONRA: `noteTr: "Modern Kurʾânî sosyoloji; sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik.",`
+- ÖNCE: `noteEn: 'Modern Quranic sociology — contemporary classic theorizing sunnatullāh as historical laws of change.',`
+  SONRA: `noteEn: 'Modern Quranic sociology; a contemporary classic theorizing sunnatullāh as historical laws of change.',`
+- ÖNCE: `noteTr: "Sünnetullah'ı tarih felsefesi + dinamik ilâhî yasa çerçevesinde okuyan modern islam düşüncesinin dönüm noktası.",`
+  SONRA: `noteTr: "Sünnetullah'ı tarih felsefesi ve dinamik ilâhî yasa çerçevesinde okuyan modern İslâm düşüncesinin dönüm noktası.",`
+- ÖNCE: `noteEn: 'A turning point in modern Islamic thought — reading sunnatullāh as philosophy of history and dynamic divine law.',`
+  SONRA: `noteEn: 'A turning point in modern Islamic thought; it reads sunnatullāh as philosophy of history and dynamic divine law.',`
+- ÖNCE: `? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>`
+  SONRA: `? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur; bu, Allah&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>`
+- ÖNCE: `: <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em> — this is Allah&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}`
+  SONRA: `: <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em>; this is Allah&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}`
+- ÖNCE: `{ href: `/${language}/atlas/kavim`,        titleTr: 'Kavimler Atlası',      titleEn: 'Nations Atlas',         descTr: 'Sünnetullah\'ın somut kayıtları — 20+ kavmin helak biçimleri ve gerekçeleri.',     descEn: 'Concrete records of sunnatullāh — modes of destruction of 20+ peoples and their causes.' },`
+  SONRA: `{ href: `/${language}/atlas/kavim`,        titleTr: 'Kavimler Atlası',      titleEn: 'Nations Atlas',         descTr: 'Sünnetullah\'ın somut kayıtları: 20\'den fazla kavmin helak biçimleri ve gerekçeleri.',     descEn: 'Concrete records of sunnatullāh: modes of destruction of more than 20 peoples and their causes.' },`
+- ÖNCE: `{ href: `/${language}/atlas/kissa`,        titleTr: 'Kıssa Atlası',         titleEn: 'Story Atlas',           descTr: 'Peygamberlerin tekrarlanan örüntüsü: davet, ret, helak — sünnetullah\'ın yapısı.', descEn: 'The repeated pattern of prophets: call, rejection, destruction — the structure of sunnatullāh.' },`
+  SONRA: `{ href: `/${language}/atlas/kissa`,        titleTr: 'Kıssa Atlası',         titleEn: 'Story Atlas',           descTr: 'Peygamberlerin tekrarlanan örüntüsü: davet, ret, helak; sünnetullah\'ın yapısı.', descEn: 'The repeated pattern of prophets: call, rejection, destruction; the structure of sunnatullāh.' },`
+- ÖNCE: `{ href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Self',  descTr: 'İçsel sünnetullah — nefs-i emmâreden mutmainneye giden değişmeyen yasalar.',       descEn: 'Inner sunnatullāh — the unchanging laws from ammāra to muṭmaʾinna.' },`
+  SONRA: `{ href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Self',  descTr: 'İçsel sünnetullah: nefs-i emmâreden mutmainneye giden değişmeyen yasalar.',       descEn: 'Inner sunnatullāh: the unchanging laws from ammāra to muṭmaʾinna.' },`
+- ÖNCE: `? "Kur'ân-ı Kerîm'de 'sünnetullâh' ifadesi lafzen altı ayette geçer. Her birinin bağlamı farklıdır; ama ortak iddiası aynıdır — Allah'ın kanunları değişmez."`
+  SONRA: `? "Kur'ân-ı Kerîm'de 'sünnetullâh' ifadesi lafzen altı ayette geçer. Her birinin bağlamı farklıdır; ama ortak iddiası aynıdır: Allah'ın kanunları değişmez."`
+- ÖNCE: `: "The expression *sunnatullāh* appears literally in six verses of the Qur'an. Each has a different context, yet they share a single claim — God's laws do not change."`
+  SONRA: `: "The expression *sunnatullāh* appears literally in six verses of the Qur'an. Each has a different context, yet they share a single claim: God's laws do not change."`
+- ÖNCE: `? "Lafzî geçişlerin ötesinde, Kur'ân sünnetullâh'ı on iki tematik kanun olarak ortaya koyar. Her biri farklı bir kavim örneğiyle — ama hepsi aynı ilke etrafında."`
+  SONRA: `? "Lafzî geçişlerin ötesinde, Kur'ân sünnetullâh'ı on iki tematik kanun olarak ortaya koyar. Her biri farklı bir kavim örneğiyle, ama hepsi aynı ilke etrafında."`
+- ÖNCE: `: "Beyond literal occurrences, the Qur'an presents *sunnatullāh* as twelve thematic laws. Each illustrated by different peoples — all revolving around the same principle."`
+  SONRA: `: "Beyond literal occurrences, the Qur'an presents *sunnatullāh* as twelve thematic laws. Each illustrated by different peoples, all revolving around the same principle."`
+- ÖNCE: `label={language === 'tr' ? 'Bilimsel Paralellik — Dikkat' : 'Scientific Parallel — Caveat'}`
+  SONRA: `label={language === 'tr' ? 'Bilimsel Paralellik: Dikkat' : 'Scientific Parallel: Caveat'}`
+- ÖNCE: `? 'Bu kanunun somut tarihsel uygulamaları: Âd · Semûd · Lût kavmi · Firavun · Sebe — helâk biçimleri ve arkeolojik izler'`
+  SONRA: `? 'Bu kanunun somut tarihsel uygulamaları: Âd · Semûd · Lût kavmi · Firavun · Sebe; helâk biçimleri ve arkeolojik izler'`
+- ÖNCE: `: 'Concrete historical applications of this law: ʿĀd · Thamūd · the people of Lot · Pharaoh · Sabaʾ — modes of destruction and archaeological traces'}`
+  SONRA: `: 'Concrete historical applications of this law: ʿĀd · Thamūd · the people of Lot · Pharaoh · Sabaʾ; modes of destruction and archaeological traces'}`
+- ÖNCE: `? "Sünnetullâh kavramı klasik ve çağdaş ulemanın üzerinde yüzyıllarca çalıştığı bir meseledir. Aşağıda dört temsilî ses — klasik tefsir, eş'arî kelâm ve çağdaş akademi."`
+  SONRA: `? "Sünnetullâh kavramı klasik ve çağdaş ulemanın üzerinde yüzyıllarca çalıştığı bir meseledir. Aşağıda dört temsilî ses: klasik tefsir, Eş'arî kelâm ve çağdaş akademi."`
+- ÖNCE: `: "*Sunnatullāh* is a concept scholars have engaged for centuries. Below are four representative voices — classical tafsīr, Ashʿarite *kalām*, and contemporary academia."`
+  SONRA: `: "*Sunnatullāh* is a concept scholars have engaged for centuries. Below are four representative voices: classical tafsīr, Ashʿarite *kalām* and contemporary academia."`
+- ÖNCE: `{language === 'tr' ? 'Tartışmalı Kaynak — Uyarı Notu' : 'Contested Source — Caveat'}`
+  SONRA: `{language === 'tr' ? 'Tartışmalı Kaynak: Uyarı Notu' : 'Contested Source: Caveat'}`
+- ÖNCE: `{tr ? '↑ bir parçaya tıkla — dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}`
+  SONRA: `{tr ? '↑ bir parçaya tıkla, dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}`
+- ÖNCE: `? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 10 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir — ama örüntü aynıdır: peygamber → uyarı → yalanlama → delil → sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '`
+  SONRA: `? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 10 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir, ama örüntü aynıdır: peygamber, uyarı, yalanlama, delil, sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '`
+- ÖNCE: `: 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 10 nations. Each has a different prophet\'s warning, a different mode of destruction, and a different cause — but the pattern is identical: prophet → warning → rejection → sign → outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}`
+  SONRA: `: 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 10 nations. Each has a different prophet\'s warning, a different mode of destruction and a different cause, but the pattern is identical: prophet, warning, rejection, sign, outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}`
+- ÖNCE: `{tr ? 'Örüntü Panoraması — On Kavim, Tek Yasa' : 'Pattern Panorama — Ten Nations, One Law'}`
+  SONRA: `{tr ? 'Örüntü Panoraması: On Kavim, Tek Yasa' : 'Pattern Panorama: Ten Nations, One Law'}`
+
