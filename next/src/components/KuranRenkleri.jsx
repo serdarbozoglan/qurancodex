@@ -438,7 +438,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
 
           {/* Verse buttons */}
           <p style={{ fontSize: '0.72rem', fontWeight: 600, color: COLORS.gold, fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px' }}>
-            {tr ? '4 Sûrede Tekrar — Ayetleri Gör' : 'Repeated in 4 Suras — View Verses'}
+            {tr ? '4 Sûrede Tekrar: Ayetleri Gör' : 'Repeated in 4 Suras: View Verses'}
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
             {data.renkSekans.verses.map(v => (
@@ -574,7 +574,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
               onMouseLeave={() => setHoveredId(null)}
               onFocus={() => setHoveredId(c.id)}
               onBlur={() => setHoveredId(null)}
-              aria-label={`${name} — ${refCount} ${tr ? 'ayet' : 'verses'}`}
+              aria-label={`${name}: ${refCount} ${tr ? 'ayet' : 'verses'}`}
               style={{
                 position: 'relative',
                 display: 'flex', flexDirection: 'column',
@@ -703,8 +703,8 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
         fontStyle: 'italic',
       }}>
         {tr
-          ? "Renkler Kur'ân'da sadece görsel değil, semantik alanlardır — beyaz iyilik, siyah utanç, yeşil vaad."
-          : "In the Qur'an colors are not merely visual — they are semantic domains: white for grace, black for shame, green for the promise."}
+          ? "Renkler Kur'ân'da yalnızca görsel değil, semantik alanlardır: beyaz iyilik, siyah utanç, yeşil vaad."
+          : "In the Qur'an colors are more than visual; they are semantic domains: white for grace, black for shame, green for the promise."}
       </p>
     </div>
   );
@@ -719,44 +719,44 @@ function TabBaglam({ language, isMobile }) {
       titleTr: 'Cennet Paleti',
       titleEn: 'Paradise Palette',
       accentColor: KURANI_COLORS.yesilYaprak,
-      descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Dikkat çekici olan: cennet tasvirinde kırmızı, turuncu ve sarı yoktur. Serin, sakin tonlar hâkim.",
+      descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz; nesneler aracılığıyla verir. Cennet tasvirinde kırmızı, turuncu ve sarı yoktur; serin, sakin tonlar hâkimdir.",
       descEn: "The Quran names paradise colors through objects, not directly. Notably: no red, orange or yellow in paradise imagery. Cool, serene tones dominate.",
       colors: [
         {
-          hex: KURANI_COLORS.yesilYaprak, nameTr: 'Yeşil — Elbiseler', nameEn: 'Green — Garments',
+          hex: KURANI_COLORS.yesilYaprak, nameTr: 'Yeşil: Elbiseler', nameEn: 'Green: Garments',
           verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
           verseTr: 'İnce ipek ve kalın ipekten yeşil elbiseler giyerler.',
           verseEn: 'They wear green garments of fine silk and brocade.',
           ref: 'Kehf 18:31',
-          noteTr: "Yeşil giysi ile altın bilezik Kehf 18:31'de bir arada anılır — cennet ehlinin giysisi ve süsü. (İnsan 76:21'de yeşil giysiye gümüş bilezik eşlik eder.)",
-          noteEn: "Green garment and gold bracelet appear together in Al-Kahf 18:31 — the dress and adornment of Paradise's people. (In Al-Insan 76:21, silver bracelets accompany the green garments.)",
+          noteTr: "Yeşil giysi ile altın bilezik Kehf 18:31'de bir arada anılır; cennet ehlinin giysisi ve süsü. (İnsan 76:21'de yeşil giysiye gümüş bilezik eşlik eder.)",
+          noteEn: "Green garment and gold bracelet appear together in Al-Kahf 18:31; the dress and adornment of Paradise's people. (In Al-Insan 76:21, silver bracelets accompany the green garments.)",
         },
         {
-          hex: KURANI_COLORS.altin, nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',
+          hex: KURANI_COLORS.altin, nameTr: 'Altın: Bilezikler', nameEn: 'Gold: Bracelets',
           verseAr: 'يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍ وَلُؤْلُؤًا',
           verseTr: 'Orada altın bilezikler ve incilerle süslenirler.',
           verseEn: 'They are adorned therein with bracelets of gold and pearl.',
           ref: 'Hac 22:23',
-          noteTr: "Altın bilezik motifi 3 sûrede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir — dünyada yasak olan erkeklere cennetin hediyesi.",
-          noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color — the gift of paradise to men forbidden it in the world.",
+          noteTr: "Altın bilezik motifi 3 sûrede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir; dünyada erkeklere yasak olanın cennette hediye edilmesi.",
+          noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color; the gift of paradise to men who were forbidden it in the world.",
         },
         {
-          hex: KURANI_COLORS.gumusGri, nameTr: 'Gümüş — Kaplar', nameEn: 'Silver — Vessels',
+          hex: KURANI_COLORS.gumusGri, nameTr: 'Gümüş: Kaplar', nameEn: 'Silver: Vessels',
           verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
           verseTr: 'Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.',
           verseEn: 'Silver vessels and crystal cups circulate — crystal of silver.',
           ref: 'İnsan 76:15-16',
-          noteTr: "'Gümüşten billur' — billurın şeffaflığında gümüş parlaklığı. İki malzemenin özelliği tek nesnede. Kur'an'ın en özgün malzeme tasviri.",
-          noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object.",
+          noteTr: "'Gümüşten billur': billurun şeffaflığında gümüş parlaklığı. İki malzemenin özelliği tek nesnede. Kur'an'ın en özgün malzeme tasvirlerinden biri.",
+          noteEn: "'Crystal of silver': silver's sheen with crystal's transparency. Two material properties in one object.",
         },
         {
-          hex: KURANI_COLORS.yesilKoyu, nameTr: 'Koyu Yeşil — Bahçeler', nameEn: 'Dark Green — Gardens',
+          hex: KURANI_COLORS.yesilKoyu, nameTr: 'Koyu Yeşil: Bahçeler', nameEn: 'Dark Green: Gardens',
           verseAr: 'مُدْهَامَّتَانِ',
           verseTr: 'İkisi de koyu yemyeşil.',
           verseEn: 'Both of them are intensely dark green.',
           ref: 'Rahman 55:64',
-          noteTr: "Hapax legomenon — tüm Kur'an'da yalnızca bir kez geçer. Yeşilin o kadar yoğun olduğu ton ki neredeyse siyaha döner. İki cennet bahçesini tanımlar.",
-          noteEn: "Hapax legomenon — appears only once in the entire Quran. Green so intense it borders on black. Describes the two paradise gardens.",
+          noteTr: "Hapax legomenon; tüm Kur'an'da yalnızca bir kez geçer. Yeşilin o kadar yoğun olduğu ton ki neredeyse siyaha döner. İki cennet bahçesini tanımlar.",
+          noteEn: "Hapax legomenon; appears only once in the entire Quran. Green so intense it borders on black. Describes the two paradise gardens.",
           isHapax: true,
         },
       ],
@@ -765,35 +765,35 @@ function TabBaglam({ language, isMobile }) {
       titleTr: 'Cehennem Paleti',
       titleEn: 'Hell Palette',
       accentColor: KURANI_COLORS.kirmiziKan,
-      descTr: "Cehennem renkleri cennetin tam zıttı: yeşil ve altın yok. Siyah, sarı ve kırmızı — ısı, yanma ve ceza tonları. Zıtlık kasıtlı ve sistematik.",
-      descEn: "Hell's colors are the exact opposite of paradise: no green, no gold. Black, yellow and red — heat, burning and punishment tones. The contrast is deliberate and systematic.",
+      descTr: "Cehennem renkleri cennetin tam zıttı: yeşil ve altın yok. Siyah, sarı ve kırmızı; ısı, yanma ve ceza tonları. Zıtlık kasıtlı ve sistematik.",
+      descEn: "Hell's colors are the exact opposite of paradise: no green, no gold. Black, yellow and red; the tones of heat, burning and punishment. The contrast is deliberate and systematic.",
       colors: [
         {
-          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Duman', nameEn: 'Black — Smoke',
+          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah: Duman', nameEn: 'Black: Smoke',
           verseAr: 'وَظِلٍّ مِّن يَحْمُومٍ ۝ لَّا بَارِدٍ وَلَا كَرِيمٍ',
           verseTr: 'Simsiyah bir duman gölgesinde — ne serin ne de hoş.',
           verseEn: 'In the shade of black smoke — neither cool nor pleasant.',
           ref: 'Vâkıa 56:43-44',
-          noteTr: "يَحْمُوم (yahmûm) — kuzgun/kömür siyahı. Cennetin 'serinliğine' karşı bu gölge ne serindir ne de güzel. Her şey cennetle tezat.",
-          noteEn: "يَحْمُوم (yahmûm) — raven/coal black. Contrasting paradise's 'coolness,' this shade is neither cool nor good. Everything is opposite to paradise.",
+          noteTr: "يَحْمُوم (yahmûm): kuzgun ya da kömür siyahı. Cennetin 'serinliğine' karşı bu gölge ne serindir ne de güzel. Her şey cennetle tezat.",
+          noteEn: "يَحْمُوم (yahmûm): raven or coal black. Contrasting paradise's 'coolness,' this shade is neither cool nor good. Everything is opposite to paradise.",
         },
         {
-          hex: KURANI_COLORS.sariKivilcim, nameTr: 'Sarı — Kıvılcımlar', nameEn: 'Yellow — Sparks',
+          hex: KURANI_COLORS.sariKivilcim, nameTr: 'Sarı: Kıvılcımlar', nameEn: 'Yellow: Sparks',
           verseAr: 'إِنَّهَا تَرْمِي بِشَرَرٍ كَالْقَصْرِ ۝ كَأَنَّهُ جِمَالَتٌ صُفْرٌ',
           verseTr: 'Saraylar büyüklüğünde kıvılcımlar fırlatıyor — sanki sarı develer gibi.',
           verseEn: 'It throws sparks as large as a palace — as if they were yellow camels.',
           ref: 'Mürselat 77:32-33',
-          noteTr: "Sarının tek olumlu kullanımı Bakara'daki inek. Burada sarı: cehennem kıvılcımı, sarı deve — büyük, ürkütücü, yakıcı.",
-          noteEn: "Yellow's only positive use is Al-Baqarah's cow. Here yellow: hellfire spark, yellow camel — large, terrifying, burning.",
+          noteTr: "Sarının tek olumlu kullanımı Bakara'daki inek. Burada sarı: cehennem kıvılcımı, sarı deve; büyük, ürkütücü, yakıcı.",
+          noteEn: "Yellow's only positive use is Al-Baqarah's cow. Here yellow: hellfire spark, yellow camel; large, terrifying, burning.",
         },
         {
-          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
+          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı: Gökyüzü', nameEn: 'Red: The Sky',
           verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
           verseTr: 'Gökyüzü yarılıp kırmızı yağ gibi olduğunda.',
           verseEn: 'When the sky is split open and turns red like oil.',
           ref: 'Rahman 55:37',
-          noteTr: "وَرْدَة (verdeh) — gül/kırmızı. كَالدِّهَان (kad-dihan) — eritilmiş yağ kıvamında. Gökyüzünün kıyamette tamamen dönüşümü. Cennetin sakin mavisine karşı kırmızı kaos.",
-          noteEn: "وَرْدَة (wardah) — rose/red. كَالدِّهَان (kad-dihan) — like molten oil in consistency. The complete transformation of the sky on the Day. Red chaos against paradise's serene blue.",
+          noteTr: "وَرْدَة (verdeh): gül, kırmızı. كَالدِّهَان (kad-dihan): eritilmiş yağ kıvamında. Gökyüzünün kıyamette tamamen dönüşümü. Cennetin sakin mavisine karşı kırmızı kaos.",
+          noteEn: "وَرْدَة (wardah): rose, red. كَالدِّهَان (kad-dihan): like molten oil in consistency. The complete transformation of the sky on the Day. Red chaos against paradise's serene blue.",
         },
       ],
     },
@@ -805,25 +805,25 @@ function TabBaglam({ language, isMobile }) {
       descEn: "The judgment scene is the most color-dense context in the Quran. Color here is a symbolic classifier: white face = salvation, black face = punishment. Two poles in one verse.",
       colors: [
         {
-          hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces",
+          hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz: Kurtulanların Yüzü', nameEn: "White: The Faces of the Saved",
           verseAr: 'يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ',
           verseTr: 'Yüzlerin beyazlayacağı ve yüzlerin kararacağı gün.',
           verseEn: 'The day when faces will turn white and faces will turn black.',
           ref: 'Âl-i İmrân 3:106',
-          noteTr: "Tek ayette iki zıt renk. تَبْيَضُّ (beyazlaşmak) ve تَسْوَدُّ (kararışmak) fiilleri birlikte — renk burada ahlaki durumu gösterir.",
-          noteEn: "Two opposing colors in one verse. تَبْيَضُّ (to whiten) and تَسْوَدُّ (to blacken) together — color here indicates moral state.",
+          noteTr: "Tek ayette iki zıt renk. تَبْيَضُّ (beyazlaşmak) ve تَسْوَدُّ (kararmak) fiilleri birlikte; renk burada ahlâkî durumu gösterir.",
+          noteEn: "Two opposing colors in one verse. تَبْيَضُّ (to whiten) and تَسْوَدُّ (to blacken) together; color here indicates moral state.",
         },
         {
-          hex: KURANI_COLORS.maviDonuk, nameTr: 'Mavi/Donuk — Gözler', nameEn: 'Blue/Glazed — Eyes',
+          hex: KURANI_COLORS.maviDonuk, nameTr: 'Mavi/Donuk: Gözler', nameEn: 'Blue/Glazed: Eyes',
           verseAr: 'وَنَحْشُرُ الْمُجْرِمِينَ يَوْمَئِذٍ زُرْقًا',
           verseTr: 'O gün suçluları gözleri donuk/mavimsi olarak haşredeceğiz.',
           verseEn: 'That day We will gather the criminals with blue/glazed eyes.',
           ref: 'Tâhâ 20:102',
-          noteTr: "زُرْق (zurk) — Arapça'da hem 'mavi' hem 'donuk, kör gibi' anlamına gelir. Korku ve dehşetten donup kalan göz. Müfessirler ikisi üzerinde ayrılır.",
-          noteEn: "زُرْق (zurq) — means both 'blue' and 'glazed, blind-like' in Arabic. Eyes frozen in terror and horror. Commentators are divided between both meanings.",
+          noteTr: "زُرْق (zurk): Arapçada hem 'mavi' hem 'donuk, kör gibi' anlamına gelir. Korku ve dehşetten donup kalan göz. Müfessirler ikisi üzerinde ayrılır.",
+          noteEn: "زُرْق (zurq): means both 'blue' and 'glazed, blind-like' in Arabic. Eyes frozen in terror and horror. Commentators are divided between both meanings.",
         },
         {
-          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
+          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı: Gökyüzü', nameEn: 'Red: The Sky',
           verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
           verseTr: 'Gökyüzü yarılıp kırmızı yağ gibi olduğunda.',
           verseEn: 'When the sky is split open and turns red like oil.',
@@ -832,13 +832,13 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "The cosmic sign of judgment: the sky's color transforms to red. The exact opposite of the everyday blue sky.",
         },
         {
-          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Azap Görenler', nameEn: 'Black — The Punished',
+          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah: Azap Görenler', nameEn: 'Black: The Punished',
           verseAr: 'فَأَمَّا الَّذِينَ اسْوَدَّتْ وُجُوهُهُمْ أَكَفَرْتُمْ بَعْدَ إِيمَانِكُمْ',
           verseTr: 'Yüzleri kararan kimseler ise: "İman ettikten sonra mı inkâr ettiniz?"',
           verseEn: 'As for those whose faces turn black: "Did you disbelieve after your faith?"',
           ref: 'Âl-i İmrân 3:106',
-          noteTr: "Aynı ayette beyazla zıtlık. Kararma burada inanç dönüşümünün simgesi — sadece fiziksel değil, manevi durum.",
-          noteEn: "Contrast with white in the same verse. Blackening here symbolizes a reversal of faith — not just physical but moral state.",
+          noteTr: "Aynı ayette beyazla zıtlık. Kararma burada inanç dönüşümünün simgesidir; yalnızca fiziksel değil, manevî bir durum.",
+          noteEn: "Contrast with white in the same verse. Blackening here symbolizes a reversal of faith; not just a physical but a moral state.",
         },
       ],
     },
@@ -846,38 +846,38 @@ function TabBaglam({ language, isMobile }) {
       titleTr: 'Tabiat Paleti',
       titleEn: 'Nature Palette',
       accentColor: COLORS.gold,
-      descTr: "Tabiat tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlem — dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",
-      descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation — mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",
+      descTr: "Tabiat tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlemdir: dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",
+      descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation: mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",
       colors: [
         {
-          hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz — Dağ Şeritleri', nameEn: 'White — Mountain Streaks',
+          hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz: Dağ Şeritleri', nameEn: 'White: Mountain Streaks',
           verseAr: 'وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ',
           verseTr: 'Dağlarda beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah şeritler vardır.',
           verseEn: 'And among the mountains are streaks of white and red of varying shades, and some intensely black.',
           ref: 'Fâtır 35:27',
-          noteTr: "جُدَد (cüded) — mineral şeritler. Tek ayette 3 renk: beyaz (kalsit/kireçtaşı), kırmızı (demir oksit), siyah (bazalt/mika). Modern jeoloji bu şeritleri tanır.",
-          noteEn: "جُدَد (judad) — mineral streaks. Three colors in one verse: white (calcite/limestone), red (iron oxide), black (basalt/mica). Modern geology recognizes these streaks.",
+          noteTr: "جُدَد (cüded): mineral şeritler. Tek ayette 3 renk: beyaz (kalsit/kireçtaşı), kırmızı (demir oksit), siyah (bazalt/mika). Modern jeoloji bu şeritleri tanır.",
+          noteEn: "جُدَد (judad): mineral streaks. Three colors in one verse: white (calcite/limestone), red (iron oxide), black (basalt/mica). Modern geology recognizes these streaks.",
         },
         {
-          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks',
+          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı: Dağ Şeritleri', nameEn: 'Red: Mountain Streaks',
           verseAr: 'وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ',
           verseTr: 'Dağlarda beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah şeritler vardır.',
           verseEn: 'And among the mountains are streaks of white and red of varying shades, and some intensely black.',
           ref: 'Fâtır 35:27',
-          noteTr: "مُّخْتَلِفٌ أَلْوَانُهَا (muhteli­fun elvânuhâ) — renkleri birbirinden farklı. Kırmızı için özellikle bu çokluk nitelemesi var — demir oksitin farklı yoğunluklarına işaret.",
-          noteEn: "مُّخْتَلِفٌ أَلْوَانُهَا — 'of varying shades' applies specifically to red — pointing to the different concentrations of iron oxide.",
+          noteTr: "مُّخْتَلِفٌ أَلْوَانُهَا (muhteli­fun elvânuhâ): renkleri birbirinden farklı. Bu çokluk nitelemesi özellikle kırmızı için verilir; demir oksidin farklı yoğunluklarına işaret eder.",
+          noteEn: "مُّخْتَلِفٌ أَلْوَانُهَا, 'of varying shades', applies specifically to red; it points to the different concentrations of iron oxide.",
         },
         {
-          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Dağ Şeritleri', nameEn: 'Black — Mountain Streaks',
+          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah: Dağ Şeritleri', nameEn: 'Black: Mountain Streaks',
           verseAr: 'وَغَرَابِيبُ سُودٌ',
           verseTr: 'Ve simsiyah.',
           verseEn: 'And intensely black.',
           ref: 'Fâtır 35:27',
-          noteTr: "غَرَابِيب (garâbîb) — kuzgun/karga kökünden. Siyahın en yoğun tonu için özel kelime. 'Siyah siyah' anlamında pekiştirme — Türkçe'deki 'simsiyah' gibi.",
-          noteEn: "غَرَابِيب (gharabib) — from ghurab (raven/crow). A special word for the most intense shade of black. Intensifying 'black black' — like English 'pitch black.'",
+          noteTr: "غَرَابِيب (garâbîb): kuzgun, karga kökünden. Siyahın en yoğun tonu için özel kelime. 'Siyah siyah' anlamında pekiştirme; Türkçedeki 'simsiyah' gibi.",
+          noteEn: "غَرَابِيب (gharabib): from ghurab (raven, crow). A special word for the most intense shade of black. An intensifying 'black black', like the English 'pitch black'.",
         },
         {
-          hex: KURANI_COLORS.beyazSaf, nameTr: 'Beyaz — Şafak Çizgisi', nameEn: 'White — Dawn Line',
+          hex: KURANI_COLORS.beyazSaf, nameTr: 'Beyaz: Şafak Çizgisi', nameEn: 'White: Dawn Line',
           verseAr: 'حَتَّىٰ يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ مِنَ الْفَجْرِ',
           verseTr: 'Şafağın beyaz ipliği siyah iplikten sizin için ayrılıncaya kadar.',
           verseEn: 'Until the white thread of dawn becomes distinct to you from the black thread.',
@@ -891,35 +891,35 @@ function TabBaglam({ language, isMobile }) {
       titleTr: 'Kıssa ve Mucize Paleti',
       titleEn: 'Narrative & Miracle Palette',
       accentColor: KURANI_COLORS.beyazFildisi,
-      descTr: "Mucizelerin rengi Kur'an'da tutarlı biçimde beyazdır. Sarı yalnızca bir kez olumlu bağlamda — Bakara'nın ineği. Bu tutarlılık tesadüf değil.",
-      descEn: "The color of miracles in the Quran is consistently white. Yellow appears positively only once — Al-Baqarah's cow. This consistency is not coincidental.",
+      descTr: "Mucizelerin rengi Kur'an'da tutarlı biçimde beyazdır. Sarı yalnızca bir kez olumlu bağlamda geçer: Bakara'nın ineği. Bu tutarlılık tesadüf değil.",
+      descEn: "The color of miracles in the Quran is consistently white. Yellow appears positively only once: Al-Baqarah's cow. This consistency is not coincidental.",
       colors: [
         {
-          hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz — Hz. Musa'nın Eli", nameEn: "White — Moses' Hand",
+          hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz: Hz. Musa'nın Eli", nameEn: "White: Moses' Hand",
           verseAr: 'وَأَدْخِلْ يَدَكَ فِي جَيْبِكَ تَخْرُجْ بَيْضَاءَ مِنْ غَيْرِ سُوءٍ',
           verseTr: 'Elini koynuna sok; hastalıksız beyaz olarak çıksın.',
           verseEn: 'Put your hand into your garment; it will come out white without disease.',
           ref: 'Neml 27:12',
-          noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Araf, Taha, Şuarâ, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",
-          noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-A'raf, Ta-Ha, Ash-Shu'ara, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",
+          noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Araf, Taha, Şuarâ, Neml, Kasas. 'Hastalıksız beyaz': hastalık (alacalık, lepra) beyazından ayırmak için özel vurgu.",
+          noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-A'raf, Ta-Ha, Ash-Shu'ara, An-Naml, Al-Qasas. 'White without disease': special emphasis to distinguish it from disease (vitiligo, leprosy).",
         },
         {
-          hex: KURANI_COLORS.sariKivilcim, nameTr: "Sarı — Bakara'nın İneği", nameEn: "Yellow — Al-Baqarah's Cow",
+          hex: KURANI_COLORS.sariKivilcim, nameTr: "Sarı: Bakara'nın İneği", nameEn: "Yellow: Al-Baqarah's Cow",
           verseAr: 'إِنَّهَا بَقَرَةٌ صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ',
           verseTr: 'O, rengi pırıl pırıl olan sarı bir inektir; bakanlara sevinç veriyor.',
           verseEn: 'It is a yellow cow, bright in color, pleasing to those who see it.',
           ref: 'Bakara 2:69',
-          noteTr: "صَفْرَاءُ فَاقِعٌ (safrâ fâkı') — fâkı' sarının en parlak, en saf tonudur. Kur'an'da sarının tek mutlu bağlamı. Tüm diğer sarı kullanımları olumsuz veya nötr.",
-          noteEn: "صَفْرَاءُ فَاقِعٌ (safrâ fâqi') — fâqi' is the brightest, purest shade of yellow. The only joyful use of yellow in the Quran. All other yellow uses are negative or neutral.",
+          noteTr: "صَفْرَاءُ فَاقِعٌ (safrâ fâkı'): fâkı', sarının en parlak, en saf tonudur. Kur'an'da sarının tek mutlu bağlamı. Tüm diğer sarı kullanımları olumsuz veya nötr.",
+          noteEn: "صَفْرَاءُ فَاقِعٌ (safrâ fâqi'): fâqi' is the brightest, purest shade of yellow. The only joyful use of yellow in the Quran. All other yellow uses are negative or neutral.",
         },
         {
-          hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz — Hz. İsa'nın Mucizesi", nameEn: "White — Jesus' Miracle",
+          hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz: Hz. İsa'nın Mucizesi", nameEn: "White: Jesus' Miracle",
           verseAr: 'وَتُبْرِئُ الْأَكْمَهَ وَالْأَبْرَصَ بِإِذْنِي',
           verseTr: 'Doğuştan körü ve alacalıyı iznimle iyileştiriyordun.',
           verseEn: 'You healed the blind and the leper by My permission.',
           ref: 'Mâide 5:110',
-          noteTr: "الْأَبْرَص (ebrâs) — alacalı, vitiligo. Hz. İsa'nın mucizesi rengi iyileştirmek — beyazı geri getirmek veya normalleştirmek. Renk burada sağlığın simgesi.",
-          noteEn: "الْأَبْرَص (abras) — vitiligo, leukoderma. Jesus' miracle is restoring color — bringing back or normalizing white. Color here symbolizes health.",
+          noteTr: "الْأَبْرَص (ebrâs): alacalı, vitiligo. Hz. İsa'nın mucizesi rengi iyileştirmektir; beyazı geri getirmek ya da normalleştirmek. Renk burada sağlığın simgesi.",
+          noteEn: "الْأَبْرَص (abras): vitiligo, leukoderma. Jesus' miracle is restoring color; bringing back or normalizing white. Color here symbolizes health.",
         },
       ],
     },
@@ -1197,8 +1197,8 @@ function TabCennet({ language, isMobile }) {
       verseAr: 'مُدْهَامَّتَانِ',
       verseTr: 'İkisi de koyu yemyeşil.',
       verseEn: 'Both of them are intensely dark green.',
-      noteTr: "'Mudhammatân' — bu formda Kur'an'da yalnızca bu ayette. İkili form, iki cennet bahçesini tanımlar. Yeşilin o kadar yoğun olduğu ki neredeyse siyaha döndüğü ton — cennette 'extra yeşil.'",
-      noteEn: "'Mudhammatân' — appears only in this verse in this form. Dual, describing the two paradise gardens. Green so intense it borders on black — paradise's 'extra green.'",
+      noteTr: "'Mudhammatân': bu formda Kur'an'da yalnızca bu ayette. İkil form, iki cennet bahçesini tanımlar. Yeşilin neredeyse siyaha döndüğü kadar yoğun tonu; cennette 'ekstra yeşil'.",
+      noteEn: "'Mudhammatân': appears only in this verse in this form. Dual, describing the two paradise gardens. Green so intense it borders on black; paradise's 'extra green'.",
       isHapax: true,
     },
     {
@@ -1209,8 +1209,8 @@ function TabCennet({ language, isMobile }) {
       verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
       verseTr: 'Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.',
       verseEn: 'Silver vessels and crystal cups circulate among them — crystal of silver.',
-      noteTr: "'Gümüşten billur' — billurın şeffaflığında gümüş. İki malzemenin özelliği tek nesnede. Kur'an'ın cennet dilinin en özgün malzeme tasviri.",
-      noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object. The Quran's most distinctive material description in paradise language.",
+      noteTr: "'Gümüşten billur': billurun şeffaflığında gümüş. İki malzemenin özelliği tek nesnede. Kur'an'ın cennet dilindeki en özgün malzeme tasvirlerinden biri.",
+      noteEn: "'Crystal of silver': silver's sheen with crystal's transparency. Two material properties in one object. The Quran's most distinctive material description in paradise language.",
     },
   ];
 
@@ -1252,7 +1252,7 @@ function TabCennet({ language, isMobile }) {
           color: COLORS.offWhite, fontWeight: 700,
           margin: '0 0 12px', lineHeight: 1.3,
         }}>
-          {tr ? 'Serin, Sakin, Sade — Cennetin Üslubu' : 'Cool, Calm, Spare — The Aesthetic of Paradise'}
+          {tr ? 'Serin, Sakin, Sade: Cennetin Üslubu' : 'Cool, Calm, Spare: The Aesthetic of Paradise'}
         </h3>
 
         <p className="mq-fs" style={{
@@ -1261,8 +1261,8 @@ function TabCennet({ language, isMobile }) {
           fontFamily: FONTS.body, margin: 0,
         }}>
           {tr
-            ? "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yoktur; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."
-            : "The Quran doesn't name paradise colors directly — it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}
+            ? "Kur'an cennetin renklerini doğrudan adlandırmaz; nesneler aracılığıyla verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yoktur; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."
+            : "The Quran does not name paradise colors directly; it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}
         </p>
 
         {/* Stat strip */}
@@ -1502,8 +1502,8 @@ function TabKiyamet({ language, isMobile }) {
       verseEn: 'And when the sky breaks apart and becomes rose-red like oil.',
       ref: 'Rahman 55:37',
       hex: KURANI_COLORS.kirmiziKan,
-      noteTr: "Kıyametin sinematik açılış sahnesi. 'Dihân' — erimiş yağ veya kırmızı deri. Gökyüzünün hem eriyip hem kızarması: iki algı bir imgede.",
-      noteEn: "The cinematic opening of judgment. 'Dihan' — molten oil or red leather. The sky simultaneously melting and reddening: two perceptions in one image.",
+      noteTr: "Kıyametin açılış sahnesi. 'Dihân': erimiş yağ ya da kırmızı deri. Gökyüzünün hem eriyip hem kızarması: iki algı bir imgede.",
+      noteEn: "The opening scene of judgment. 'Dihan': molten oil or red leather. The sky simultaneously melting and reddening: two perceptions in one image.",
       infoTr: "'Dihân' kelimesinin tam anlamı tartışmalı: kırmızı yağ mı, kırmızı deri mi, kırmızı boya mı?",
       infoEn: "The exact meaning of 'dihan' is debated: red oil? Red leather? Red dye?",
     },
@@ -1528,8 +1528,8 @@ function TabKiyamet({ language, isMobile }) {
       verseEn: 'We will gather the criminals that Day, blue-eyed / glazed.',
       ref: 'Taha 20:102',
       hex: KURANI_COLORS.maviDonuk,
-      noteTr: "'Zurk' — hem mavi hem donuk/bulanık anlamına gelir. Kıyamette suçluların gözleri mi mavileşiyor, yoksa korkudan donup mu kalıyor? İki yorum da dilbilimsel olarak mümkün.",
-      noteEn: "'Zurq' — means both blue and glazed/dull. Are criminals' eyes turning blue, or freezing with terror? Both interpretations are linguistically valid.",
+      noteTr: "'Zurk': hem mavi hem donuk, bulanık anlamına gelir. Kıyamette suçluların gözleri mi mavileşiyor, yoksa korkudan donup mu kalıyor? İki yorum da dilbilimsel olarak mümkün.",
+      noteEn: "'Zurq': means both blue and glazed, dull. Are criminals' eyes turning blue, or freezing with terror? Both interpretations are linguistically valid.",
       infoTr: "'Zurk' kelimesinin anlamı tartışmalı: mavi gözlü mü, donuk gözlü mü, körlük mu? Müfessirler arasında görüş ayrılığı mevcuttur.",
       infoEn: "'Zurq' meaning disputed: blue-eyed? Glazed? Blind? There is scholarly disagreement.",
     },
@@ -1582,7 +1582,7 @@ function TabKiyamet({ language, isMobile }) {
           color: COLORS.offWhite, fontWeight: 700,
           margin: '0 0 16px', lineHeight: 1.3,
         }}>
-          {tr ? 'Yüzlerin İki Kutbu — Renk Sınıflandırması' : 'The Two Poles of Faces — Color as Classifier'}
+          {tr ? 'Yüzlerin İki Kutbu: Renk Sınıflandırması' : 'The Two Poles of Faces: Color as Classifier'}
         </h3>
 
         {/* Two-pole comparison */}
@@ -1795,7 +1795,7 @@ function TabKiyamet({ language, isMobile }) {
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
             color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
           }}>
-            {tr ? '4 Sahne — Detay' : '4 Scenes — Detail'}
+            {tr ? '4 Sahne: Detay' : '4 Scenes: Detail'}
           </span>
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
         </div>
@@ -1983,10 +1983,10 @@ function TabDilbilim({ language, isMobile }) {
         letter="A"
         accent={COLORS.purple}
         eyebrowTr="Renk Yoğunluğu" eyebrowEn="Color Intensity"
-        titleTr="Normal vs Yoğun — Kur'an'ın İki Renk Sicili"
-        titleEn="Normal vs Intense — The Quran's Two Color Registers"
+        titleTr="Normal ve Yoğun: Kur'an'ın İki Renk Sicili"
+        titleEn="Normal and Intense: The Quran's Two Color Registers"
         descTr="Kur'an normal ve yoğun renk için farklı kelimeler kullanır. Bu dilbilimsel hassasiyet, Sami dilleri arasında Kur'an Arapçasının özgünlüğünü gösterir."
-        descEn="The Quran uses distinct words for normal vs intense color. This linguistic precision shows the uniqueness of Quranic Arabic among Semitic languages."
+        descEn="The Quran uses distinct words for normal vs intense color. This linguistic precision is a distinctive feature of Quranic Arabic among the Semitic languages."
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
@@ -2057,8 +2057,8 @@ function TabDilbilim({ language, isMobile }) {
         letter="B"
         accent={COLORS.purple}
         eyebrowTr="Hapax Legomena" eyebrowEn="Hapax Legomena"
-        titleTr="Bir Kez Geçen Kelimeler — Kur'an'da İz"
-        titleEn="Once-Spoken Words — Traces in the Quran"
+        titleTr="Bir Kez Geçen Kelimeler: Kur'an'da İz"
+        titleEn="Once-Spoken Words: Traces in the Quran"
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
@@ -2066,15 +2066,15 @@ function TabDilbilim({ language, isMobile }) {
               arabic: 'مُدْهَامَّتَانِ', transliteration: 'mudhammatân',
               ref: 'Rahman 55:64',
               formTr: 'İkili, sıfat', formEn: 'Dual adjective',
-              noteTr: "Bu formda Kur'an'da yalnızca bir kez — gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",
-              noteEn: "Appears only once in the Quran in this form — a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",
+              noteTr: "Bu formda Kur'an'da yalnızca bir kez geçer; gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",
+              noteEn: "Appears only once in the Quran in this form; a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",
             },
             {
               arabic: 'كَالدِّهَانِ', transliteration: 'ka-d-dihân',
               ref: 'Rahman 55:37',
               formTr: 'Teşbih (benzetme)', formEn: 'Simile',
-              noteTr: "Kıyamette gökyüzünün rengi — erimiş kırmızı yağa benzetme. Bu formda nadir.",
-              noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",
+              noteTr: "Kıyamette gökyüzünün rengi; erimiş kırmızı yağa benzetme. Bu formda nadir.",
+              noteEn: "The color of the sky at judgment; compared to melted red oil. Rare in this form.",
             },
           ].map((h, i) => (
             <div className="mq-box" key={i} style={{
@@ -2163,8 +2163,8 @@ function TabDilbilim({ language, isMobile }) {
         letter="C"
         accent="#2563EB"
         eyebrowTr="Üç Yorum · Taha 20:102" eyebrowEn="Three Interpretations · Ta-Ha 20:102"
-        titleTr="'Zurk' Tartışması — Mavi mi, Donuk mu, Kör mü?"
-        titleEn="The 'Zurq' Debate — Blue, Glazed, or Blind?"
+        titleTr="'Zurk' Tartışması: Mavi mi, Donuk mu, Kör mü?"
+        titleEn="The 'Zurq' Debate: Blue, Glazed, or Blind?"
         descTr="'Zurk' kelimesi Arapça'da hem mavi hem donuk/bulanık anlamına gelir. Taha 20:102 bağlamında üç klasik yorum:"
         descEn="'Zurq' in Arabic means both blue and glazed/cloudy. Three classical interpretations in the context of Ta-Ha 20:102:"
       >
@@ -2181,14 +2181,14 @@ function TabDilbilim({ language, isMobile }) {
             },
             {
               numTr: '2', titleTr: 'Donuk / Bulanık Gözlü', titleEn: 'Glazed / Dull-eyed',
-              descTr: 'Korkudan veya ölüm korkusundan gözler donup kalır — görme engeli.',
-              descEn: "Eyes frozen from terror or fear of death — impairment of sight.",
+              descTr: 'Korkudan ya da ölüm korkusundan gözler donup kalır; görme engeli.',
+              descEn: "Eyes frozen from terror or fear of death; impairment of sight.",
               color: '#6B7280',
             },
             {
-              numTr: '3', titleTr: 'Körlük — Perde', titleEn: 'Blindness — Veil',
-              descTr: "Göz üzerinde perde — kıyamette inkârcıların dünyada kör olduğunun somutlaşması.",
-              descEn: "A veil over the eyes — the disbelievers' spiritual blindness made physical at judgment.",
+              numTr: '3', titleTr: 'Körlük: Perde', titleEn: 'Blindness: Veil',
+              descTr: "Göz üzerinde perde; inkârcıların dünyadaki körlüğünün kıyamette somutlaşması.",
+              descEn: "A veil over the eyes; the disbelievers' spiritual blindness made physical at judgment.",
               color: '#374151',
             },
           ].map((v, i) => (
@@ -2245,8 +2245,8 @@ function TabDilbilim({ language, isMobile }) {
         eyebrowTr="Söylemeden Anlatmak" eyebrowEn="Showing Without Telling"
         titleTr="Nesne Üzerinden İma Edilen Renkler"
         titleEn="Colors Implied Through Objects"
-        descTr="Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir."
-        descEn="The Quran sometimes doesn't state the color directly — it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy."
+        descTr="Kur'an bazen rengi doğrudan söylemez; nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir."
+        descEn="The Quran sometimes does not state the color directly; it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy."
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {[
@@ -2258,8 +2258,8 @@ function TabDilbilim({ language, isMobile }) {
               verseTr: '…tadı değişmeyen süt nehirleri…',
               verseEn: '…rivers of milk whose taste does not change…',
               ref: 'Muhammed 47:15',
-              noteTr: "Süt beyazdır — ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",
-              noteEn: "Milk is white — but the Quran doesn't say so. The color arrives through the object's mental association.",
+              noteTr: "Süt beyazdır, ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",
+              noteEn: "Milk is white, but the Quran does not say so. The color arrives through the object's mental association.",
             },
             {
               hex: KURANI_COLORS.sariKivilcim,
@@ -2269,8 +2269,8 @@ function TabDilbilim({ language, isMobile }) {
               verseTr: '…ve saf baldan nehirler…',
               verseEn: '…and rivers of purified honey…',
               ref: 'Muhammed 47:15',
-              noteTr: "'Musaffâ' — arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",
-              noteEn: "'Musaffâ' — purified, filtered. No color named; the amber hue is concealed in the object itself.",
+              noteTr: "'Musaffâ': arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",
+              noteEn: "'Musaffâ': purified, filtered. No color named; the amber hue is concealed in the object itself.",
             },
             {
               hex: KURANI_COLORS.kirmiziKan,
@@ -2280,8 +2280,8 @@ function TabDilbilim({ language, isMobile }) {
               verseTr: 'İnsanı kavuran (rengi değiştiren).',
               verseEn: 'Scorching to the skin (altering its color).',
               ref: 'Müddessir 74:29',
-              noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir — ateş insanın tenini kızartır ve karartır. Kırmızı/siyah ama söylenmez.",
-              noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",
+              noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir; ateş insanın tenini kızartır ve karartır. Kırmızı/siyah ama söylenmez.",
+              noteEn: "The root 'lavvâha' implies color change; fire reddens and blackens the skin. Red/black, but left unstated.",
             },
           ].map((row, i) => (
             <div className="mq-box" key={i} style={{
@@ -2392,9 +2392,9 @@ function TabDilbilim({ language, isMobile }) {
         isMobile={isMobile}
         letter="E"
         accent={COLORS.gold}
-        eyebrowTr="بيض — Aynı Kökten Anlam Ailesi" eyebrowEn="بيض — Word Family of One Root"
-        titleTr="Beyaz'ın Kök Genişlemesi — بيض → Yumurta"
-        titleEn="White's Root Expansion — بيض → Egg"
+        eyebrowTr="بيض: Aynı Kökten Anlam Ailesi" eyebrowEn="بيض: Word Family of One Root"
+        titleTr="Beyazın Kök Genişlemesi: بيض, Yumurta"
+        titleEn="White's Root Expansion: بيض, Egg"
       >
         <div className="g-2-4" style={{
           display: 'grid',
@@ -2405,7 +2405,7 @@ function TabDilbilim({ language, isMobile }) {
             { ar: 'أَبْيَض',    note: tr ? 'tekil, eril' : 'singular, masc.',                  trans: 'abyad' },
             { ar: 'بَيْضَاء',   note: tr ? 'tekil, dişil / parlak' : 'singular, fem. / radiant', trans: 'baydâ\'' },
             { ar: 'بِيضٌ',       note: tr ? 'çoğul' : 'plural',                                  trans: 'bîd' },
-            { ar: 'بَيْضَة',     note: tr ? 'yumurta — aynı kök!' : 'egg — same root!',           trans: 'bayda', highlight: true },
+            { ar: 'بَيْضَة',     note: tr ? 'yumurta, aynı kök' : 'egg, the same root',           trans: 'bayda', highlight: true },
           ].map((w, i) => (
             <div key={i} style={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
@@ -2443,8 +2443,8 @@ function TabDilbilim({ language, isMobile }) {
           borderLeft: `2px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
         }}>
           {tr
-            ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Sâffât 37:49'da cennet ehlinin eşleri 'saklı yumurta gibi' (كَأَنَّهُنَّ بَيْضٌ مَكْنُونٌ) tarif edilir. Renk kelimesi anlam genişlemesiyle imge üretiyor."
-            : "'Bayda' also means egg — whiteness and egg share the same root. In As-Sâffât 37:49, the companions of Paradise are described as 'like hidden eggs' (kaʾannahunna bayḍun maknūn). The color word generates imagery through semantic extension."}
+            ? "'Beyza' yumurta anlamına da gelir; beyazlık ve yumurta aynı kökten. Sâffât 37:49'da cennet ehlinin eşleri 'saklı yumurta gibi' (كَأَنَّهُنَّ بَيْضٌ مَكْنُونٌ) tarif edilir. Renk kelimesi anlam genişlemesiyle imge üretiyor."
+            : "'Bayda' also means egg; whiteness and egg share the same root. In As-Sâffât 37:49, the companions of Paradise are described as 'like hidden eggs' (kaʾannahunna bayḍun maknūn). The color word generates imagery through semantic extension."}
         </p>
       </SectionShell>
 
@@ -2462,8 +2462,8 @@ function TabKaynaklar({ language }) {
       items: [
         { name: 'İbn Kesir', detail: "Tefsîru'l-Kur'âni'l-Azîm" },
         { name: 'Taberî', detail: "Câmiu'l-Beyân" },
-        { name: 'Zemahşerî', detail: "el-Keşşâf — dilbilim ve renk kelimeleri analizi" },
-        { name: 'Râzî', detail: "Mefâtîhu'l-Gayb — Fâtır 35:27 analizi" },
+        { name: 'Zemahşerî', detail: "el-Keşşâf: dilbilim ve renk kelimeleri analizi" },
+        { name: 'Râzî', detail: "Mefâtîhu'l-Gayb, Fâtır 35:27 analizi" },
       ],
     },
     {
@@ -2471,7 +2471,7 @@ function TabKaynaklar({ language }) {
       titleEn: 'Academic Sources',
       items: [
         { name: 'TDV İslam Ansiklopedisi', detail: tr ? '"Renk" maddesi' : '"Color" entry' },
-        { name: 'Corpus Quran', detail: 'corpus.quran.com — kelime frekansları' },
+        { name: 'Corpus Quran', detail: 'corpus.quran.com: kelime frekansları' },
         { name: "Lane's Arabic-English Lexicon", detail: tr ? 'Renk köklerinin etimolojik analizi' : 'Etymological analysis of color roots' },
       ],
     },
@@ -2525,8 +2525,8 @@ function TabKaynaklar({ language }) {
           fontFamily: FONTS.body, margin: 0,
         }}>
           {tr
-            ? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz — bu yorumlar ℹ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."
-            : "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism — such interpretations are marked with ℹ. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}
+            ? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz; bu yorumlar ℹ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."
+            : "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism; such interpretations are marked with ℹ. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}
         </p>
       </div>
 
@@ -2781,8 +2781,8 @@ export default function KuranRenkleri({ onClose }) {
             opacity: 0.88,
           }}>
             {tr
-              ? <>Renk, Allah&apos;ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton — her biri başka bir hakikatin işareti.</>
-              : <>Color is the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>silent alphabet</em> of the language Allah created. 14 words, 8 tones — each pointing to a different truth.</>}
+              ? <>Renk, Allah&apos;ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton; her biri başka bir hakikatin işareti.</>
+              : <>Color is the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>silent alphabet</em> of the language Allah created. 14 words, 8 tones; each pointing to a different truth.</>}
           </p>
 
           {/* Filigree divider */}
@@ -2829,8 +2829,8 @@ export default function KuranRenkleri({ onClose }) {
             opacity: 0.92,
           }}>
             {tr
-              ? 'Dünya hayatı bir renk geçişidir — sonunda hepsi tek bir tona, koyu yeşile çağrılır.'
-              : 'Worldly life is a transition of colors — at the end, all are called to a single tone: deep green.'}
+              ? 'Dünya hayatı bir renk geçişidir; sonunda hepsi tek bir tona, koyu yeşile çağrılır.'
+              : 'Worldly life is a transition of colors; at the end, all are called to a single tone: deep green.'}
           </p>
 
           {/* Stat strip — refined: centered, wrap, less cramped */}
@@ -2871,7 +2871,7 @@ export default function KuranRenkleri({ onClose }) {
         {/* ── Fâtır 35:27 Feature Card ── */}
         <div className="mq-box" style={{ '--mt-d': "0", '--mt-m': "0", '--mr-d': "32px", '--mr-m': "16px", '--mb-d': "20px", '--mb-m': "16px", '--ml-d': "32px", '--ml-m': "16px", '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px", background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg }}>
           <div style={{ fontSize: '0.75rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '12px' }}>
-            {tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}
+            {tr ? 'Tek Ayette 3 Renk: Fâtır 35:27' : 'Three Colors in One Verse: Fatir 35:27'}
           </div>
           <p className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '2.1rem', '--fs-m': '1.7rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 14px' }} lang="ar" dir="rtl">
             وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ
@@ -2913,8 +2913,8 @@ export default function KuranRenkleri({ onClose }) {
           </div>
           <p style={{ fontSize: '0.92rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '14px 0 0', lineHeight: 1.7 }}>
             {tr
-              ? "'Garâbîb' kuzgun/karga (ghurab) kökünden — siyahın en yoğun tonu için özel kelime. 'Mudhammatân' (koyu yeşil) ile paralel: Kur'an renk yoğunluğunu ifade etmek için kök değiştirerek yeni kelime üretir."
-              : "'Gharabib' derives from ghurab (raven/crow) — a special word for the most intense shade of black. Parallel to 'mudhammatân' (intense green): the Quran creates new words by changing roots to express color intensity."}
+              ? "'Garâbîb' kuzgun, karga (ghurab) kökünden; siyahın en yoğun tonu için özel kelime. 'Mudhammatân' (koyu yeşil) ile paralel: Kur'an renk yoğunluğunu ifade etmek için kök değiştirerek yeni kelime üretir."
+              : "'Gharabib' derives from ghurab (raven, crow); a special word for the most intense shade of black. Parallel to 'mudhammatân' (intense green): the Quran creates new words by changing roots to express color intensity."}
           </p>
         </div>
 
@@ -3047,7 +3047,7 @@ export default function KuranRenkleri({ onClose }) {
           links={[
             { href: `/${language}/arac/yeminler`, titleTr: "Kur'an'ın Yeminleri", titleEn: 'Quranic Oaths', descTr: 'Renkler tabiat sözlüğüdür; yeminler onu vurgular.', descEn: "Colors are nature's lexicon; oaths emphasize them." },
             { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: 'Renklerin doğduğu kâinatın atlası.', descEn: 'Atlas of the universe where colors are born.' },
-            { href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk ve Son Kelimeler', titleEn: 'First and Last Words', descTr: 'Renklerin sûre-içi konumu — açılış-kapanış deseni.', descEn: "Colors' surah-position — opening-closing pattern." },
+            { href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk ve Son Kelimeler', titleEn: 'First and Last Words', descTr: 'Renklerin sûre içi konumu; açılış ve kapanış deseni.', descEn: "Colors' position within the surah; the opening and closing pattern." },
           ]}
         />
 
@@ -3129,28 +3129,28 @@ function ColorsClosing({ language, isMobile }) {
         </p>
         <p style={{ fontSize: '0.86rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 14px', fontFamily: FONTS.body }}>
           {tr
-            ? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur&apos;an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
-            : <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax &quot;deep green&quot; two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
+            ? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur&apos;an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe; ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
+            : <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64), the hapax &quot;deep green&quot; two gardens, is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
         </p>
         <p style={{ fontSize: '0.84rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 8px', fontFamily: FONTS.body }}>
           {tr ? "Kur'an'da cennette geçen diğer renkler ve dokular:" : "Other colors and textures of Paradise in the Quran:"}
         </p>
         <ul style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.85, margin: '0 0 14px', paddingLeft: '20px', fontFamily: FONTS.body }}>
-          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil sündüs ve istebrak</strong> (yeşil ince ve kalın ipek) — Kehf 18:31, Dehr 76:21</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green sundus and istabraq</strong> (fine green silk + brocade) — Kahf 18:31, Insān 76:21</>}</li>
-          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil rafraf</strong> (yeşil yastıklar/tahtlar) — Rahmân 55:76</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green rafraf</strong> (green cushions/thrones) — Raḥmān 55:76</>}</li>
-          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Beyaz inci, kırmızı yâkut, zümrüt</strong> — süs ve takı — Hac 22:23, Fâtır 35:33, Rahmân 55:58</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>White pearls, red rubies, emerald</strong> — adornments — Ḥajj 22:23, Fāṭir 35:33, Raḥmān 55:58</>}</li>
-          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Altın bilezikler ve süsler</strong> (zîneten) — Hac 22:23, Fâtır 35:33, Kehf 18:31</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Gold bracelets and ornaments</strong> (zīnatan) — Ḥajj 22:23, Fāṭir 35:33, Kahf 18:31</>}</li>
-          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 nehir: su, süt, şarab, bal</strong> — her biri ayrı renk-doku-tat — Muhammed 47:15</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 rivers: water, milk, wine, honey</strong> — each its own color-texture-taste — Muḥammad 47:15</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil sündüs ve istebrak</strong> (yeşil ince ve kalın ipek): Kehf 18:31, Dehr 76:21</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green sundus and istabraq</strong> (fine green silk and brocade): Kahf 18:31, Insān 76:21</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil rafraf</strong> (yeşil yastıklar, tahtlar): Rahmân 55:76</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green rafraf</strong> (green cushions, thrones): Raḥmān 55:76</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Beyaz inci, kırmızı yâkut, zümrüt</strong> (süs ve takı): Hac 22:23, Fâtır 35:33, Rahmân 55:58</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>White pearls, red rubies, emerald</strong> (adornments): Ḥajj 22:23, Fāṭir 35:33, Raḥmān 55:58</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Altın bilezikler ve süsler</strong> (zîneten): Hac 22:23, Fâtır 35:33, Kehf 18:31</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Gold bracelets and ornaments</strong> (zīnatan): Ḥajj 22:23, Fāṭir 35:33, Kahf 18:31</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 nehir: su, süt, şarab, bal</strong> (her biri ayrı renk, doku ve tat): Muhammed 47:15</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 rivers: water, milk, wine, honey</strong> (each with its own color, texture and taste): Muḥammad 47:15</>}</li>
         </ul>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 8px', fontFamily: FONTS.body, fontStyle: 'italic' }}>
           {tr
-            ? <>Klasik tefsirde bu çoğulluk sembolik okunabilir — İbn Kayyım&apos;ın Hâdi&apos;l-Ervâh&apos;ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem bu yaklaşıma hem ayetlere aykırıdır.</>
-            : <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim&apos;s Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise&apos;s <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The &quot;monochrome Paradise&quot; reading contradicts both this approach and the text.</>}
+            ? <>Klasik tefsirde bu çoğulluk sembolik okunabilir; İbn Kayyım&apos;ın Hâdi&apos;l-Ervâh&apos;ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em>, gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem bu yaklaşıma hem ayetlere aykırıdır.</>
+            : <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim&apos;s Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em>, the color the eye meets first; the other colors are the promise&apos;s <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The &quot;monochrome Paradise&quot; reading contradicts both this approach and the text.</>}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.78, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr
-            ? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
-            : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the &quot;headline sign of the promise&quot; — a structural emphasis, not exclusion of other paradise colors.</>}
+            ? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır; bu, diğer cennet renklerini dışlamak değil, yapısal bir vurgudur.</>
+            : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the &quot;headline sign of the promise&quot;; a structural emphasis, not an exclusion of the other paradise colors.</>}
         </p>
       </div>
 
@@ -3193,8 +3193,8 @@ function ColorsClosing({ language, isMobile }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>Allah dünyayı renklerle yazdı — yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (koyu yeşil iki bahçe, 55:64), yeşil sündüs ve istebrak (18:31, 76:21), yeşil rafraf (55:76), inci, yâkut, dört nehir. Bütün bunların habercisi tek renkten gelir — <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>yeşilden</strong>.</>
-          : <>Allah wrote the world with colors — green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (two deep-green gardens, 55:64), green sundus and istabraq silk (18:31, 76:21), green rafraf (55:76), pearls, rubies, four rivers. Yet the herald of all these comes from one color — <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>green</strong>.</>}
+          ? <>Allah dünyayı renklerle yazdı: yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (koyu yeşil iki bahçe, 55:64), yeşil sündüs ve istebrak (18:31, 76:21), yeşil rafraf (55:76), inci, yâkut, dört nehir. Bütün bunların habercisi tek renkten gelir: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>yeşilden</strong>.</>
+          : <>Allah wrote the world with colors: green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (two deep-green gardens, 55:64), green sundus and istabraq silk (18:31, 76:21), green rafraf (55:76), pearls, rubies, four rivers. Yet the herald of all these comes from one color: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>green</strong>.</>}
       </p>
 
       {/* Cross-tool CTA strip — 3 derin link */}
@@ -3207,7 +3207,7 @@ function ColorsClosing({ language, isMobile }) {
             letterSpacing: '0.24em', textTransform: 'uppercase',
             color: COLORS.gold, opacity: 0.75,
           }}>
-            {tr ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
+            {tr ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>
         </div>
 
@@ -3216,9 +3216,9 @@ function ColorsClosing({ language, isMobile }) {
           gap: '12px',
         }}>
           {[
-            { href: `/${language}/oku/35`, titleTr: 'Fâtır Sûresi (35)', titleEn: 'Sura Fāṭir (35)', descTr: 'Anchor verse 35:27 — yağmurdan farklı renklerde meyveler, dağlardan farklı renklerde yollar.', descEn: 'Anchor verse 35:27 — fruits of varying colors from rain, paths of varying colors in mountains.' },
-            { href: `/${language}/oku/55`, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: 'Hapax مُدْهَامَّتَانِ (55:64) — Kur\'an\'da bir kez geçen "koyu yeşil" kelimesinin cennet bağlamı.', descEn: 'Hapax مُدْهَامَّتَانِ (55:64) — the once-occurring word "deep green" in its paradise context.' },
-            { href: `/${language}/oku/2`, titleTr: 'Bakara 2:187', titleEn: 'al-Baqara 2:187', descTr: 'Beyaz iplik / siyah iplik — oruç ayetindeki renklerin işlevsel kullanımı.', descEn: 'The white thread / black thread — the functional use of colors in the fasting verse.' },
+            { href: `/${language}/oku/35`, titleTr: 'Fâtır Sûresi (35)', titleEn: 'Sura Fāṭir (35)', descTr: 'Çapa ayet 35:27: yağmurdan farklı renklerde meyveler, dağlardan farklı renklerde yollar.', descEn: 'Anchor verse 35:27: fruits of varying colors from rain, paths of varying colors in mountains.' },
+            { href: `/${language}/oku/55`, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: 'Hapax مُدْهَامَّتَانِ (55:64): Kur\'an\'da bir kez geçen "koyu yeşil" kelimesinin cennet bağlamı.', descEn: 'Hapax مُدْهَامَّتَانِ (55:64): the once-occurring word "deep green" in its paradise context.' },
+            { href: `/${language}/oku/2`, titleTr: 'Bakara 2:187', titleEn: 'al-Baqara 2:187', descTr: 'Beyaz iplik, siyah iplik: oruç ayetindeki renklerin işlevsel kullanımı.', descEn: 'The white thread and the black thread: the functional use of colors in the fasting verse.' },
           ].map((tt, i) => (
             <a className="mq-box"
               key={i}

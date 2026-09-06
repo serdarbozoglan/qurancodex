@@ -3467,3 +3467,620 @@ Yalnız site yazımı metinler; âyet çevirileri (tr/en/duaTr/duaEn alanları) 
   SONRA: `noteTr: 'Hz. Muhammed\'in siyeri; Kur\'ân\'daki peygamber anlatısıyla siyer arasındaki bağlantıyı kuran temel eser.',`
 - ÖNCE: `noteEn: 'The biography of Prophet Muhammad — foundational text connecting Quranic prophet narratives with sīra.',`
   SONRA: `noteEn: 'The biography of Prophet Muhammad; the foundational text connecting Quranic prophet narratives with sīra.',`
+
+## 6. Bileşen içi metinler, 2. parti: Âhiret Yolculuğu atlası + Kur'an'da Renkler (2026-09-06)
+
+Âyet çevirileri (verseTr/verseEn, anchorVerse), atıf tireleri ("— {ref}"), kaynak adları (workRef) ve render edilmeyen tasarım notları (visualMotif) olduğu gibi kaldı. Başlıklarda tire yerine iki nokta; düz metinde noktalama. "Kıyametin sinematik açılış sahnesi" → "açılış sahnesi"; "en özgün malzeme tasviri" → "en özgün tasvirlerinden biri".
+
+
+### `next/src/components/KuranRenkleri.jsx`
+
+- ÖNCE: `{tr ? '4 Sûrede Tekrar — Ayetleri Gör' : 'Repeated in 4 Suras — View Verses'}`
+  SONRA: `{tr ? '4 Sûrede Tekrar: Ayetleri Gör' : 'Repeated in 4 Suras: View Verses'}`
+- ÖNCE: `aria-label={`${name} — ${refCount} ${tr ? 'ayet' : 'verses'}`}`
+  SONRA: `aria-label={`${name}: ${refCount} ${tr ? 'ayet' : 'verses'}`}`
+- ÖNCE: `? "Renkler Kur'ân'da sadece görsel değil, semantik alanlardır — beyaz iyilik, siyah utanç, yeşil vaad."`
+  SONRA: `? "Renkler Kur'ân'da yalnızca görsel değil, semantik alanlardır: beyaz iyilik, siyah utanç, yeşil vaad."`
+- ÖNCE: `: "In the Qur'an colors are not merely visual — they are semantic domains: white for grace, black for shame, green for the promise."}`
+  SONRA: `: "In the Qur'an colors are more than visual; they are semantic domains: white for grace, black for shame, green for the promise."}`
+- ÖNCE: `descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Dikkat çekici olan: cennet tasvirinde kırmızı, turuncu ve sarı yoktur. Serin, sakin tonlar hâkim.",`
+  SONRA: `descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz; nesneler aracılığıyla verir. Cennet tasvirinde kırmızı, turuncu ve sarı yoktur; serin, sakin tonlar hâkimdir.",`
+- ÖNCE: `hex: KURANI_COLORS.yesilYaprak, nameTr: 'Yeşil — Elbiseler', nameEn: 'Green — Garments',`
+  SONRA: `hex: KURANI_COLORS.yesilYaprak, nameTr: 'Yeşil: Elbiseler', nameEn: 'Green: Garments',`
+- ÖNCE: `noteTr: "Yeşil giysi ile altın bilezik Kehf 18:31'de bir arada anılır — cennet ehlinin giysisi ve süsü. (İnsan 76:21'de yeşil giysiye gümüş bilezik eşlik eder.)",`
+  SONRA: `noteTr: "Yeşil giysi ile altın bilezik Kehf 18:31'de bir arada anılır; cennet ehlinin giysisi ve süsü. (İnsan 76:21'de yeşil giysiye gümüş bilezik eşlik eder.)",`
+- ÖNCE: `noteEn: "Green garment and gold bracelet appear together in Al-Kahf 18:31 — the dress and adornment of Paradise's people. (In Al-Insan 76:21, silver bracelets accompany the green garments.)",`
+  SONRA: `noteEn: "Green garment and gold bracelet appear together in Al-Kahf 18:31; the dress and adornment of Paradise's people. (In Al-Insan 76:21, silver bracelets accompany the green garments.)",`
+- ÖNCE: `hex: KURANI_COLORS.altin, nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',`
+  SONRA: `hex: KURANI_COLORS.altin, nameTr: 'Altın: Bilezikler', nameEn: 'Gold: Bracelets',`
+- ÖNCE: `noteTr: "Altın bilezik motifi 3 sûrede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir — dünyada yasak olan erkeklere cennetin hediyesi.",`
+  SONRA: `noteTr: "Altın bilezik motifi 3 sûrede tekrarlanır: Hac, Kehf, Fatır. Altın cennetin metalik rengidir; dünyada erkeklere yasak olanın cennette hediye edilmesi.",`
+- ÖNCE: `noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color — the gift of paradise to men forbidden it in the world.",`
+  SONRA: `noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color; the gift of paradise to men who were forbidden it in the world.",`
+- ÖNCE: `hex: KURANI_COLORS.gumusGri, nameTr: 'Gümüş — Kaplar', nameEn: 'Silver — Vessels',`
+  SONRA: `hex: KURANI_COLORS.gumusGri, nameTr: 'Gümüş: Kaplar', nameEn: 'Silver: Vessels',`
+- ÖNCE: `noteTr: "'Gümüşten billur' — billurın şeffaflığında gümüş parlaklığı. İki malzemenin özelliği tek nesnede. Kur'an'ın en özgün malzeme tasviri.",`
+  SONRA: `noteTr: "'Gümüşten billur': billurun şeffaflığında gümüş parlaklığı. İki malzemenin özelliği tek nesnede. Kur'an'ın en özgün malzeme tasvirlerinden biri.",`
+- ÖNCE: `noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object.",`
+  SONRA: `noteEn: "'Crystal of silver': silver's sheen with crystal's transparency. Two material properties in one object.",`
+- ÖNCE: `hex: KURANI_COLORS.yesilKoyu, nameTr: 'Koyu Yeşil — Bahçeler', nameEn: 'Dark Green — Gardens',`
+  SONRA: `hex: KURANI_COLORS.yesilKoyu, nameTr: 'Koyu Yeşil: Bahçeler', nameEn: 'Dark Green: Gardens',`
+- ÖNCE: `noteTr: "Hapax legomenon — tüm Kur'an'da yalnızca bir kez geçer. Yeşilin o kadar yoğun olduğu ton ki neredeyse siyaha döner. İki cennet bahçesini tanımlar.",`
+  SONRA: `noteTr: "Hapax legomenon; tüm Kur'an'da yalnızca bir kez geçer. Yeşilin o kadar yoğun olduğu ton ki neredeyse siyaha döner. İki cennet bahçesini tanımlar.",`
+- ÖNCE: `noteEn: "Hapax legomenon — appears only once in the entire Quran. Green so intense it borders on black. Describes the two paradise gardens.",`
+  SONRA: `noteEn: "Hapax legomenon; appears only once in the entire Quran. Green so intense it borders on black. Describes the two paradise gardens.",`
+- ÖNCE: `descTr: "Cehennem renkleri cennetin tam zıttı: yeşil ve altın yok. Siyah, sarı ve kırmızı — ısı, yanma ve ceza tonları. Zıtlık kasıtlı ve sistematik.",`
+  SONRA: `descTr: "Cehennem renkleri cennetin tam zıttı: yeşil ve altın yok. Siyah, sarı ve kırmızı; ısı, yanma ve ceza tonları. Zıtlık kasıtlı ve sistematik.",`
+- ÖNCE: `descEn: "Hell's colors are the exact opposite of paradise: no green, no gold. Black, yellow and red — heat, burning and punishment tones. The contrast is deliberate and systematic.",`
+  SONRA: `descEn: "Hell's colors are the exact opposite of paradise: no green, no gold. Black, yellow and red; the tones of heat, burning and punishment. The contrast is deliberate and systematic.",`
+- ÖNCE: `hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Duman', nameEn: 'Black — Smoke',`
+  SONRA: `hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah: Duman', nameEn: 'Black: Smoke',`
+- ÖNCE: `noteTr: "يَحْمُوم (yahmûm) — kuzgun/kömür siyahı. Cennetin 'serinliğine' karşı bu gölge ne serindir ne de güzel. Her şey cennetle tezat.",`
+  SONRA: `noteTr: "يَحْمُوم (yahmûm): kuzgun ya da kömür siyahı. Cennetin 'serinliğine' karşı bu gölge ne serindir ne de güzel. Her şey cennetle tezat.",`
+- ÖNCE: `noteEn: "يَحْمُوم (yahmûm) — raven/coal black. Contrasting paradise's 'coolness,' this shade is neither cool nor good. Everything is opposite to paradise.",`
+  SONRA: `noteEn: "يَحْمُوم (yahmûm): raven or coal black. Contrasting paradise's 'coolness,' this shade is neither cool nor good. Everything is opposite to paradise.",`
+- ÖNCE: `hex: KURANI_COLORS.sariKivilcim, nameTr: 'Sarı — Kıvılcımlar', nameEn: 'Yellow — Sparks',`
+  SONRA: `hex: KURANI_COLORS.sariKivilcim, nameTr: 'Sarı: Kıvılcımlar', nameEn: 'Yellow: Sparks',`
+- ÖNCE: `noteTr: "Sarının tek olumlu kullanımı Bakara'daki inek. Burada sarı: cehennem kıvılcımı, sarı deve — büyük, ürkütücü, yakıcı.",`
+  SONRA: `noteTr: "Sarının tek olumlu kullanımı Bakara'daki inek. Burada sarı: cehennem kıvılcımı, sarı deve; büyük, ürkütücü, yakıcı.",`
+- ÖNCE: `noteEn: "Yellow's only positive use is Al-Baqarah's cow. Here yellow: hellfire spark, yellow camel — large, terrifying, burning.",`
+  SONRA: `noteEn: "Yellow's only positive use is Al-Baqarah's cow. Here yellow: hellfire spark, yellow camel; large, terrifying, burning.",`
+- ÖNCE: `hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',`
+  SONRA: `hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı: Gökyüzü', nameEn: 'Red: The Sky',`
+- ÖNCE: `noteTr: "وَرْدَة (verdeh) — gül/kırmızı. كَالدِّهَان (kad-dihan) — eritilmiş yağ kıvamında. Gökyüzünün kıyamette tamamen dönüşümü. Cennetin sakin mavisine karşı kırmızı kaos.",`
+  SONRA: `noteTr: "وَرْدَة (verdeh): gül, kırmızı. كَالدِّهَان (kad-dihan): eritilmiş yağ kıvamında. Gökyüzünün kıyamette tamamen dönüşümü. Cennetin sakin mavisine karşı kırmızı kaos.",`
+- ÖNCE: `noteEn: "وَرْدَة (wardah) — rose/red. كَالدِّهَان (kad-dihan) — like molten oil in consistency. The complete transformation of the sky on the Day. Red chaos against paradise's serene blue.",`
+  SONRA: `noteEn: "وَرْدَة (wardah): rose, red. كَالدِّهَان (kad-dihan): like molten oil in consistency. The complete transformation of the sky on the Day. Red chaos against paradise's serene blue.",`
+- ÖNCE: `hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces",`
+  SONRA: `hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz: Kurtulanların Yüzü', nameEn: "White: The Faces of the Saved",`
+- ÖNCE: `noteTr: "Tek ayette iki zıt renk. تَبْيَضُّ (beyazlaşmak) ve تَسْوَدُّ (kararışmak) fiilleri birlikte — renk burada ahlaki durumu gösterir.",`
+  SONRA: `noteTr: "Tek ayette iki zıt renk. تَبْيَضُّ (beyazlaşmak) ve تَسْوَدُّ (kararmak) fiilleri birlikte; renk burada ahlâkî durumu gösterir.",`
+- ÖNCE: `noteEn: "Two opposing colors in one verse. تَبْيَضُّ (to whiten) and تَسْوَدُّ (to blacken) together — color here indicates moral state.",`
+  SONRA: `noteEn: "Two opposing colors in one verse. تَبْيَضُّ (to whiten) and تَسْوَدُّ (to blacken) together; color here indicates moral state.",`
+- ÖNCE: `hex: KURANI_COLORS.maviDonuk, nameTr: 'Mavi/Donuk — Gözler', nameEn: 'Blue/Glazed — Eyes',`
+  SONRA: `hex: KURANI_COLORS.maviDonuk, nameTr: 'Mavi/Donuk: Gözler', nameEn: 'Blue/Glazed: Eyes',`
+- ÖNCE: `noteTr: "زُرْق (zurk) — Arapça'da hem 'mavi' hem 'donuk, kör gibi' anlamına gelir. Korku ve dehşetten donup kalan göz. Müfessirler ikisi üzerinde ayrılır.",`
+  SONRA: `noteTr: "زُرْق (zurk): Arapçada hem 'mavi' hem 'donuk, kör gibi' anlamına gelir. Korku ve dehşetten donup kalan göz. Müfessirler ikisi üzerinde ayrılır.",`
+- ÖNCE: `noteEn: "زُرْق (zurq) — means both 'blue' and 'glazed, blind-like' in Arabic. Eyes frozen in terror and horror. Commentators are divided between both meanings.",`
+  SONRA: `noteEn: "زُرْق (zurq): means both 'blue' and 'glazed, blind-like' in Arabic. Eyes frozen in terror and horror. Commentators are divided between both meanings.",`
+- ÖNCE: `hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',`
+  SONRA: `hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı: Gökyüzü', nameEn: 'Red: The Sky',`
+- ÖNCE: `hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Azap Görenler', nameEn: 'Black — The Punished',`
+  SONRA: `hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah: Azap Görenler', nameEn: 'Black: The Punished',`
+- ÖNCE: `noteTr: "Aynı ayette beyazla zıtlık. Kararma burada inanç dönüşümünün simgesi — sadece fiziksel değil, manevi durum.",`
+  SONRA: `noteTr: "Aynı ayette beyazla zıtlık. Kararma burada inanç dönüşümünün simgesidir; yalnızca fiziksel değil, manevî bir durum.",`
+- ÖNCE: `noteEn: "Contrast with white in the same verse. Blackening here symbolizes a reversal of faith — not just physical but moral state.",`
+  SONRA: `noteEn: "Contrast with white in the same verse. Blackening here symbolizes a reversal of faith; not just a physical but a moral state.",`
+- ÖNCE: `descTr: "Tabiat tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlem — dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",`
+  SONRA: `descTr: "Tabiat tasvirinde renk hem gerçekçi hem sembolik. Fâtır 35:27 jeolojik bir gözlemdir: dağlardaki mineral şeritleri. Bakara 2:187 rengi pratik bir zaman ölçütü olarak kullanır.",`
+- ÖNCE: `descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation — mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",`
+  SONRA: `descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation: mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",`
+- ÖNCE: `hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz — Dağ Şeritleri', nameEn: 'White — Mountain Streaks',`
+  SONRA: `hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz: Dağ Şeritleri', nameEn: 'White: Mountain Streaks',`
+- ÖNCE: `noteTr: "جُدَد (cüded) — mineral şeritler. Tek ayette 3 renk: beyaz (kalsit/kireçtaşı), kırmızı (demir oksit), siyah (bazalt/mika). Modern jeoloji bu şeritleri tanır.",`
+  SONRA: `noteTr: "جُدَد (cüded): mineral şeritler. Tek ayette 3 renk: beyaz (kalsit/kireçtaşı), kırmızı (demir oksit), siyah (bazalt/mika). Modern jeoloji bu şeritleri tanır.",`
+- ÖNCE: `noteEn: "جُدَد (judad) — mineral streaks. Three colors in one verse: white (calcite/limestone), red (iron oxide), black (basalt/mica). Modern geology recognizes these streaks.",`
+  SONRA: `noteEn: "جُدَد (judad): mineral streaks. Three colors in one verse: white (calcite/limestone), red (iron oxide), black (basalt/mica). Modern geology recognizes these streaks.",`
+- ÖNCE: `hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks',`
+  SONRA: `hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı: Dağ Şeritleri', nameEn: 'Red: Mountain Streaks',`
+- ÖNCE: `noteTr: "مُّخْتَلِفٌ أَلْوَانُهَا (muhteli­fun elvânuhâ) — renkleri birbirinden farklı. Kırmızı için özellikle bu çokluk nitelemesi var — demir oksitin farklı yoğunluklarına işaret.",`
+  SONRA: `noteTr: "مُّخْتَلِفٌ أَلْوَانُهَا (muhteli­fun elvânuhâ): renkleri birbirinden farklı. Bu çokluk nitelemesi özellikle kırmızı için verilir; demir oksidin farklı yoğunluklarına işaret eder.",`
+- ÖNCE: `noteEn: "مُّخْتَلِفٌ أَلْوَانُهَا — 'of varying shades' applies specifically to red — pointing to the different concentrations of iron oxide.",`
+  SONRA: `noteEn: "مُّخْتَلِفٌ أَلْوَانُهَا, 'of varying shades', applies specifically to red; it points to the different concentrations of iron oxide.",`
+- ÖNCE: `hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Dağ Şeritleri', nameEn: 'Black — Mountain Streaks',`
+  SONRA: `hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah: Dağ Şeritleri', nameEn: 'Black: Mountain Streaks',`
+- ÖNCE: `noteTr: "غَرَابِيب (garâbîb) — kuzgun/karga kökünden. Siyahın en yoğun tonu için özel kelime. 'Siyah siyah' anlamında pekiştirme — Türkçe'deki 'simsiyah' gibi.",`
+  SONRA: `noteTr: "غَرَابِيب (garâbîb): kuzgun, karga kökünden. Siyahın en yoğun tonu için özel kelime. 'Siyah siyah' anlamında pekiştirme; Türkçedeki 'simsiyah' gibi.",`
+- ÖNCE: `noteEn: "غَرَابِيب (gharabib) — from ghurab (raven/crow). A special word for the most intense shade of black. Intensifying 'black black' — like English 'pitch black.'",`
+  SONRA: `noteEn: "غَرَابِيب (gharabib): from ghurab (raven, crow). A special word for the most intense shade of black. An intensifying 'black black', like the English 'pitch black'.",`
+- ÖNCE: `hex: KURANI_COLORS.beyazSaf, nameTr: 'Beyaz — Şafak Çizgisi', nameEn: 'White — Dawn Line',`
+  SONRA: `hex: KURANI_COLORS.beyazSaf, nameTr: 'Beyaz: Şafak Çizgisi', nameEn: 'White: Dawn Line',`
+- ÖNCE: `descTr: "Mucizelerin rengi Kur'an'da tutarlı biçimde beyazdır. Sarı yalnızca bir kez olumlu bağlamda — Bakara'nın ineği. Bu tutarlılık tesadüf değil.",`
+  SONRA: `descTr: "Mucizelerin rengi Kur'an'da tutarlı biçimde beyazdır. Sarı yalnızca bir kez olumlu bağlamda geçer: Bakara'nın ineği. Bu tutarlılık tesadüf değil.",`
+- ÖNCE: `descEn: "The color of miracles in the Quran is consistently white. Yellow appears positively only once — Al-Baqarah's cow. This consistency is not coincidental.",`
+  SONRA: `descEn: "The color of miracles in the Quran is consistently white. Yellow appears positively only once: Al-Baqarah's cow. This consistency is not coincidental.",`
+- ÖNCE: `hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz — Hz. Musa'nın Eli", nameEn: "White — Moses' Hand",`
+  SONRA: `hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz: Hz. Musa'nın Eli", nameEn: "White: Moses' Hand",`
+- ÖNCE: `noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Araf, Taha, Şuarâ, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",`
+  SONRA: `noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Araf, Taha, Şuarâ, Neml, Kasas. 'Hastalıksız beyaz': hastalık (alacalık, lepra) beyazından ayırmak için özel vurgu.",`
+- ÖNCE: `noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-A'raf, Ta-Ha, Ash-Shu'ara, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",`
+  SONRA: `noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-A'raf, Ta-Ha, Ash-Shu'ara, An-Naml, Al-Qasas. 'White without disease': special emphasis to distinguish it from disease (vitiligo, leprosy).",`
+- ÖNCE: `hex: KURANI_COLORS.sariKivilcim, nameTr: "Sarı — Bakara'nın İneği", nameEn: "Yellow — Al-Baqarah's Cow",`
+  SONRA: `hex: KURANI_COLORS.sariKivilcim, nameTr: "Sarı: Bakara'nın İneği", nameEn: "Yellow: Al-Baqarah's Cow",`
+- ÖNCE: `noteTr: "صَفْرَاءُ فَاقِعٌ (safrâ fâkı') — fâkı' sarının en parlak, en saf tonudur. Kur'an'da sarının tek mutlu bağlamı. Tüm diğer sarı kullanımları olumsuz veya nötr.",`
+  SONRA: `noteTr: "صَفْرَاءُ فَاقِعٌ (safrâ fâkı'): fâkı', sarının en parlak, en saf tonudur. Kur'an'da sarının tek mutlu bağlamı. Tüm diğer sarı kullanımları olumsuz veya nötr.",`
+- ÖNCE: `noteEn: "صَفْرَاءُ فَاقِعٌ (safrâ fâqi') — fâqi' is the brightest, purest shade of yellow. The only joyful use of yellow in the Quran. All other yellow uses are negative or neutral.",`
+  SONRA: `noteEn: "صَفْرَاءُ فَاقِعٌ (safrâ fâqi'): fâqi' is the brightest, purest shade of yellow. The only joyful use of yellow in the Quran. All other yellow uses are negative or neutral.",`
+- ÖNCE: `hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz — Hz. İsa'nın Mucizesi", nameEn: "White — Jesus' Miracle",`
+  SONRA: `hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz: Hz. İsa'nın Mucizesi", nameEn: "White: Jesus' Miracle",`
+- ÖNCE: `noteTr: "الْأَبْرَص (ebrâs) — alacalı, vitiligo. Hz. İsa'nın mucizesi rengi iyileştirmek — beyazı geri getirmek veya normalleştirmek. Renk burada sağlığın simgesi.",`
+  SONRA: `noteTr: "الْأَبْرَص (ebrâs): alacalı, vitiligo. Hz. İsa'nın mucizesi rengi iyileştirmektir; beyazı geri getirmek ya da normalleştirmek. Renk burada sağlığın simgesi.",`
+- ÖNCE: `noteEn: "الْأَبْرَص (abras) — vitiligo, leukoderma. Jesus' miracle is restoring color — bringing back or normalizing white. Color here symbolizes health.",`
+  SONRA: `noteEn: "الْأَبْرَص (abras): vitiligo, leukoderma. Jesus' miracle is restoring color; bringing back or normalizing white. Color here symbolizes health.",`
+- ÖNCE: `noteTr: "'Mudhammatân' — bu formda Kur'an'da yalnızca bu ayette. İkili form, iki cennet bahçesini tanımlar. Yeşilin o kadar yoğun olduğu ki neredeyse siyaha döndüğü ton — cennette 'extra yeşil.'",`
+  SONRA: `noteTr: "'Mudhammatân': bu formda Kur'an'da yalnızca bu ayette. İkil form, iki cennet bahçesini tanımlar. Yeşilin neredeyse siyaha döndüğü kadar yoğun tonu; cennette 'ekstra yeşil'.",`
+- ÖNCE: `noteEn: "'Mudhammatân' — appears only in this verse in this form. Dual, describing the two paradise gardens. Green so intense it borders on black — paradise's 'extra green.'",`
+  SONRA: `noteEn: "'Mudhammatân': appears only in this verse in this form. Dual, describing the two paradise gardens. Green so intense it borders on black; paradise's 'extra green'.",`
+- ÖNCE: `noteTr: "'Gümüşten billur' — billurın şeffaflığında gümüş. İki malzemenin özelliği tek nesnede. Kur'an'ın cennet dilinin en özgün malzeme tasviri.",`
+  SONRA: `noteTr: "'Gümüşten billur': billurun şeffaflığında gümüş. İki malzemenin özelliği tek nesnede. Kur'an'ın cennet dilindeki en özgün malzeme tasvirlerinden biri.",`
+- ÖNCE: `noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object. The Quran's most distinctive material description in paradise language.",`
+  SONRA: `noteEn: "'Crystal of silver': silver's sheen with crystal's transparency. Two material properties in one object. The Quran's most distinctive material description in paradise language.",`
+- ÖNCE: `{tr ? 'Serin, Sakin, Sade — Cennetin Üslubu' : 'Cool, Calm, Spare — The Aesthetic of Paradise'}`
+  SONRA: `{tr ? 'Serin, Sakin, Sade: Cennetin Üslubu' : 'Cool, Calm, Spare: The Aesthetic of Paradise'}`
+- ÖNCE: `? "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yoktur; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."`
+  SONRA: `? "Kur'an cennetin renklerini doğrudan adlandırmaz; nesneler aracılığıyla verir. Cennet tasvirinde ısınma tonları (kırmızı, turuncu) yoktur; serin ve sakin tonlar (yeşil, gümüş) ağırlıkta."`
+- ÖNCE: `: "The Quran doesn't name paradise colors directly — it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}`
+  SONRA: `: "The Quran does not name paradise colors directly; it gives color through objects. Warm tones (red, orange) are absent; cool, calm tones (green, silver) dominate."}`
+- ÖNCE: `noteTr: "Kıyametin sinematik açılış sahnesi. 'Dihân' — erimiş yağ veya kırmızı deri. Gökyüzünün hem eriyip hem kızarması: iki algı bir imgede.",`
+  SONRA: `noteTr: "Kıyametin açılış sahnesi. 'Dihân': erimiş yağ ya da kırmızı deri. Gökyüzünün hem eriyip hem kızarması: iki algı bir imgede.",`
+- ÖNCE: `noteEn: "The cinematic opening of judgment. 'Dihan' — molten oil or red leather. The sky simultaneously melting and reddening: two perceptions in one image.",`
+  SONRA: `noteEn: "The opening scene of judgment. 'Dihan': molten oil or red leather. The sky simultaneously melting and reddening: two perceptions in one image.",`
+- ÖNCE: `noteTr: "'Zurk' — hem mavi hem donuk/bulanık anlamına gelir. Kıyamette suçluların gözleri mi mavileşiyor, yoksa korkudan donup mu kalıyor? İki yorum da dilbilimsel olarak mümkün.",`
+  SONRA: `noteTr: "'Zurk': hem mavi hem donuk, bulanık anlamına gelir. Kıyamette suçluların gözleri mi mavileşiyor, yoksa korkudan donup mu kalıyor? İki yorum da dilbilimsel olarak mümkün.",`
+- ÖNCE: `noteEn: "'Zurq' — means both blue and glazed/dull. Are criminals' eyes turning blue, or freezing with terror? Both interpretations are linguistically valid.",`
+  SONRA: `noteEn: "'Zurq': means both blue and glazed, dull. Are criminals' eyes turning blue, or freezing with terror? Both interpretations are linguistically valid.",`
+- ÖNCE: `{tr ? 'Yüzlerin İki Kutbu — Renk Sınıflandırması' : 'The Two Poles of Faces — Color as Classifier'}`
+  SONRA: `{tr ? 'Yüzlerin İki Kutbu: Renk Sınıflandırması' : 'The Two Poles of Faces: Color as Classifier'}`
+- ÖNCE: `{tr ? '4 Sahne — Detay' : '4 Scenes — Detail'}`
+  SONRA: `{tr ? '4 Sahne: Detay' : '4 Scenes: Detail'}`
+- ÖNCE: `titleTr="Normal vs Yoğun — Kur'an'ın İki Renk Sicili"`
+  SONRA: `titleTr="Normal ve Yoğun: Kur'an'ın İki Renk Sicili"`
+- ÖNCE: `titleEn="Normal vs Intense — The Quran's Two Color Registers"`
+  SONRA: `titleEn="Normal and Intense: The Quran's Two Color Registers"`
+- ÖNCE: `descEn="The Quran uses distinct words for normal vs intense color. This linguistic precision shows the uniqueness of Quranic Arabic among Semitic languages."`
+  SONRA: `descEn="The Quran uses distinct words for normal vs intense color. This linguistic precision is a distinctive feature of Quranic Arabic among the Semitic languages."`
+- ÖNCE: `titleTr="Bir Kez Geçen Kelimeler — Kur'an'da İz"`
+  SONRA: `titleTr="Bir Kez Geçen Kelimeler: Kur'an'da İz"`
+- ÖNCE: `titleEn="Once-Spoken Words — Traces in the Quran"`
+  SONRA: `titleEn="Once-Spoken Words: Traces in the Quran"`
+- ÖNCE: `noteTr: "Bu formda Kur'an'da yalnızca bir kez — gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",`
+  SONRA: `noteTr: "Bu formda Kur'an'da yalnızca bir kez geçer; gerçek bir hapax legomenon. İki cennet bahçesini tanımlar, kökü 'd-h-m' (siyaha çalan koyu ton).",`
+- ÖNCE: `noteEn: "Appears only once in the Quran in this form — a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",`
+  SONRA: `noteEn: "Appears only once in the Quran in this form; a true hapax legomenon. Describes two paradise gardens, root 'd-h-m' (dark shade tending to black).",`
+- ÖNCE: `noteTr: "Kıyamette gökyüzünün rengi — erimiş kırmızı yağa benzetme. Bu formda nadir.",`
+  SONRA: `noteTr: "Kıyamette gökyüzünün rengi; erimiş kırmızı yağa benzetme. Bu formda nadir.",`
+- ÖNCE: `noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",`
+  SONRA: `noteEn: "The color of the sky at judgment; compared to melted red oil. Rare in this form.",`
+- ÖNCE: `titleTr="'Zurk' Tartışması — Mavi mi, Donuk mu, Kör mü?"`
+  SONRA: `titleTr="'Zurk' Tartışması: Mavi mi, Donuk mu, Kör mü?"`
+- ÖNCE: `titleEn="The 'Zurq' Debate — Blue, Glazed, or Blind?"`
+  SONRA: `titleEn="The 'Zurq' Debate: Blue, Glazed, or Blind?"`
+- ÖNCE: `descTr: 'Korkudan veya ölüm korkusundan gözler donup kalır — görme engeli.',`
+  SONRA: `descTr: 'Korkudan ya da ölüm korkusundan gözler donup kalır; görme engeli.',`
+- ÖNCE: `descEn: "Eyes frozen from terror or fear of death — impairment of sight.",`
+  SONRA: `descEn: "Eyes frozen from terror or fear of death; impairment of sight.",`
+- ÖNCE: `numTr: '3', titleTr: 'Körlük — Perde', titleEn: 'Blindness — Veil',`
+  SONRA: `numTr: '3', titleTr: 'Körlük: Perde', titleEn: 'Blindness: Veil',`
+- ÖNCE: `descTr: "Göz üzerinde perde — kıyamette inkârcıların dünyada kör olduğunun somutlaşması.",`
+  SONRA: `descTr: "Göz üzerinde perde; inkârcıların dünyadaki körlüğünün kıyamette somutlaşması.",`
+- ÖNCE: `descEn: "A veil over the eyes — the disbelievers' spiritual blindness made physical at judgment.",`
+  SONRA: `descEn: "A veil over the eyes; the disbelievers' spiritual blindness made physical at judgment.",`
+- ÖNCE: `descTr="Kur'an bazen rengi doğrudan söylemez — nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir."`
+  SONRA: `descTr="Kur'an bazen rengi doğrudan söylemez; nesneyi vererek rengi ima eder. Bu 'söylemeden anlatmak' Kur'an'ın dil ekonomisinin özelliğidir."`
+- ÖNCE: `descEn="The Quran sometimes doesn't state the color directly — it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy."`
+  SONRA: `descEn="The Quran sometimes does not state the color directly; it implies the color by naming the object. This 'showing without telling' is characteristic of Quranic language economy."`
+- ÖNCE: `noteTr: "Süt beyazdır — ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",`
+  SONRA: `noteTr: "Süt beyazdır, ama Kur'an rengi söylemez. Renk, nesnenin zihinde çağrışımıyla gelir.",`
+- ÖNCE: `noteEn: "Milk is white — but the Quran doesn't say so. The color arrives through the object's mental association.",`
+  SONRA: `noteEn: "Milk is white, but the Quran does not say so. The color arrives through the object's mental association.",`
+- ÖNCE: `noteTr: "'Musaffâ' — arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",`
+  SONRA: `noteTr: "'Musaffâ': arındırılmış, süzülmüş. Renk adı yok; amber ton nesnenin kendisinde gizli.",`
+- ÖNCE: `noteEn: "'Musaffâ' — purified, filtered. No color named; the amber hue is concealed in the object itself.",`
+  SONRA: `noteEn: "'Musaffâ': purified, filtered. No color named; the amber hue is concealed in the object itself.",`
+- ÖNCE: `noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir — ateş insanın tenini kızartır ve karartır. Kırmızı/siyah ama söylenmez.",`
+  SONRA: `noteTr: "'Levvâha' kökü renk değişikliği anlamını içerir; ateş insanın tenini kızartır ve karartır. Kırmızı/siyah ama söylenmez.",`
+- ÖNCE: `noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",`
+  SONRA: `noteEn: "The root 'lavvâha' implies color change; fire reddens and blackens the skin. Red/black, but left unstated.",`
+- ÖNCE: `eyebrowTr="بيض — Aynı Kökten Anlam Ailesi" eyebrowEn="بيض — Word Family of One Root"`
+  SONRA: `eyebrowTr="بيض: Aynı Kökten Anlam Ailesi" eyebrowEn="بيض: Word Family of One Root"`
+- ÖNCE: `titleTr="Beyaz'ın Kök Genişlemesi — بيض → Yumurta"`
+  SONRA: `titleTr="Beyazın Kök Genişlemesi: بيض, Yumurta"`
+- ÖNCE: `titleEn="White's Root Expansion — بيض → Egg"`
+  SONRA: `titleEn="White's Root Expansion: بيض, Egg"`
+- ÖNCE: `{ ar: 'بَيْضَة',     note: tr ? 'yumurta — aynı kök!' : 'egg — same root!',           trans: 'bayda', highlight: true },`
+  SONRA: `{ ar: 'بَيْضَة',     note: tr ? 'yumurta, aynı kök' : 'egg, the same root',           trans: 'bayda', highlight: true },`
+- ÖNCE: `? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Sâffât 37:49'da cennet ehlinin eşleri 'saklı yumurta gibi' (كَأَنَّهُنَّ بَيْضٌ مَكْنُونٌ) tarif edilir. Renk kelimesi anlam genişlemesiyle imge üretiyor."`
+  SONRA: `? "'Beyza' yumurta anlamına da gelir; beyazlık ve yumurta aynı kökten. Sâffât 37:49'da cennet ehlinin eşleri 'saklı yumurta gibi' (كَأَنَّهُنَّ بَيْضٌ مَكْنُونٌ) tarif edilir. Renk kelimesi anlam genişlemesiyle imge üretiyor."`
+- ÖNCE: `: "'Bayda' also means egg — whiteness and egg share the same root. In As-Sâffât 37:49, the companions of Paradise are described as 'like hidden eggs' (kaʾannahunna bayḍun maknūn). The color word generates imagery through semantic extension."}`
+  SONRA: `: "'Bayda' also means egg; whiteness and egg share the same root. In As-Sâffât 37:49, the companions of Paradise are described as 'like hidden eggs' (kaʾannahunna bayḍun maknūn). The color word generates imagery through semantic extension."}`
+- ÖNCE: `{ name: 'Zemahşerî', detail: "el-Keşşâf — dilbilim ve renk kelimeleri analizi" },`
+  SONRA: `{ name: 'Zemahşerî', detail: "el-Keşşâf: dilbilim ve renk kelimeleri analizi" },`
+- ÖNCE: `{ name: 'Râzî', detail: "Mefâtîhu'l-Gayb — Fâtır 35:27 analizi" },`
+  SONRA: `{ name: 'Râzî', detail: "Mefâtîhu'l-Gayb, Fâtır 35:27 analizi" },`
+- ÖNCE: `{ name: 'Corpus Quran', detail: 'corpus.quran.com — kelime frekansları' },`
+  SONRA: `{ name: 'Corpus Quran', detail: 'corpus.quran.com: kelime frekansları' },`
+- ÖNCE: `? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz — bu yorumlar ℹ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."`
+  SONRA: `? "Bu sayfada Kur'an'ın renk kelimelerinin taşıdığı sembolik anlamlar tefsir geleneğine dayanmaktadır. Kur'an renk sembolizmini açıkça tanımlamaz; bu yorumlar ℹ ile işaretlenmiştir. Renk kelimelerinin dilbilimsel analizleri Arapça sözlük ve tefsir kaynaklarına dayanmaktadır."`
+- ÖNCE: `: "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism — such interpretations are marked with ℹ. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}`
+  SONRA: `: "The symbolic meanings attributed to the Quran's color words on this page are based on the classical tafsir tradition. The Quran does not explicitly define color symbolism; such interpretations are marked with ℹ. Linguistic analyses of color words are based on Arabic lexicography and tafsir sources."}`
+- ÖNCE: `? <>Renk, Allah&apos;ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton — her biri başka bir hakikatin işareti.</>`
+  SONRA: `? <>Renk, Allah&apos;ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton; her biri başka bir hakikatin işareti.</>`
+- ÖNCE: `: <>Color is the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>silent alphabet</em> of the language Allah created. 14 words, 8 tones — each pointing to a different truth.</>}`
+  SONRA: `: <>Color is the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>silent alphabet</em> of the language Allah created. 14 words, 8 tones; each pointing to a different truth.</>}`
+- ÖNCE: `? 'Dünya hayatı bir renk geçişidir — sonunda hepsi tek bir tona, koyu yeşile çağrılır.'`
+  SONRA: `? 'Dünya hayatı bir renk geçişidir; sonunda hepsi tek bir tona, koyu yeşile çağrılır.'`
+- ÖNCE: `: 'Worldly life is a transition of colors — at the end, all are called to a single tone: deep green.'}`
+  SONRA: `: 'Worldly life is a transition of colors; at the end, all are called to a single tone: deep green.'}`
+- ÖNCE: `{tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}`
+  SONRA: `{tr ? 'Tek Ayette 3 Renk: Fâtır 35:27' : 'Three Colors in One Verse: Fatir 35:27'}`
+- ÖNCE: `? "'Garâbîb' kuzgun/karga (ghurab) kökünden — siyahın en yoğun tonu için özel kelime. 'Mudhammatân' (koyu yeşil) ile paralel: Kur'an renk yoğunluğunu ifade etmek için kök değiştirerek yeni kelime üretir."`
+  SONRA: `? "'Garâbîb' kuzgun, karga (ghurab) kökünden; siyahın en yoğun tonu için özel kelime. 'Mudhammatân' (koyu yeşil) ile paralel: Kur'an renk yoğunluğunu ifade etmek için kök değiştirerek yeni kelime üretir."`
+- ÖNCE: `: "'Gharabib' derives from ghurab (raven/crow) — a special word for the most intense shade of black. Parallel to 'mudhammatân' (intense green): the Quran creates new words by changing roots to express color intensity."}`
+  SONRA: `: "'Gharabib' derives from ghurab (raven, crow); a special word for the most intense shade of black. Parallel to 'mudhammatân' (intense green): the Quran creates new words by changing roots to express color intensity."}`
+- ÖNCE: `{ href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk ve Son Kelimeler', titleEn: 'First and Last Words', descTr: 'Renklerin sûre-içi konumu — açılış-kapanış deseni.', descEn: "Colors' surah-position — opening-closing pattern." },`
+  SONRA: `{ href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk ve Son Kelimeler', titleEn: 'First and Last Words', descTr: 'Renklerin sûre içi konumu; açılış ve kapanış deseni.', descEn: "Colors' position within the surah; the opening and closing pattern." },`
+- ÖNCE: `? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur&apos;an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>`
+  SONRA: `? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur&apos;an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe; ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>`
+- ÖNCE: `: <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax &quot;deep green&quot; two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}`
+  SONRA: `: <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64), the hapax &quot;deep green&quot; two gardens, is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}`
+- ÖNCE: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil sündüs ve istebrak</strong> (yeşil ince ve kalın ipek) — Kehf 18:31, Dehr 76:21</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green sundus and istabraq</strong> (fine green silk + brocade) — Kahf 18:31, Insān 76:21</>}</li>`
+  SONRA: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil sündüs ve istebrak</strong> (yeşil ince ve kalın ipek): Kehf 18:31, Dehr 76:21</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green sundus and istabraq</strong> (fine green silk and brocade): Kahf 18:31, Insān 76:21</>}</li>`
+- ÖNCE: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil rafraf</strong> (yeşil yastıklar/tahtlar) — Rahmân 55:76</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green rafraf</strong> (green cushions/thrones) — Raḥmān 55:76</>}</li>`
+  SONRA: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil rafraf</strong> (yeşil yastıklar, tahtlar): Rahmân 55:76</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green rafraf</strong> (green cushions, thrones): Raḥmān 55:76</>}</li>`
+- ÖNCE: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Beyaz inci, kırmızı yâkut, zümrüt</strong> — süs ve takı — Hac 22:23, Fâtır 35:33, Rahmân 55:58</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>White pearls, red rubies, emerald</strong> — adornments — Ḥajj 22:23, Fāṭir 35:33, Raḥmān 55:58</>}</li>`
+  SONRA: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Beyaz inci, kırmızı yâkut, zümrüt</strong> (süs ve takı): Hac 22:23, Fâtır 35:33, Rahmân 55:58</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>White pearls, red rubies, emerald</strong> (adornments): Ḥajj 22:23, Fāṭir 35:33, Raḥmān 55:58</>}</li>`
+- ÖNCE: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Altın bilezikler ve süsler</strong> (zîneten) — Hac 22:23, Fâtır 35:33, Kehf 18:31</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Gold bracelets and ornaments</strong> (zīnatan) — Ḥajj 22:23, Fāṭir 35:33, Kahf 18:31</>}</li>`
+  SONRA: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Altın bilezikler ve süsler</strong> (zîneten): Hac 22:23, Fâtır 35:33, Kehf 18:31</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Gold bracelets and ornaments</strong> (zīnatan): Ḥajj 22:23, Fāṭir 35:33, Kahf 18:31</>}</li>`
+- ÖNCE: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 nehir: su, süt, şarab, bal</strong> — her biri ayrı renk-doku-tat — Muhammed 47:15</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 rivers: water, milk, wine, honey</strong> — each its own color-texture-taste — Muḥammad 47:15</>}</li>`
+  SONRA: `<li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 nehir: su, süt, şarab, bal</strong> (her biri ayrı renk, doku ve tat): Muhammed 47:15</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 rivers: water, milk, wine, honey</strong> (each with its own color, texture and taste): Muḥammad 47:15</>}</li>`
+- ÖNCE: `? <>Klasik tefsirde bu çoğulluk sembolik okunabilir — İbn Kayyım&apos;ın Hâdi&apos;l-Ervâh&apos;ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; ok`
+  SONRA: `? <>Klasik tefsirde bu çoğulluk sembolik okunabilir; İbn Kayyım&apos;ın Hâdi&apos;l-Ervâh&apos;ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em>, gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okum`
+- ÖNCE: `: <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim&apos;s Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise&apos;s <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The &quot;mo`
+  SONRA: `: <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim&apos;s Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em>, the color the eye meets first; the other colors are the promise&apos;s <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The &quot;mon`
+- ÖNCE: `? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>`
+  SONRA: `? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır; bu, diğer cennet renklerini dışlamak değil, yapısal bir vurgudur.</>`
+- ÖNCE: `: <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the &quot;headline sign of the promise&quot; — a structural emphasis, not exclusion of other paradise colors.</>}`
+  SONRA: `: <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the &quot;headline sign of the promise&quot;; a structural emphasis, not an exclusion of the other paradise colors.</>}`
+- ÖNCE: `? <>Allah dünyayı renklerle yazdı — yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ<`
+  SONRA: `? <>Allah dünyayı renklerle yazdı: yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</`
+- ÖNCE: `: <>Allah wrote the world with colors — green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>م`
+  SONRA: `: <>Allah wrote the world with colors: green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُ`
+- ÖNCE: `{tr ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}`
+  SONRA: `{tr ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}`
+- ÖNCE: `{ href: `/${language}/oku/35`, titleTr: 'Fâtır Sûresi (35)', titleEn: 'Sura Fāṭir (35)', descTr: 'Anchor verse 35:27 — yağmurdan farklı renklerde meyveler, dağlardan farklı renklerde yollar.', descEn: 'Anchor verse 35:27 — fruits of varying colors from rain, paths of varying colors in mountains.' },`
+  SONRA: `{ href: `/${language}/oku/35`, titleTr: 'Fâtır Sûresi (35)', titleEn: 'Sura Fāṭir (35)', descTr: 'Çapa ayet 35:27: yağmurdan farklı renklerde meyveler, dağlardan farklı renklerde yollar.', descEn: 'Anchor verse 35:27: fruits of varying colors from rain, paths of varying colors in mountains.' },`
+- ÖNCE: `{ href: `/${language}/oku/55`, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: 'Hapax مُدْهَامَّتَانِ (55:64) — Kur\'an\'da bir kez geçen "koyu yeşil" kelimesinin cennet bağlamı.', descEn: 'Hapax مُدْهَامَّتَانِ (55:64) — the once-occurring word "deep green" in its paradise context.' },`
+  SONRA: `{ href: `/${language}/oku/55`, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: 'Hapax مُدْهَامَّتَانِ (55:64): Kur\'an\'da bir kez geçen "koyu yeşil" kelimesinin cennet bağlamı.', descEn: 'Hapax مُدْهَامَّتَانِ (55:64): the once-occurring word "deep green" in its paradise context.' },`
+- ÖNCE: `{ href: `/${language}/oku/2`, titleTr: 'Bakara 2:187', titleEn: 'al-Baqara 2:187', descTr: 'Beyaz iplik / siyah iplik — oruç ayetindeki renklerin işlevsel kullanımı.', descEn: 'The white thread / black thread — the functional use of colors in the fasting verse.' },`
+  SONRA: `{ href: `/${language}/oku/2`, titleTr: 'Bakara 2:187', titleEn: 'al-Baqara 2:187', descTr: 'Beyaz iplik, siyah iplik: oruç ayetindeki renklerin işlevsel kullanımı.', descEn: 'The white thread and the black thread: the functional use of colors in the fasting verse.' },`
+
+### `next/src/data/ahiret-yolculugu.json`
+
+- ÖNCE: `"framingTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder. Bu atlas 11 aşamada — Kur'ânî çekirdek üstünde, klasik tefsir çeşitliliğiyle — o geçişin haritasını çıkarır.",`
+  SONRA: `"framingTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder. Bu atlas o geçişin haritasını 11 aşamada çıkarır; Kur'ânî çekirdek üstünde, klasik tefsir çeşitliliğiyle.",`
+- ÖNCE: `"framingEn": "The Qur'an paints death not as an event but as a moment of transition. This atlas maps that transition across 11 stages — grounded in the Qur'anic core, framed with classical tafsir plurality."`
+  SONRA: `"framingEn": "The Qur'an paints death not as an event but as a moment of transition. This atlas maps that transition across 11 stages, grounded in the Qur'anic core and framed with the plurality of classical tafsir."`
+- ÖNCE: `"noteTr": "Ahkâm ağırlıklı Mâlikî tefsir + eskatoloji için özel eseri et-Tezkire — âhiret sahnelerinde en detaylı klasik referans.",`
+  SONRA: `"noteTr": "Ahkâm ağırlıklı Mâlikî tefsir + eskatoloji için özel eseri et-Tezkire; âhiret sahnelerinde en detaylı klasik referans.",`
+- ÖNCE: `"noteEn": "Ahkām-heavy Māliki tafsir + al-Tadhkirah, his dedicated eschatology work — the most detailed classical reference on hereafter scenes."`
+  SONRA: `"noteEn": "Ahkām-heavy Māliki tafsir + al-Tadhkirah, his dedicated eschatology work; the most detailed classical reference on hereafter scenes."`
+- ÖNCE: `"titleTr": "Sekerât — Ölüm Sarhoşluğu",`
+  SONRA: `"titleTr": "Sekerât: Ölüm Sarhoşluğu",`
+- ÖNCE: `"titleEn": "Sakarāt — The Death Throes",`
+  SONRA: `"titleEn": "Sakarāt: The Death Throes",`
+- ÖNCE: `"descTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder — kişinin son eşiğe geldiği farkındalık.",`
+  SONRA: `"descTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder: kişinin son eşiğe geldiği farkındalık.",`
+- ÖNCE: `"descEn": "The Qur'an paints death not as an event but as a moment of transition — awareness of arriving at a final edge.",`
+  SONRA: `"descEn": "The Qur'an paints death not as an event but as a moment of transition: awareness of arriving at a final edge.",`
+- ÖNCE: `"noteTr": "'Peki ne yapabilirsiniz ki, can boğaza dayandığında?' — sekerâtın Kur'an'daki en dramatik sahnesi.",`
+  SONRA: `"noteTr": "'Peki ne yapabilirsiniz ki, can boğaza dayandığında?' Sekerâtın Kur'an'daki en dramatik sahnesi.",`
+- ÖNCE: `"noteEn": "'What then, when it reaches the throat?' — the most dramatic Qur'anic scene of the death throes.",`
+  SONRA: `"noteEn": "'What then, when it reaches the throat?' The most dramatic Qur'anic scene of the death throes.",`
+- ÖNCE: `"noteTr": "Melekler ellerini uzatmış: 'Çıkarın canlarınızı!' — zâlimin gözünden ölüm anı.",`
+  SONRA: `"noteTr": "Melekler ellerini uzatmış: 'Çıkarın canlarınızı!' Ölüm anı, zâlimin gözünden.",`
+- ÖNCE: `"noteEn": "Angels stretch out their hands: 'Give up your souls!' — the moment seen from the wrongdoer's angle.",`
+  SONRA: `"noteEn": "Angels stretch out their hands: 'Give up your souls!' The moment seen from the wrongdoer's angle.",`
+- ÖNCE: `"noteTr": "'Vennâziâti ğarkā, vennâşitâti neştâ' — canı sert çekenler / kolay çıkaranlar; klasik yorumda ölüm meleklerine hamledilen yeminler.",`
+  SONRA: `"noteTr": "'Vennâziâti ğarkā, vennâşitâti neştâ': canı sert çekenler ve kolay çıkaranlar; klasik yorumda ölüm meleklerine hamledilen yeminler.",`
+- ÖNCE: `"noteEn": "'By those that pluck out violently, by those that draw out gently' — oaths classically referred to the angels of death.",`
+  SONRA: `"noteEn": "'By those that pluck out violently, by those that draw out gently': oaths classically referred to the angels of death.",`
+- ÖNCE: `"narrationTr": "Kur'an ölümü bir olay olarak değil, bir *geçiş anı* olarak resmeder. Kâf 50:19, ölüm sarhoşluğunu (*sekret'ul-mevt*) \"hakikatle geldi\" fiiliyle takdim eder — sanki insan hayatı boyunca kaçındığı gerçek, kendi ayağıyla onu bulur. Vâkı'a sûresi tabloyu daha da daraltır: can boğaza dayandığında, çevredekiler bakıyor ama hiçbir şey yapamıyor. Bu bir tıp anlatısı değil, bir *farkındal`
+  SONRA: `"narrationTr": "Kur'an ölümü bir olay olarak değil, bir *geçiş anı* olarak resmeder. Kâf 50:19, ölüm sarhoşluğunu (*sekret'ul-mevt*) \"hakikatle geldi\" fiiliyle takdim eder; sanki insanın hayatı boyunca kaçındığı gerçek, kendi ayağıyla onu bulur. Vâkı'a sûresi tabloyu daha da daraltır: can boğaza dayandığında, çevredekiler bakıyor ama hiçbir şey yapamıyor. Bu bir tıp anlatısı değil, bir *farkında`
+- ÖNCE: `"narrationEn": "The Qur'an paints death not as an event but as a *moment of transition*. Sūrat Qāf 50:19 introduces death's stupor (*sakrat al-mawt*) with the verb \"came with the truth\" — as if the reality one has spent a lifetime evading finally arrives on its own feet. Al-Wāqi'ah tightens the frame: when the soul reaches the throat, bystanders watch but can do nothing. This is not medical narr`
+  SONRA: `"narrationEn": "The Qur'an paints death not as an event but as a *moment of transition*. Sūrat Qāf 50:19 introduces death's stupor (*sakrat al-mawt*) with the verb \"came with the truth\", as if the reality one has spent a lifetime evading finally arrives on its own feet. Al-Wāqi'ah tightens the frame: when the soul reaches the throat, bystanders watch but can do nothing. This is not medical narra`
+- ÖNCE: `"noteTr": "Sekerâtın şiddeti kişinin durumuna göre farklılaşır — bazı peygamberler ve sâlihler için bile ağır olabileceğini rivayetlerle belgeler. Yani sekerâtın şiddeti hükmün mutlak göstergesi değildir (halkın 'kolay ölüm = kurtuluş' çıkarımını düzeltir).",`
+  SONRA: `"noteTr": "Sekerâtın şiddeti kişinin durumuna göre farklılaşır; bazı peygamberler ve sâlihler için bile ağır olabileceğini rivayetlerle belgeler. Yani sekerâtın şiddeti hükmün mutlak göstergesi değildir (halkın 'kolay ölüm = kurtuluş' çıkarımını düzeltir).",`
+- ÖNCE: `"noteEn": "The severity of sakarāt varies by person — even prophets and the righteous may have hard passings, documented by narrations. Thus severity is not an absolute indicator of judgment (correcting the folk inference that 'easy death = salvation')."`
+  SONRA: `"noteEn": "The severity of sakarāt varies by person; even prophets and the righteous may have hard passings, as narrations document. Thus severity is not an absolute indicator of judgment (correcting the folk inference that 'easy death = salvation')."`
+- ÖNCE: `"bodyTr": "Klasik Ehl-i Sünnet ile Mu'tezile arasında sekerât ayetleri tefsirinde keskin bir yorum farkı yoktur — her iki ekol de literal 'ölüm anı sarsıntısı' okur. Bazı erken Mu'tezilî çevreler (Kâdî Abdulcabbâr çizgisi) meleklerin 'elini uzatması' ifadesini *mecazî* — 'ilâhî hüküm eli' — yorumlarken; Sünnî çoğunluk meleklerin gerçek ancak duyular-üstü müdahalesini kabul eder.",`
+  SONRA: `"bodyTr": "Klasik Ehl-i Sünnet ile Mu'tezile arasında sekerât ayetleri tefsirinde keskin bir yorum farkı yoktur; her iki ekol de literal 'ölüm anı sarsıntısı' okur. Bazı erken Mu'tezilî çevreler (Kâdî Abdulcabbâr çizgisi) meleklerin 'elini uzatması' ifadesini *mecazî* olarak, 'ilâhî hüküm eli' diye yorumlarken; Sünnî çoğunluk meleklerin gerçek ancak duyular-üstü müdahalesini kabul eder.",`
+- ÖNCE: `"bodyEn": "There is no sharp exegetical divide between classical Sunnism and Mu'tazila on the sakarāt verses — both schools read them as the literal 'shudder of the moment of death.' Some early Mu'tazilite circles (the Qāḍī 'Abd al-Jabbār line) read the angels' 'stretching hands' *metaphorically* — as 'the hand of divine decree' — while the Sunni majority accepts the real yet supra-sensory interve`
+  SONRA: `"bodyEn": "There is no sharp exegetical divide between classical Sunnism and Mu'tazila on the sakarāt verses; both schools read them as the literal 'shudder of the moment of death.' Some early Mu'tazilite circles (the Qāḍī 'Abd al-Jabbār line) read the angels' 'stretching hands' *metaphorically*, as 'the hand of divine decree', while the Sunni majority accepts the real yet supra-sensory interventi`
+- ÖNCE: `"labelTr": "Zaman Boyutları — an-uzama fenomeni",`
+  SONRA: `"labelTr": "Zaman Boyutları: an-uzama fenomeni",`
+- ÖNCE: `"labelEn": "Time Dimensions — moment-stretch phenomenon",`
+  SONRA: `"labelEn": "Time Dimensions: the moment-stretch phenomenon",`
+- ÖNCE: `"titleTr": "Berzah & Kabir — Ara Alem",`
+  SONRA: `"titleTr": "Berzah & Kabir: Ara Âlem",`
+- ÖNCE: `"titleEn": "Barzakh & the Grave — The Interspace",`
+  SONRA: `"titleEn": "Barzakh & the Grave: The Interspace",`
+- ÖNCE: `"noteTr": "'Onlar sabah akşam ateşe arz olunurlar…' — kabir azabının en açık Kur'ânî delili (Firavun hanedanı).",`
+  SONRA: `"noteTr": "'Onlar sabah akşam ateşe arz olunurlar…' Kabir azabının en açık Kur'ânî delili (Firavun hanedanı).",`
+- ÖNCE: `"noteEn": "'They are exposed to the fire morning and evening…' — the clearest Qur'anic evidence for grave punishment (Pharaoh's people).",`
+  SONRA: `"noteEn": "'They are exposed to the fire morning and evening…' The clearest Qur'anic evidence for grave punishment (Pharaoh's people).",`
+- ÖNCE: `"noteTr": "'Günahları yüzünden boğuldular, sonra ateşe sokuldular.' — 'sonra ateşe sokuldular' geçmiş zamanı klasik delil (Kurtubî, İbn Kesîr); modern bazı yorumcular bunu kıyamet sonrası olarak da okur.",`
+  SONRA: `"noteTr": "'Günahları yüzünden boğuldular, sonra ateşe sokuldular.' Buradaki geçmiş zaman klasik delildir (Kurtubî, İbn Kesîr); modern bazı yorumcular bunu kıyamet sonrası olarak da okur.",`
+- ÖNCE: `"noteEn": "'They were drowned for their sins, then made to enter Fire.' — the past-tense 'then made to enter' is a classical proof (Qurṭubī, Ibn Kathīr); some modern commentators read it as post-resurrection.",`
+  SONRA: `"noteEn": "'They were drowned for their sins, then made to enter Fire.' The past tense 'then made to enter' is a classical proof (Qurṭubī, Ibn Kathīr); some modern commentators read it as post-resurrection.",`
+- ÖNCE: `"noteTr": "'Allah yolunda öldürülenlere ölüler demeyin, onlar diridirler…' — berzah hayatının pozitif işareti (şehidler).",`
+  SONRA: `"noteTr": "'Allah yolunda öldürülenlere ölüler demeyin, onlar diridirler…' Berzah hayatının olumlu işareti (şehidler).",`
+- ÖNCE: `"noteEn": "'Do not say of those killed in God's path that they are dead; they are alive…' — the positive sign of barzakh life (the martyrs).",`
+  SONRA: `"noteEn": "'Do not say of those killed in God's path that they are dead; they are alive…' The positive sign of barzakh life (the martyrs).",`
+- ÖNCE: `"narrationTr": "Berzah kelimesi Kur'an'da üç yerde geçer (Furkān 25:53 ve Rahmân 55:20'de iki suyu ayıran engel; Mü'minûn 23:100'de ise ölüm ile diriliş arasındaki *ara alem*). Kelimenin kökü 'iki şey arasında engel/perde' demektir. Mü'minûn ayeti bu perdeyi 'diriltilecekleri güne kadar' süreklilik ile tanımlar — berzah bir *yokluk* değil, farklı bir varoluş biçimidir.\n\nKur'an bu ara alemin ayrı`
+  SONRA: `"narrationTr": "Berzah kelimesi Kur'an'da üç yerde geçer (Furkān 25:53 ve Rahmân 55:20'de iki suyu ayıran engel; Mü'minûn 23:100'de ise ölüm ile diriliş arasındaki *ara alem*). Kelimenin kökü 'iki şey arasında engel/perde' demektir. Mü'minûn ayeti bu perdeyi 'diriltilecekleri güne kadar' süreklilik ile tanımlar; berzah bir *yokluk* değil, farklı bir varoluş biçimidir.\n\nKur'an bu ara alemin ayrın`
+- ÖNCE: `"narrationEn": "The word *barzakh* appears three times in the Qur'an (Furqān 25:53 and Raḥmān 55:20 as the barrier between two waters; Mu'minūn 23:100 as the *interspace* between death and resurrection). Its root means 'a barrier between two things.' The Mu'minūn verse defines this barrier as lasting 'until the day they will be raised' — barzakh is not *absence* but a different form of existence.\`
+  SONRA: `"narrationEn": "The word *barzakh* appears three times in the Qur'an (Furqān 25:53 and Raḥmān 55:20 as the barrier between two waters; Mu'minūn 23:100 as the *interspace* between death and resurrection). Its root means 'a barrier between two things.' The Mu'minūn verse defines this barrier as lasting 'until the day they will be raised'; barzakh is not *absence* but a different form of existence.\n`
+- ÖNCE: `"noteTr": "Kabir azabının kimler için, hangi durumlarda geldiği; suâl-i kabir (Münker-Nekîr sorgusu) rivayetlerinin sıhhat derecesi; kabrin ruh için mi, beden için mi olduğu — üç ana pozisyonun analizi.",`
+  SONRA: `"noteTr": "Kabir azabının kimler için, hangi durumlarda geldiği; suâl-i kabir (Münker-Nekîr sorgusu) rivayetlerinin sıhhat derecesi; kabrin ruh için mi, beden için mi olduğu; üç ana pozisyonun analizi.",`
+- ÖNCE: `"noteEn": "For whom and when grave punishment applies; the authenticity of the questioning narrations (Munkar-Nakīr); whether the grave affects the soul or the body — analysis of three main positions."`
+  SONRA: `"noteEn": "For whom and when grave punishment applies; the authenticity of the questioning narrations (Munkar-Nakīr); whether the grave affects the soul or the body; an analysis of three main positions."`
+- ÖNCE: `"noteTr": "Berzah kelimesinin dilbilimsel analizi; kelimenin 'engel' anlamının hem geri dönüşü hem karşılıklı temasi engellediği — berzah *iki yönlü* bir perdedir.",`
+  SONRA: `"noteTr": "Berzah kelimesinin dilbilimsel analizi; kelimenin 'engel' anlamının hem geri dönüşü hem karşılıklı teması engellediği; berzah *iki yönlü* bir perdedir.",`
+- ÖNCE: `"noteEn": "Linguistic analysis of *barzakh*; the 'barrier' meaning blocks both return and mutual contact — barzakh is a *two-way* veil."`
+  SONRA: `"noteEn": "Linguistic analysis of *barzakh*; the 'barrier' meaning blocks both return and mutual contact; barzakh is a *two-way* veil."`
+- ÖNCE: `"titleTr": "Kabir azabı — klasik dönemin büyük ihtilâfı",`
+  SONRA: `"titleTr": "Kabir azabı: klasik dönemin büyük ihtilâfı",`
+- ÖNCE: `"titleEn": "Grave punishment — a major classical debate",`
+  SONRA: `"titleEn": "Grave punishment: a major classical debate",`
+- ÖNCE: `"bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Kabir azabı sabittir; Ğâfir 40:46 açık Kur'ânî delildir. Münker-Nekîr sorgusu ve kabirin sıkışması *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabit kabul edilir.\n\nMu'tezile (klasik ekol): Kur'ânî delili kabul eder ancak hadîs-bazlı ayrıntıları (Münker-Nekîr'in isimleri, kabirin sıkışması) *âhâd* rivayet olduğu için akîde ba`
+  SONRA: `"bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Kabir azabı sabittir; Ğâfir 40:46 açık Kur'ânî delildir. Münker-Nekîr sorgusu ve kabirin sıkışması *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabit kabul edilir.\n\nMu'tezile (klasik ekol): Kur'ânî delili kabul eder ancak hadîs-bazlı ayrıntıları (Münker-Nekîr'in isimleri, kabirin sıkışması) *âhâd* rivayet olduğu için akîde ba`
+- ÖNCE: `"bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī majority): Grave punishment is established; Ghāfir 40:46 is a clear Qur'anic proof. Munkar-Nakīr's questioning and the grave's pressing are considered established through *mutawātir maʿnawī* (semantic mass-transmission) hadith.\n\nMu'tazila (classical school): Accepts the Qur'anic evidence but does not treat hadith-based details (Munkar-Nakīr's names,`
+  SONRA: `"bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī majority): Grave punishment is established; Ghāfir 40:46 is a clear Qur'anic proof. Munkar-Nakīr's questioning and the grave's pressing are considered established through *mutawātir maʿnawī* (semantic mass-transmission) hadith.\n\nMu'tazila (classical school): Accepts the Qur'anic evidence but does not treat hadith-based details (Munkar-Nakīr's names,`
+- ÖNCE: `"labelTr": "Melekler — Münker-Nekîr (hadîs-bazlı)",`
+  SONRA: `"labelTr": "Melekler: Münker-Nekîr (hadîs temelli)",`
+- ÖNCE: `"labelEn": "Angels — Munkar-Nakīr (hadith-based)",`
+  SONRA: `"labelEn": "Angels: Munkar-Nakīr (hadith-based)",`
+- ÖNCE: `"labelTr": "Zaman Boyutları — berzah zaman-akışı",`
+  SONRA: `"labelTr": "Zaman Boyutları: berzahta zaman akışı",`
+- ÖNCE: `"labelEn": "Time Dimensions — barzakh temporal flow",`
+  SONRA: `"labelEn": "Time Dimensions: temporal flow in barzakh",`
+- ÖNCE: `"titleTr": "Sûr — İlk Nefha",`
+  SONRA: `"titleTr": "Sûr: İlk Nefha",`
+- ÖNCE: `"titleEn": "The Trumpet — First Blowing",`
+  SONRA: `"titleEn": "The Trumpet: First Blowing",`
+- ÖNCE: `"descTr": "Kâinatın son sayfası çevrilir: göklerin ve yerin baygın düşüşü — Kur'an'ın 'fenâ' dediği an.",`
+  SONRA: `"descTr": "Kâinatın son sayfası çevrilir: göklerin ve yerin baygın düşüşü; Kur'an'ın 'fenâ' dediği an.",`
+- ÖNCE: `"descEn": "The universe's final page turns: heavens and earth swoon — the very moment the Qur'an calls 'fanā'.",`
+  SONRA: `"descEn": "The universe's final page turns: heavens and earth swoon; the very moment the Qur'an calls 'fanā'.",`
+- ÖNCE: `"narrationTr": "Kâinatın *son sayfası* burada çevrilir. Sûr'a ilk üfleyiş, yaratılışın büyük ölçekli düzeninin bitiş komutudur: göklerin ve yerin baygın düşüşü — Kur'an'ın *fenâ* dediği anın kendisi. Bu sahne KıyametSahneleri atlas'ının 1. fazında ('Kozmik Yıkım') detaylı işlenmiştir: güneşin dürülmesi, yıldızların dökülmesi, dağların yürümesi, denizlerin ateş alması ve göklerin katlanması sahnele`
+  SONRA: `"narrationTr": "Kâinatın *son sayfası* burada çevrilir. Sûr'a ilk üfleyiş, yaratılışın büyük ölçekli düzeninin bitiş komutudur: göklerin ve yerin baygın düşüşü; Kur'an'ın *fenâ* dediği anın kendisi. Bu sahne KıyametSahneleri atlas'ının 1. fazında ('Kozmik Yıkım') detaylı işlenmiştir: güneşin dürülmesi, yıldızların dökülmesi, dağların yürümesi, denizlerin ateş alması ve göklerin katlanması sahneler`
+- ÖNCE: `"narrationEn": "The universe's *final page* turns here. The first blowing of the Trumpet is the halting command for creation's macro-order: heavens and earth swooning in unconsciousness — the very moment the Qur'an calls *fanā'*. This scene is worked out in detail in Phase 1 ('Cosmic Destruction') of the KiyametSahneleri atlas: the sun wrapped up, stars falling, mountains set in motion, seas ablaz`
+  SONRA: `"narrationEn": "The universe's *final page* turns here. The first blowing of the Trumpet is the halting command for creation's macro-order: heavens and earth swooning in unconsciousness; the very moment the Qur'an calls *fanā'*. This scene is worked out in detail in Phase 1 ('Cosmic Destruction') of the KiyametSahneleri atlas: the sun wrapped up, stars falling, mountains set in motion, seas ablaze`
+- ÖNCE: `"noteTr": "'İllâ men şâellâh' istisnâsı üzerinde uzunca durur — hangi grubun (melekler, şehidler, cennet ehli) bu istisnâya dâhil olduğu üzerine dört farklı görüşü sıralar. Klasik icmâ değil, *ihtimaller listesi*.",`
+  SONRA: `"noteTr": "'İllâ men şâellâh' istisnâsı üzerinde uzunca durur; hangi grubun (melekler, şehidler, cennet ehli) bu istisnâya dâhil olduğu üzerine dört farklı görüşü sıralar. Klasik icmâ değil, *ihtimaller listesi*.",`
+- ÖNCE: `"noteEn": "Long treatment of the 'illā man shā' Allāh' exception — lists four different views on which group (angels, martyrs, dwellers of Paradise) belongs to it. Not a classical consensus, but a *list of possibilities*."`
+  SONRA: `"noteEn": "Long treatment of the 'illā man shā' Allāh' exception; lists four different views on which group (angels, martyrs, dwellers of Paradise) belongs to it. Not a classical consensus, but a *list of possibilities*."`
+- ÖNCE: `"noteTr": "Sûr kelimesi Kur'an'da 10 yerde geçer — bunların hepsini serimler ve rivayet-ağırlıklı bir sentez sunar.",`
+  SONRA: `"noteTr": "Sûr kelimesi Kur'an'da 10 yerde geçer; bunların hepsini serimler ve rivayet-ağırlıklı bir sentez sunar.",`
+- ÖNCE: `"noteEn": "The word ṣūr occurs in 10 places in the Qur'an — surveys them all and offers a narration-heavy synthesis."`
+  SONRA: `"noteEn": "The word ṣūr occurs in 10 places in the Qur'an; surveys them all and offers a narration-heavy synthesis."`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Kozmik Yıkım (Faz 1)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Kozmik Yıkım (Faz 1)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — Cosmic Destruction (Phase 1)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: Cosmic Destruction (Phase 1)",`
+- ÖNCE: `"titleTr": "Diriliş — Ba's",`
+  SONRA: `"titleTr": "Diriliş: Ba's",`
+- ÖNCE: `"titleEn": "Resurrection — Ba'th",`
+  SONRA: `"titleEn": "Resurrection: Ba'th",`
+- ÖNCE: `"descTr": "Aynı sûr, ikinci nefha — ters yön. Berzah bir uyku gibi hatırlanır: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?'",`
+  SONRA: `"descTr": "Aynı sûr, ikinci nefha; ters yön. Berzah bir uyku gibi hatırlanır: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?'",`
+- ÖNCE: `"descEn": "The same Trumpet, second blow — reverse direction. Barzakh is remembered as if it were sleep: 'Alas! Who raised us from our resting place?'",`
+  SONRA: `"descEn": "The same Trumpet, second blow; reverse direction. Barzakh is remembered as if it were sleep: 'Alas! Who raised us from our resting place?'",`
+- ÖNCE: `"narrationTr": "Aynı sûr, aynı melek — ama bu sefer *ters yön*. Zümer 39:68'in ikinci yarısı ('…Sonra ona bir kere daha üflendi. Bir de bakarsın hepsi ayağa kalkmış bakıyorlar') ile Yâsîn 36:51 aynı anı iki farklı açıdan çizer. Yâsîn'de dirilişin ilk kelimesi hayret dolu bir *ünlem*dir: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?' — bu insanı sarsan detay Kur'ânî anlatının psikolojik derinliği`
+  SONRA: `"narrationTr": "Aynı sûr, aynı melek; ama bu sefer *ters yön*. Zümer 39:68'in ikinci yarısı ('…Sonra ona bir kere daha üflendi. Bir de bakarsın hepsi ayağa kalkmış bakıyorlar') ile Yâsîn 36:51 aynı anı iki farklı açıdan çizer. Yâsîn'de dirilişin ilk kelimesi hayret dolu bir *ünlem*dir: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?' Bu sarsıcı ayrıntı Kur'ânî anlatının psikolojik derinliğidir: be`
+- ÖNCE: `"narrationEn": "The same Trumpet, the same angel — but this time *the reverse direction*. The second half of Zumar 39:68 ('…Then it will be blown again — and at once they will be standing, looking on') and Yā-Sīn 36:51 depict the same moment from two angles. In Yā-Sīn, the first word of resurrection is a stunned *exclamation*: 'Alas for us! Who raised us from our resting place?' — this detail is t`
+  SONRA: `"narrationEn": "The same Trumpet, the same angel; but this time *the reverse direction*. The second half of Zumar 39:68 ('…Then it will be blown again, and at once they will be standing, looking on') and Yā-Sīn 36:51 depict the same moment from two angles. In Yā-Sīn, the first word of resurrection is a stunned *exclamation*: 'Alas for us! Who raised us from our resting place?' This detail is the p`
+- ÖNCE: `"noteTr": "'Merkadinâ' (uyuduğumuz yerden) kelimesinin dilbilimsel analizi; berzahın süresinin ve şiddetinin herkes için aynı olmadığı — bazıları için gerçekten uyku gibi hafif, bazıları için (Ğâfir 40:46'da olduğu gibi) sürekli azap. İki farklı deneyim aynı berzah çatısı altındadır.",`
+  SONRA: `"noteTr": "'Merkadinâ' (uyuduğumuz yerden) kelimesinin dilbilimsel analizi; berzahın süresinin ve şiddetinin herkes için aynı olmadığı; bazıları için gerçekten uyku gibi hafif, bazıları için (Ğâfir 40:46'da olduğu gibi) sürekli azap. İki farklı deneyim aynı berzah çatısı altındadır.",`
+- ÖNCE: `"noteEn": "Linguistic analysis of 'marqadinā' (our resting place); barzakh's duration and severity vary — light as sleep for some, continuous torment for others (as in Ghāfir 40:46). Two different experiences under one barzakh roof."`
+  SONRA: `"noteEn": "Linguistic analysis of 'marqadinā' (our resting place); barzakh's duration and severity vary; light as sleep for some, continuous torment for others (as in Ghāfir 40:46). Two different experiences under one barzakh roof."`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Ölülerin Dirilişi (Faz 2)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Ölülerin Dirilişi (Faz 2)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — The Raising of the Dead (Phase 2)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: The Raising of the Dead (Phase 2)",`
+- ÖNCE: `"titleTr": "Mahşer — Toplanma",`
+  SONRA: `"titleTr": "Mahşer: Toplanma",`
+- ÖNCE: `"titleEn": "Maḥshar — The Great Gathering",`
+  SONRA: `"titleEn": "Maḥshar: The Great Gathering",`
+- ÖNCE: `"descTr": "Bir yer değil, bir hâl: 'hiçbirini geride bırakmayız' — istisnâsız toplama; en yakın bağlar bile çözülür.",`
+  SONRA: `"descTr": "Bir yer değil, bir hâl: 'hiçbirini geride bırakmayız'; istisnâsız toplama, en yakın bağlar bile çözülür.",`
+- ÖNCE: `"descEn": "Not a place but a state: 'We leave not one behind' — gathering without exception; even the closest bonds dissolve.",`
+  SONRA: `"descEn": "Not a place but a state: 'We leave not one behind'; gathering without exception, even the closest bonds dissolve.",`
+- ÖNCE: `"noteTr": "'Melekler ve Rûh, süresi elli bin yıl olan bir günde O'na yükselir.' — mahşer gününün *psikolojik uzunluğu*na dair anahtar ayet.",`
+  SONRA: `"noteTr": "'Melekler ve Rûh, süresi elli bin yıl olan bir günde O'na yükselir.' Mahşer gününün *psikolojik uzunluğu*na dair anahtar ayet.",`
+- ÖNCE: `"noteEn": "'The angels and the Spirit ascend to Him in a day whose length is fifty thousand years.' — key verse on the maḥshar's *psychological length*.",`
+  SONRA: `"noteEn": "'The angels and the Spirit ascend to Him in a day whose length is fifty thousand years.' The key verse on the maḥshar's *psychological length*.",`
+- ÖNCE: `"noteTr": "'O gün kişi kaçar; kardeşinden, annesinden, babasından, eşinden, çocuklarından…' — mahşerdeki sosyal bağların çözülme anı.",`
+  SONRA: `"noteTr": "'O gün kişi kaçar; kardeşinden, annesinden, babasından, eşinden, çocuklarından…' Mahşerdeki sosyal bağların çözülme anı.",`
+- ÖNCE: `"noteEn": "'The day one flees from his brother, mother, father, spouse, children…' — the moment of dissolution of social bonds at the maḥshar.",`
+  SONRA: `"noteEn": "'The day one flees from his brother, mother, father, spouse, children…' The moment social bonds dissolve at the maḥshar.",`
+- ÖNCE: `"narrationTr": "Kur'an mahşeri bir *yer* değil, bir *hal* olarak resmeder. Kehf 18:47 en yalın ifadesi: 'hiçbirini geride bırakmayız' — istisnâsız toplama. Me'âric 70:4'ün 'elli bin yıl' ifadesi ise mahşerin *psikolojik uzunluğuna* dair Kur'ânî bir teşbihtir; bu sürenin literal mi (Sünnî çoğunluk), yoksa şiddet ve zorluk metaforu mu (İbn Abbâs'a nispet edilen rivayet ve bazı modern müfessirler) ol`
+  SONRA: `"narrationTr": "Kur'an mahşeri bir *yer* değil, bir *hal* olarak resmeder. Kehf 18:47 en yalın ifadesi: 'hiçbirini geride bırakmayız'; istisnâsız toplama. Me'âric 70:4'ün 'elli bin yıl' ifadesi ise mahşerin *psikolojik uzunluğuna* dair Kur'ânî bir teşbihtir; bu sürenin literal mi (Sünnî çoğunluk), yoksa şiddet ve zorluk metaforu mu (İbn Abbâs'a nispet edilen rivayet ve bazı modern müfessirler) old`
+- ÖNCE: `"narrationEn": "The Qur'an renders the *maḥshar* not as a location but as a *state*. Al-Kahf 18:47 is the simplest expression: 'We leave not one of them behind.' Al-Ma'ārij 70:4's 'fifty thousand years' is a Qur'anic figure for the maḥshar's *psychological length*; whether this number is literal (majority Sunni) or a metaphor for severity (attributed to Ibn 'Abbās, adopted by some modern commentat`
+  SONRA: `"narrationEn": "The Qur'an renders the *maḥshar* not as a location but as a *state*. Al-Kahf 18:47 is the simplest expression: 'We leave not one of them behind.' Al-Ma'ārij 70:4's 'fifty thousand years' is a Qur'anic figure for the maḥshar's *psychological length*; whether this number is literal (majority Sunni) or a metaphor for severity (attributed to Ibn 'Abbās, adopted by some modern commentat`
+- ÖNCE: `"noteTr": "'Elli bin yıl' ifadesinin dilbilimsel analizi; 'yevm' (gün) kelimesinin genişleyebilirliği; farklı yorum yollarının hangi grup üzerinde etkili olduğu — mü'minler için kısalır, kâfirler için uzar tarzındaki rivayet-bazlı yorumlar bu ayetin altında çerçevelenir.",`
+  SONRA: `"noteTr": "'Elli bin yıl' ifadesinin dilbilimsel analizi; 'yevm' (gün) kelimesinin genişleyebilirliği; farklı yorum yollarının hangi grup üzerinde etkili olduğu; mü'minler için kısalır, kâfirler için uzar tarzındaki rivayet-bazlı yorumlar bu ayetin altında çerçevelenir.",`
+- ÖNCE: `"noteTr": "'Yevmun meşhûd' ifadesi — 'şahit olunan gün' — çok sayıda görüşün toplandığı ayet: kim şahitlik eder, kimin lehine/aleyhine.",`
+  SONRA: `"noteTr": "'Yevmun meşhûd', 'şahit olunan gün' ifadesi, çok sayıda görüşün toplandığı ayet: kim şahitlik eder, kimin lehine/aleyhine.",`
+- ÖNCE: `"noteEn": "'Yawmun mashhūd' — 'the witnessed day' — a verse gathering many views: who bears witness, for or against whom."`
+  SONRA: `"noteEn": "'Yawmun mashhūd', 'the witnessed day', a verse gathering many views: who bears witness, for or against whom."`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Haşr / Toplanma (Faz 3)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Haşr, Toplanma (Faz 3)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — The Gathering (Phase 3)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: The Gathering (Phase 3)",`
+- ÖNCE: `"descTr": "Kişi ömrünü taşır — kıyamette defter açılır. Kur'an'ın en güçlü tanıklık imgesi.",`
+  SONRA: `"descTr": "Kişi ömrünü taşır; kıyamette defter açılır. Kur'an'ın en güçlü tanıklık imgesi.",`
+- ÖNCE: `"descEn": "One carries their lifetime — on the day, the record opens. One of the Qur'an's most powerful witnessing images.",`
+  SONRA: `"descEn": "One carries their lifetime; on the day, the record opens. One of the Qur'an's most powerful witnessing images.",`
+- ÖNCE: `"narrationTr": "Amel defteri motifi Kur'an'da iki katmanlı gelir: (1) *nereden alındığı* — sağdan, soldan, arkadan (Hâkka 69:19-25, İnşikâk 84:7-12); (2) *nasıl açıldığı* — İsrâ 17:13-14'te insanın *tayr*ı (kuş/kader) boynuna bağlı, kıyamette 'açılmış bir kitap' olarak sunulur. Klasik tefsir bu iki katmanı birleştirir: kişi ömrünü *taşıyor*, ama defter kıyamette *açılıyor*. Bu motif Kur'an'ın en g`
+  SONRA: `"narrationTr": "Amel defteri motifi Kur'an'da iki katmanlı gelir: birincisi *nereden alındığı*: sağdan, soldan, arkadan (Hâkka 69:19-25, İnşikâk 84:7-12); ikincisi *nasıl açıldığı*: İsrâ 17:13-14'te insanın *tayr*ı (kuş/kader) boynuna bağlı, kıyamette 'açılmış bir kitap' olarak sunulur. Klasik tefsir bu iki katmanı birleştirir: kişi ömrünü *taşıyor*, ama defter kıyamette *açılıyor*. Bu motif Kur'a`
+- ÖNCE: `"narrationEn": "The record-of-deeds motif comes in two layers in the Qur'an: (1) *from which side* it is handed — right, left, from behind (Ḥāqqah 69:19-25, Inshiqāq 84:7-12); (2) *how it is opened* — in Isrā' 17:13-14 each person's *ṭā'ir* (bird/fate) is fastened to the neck and, on the day, presented as 'an unrolled book.' Classical tafsir unites the two layers: one *carries* one's lifetime, but`
+  SONRA: `"narrationEn": "The record-of-deeds motif comes in two layers in the Qur'an: first, *from which side* it is handed: right, left, from behind (Ḥāqqah 69:19-25, Inshiqāq 84:7-12); second, *how it is opened*: in Isrā' 17:13-14 each person's *ṭā'ir* (bird/fate) is fastened to the neck and, on the day, presented as 'an unrolled book.' Classical tafsir unites the two layers: one *carries* one's lifetime`
+- ÖNCE: `"noteTr": "'Tayr' kelimesinin dilbilimsel derinliği: Arap câhilî geleneğinde uçan kuşlarla fal bakılırdı (*tıyera*); Kur'an bu geleneği tersine çevirir — kader dışarıda değil, *senin taşıdığın şey*. Bu ters-çevirme Râzî'nin tefsir geleneğine atfedilen bir okumadır.",`
+  SONRA: `"noteTr": "'Tayr' kelimesinin dilbilimsel derinliği: Arap câhilî geleneğinde uçan kuşlarla fal bakılırdı (*tıyera*); Kur'an bu geleneği tersine çevirir: kader dışarıda değil, *senin taşıdığın şey*. Bu ters-çevirme Râzî'nin tefsir geleneğine atfedilen bir okumadır.",`
+- ÖNCE: `"noteEn": "The linguistic depth of *ṭā'ir*: in pre-Islamic Arab custom, birds were used for divination (*ṭiyara*); the Qur'an inverts this — fate is not outside but *what you carry*. This reversal is attributed to Rāzī's exegetical reading."`
+  SONRA: `"noteEn": "The linguistic depth of *ṭā'ir*: in pre-Islamic Arab custom, birds were used for divination (*ṭiyara*); the Qur'an inverts this: fate is not outside but *what you carry*. This reversal is attributed to Rāzī's exegetical reading."`
+- ÖNCE: `"noteTr": "Kitabın soldan mı arkadan mı verildiği tartışması: Hâkka 69:25 'solundan' der, İnşikâk 84:10 'arkasından' der. Klasik çözüm: eller arkaya bağlanır, kitap sol elle *arkadan* alınır — iki ayet çelişmez.",`
+  SONRA: `"noteTr": "Kitabın soldan mı arkadan mı verildiği tartışması: Hâkka 69:25 'solundan' der, İnşikâk 84:10 'arkasından' der. Klasik çözüm: eller arkaya bağlanır, kitap sol elle *arkadan* alınır; iki ayet çelişmez.",`
+- ÖNCE: `"noteEn": "Left hand or from behind? Ḥāqqah 69:25 says 'left,' Inshiqāq 84:10 says 'from behind.' Classical resolution: hands are bound behind, so the left hand takes the book *from behind* — the two verses do not contradict."`
+  SONRA: `"noteEn": "Left hand or from behind? Ḥāqqah 69:25 says 'left,' Inshiqāq 84:10 says 'from behind.' Classical resolution: hands are bound behind, so the left hand takes the book *from behind*; the two verses do not contradict."`
+- ÖNCE: `"bodyTr": "'Sağ/sol/arka' ifadelerinin literal vs mecaz okuması klasik-modern arasında hafif bir vurgu farkına yol açar. Klasik çoğunluk (Râzî, Kurtubî, İbn Kesîr) literal fiziksel yönleri kabul eder; bazı modern yorumcular (Muhammed Abduh çizgisi) sembolik *statü* imgesi olarak okur. İki okumanın hiçbiri diğerini çürütmez — Kur'an'ın çift-katmanlı dili buna müsaittir.",`
+  SONRA: `"bodyTr": "'Sağ/sol/arka' ifadelerinin literal vs mecaz okuması klasik-modern arasında hafif bir vurgu farkına yol açar. Klasik çoğunluk (Râzî, Kurtubî, İbn Kesîr) literal fiziksel yönleri kabul eder; bazı modern yorumcular (Muhammed Abduh çizgisi) sembolik *statü* imgesi olarak okur. İki okumanın hiçbiri diğerini çürütmez; Kur'an'ın çift katmanlı dili buna müsaittir.",`
+- ÖNCE: `"bodyEn": "Reading 'right/left/behind' as literal vs metaphorical produces a mild difference of emphasis between classical and modern commentators. The classical majority (Rāzī, Qurṭubī, Ibn Kathīr) accepts literal physical directions; some moderns (the Muḥammad 'Abduh line) read them as symbolic *status*. Neither reading refutes the other — the Qur'an's two-layered language accommodates both."`
+  SONRA: `"bodyEn": "Reading 'right/left/behind' as literal vs metaphorical produces a mild difference of emphasis between classical and modern commentators. The classical majority (Rāzī, Qurṭubī, Ibn Kathīr) accepts literal physical directions; some moderns (the Muḥammad 'Abduh line) read them as symbolic *status*. Neither reading refutes the other; the Qur'an's two-layered language accommodates both."`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Kitapların Dağıtılması (Faz 6)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Kitapların Dağıtılması (Faz 6)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — Distribution of Records (Phase 6)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: Distribution of Records (Phase 6)",`
+- ÖNCE: `"descTr": "Zerre miktarı hayır ve şerin tartıldığı gün; hesap ferdîdir — yalnız Allah hesap görür.",`
+  SONRA: `"descTr": "Zerre miktarı hayır ve şerin tartıldığı gün; hesap ferdîdir; yalnız Allah hesap görür.",`
+- ÖNCE: `"descEn": "The day every atom's weight of good and evil is weighed; the reckoning is individual — only God reckons.",`
+  SONRA: `"descEn": "The day every atom's weight of good and evil is weighed; the reckoning is individual; only God reckons.",`
+- ÖNCE: `"noteTr": "'Sonra onların hesabı ancak Bize düşer.' — hesabın *yalnızca Allah'a ait* olduğunun kesin ifadesi.",`
+  SONRA: `"noteTr": "'Sonra onların hesabı ancak Bize düşer.' Hesabın *yalnızca Allah'a ait* olduğunun kesin ifadesi.",`
+- ÖNCE: `"noteEn": "'Then upon Us alone is their reckoning.' — the definitive statement that the reckoning belongs *only to God*.",`
+  SONRA: `"noteEn": "'Then upon Us alone is their reckoning.' The definitive statement that the reckoning belongs *only to God*.",`
+- ÖNCE: `"noteTr": "'Kim zerre miktarı hayır işlerse onu görür; kim zerre miktarı şer işlerse onu görür.' — mîzânın atom-ölçeği hassasiyeti.",`
+  SONRA: `"noteTr": "'Kim zerre miktarı hayır işlerse onu görür; kim zerre miktarı şer işlerse onu görür.' Mîzânın zerre ölçeğindeki hassasiyeti.",`
+- ÖNCE: `"noteEn": "'Whoever does an atom's weight of good will see it; whoever does an atom's weight of evil will see it.' — the atom-scale precision of the mīzān.",`
+  SONRA: `"noteEn": "'Whoever does an atom's weight of good will see it; whoever does an atom's weight of evil will see it.' The atom-scale precision of the mīzān.",`
+- ÖNCE: `"narrationTr": "Kur'an'da *mîzân* kelimesi çoğul ve tekil olarak farklı ayetlerde geçer. Enbiyâ 21:47'de 'el-mevâzîn' (teraziler — çoğul) kullanılırken, A'râf 7:8'de 'el-veznu yevme'izini'l-hakk' (tartı, o gün hakkın kendisidir) — tekil-nitelik olarak. Bu iki kullanım klasik tefsirde iki farklı okuma açar: (a) her kişi için ayrı terazi (Kurtubî'nin naklettiği çoğunluk görüşü); (b) tek evrensel mîz`
+  SONRA: `"narrationTr": "Kur'an'da *mîzân* kelimesi çoğul ve tekil olarak farklı ayetlerde geçer. Enbiyâ 21:47'de 'el-mevâzîn' (teraziler, çoğul) kullanılırken, A'râf 7:8'de 'el-veznu yevme'izini'l-hakk' (tartı, o gün hakkın kendisidir), tekil bir nitelik olarak. Bu iki kullanım klasik tefsirde iki farklı okuma açar: (a) her kişi için ayrı terazi (Kurtubî'nin naklettiği çoğunluk görüşü); (b) tek evrensel m`
+- ÖNCE: `"narrationEn": "In the Qur'an, *mīzān* appears in different verses as both plural and singular. Anbiyā' 21:47 uses '*al-mawāzīn*' (scales — plural), while A'rāf 7:8 says '*al-waznu yawma'idhini'l-ḥaqq*' (the weight on that day is *the truth itself*) — singular in quality. These two usages open two readings in classical tafsir: (a) a separate scale for each person (Qurṭubī's reported majority view)`
+  SONRA: `"narrationEn": "In the Qur'an, *mīzān* appears in different verses as both plural and singular. Anbiyā' 21:47 uses '*al-mawāzīn*' (scales, plural), while A'rāf 7:8 says '*al-waznu yawma'idhini'l-ḥaqq*' (the weight on that day is *the truth itself*), singular in quality. These two usages open two readings in classical tafsir: (a) a separate scale for each person (Qurṭubī's reported majority view); `
+- ÖNCE: `"noteTr": "Mîzânın literal-fiziksel bir terazi mi, yoksa *tam-adalet* metaforu mu olduğu; Râzî her iki okumanın da Kur'an ve akılla bağdaştığını, birini kesinlikle çürütmediğini uzunca serimler — kelâmî metod açısından modelin bir örneği.",`
+  SONRA: `"noteTr": "Mîzânın literal-fiziksel bir terazi mi, yoksa *tam-adalet* metaforu mu olduğu; Râzî her iki okumanın da Kur'an ve akılla bağdaştığını, birini kesinlikle çürütmediğini uzunca serimler; kelâm metodu açısından örnek bir model.",`
+- ÖNCE: `"noteEn": "Whether the mīzān is a literal-physical scale or a *perfect-justice* metaphor; Rāzī extensively demonstrates that both readings agree with the Qur'an and reason, neither definitively refuting the other — a model example of kalām methodology."`
+  SONRA: `"noteEn": "Whether the mīzān is a literal-physical scale or a *perfect-justice* metaphor; Rāzī extensively demonstrates that both readings agree with the Qur'an and reason, neither definitively refuting the other; a model example of kalām methodology."`
+- ÖNCE: `"noteTr": "Amellerin nasıl tartılacağı — amellerin kendisi mi, amellerin defterleri mi, amel sahibi mi tartılır? — üç ana görüşün rivayetlerle desteği ve tartışması.",`
+  SONRA: `"noteTr": "Amellerin nasıl tartılacağı (amellerin kendisi mi, amellerin defterleri mi, amel sahibi mi tartılır?); üç ana görüşün rivayetlerle desteği ve tartışması.",`
+- ÖNCE: `"noteEn": "How deeds are weighed — the deeds themselves, the records of deeds, or the doer? — three main views with their narrations and analysis."`
+  SONRA: `"noteEn": "How deeds are weighed (the deeds themselves, the records of deeds, or the doer?); three main views with their narrations and analysis."`
+- ÖNCE: `"bodyTr": "Ehl-i Sünnet çoğunluğu (Râzî'nin bir yorumu dahil): Mîzân literal olarak vardır; ama 'nasıl' olduğu bilinemez (*bilâ keyf*). Ayet ve hadîs açık.\n\nMu'tezile (Kâdî Abdulcabbâr): Mîzân *mecazî*dir — 'tam adaletin' temsili sembolik dilidir; çünkü amel bir varlık değil, bir *nitelik*tir ve nitelikler literal tartılamaz.\n\nSünnî cevap: Amel Allah katında bir *hakîkati* olan şeydir; tartılm`
+  SONRA: `"bodyTr": "Ehl-i Sünnet çoğunluğu (Râzî'nin bir yorumu dahil): Mîzân literal olarak vardır; ama 'nasıl' olduğu bilinemez (*bilâ keyf*). Ayet ve hadîs açık.\n\nMu'tezile (Kâdî Abdulcabbâr): Mîzân *mecazî*dir, 'tam adaletin' temsilî sembolik dilidir; çünkü amel bir varlık değil, bir *nitelik*tir ve nitelikler literal tartılamaz.\n\nSünnî cevap: Amel Allah katında bir *hakîkati* olan şeydir; tartılma`
+- ÖNCE: `"bodyEn": "Sunni majority (including one of Rāzī's readings): The mīzān exists literally, but *how* is unknowable (*bilā kayf*). The verse and hadith are clear.\n\nMu'tazila (al-Qāḍī 'Abd al-Jabbār): The mīzān is *metaphorical* — the symbolic language of perfect justice; because a deed is not a substance but a *quality*, and qualities cannot be weighed literally.\n\nSunni reply: A deed has a *real`
+  SONRA: `"bodyEn": "Sunni majority (including one of Rāzī's readings): The mīzān exists literally, but *how* is unknowable (*bilā kayf*). The verse and hadith are clear.\n\nMu'tazila (al-Qāḍī 'Abd al-Jabbār): The mīzān is *metaphorical*, the symbolic language of perfect justice; because a deed is not a substance but a *quality*, and qualities cannot be weighed literally.\n\nSunni reply: A deed has a *reali`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Hesap + Mîzân (Fazlar 4-5)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Hesap ve Mîzân (Fazlar 4-5)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — Reckoning + Scales (Phases 4-5)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: Reckoning and Scales (Phases 4-5)",`
+- ÖNCE: `"noteTr": "'İzni olmadıkça O'nun katında kim şefâat edebilir?' — şefâatin izne bağlı olduğunun temel ilkesi (Âyet el-Kürsî).",`
+  SONRA: `"noteTr": "'İzni olmadıkça O'nun katında kim şefâat edebilir?' Şefâatin izne bağlı olduğunun temel ilkesi (Âyetü'l-Kürsî).",`
+- ÖNCE: `"noteEn": "'Who can intercede with Him except by His permission?' — the foundational principle of intercession being conditional on permission (Āyat al-Kursī).",`
+  SONRA: `"noteEn": "'Who can intercede with Him except by His permission?' The foundational principle that intercession is conditional on permission (Āyat al-Kursī).",`
+- ÖNCE: `"narrationTr": "*Havz-ı Kevser* (Kevser Havuzu) doğrudan Kur'an'da 'havz' kelimesiyle geçmez — Kevser sûresi 108:1'de sadece 'Kevser' (bol/hayır çokluğu) verilir. Havzın *fiziksel* betimi (sütten beyaz, misk kokusundan güzel, gümüş kâseler) tamamen hadîs geleneğine aittir (Buhârî'nin *Rikâk* kitabı, Müslim'in *Fedâil* kitabındaki 'Havz' bâbları). Kur'an, Kevser'i *hediye* olarak takdim eder; havz `
+  SONRA: `"narrationTr": "*Havz-ı Kevser* (Kevser Havuzu) doğrudan Kur'an'da 'havz' kelimesiyle geçmez; Kevser sûresi 108:1'de yalnızca 'Kevser' (bol hayır, çokluk) verilir. Havzın *fiziksel* betimi (sütten beyaz, misk kokusundan güzel, gümüş kâseler) tamamen hadîs geleneğine aittir (Buhârî'nin *Rikâk* kitabı, Müslim'in *Fedâil* kitabındaki 'Havz' bâbları). Kur'an, Kevser'i *hediye* olarak takdim eder; havz`
+- ÖNCE: `"narrationEn": "*Ḥawḍ al-Kawthar* (the Basin of Kawthar) does not appear in the Qur'an by the word '*ḥawḍ*' — Sūrat al-Kawthar 108:1 gives only '*al-kawthar*' (abundance). The *physical* description of the basin (whiter than milk, silver cups, aromatic vessels) belongs entirely to the hadith tradition (the 'Ḥawḍ' chapters in Bukhārī and Muslim). The Qur'an presents *al-kawthar* as a *gift*; interp`
+  SONRA: `"narrationEn": "*Ḥawḍ al-Kawthar* (the Basin of Kawthar) does not appear in the Qur'an by the word '*ḥawḍ*'; Sūrat al-Kawthar 108:1 gives only '*al-kawthar*' (abundance). The *physical* description of the basin (whiter than milk, silver cups, aromatic vessels) belongs entirely to the hadith tradition (the 'Ḥawḍ' chapters in Bukhārī and Muslim). The Qur'an presents *al-kawthar* as a *gift*; interpr`
+- ÖNCE: `"noteTr": "Havz ve şefâat rivayetlerinin toplu tasnifi; hadîs-bazlı ayrıntıların sistematik dokümantasyonu — Kur'an-hadîs iş bölümünün klasik metodoloji ile nasıl yönetildiğinin örneği.",`
+  SONRA: `"noteTr": "Havz ve şefâat rivayetlerinin toplu tasnifi; hadîs temelli ayrıntıların sistematik dokümantasyonu; Kur'an ile hadîs arasındaki iş bölümünün klasik metodoloji ile nasıl yönetildiğinin örneği.",`
+- ÖNCE: `"noteEn": "Systematic classification of narrations on the basin and intercession; documentation of hadith-based details — an example of how the Qur'an–hadith division of labor is managed in classical methodology."`
+  SONRA: `"noteEn": "Systematic classification of narrations on the basin and intercession; documentation of hadith-based details; an example of how the Qur'an–hadith division of labor is managed in classical methodology."`
+- ÖNCE: `"titleTr": "Şefâat kapsamı — klasik ihtilâfın en kritik noktalarından biri",`
+  SONRA: `"titleTr": "Şefâat kapsamı: klasik ihtilâfın en kritik noktalarından biri",`
+- ÖNCE: `"titleEn": "Scope of intercession — one of the most critical classical disputes",`
+  SONRA: `"titleEn": "Scope of intercession: one of the most critical classical disputes",`
+- ÖNCE: `"bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Peygamber'in *şefâat-i uzmâ*'sı (büyük şefâat) *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabittir; ayrıca sâlihlerin, meleklerin, hafızların şefâati de mümkündür — hepsi *izinle*.\n\nMu'tezile: Şefâat *sadece derece yükseltmek için* kabul edilir; büyük günah işlemiş mü'minin cehennemden çıkarılması için kabul edilmez, çünkü `
+  SONRA: `"bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Peygamber'in *şefâat-i uzmâ*'sı (büyük şefâat) *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabittir; ayrıca sâlihlerin, meleklerin, hafızların şefâati de mümkündür; hepsi *izinle*.\n\nMu'tezile: Şefâat *sadece derece yükseltmek için* kabul edilir; büyük günah işlemiş mü'minin cehennemden çıkarılması için kabul edilmez, çünkü b`
+- ÖNCE: `"bodyEn": "Sunni orthodoxy: The Prophet's *shafā'ah al-'uẓmā* (Great Intercession) is at mutawātir level; the intercession of the righteous, angels, and memorizers of the Qur'an is also possible — all by *permission*.\n\nMu'tazila: Intercession is accepted *only for elevating ranks*; not for removing a major-sin-committing believer from Hell, since that conflicts with the principle of 'wa'd and wa`
+  SONRA: `"bodyEn": "Sunni orthodoxy: The Prophet's *shafā'ah al-'uẓmā* (Great Intercession) is at mutawātir level; the intercession of the righteous, angels, and memorizers of the Qur'an is also possible; all by *permission*.\n\nMu'tazila: Intercession is accepted *only for elevating ranks*; not for removing a major-sin-committing believer from Hell, since that conflicts with the principle of 'wa'd and wa'`
+- ÖNCE: `"labelTr": "Melekler — meleklerin şefâat rolü (Enbiyâ 21:28)",`
+  SONRA: `"labelTr": "Melekler: meleklerin şefâat rolü (Enbiyâ 21:28)",`
+- ÖNCE: `"labelEn": "Angels — angelic intercession (Anbiyā' 21:28)",`
+  SONRA: `"labelEn": "Angels: angelic intercession (Anbiyā' 21:28)",`
+- ÖNCE: `"noteTr": "'Onları durdurun, çünkü onlar sorguya çekileceklerdir.' — sırât üstünde bir *durdurma anı*nın klasik yorumu.",`
+  SONRA: `"noteTr": "'Onları durdurun, çünkü onlar sorguya çekileceklerdir.' Sırât üstünde bir *durdurma anı*nın klasik yorumu.",`
+- ÖNCE: `"noteEn": "'Detain them, for they are to be questioned.' — the classical reading of a *stopping moment* on the ṣirāṭ.",`
+  SONRA: `"noteEn": "'Detain them, for they are to be questioned.' The classical reading of a *stopping moment* on the ṣirāṭ.",`
+- ÖNCE: `"noteTr": "'İhdinâ's-sırâta'l-müstakîm' — sırâtın öncelikle *bu dünya hidayet yolu* olduğu ilkesi; âhiretteki sırât klasik yorumda bu dünyadaki sırâtın yansımasıdır.",`
+  SONRA: `"noteTr": "'İhdinâ's-sırâta'l-müstakîm': sırâtın öncelikle *bu dünya hidayet yolu* olduğu ilkesi; âhiretteki sırât klasik yorumda bu dünyadaki sırâtın yansımasıdır.",`
+- ÖNCE: `"noteEn": "'Guide us to the straight path.' — the principle that ṣirāṭ is primarily the *this-world path of guidance*; the hereafter's ṣirāṭ, in classical reading, is the reflection of the worldly one.",`
+  SONRA: `"noteEn": "'Guide us to the straight path.' The principle that ṣirāṭ is primarily the *this-world path of guidance*; the hereafter's ṣirāṭ, in classical reading, is the reflection of the worldly one.",`
+- ÖNCE: `"narrationTr": "Kur'an'da *sırât köprüsü* (âhirette cehennem üzerine kurulu köprü) kelimesi ve tasviri açık şekilde geçmez. Sırât kelimesi Kur'an'da 45+ yerde geçer — çoğunluğu 'sırât-ı müstakîm' (doğru yol) yani *bu dünyadaki hidayet yolu* anlamındadır. Âhiretteki sırât köprüsü kavramı, Meryem 19:71-72'nin 'içinizden oraya uğramayacak hiç kimse yoktur' ifadesi üzerine, hadîs geleneğindeki köprü r`
+  SONRA: `"narrationTr": "Kur'an'da *sırât köprüsü* (âhirette cehennem üzerine kurulu köprü) kelimesi ve tasviri açık şekilde geçmez. Sırât kelimesi Kur'an'da 45'ten fazla yerde geçer; çoğunluğu 'sırât-ı müstakîm' (doğru yol), yani *bu dünyadaki hidayet yolu* anlamındadır. Âhiretteki sırât köprüsü kavramı, Meryem 19:71-72'nin 'içinizden oraya uğramayacak hiç kimse yoktur' ifadesi üzerine, hadîs geleneğindek`
+- ÖNCE: `"narrationEn": "The word and description of the *bridge of ṣirāṭ* (a bridge over Hell in the hereafter) does not appear explicitly in the Qur'an. The word *ṣirāṭ* occurs in 45+ places — most in the sense of *ṣirāṭ al-mustaqīm* (the straight path), that is, the *this-world path of guidance*. The concept of the hereafter's bridge entered classical tafsir when hadith reports about the bridge (in the `
+  SONRA: `"narrationEn": "The word and description of the *bridge of ṣirāṭ* (a bridge over Hell in the hereafter) does not appear explicitly in the Qur'an. The word *ṣirāṭ* occurs in more than 45 places; most in the sense of *ṣirāṭ al-mustaqīm* (the straight path), that is, the *this-world path of guidance*. The concept of the hereafter's bridge entered classical tafsir when hadith reports about the bridge `
+- ÖNCE: `"noteTr": "Sırât köprüsü rivayetlerinin toplu tasnifi — 20+ rivayetin birlikte okunması.",`
+  SONRA: `"noteTr": "Sırât köprüsü rivayetlerinin toplu tasnifi; 20'den fazla rivayetin birlikte okunması.",`
+- ÖNCE: `"noteEn": "Systematic classification of ṣirāṭ narrations — a joint reading of 20+ reports."`
+  SONRA: `"noteEn": "Systematic classification of ṣirāṭ narrations; a joint reading of more than 20 reports."`
+- ÖNCE: `"titleTr": "Sırât köprüsü — rivayet epistemolojisi meselesi",`
+  SONRA: `"titleTr": "Sırât köprüsü: rivayet epistemolojisi meselesi",`
+- ÖNCE: `"titleEn": "The bridge of ṣirāṭ — a question of narration epistemology",`
+  SONRA: `"titleEn": "The bridge of ṣirāṭ: a question of narration epistemology",`
+- ÖNCE: `"bodyTr": "Ehl-i Sünnet çoğunluğu: Sırât köprüsü hakîkî bir gerçekliktir; *nasıl* olduğu bilinemez ama vardır. Ayet + hadîs birleşimi bunu sabit kılar.\n\nMu'tezile & bazı erken kelâmî çevreler: Sırât köprüsü hadîs-bazlı olduğu için akîde bağlayıcısı değil; ancak *mecazî* olarak 'amel yolunun sınavı' şeklinde okunabilir. Bu yorum modern dönemde bazı Sünnî reformcular (Muhammed Abduh çizgisi) taraf`
+  SONRA: `"bodyTr": "Ehl-i Sünnet çoğunluğu: Sırât köprüsü hakîkî bir gerçekliktir; *nasıl* olduğu bilinemez ama vardır. Ayet + hadîs birleşimi bunu sabit kılar.\n\nMu'tezile & bazı erken kelâmî çevreler: Sırât köprüsü hadîs-bazlı olduğu için akîde bağlayıcısı değil; ancak *mecazî* olarak 'amel yolunun sınavı' şeklinde okunabilir. Bu yorum modern dönemde bazı Sünnî reformcular (Muhammed Abduh çizgisi) taraf`
+- ÖNCE: `"bodyEn": "Sunni majority: The bridge of ṣirāṭ is a real reality; *how* it is unknowable but it exists. The union of verse and hadith establishes it.\n\nMu'tazila & some early kalām circles: The bridge, being hadith-based, is not binding on creed; but it may be read *metaphorically* as 'the test of the path of deeds.' This reading has been adopted in modern times by some Sunni reformers (the Muḥam`
+  SONRA: `"bodyEn": "Sunni majority: The bridge of ṣirāṭ is a real reality; *how* it is unknowable but it exists. The union of verse and hadith establishes it.\n\nMu'tazila & some early kalām circles: The bridge, being hadith-based, is not binding on creed; but it may be read *metaphorically* as 'the test of the path of deeds.' This reading has been adopted in modern times by some Sunni reformers (the Muḥam`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Son/Karar (Faz 7)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Son ve Karar (Faz 7)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — Final Judgment (Phase 7)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: Final Judgment (Phase 7)",`
+- ÖNCE: `"titleTr": "Cennet & Cehennem — Son Duraklar",`
+  SONRA: `"titleTr": "Cennet & Cehennem: Son Duraklar",`
+- ÖNCE: `"titleEn": "Paradise & Hell — Final Destinations",`
+  SONRA: `"titleEn": "Paradise & Hell: Final Destinations",`
+- ÖNCE: `"noteTr": "'İman edip sâlih ameller işleyenlere ise, altından ırmaklar akan cennetler olduğunu müjdele.' — cennet müjdesinin en tipik formatı.",`
+  SONRA: `"noteTr": "'İman edip sâlih ameller işleyenlere ise, altından ırmaklar akan cennetler olduğunu müjdele.' Cennet müjdesinin en tipik biçimi.",`
+- ÖNCE: `"noteEn": "'Give glad tidings to those who believe and do righteous deeds — for them are Gardens beneath which rivers flow.' — the most typical form of the Paradise glad tidings.",`
+  SONRA: `"noteEn": "'Give glad tidings to those who believe and do righteous deeds: for them are Gardens beneath which rivers flow.' The most typical form of the Paradise glad tidings.",`
+- ÖNCE: `"labelTr": "Cennet & Cehennem — cennet isimleri, cehennem isimleri, meyveler, ırmaklar, nimet-azap dili paralelleri",`
+  SONRA: `"labelTr": "Cennet & Cehennem: cennet isimleri, cehennem isimleri, meyveler, ırmaklar, nimet ve azap dilinin paralelleri",`
+- ÖNCE: `"labelEn": "Paradise & Hell — names of Paradise, names of Hell, fruits, rivers, parallels of bliss and torment",`
+  SONRA: `"labelEn": "Paradise & Hell: names of Paradise, names of Hell, fruits, rivers, parallels of bliss and torment",`
+- ÖNCE: `"labelTr": "Kıyâmet Sahneleri — Faz 7 (cennet-daveti, cehennem-sürülme)",`
+  SONRA: `"labelTr": "Kıyâmet Sahneleri: Faz 7 (cennete davet, cehenneme sürülme)",`
+- ÖNCE: `"labelEn": "Scenes of Resurrection — Phase 7 (invitation to Paradise, driving to Hell)",`
+  SONRA: `"labelEn": "Scenes of Resurrection: Phase 7 (invitation to Paradise, driving to Hell)",`
+- ÖNCE: `"titleTr": "Rü'yetullâh — Allah'ın Cemâli",`
+  SONRA: `"titleTr": "Rü'yetullâh: Allah'ın Cemâli",`
+- ÖNCE: `"titleEn": "Ru'yatullāh — The Vision of God",`
+  SONRA: `"titleEn": "Ru'yatullāh: The Vision of God",`
+- ÖNCE: `"descTr": "Cennette mü'minlere verilen en büyük nimet — yön/mekân/zaman çerçevesi olmaksızın Rabb'i görme.",`
+  SONRA: `"descTr": "Cennette mü'minlere verilen en büyük nimet: yön, mekân ve zaman çerçevesi olmaksızın Rabb'i görme.",`
+- ÖNCE: `"descEn": "The greatest blessing given to believers in Paradise — seeing the Lord without direction, place, or temporal frame.",`
+  SONRA: `"descEn": "The greatest blessing given to believers in Paradise: seeing the Lord without direction, place or temporal frame.",`
+- ÖNCE: `"noteTr": "'Güzel iş yapanlara el-hüsnâ (en güzel karşılık) ve ziyâde (fazlası) vardır.' — klasik Ehl-i Sünnet yorumunda *ziyâde* rü'yetullâhtır (Müslim'in *Kitâbu'l-Îmân*'ında Suheyb b. Sinân rivayetiyle sabit; Muhammed Fuâd Abdülbâkî neşri hadis no. 181).",`
+  SONRA: `"noteTr": "'Güzel iş yapanlara el-hüsnâ (en güzel karşılık) ve ziyâde (fazlası) vardır.' Klasik Ehl-i Sünnet yorumunda *ziyâde* rü'yetullâhtır (Müslim'in *Kitâbu'l-Îmân*'ında Suheyb b. Sinân rivayetiyle sabit; Muhammed Fuâd Abdülbâkî neşri hadis no. 181).",`
+- ÖNCE: `"noteEn": "'For those who do good is the best reward and more (ziyādah).' — in classical Sunni reading, *ziyādah* is ru'yatullāh (Muslim, Īmān 297).",`
+  SONRA: `"noteEn": "'For those who do good is the best reward and more (ziyādah).' In the classical Sunni reading, *ziyādah* is ru'yatullāh (Muslim, Īmān 297).",`
+- ÖNCE: `"noteTr": "'Hayır, doğrusu onlar o gün Rablerinden perdelenirler.' — kâfirlerin rü'yetullâhtan mahrûm oluşu; Şafiî usûlüne göre *mefhûm-u muhâlefe* ile mü'minlerin görmesi çıkarılır. (Hanefî usûlü mefhûm-u muhâlefeyi delîl kabul etmez; Mu'tezile de bu çıkarımı reddeder — 'perdelenmeme' rahmet açılışı olarak okunur.)",`
+  SONRA: `"noteTr": "'Hayır, doğrusu onlar o gün Rablerinden perdelenirler.' Kâfirlerin rü'yetullâhtan mahrum oluşu; Şafiî usûlüne göre *mefhûm-u muhâlefe* ile mü'minlerin görmesi çıkarılır. (Hanefî usûlü mefhûm-u muhâlefeyi delîl kabul etmez; Mu'tezile de bu çıkarımı reddeder; 'perdelenmeme' rahmet açılışı olarak okunur.)",`
+- ÖNCE: `"noteEn": "'No, indeed! On that day they will be veiled from their Lord.' — the unbelievers' deprivation; through *mafhūm al-mukhālafah* the believers' vision is inferred.",`
+  SONRA: `"noteEn": "'No, indeed! On that day they will be veiled from their Lord.' The unbelievers' deprivation; through *mafhūm al-mukhālafah* the believers' vision is inferred.",`
+- ÖNCE: `"noteTr": "Mûsâ'nın Rabb'i görme talebi ve 'len terânî' (beni göremezsin) cevabı — bu dünyada rü'yetin imkânsızlığının klasik delili; âhiret rü'yeti bu ayetin dışındadır (Sünnî yorum).",`
+  SONRA: `"noteTr": "Mûsâ'nın Rabb'i görme talebi ve 'len terânî' (beni göremezsin) cevabı; bu dünyada rü'yetin imkânsızlığının klasik delili, âhiret rü'yeti bu ayetin dışındadır (Sünnî yorum).",`
+- ÖNCE: `"noteEn": "Moses' request to see the Lord and the reply 'lan tarānī' (you will not see Me) — the classical proof of vision's impossibility in this world; the hereafter's vision is outside this verse's scope (Sunni reading).",`
+  SONRA: `"noteEn": "Moses' request to see the Lord and the reply 'lan tarānī' (you will not see Me); the classical proof of vision's impossibility in this world, the hereafter's vision is outside this verse's scope (Sunni reading).",`
+- ÖNCE: `"narrationTr": "Rü'yetullâh (Allah'ın cemâlini görme) meselesi Kur'an'ı okuma metodolojisinin en yoğunlaştığı yerlerden biridir. Kıyâme 75:22-23'ün 'Rablerine bakan yüzler' ifadesini Ehl-i Sünnet literal alır — cennette mü'minlere verilen en büyük nimet, bir yön/mekân/zaman çerçevesi olmadan Allah'ı görmektir. Mutaffifîn 83:15 ise ters yönden delildir: kâfirlerin *perdelenmesi* zikredilince, mü'mi`
+  SONRA: `"narrationTr": "Rü'yetullâh (Allah'ın cemâlini görme) meselesi Kur'an'ı okuma metodolojisinin en yoğunlaştığı yerlerden biridir. Kıyâme 75:22-23'ün 'Rablerine bakan yüzler' ifadesini Ehl-i Sünnet literal alır: cennette mü'minlere verilen en büyük nimet, bir yön, mekân ve zaman çerçevesi olmadan Allah'ı görmektir. Mutaffifîn 83:15 ise ters yönden delildir: kâfirlerin *perdelenmesi* zikredilince, mü`
+- ÖNCE: `"narrationEn": "The question of *ru'yatullāh* (the vision of God) is one of the most methodologically loaded moments in Qur'anic interpretation. Sunni orthodoxy takes Qiyāma 75:22-23's 'faces gazing at their Lord' literally — the greatest blessing given to believers in Paradise is seeing God, without direction, place, or temporal frame. Muṭaffifīn 83:15 stands as a reverse proof: when the *veiling`
+  SONRA: `"narrationEn": "The question of *ru'yatullāh* (the vision of God) is one of the most methodologically loaded moments in Qur'anic interpretation. Sunni orthodoxy takes Qiyāma 75:22-23's 'faces gazing at their Lord' literally: the greatest blessing given to believers in Paradise is seeing God, without direction, place or temporal frame. Muṭaffifīn 83:15 stands as a reverse proof: when the *veiling* `
+- ÖNCE: `"noteTr": "Rü'yetullâh meselesinin kelâmî tarihinin en detaylı klasik özeti; Râzî Ehl-i Sünnet pozisyonunu Mu'tezile itirazlarına karşı sistematik olarak savunur. 'Nâzıra ilâ rabbihâ' ifadesinin dilbilimsel analizi — '*ilâ*' (yönelme edatı) kelimesinin 'bakma' fiilini 'sevap bekleme' anlamına almanın önündeki dilbilimsel engel olarak sunulması.",`
+  SONRA: `"noteTr": "Rü'yetullâh meselesinin kelâmî tarihinin en detaylı klasik özeti; Râzî Ehl-i Sünnet pozisyonunu Mu'tezile itirazlarına karşı sistematik olarak savunur. 'Nâzıra ilâ rabbihâ' ifadesinin dilbilimsel analizi; '*ilâ*' (yönelme edatı) kelimesinin 'bakma' fiilini 'sevap bekleme' anlamına almanın önündeki dilbilimsel engel olarak sunulması.",`
+- ÖNCE: `"noteEn": "The most detailed classical summary of the kalām history of ru'yatullāh; Rāzī systematically defends the Sunni position against Mu'tazilite objections. Linguistic analysis of 'nāẓirah ilā rabbihā' — the preposition '*ilā*' (toward) presented as the linguistic obstacle to reading 'gazing' as 'awaiting reward.'"`
+  SONRA: `"noteEn": "The most detailed classical summary of the kalām history of ru'yatullāh; Rāzī systematically defends the Sunni position against Mu'tazilite objections. Linguistic analysis of 'nāẓirah ilā rabbihā'; the preposition '*ilā*' (toward) presented as the linguistic obstacle to reading 'gazing' as 'awaiting reward.'"`
+- ÖNCE: `"noteTr": "Rü'yetullâhın *keyfiyetsiz* (bilâ keyf) kabulü — cennette olacak, ama nasıl olacağı bu dünyada bilinemez. Şûrâ 42:11 ile Kıyâme 75:22 arasında görünen gerilimin *tenzîh + kabul* metodolojisi ile giderilmesi.",`
+  SONRA: `"noteTr": "Rü'yetullâhın *keyfiyetsiz* (bilâ keyf) kabulü: cennette olacak, ama nasıl olacağı bu dünyada bilinemez. Şûrâ 42:11 ile Kıyâme 75:22 arasında görünen gerilimin *tenzîh + kabul* metodolojisi ile giderilmesi.",`
+- ÖNCE: `"noteEn": "Ru'yatullāh accepted *without asking how* (bilā kayf) — it will occur in Paradise, but how is unknowable in this world. The apparent tension between Shūrā 42:11 and Qiyāma 75:22 resolved through the methodology of *tanzīh + acceptance*."`
+  SONRA: `"noteEn": "Ru'yatullāh accepted *without asking how* (bilā kayf): it will occur in Paradise, but how is unknowable in this world. The apparent tension between Shūrā 42:11 and Qiyāma 75:22 resolved through the methodology of *tanzīh + acceptance*."`
+- ÖNCE: `"noteTr": "Rü'yetullâhın *sûfî deneyim* boyutu — bu dünyada kalp gözüyle olan *fetih*, âhirette bedenle bütünleşen *cemâl-i tâm* yaşantısının önhabercisidir.",`
+  SONRA: `"noteTr": "Rü'yetullâhın *sûfî deneyim* boyutu: bu dünyada kalp gözüyle olan *fetih*, âhirette bedenle bütünleşen *cemâl-i tâm* yaşantısının önhabercisidir.",`
+- ÖNCE: `"noteEn": "The *Sufi-experiential* dimension of ru'yatullāh — the *opening* of the heart's eye in this world is the herald of the *cemāl-i tāmm* (full-beauty) experience integrated with the body in the hereafter."`
+  SONRA: `"noteEn": "The *Sufi-experiential* dimension of ru'yatullāh: the *opening* of the heart's eye in this world is the herald of the *cemāl-i tāmm* (full-beauty) experience integrated with the body in the hereafter."`
+- ÖNCE: `"titleTr": "Rü'yetullâh — klasik kelâmın en büyük ihtilâflarından biri",`
+  SONRA: `"titleTr": "Rü'yetullâh: klasik kelâmın en büyük ihtilâflarından biri",`
+- ÖNCE: `"titleEn": "Ru'yatullāh — one of classical kalām's greatest debates",`
+  SONRA: `"titleEn": "Ru'yatullāh: one of classical kalām's greatest debates",`
+- ÖNCE: `"bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî + Hanbelî): Rü'yetullâh cennette *hakîkî*dir; keyfiyetsizdir. Kıyâme 75:22-23, Yûnus 10:26 (*ziyâde*), Mutaffifîn 83:15 (*mahcûb* olma) açık delillerdir.\n\nMu'tezile: Rü'yetullâh imkânsızdır. Şûrâ 42:11 (*leyse ke-mislihî şey*) ve A'râf 7:143 (*len terânî*) kesin delillerdir. Kıyâme ayeti *beklenti* anlamında yorumlanır.\n\nİbâzîler: Mu'tezileye yakın — `
+  SONRA: `"bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî + Hanbelî): Rü'yetullâh cennette *hakîkî*dir; keyfiyetsizdir. Kıyâme 75:22-23, Yûnus 10:26 (*ziyâde*), Mutaffifîn 83:15 (*mahcûb* olma) açık delillerdir.\n\nMu'tezile: Rü'yetullâh imkânsızdır. Şûrâ 42:11 (*leyse ke-mislihî şey*) ve A'râf 7:143 (*len terânî*) kesin delillerdir. Kıyâme ayeti *beklenti* anlamında yorumlanır.\n\nİbâzîler: Mu'tezileye yakın; r`
+- ÖNCE: `"bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī + Ḥanbalī): Ru'yatullāh in Paradise is *real*; without asking how. Qiyāma 75:22-23, Yūnus 10:26 (*ziyādah*), Muṭaffifīn 83:15 (being *veiled*) are clear proofs.\n\nMu'tazila: Ru'yatullāh is impossible. Shūrā 42:11 (*laysa ka-mithlihi shay'*) and A'rāf 7:143 (*lan tarānī*) are decisive. The Qiyāma verse is read as *awaiting*.\n\nIbāḍī: Close to Mu'tazi`
+  SONRA: `"bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī + Ḥanbalī): Ru'yatullāh in Paradise is *real*; without asking how. Qiyāma 75:22-23, Yūnus 10:26 (*ziyādah*), Muṭaffifīn 83:15 (being *veiled*) are clear proofs.\n\nMu'tazila: Ru'yatullāh is impossible. Shūrā 42:11 (*laysa ka-mithlihi shay'*) and A'rāf 7:143 (*lan tarānī*) are decisive. The Qiyāma verse is read as *awaiting*.\n\nIbāḍī: Close to Mu'tazi`
+- ÖNCE: `"labelTr": "Cennet & Cehennem — cennet nimetlerinin en büyüğü olarak",`
+  SONRA: `"labelTr": "Cennet & Cehennem: cennet nimetlerinin en büyüğü olarak",`
+- ÖNCE: `"labelEn": "Paradise & Hell — as the greatest of Paradise's blessings",`
+  SONRA: `"labelEn": "Paradise & Hell: as the greatest of Paradise's blessings",`
+- ÖNCE: `"labelTr": "Esmâ Frekans — el-Cemîl / en-Nûr",`
+  SONRA: `"labelTr": "Esmâ Frekans: el-Cemîl, en-Nûr",`
+- ÖNCE: `"labelEn": "Divine Names Frequency — al-Jamīl / al-Nūr",`
+  SONRA: `"labelEn": "Divine Names Frequency: al-Jamīl, al-Nūr",`
