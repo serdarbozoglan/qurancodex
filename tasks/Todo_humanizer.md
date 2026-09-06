@@ -147,12 +147,13 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **KuranYeminleri.jsx, KavimlerAtlasi.jsx, QuranDua.jsx** ✅ (2026-09-06: 64 + 67 + 82 dize; âyet alıntıları hariç)
 - [x] **EsmaFrekans.jsx, KiyametSahneleri.jsx, ZamanBoyutlari.jsx, IlkSonKelimeler.jsx** ✅ (2026-09-06: 68 + 74 + 72 + 52 dize)
 - [x] **Melekler.jsx, LinguisticDNA.jsx, RingExtensions.jsx, HiddenArchitecture.jsx, CennetCehennem.jsx** ✅ (2026-09-06: 52 + 62 + 60 + 51 + 45 dize)
+- [x] **KiraatAtlasi.jsx, HumanDefinition.jsx, ImpossibleRhythm.jsx, Isimlendirme.jsx, ProphetMap.jsx, MeselAtlasi.jsx** ✅ (2026-09-06: 39 + 44 + 32 + 36 + 29 + 26 dize; âyet çevirileri, kaynak atıfları ve kod yorumları hariç)
 - [ ] **EsmaTanimlari.jsx** EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
 - [ ] **TefsirIhtilaflari.jsx**: "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
 - [ ] **KorumaZinciri.jsx**: "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
-- [ ] **Isimlendirme.jsx**: "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
+- [x] **Isimlendirme.jsx** ✅ (2026-09-06: "Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj"): "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
 - [ ] **Ok zincirleri (1.242)**: neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
-- [ ] **Hata mesajları da aynı kalıpta**: MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
+- [ ] **Hata mesajları da aynı kalıpta** (MeselAtlasi ✅ 2026-09-06; not-found bekliyor): MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
 
 Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorRoute.jsx`, `exploreCategories.jsx`.
 

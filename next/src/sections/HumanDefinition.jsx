@@ -21,10 +21,10 @@ const HUMAN_TERMS = [
     border: 'rgba(212,165,116,0.35)',
     meaningTr: 'Hem iyi hem kötü potansiyel taşıyan varlık',
     meaningEn: 'The being with potential for both good and evil',
-    contextTr: 'Zayıflık, unutma (nisyân), aceleye gelme — ikili doğa',
-    contextEn: 'Weakness, forgetfulness (nisyān), haste — the dual nature',
-    rootNoteTr: 'Bazı dilbilimciler "üns" (yakınlık, alışkanlık) kökünden de türediğini savunur — "insana alışkın olan" boyutu. Tek kökten değil, iki ayrı semantik katmandan beslendiği görüşü de kabul görmektedir.',
-    rootNoteEn: 'Some linguists also derive it from "uns" (familiarity, intimacy) — the one accustomed to companionship. A second etymological layer alongside nisyān, both considered legitimate.',
+    contextTr: 'Zayıflık, unutma (nisyân), aceleye gelme: ikili doğa',
+    contextEn: 'Weakness, forgetfulness (nisyān), haste: the dual nature',
+    rootNoteTr: 'Bazı dilbilimciler "üns" (yakınlık, alışkanlık) kökünden de türediğini savunur; "insana alışkın olan" boyutu. Tek kökten değil, iki ayrı semantik katmandan beslendiği görüşü de kabul görmektedir.',
+    rootNoteEn: 'Some linguists also derive it from "uns" (familiarity, intimacy); the one accustomed to companionship. A second etymological layer alongside nisyān, both considered legitimate.',
     verse: {
       ar: 'وَخُلِقَ الْإِنسَانُ ضَعِيفًا',
       tr: '"İnsan zayıf yaratıldı."',
@@ -44,8 +44,8 @@ const HUMAN_TERMS = [
     meaningEn: 'The biological and physical dimension of the human being',
     contextTr: 'Peygamberlerin beşerliği, ten, dış görünüş bağlamlarında',
     contextEn: 'The humanity of prophets, skin, physical appearance',
-    rootNoteTr: 'Beşer kelimesi "deri, cilt, dış görünüş" anlamlarındaki ب-ش-ر kökünden gelir — insanın biyolojik/dış boyutuna işaret eder. "Ben de sizin gibi bir beşerim" (Kehf 18:110) ifadesi peygamberlerin biyolojik insan oluşunu vurgular.',
-    rootNoteEn: 'The word bashar derives from the root b-sh-r meaning "skin, outward appearance" — pointing to the human\'s biological/external dimension. "I am only a human like you" (Kahf 18:110) emphasises the prophets\' biological humanity.',
+    rootNoteTr: 'Beşer kelimesi "deri, cilt, dış görünüş" anlamlarındaki ب-ش-ر kökünden gelir; insanın biyolojik ve dış boyutuna işaret eder. "Ben de sizin gibi bir beşerim" (Kehf 18:110) ifadesi peygamberlerin biyolojik insan oluşunu vurgular.',
+    rootNoteEn: 'The word bashar derives from the root b-sh-r meaning "skin, outward appearance"; it points to the human\'s biological and external dimension. "I am only a human like you" (Kahf 18:110) emphasises the prophets\' biological humanity.',
     verse: {
       ar: 'قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ',
       tr: '"De ki: Ben de sizin gibi bir beşerim."',
@@ -63,8 +63,8 @@ const HUMAN_TERMS = [
     border: 'rgba(46,204,113,0.35)',
     meaningTr: 'Topluluk olarak insanlık, kolektif hitap',
     meaningEn: 'Humankind as a collective, communal address',
-    contextTr: '"Ey insanlar..." hitaplarında — evrensel mesaj',
-    contextEn: '"O people..." — universal address to all of humanity',
+    contextTr: '"Ey insanlar..." hitaplarında: evrensel mesaj',
+    contextEn: '"O people...": universal address to all of humanity',
     rootNoteTr: 'Nâs çoğul ismi olup klasik dilbilimcilerce iki kökle ilişkilendirilir: "hareket / sosyal görünürlük" (ن-و-س) ve "unutkanlık" (ن-س-ي, insân ile aynı kök). Kolektif boyut vurgusu kelimenin ayırıcı özelliğidir.',
     rootNoteEn: 'Nās is a collective noun that classical linguists link to two roots: "to move / be socially visible" (n-w-s) and "to forget" (n-s-y, the same root as insān). Its distinctive feature is the collective dimension.',
     verse: {
@@ -82,12 +82,12 @@ const HUMAN_TERMS = [
     color: '#c084fc',
     glow: 'rgba(192,132,252,0.10)',
     border: 'rgba(192,132,252,0.35)',
-    meaningTr: 'Hz. Âdem\'in torunları — tarihsel süreklilik ve onur',
-    meaningEn: "Adam's descendants — historical continuity and dignity",
+    meaningTr: 'Hz. Âdem\'in torunları: tarihsel süreklilik ve onur',
+    meaningEn: "Adam's descendants: historical continuity and dignity",
     contextTr: 'Kerâmet (onur), sorumluluk ve ilâhî ahit bağlamlarında',
     contextEn: 'Used in contexts of dignity (karāma), responsibility, and covenant',
-    rootNoteTr: 'Benî Âdem ("Âdem oğulları") tek bir kökten türemiş bir kelime değil, soy/silsile ifadesidir. Klasik tefsir bu kullanımı kerâmet (onurlandırma) ve ilâhî ahit (mîsâk) bağlamında okur — insanlığın yaratılış ahdiyle tarihsel bağı (A\'râf 7:172).',
-    rootNoteEn: 'Banī Ādam ("children of Adam") is not derived from a single root — it is a lineage formula. Classical tafsir reads it through the lens of dignity (karāma) and the primordial covenant (mīthāq) — humanity\'s historical bond from creation (A\'rāf 7:172).',
+    rootNoteTr: 'Benî Âdem ("Âdem oğulları") tek bir kökten türemiş bir kelime değil, soy/silsile ifadesidir. Klasik tefsir bu kullanımı kerâmet (onurlandırma) ve ilâhî ahit (mîsâk) bağlamında okur: insanlığın yaratılış ahdiyle tarihsel bağı (A\'râf 7:172).',
+    rootNoteEn: 'Banī Ādam ("children of Adam") is not derived from a single root; it is a lineage formula. Classical tafsir reads it through the lens of dignity (karāma) and the primordial covenant (mīthāq): humanity\'s historical bond from creation (A\'rāf 7:172).',
     verse: {
       ar: 'وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ',
       tr: '"Andolsun, biz Âdem oğullarını onurlandırdık."',
@@ -104,8 +104,8 @@ const MUMIN_TRAITS = [
     traitTr: 'Namazında huşu sahibi',
     traitEn: 'Humble in their prayer',
     ref: '23:2',
-    noteTr: '"Hâşiûn" — sıfat-fiil, sürekli hal. Sadece namaz kılmak değil, namazda gerçekten hazır olmak.',
-    noteEn: '"Khāshiʿūn" — active participle, continuous state. Not merely praying, but being truly present in prayer.',
+    noteTr: '"Hâşiûn": sıfat-fiil, sürekli hâl. Sadece namaz kılmak değil, namazda gerçekten hazır olmak.',
+    noteEn: '"Khāshiʿūn": active participle, continuous state. Not merely praying, but being truly present in prayer.',
   },
   {
     num: 2,
@@ -113,8 +113,8 @@ const MUMIN_TRAITS = [
     traitTr: 'Boş şeylerden yüz çeviren',
     traitEn: 'Turning away from idle speech',
     ref: '23:3',
-    noteTr: 'Aktif bir ibadet değil, pasif bir erdem. "Muʿridûn" — kaçınan, yüz çeviren. Kur\'an\'da ne yapmamak da o kadar önemli.',
-    noteEn: 'Not an active act of worship — a passive virtue. What you refrain from matters as much as what you do.',
+    noteTr: 'Aktif bir ibadet değil, pasif bir erdem. "Muʿridûn": kaçınan, yüz çeviren. Kur\'an\'da ne yapmamak da o kadar önemli.',
+    noteEn: 'Not an active act of worship but a passive virtue. What you refrain from matters as much as what you do.',
   },
   {
     num: 3,
@@ -122,8 +122,8 @@ const MUMIN_TRAITS = [
     traitTr: 'Zekâtı fiilen yerine getiren',
     traitEn: 'Actively performing zakāt',
     ref: '23:4',
-    noteTr: '"Fâilûn" — fail, eylemde olan. Sadece "zekât veren" değil, "zekâtı yapan" — aktif faillik vurgusu.',
-    noteEn: '"Fāʿilūn" — active agent. Not merely "givers of zakāt" but "doers of zakāt" — a deliberate emphasis on active agency.',
+    noteTr: '"Fâilûn": fail, eylemde olan. Yalnızca "zekât veren" değil, "zekâtı yapan"; aktif faillik vurgusu.',
+    noteEn: '"Fāʿilūn": active agent. Not merely "givers of zakāt" but "doers of zakāt"; a deliberate emphasis on active agency.',
   },
   {
     num: 4,
@@ -131,8 +131,8 @@ const MUMIN_TRAITS = [
     traitTr: 'İffetini koruyan',
     traitEn: 'Guarding their chastity',
     ref: '23:5',
-    noteTr: '"Hâfizûn" — muhafız, koruyucu. Kaçınmak değil, aktif biçimde korumak. Kur\'an burada savunma değil muhafazayı öne çıkarıyor.',
-    noteEn: '"Ḥāfiẓūn" — guardians. Not passive avoidance, but active protection. The Quran emphasizes guardianship, not retreat.',
+    noteTr: '"Hâfizûn": muhafız, koruyucu. Kaçınmak değil, aktif biçimde korumak. Kur\'an burada savunma değil muhafazayı öne çıkarıyor.',
+    noteEn: '"Ḥāfiẓūn": guardians. Not passive avoidance, but active protection. The Quran emphasizes guardianship, not retreat.',
   },
   {
     num: 5,
@@ -140,8 +140,8 @@ const MUMIN_TRAITS = [
     traitTr: 'Emanet ve ahdine riayet eden',
     traitEn: 'Faithful to their trusts and covenants',
     ref: '23:8',
-    noteTr: '"Emânât" çoğul — birden fazla emanet türü: Allah\'a, insanlara ve kendine karşı sorumluluk aynı anda.',
-    noteEn: '"Amānāt" is plural — multiple trusts at once: to Allah, to others, and to oneself, all simultaneously.',
+    noteTr: '"Emânât" çoğuldur; birden fazla emanet türü: Allah\'a, insanlara ve kendine karşı sorumluluk aynı anda.',
+    noteEn: '"Amānāt" is plural; multiple trusts at once: to Allah, to others, and to oneself, all simultaneously.',
   },
   {
     num: 6,
@@ -149,8 +149,8 @@ const MUMIN_TRAITS = [
     traitTr: 'Namazlarını koruyan',
     traitEn: 'Preserving their prayers',
     ref: '23:9',
-    noteTr: 'Sûre "huşu ile kılmak" ile açıldı (2. ayet), "korumak" ile kapandı — yolculuğun iki ucu. Huşu başlangıç, muhafaza varış.',
-    noteEn: 'The sura opened with "humility in prayer" (v.2) and closes with "preserving prayer" — the two poles of the journey.',
+    noteTr: 'Sûre "huşu ile kılmak" ile açıldı (2. ayet), "korumak" ile kapandı; yolculuğun iki ucu. Huşu başlangıç, muhafaza varış.',
+    noteEn: 'The sura opened with "humility in prayer" (v.2) and closes with "preserving prayer"; the two poles of the journey.',
   },
   {
     num: 7,
@@ -158,8 +158,8 @@ const MUMIN_TRAITS = [
     traitTr: 'Firdevs\'in vârisleri',
     traitEn: 'The inheritors of Firdaws',
     ref: '23:10–11',
-    noteTr: '"Vârisûn" — miras alanlar. Miras hak edilerek kazanılır; hediye değildir. Pasif bekleme değil, müstehak olma hali.',
-    noteEn: '"Wārithūn" — inheritors. Inheritance is earned through being deserving; it is not a gift. Not passive waiting, but genuine worthiness.',
+    noteTr: '"Vârisûn": miras alanlar. Miras hak edilerek kazanılır; hediye değildir. Pasif bekleme değil, müstehak olma hali.',
+    noteEn: '"Wārithūn": inheritors. Inheritance is earned through being deserving; it is not a gift. Not passive waiting, but genuine worthiness.',
   },
 ];
 
@@ -189,15 +189,15 @@ const OPPOSITION_PAIRS = [
     pos: { tr: 'Şâkir', en: 'Shākir', ar: 'شَاكِر', noteTr: 'Şükreden', noteEn: 'The grateful one' },
     neg: { tr: 'Kefûr', en: 'Kafūr', ar: 'كَفُور', noteTr: 'Çok nankör (mübalağa)', noteEn: 'Intensely ungrateful (emphatic form)' },
     ref: 'İnsân 76:3',
-    contextTr: '"Ya şâkir ya kefûr" — iki seçenek aynı ayette, yan yana',
-    contextEn: '"Either grateful or ungrateful" — two choices side by side in one verse',
+    contextTr: '"Ya şâkir ya kefûr": iki seçenek aynı ayette, yan yana',
+    contextEn: '"Either grateful or ungrateful": two choices side by side in one verse',
   },
   {
     pos: { tr: 'Sâdık', en: 'Ṣādiq', ar: 'صَادِق', noteTr: 'Doğru, dürüst', noteEn: 'Truthful, sincere' },
     neg: { tr: 'Kâzib', en: 'Kādhib', ar: 'كَاذِب', noteTr: 'Yalancı', noteEn: 'The liar' },
     ref: 'Zümer 39:32–33 / Yûsuf 12:26-27',
-    contextTr: 'Zümer 39:32-33: "Allah\'a yalan isnad eden (kezzebe) vs sıdkı (doğruyu) getiren ve tasdik eden" — verbal form. Nominal sâdıkîn ↔ kâzibîn çifti Yûsuf 12:26-27\'de aynı pasajda yan yana geçer (gömlek tanıklığı).',
-    contextEn: 'Sura Az-Zumar 39:32-33: "He who lies against Allah (kadhdhaba) vs he who brings the truth (ṣidq) and confirms it" — verbal form. The nominal pair ṣādiqīn ↔ kādhibīn appears side-by-side in Yūsuf 12:26-27 (the testimony of the shirt).',
+    contextTr: 'Zümer 39:32-33: "Allah\'a yalan isnad eden (kezzebe) vs sıdkı (doğruyu) getiren ve tasdik eden"; fiil formu. Nominal sâdıkîn ↔ kâzibîn çifti Yûsuf 12:26-27\'de aynı pasajda yan yana geçer (gömlek tanıklığı).',
+    contextEn: 'Sura Az-Zumar 39:32-33: "He who lies against Allah (kadhdhaba) vs he who brings the truth (ṣidq) and confirms it"; verbal form. The nominal pair ṣādiqīn ↔ kādhibīn appears side-by-side in Yūsuf 12:26-27 (the testimony of the shirt).',
   },
 ];
 
@@ -206,29 +206,29 @@ const ISTIKAMET_WORDS = [
     ar: 'فَاسْتَقِمْ',
     tr: 'Dosdoğru ol',
     en: 'Be upright',
-    noteTr: '"İstakâme" kökü — dik dur, eğilme. "Fa" bağlacı: bunun sonucunda, o halde. Bir defaya mahsus değil — sürekli hal.',
-    noteEn: "Root: istaqāma — stand straight, do not bend. \"Fa\" means: therefore, consequently. Not a one-time act — a continuous state.",
+    noteTr: '"İstakâme" kökü: dik dur, eğilme. "Fa" bağlacı: bunun sonucunda, o hâlde. Bir defaya mahsus değil, sürekli bir hâl.',
+    noteEn: "Root: istaqāma, stand straight, do not bend. \"Fa\" means: therefore, consequently. Not a one-time act but a continuous state.",
   },
   {
     ar: 'كَمَا أُمِرْتَ',
     tr: 'Emrolunduğun gibi',
     en: 'As you have been commanded',
-    noteTr: 'Kişisel standart değil — vahiy standardı. Kendi ölçüsü değil, Allah\'ın ölçüsü. Bu ayrım kritik.',
-    noteEn: "Not a personal standard — the standard of revelation. Not your own measure, but Allah's. A critical distinction.",
+    noteTr: 'Kişisel standart değil, vahiy standardı. Kendi ölçüsü değil, Allah\'ın ölçüsü. Bu ayrım kritik.',
+    noteEn: "Not a personal standard but the standard of revelation. Not your own measure, but Allah's. A critical distinction.",
   },
   {
     ar: 'وَمَن تَابَ مَعَكَ',
     tr: 'Seninle tevbe edenlerle',
     en: 'And those who repented with you',
-    noteTr: 'Bireysel değil, topluluk direktifi. İstikâmet yalnız yürünen bir yol değil — cemaat meselesi.',
-    noteEn: 'Not an individual command — a communal directive. Uprightness is not a solitary path, but a community matter.',
+    noteTr: 'Bireysel değil, topluluk direktifi. İstikâmet yalnız yürünen bir yol değil, cemaat meselesidir.',
+    noteEn: 'Not an individual command but a communal directive. Uprightness is not a solitary path but a community matter.',
   },
   {
     ar: 'وَلَا تَطْغَوْا',
     tr: 'Aşırıya gitmeyin',
     en: 'Do not transgress',
-    noteTr: '"Tuğyan" — sınırı aşmak, taşmak. Denge vurgusu: istikâmet aşırılık değil, orta yol.',
-    noteEn: '"Ṭughyān" — to exceed limits, to overflow. Balance: uprightness is not extremism, but the middle path.',
+    noteTr: '"Tuğyan": sınırı aşmak, taşmak. Denge vurgusu: istikâmet aşırılık değil, orta yol.',
+    noteEn: '"Ṭughyān": to exceed limits, to overflow. Balance: uprightness is not extremism, but the middle path.',
   },
 ];
 
@@ -241,7 +241,7 @@ const TRANSFORMATION = [
     conceptEn: 'Submission',
     levelTr: 'Dış eylem',
     levelEn: 'External action',
-    descTr: 'Şehâdet, namaz, oruç — İslâm\'ın şartlarını yerine getirmek.',
+    descTr: 'Şehâdet, namaz, oruç: İslâm\'ın şartlarını yerine getirmek.',
     descEn: 'The shahada, rituals, fulfilling the pillars of Islam.',
     verse: {
       ar: 'قُل لَّمْ تُؤْمِنُوا وَلَٰكِن قُولُوا أَسْلَمْنَا',
@@ -281,8 +281,8 @@ const TRANSFORMATION = [
     conceptEn: 'Excellence',
     levelTr: 'Mükemmellik',
     levelEn: 'Perfection',
-    descTr: 'Allah\'ı görüyormuş gibi ibadet etmek — en yüksek manevi hal.',
-    descEn: "To worship Allah as though you see Him — the highest spiritual station.",
+    descTr: 'Allah\'ı görüyormuş gibi ibadet etmek; en yüksek manevî hâl.',
+    descEn: "To worship Allah as though you see Him; the highest spiritual station.",
     verse: {
       ar: 'بَلَىٰ مَنْ أَسْلَمَ وَجْهَهُ لِلَّهِ وَهُوَ مُحْسِنٌ',
       tr: '"Hayır! Kim yüzünü ihsanla Allah\'a teslim ederse..."',
@@ -1224,12 +1224,12 @@ export default function HumanDefinition() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? '↗ NEFSİN MERTEBELERİ — ATLASI AÇ' : '↗ STAGES OF THE SOUL — OPEN THE ATLAS'}
+              {language === 'tr' ? '↗ NEFSİN MERTEBELERİ: ATLASI AÇ' : '↗ STAGES OF THE SOUL: OPEN THE ATLAS'}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
-                ? 'emmâre · levvâme · mülhime · mutmainne · râziye · marzıyye · sâfiye — nefsin yedi makamı'
-                : 'ammāra · lawwāma · mulhima · muṭmaʾinna · rāḍiya · marḍiyya · ṣāfiya — the seven stations of the soul'}
+                ? 'emmâre · levvâme · mülhime · mutmainne · râziye · marzıyye · sâfiye; nefsin yedi makamı'
+                : 'ammāra · lawwāma · mulhima · muṭmaʾinna · rāḍiya · marḍiyya · ṣāfiya; the seven stations of the soul'}
             </p>
           </div>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>

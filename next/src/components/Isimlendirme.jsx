@@ -156,8 +156,8 @@ export default function Isimlendirme({ onClose }) {
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold, margin: 0,
         }}>
           {tr
-            ? 'Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta'
-            : 'The answer is far shorter than assumed — and that brevity is the point'}
+            ? 'Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj'
+            : 'The answer is far shorter than assumed, and the brevity itself is a message'}
         </p>
       </div>
 
@@ -168,12 +168,12 @@ export default function Isimlendirme({ onClose }) {
         <Lead>
           {tr
             ? 'Kur’ân’da yüzlerce sayfalık kıssa, onlarca zorba, kavim ve hasım anlatılır. Buna karşılık ADI AÇIKÇA GEÇEN ve olumsuz tasvir edilen şahıs sayısı yalnızca sekizdir. Geri kalanların tamamı sıfatlarıyla, fiilleriyle, yaptıklarıyla anılır.'
-            : 'The Qurʾān contains hundreds of pages of narrative — dozens of tyrants, peoples and adversaries. Yet the number of individuals explicitly NAMED and negatively portrayed is just eight. All the rest are known by their attributes, their acts, what they did.'}
+            : 'The Qurʾān contains hundreds of pages of narrative: dozens of tyrants, peoples and adversaries. Yet the number of individuals explicitly NAMED and negatively portrayed is just eight. All the rest are known by their attributes, their acts, what they did.'}
         </Lead>
         <Lead>
           {tr
-            ? 'Bu bir eksiklik değil. İsim verilseydi ders o kişiyle birlikte tarihe gömülürdü; vasıf verilince her çağda tanınabilir kalıyor. Kibirlenen zorba, servetiyle azan, saptıran, tuzak kuran — bunlar bir devre ait portreler değil, sürekli tekrarlanan tiplerdir.'
-            : 'This is not an omission. Had names been given, the lesson would have been buried in history with the person; given as attributes, it remains recognisable in every age. The arrogant tyrant, the one corrupted by wealth, the misleader, the schemer — these are not portraits of one era but recurring types.'}
+            ? 'Bu bir eksiklik değil. İsim verilseydi ders o kişiyle birlikte tarihe gömülürdü; vasıf verilince her çağda tanınabilir kalıyor. Kibirlenen zorba, servetiyle azan, saptıran, tuzak kuran: bunlar bir devre ait portreler değil, sürekli tekrarlanan tiplerdir.'
+            : 'This is not an omission. Had names been given, the lesson would have been buried in history with the person; given as attributes, it remains recognisable in every age. The arrogant tyrant, the one corrupted by wealth, the misleader, the schemer: these are not portraits of one era but recurring types.'}
         </Lead>
 
         {/* Aynı ekonomi olumlu tarafta da işliyor — sitenin kendi Kadınlar
@@ -190,8 +190,8 @@ export default function Isimlendirme({ onClose }) {
             color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.75, margin: 0,
           }}>
             {tr
-              ? 'Aynı ekonomi olumlu tarafta da işler: Kur’ân’da özel adıyla anılan tek kadın Hz. Meryem’dir. Âsiye, Belkıs, Mûsâ’nın annesi, İbrâhîm’in eşi — hepsi sıfatı, akrabalığı ya da konumuyla anılır. Yani suskunluk hasımlara mahsus bir tavır değil, Kur’ân’ın genel üslûbudur.'
-              : 'The same economy operates on the positive side: the only woman named in the Qurʾān is Maryam. Āsiya, the Queen of Sheba, the mother of Moses, the wife of Abraham — each is given by attribute, kinship or position. The reticence is not a stance reserved for adversaries; it is the Qurʾān’s manner throughout.'}
+              ? 'Aynı ekonomi olumlu tarafta da işler: Kur’ân’da özel adıyla anılan tek kadın Hz. Meryem’dir. Âsiye, Belkıs, Mûsâ’nın annesi, İbrâhîm’in eşi; hepsi sıfatı, akrabalığı ya da konumuyla anılır. Yani suskunluk hasımlara mahsus bir tavır değil, Kur’ân’ın genel üslûbudur.'
+              : 'The same economy operates on the positive side: the only woman named in the Qurʾān is Maryam. Āsiya, the Queen of Sheba, the mother of Moses, the wife of Abraham; each is given by attribute, kinship or position. The reticence is not a stance reserved for adversaries; it is the Qurʾān’s manner throughout.'}
           </p>
         </div>
       </Section>
@@ -202,8 +202,8 @@ export default function Isimlendirme({ onClose }) {
         <H2>{tr ? 'Çağdaşlarından Yalnız İki Kişiyi Adlandırır' : 'Only Two Contemporaries Are Named'}</H2>
         <Lead>
           {tr
-            ? 'Peygamber’in ﷺ kendi çağında yaşayan, onu tanıyan, ona destek olan ya da karşı çıkan yüzlerce kişi vardır. Kur’ân bunlardan yalnız İKİSİNİ adıyla anar — biri olumlu, biri olumsuz. Simetri tesadüf gibi durmuyor.'
-            : 'Hundreds of people lived in the Prophet’s ﷺ own time — knew him, supported him, opposed him. The Qurʾān names just TWO of them — one positively, one negatively. The symmetry does not look accidental.'}
+            ? 'Peygamber’in ﷺ kendi çağında yaşayan, onu tanıyan, ona destek olan ya da karşı çıkan yüzlerce kişi vardır. Kur’ân bunlardan yalnız İKİSİNİ adıyla anar: biri olumlu, biri olumsuz. Simetri tesadüf gibi durmuyor.'
+            : 'Hundreds of people lived in the Prophet’s ﷺ own time; they knew him, supported him, opposed him. The Qurʾān names just TWO of them: one positively, one negatively. The symmetry does not look accidental.'}
         </Lead>
 
         <div style={{
@@ -303,8 +303,8 @@ export default function Isimlendirme({ onClose }) {
             lineHeight: 1.7, margin: '14px 0 0', maxWidth: '78ch',
           }}>
             {tr
-              ? `Ağırlık tek bir figürde toplanıyor: Firavun ${firavunPay} âyetle toplamın %${firavunYuzde}’sini kaplıyor. Kalan yedi ismin tamamı ${meta.toplamAyet - firavunPay} âyet — üçü yalnız bir veya üç âyette geçiyor. Kur’ân az isim veriyor, verdiklerinin de dağılımı eşit değil.`
-              : `The weight falls on a single figure: Pharaoh accounts for ${firavunPay} verses, ${firavunYuzde}% of the total. All seven remaining names together come to ${meta.toplamAyet - firavunPay} verses — three of them appear in just one or three. The Qurʾān names few, and even those it names are not evenly distributed.`}
+              ? `Ağırlık tek bir figürde toplanıyor: Firavun ${firavunPay} âyetle toplamın %${firavunYuzde}’sini kaplıyor. Kalan yedi ismin tamamı ${meta.toplamAyet - firavunPay} âyet; üçü yalnız bir veya üç âyette geçiyor. Kur’ân az isim veriyor, verdiklerinin de dağılımı eşit değil.`
+              : `The weight falls on a single figure: Pharaoh accounts for ${firavunPay} verses, ${firavunYuzde}% of the total. All seven remaining names together come to ${meta.toplamAyet - firavunPay} verses; three of them appear in just one or three. The Qurʾān names few, and even those it names are not evenly distributed.`}
           </p>
         </div>
 
@@ -421,8 +421,8 @@ export default function Isimlendirme({ onClose }) {
         <H2>{tr ? 'Adı Geçtiği Sanılanlar' : 'Those Assumed to Be Named'}</H2>
         <Lead>
           {tr
-            ? 'Dolaşımdaki listelerde bu isimler “Kur’ân’da ismi geçen” diye sunulur. Metinde arandı: hiçbirinin adı Kur’ân’da geçmiyor. Onlar tefsirin işaret ettiği kişilerdir — bu ayrı ve saygın bir bilgi türüdür, ama “Kur’ân şöyle diyor” demek değildir.'
-            : 'Circulating lists present these as “named in the Qurʾān”. They were searched in the text: not one of them is named. They are figures identified by the commentators — a distinct and respectable kind of knowledge, but not the same as saying “the Qurʾān states”.'}
+            ? 'Dolaşımdaki listelerde bu isimler “Kur’ân’da ismi geçen” diye sunulur. Metinde arandı: hiçbirinin adı Kur’ân’da geçmiyor. Onlar tefsirin işaret ettiği kişilerdir; bu ayrı ve saygın bir bilgi türüdür, ama “Kur’ân şöyle diyor” demek değildir.'
+            : 'Circulating lists present these as “named in the Qurʾān”. They were searched in the text: not one of them is named. They are figures identified by the commentators; a distinct and respectable kind of knowledge, but not the same as saying “the Qurʾān states”.'}
         </Lead>
 
         <div style={{
@@ -464,8 +464,8 @@ export default function Isimlendirme({ onClose }) {
             margin: '0 0 16px', maxWidth: '76ch',
           }}>
             {tr
-              ? 'Suskunluk yalnız hasımlar için değil. Kıssaların tam merkezindeki kişiler — bir peygamberin oğlu, bir peygamberin karısı — bile isimle değil vasıfla anılır:'
-              : 'The reticence is not reserved for adversaries. Even figures at the very centre of the narratives — a prophet’s son, a prophet’s wife — are given by attribute, not name:'}
+              ? 'Suskunluk yalnız hasımlar için değil. Kıssaların tam merkezindeki kişiler, bir peygamberin oğlu, bir peygamberin karısı bile isimle değil vasıfla anılır:'
+              : 'The reticence is not reserved for adversaries. Even figures at the very centre of the narratives, a prophet’s son, a prophet’s wife, are given by attribute, not name:'}
           </p>
           <div style={{
             display: 'grid',
@@ -506,8 +506,8 @@ export default function Isimlendirme({ onClose }) {
         <H2>{tr ? 'Kur’ân’ın “Adını Vermiyorum” Kelimesi' : 'The Qurʾān’s Word for “I Am Not Naming Him”'}</H2>
         <Lead>
           {tr
-            ? 'Buraya kadar hep bir yokluktan söz ettik: isim verilmemesinden. Ama Kur’ân bir yerde daha ileri gidiyor — ismin yerine, ismin olmadığını söyleyen bir KELİME koyuyor.'
-            : 'So far we have spoken of an absence: names withheld. But in one place the Qurʾān goes further — in the place of the name it puts a WORD that says the name is being withheld.'}
+            ? 'Buraya kadar hep bir yokluktan söz ettik: isim verilmemesinden. Ama Kur’ân bir yerde daha ileri gidiyor: ismin yerine, ismin olmadığını söyleyen bir KELİME koyuyor.'
+            : 'So far we have spoken of an absence: names withheld. But in one place the Qurʾān goes further: in the place of the name it puts a WORD that says the name is being withheld.'}
         </Lead>
 
         <div style={{
@@ -529,7 +529,7 @@ export default function Isimlendirme({ onClose }) {
             letterSpacing: '0.16em', textTransform: 'uppercase',
             textAlign: 'center', marginBottom: '22px',
           }}>
-            {tr ? 'fulân — “falanca”' : 'fulān — “so-and-so”'}
+            {tr ? 'fulân: “falanca”' : 'fulān: “so-and-so”'}
           </div>
 
           <div dir="rtl" lang="ar" className="mq-fs" style={{
@@ -554,8 +554,8 @@ export default function Isimlendirme({ onClose }) {
           margin: '20px 0 0', maxWidth: '78ch',
         }}>
           {tr
-            ? 'Kıyâmet günü pişman olan kişi, kendisini saptıranı anarken adını söylemiyor: “falanca”. Kelime Kur’ân’da yalnız burada geçiyor — arandı, tek yer. Yani isimsizlik bir ihmal değil, bilinçli bir tercih: pişmanlığın konusu o kişinin kimliği değil, o dostluğun kendisi. Adı verilseydi âyet bir kişiyi suçlayan bir kayıt olurdu; verilmeyince her okuyucunun kendi “falanca”sını düşünmesi gereken bir ayna oluyor.'
-            : 'On the Day of Judgement the regretful one, recalling the friend who led him astray, does not say his name: “so-and-so”. The word occurs only here in the Qurʾān — searched, one place. So the namelessness is not an oversight but a choice: what is regretted is not that person’s identity but the friendship itself. Had the name been given, the verse would be a record accusing one man; withheld, it becomes a mirror in which every reader must think of his own “so-and-so”.'}
+            ? 'Kıyâmet günü pişman olan kişi, kendisini saptıranı anarken adını söylemiyor: “falanca”. Kelime Kur’ân’da yalnız burada geçiyor; arandı, tek yer. Yani isimsizlik bir ihmal değil, bilinçli bir tercih: pişmanlığın konusu o kişinin kimliği değil, o dostluğun kendisi. Adı verilseydi âyet bir kişiyi suçlayan bir kayıt olurdu; verilmeyince her okuyucunun kendi “falanca”sını düşünmesi gereken bir ayna oluyor.'
+            : 'On the Day of Judgement the regretful one, recalling the friend who led him astray, does not say his name: “so-and-so”. The word occurs only here in the Qurʾān; searched, one place. So the namelessness is not an oversight but a choice: what is regretted is not that person’s identity but the friendship itself. Had the name been given, the verse would be a record accusing one man; withheld, it becomes a mirror in which every reader must think of his own “so-and-so”.'}
         </p>
       </Section>
 
@@ -565,8 +565,8 @@ export default function Isimlendirme({ onClose }) {
         <H2>{tr ? 'Kavimler Ayrı Bir Katmandır' : 'Peoples Form a Separate Tier'}</H2>
         <Lead>
           {tr
-            ? 'Kur’ân’ın helâk anlatılarının çoğu bir şahsı değil bir TOPLULUĞU konu alır: Âd, Semûd, Medyen, Ashâb-ı Ress, Ashâb-ı Eyke, Tübba‘, Ashâb-ı Fîl, Ashâb-ı Uhdûd. Burada isimlendirme vardır — ama kişinin değil kavmin. Ders yine bireye değil tipe bağlanır.'
-            : 'Most of the Qurʾān’s narratives of destruction concern a PEOPLE rather than a person: ʿĀd, Thamūd, Madyan, the People of al-Rass, the Companions of the Thicket, Tubbaʿ, the Companions of the Elephant, the Companions of the Ditch. Naming does occur here — but of the people, not the individual. Again the lesson attaches to a type, not a biography.'}
+            ? 'Kur’ân’ın helâk anlatılarının çoğu bir şahsı değil bir TOPLULUĞU konu alır: Âd, Semûd, Medyen, Ashâb-ı Ress, Ashâb-ı Eyke, Tübba‘, Ashâb-ı Fîl, Ashâb-ı Uhdûd. Burada isimlendirme vardır, ama kişinin değil kavmin. Ders yine bireye değil tipe bağlanır.'
+            : 'Most of the Qurʾān’s narratives of destruction concern a PEOPLE rather than a person: ʿĀd, Thamūd, Madyan, the People of al-Rass, the Companions of the Thicket, Tubbaʿ, the Companions of the Elephant, the Companions of the Ditch. Naming does occur here, but of the people, not the individual. Again the lesson attaches to a type, not a biography.'}
         </Lead>
         <p className="mq-fs" style={{
           '--fs-d': '0.86rem', '--fs-m': '0.82rem',
@@ -574,8 +574,8 @@ export default function Isimlendirme({ onClose }) {
           margin: '14px 0 0', maxWidth: '76ch',
         }}>
           {tr
-            ? 'Bu katman sitede ayrı bir atlasta işleniyor — 16 kavim, helâk türleri, coğrafyaları ve âyet karşılıklarıyla. Aşağıdaki bağlantıdan gidilebilir.'
-            : 'This tier is covered by a separate atlas on the site — 16 peoples, with their modes of destruction, geography and verse references. See the link below.'}
+            ? 'Bu katman sitede ayrı bir atlasta işleniyor: 16 kavim, helâk türleri, coğrafyaları ve âyet karşılıklarıyla. Aşağıdaki bağlantıdan gidilebilir.'
+            : 'This tier is covered by a separate atlas on the site: 16 peoples, with their modes of destruction, geography and verse references. See the link below.'}
         </p>
       </Section>
 
@@ -585,8 +585,8 @@ export default function Isimlendirme({ onClose }) {
         <H2>{tr ? 'Niçin Bu Kadar Az İsim?' : 'Why So Few Names?'}</H2>
         <Lead>
           {tr
-            ? 'Bu sayfa bir “kötüler galerisi” değildir. Kur’ân bu kişileri teşhir için değil, ibret için anar — açılıştaki âyetin dediği gibi: “Andolsun, onların kıssalarında akıl sahipleri için ibret vardır.” Sorulacak soru “kim daha kötüydü” değil, “bu tip bugün nasıl tanınır”dır.'
-            : 'This page is not a gallery of villains. The Qurʾān mentions these figures not to expose them but as a lesson — as the opening verse says: “In their stories there is surely a lesson for those of understanding.” The question is not “who was worse” but “how is this type recognised today”.'}
+            ? 'Bu sayfa bir “kötüler galerisi” değildir. Kur’ân bu kişileri teşhir için değil, ibret için anar; açılıştaki âyetin dediği gibi: “Andolsun, onların kıssalarında akıl sahipleri için ibret vardır.” Sorulacak soru “kim daha kötüydü” değil, “bu tip bugün nasıl tanınır”dır.'
+            : 'This page is not a gallery of villains. The Qurʾān mentions these figures not to expose them but as a lesson; as the opening verse says: “In their stories there is surely a lesson for those of understanding.” The question is not “who was worse” but “how is this type recognised today”.'}
         </Lead>
         <p className="mq-fs" style={{
           '--fs-d': '0.9rem', '--fs-m': '0.85rem',
@@ -594,8 +594,8 @@ export default function Isimlendirme({ onClose }) {
           lineHeight: 1.8, marginTop: '18px', maxWidth: '72ch',
         }}>
           {tr
-            ? 'Sekiz isim, doksan altı âyet. Geri kalan her şey vasıfla anlatılmış — çünkü isim bir devri, vasıf her devri bağlar.'
-            : 'Eight names, ninety-six verses. Everything else is told by attribute — because a name binds one age, an attribute binds every age.'}
+            ? 'Sekiz isim, doksan altı âyet. Geri kalan her şey vasıfla anlatılmış, çünkü isim bir devri, vasıf her devri bağlar.'
+            : 'Eight names, ninety-six verses. Everything else is told by attribute, because a name binds one age and an attribute binds every age.'}
         </p>
       </Section>
 
@@ -625,17 +625,17 @@ export default function Isimlendirme({ onClose }) {
           language={language} isMobile={isMobile}
           links={[
             { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Atlas of Peoples',
-              descTr: 'Şahıs değil topluluk katmanı — 16 kavim, helâk türleri ve âyet karşılıkları.',
-              descEn: 'The peoples tier — 16 nations, their modes of destruction and verse references.' },
+              descTr: 'Şahıs değil topluluk katmanı: 16 kavim, helâk türleri ve âyet karşılıkları.',
+              descEn: 'The peoples tier: 16 nations, their modes of destruction and verse references.' },
             { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Atlas of Narratives',
-              descTr: 'Bu şahısların içinde geçtiği kıssaların tamamı — peygamber peygamber, sahne sahne.',
-              descEn: 'The full narratives these figures appear in — prophet by prophet, scene by scene.' },
+              descTr: 'Bu şahısların içinde geçtiği kıssaların tamamı; peygamber peygamber, sahne sahne.',
+              descEn: 'The full narratives these figures appear in; prophet by prophet, scene by scene.' },
             { href: `/${language}/atlas/kadinlar`, titleTr: 'Kur’an’da Kadınlar', titleEn: 'Women in the Quran',
-              descTr: 'Aynı tezin öbür yarısı: özel adıyla anılan tek kadın Hz. Meryem — diğerleri vasıflarıyla.',
-              descEn: 'The other half of the same thesis: the only woman named is Maryam — the rest by attribute.' },
+              descTr: 'Aynı tezin öbür yarısı: özel adıyla anılan tek kadın Hz. Meryem; diğerleri vasıflarıyla.',
+              descEn: 'The other half of the same thesis: the only woman named is Maryam; the rest by attribute.' },
             { href: `/${language}/arac/sebebi-nuzul`, titleTr: 'Sebeb-i Nüzûl', titleEn: 'Occasions of Revelation',
-              descTr: '“Bu âyet kimin hakkında indi?” — tefsirin işaret ettiği kişiler ve rivayetlerin gücü.',
-              descEn: '“About whom was this verse revealed?” — the figures the commentaries identify and the strength of the reports.' },
+              descTr: '“Bu âyet kimin hakkında indi?” Tefsirin işaret ettiği kişiler ve rivayetlerin gücü.',
+              descEn: '“About whom was this verse revealed?” The figures the commentaries identify and the strength of the reports.' },
           ]}
         />
       </div>
