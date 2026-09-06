@@ -7,9 +7,8 @@ import KitapKavramiRoute from './KitapKavramiRoute';
 const PATH = '/arac/kitap-kavrami';
 const TITLE_TR = "Kitap Kavramı — Kur'ân Kendini Nasıl Tanımlar?";
 const TITLE_EN = 'Concept of the Book — How Does the Quran Describe Itself?';
-const DESC_TR = "Kur'ân yalnızca 'Kitap' değildir; kendisi için 10+ isim + sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Her isim ayrı bir işleve işaret eder — Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin anlam katmanı.";
-const DESC_EN = "The Quran is not merely 'The Book'; it uses 10+ names + attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Each name points to a different function — meaning-layers of each within the framework of al-Rāghib al-Iṣfahānī's Mufradāt.";
-
+const DESC_TR = "Kur'ân kendisi için 'Kitap' dışında 10'dan fazla isim ve sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Her isim ayrı bir işleve işaret eder; her ismin anlam katmanı Râgıb el-İsfahânî'nin Müfredât'ı çerçevesinde verilir.";
+const DESC_EN = "Beyond 'The Book', the Quran uses more than 10 names and attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Each name points to a different function; the layers of meaning of each are given within the framework of al-Rāghib al-Iṣfahānī's Mufradāt.";
 export async function generateMetadata({ params }) {
   return pageMetadata({
     params,

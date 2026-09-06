@@ -173,8 +173,8 @@ export default function ConciergePrompt() {
           opacity: 0.85,
         }}>
           {tr
-            ? 'Yaşadığın bir durumu ya da merak ettiğin bir kavramı yaz — sistem 6.236 ayet ve içerik arasından sana en yakın olanları seçer.'
-            : 'Write a situation you\'re living or a concept you\'re curious about — the system picks the closest matches from 6,236 verses and content.'}
+            ? 'Yaşadığın bir durumu ya da merak ettiğin bir kavramı yaz. Sistem 6.236 ayet ve içerik arasından sana en yakın olanları seçer.'
+            : 'Describe a situation you are in or a concept you are curious about. The system picks the closest matches from 6,236 verses and content.'}
         </p>
 
         {/* Prompt input — gold border, subtle glow, focused state animasyon */}
@@ -328,8 +328,8 @@ export default function ConciergePrompt() {
           letterSpacing: '0.04em',
         }}>
           {tr
-            ? 'Sistem yorum katmaz — sadece ayetleri ve içerikleri rehberler. Hiçbir kişisel veri saklanmaz.'
-            : 'The system adds no commentary — it only guides you to verses and content. No personal data is stored.'}
+            ? 'Sistem yorum katmaz, yalnızca ayetlere ve içeriklere yönlendirir. Hiçbir kişisel veri saklanmaz.'
+            : 'The system adds no commentary; it only points you to verses and content. No personal data is stored.'}
         </p>
       </motion.div>
     </section>

@@ -7,9 +7,8 @@ import DogaAtlasiRoute from './DogaAtlasiRoute';
 const PATH = '/atlas/doga';
 const TITLE_TR = 'Tabiat Atlası';
 const TITLE_EN = 'Atlas of Nature';
-const DESC_TR = "Kur'an'ın kevnî ayetler atlası — hayvanlar, bitkiler, gök cisimleri (güneş, ay, yıldızlar) ve doğa unsurları; her birinin sembolik anlamı ve geçtiği ayetler.";
-const DESC_EN = "The Quran's atlas of cosmic signs — animals, plants, celestial bodies (sun, moon, stars), and natural elements; the symbolic meaning of each and the verses where they appear.";
-
+const DESC_TR = "Kur'an'ın kevnî ayetler atlası: hayvanlar, bitkiler, gök cisimleri (güneş, ay, yıldızlar) ve doğa unsurları; her birinin sembolik anlamı ve geçtiği ayetler.";
+const DESC_EN = "The Quran's atlas of cosmic signs: animals, plants, celestial bodies (sun, moon, stars) and natural elements; the symbolic meaning of each and the verses where they appear.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

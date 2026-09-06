@@ -7,9 +7,8 @@ import KadinlarAtlasiRoute from './KadinlarAtlasiRoute';
 const PATH = '/atlas/kadinlar';
 const TITLE_TR = 'Kadınlar Atlası';
 const TITLE_EN = 'Atlas of Women in the Quran';
-const DESC_TR = "Kur'an'da anılan, seçilen, ders olarak öne çıkan kadınlar — Meryem, Asiye, Hacer, Belkıs ve daha fazlası.";
-const DESC_EN = "Women named, chosen and highlighted as moral examples in the Quran — Mary, Asiya, Hagar, Bilqis and more.";
-
+const DESC_TR = "Kur'an'da anılan, seçilen ve ders olarak öne çıkan kadınlar: Meryem, Asiye, Hacer, Belkıs ve diğerleri.";
+const DESC_EN = "Women named, chosen and set forth as examples in the Quran: Mary, Asiya, Hagar, Bilqis and others.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

@@ -7,8 +7,8 @@
     "subtitleEn": "Death throes → Barzakh → Trumpet → Gathering → Scales → Basin & Intercession → Bridge → Paradise · Hell → Vision of God",
     "eyebrowTr": "ESKATOLOJİK ATLAS · KRONOLOJİK AKIŞ HUB'I",
     "eyebrowEn": "ESCHATOLOGICAL ATLAS · CHRONOLOGICAL FLOW HUB",
-    "framingTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder. Bu atlas 11 aşamada — Kur'ânî çekirdek üstünde, klasik tefsir çeşitliliğiyle — o geçişin haritasını çıkarır.",
-    "framingEn": "The Qur'an paints death not as an event but as a moment of transition. This atlas maps that transition across 11 stages — grounded in the Qur'anic core, framed with classical tafsir plurality."
+    "framingTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder. Bu atlas o geçişin haritasını 11 aşamada çıkarır; Kur'ânî çekirdek üstünde, klasik tefsir çeşitliliğiyle.",
+    "framingEn": "The Qur'an paints death not as an event but as a moment of transition. This atlas maps that transition across 11 stages, grounded in the Qur'anic core and framed with the plurality of classical tafsir."
   },
   "sources": [
     {
@@ -24,8 +24,8 @@
       "workTr": "el-Câmi' li-Ahkâmi'l-Kur'an + et-Tezkire fî ahvâli'l-mevtâ",
       "workEn": "al-Jāmi' li-Aḥkām al-Qur'ān + al-Tadhkirah",
       "period": "1214–1273 · Kurtuba/Kahire",
-      "noteTr": "Ahkâm ağırlıklı Mâlikî tefsir + eskatoloji için özel eseri et-Tezkire — âhiret sahnelerinde en detaylı klasik referans.",
-      "noteEn": "Ahkām-heavy Māliki tafsir + al-Tadhkirah, his dedicated eschatology work — the most detailed classical reference on hereafter scenes."
+      "noteTr": "Ahkâm ağırlıklı Mâlikî tefsir + eskatoloji için özel eseri et-Tezkire; âhiret sahnelerinde en detaylı klasik referans.",
+      "noteEn": "Ahkām-heavy Māliki tafsir + al-Tadhkirah, his dedicated eschatology work; the most detailed classical reference on hereafter scenes."
     },
     {
       "author": "İbn Kesîr",
@@ -65,12 +65,12 @@
       "id": "sekerat",
       "index": 1,
       "arabicTerm": "سَكَرَاتُ الْمَوْتِ",
-      "titleTr": "Sekerât — Ölüm Sarhoşluğu",
-      "titleEn": "Sakarāt — The Death Throes",
+      "titleTr": "Sekerât: Ölüm Sarhoşluğu",
+      "titleEn": "Sakarāt: The Death Throes",
       "category": "yeni-icerik",
       "iconKey": "sekerat",
-      "descTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder — kişinin son eşiğe geldiği farkındalık.",
-      "descEn": "The Qur'an paints death not as an event but as a moment of transition — awareness of arriving at a final edge.",
+      "descTr": "Kur'an ölümü bir olay değil, bir geçiş anı olarak resmeder: kişinin son eşiğe geldiği farkındalık.",
+      "descEn": "The Qur'an paints death not as an event but as a moment of transition: awareness of arriving at a final edge.",
       "anchorVerseRef": {
         "surah": 50,
         "ayah": 19,
@@ -85,8 +85,8 @@
           "surah": 56,
           "ayah": 83,
           "range": "83-87",
-          "noteTr": "'Peki ne yapabilirsiniz ki, can boğaza dayandığında?' — sekerâtın Kur'an'daki en dramatik sahnesi.",
-          "noteEn": "'What then, when it reaches the throat?' — the most dramatic Qur'anic scene of the death throes.",
+          "noteTr": "'Peki ne yapabilirsiniz ki, can boğaza dayandığında?' Sekerâtın Kur'an'daki en dramatik sahnesi.",
+          "noteEn": "'What then, when it reaches the throat?' The most dramatic Qur'anic scene of the death throes.",
           "arabic": "فَلَوْلٓا اِذَا بَلَغَتِ الْحُلْقُومَ",
           "surahName": "الواقعة",
           "surahNameEn": "The Inevitable"
@@ -94,8 +94,8 @@
         {
           "surah": 6,
           "ayah": 93,
-          "noteTr": "Melekler ellerini uzatmış: 'Çıkarın canlarınızı!' — zâlimin gözünden ölüm anı.",
-          "noteEn": "Angels stretch out their hands: 'Give up your souls!' — the moment seen from the wrongdoer's angle.",
+          "noteTr": "Melekler ellerini uzatmış: 'Çıkarın canlarınızı!' Ölüm anı, zâlimin gözünden.",
+          "noteEn": "Angels stretch out their hands: 'Give up your souls!' The moment seen from the wrongdoer's angle.",
           "arabic": "وَمَنْ اَظْلَمُ مِمَّنِ افْتَرٰى عَلَى اللّٰهِ كَذِباً اَوْ قَالَ اُوحِيَ اِلَيَّ وَلَمْ يُوحَ اِلَيْهِ شَيْءٌ وَمَنْ قَالَ سَاُنْزِلُ مِثْلَ مٓا اَنْزَلَ اللّٰهُ وَلَوْ تَرٰٓى اِذِ الظَّالِمُونَ فِي غَمَرَاتِ الْمَوْتِ وَالْمَلٰٓئِكَةُ بَاسِطٓوا اَيْدِيهِمْ اَخْرِجٓوا اَنْفُسَكُمْ اَلْيَوْمَ تُجْزَوْنَ عَذَابَ الْهُونِ بِمَا كُنْتُمْ تَقُولُونَ عَلَى اللّٰهِ غَيْرَ الْحَقِّ وَكُنْتُمْ عَنْ اٰيَاتِهِ تَسْتَكْبِرُونَ",
           "surahName": "الأنعام",
           "surahNameEn": "The Cattle"
@@ -104,15 +104,15 @@
           "surah": 79,
           "ayah": 1,
           "range": "1-2",
-          "noteTr": "'Vennâziâti ğarkā, vennâşitâti neştâ' — canı sert çekenler / kolay çıkaranlar; klasik yorumda ölüm meleklerine hamledilen yeminler.",
-          "noteEn": "'By those that pluck out violently, by those that draw out gently' — oaths classically referred to the angels of death.",
+          "noteTr": "'Vennâziâti ğarkā, vennâşitâti neştâ': canı sert çekenler ve kolay çıkaranlar; klasik yorumda ölüm meleklerine hamledilen yeminler.",
+          "noteEn": "'By those that pluck out violently, by those that draw out gently': oaths classically referred to the angels of death.",
           "arabic": "وَالنَّازِعَاتِ غَرْقاً",
           "surahName": "النازعات",
           "surahNameEn": "Those who drag forth"
         }
       ],
-      "narrationTr": "Kur'an ölümü bir olay olarak değil, bir *geçiş anı* olarak resmeder. Kâf 50:19, ölüm sarhoşluğunu (*sekret'ul-mevt*) \"hakikatle geldi\" fiiliyle takdim eder — sanki insan hayatı boyunca kaçındığı gerçek, kendi ayağıyla onu bulur. Vâkı'a sûresi tabloyu daha da daraltır: can boğaza dayandığında, çevredekiler bakıyor ama hiçbir şey yapamıyor. Bu bir tıp anlatısı değil, bir *farkındalık anlatısı*.\n\nEn'âm 6:93 sahneyi zâlimin gözünden çevirir: melekler ellerini uzatmış, \"çıkarın canlarınızı\" der. Bu iki paralel sahne — dışarıdan bakan çaresizlik ve içeriden yaşanan sarsıntı — sekerâtı *iki tarafın da tanıklığı* olarak kurar. Ölüm, sadece bedenin değil, kişinin de bir *son eşiğe* geldiği andır.",
-      "narrationEn": "The Qur'an paints death not as an event but as a *moment of transition*. Sūrat Qāf 50:19 introduces death's stupor (*sakrat al-mawt*) with the verb \"came with the truth\" — as if the reality one has spent a lifetime evading finally arrives on its own feet. Al-Wāqi'ah tightens the frame: when the soul reaches the throat, bystanders watch but can do nothing. This is not medical narration but *narration of awareness*.\n\nAl-An'ām 6:93 reverses the angle to the wrongdoer's view: angels stretch out their hands and command \"give up your souls.\" These two parallel scenes — the helplessness of those watching and the shudder of the one dying — establish the *double witness* of the death throes. Death is the threshold where not just the body but the person arrives at a final edge.",
+      "narrationTr": "Kur'an ölümü bir olay olarak değil, bir *geçiş anı* olarak resmeder. Kâf 50:19, ölüm sarhoşluğunu (*sekret'ul-mevt*) \"hakikatle geldi\" fiiliyle takdim eder; sanki insanın hayatı boyunca kaçındığı gerçek, kendi ayağıyla onu bulur. Vâkı'a sûresi tabloyu daha da daraltır: can boğaza dayandığında, çevredekiler bakıyor ama hiçbir şey yapamıyor. Bu bir tıp anlatısı değil, bir *farkındalık anlatısı*.\n\nEn'âm 6:93 sahneyi zâlimin gözünden çevirir: melekler ellerini uzatmış, \"çıkarın canlarınızı\" der. Bu iki paralel sahne, dışarıdan bakan çaresizlik ve içeriden yaşanan sarsıntı, sekerâtı *iki tarafın da tanıklığı* olarak kurar. Ölüm, sadece bedenin değil, kişinin de bir *son eşiğe* geldiği andır.",
+      "narrationEn": "The Qur'an paints death not as an event but as a *moment of transition*. Sūrat Qāf 50:19 introduces death's stupor (*sakrat al-mawt*) with the verb \"came with the truth\", as if the reality one has spent a lifetime evading finally arrives on its own feet. Al-Wāqi'ah tightens the frame: when the soul reaches the throat, bystanders watch but can do nothing. This is not medical narration but *narration of awareness*.\n\nAl-An'ām 6:93 reverses the angle to the wrongdoer's view: angels stretch out their hands and command \"give up your souls.\" These two parallel scenes, the helplessness of those watching and the shudder of the one dying, establish the *double witness* of the death throes. Death is the threshold where not just the body but the person arrives at a final edge.",
       "classicalTafsir": [
         {
           "source": "Râzî",
@@ -123,8 +123,8 @@
         {
           "source": "Kurtubî",
           "workRef": "et-Tezkire — Bâbu şiddeti's-sekerât",
-          "noteTr": "Sekerâtın şiddeti kişinin durumuna göre farklılaşır — bazı peygamberler ve sâlihler için bile ağır olabileceğini rivayetlerle belgeler. Yani sekerâtın şiddeti hükmün mutlak göstergesi değildir (halkın 'kolay ölüm = kurtuluş' çıkarımını düzeltir).",
-          "noteEn": "The severity of sakarāt varies by person — even prophets and the righteous may have hard passings, documented by narrations. Thus severity is not an absolute indicator of judgment (correcting the folk inference that 'easy death = salvation')."
+          "noteTr": "Sekerâtın şiddeti kişinin durumuna göre farklılaşır; bazı peygamberler ve sâlihler için bile ağır olabileceğini rivayetlerle belgeler. Yani sekerâtın şiddeti hükmün mutlak göstergesi değildir (halkın 'kolay ölüm = kurtuluş' çıkarımını düzeltir).",
+          "noteEn": "The severity of sakarāt varies by person; even prophets and the righteous may have hard passings, as narrations document. Thus severity is not an absolute indicator of judgment (correcting the folk inference that 'easy death = salvation')."
         },
         {
           "source": "İbn Kayyim",
@@ -136,14 +136,14 @@
       "criticalNote": {
         "titleTr": "Küçük yorum farkı",
         "titleEn": "Minor interpretive difference",
-        "bodyTr": "Klasik Ehl-i Sünnet ile Mu'tezile arasında sekerât ayetleri tefsirinde keskin bir yorum farkı yoktur — her iki ekol de literal 'ölüm anı sarsıntısı' okur. Bazı erken Mu'tezilî çevreler (Kâdî Abdulcabbâr çizgisi) meleklerin 'elini uzatması' ifadesini *mecazî* — 'ilâhî hüküm eli' — yorumlarken; Sünnî çoğunluk meleklerin gerçek ancak duyular-üstü müdahalesini kabul eder.",
-        "bodyEn": "There is no sharp exegetical divide between classical Sunnism and Mu'tazila on the sakarāt verses — both schools read them as the literal 'shudder of the moment of death.' Some early Mu'tazilite circles (the Qāḍī 'Abd al-Jabbār line) read the angels' 'stretching hands' *metaphorically* — as 'the hand of divine decree' — while the Sunni majority accepts the real yet supra-sensory intervention of the angels."
+        "bodyTr": "Klasik Ehl-i Sünnet ile Mu'tezile arasında sekerât ayetleri tefsirinde keskin bir yorum farkı yoktur; her iki ekol de literal 'ölüm anı sarsıntısı' okur. Bazı erken Mu'tezilî çevreler (Kâdî Abdulcabbâr çizgisi) meleklerin 'elini uzatması' ifadesini *mecazî* olarak, 'ilâhî hüküm eli' diye yorumlarken; Sünnî çoğunluk meleklerin gerçek ancak duyular-üstü müdahalesini kabul eder.",
+        "bodyEn": "There is no sharp exegetical divide between classical Sunnism and Mu'tazila on the sakarāt verses; both schools read them as the literal 'shudder of the moment of death.' Some early Mu'tazilite circles (the Qāḍī 'Abd al-Jabbār line) read the angels' 'stretching hands' *metaphorically*, as 'the hand of divine decree', while the Sunni majority accepts the real yet supra-sensory intervention of the angels."
       },
       "visualMotif": "Nefes hattı ile göğüs kafesi arasında bir gölge — ruh silueti bedene teğet, çevrede duyulmayan bir çınlama halkası. Palet: cosmic-black + gold-emerald geçiş.",
       "crossLinks": [
         {
-          "labelTr": "Zaman Boyutları — an-uzama fenomeni",
-          "labelEn": "Time Dimensions — moment-stretch phenomenon",
+          "labelTr": "Zaman Boyutları: an-uzama fenomeni",
+          "labelEn": "Time Dimensions: the moment-stretch phenomenon",
           "href": "/arac/zaman-boyutlari"
         }
       ]
@@ -152,8 +152,8 @@
       "id": "berzah-kabir",
       "index": 2,
       "arabicTerm": "الْبَرْزَخ",
-      "titleTr": "Berzah & Kabir — Ara Alem",
-      "titleEn": "Barzakh & the Grave — The Interspace",
+      "titleTr": "Berzah & Kabir: Ara Âlem",
+      "titleEn": "Barzakh & the Grave: The Interspace",
       "category": "yeni-icerik",
       "iconKey": "berzah",
       "descTr": "Ölüm ile diriliş arasında iki-yönlü bir perde: yokluk değil, farklı bir varoluş biçimi.",
@@ -171,8 +171,8 @@
         {
           "surah": 40,
           "ayah": 46,
-          "noteTr": "'Onlar sabah akşam ateşe arz olunurlar…' — kabir azabının en açık Kur'ânî delili (Firavun hanedanı).",
-          "noteEn": "'They are exposed to the fire morning and evening…' — the clearest Qur'anic evidence for grave punishment (Pharaoh's people).",
+          "noteTr": "'Onlar sabah akşam ateşe arz olunurlar…' Kabir azabının en açık Kur'ânî delili (Firavun hanedanı).",
+          "noteEn": "'They are exposed to the fire morning and evening…' The clearest Qur'anic evidence for grave punishment (Pharaoh's people).",
           "arabic": "اَلنَّارُ يُعْرَضُونَ عَلَيْهَا غُدُواًّ وَعَشِياًّ وَيَوْمَ تَقُومُ السَّاعَةُ اَدْخِلٓوا اٰلَ فِرْعَوْنَ اَشَدَّ الْعَذَابِ",
           "surahName": "غافر",
           "surahNameEn": "The Forgiver"
@@ -180,8 +180,8 @@
         {
           "surah": 71,
           "ayah": 25,
-          "noteTr": "'Günahları yüzünden boğuldular, sonra ateşe sokuldular.' — 'sonra ateşe sokuldular' geçmiş zamanı klasik delil (Kurtubî, İbn Kesîr); modern bazı yorumcular bunu kıyamet sonrası olarak da okur.",
-          "noteEn": "'They were drowned for their sins, then made to enter Fire.' — the past-tense 'then made to enter' is a classical proof (Qurṭubī, Ibn Kathīr); some modern commentators read it as post-resurrection.",
+          "noteTr": "'Günahları yüzünden boğuldular, sonra ateşe sokuldular.' Buradaki geçmiş zaman klasik delildir (Kurtubî, İbn Kesîr); modern bazı yorumcular bunu kıyamet sonrası olarak da okur.",
+          "noteEn": "'They were drowned for their sins, then made to enter Fire.' The past tense 'then made to enter' is a classical proof (Qurṭubī, Ibn Kathīr); some modern commentators read it as post-resurrection.",
           "arabic": "مِمَّا خَطِٓيـَٔاتِهِمْ اُغْرِقُوا فَاُدْخِلُوا نَاراً فَلَمْ يَجِدُوا لَهُمْ مِنْ دُونِ اللّٰهِ اَنْصَاراً",
           "surahName": "نوح",
           "surahNameEn": "Noah"
@@ -189,15 +189,15 @@
         {
           "surah": 2,
           "ayah": 154,
-          "noteTr": "'Allah yolunda öldürülenlere ölüler demeyin, onlar diridirler…' — berzah hayatının pozitif işareti (şehidler).",
-          "noteEn": "'Do not say of those killed in God's path that they are dead; they are alive…' — the positive sign of barzakh life (the martyrs).",
+          "noteTr": "'Allah yolunda öldürülenlere ölüler demeyin, onlar diridirler…' Berzah hayatının olumlu işareti (şehidler).",
+          "noteEn": "'Do not say of those killed in God's path that they are dead; they are alive…' The positive sign of barzakh life (the martyrs).",
           "arabic": "وَلَا تَقُولُوا لِمَنْ يُقْتَلُ فِي سَبِيلِ اللّٰهِ اَمْوَاتٌ بَلْ اَحْيٓاءٌ وَلٰكِنْ لَا تَشْعُرُونَ",
           "surahName": "البقرة",
           "surahNameEn": "The Cow"
         }
       ],
-      "narrationTr": "Berzah kelimesi Kur'an'da üç yerde geçer (Furkān 25:53 ve Rahmân 55:20'de iki suyu ayıran engel; Mü'minûn 23:100'de ise ölüm ile diriliş arasındaki *ara alem*). Kelimenin kökü 'iki şey arasında engel/perde' demektir. Mü'minûn ayeti bu perdeyi 'diriltilecekleri güne kadar' süreklilik ile tanımlar — berzah bir *yokluk* değil, farklı bir varoluş biçimidir.\n\nKur'an bu ara alemin ayrıntılı topografyasını çizmez. En açık sahne Ğâfir 40:46'dadır: Firavun ailesi 'sabah akşam' ateşe *arz olunuyor* (yu'radûne — süreklilik bildiren geniş zaman). Kıyametten önceki bu safha, klasik tefsirde kabir azabının en güçlü Kur'ânî delili sayılır. Bakara 2:154 ise pozitif yönü açar: şehidler 'diridir.' Berzah, hem azap hem nimet yeri olabilecek bir eşik alemidir — ama Kur'an detayı hadîs geleneğine bırakır.",
-      "narrationEn": "The word *barzakh* appears three times in the Qur'an (Furqān 25:53 and Raḥmān 55:20 as the barrier between two waters; Mu'minūn 23:100 as the *interspace* between death and resurrection). Its root means 'a barrier between two things.' The Mu'minūn verse defines this barrier as lasting 'until the day they will be raised' — barzakh is not *absence* but a different form of existence.\n\nThe Qur'an does not chart this interspace in detail. The clearest scene is Ghāfir 40:46: Pharaoh's people 'morning and evening' are being *exposed* to fire (yu'raḍūna — continuous present tense). This pre-resurrection phase is treated in classical tafsir as the strongest Qur'anic evidence for grave punishment. Al-Baqarah 2:154 opens the positive side: the martyrs 'are alive.' Barzakh is a threshold realm that may hold both torment and blessing — but the Qur'an leaves the details to the hadith tradition.",
+      "narrationTr": "Berzah kelimesi Kur'an'da üç yerde geçer (Furkān 25:53 ve Rahmân 55:20'de iki suyu ayıran engel; Mü'minûn 23:100'de ise ölüm ile diriliş arasındaki *ara alem*). Kelimenin kökü 'iki şey arasında engel/perde' demektir. Mü'minûn ayeti bu perdeyi 'diriltilecekleri güne kadar' süreklilik ile tanımlar; berzah bir *yokluk* değil, farklı bir varoluş biçimidir.\n\nKur'an bu ara alemin ayrıntılı topografyasını çizmez. En açık sahne Ğâfir 40:46'dadır: Firavun ailesi 'sabah akşam' ateşe *arz olunuyor* (yu'radûne, süreklilik bildiren geniş zaman). Kıyametten önceki bu safha, klasik tefsirde kabir azabının en güçlü Kur'ânî delili sayılır. Bakara 2:154 ise pozitif yönü açar: şehidler 'diridir.' Berzah, hem azap hem nimet yeri olabilecek bir eşik âlemidir; ama Kur'an ayrıntıyı hadîs geleneğine bırakır.",
+      "narrationEn": "The word *barzakh* appears three times in the Qur'an (Furqān 25:53 and Raḥmān 55:20 as the barrier between two waters; Mu'minūn 23:100 as the *interspace* between death and resurrection). Its root means 'a barrier between two things.' The Mu'minūn verse defines this barrier as lasting 'until the day they will be raised'; barzakh is not *absence* but a different form of existence.\n\nThe Qur'an does not chart this interspace in detail. The clearest scene is Ghāfir 40:46: Pharaoh's people 'morning and evening' are being *exposed* to fire (yu'raḍūna, continuous present tense). This pre-resurrection phase is treated in classical tafsir as the strongest Qur'anic evidence for grave punishment. Al-Baqarah 2:154 opens the positive side: the martyrs 'are alive.' Barzakh is a threshold realm that may hold both torment and blessing; but the Qur'an leaves the details to the hadith tradition.",
       "classicalTafsir": [
         {
           "source": "İbn Kayyim",
@@ -208,32 +208,32 @@
         {
           "source": "Kurtubî",
           "workRef": "et-Tezkire",
-          "noteTr": "Kabir azabının kimler için, hangi durumlarda geldiği; suâl-i kabir (Münker-Nekîr sorgusu) rivayetlerinin sıhhat derecesi; kabrin ruh için mi, beden için mi olduğu — üç ana pozisyonun analizi.",
-          "noteEn": "For whom and when grave punishment applies; the authenticity of the questioning narrations (Munkar-Nakīr); whether the grave affects the soul or the body — analysis of three main positions."
+          "noteTr": "Kabir azabının kimler için, hangi durumlarda geldiği; suâl-i kabir (Münker-Nekîr sorgusu) rivayetlerinin sıhhat derecesi; kabrin ruh için mi, beden için mi olduğu; üç ana pozisyonun analizi.",
+          "noteEn": "For whom and when grave punishment applies; the authenticity of the questioning narrations (Munkar-Nakīr); whether the grave affects the soul or the body; an analysis of three main positions."
         },
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Mü'minûn 23:100)",
-          "noteTr": "Berzah kelimesinin dilbilimsel analizi; kelimenin 'engel' anlamının hem geri dönüşü hem karşılıklı temasi engellediği — berzah *iki yönlü* bir perdedir.",
-          "noteEn": "Linguistic analysis of *barzakh*; the 'barrier' meaning blocks both return and mutual contact — barzakh is a *two-way* veil."
+          "noteTr": "Berzah kelimesinin dilbilimsel analizi; kelimenin 'engel' anlamının hem geri dönüşü hem karşılıklı teması engellediği; berzah *iki yönlü* bir perdedir.",
+          "noteEn": "Linguistic analysis of *barzakh*; the 'barrier' meaning blocks both return and mutual contact; barzakh is a *two-way* veil."
         }
       ],
       "criticalNote": {
-        "titleTr": "Kabir azabı — klasik dönemin büyük ihtilâfı",
-        "titleEn": "Grave punishment — a major classical debate",
-        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Kabir azabı sabittir; Ğâfir 40:46 açık Kur'ânî delildir. Münker-Nekîr sorgusu ve kabirin sıkışması *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabit kabul edilir.\n\nMu'tezile (klasik ekol): Kur'ânî delili kabul eder ancak hadîs-bazlı ayrıntıları (Münker-Nekîr'in isimleri, kabirin sıkışması) *âhâd* rivayet olduğu için akîde bağlayıcısı görmez. Nazzâm gibi bazı isimler kabir azabını tümden reddederken, cumhur (Kâdî Abdulcabbâr) kabul eder.\n\nModern Selefî çizgi (İbn Bâz, Elbânî): Klasik Ehl-i Sünnet pozisyonunu benimser, ancak zayıf rivayetleri ayıklama disiplini uygular — sahih hadîs corpusuna dayalı azap tasavvuru.\n\nBu tartışma mezhepçilik değil, *epistemik metodoloji* farkıdır: Kur'an'ı temel, hadîsi tamamlayıcı gören her ekol pozisyon farkına düşer.",
-        "bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī majority): Grave punishment is established; Ghāfir 40:46 is a clear Qur'anic proof. Munkar-Nakīr's questioning and the grave's pressing are considered established through *mutawātir maʿnawī* (semantic mass-transmission) hadith.\n\nMu'tazila (classical school): Accepts the Qur'anic evidence but does not treat hadith-based details (Munkar-Nakīr's names, the grave's pressing) as binding creed since they are *āḥād* narrations. Some figures like al-Naẓẓām rejected grave punishment outright, while the majority (al-Qāḍī 'Abd al-Jabbār) accepted it.\n\nModern Salafi line (Ibn Bāz, al-Albānī): Adopts the classical Sunni position while applying a discipline of filtering weak narrations — grave-punishment imagery grounded in the authenticated hadith corpus.\n\nThis is not sectarianism but *epistemic methodology*: any school that takes the Qur'an as base and hadith as supplement lands on different positions."
+        "titleTr": "Kabir azabı: klasik dönemin büyük ihtilâfı",
+        "titleEn": "Grave punishment: a major classical debate",
+        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Kabir azabı sabittir; Ğâfir 40:46 açık Kur'ânî delildir. Münker-Nekîr sorgusu ve kabirin sıkışması *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabit kabul edilir.\n\nMu'tezile (klasik ekol): Kur'ânî delili kabul eder ancak hadîs-bazlı ayrıntıları (Münker-Nekîr'in isimleri, kabirin sıkışması) *âhâd* rivayet olduğu için akîde bağlayıcısı görmez. Nazzâm gibi bazı isimler kabir azabını tümden reddederken, cumhur (Kâdî Abdulcabbâr) kabul eder.\n\nModern Selefî çizgi (İbn Bâz, Elbânî): Klasik Ehl-i Sünnet pozisyonunu benimser, ancak zayıf rivayetleri ayıklama disiplini uygular; sahih hadîs korpusuna dayalı bir azap tasavvuru.\n\nBu tartışma mezhepçilik değil, *epistemik metodoloji* farkıdır: Kur'an'ı temel, hadîsi tamamlayıcı gören her ekol pozisyon farkına düşer.",
+        "bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī majority): Grave punishment is established; Ghāfir 40:46 is a clear Qur'anic proof. Munkar-Nakīr's questioning and the grave's pressing are considered established through *mutawātir maʿnawī* (semantic mass-transmission) hadith.\n\nMu'tazila (classical school): Accepts the Qur'anic evidence but does not treat hadith-based details (Munkar-Nakīr's names, the grave's pressing) as binding creed since they are *āḥād* narrations. Some figures like al-Naẓẓām rejected grave punishment outright, while the majority (al-Qāḍī 'Abd al-Jabbār) accepted it.\n\nModern Salafi line (Ibn Bāz, al-Albānī): Adopts the classical Sunni position while applying a discipline of filtering weak narrations; grave-punishment imagery grounded in the authenticated hadith corpus.\n\nThis is not sectarianism but *epistemic methodology*: any school that takes the Qur'an as base and hadith as supplement lands on different positions."
       },
       "visualMotif": "Yarı-şeffaf perde/örtü ardında beliren silüet; bir tarafında toprak-mekân, diğerinde ışık-ışın. Perde geçirimli ama geçilemez.",
       "crossLinks": [
         {
-          "labelTr": "Melekler — Münker-Nekîr (hadîs-bazlı)",
-          "labelEn": "Angels — Munkar-Nakīr (hadith-based)",
+          "labelTr": "Melekler: Münker-Nekîr (hadîs temelli)",
+          "labelEn": "Angels: Munkar-Nakīr (hadith-based)",
           "href": "/arac/melekler"
         },
         {
-          "labelTr": "Zaman Boyutları — berzah zaman-akışı",
-          "labelEn": "Time Dimensions — barzakh temporal flow",
+          "labelTr": "Zaman Boyutları: berzahta zaman akışı",
+          "labelEn": "Time Dimensions: temporal flow in barzakh",
           "href": "/arac/zaman-boyutlari"
         }
       ]
@@ -242,12 +242,12 @@
       "id": "sur-birinci-nefha",
       "index": 3,
       "arabicTerm": "النَّفْخَةُ الْأُولَىٰ",
-      "titleTr": "Sûr — İlk Nefha",
-      "titleEn": "The Trumpet — First Blowing",
+      "titleTr": "Sûr: İlk Nefha",
+      "titleEn": "The Trumpet: First Blowing",
       "category": "link-through",
       "iconKey": "sur",
-      "descTr": "Kâinatın son sayfası çevrilir: göklerin ve yerin baygın düşüşü — Kur'an'ın 'fenâ' dediği an.",
-      "descEn": "The universe's final page turns: heavens and earth swoon — the very moment the Qur'an calls 'fanā'.",
+      "descTr": "Kâinatın son sayfası çevrilir: göklerin ve yerin baygın düşüşü; Kur'an'ın 'fenâ' dediği an.",
+      "descEn": "The universe's final page turns: heavens and earth swoon; the very moment the Qur'an calls 'fanā'.",
       "anchorVerseRef": {
         "surah": 39,
         "ayah": 68,
@@ -286,28 +286,28 @@
           "surahNameEn": "The Cave"
         }
       ],
-      "narrationTr": "Kâinatın *son sayfası* burada çevrilir. Sûr'a ilk üfleyiş, yaratılışın büyük ölçekli düzeninin bitiş komutudur: göklerin ve yerin baygın düşüşü — Kur'an'ın *fenâ* dediği anın kendisi. Bu sahne KıyametSahneleri atlas'ının 1. fazında ('Kozmik Yıkım') detaylı işlenmiştir: güneşin dürülmesi, yıldızların dökülmesi, dağların yürümesi, denizlerin ateş alması ve göklerin katlanması sahneleri Sûr'un ilk üflemesinin *çerçevesini* oluşturur.",
-      "narrationEn": "The universe's *final page* turns here. The first blowing of the Trumpet is the halting command for creation's macro-order: heavens and earth swooning in unconsciousness — the very moment the Qur'an calls *fanā'*. This scene is worked out in detail in Phase 1 ('Cosmic Destruction') of the KiyametSahneleri atlas: the sun wrapped up, stars falling, mountains set in motion, seas ablaze, and heavens folded — all frame the first blowing.",
+      "narrationTr": "Kâinatın *son sayfası* burada çevrilir. Sûr'a ilk üfleyiş, yaratılışın büyük ölçekli düzeninin bitiş komutudur: göklerin ve yerin baygın düşüşü; Kur'an'ın *fenâ* dediği anın kendisi. Bu sahne KıyametSahneleri atlas'ının 1. fazında ('Kozmik Yıkım') detaylı işlenmiştir: güneşin dürülmesi, yıldızların dökülmesi, dağların yürümesi, denizlerin ateş alması ve göklerin katlanması sahneleri Sûr'un ilk üflemesinin *çerçevesini* oluşturur.",
+      "narrationEn": "The universe's *final page* turns here. The first blowing of the Trumpet is the halting command for creation's macro-order: heavens and earth swooning in unconsciousness; the very moment the Qur'an calls *fanā'*. This scene is worked out in detail in Phase 1 ('Cosmic Destruction') of the KiyametSahneleri atlas: the sun wrapped up, stars falling, mountains set in motion, seas ablaze, and heavens folded; all of these frame the first blowing.",
       "classicalTafsir": [
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Zümer 39:68)",
-          "noteTr": "'İllâ men şâellâh' istisnâsı üzerinde uzunca durur — hangi grubun (melekler, şehidler, cennet ehli) bu istisnâya dâhil olduğu üzerine dört farklı görüşü sıralar. Klasik icmâ değil, *ihtimaller listesi*.",
-          "noteEn": "Long treatment of the 'illā man shā' Allāh' exception — lists four different views on which group (angels, martyrs, dwellers of Paradise) belongs to it. Not a classical consensus, but a *list of possibilities*."
+          "noteTr": "'İllâ men şâellâh' istisnâsı üzerinde uzunca durur; hangi grubun (melekler, şehidler, cennet ehli) bu istisnâya dâhil olduğu üzerine dört farklı görüşü sıralar. Klasik icmâ değil, *ihtimaller listesi*.",
+          "noteEn": "Long treatment of the 'illā man shā' Allāh' exception; lists four different views on which group (angels, martyrs, dwellers of Paradise) belongs to it. Not a classical consensus, but a *list of possibilities*."
         },
         {
           "source": "İbn Kesîr",
           "workRef": "Tefsîr (Sûr ayetleri)",
-          "noteTr": "Sûr kelimesi Kur'an'da 10 yerde geçer — bunların hepsini serimler ve rivayet-ağırlıklı bir sentez sunar.",
-          "noteEn": "The word ṣūr occurs in 10 places in the Qur'an — surveys them all and offers a narration-heavy synthesis."
+          "noteTr": "Sûr kelimesi Kur'an'da 10 yerde geçer; bunların hepsini serimler ve rivayet-ağırlıklı bir sentez sunar.",
+          "noteEn": "The word ṣūr occurs in 10 places in the Qur'an; surveys them all and offers a narration-heavy synthesis."
         }
       ],
       "criticalNote": null,
       "visualMotif": "Kozmik trompet silüeti — üflenen anda çevredeki galaksilerin ışıklarının aynı anda söndüğü frame. Palet: derin lacivert → siyah.",
       "crossLinks": [
         {
-          "labelTr": "Kıyâmet Sahneleri — Kozmik Yıkım (Faz 1)",
-          "labelEn": "Scenes of Resurrection — Cosmic Destruction (Phase 1)",
+          "labelTr": "Kıyâmet Sahneleri: Kozmik Yıkım (Faz 1)",
+          "labelEn": "Scenes of Resurrection: Cosmic Destruction (Phase 1)",
           "href": "/arac/kiyamet",
           "primary": true
         }
@@ -317,12 +317,12 @@
       "id": "dirilis-bas",
       "index": 4,
       "arabicTerm": "الْبَعْثُ بَعْدَ الْمَوْتِ",
-      "titleTr": "Diriliş — Ba's",
-      "titleEn": "Resurrection — Ba'th",
+      "titleTr": "Diriliş: Ba's",
+      "titleEn": "Resurrection: Ba'th",
       "category": "link-through",
       "iconKey": "dirilis",
-      "descTr": "Aynı sûr, ikinci nefha — ters yön. Berzah bir uyku gibi hatırlanır: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?'",
-      "descEn": "The same Trumpet, second blow — reverse direction. Barzakh is remembered as if it were sleep: 'Alas! Who raised us from our resting place?'",
+      "descTr": "Aynı sûr, ikinci nefha; ters yön. Berzah bir uyku gibi hatırlanır: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?'",
+      "descEn": "The same Trumpet, second blow; reverse direction. Barzakh is remembered as if it were sleep: 'Alas! Who raised us from our resting place?'",
       "anchorVerseRef": {
         "surah": 36,
         "ayah": 51,
@@ -361,14 +361,14 @@
           "surahNameEn": "The Moon"
         }
       ],
-      "narrationTr": "Aynı sûr, aynı melek — ama bu sefer *ters yön*. Zümer 39:68'in ikinci yarısı ('…Sonra ona bir kere daha üflendi. Bir de bakarsın hepsi ayağa kalkmış bakıyorlar') ile Yâsîn 36:51 aynı anı iki farklı açıdan çizer. Yâsîn'de dirilişin ilk kelimesi hayret dolu bir *ünlem*dir: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?' — bu insanı sarsan detay Kur'ânî anlatının psikolojik derinliğidir: berzah *bir uyku gibi* hatırlanır.",
-      "narrationEn": "The same Trumpet, the same angel — but this time *the reverse direction*. The second half of Zumar 39:68 ('…Then it will be blown again — and at once they will be standing, looking on') and Yā-Sīn 36:51 depict the same moment from two angles. In Yā-Sīn, the first word of resurrection is a stunned *exclamation*: 'Alas for us! Who raised us from our resting place?' — this detail is the psychological depth of Qur'anic narration: barzakh is remembered *as if it had been sleep*.",
+      "narrationTr": "Aynı sûr, aynı melek; ama bu sefer *ters yön*. Zümer 39:68'in ikinci yarısı ('…Sonra ona bir kere daha üflendi. Bir de bakarsın hepsi ayağa kalkmış bakıyorlar') ile Yâsîn 36:51 aynı anı iki farklı açıdan çizer. Yâsîn'de dirilişin ilk kelimesi hayret dolu bir *ünlem*dir: 'Vay bize! Bizi yattığımız yerden kim kaldırdı?' Bu sarsıcı ayrıntı Kur'ânî anlatının psikolojik derinliğidir: berzah *bir uyku gibi* hatırlanır.",
+      "narrationEn": "The same Trumpet, the same angel; but this time *the reverse direction*. The second half of Zumar 39:68 ('…Then it will be blown again, and at once they will be standing, looking on') and Yā-Sīn 36:51 depict the same moment from two angles. In Yā-Sīn, the first word of resurrection is a stunned *exclamation*: 'Alas for us! Who raised us from our resting place?' This detail is the psychological depth of Qur'anic narration: barzakh is remembered *as if it had been sleep*.",
       "classicalTafsir": [
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Yâsîn 36:52)",
-          "noteTr": "'Merkadinâ' (uyuduğumuz yerden) kelimesinin dilbilimsel analizi; berzahın süresinin ve şiddetinin herkes için aynı olmadığı — bazıları için gerçekten uyku gibi hafif, bazıları için (Ğâfir 40:46'da olduğu gibi) sürekli azap. İki farklı deneyim aynı berzah çatısı altındadır.",
-          "noteEn": "Linguistic analysis of 'marqadinā' (our resting place); barzakh's duration and severity vary — light as sleep for some, continuous torment for others (as in Ghāfir 40:46). Two different experiences under one barzakh roof."
+          "noteTr": "'Merkadinâ' (uyuduğumuz yerden) kelimesinin dilbilimsel analizi; berzahın süresinin ve şiddetinin herkes için aynı olmadığı; bazıları için gerçekten uyku gibi hafif, bazıları için (Ğâfir 40:46'da olduğu gibi) sürekli azap. İki farklı deneyim aynı berzah çatısı altındadır.",
+          "noteEn": "Linguistic analysis of 'marqadinā' (our resting place); barzakh's duration and severity vary; light as sleep for some, continuous torment for others (as in Ghāfir 40:46). Two different experiences under one barzakh roof."
         },
         {
           "source": "Kurtubî",
@@ -381,8 +381,8 @@
       "visualMotif": "Yarı-şeffaf toprak yüzeyi altında hareketlenen silüetler; yüzeye çıkışta beden hatları netleşir. Frame: hareketin başlangıç anı — yarı-toprak, yarı-ışık.",
       "crossLinks": [
         {
-          "labelTr": "Kıyâmet Sahneleri — Ölülerin Dirilişi (Faz 2)",
-          "labelEn": "Scenes of Resurrection — The Raising of the Dead (Phase 2)",
+          "labelTr": "Kıyâmet Sahneleri: Ölülerin Dirilişi (Faz 2)",
+          "labelEn": "Scenes of Resurrection: The Raising of the Dead (Phase 2)",
           "href": "/arac/kiyamet",
           "primary": true
         }
@@ -392,12 +392,12 @@
       "id": "mahser",
       "index": 5,
       "arabicTerm": "الْمَحْشَر",
-      "titleTr": "Mahşer — Toplanma",
-      "titleEn": "Maḥshar — The Great Gathering",
+      "titleTr": "Mahşer: Toplanma",
+      "titleEn": "Maḥshar: The Great Gathering",
       "category": "link-through",
       "iconKey": "mahser",
-      "descTr": "Bir yer değil, bir hâl: 'hiçbirini geride bırakmayız' — istisnâsız toplama; en yakın bağlar bile çözülür.",
-      "descEn": "Not a place but a state: 'We leave not one behind' — gathering without exception; even the closest bonds dissolve.",
+      "descTr": "Bir yer değil, bir hâl: 'hiçbirini geride bırakmayız'; istisnâsız toplama, en yakın bağlar bile çözülür.",
+      "descEn": "Not a place but a state: 'We leave not one behind'; gathering without exception, even the closest bonds dissolve.",
       "anchorVerseRef": {
         "surah": 18,
         "ayah": 47,
@@ -411,8 +411,8 @@
         {
           "surah": 70,
           "ayah": 4,
-          "noteTr": "'Melekler ve Rûh, süresi elli bin yıl olan bir günde O'na yükselir.' — mahşer gününün *psikolojik uzunluğu*na dair anahtar ayet.",
-          "noteEn": "'The angels and the Spirit ascend to Him in a day whose length is fifty thousand years.' — key verse on the maḥshar's *psychological length*.",
+          "noteTr": "'Melekler ve Rûh, süresi elli bin yıl olan bir günde O'na yükselir.' Mahşer gününün *psikolojik uzunluğu*na dair anahtar ayet.",
+          "noteEn": "'The angels and the Spirit ascend to Him in a day whose length is fifty thousand years.' The key verse on the maḥshar's *psychological length*.",
           "arabic": "تَعْرُجُ الْمَلٰٓئِكَةُ وَالرُّوحُ اِلَيْهِ فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ اَلْفَ سَنَةٍ",
           "surahName": "المعارج",
           "surahNameEn": "The Ascending Stairways"
@@ -421,8 +421,8 @@
           "surah": 80,
           "ayah": 34,
           "range": "34-37",
-          "noteTr": "'O gün kişi kaçar; kardeşinden, annesinden, babasından, eşinden, çocuklarından…' — mahşerdeki sosyal bağların çözülme anı.",
-          "noteEn": "'The day one flees from his brother, mother, father, spouse, children…' — the moment of dissolution of social bonds at the maḥshar.",
+          "noteTr": "'O gün kişi kaçar; kardeşinden, annesinden, babasından, eşinden, çocuklarından…' Mahşerdeki sosyal bağların çözülme anı.",
+          "noteEn": "'The day one flees from his brother, mother, father, spouse, children…' The moment social bonds dissolve at the maḥshar.",
           "arabic": "يَوْمَ يَفِرُّ الْمَرْءُ مِنْ اَخِيهِ",
           "surahName": "عبس",
           "surahNameEn": "He Frowned"
@@ -437,20 +437,20 @@
           "surahNameEn": "Hud"
         }
       ],
-      "narrationTr": "Kur'an mahşeri bir *yer* değil, bir *hal* olarak resmeder. Kehf 18:47 en yalın ifadesi: 'hiçbirini geride bırakmayız' — istisnâsız toplama. Me'âric 70:4'ün 'elli bin yıl' ifadesi ise mahşerin *psikolojik uzunluğuna* dair Kur'ânî bir teşbihtir; bu sürenin literal mi (Sünnî çoğunluk), yoksa şiddet ve zorluk metaforu mu (İbn Abbâs'a nispet edilen rivayet ve bazı modern müfessirler) olduğu klasik tartışma konusudur. Abese 80:34-37 ise mahşerin en insan-boyutlu köşesini açar: en yakın sosyal bağlar bile *kendinden kaçmaya* dönüşür — bu kaçış bir tercih değil, hesabın ağırlığının doğal sonucudur.",
-      "narrationEn": "The Qur'an renders the *maḥshar* not as a location but as a *state*. Al-Kahf 18:47 is the simplest expression: 'We leave not one of them behind.' Al-Ma'ārij 70:4's 'fifty thousand years' is a Qur'anic figure for the maḥshar's *psychological length*; whether this number is literal (majority Sunni) or a metaphor for severity (attributed to Ibn 'Abbās, adopted by some modern commentators) is a classical debate. 'Abasa 80:34-37 opens its most human corner: the closest social bonds turn into *flight from one another* — not by choice but as the natural pull of the reckoning's weight.",
+      "narrationTr": "Kur'an mahşeri bir *yer* değil, bir *hal* olarak resmeder. Kehf 18:47 en yalın ifadesi: 'hiçbirini geride bırakmayız'; istisnâsız toplama. Me'âric 70:4'ün 'elli bin yıl' ifadesi ise mahşerin *psikolojik uzunluğuna* dair Kur'ânî bir teşbihtir; bu sürenin literal mi (Sünnî çoğunluk), yoksa şiddet ve zorluk metaforu mu (İbn Abbâs'a nispet edilen rivayet ve bazı modern müfessirler) olduğu klasik tartışma konusudur. Abese 80:34-37 ise mahşerin en insan-boyutlu köşesini açar: en yakın sosyal bağlar bile *kendinden kaçmaya* dönüşür; bu kaçış bir tercih değil, hesabın ağırlığının doğal sonucudur.",
+      "narrationEn": "The Qur'an renders the *maḥshar* not as a location but as a *state*. Al-Kahf 18:47 is the simplest expression: 'We leave not one of them behind.' Al-Ma'ārij 70:4's 'fifty thousand years' is a Qur'anic figure for the maḥshar's *psychological length*; whether this number is literal (majority Sunni) or a metaphor for severity (attributed to Ibn 'Abbās, adopted by some modern commentators) is a classical debate. 'Abasa 80:34-37 opens its most human corner: the closest social bonds turn into *flight from one another*; not by choice but as the natural pull of the reckoning's weight.",
       "classicalTafsir": [
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Me'âric 70:4)",
-          "noteTr": "'Elli bin yıl' ifadesinin dilbilimsel analizi; 'yevm' (gün) kelimesinin genişleyebilirliği; farklı yorum yollarının hangi grup üzerinde etkili olduğu — mü'minler için kısalır, kâfirler için uzar tarzındaki rivayet-bazlı yorumlar bu ayetin altında çerçevelenir.",
+          "noteTr": "'Elli bin yıl' ifadesinin dilbilimsel analizi; 'yevm' (gün) kelimesinin genişleyebilirliği; farklı yorum yollarının hangi grup üzerinde etkili olduğu; mü'minler için kısalır, kâfirler için uzar tarzındaki rivayet-bazlı yorumlar bu ayetin altında çerçevelenir.",
           "noteEn": "Linguistic analysis of the 'fifty thousand years'; the elasticity of 'yawm' (day); narration-based readings that the day shortens for the believers, lengthens for the disbelievers, are framed under this verse."
         },
         {
           "source": "Kurtubî",
           "workRef": "et-Tezkire (Hud 11:103)",
-          "noteTr": "'Yevmun meşhûd' ifadesi — 'şahit olunan gün' — çok sayıda görüşün toplandığı ayet: kim şahitlik eder, kimin lehine/aleyhine.",
-          "noteEn": "'Yawmun mashhūd' — 'the witnessed day' — a verse gathering many views: who bears witness, for or against whom."
+          "noteTr": "'Yevmun meşhûd', 'şahit olunan gün' ifadesi, çok sayıda görüşün toplandığı ayet: kim şahitlik eder, kimin lehine/aleyhine.",
+          "noteEn": "'Yawmun mashhūd', 'the witnessed day', a verse gathering many views: who bears witness, for or against whom."
         }
       ],
       "criticalNote": {
@@ -462,8 +462,8 @@
       "visualMotif": "Uçsuz dümdüz saha; küçük insan silüetlerinden oluşan yoğun bir doku; yatay perspektifin sonsuza gittiği horizon çizgisi. Palet: kum-toprak + üstte gümüşî ışık.",
       "crossLinks": [
         {
-          "labelTr": "Kıyâmet Sahneleri — Haşr / Toplanma (Faz 3)",
-          "labelEn": "Scenes of Resurrection — The Gathering (Phase 3)",
+          "labelTr": "Kıyâmet Sahneleri: Haşr, Toplanma (Faz 3)",
+          "labelEn": "Scenes of Resurrection: The Gathering (Phase 3)",
           "href": "/arac/kiyamet",
           "primary": true
         }
@@ -477,8 +477,8 @@
       "titleEn": "The Record of Deeds",
       "category": "link-through",
       "iconKey": "kitap",
-      "descTr": "Kişi ömrünü taşır — kıyamette defter açılır. Kur'an'ın en güçlü tanıklık imgesi.",
-      "descEn": "One carries their lifetime — on the day, the record opens. One of the Qur'an's most powerful witnessing images.",
+      "descTr": "Kişi ömrünü taşır; kıyamette defter açılır. Kur'an'ın en güçlü tanıklık imgesi.",
+      "descEn": "One carries their lifetime; on the day, the record opens. One of the Qur'an's most powerful witnessing images.",
       "anchorVerseRef": {
         "surah": 69,
         "ayah": 19,
@@ -528,14 +528,14 @@
           "surahNameEn": "The Cave"
         }
       ],
-      "narrationTr": "Amel defteri motifi Kur'an'da iki katmanlı gelir: (1) *nereden alındığı* — sağdan, soldan, arkadan (Hâkka 69:19-25, İnşikâk 84:7-12); (2) *nasıl açıldığı* — İsrâ 17:13-14'te insanın *tayr*ı (kuş/kader) boynuna bağlı, kıyamette 'açılmış bir kitap' olarak sunulur. Klasik tefsir bu iki katmanı birleştirir: kişi ömrünü *taşıyor*, ama defter kıyamette *açılıyor*. Bu motif Kur'an'ın en güçlü *tanıklık* imgelerinden biridir — kişi kendi geçmişinin okunmasına şahit olur.",
-      "narrationEn": "The record-of-deeds motif comes in two layers in the Qur'an: (1) *from which side* it is handed — right, left, from behind (Ḥāqqah 69:19-25, Inshiqāq 84:7-12); (2) *how it is opened* — in Isrā' 17:13-14 each person's *ṭā'ir* (bird/fate) is fastened to the neck and, on the day, presented as 'an unrolled book.' Classical tafsir unites the two layers: one *carries* one's lifetime, but the record *opens* on the day. This is one of the Qur'an's most powerful *witnessing* images — a person becomes audience to the reading of their own past.",
+      "narrationTr": "Amel defteri motifi Kur'an'da iki katmanlı gelir: birincisi *nereden alındığı*: sağdan, soldan, arkadan (Hâkka 69:19-25, İnşikâk 84:7-12); ikincisi *nasıl açıldığı*: İsrâ 17:13-14'te insanın *tayr*ı (kuş/kader) boynuna bağlı, kıyamette 'açılmış bir kitap' olarak sunulur. Klasik tefsir bu iki katmanı birleştirir: kişi ömrünü *taşıyor*, ama defter kıyamette *açılıyor*. Bu motif Kur'an'ın en güçlü *tanıklık* imgelerinden biridir; kişi kendi geçmişinin okunmasına şahit olur.",
+      "narrationEn": "The record-of-deeds motif comes in two layers in the Qur'an: first, *from which side* it is handed: right, left, from behind (Ḥāqqah 69:19-25, Inshiqāq 84:7-12); second, *how it is opened*: in Isrā' 17:13-14 each person's *ṭā'ir* (bird/fate) is fastened to the neck and, on the day, presented as 'an unrolled book.' Classical tafsir unites the two layers: one *carries* one's lifetime, but the record *opens* on the day. This is one of the Qur'an's most powerful *witnessing* images; a person becomes audience to the reading of their own past.",
       "classicalTafsir": [
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (İsrâ 17:13)",
-          "noteTr": "'Tayr' kelimesinin dilbilimsel derinliği: Arap câhilî geleneğinde uçan kuşlarla fal bakılırdı (*tıyera*); Kur'an bu geleneği tersine çevirir — kader dışarıda değil, *senin taşıdığın şey*. Bu ters-çevirme Râzî'nin tefsir geleneğine atfedilen bir okumadır.",
-          "noteEn": "The linguistic depth of *ṭā'ir*: in pre-Islamic Arab custom, birds were used for divination (*ṭiyara*); the Qur'an inverts this — fate is not outside but *what you carry*. This reversal is attributed to Rāzī's exegetical reading."
+          "noteTr": "'Tayr' kelimesinin dilbilimsel derinliği: Arap câhilî geleneğinde uçan kuşlarla fal bakılırdı (*tıyera*); Kur'an bu geleneği tersine çevirir: kader dışarıda değil, *senin taşıdığın şey*. Bu ters-çevirme Râzî'nin tefsir geleneğine atfedilen bir okumadır.",
+          "noteEn": "The linguistic depth of *ṭā'ir*: in pre-Islamic Arab custom, birds were used for divination (*ṭiyara*); the Qur'an inverts this: fate is not outside but *what you carry*. This reversal is attributed to Rāzī's exegetical reading."
         },
         {
           "source": "Kurtubî",
@@ -546,21 +546,21 @@
         {
           "source": "İbn Kesîr",
           "workRef": "Tefsîr (Hâkka & İnşikâk)",
-          "noteTr": "Kitabın soldan mı arkadan mı verildiği tartışması: Hâkka 69:25 'solundan' der, İnşikâk 84:10 'arkasından' der. Klasik çözüm: eller arkaya bağlanır, kitap sol elle *arkadan* alınır — iki ayet çelişmez.",
-          "noteEn": "Left hand or from behind? Ḥāqqah 69:25 says 'left,' Inshiqāq 84:10 says 'from behind.' Classical resolution: hands are bound behind, so the left hand takes the book *from behind* — the two verses do not contradict."
+          "noteTr": "Kitabın soldan mı arkadan mı verildiği tartışması: Hâkka 69:25 'solundan' der, İnşikâk 84:10 'arkasından' der. Klasik çözüm: eller arkaya bağlanır, kitap sol elle *arkadan* alınır; iki ayet çelişmez.",
+          "noteEn": "Left hand or from behind? Ḥāqqah 69:25 says 'left,' Inshiqāq 84:10 says 'from behind.' Classical resolution: hands are bound behind, so the left hand takes the book *from behind*; the two verses do not contradict."
         }
       ],
       "criticalNote": {
         "titleTr": "Yönler literal mi mecaz mı?",
         "titleEn": "Directions: literal or metaphor?",
-        "bodyTr": "'Sağ/sol/arka' ifadelerinin literal vs mecaz okuması klasik-modern arasında hafif bir vurgu farkına yol açar. Klasik çoğunluk (Râzî, Kurtubî, İbn Kesîr) literal fiziksel yönleri kabul eder; bazı modern yorumcular (Muhammed Abduh çizgisi) sembolik *statü* imgesi olarak okur. İki okumanın hiçbiri diğerini çürütmez — Kur'an'ın çift-katmanlı dili buna müsaittir.",
-        "bodyEn": "Reading 'right/left/behind' as literal vs metaphorical produces a mild difference of emphasis between classical and modern commentators. The classical majority (Rāzī, Qurṭubī, Ibn Kathīr) accepts literal physical directions; some moderns (the Muḥammad 'Abduh line) read them as symbolic *status*. Neither reading refutes the other — the Qur'an's two-layered language accommodates both."
+        "bodyTr": "'Sağ/sol/arka' ifadelerinin literal vs mecaz okuması klasik-modern arasında hafif bir vurgu farkına yol açar. Klasik çoğunluk (Râzî, Kurtubî, İbn Kesîr) literal fiziksel yönleri kabul eder; bazı modern yorumcular (Muhammed Abduh çizgisi) sembolik *statü* imgesi olarak okur. İki okumanın hiçbiri diğerini çürütmez; Kur'an'ın çift katmanlı dili buna müsaittir.",
+        "bodyEn": "Reading 'right/left/behind' as literal vs metaphorical produces a mild difference of emphasis between classical and modern commentators. The classical majority (Rāzī, Qurṭubī, Ibn Kathīr) accepts literal physical directions; some moderns (the Muḥammad 'Abduh line) read them as symbolic *status*. Neither reading refutes the other; the Qur'an's two-layered language accommodates both."
       },
       "visualMotif": "Işıklı sağ el + gölge sol el/arka metaforu; iki ele uzanan bir belge — biri parlak, biri karanlık. Palet: gold vs muted-graphite.",
       "crossLinks": [
         {
-          "labelTr": "Kıyâmet Sahneleri — Kitapların Dağıtılması (Faz 6)",
-          "labelEn": "Scenes of Resurrection — Distribution of Records (Phase 6)",
+          "labelTr": "Kıyâmet Sahneleri: Kitapların Dağıtılması (Faz 6)",
+          "labelEn": "Scenes of Resurrection: Distribution of Records (Phase 6)",
           "href": "/arac/kiyamet",
           "primary": true
         }
@@ -574,8 +574,8 @@
       "titleEn": "The Scales and the Reckoning",
       "category": "link-through",
       "iconKey": "mizan",
-      "descTr": "Zerre miktarı hayır ve şerin tartıldığı gün; hesap ferdîdir — yalnız Allah hesap görür.",
-      "descEn": "The day every atom's weight of good and evil is weighed; the reckoning is individual — only God reckons.",
+      "descTr": "Zerre miktarı hayır ve şerin tartıldığı gün; hesap ferdîdir; yalnız Allah hesap görür.",
+      "descEn": "The day every atom's weight of good and evil is weighed; the reckoning is individual; only God reckons.",
       "anchorVerseRef": {
         "surah": 21,
         "ayah": 47,
@@ -599,8 +599,8 @@
         {
           "surah": 88,
           "ayah": 26,
-          "noteTr": "'Sonra onların hesabı ancak Bize düşer.' — hesabın *yalnızca Allah'a ait* olduğunun kesin ifadesi.",
-          "noteEn": "'Then upon Us alone is their reckoning.' — the definitive statement that the reckoning belongs *only to God*.",
+          "noteTr": "'Sonra onların hesabı ancak Bize düşer.' Hesabın *yalnızca Allah'a ait* olduğunun kesin ifadesi.",
+          "noteEn": "'Then upon Us alone is their reckoning.' The definitive statement that the reckoning belongs *only to God*.",
           "arabic": "ثُمَّ اِنَّ عَلَيْنَا حِسَابَهُمْ",
           "surahName": "الغاشية",
           "surahNameEn": "The Overwhelming"
@@ -609,8 +609,8 @@
           "surah": 99,
           "ayah": 7,
           "range": "7-8",
-          "noteTr": "'Kim zerre miktarı hayır işlerse onu görür; kim zerre miktarı şer işlerse onu görür.' — mîzânın atom-ölçeği hassasiyeti.",
-          "noteEn": "'Whoever does an atom's weight of good will see it; whoever does an atom's weight of evil will see it.' — the atom-scale precision of the mīzān.",
+          "noteTr": "'Kim zerre miktarı hayır işlerse onu görür; kim zerre miktarı şer işlerse onu görür.' Mîzânın zerre ölçeğindeki hassasiyeti.",
+          "noteEn": "'Whoever does an atom's weight of good will see it; whoever does an atom's weight of evil will see it.' The atom-scale precision of the mīzān.",
           "arabic": "فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْراً يَرَهُ",
           "surahName": "الزلزلة",
           "surahNameEn": "The Earthquake"
@@ -626,20 +626,20 @@
           "surahNameEn": "The Calamity"
         }
       ],
-      "narrationTr": "Kur'an'da *mîzân* kelimesi çoğul ve tekil olarak farklı ayetlerde geçer. Enbiyâ 21:47'de 'el-mevâzîn' (teraziler — çoğul) kullanılırken, A'râf 7:8'de 'el-veznu yevme'izini'l-hakk' (tartı, o gün hakkın kendisidir) — tekil-nitelik olarak. Bu iki kullanım klasik tefsirde iki farklı okuma açar: (a) her kişi için ayrı terazi (Kurtubî'nin naklettiği çoğunluk görüşü); (b) tek evrensel mîzân, çoğul kullanım *çeşitlerin* çokluğuna işaret eder (Râzî'nin tercihi).\n\nHesap ise Kur'an'da *ferdî*dir — Bakara 2:48'in 'hiçbir nefsin başka nefsin yerine ödeme yapamayacağı' ilkesi burada kesin: yalnızca Allah hesap görür (Ğâşiye 88:26), ve zerre kadar da olsa her şey tartılır (Zilzâl 99:7-8).",
-      "narrationEn": "In the Qur'an, *mīzān* appears in different verses as both plural and singular. Anbiyā' 21:47 uses '*al-mawāzīn*' (scales — plural), while A'rāf 7:8 says '*al-waznu yawma'idhini'l-ḥaqq*' (the weight on that day is *the truth itself*) — singular in quality. These two usages open two readings in classical tafsir: (a) a separate scale for each person (Qurṭubī's reported majority view); (b) a single universal *mīzān*, the plural indicating the multiplicity of *kinds* being weighed (Rāzī's preference).\n\nThe reckoning (*ḥisāb*) is *individual* in the Qur'an — Baqarah 2:48's principle that 'no soul avails another' is definitive here: only God reckons (Ghāshiyah 88:26), and every atom's weight is weighed (Zilzāl 99:7-8).",
+      "narrationTr": "Kur'an'da *mîzân* kelimesi çoğul ve tekil olarak farklı ayetlerde geçer. Enbiyâ 21:47'de 'el-mevâzîn' (teraziler, çoğul) kullanılırken, A'râf 7:8'de 'el-veznu yevme'izini'l-hakk' (tartı, o gün hakkın kendisidir), tekil bir nitelik olarak. Bu iki kullanım klasik tefsirde iki farklı okuma açar: (a) her kişi için ayrı terazi (Kurtubî'nin naklettiği çoğunluk görüşü); (b) tek evrensel mîzân, çoğul kullanım *çeşitlerin* çokluğuna işaret eder (Râzî'nin tercihi).\n\nHesap ise Kur'an'da *ferdî*dir; Bakara 2:48'in 'hiçbir nefsin başka nefsin yerine ödeme yapamayacağı' ilkesi burada kesin: yalnızca Allah hesap görür (Ğâşiye 88:26), ve zerre kadar da olsa her şey tartılır (Zilzâl 99:7-8).",
+      "narrationEn": "In the Qur'an, *mīzān* appears in different verses as both plural and singular. Anbiyā' 21:47 uses '*al-mawāzīn*' (scales, plural), while A'rāf 7:8 says '*al-waznu yawma'idhini'l-ḥaqq*' (the weight on that day is *the truth itself*), singular in quality. These two usages open two readings in classical tafsir: (a) a separate scale for each person (Qurṭubī's reported majority view); (b) a single universal *mīzān*, the plural indicating the multiplicity of *kinds* being weighed (Rāzī's preference).\n\nThe reckoning (*ḥisāb*) is *individual* in the Qur'an; Baqarah 2:48's principle that 'no soul avails another' is definitive here: only God reckons (Ghāshiyah 88:26), and every atom's weight is weighed (Zilzāl 99:7-8).",
       "classicalTafsir": [
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Enbiyâ 21:47)",
-          "noteTr": "Mîzânın literal-fiziksel bir terazi mi, yoksa *tam-adalet* metaforu mu olduğu; Râzî her iki okumanın da Kur'an ve akılla bağdaştığını, birini kesinlikle çürütmediğini uzunca serimler — kelâmî metod açısından modelin bir örneği.",
-          "noteEn": "Whether the mīzān is a literal-physical scale or a *perfect-justice* metaphor; Rāzī extensively demonstrates that both readings agree with the Qur'an and reason, neither definitively refuting the other — a model example of kalām methodology."
+          "noteTr": "Mîzânın literal-fiziksel bir terazi mi, yoksa *tam-adalet* metaforu mu olduğu; Râzî her iki okumanın da Kur'an ve akılla bağdaştığını, birini kesinlikle çürütmediğini uzunca serimler; kelâm metodu açısından örnek bir model.",
+          "noteEn": "Whether the mīzān is a literal-physical scale or a *perfect-justice* metaphor; Rāzī extensively demonstrates that both readings agree with the Qur'an and reason, neither definitively refuting the other; a model example of kalām methodology."
         },
         {
           "source": "Kurtubî",
           "workRef": "el-Câmi' (A'râf 7:8)",
-          "noteTr": "Amellerin nasıl tartılacağı — amellerin kendisi mi, amellerin defterleri mi, amel sahibi mi tartılır? — üç ana görüşün rivayetlerle desteği ve tartışması.",
-          "noteEn": "How deeds are weighed — the deeds themselves, the records of deeds, or the doer? — three main views with their narrations and analysis."
+          "noteTr": "Amellerin nasıl tartılacağı (amellerin kendisi mi, amellerin defterleri mi, amel sahibi mi tartılır?); üç ana görüşün rivayetlerle desteği ve tartışması.",
+          "noteEn": "How deeds are weighed (the deeds themselves, the records of deeds, or the doer?); three main views with their narrations and analysis."
         },
         {
           "source": "İbn Kesîr",
@@ -651,14 +651,14 @@
       "criticalNote": {
         "titleTr": "Terazi literal mi mecaz mı?",
         "titleEn": "The Scale: literal or metaphor?",
-        "bodyTr": "Ehl-i Sünnet çoğunluğu (Râzî'nin bir yorumu dahil): Mîzân literal olarak vardır; ama 'nasıl' olduğu bilinemez (*bilâ keyf*). Ayet ve hadîs açık.\n\nMu'tezile (Kâdî Abdulcabbâr): Mîzân *mecazî*dir — 'tam adaletin' temsili sembolik dilidir; çünkü amel bir varlık değil, bir *nitelik*tir ve nitelikler literal tartılamaz.\n\nSünnî cevap: Amel Allah katında bir *hakîkati* olan şeydir; tartılmasının imkanı da bu hakikatte gizlidir. İki taraf da metnin *ne dediğini* aynı okur; farklı olan *ontoloji* varsayımlarıdır.",
-        "bodyEn": "Sunni majority (including one of Rāzī's readings): The mīzān exists literally, but *how* is unknowable (*bilā kayf*). The verse and hadith are clear.\n\nMu'tazila (al-Qāḍī 'Abd al-Jabbār): The mīzān is *metaphorical* — the symbolic language of perfect justice; because a deed is not a substance but a *quality*, and qualities cannot be weighed literally.\n\nSunni reply: A deed has a *reality* with God; the possibility of its weighing is hidden in that reality. Both sides read *what the text says* the same; what differs is their *ontological* assumptions."
+        "bodyTr": "Ehl-i Sünnet çoğunluğu (Râzî'nin bir yorumu dahil): Mîzân literal olarak vardır; ama 'nasıl' olduğu bilinemez (*bilâ keyf*). Ayet ve hadîs açık.\n\nMu'tezile (Kâdî Abdulcabbâr): Mîzân *mecazî*dir, 'tam adaletin' temsilî sembolik dilidir; çünkü amel bir varlık değil, bir *nitelik*tir ve nitelikler literal tartılamaz.\n\nSünnî cevap: Amel Allah katında bir *hakîkati* olan şeydir; tartılmasının imkanı da bu hakikatte gizlidir. İki taraf da metnin *ne dediğini* aynı okur; farklı olan *ontoloji* varsayımlarıdır.",
+        "bodyEn": "Sunni majority (including one of Rāzī's readings): The mīzān exists literally, but *how* is unknowable (*bilā kayf*). The verse and hadith are clear.\n\nMu'tazila (al-Qāḍī 'Abd al-Jabbār): The mīzān is *metaphorical*, the symbolic language of perfect justice; because a deed is not a substance but a *quality*, and qualities cannot be weighed literally.\n\nSunni reply: A deed has a *reality* with God; the possibility of its weighing is hidden in that reality. Both sides read *what the text says* the same; what differs is their *ontological* assumptions."
       },
       "visualMotif": "Klasik iki-kefeli terazi silüeti — bir kefe altın ışıkla parlarken, diğerinde ağırlığın kaldıramadığı bir şey yavaşça yükseliyor. Zerre-parçacıkları terazinin çevresinde dönerken.",
       "crossLinks": [
         {
-          "labelTr": "Kıyâmet Sahneleri — Hesap + Mîzân (Fazlar 4-5)",
-          "labelEn": "Scenes of Resurrection — Reckoning + Scales (Phases 4-5)",
+          "labelTr": "Kıyâmet Sahneleri: Hesap ve Mîzân (Fazlar 4-5)",
+          "labelEn": "Scenes of Resurrection: Reckoning and Scales (Phases 4-5)",
           "href": "/arac/kiyamet",
           "primary": true
         }
@@ -687,8 +687,8 @@
         {
           "surah": 2,
           "ayah": 255,
-          "noteTr": "'İzni olmadıkça O'nun katında kim şefâat edebilir?' — şefâatin izne bağlı olduğunun temel ilkesi (Âyet el-Kürsî).",
-          "noteEn": "'Who can intercede with Him except by His permission?' — the foundational principle of intercession being conditional on permission (Āyat al-Kursī).",
+          "noteTr": "'İzni olmadıkça O'nun katında kim şefâat edebilir?' Şefâatin izne bağlı olduğunun temel ilkesi (Âyetü'l-Kürsî).",
+          "noteEn": "'Who can intercede with Him except by His permission?' The foundational principle that intercession is conditional on permission (Āyat al-Kursī).",
           "arabic": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُدُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
           "surahName": "البقرة",
           "surahNameEn": "The Cow"
@@ -721,8 +721,8 @@
           "surahNameEn": "The Prophets"
         }
       ],
-      "narrationTr": "*Havz-ı Kevser* (Kevser Havuzu) doğrudan Kur'an'da 'havz' kelimesiyle geçmez — Kevser sûresi 108:1'de sadece 'Kevser' (bol/hayır çokluğu) verilir. Havzın *fiziksel* betimi (sütten beyaz, misk kokusundan güzel, gümüş kâseler) tamamen hadîs geleneğine aittir (Buhârî'nin *Rikâk* kitabı, Müslim'in *Fedâil* kitabındaki 'Havz' bâbları). Kur'an, Kevser'i *hediye* olarak takdim eder; havz olarak tefsir eden bir sahâbî yorumu (İbn Abbâs'a nispet edilen) klasik dönemde yaygınlaşmıştır.\n\n*Şefâat* ise Kur'an'da açık şekilde işlenir — ama çok sıkı bir çerçevede: (1) izne bağlıdır (Bakara 2:255, Yûnus 10:3); (2) râzı olunan kimseye yapılır (Enbiyâ 21:28); (3) Rahmân katında 'ahid edinmiş' olanlar için geçerlidir (Meryem 19:87). Bu üç şart Kur'an'ın şefâat anlayışının *çekirdeği*dir.",
-      "narrationEn": "*Ḥawḍ al-Kawthar* (the Basin of Kawthar) does not appear in the Qur'an by the word '*ḥawḍ*' — Sūrat al-Kawthar 108:1 gives only '*al-kawthar*' (abundance). The *physical* description of the basin (whiter than milk, silver cups, aromatic vessels) belongs entirely to the hadith tradition (the 'Ḥawḍ' chapters in Bukhārī and Muslim). The Qur'an presents *al-kawthar* as a *gift*; interpreting it as the basin is a Companion-attributed reading (traced to Ibn 'Abbās) that became widespread in the classical period.\n\n*Intercession* (*shafā'ah*) is treated openly in the Qur'an — but within tight limits: (1) it depends on permission (Baqarah 2:255, Yūnus 10:3); (2) it is for those with whom God is pleased (Anbiyā' 21:28); (3) it is available for those who have 'made a covenant' with the All-Merciful (Maryam 19:87). These three conditions are the *core* of the Qur'anic understanding of intercession.",
+      "narrationTr": "*Havz-ı Kevser* (Kevser Havuzu) doğrudan Kur'an'da 'havz' kelimesiyle geçmez; Kevser sûresi 108:1'de yalnızca 'Kevser' (bol hayır, çokluk) verilir. Havzın *fiziksel* betimi (sütten beyaz, misk kokusundan güzel, gümüş kâseler) tamamen hadîs geleneğine aittir (Buhârî'nin *Rikâk* kitabı, Müslim'in *Fedâil* kitabındaki 'Havz' bâbları). Kur'an, Kevser'i *hediye* olarak takdim eder; havz olarak tefsir eden bir sahâbî yorumu (İbn Abbâs'a nispet edilen) klasik dönemde yaygınlaşmıştır.\n\n*Şefâat* ise Kur'an'da açık şekilde işlenir, ama çok sıkı bir çerçevede: izne bağlıdır (Bakara 2:255, Yûnus 10:3); râzı olunan kimseye yapılır (Enbiyâ 21:28); Rahmân katında 'ahid edinmiş' olanlar için geçerlidir (Meryem 19:87). Bu üç şart Kur'an'ın şefâat anlayışının *çekirdeği*dir.",
+      "narrationEn": "*Ḥawḍ al-Kawthar* (the Basin of Kawthar) does not appear in the Qur'an by the word '*ḥawḍ*'; Sūrat al-Kawthar 108:1 gives only '*al-kawthar*' (abundance). The *physical* description of the basin (whiter than milk, silver cups, aromatic vessels) belongs entirely to the hadith tradition (the 'Ḥawḍ' chapters in Bukhārī and Muslim). The Qur'an presents *al-kawthar* as a *gift*; interpreting it as the basin is a Companion-attributed reading (traced to Ibn 'Abbās) that became widespread in the classical period.\n\n*Intercession* (*shafā'ah*) is treated openly in the Qur'an, but within tight limits: it depends on permission (Baqarah 2:255, Yūnus 10:3); it is for those with whom God is pleased (Anbiyā' 21:28); and it is available for those who have 'made a covenant' with the All-Merciful (Maryam 19:87). These three conditions are the *core* of the Qur'anic understanding of intercession.",
       "classicalTafsir": [
         {
           "source": "Râzî",
@@ -739,21 +739,21 @@
         {
           "source": "Suyûtî",
           "workRef": "el-Budûr es-Sâfira",
-          "noteTr": "Havz ve şefâat rivayetlerinin toplu tasnifi; hadîs-bazlı ayrıntıların sistematik dokümantasyonu — Kur'an-hadîs iş bölümünün klasik metodoloji ile nasıl yönetildiğinin örneği.",
-          "noteEn": "Systematic classification of narrations on the basin and intercession; documentation of hadith-based details — an example of how the Qur'an–hadith division of labor is managed in classical methodology."
+          "noteTr": "Havz ve şefâat rivayetlerinin toplu tasnifi; hadîs temelli ayrıntıların sistematik dokümantasyonu; Kur'an ile hadîs arasındaki iş bölümünün klasik metodoloji ile nasıl yönetildiğinin örneği.",
+          "noteEn": "Systematic classification of narrations on the basin and intercession; documentation of hadith-based details; an example of how the Qur'an–hadith division of labor is managed in classical methodology."
         }
       ],
       "criticalNote": {
-        "titleTr": "Şefâat kapsamı — klasik ihtilâfın en kritik noktalarından biri",
-        "titleEn": "Scope of intercession — one of the most critical classical disputes",
-        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Peygamber'in *şefâat-i uzmâ*'sı (büyük şefâat) *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabittir; ayrıca sâlihlerin, meleklerin, hafızların şefâati de mümkündür — hepsi *izinle*.\n\nMu'tezile: Şefâat *sadece derece yükseltmek için* kabul edilir; büyük günah işlemiş mü'minin cehennemden çıkarılması için kabul edilmez, çünkü bu 'va'd ve vaîd' (Allah'ın vaadi ve tehdidi) ilkesiyle çelişir. Ehl-i Sünnet ise cehennemden çıkarma şefâatini rivayetlerle savunur.\n\nBu tartışma *reddetme-kabul etme* değil, *kapsam* meselesidir. Kur'an'ın 'izne bağlı' çerçevesi her iki tarafın da hareket zeminidir.",
-        "bodyEn": "Sunni orthodoxy: The Prophet's *shafā'ah al-'uẓmā* (Great Intercession) is at mutawātir level; the intercession of the righteous, angels, and memorizers of the Qur'an is also possible — all by *permission*.\n\nMu'tazila: Intercession is accepted *only for elevating ranks*; not for removing a major-sin-committing believer from Hell, since that conflicts with the principle of 'wa'd and wa'īd' (God's promise and threat). Sunnism defends the removing-from-Hell intercession through narrations.\n\nThis debate is one of *scope*, not of *acceptance versus rejection*. The Qur'an's 'by permission' frame is the ground on which both sides move."
+        "titleTr": "Şefâat kapsamı: klasik ihtilâfın en kritik noktalarından biri",
+        "titleEn": "Scope of intercession: one of the most critical classical disputes",
+        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Peygamber'in *şefâat-i uzmâ*'sı (büyük şefâat) *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabittir; ayrıca sâlihlerin, meleklerin, hafızların şefâati de mümkündür; hepsi *izinle*.\n\nMu'tezile: Şefâat *sadece derece yükseltmek için* kabul edilir; büyük günah işlemiş mü'minin cehennemden çıkarılması için kabul edilmez, çünkü bu 'va'd ve vaîd' (Allah'ın vaadi ve tehdidi) ilkesiyle çelişir. Ehl-i Sünnet ise cehennemden çıkarma şefâatini rivayetlerle savunur.\n\nBu tartışma *reddetme-kabul etme* değil, *kapsam* meselesidir. Kur'an'ın 'izne bağlı' çerçevesi her iki tarafın da hareket zeminidir.",
+        "bodyEn": "Sunni orthodoxy: The Prophet's *shafā'ah al-'uẓmā* (Great Intercession) is at mutawātir level; the intercession of the righteous, angels, and memorizers of the Qur'an is also possible; all by *permission*.\n\nMu'tazila: Intercession is accepted *only for elevating ranks*; not for removing a major-sin-committing believer from Hell, since that conflicts with the principle of 'wa'd and wa'īd' (God's promise and threat). Sunnism defends the removing-from-Hell intercession through narrations.\n\nThis debate is one of *scope*, not of *acceptance versus rejection*. The Qur'an's 'by permission' frame is the ground on which both sides move."
       },
       "visualMotif": "Işıltılı beyaz-gümüşî bir havuz; kenarlarında gümüş kâseler dizisi; havuzdan yansıyan ışık üstünde asılı duruyor. Palet: kırık beyaz + gümüş + soft-gold accent.",
       "crossLinks": [
         {
-          "labelTr": "Melekler — meleklerin şefâat rolü (Enbiyâ 21:28)",
-          "labelEn": "Angels — angelic intercession (Anbiyā' 21:28)",
+          "labelTr": "Melekler: meleklerin şefâat rolü (Enbiyâ 21:28)",
+          "labelEn": "Angels: angelic intercession (Anbiyā' 21:28)",
           "href": "/arac/melekler"
         }
       ]
@@ -781,8 +781,8 @@
         {
           "surah": 37,
           "ayah": 24,
-          "noteTr": "'Onları durdurun, çünkü onlar sorguya çekileceklerdir.' — sırât üstünde bir *durdurma anı*nın klasik yorumu.",
-          "noteEn": "'Detain them, for they are to be questioned.' — the classical reading of a *stopping moment* on the ṣirāṭ.",
+          "noteTr": "'Onları durdurun, çünkü onlar sorguya çekileceklerdir.' Sırât üstünde bir *durdurma anı*nın klasik yorumu.",
+          "noteEn": "'Detain them, for they are to be questioned.' The classical reading of a *stopping moment* on the ṣirāṭ.",
           "arabic": "وَقِفُوهُمْ اِنَّهُمْ مَسْؤُلُونَ",
           "surahName": "الصافات",
           "surahNameEn": "Those who set the Ranks"
@@ -790,15 +790,15 @@
         {
           "surah": 1,
           "ayah": 6,
-          "noteTr": "'İhdinâ's-sırâta'l-müstakîm' — sırâtın öncelikle *bu dünya hidayet yolu* olduğu ilkesi; âhiretteki sırât klasik yorumda bu dünyadaki sırâtın yansımasıdır.",
-          "noteEn": "'Guide us to the straight path.' — the principle that ṣirāṭ is primarily the *this-world path of guidance*; the hereafter's ṣirāṭ, in classical reading, is the reflection of the worldly one.",
+          "noteTr": "'İhdinâ's-sırâta'l-müstakîm': sırâtın öncelikle *bu dünya hidayet yolu* olduğu ilkesi; âhiretteki sırât klasik yorumda bu dünyadaki sırâtın yansımasıdır.",
+          "noteEn": "'Guide us to the straight path.' The principle that ṣirāṭ is primarily the *this-world path of guidance*; the hereafter's ṣirāṭ, in classical reading, is the reflection of the worldly one.",
           "arabic": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
           "surahName": "الفاتحة",
           "surahNameEn": "The Opener"
         }
       ],
-      "narrationTr": "Kur'an'da *sırât köprüsü* (âhirette cehennem üzerine kurulu köprü) kelimesi ve tasviri açık şekilde geçmez. Sırât kelimesi Kur'an'da 45+ yerde geçer — çoğunluğu 'sırât-ı müstakîm' (doğru yol) yani *bu dünyadaki hidayet yolu* anlamındadır. Âhiretteki sırât köprüsü kavramı, Meryem 19:71-72'nin 'içinizden oraya uğramayacak hiç kimse yoktur' ifadesi üzerine, hadîs geleneğindeki köprü rivayetleri (Buhârî, Müslim'in Rikâk bölümleri) eklenerek klasik tefsire yerleşmiştir.\n\nMeryem ayeti Kur'an'ın tek başına verdiği manzarayı çizer: *herkes* cehenneme 'uğrar' (*vârid*) — muttakîler kurtarılır, zâlimler diz üstü çöker. Bu 'uğrama' fiilinin *nasıl* olduğu ayette anlatılmaz — köprü yorumu buradadır. Sâffât 37:23-24'ün 'onları durdurun' ifadesi klasik tefsirde sırâtın üzerindeki *sorgu anı* olarak yorumlanır.",
-      "narrationEn": "The word and description of the *bridge of ṣirāṭ* (a bridge over Hell in the hereafter) does not appear explicitly in the Qur'an. The word *ṣirāṭ* occurs in 45+ places — most in the sense of *ṣirāṭ al-mustaqīm* (the straight path), that is, the *this-world path of guidance*. The concept of the hereafter's bridge entered classical tafsir when hadith reports about the bridge (in the Riqāq chapters of Bukhārī and Muslim) were joined onto Maryam 19:71-72's statement that 'there is not one of you but will come to it.'\n\nThe verse in Maryam sketches the Qur'an's own image: *everyone* comes to (*wārid*) Hell — the God-conscious are saved, the wrongdoers left kneeling. The verse does not describe *how* this coming happens — that is where the bridge interpretation enters. Al-Ṣāffāt 37:23-24's 'detain them' is read in classical tafsir as the *questioning moment* on the bridge.",
+      "narrationTr": "Kur'an'da *sırât köprüsü* (âhirette cehennem üzerine kurulu köprü) kelimesi ve tasviri açık şekilde geçmez. Sırât kelimesi Kur'an'da 45'ten fazla yerde geçer; çoğunluğu 'sırât-ı müstakîm' (doğru yol), yani *bu dünyadaki hidayet yolu* anlamındadır. Âhiretteki sırât köprüsü kavramı, Meryem 19:71-72'nin 'içinizden oraya uğramayacak hiç kimse yoktur' ifadesi üzerine, hadîs geleneğindeki köprü rivayetleri (Buhârî, Müslim'in Rikâk bölümleri) eklenerek klasik tefsire yerleşmiştir.\n\nMeryem ayeti Kur'an'ın tek başına verdiği manzarayı çizer: *herkes* cehenneme 'uğrar' (*vârid*); muttakîler kurtarılır, zâlimler diz üstü çöker. Bu 'uğrama' fiilinin *nasıl* olduğu ayette anlatılmaz; köprü yorumu buraya girer. Sâffât 37:23-24'ün 'onları durdurun' ifadesi klasik tefsirde sırâtın üzerindeki *sorgu anı* olarak yorumlanır.",
+      "narrationEn": "The word and description of the *bridge of ṣirāṭ* (a bridge over Hell in the hereafter) does not appear explicitly in the Qur'an. The word *ṣirāṭ* occurs in more than 45 places; most in the sense of *ṣirāṭ al-mustaqīm* (the straight path), that is, the *this-world path of guidance*. The concept of the hereafter's bridge entered classical tafsir when hadith reports about the bridge (in the Riqāq chapters of Bukhārī and Muslim) were joined onto Maryam 19:71-72's statement that 'there is not one of you but will come to it.'\n\nThe verse in Maryam sketches the Qur'an's own image: *everyone* comes to (*wārid*) Hell; the God-conscious are saved, the wrongdoers left kneeling. The verse does not describe *how* this coming happens; that is where the bridge interpretation enters. Al-Ṣāffāt 37:23-24's 'detain them' is read in classical tafsir as the *questioning moment* on the bridge.",
       "classicalTafsir": [
         {
           "source": "Râzî",
@@ -815,21 +815,21 @@
         {
           "source": "Suyûtî",
           "workRef": "el-Budûr es-Sâfira",
-          "noteTr": "Sırât köprüsü rivayetlerinin toplu tasnifi — 20+ rivayetin birlikte okunması.",
-          "noteEn": "Systematic classification of ṣirāṭ narrations — a joint reading of 20+ reports."
+          "noteTr": "Sırât köprüsü rivayetlerinin toplu tasnifi; 20'den fazla rivayetin birlikte okunması.",
+          "noteEn": "Systematic classification of ṣirāṭ narrations; a joint reading of more than 20 reports."
         }
       ],
       "criticalNote": {
-        "titleTr": "Sırât köprüsü — rivayet epistemolojisi meselesi",
-        "titleEn": "The bridge of ṣirāṭ — a question of narration epistemology",
-        "bodyTr": "Ehl-i Sünnet çoğunluğu: Sırât köprüsü hakîkî bir gerçekliktir; *nasıl* olduğu bilinemez ama vardır. Ayet + hadîs birleşimi bunu sabit kılar.\n\nMu'tezile & bazı erken kelâmî çevreler: Sırât köprüsü hadîs-bazlı olduğu için akîde bağlayıcısı değil; ancak *mecazî* olarak 'amel yolunun sınavı' şeklinde okunabilir. Bu yorum modern dönemde bazı Sünnî reformcular (Muhammed Abduh çizgisi) tarafından da benimsenmiştir.\n\nEhl-i Sünnet'e cevap: Meryem 19:71-72 açık ayettir; 'vârid' fiili boş bir söz değildir — köprü yorumu bu ayeti *anlamlı* kılan hipotezdir.\n\nBu bir 'hakikat vs efsane' tartışması değil, *rivayet epistemolojisi* meselesidir.",
-        "bodyEn": "Sunni majority: The bridge of ṣirāṭ is a real reality; *how* it is unknowable but it exists. The union of verse and hadith establishes it.\n\nMu'tazila & some early kalām circles: The bridge, being hadith-based, is not binding on creed; but it may be read *metaphorically* as 'the test of the path of deeds.' This reading has been adopted in modern times by some Sunni reformers (the Muḥammad 'Abduh line).\n\nSunni reply: Maryam 19:71-72 is a clear verse; the verb 'wārid' is not empty — the bridge interpretation is the hypothesis that makes it *meaningful*.\n\nThis is not a 'truth vs legend' debate but a question of *narration epistemology*."
+        "titleTr": "Sırât köprüsü: rivayet epistemolojisi meselesi",
+        "titleEn": "The bridge of ṣirāṭ: a question of narration epistemology",
+        "bodyTr": "Ehl-i Sünnet çoğunluğu: Sırât köprüsü hakîkî bir gerçekliktir; *nasıl* olduğu bilinemez ama vardır. Ayet + hadîs birleşimi bunu sabit kılar.\n\nMu'tezile & bazı erken kelâmî çevreler: Sırât köprüsü hadîs-bazlı olduğu için akîde bağlayıcısı değil; ancak *mecazî* olarak 'amel yolunun sınavı' şeklinde okunabilir. Bu yorum modern dönemde bazı Sünnî reformcular (Muhammed Abduh çizgisi) tarafından da benimsenmiştir.\n\nEhl-i Sünnet'e cevap: Meryem 19:71-72 açık ayettir; 'vârid' fiili boş bir söz değildir; köprü yorumu bu ayeti *anlamlı* kılan hipotezdir.\n\nBu bir 'hakikat vs efsane' tartışması değil, *rivayet epistemolojisi* meselesidir.",
+        "bodyEn": "Sunni majority: The bridge of ṣirāṭ is a real reality; *how* it is unknowable but it exists. The union of verse and hadith establishes it.\n\nMu'tazila & some early kalām circles: The bridge, being hadith-based, is not binding on creed; but it may be read *metaphorically* as 'the test of the path of deeds.' This reading has been adopted in modern times by some Sunni reformers (the Muḥammad 'Abduh line).\n\nSunni reply: Maryam 19:71-72 is a clear verse; the verb 'wārid' is not empty; the bridge interpretation is the hypothesis that makes it *meaningful*.\n\nThis is not a 'truth vs legend' debate but a question of *narration epistemology*."
       },
       "visualMotif": "Karanlık uçurum üzerinde uzanan ışık şeridi; geçiş yönünde silüetler, altta puslu bir derinlik. Palet: derin siyah + parlayan altın çizgi.",
       "crossLinks": [
         {
-          "labelTr": "Kıyâmet Sahneleri — Son/Karar (Faz 7)",
-          "labelEn": "Scenes of Resurrection — Final Judgment (Phase 7)",
+          "labelTr": "Kıyâmet Sahneleri: Son ve Karar (Faz 7)",
+          "labelEn": "Scenes of Resurrection: Final Judgment (Phase 7)",
           "href": "/arac/kiyamet",
           "primary": true
         }
@@ -839,8 +839,8 @@
       "id": "cennet-cehennem-son",
       "index": 10,
       "arabicTerm": "الْجَنَّةُ وَالنَّار",
-      "titleTr": "Cennet & Cehennem — Son Duraklar",
-      "titleEn": "Paradise & Hell — Final Destinations",
+      "titleTr": "Cennet & Cehennem: Son Duraklar",
+      "titleEn": "Paradise & Hell: Final Destinations",
       "category": "link-through",
       "iconKey": "cennet-cehennem",
       "descTr": "İlâhî hükmün nihai kristalleşmesi. Kur'an'da her cennet ayeti bir cehennem ayetine ritmik olarak karşılık gelir.",
@@ -868,8 +868,8 @@
         {
           "surah": 2,
           "ayah": 25,
-          "noteTr": "'İman edip sâlih ameller işleyenlere ise, altından ırmaklar akan cennetler olduğunu müjdele.' — cennet müjdesinin en tipik formatı.",
-          "noteEn": "'Give glad tidings to those who believe and do righteous deeds — for them are Gardens beneath which rivers flow.' — the most typical form of the Paradise glad tidings.",
+          "noteTr": "'İman edip sâlih ameller işleyenlere ise, altından ırmaklar akan cennetler olduğunu müjdele.' Cennet müjdesinin en tipik biçimi.",
+          "noteEn": "'Give glad tidings to those who believe and do righteous deeds: for them are Gardens beneath which rivers flow.' The most typical form of the Paradise glad tidings.",
           "arabic": "وَبَشِّرِ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ اَنَّ لَهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ كُلَّمَا رُزِقُوا مِنْهَا مِنْ ثَمَرَةٍ رِزْقاً قَالُوا هٰذَا الَّذِي رُزِقْنَا مِنْ قَبْلُ وَاُتُوا بِهِ مُتَشَابِهاً وَلَهُمْ فِيهٓا اَزْوَاجٌ مُطَهَّرَةٌ وَهُمْ فِيهَا خَالِدُونَ",
           "surahName": "البقرة",
           "surahNameEn": "The Cow"
@@ -905,14 +905,14 @@
       "visualMotif": "İki paralel kapı — biri açık, ardında ışık; diğeri de açık, ardında koyu-kırmızı bir yoğunluk. Kapılar arasında bir simetri çizgisi.",
       "crossLinks": [
         {
-          "labelTr": "Cennet & Cehennem — cennet isimleri, cehennem isimleri, meyveler, ırmaklar, nimet-azap dili paralelleri",
-          "labelEn": "Paradise & Hell — names of Paradise, names of Hell, fruits, rivers, parallels of bliss and torment",
+          "labelTr": "Cennet & Cehennem: cennet isimleri, cehennem isimleri, meyveler, ırmaklar, nimet ve azap dilinin paralelleri",
+          "labelEn": "Paradise & Hell: names of Paradise, names of Hell, fruits, rivers, parallels of bliss and torment",
           "href": "/arac/cennet-cehennem",
           "primary": true
         },
         {
-          "labelTr": "Kıyâmet Sahneleri — Faz 7 (cennet-daveti, cehennem-sürülme)",
-          "labelEn": "Scenes of Resurrection — Phase 7 (invitation to Paradise, driving to Hell)",
+          "labelTr": "Kıyâmet Sahneleri: Faz 7 (cennete davet, cehenneme sürülme)",
+          "labelEn": "Scenes of Resurrection: Phase 7 (invitation to Paradise, driving to Hell)",
           "href": "/arac/kiyamet"
         }
       ]
@@ -921,12 +921,12 @@
       "id": "ruyetullah",
       "index": 11,
       "arabicTerm": "رُؤْيَةُ اللَّه",
-      "titleTr": "Rü'yetullâh — Allah'ın Cemâli",
-      "titleEn": "Ru'yatullāh — The Vision of God",
+      "titleTr": "Rü'yetullâh: Allah'ın Cemâli",
+      "titleEn": "Ru'yatullāh: The Vision of God",
       "category": "yeni-icerik",
       "iconKey": "ruyet",
-      "descTr": "Cennette mü'minlere verilen en büyük nimet — yön/mekân/zaman çerçevesi olmaksızın Rabb'i görme.",
-      "descEn": "The greatest blessing given to believers in Paradise — seeing the Lord without direction, place, or temporal frame.",
+      "descTr": "Cennette mü'minlere verilen en büyük nimet: yön, mekân ve zaman çerçevesi olmaksızın Rabb'i görme.",
+      "descEn": "The greatest blessing given to believers in Paradise: seeing the Lord without direction, place or temporal frame.",
       "anchorVerseRef": {
         "surah": 75,
         "ayah": 22,
@@ -940,8 +940,8 @@
         {
           "surah": 10,
           "ayah": 26,
-          "noteTr": "'Güzel iş yapanlara el-hüsnâ (en güzel karşılık) ve ziyâde (fazlası) vardır.' — klasik Ehl-i Sünnet yorumunda *ziyâde* rü'yetullâhtır (Müslim'in *Kitâbu'l-Îmân*'ında Suheyb b. Sinân rivayetiyle sabit; Muhammed Fuâd Abdülbâkî neşri hadis no. 181).",
-          "noteEn": "'For those who do good is the best reward and more (ziyādah).' — in classical Sunni reading, *ziyādah* is ru'yatullāh (Muslim, Īmān 297).",
+          "noteTr": "'Güzel iş yapanlara el-hüsnâ (en güzel karşılık) ve ziyâde (fazlası) vardır.' Klasik Ehl-i Sünnet yorumunda *ziyâde* rü'yetullâhtır (Müslim'in *Kitâbu'l-Îmân*'ında Suheyb b. Sinân rivayetiyle sabit; Muhammed Fuâd Abdülbâkî neşri hadis no. 181).",
+          "noteEn": "'For those who do good is the best reward and more (ziyādah).' In the classical Sunni reading, *ziyādah* is ru'yatullāh (Muslim, Īmān 297).",
           "arabic": "لِلَّذِينَ اَحْسَنُوا الْحُسْنٰى وَزِيَادَةٌ وَلَا يَرْهَقُ وُجُوهَهُمْ قَتَرٌ وَلَا ذِلَّةٌ اُولٰٓئِكَ اَصْحَابُ الْجَنَّةِ هُمْ فِيهَا خَالِدُونَ",
           "surahName": "يونس",
           "surahNameEn": "Jonah"
@@ -949,8 +949,8 @@
         {
           "surah": 83,
           "ayah": 15,
-          "noteTr": "'Hayır, doğrusu onlar o gün Rablerinden perdelenirler.' — kâfirlerin rü'yetullâhtan mahrûm oluşu; Şafiî usûlüne göre *mefhûm-u muhâlefe* ile mü'minlerin görmesi çıkarılır. (Hanefî usûlü mefhûm-u muhâlefeyi delîl kabul etmez; Mu'tezile de bu çıkarımı reddeder — 'perdelenmeme' rahmet açılışı olarak okunur.)",
-          "noteEn": "'No, indeed! On that day they will be veiled from their Lord.' — the unbelievers' deprivation; through *mafhūm al-mukhālafah* the believers' vision is inferred.",
+          "noteTr": "'Hayır, doğrusu onlar o gün Rablerinden perdelenirler.' Kâfirlerin rü'yetullâhtan mahrum oluşu; Şafiî usûlüne göre *mefhûm-u muhâlefe* ile mü'minlerin görmesi çıkarılır. (Hanefî usûlü mefhûm-u muhâlefeyi delîl kabul etmez; Mu'tezile de bu çıkarımı reddeder; 'perdelenmeme' rahmet açılışı olarak okunur.)",
+          "noteEn": "'No, indeed! On that day they will be veiled from their Lord.' The unbelievers' deprivation; through *mafhūm al-mukhālafah* the believers' vision is inferred.",
           "arabic": "كَلّٓا اِنَّهُمْ عَنْ رَبِّهِمْ يَوْمَئِذٍ لَمَحْجُوبُونَ",
           "surahName": "المطففين",
           "surahNameEn": "The Defrauding"
@@ -958,51 +958,51 @@
         {
           "surah": 7,
           "ayah": 143,
-          "noteTr": "Mûsâ'nın Rabb'i görme talebi ve 'len terânî' (beni göremezsin) cevabı — bu dünyada rü'yetin imkânsızlığının klasik delili; âhiret rü'yeti bu ayetin dışındadır (Sünnî yorum).",
-          "noteEn": "Moses' request to see the Lord and the reply 'lan tarānī' (you will not see Me) — the classical proof of vision's impossibility in this world; the hereafter's vision is outside this verse's scope (Sunni reading).",
+          "noteTr": "Mûsâ'nın Rabb'i görme talebi ve 'len terânî' (beni göremezsin) cevabı; bu dünyada rü'yetin imkânsızlığının klasik delili, âhiret rü'yeti bu ayetin dışındadır (Sünnî yorum).",
+          "noteEn": "Moses' request to see the Lord and the reply 'lan tarānī' (you will not see Me); the classical proof of vision's impossibility in this world, the hereafter's vision is outside this verse's scope (Sunni reading).",
           "arabic": "وَلَمَّا جٓاءَ مُوسٰى لِمِيقَاتِنَا وَكَلَّمَهُ رَبُّهُ قَالَ رَبِّ اَرِنِٓي اَنْظُرْ اِلَيْكَ قَالَ لَنْ تَرٰينِي وَلٰكِنِ انْظُرْ اِلَى الْجَبَلِ فَاِنِ اسْتَقَرَّ مَكَانَهُ فَسَوْفَ تَرٰينِي فَلَمَّا تَجَلّٰى رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكاًّ وَخَرَّ مُوسٰى صَعِقاً فَلَمّٓا اَفَاقَ قَالَ سُبْحَانَكَ تُبْتُ اِلَيْكَ وَاَنَا اَوَّلُ الْمُؤْمِنِينَ",
           "surahName": "الأعراف",
           "surahNameEn": "The Heights"
         }
       ],
-      "narrationTr": "Rü'yetullâh (Allah'ın cemâlini görme) meselesi Kur'an'ı okuma metodolojisinin en yoğunlaştığı yerlerden biridir. Kıyâme 75:22-23'ün 'Rablerine bakan yüzler' ifadesini Ehl-i Sünnet literal alır — cennette mü'minlere verilen en büyük nimet, bir yön/mekân/zaman çerçevesi olmadan Allah'ı görmektir. Mutaffifîn 83:15 ise ters yönden delildir: kâfirlerin *perdelenmesi* zikredilince, mü'minlerin *perdelenmemesi* çıkarımı yapılır. Yûnus 10:26'nın *ziyâde*si bu kompozisyonun üçüncü halkasıdır.\n\nMu'tezile klasik ekolü ise farklı bir metodoloji izler: Şûrâ 42:11'in *leyse ke-mislihî şey* (O'nun benzeri hiçbir şey yoktur) ilkesi görmeyi imkânsız kılar — çünkü görme *sınır*, *mekân*, *ışık huzmesi* gerektirir; bunlar Allah'a yakıştırılamaz. Kıyâme 75:22'deki 'bakan' fiilini Mu'tezile *beklentiyle bakma* — sevap, rahmet, nimet bekleme — anlamında okur.\n\nBu tartışma Kur'ânî lâfza saygının *nasıl* gösterileceği tartışmasıdır: literal yön mü, sistematik-teolojik tutarlılık yönü mü? Her iki tarafın da metinsel dayanakları vardır; ihtilâf yorum çerçevesinin nereden başladığındadır.",
-      "narrationEn": "The question of *ru'yatullāh* (the vision of God) is one of the most methodologically loaded moments in Qur'anic interpretation. Sunni orthodoxy takes Qiyāma 75:22-23's 'faces gazing at their Lord' literally — the greatest blessing given to believers in Paradise is seeing God, without direction, place, or temporal frame. Muṭaffifīn 83:15 stands as a reverse proof: when the *veiling* of the unbelievers is mentioned, the *un-veiling* of the believers is inferred. Yūnus 10:26's *ziyādah* (the extra beyond the best) forms the third link of the composition.\n\nThe classical Mu'tazilite school follows a different methodology: Shūrā 42:11's principle *laysa ka-mithlihi shay'* (nothing is like Him) renders vision impossible — because seeing requires *boundary*, *place*, and *light-rays*, none of which can be attributed to God. Mu'tazilites read the verb 'gazing' in Qiyāma 75:22 as *awaiting* — awaiting reward, mercy, blessing.\n\nThis debate is over *how* the Qur'anic wording is honored: through the literal direction, or through systematic-theological coherence? Both sides hold textual anchors; the disagreement is about where the interpretive frame begins.",
+      "narrationTr": "Rü'yetullâh (Allah'ın cemâlini görme) meselesi Kur'an'ı okuma metodolojisinin en yoğunlaştığı yerlerden biridir. Kıyâme 75:22-23'ün 'Rablerine bakan yüzler' ifadesini Ehl-i Sünnet literal alır: cennette mü'minlere verilen en büyük nimet, bir yön, mekân ve zaman çerçevesi olmadan Allah'ı görmektir. Mutaffifîn 83:15 ise ters yönden delildir: kâfirlerin *perdelenmesi* zikredilince, mü'minlerin *perdelenmemesi* çıkarımı yapılır. Yûnus 10:26'nın *ziyâde*si bu kompozisyonun üçüncü halkasıdır.\n\nMu'tezile klasik ekolü ise farklı bir metodoloji izler: Şûrâ 42:11'in *leyse ke-mislihî şey* (O'nun benzeri hiçbir şey yoktur) ilkesi görmeyi imkânsız kılar, çünkü görme *sınır*, *mekân* ve *ışık huzmesi* gerektirir; bunlar Allah'a yakıştırılamaz. Kıyâme 75:22'deki 'bakan' fiilini Mu'tezile *beklentiyle bakma*, yani sevap, rahmet ve nimet bekleme anlamında okur.\n\nBu tartışma Kur'ânî lâfza saygının *nasıl* gösterileceği tartışmasıdır: literal yön mü, sistematik-teolojik tutarlılık yönü mü? Her iki tarafın da metinsel dayanakları vardır; ihtilâf yorum çerçevesinin nereden başladığındadır.",
+      "narrationEn": "The question of *ru'yatullāh* (the vision of God) is one of the most methodologically loaded moments in Qur'anic interpretation. Sunni orthodoxy takes Qiyāma 75:22-23's 'faces gazing at their Lord' literally: the greatest blessing given to believers in Paradise is seeing God, without direction, place or temporal frame. Muṭaffifīn 83:15 stands as a reverse proof: when the *veiling* of the unbelievers is mentioned, the *un-veiling* of the believers is inferred. Yūnus 10:26's *ziyādah* (the extra beyond the best) forms the third link of the composition.\n\nThe classical Mu'tazilite school follows a different methodology: Shūrā 42:11's principle *laysa ka-mithlihi shay'* (nothing is like Him) renders vision impossible, because seeing requires *boundary*, *place* and *light-rays*, none of which can be attributed to God. Mu'tazilites read the verb 'gazing' in Qiyāma 75:22 as *awaiting*: awaiting reward, mercy, blessing.\n\nThis debate is over *how* the Qur'anic wording is honored: through the literal direction, or through systematic-theological coherence? Both sides hold textual anchors; the disagreement is about where the interpretive frame begins.",
       "classicalTafsir": [
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Kıyâme 75:22-23)",
-          "noteTr": "Rü'yetullâh meselesinin kelâmî tarihinin en detaylı klasik özeti; Râzî Ehl-i Sünnet pozisyonunu Mu'tezile itirazlarına karşı sistematik olarak savunur. 'Nâzıra ilâ rabbihâ' ifadesinin dilbilimsel analizi — '*ilâ*' (yönelme edatı) kelimesinin 'bakma' fiilini 'sevap bekleme' anlamına almanın önündeki dilbilimsel engel olarak sunulması.",
-          "noteEn": "The most detailed classical summary of the kalām history of ru'yatullāh; Rāzī systematically defends the Sunni position against Mu'tazilite objections. Linguistic analysis of 'nāẓirah ilā rabbihā' — the preposition '*ilā*' (toward) presented as the linguistic obstacle to reading 'gazing' as 'awaiting reward.'"
+          "noteTr": "Rü'yetullâh meselesinin kelâmî tarihinin en detaylı klasik özeti; Râzî Ehl-i Sünnet pozisyonunu Mu'tezile itirazlarına karşı sistematik olarak savunur. 'Nâzıra ilâ rabbihâ' ifadesinin dilbilimsel analizi; '*ilâ*' (yönelme edatı) kelimesinin 'bakma' fiilini 'sevap bekleme' anlamına almanın önündeki dilbilimsel engel olarak sunulması.",
+          "noteEn": "The most detailed classical summary of the kalām history of ru'yatullāh; Rāzī systematically defends the Sunni position against Mu'tazilite objections. Linguistic analysis of 'nāẓirah ilā rabbihā'; the preposition '*ilā*' (toward) presented as the linguistic obstacle to reading 'gazing' as 'awaiting reward.'"
         },
         {
           "source": "Kurtubî",
           "workRef": "et-Tezkire",
-          "noteTr": "Rü'yetullâhın *keyfiyetsiz* (bilâ keyf) kabulü — cennette olacak, ama nasıl olacağı bu dünyada bilinemez. Şûrâ 42:11 ile Kıyâme 75:22 arasında görünen gerilimin *tenzîh + kabul* metodolojisi ile giderilmesi.",
-          "noteEn": "Ru'yatullāh accepted *without asking how* (bilā kayf) — it will occur in Paradise, but how is unknowable in this world. The apparent tension between Shūrā 42:11 and Qiyāma 75:22 resolved through the methodology of *tanzīh + acceptance*."
+          "noteTr": "Rü'yetullâhın *keyfiyetsiz* (bilâ keyf) kabulü: cennette olacak, ama nasıl olacağı bu dünyada bilinemez. Şûrâ 42:11 ile Kıyâme 75:22 arasında görünen gerilimin *tenzîh + kabul* metodolojisi ile giderilmesi.",
+          "noteEn": "Ru'yatullāh accepted *without asking how* (bilā kayf): it will occur in Paradise, but how is unknowable in this world. The apparent tension between Shūrā 42:11 and Qiyāma 75:22 resolved through the methodology of *tanzīh + acceptance*."
         },
         {
           "source": "Gazâlî",
           "workRef": "İhyâ (Kitâbu Zikri'l-Mevt son bölümleri)",
-          "noteTr": "Rü'yetullâhın *sûfî deneyim* boyutu — bu dünyada kalp gözüyle olan *fetih*, âhirette bedenle bütünleşen *cemâl-i tâm* yaşantısının önhabercisidir.",
-          "noteEn": "The *Sufi-experiential* dimension of ru'yatullāh — the *opening* of the heart's eye in this world is the herald of the *cemāl-i tāmm* (full-beauty) experience integrated with the body in the hereafter."
+          "noteTr": "Rü'yetullâhın *sûfî deneyim* boyutu: bu dünyada kalp gözüyle olan *fetih*, âhirette bedenle bütünleşen *cemâl-i tâm* yaşantısının önhabercisidir.",
+          "noteEn": "The *Sufi-experiential* dimension of ru'yatullāh: the *opening* of the heart's eye in this world is the herald of the *cemāl-i tāmm* (full-beauty) experience integrated with the body in the hereafter."
         }
       ],
       "criticalNote": {
-        "titleTr": "Rü'yetullâh — klasik kelâmın en büyük ihtilâflarından biri",
-        "titleEn": "Ru'yatullāh — one of classical kalām's greatest debates",
-        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî + Hanbelî): Rü'yetullâh cennette *hakîkî*dir; keyfiyetsizdir. Kıyâme 75:22-23, Yûnus 10:26 (*ziyâde*), Mutaffifîn 83:15 (*mahcûb* olma) açık delillerdir.\n\nMu'tezile: Rü'yetullâh imkânsızdır. Şûrâ 42:11 (*leyse ke-mislihî şey*) ve A'râf 7:143 (*len terânî*) kesin delillerdir. Kıyâme ayeti *beklenti* anlamında yorumlanır.\n\nİbâzîler: Mu'tezileye yakın — rü'yetullâh reddedilir.\n\nŞiî ekoller (İmâmiyye çoğunluğu): Mu'tezileye yakın — literal anlamda reddedilir, *marifet* (bilme) anlamında kabul.\n\nBu ihtilâf Kur'an'ı reddetme değil, iki farklı *lâfz-mânâ ilişkisi kuramı*nın karşılaşmasıdır: Ehl-i Sünnet lâfzın literal önceliğini korurken *bilâ keyf* şerhi ile aklî tenzîhi sağlar; Mu'tezile teolojik tenzîhi öncelemek için lâfza mecazî çerçeve verir.",
-        "bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī + Ḥanbalī): Ru'yatullāh in Paradise is *real*; without asking how. Qiyāma 75:22-23, Yūnus 10:26 (*ziyādah*), Muṭaffifīn 83:15 (being *veiled*) are clear proofs.\n\nMu'tazila: Ru'yatullāh is impossible. Shūrā 42:11 (*laysa ka-mithlihi shay'*) and A'rāf 7:143 (*lan tarānī*) are decisive. The Qiyāma verse is read as *awaiting*.\n\nIbāḍī: Close to Mu'tazila — ru'yatullāh rejected.\n\nShī'ī schools (majority Imāmiyya): Close to Mu'tazila — rejected literally, accepted as *ma'rifah* (cognitive knowledge).\n\nThis dispute is not a rejection of the Qur'an but a meeting of two different *theories of the word–meaning relationship*: Sunnism preserves literal priority while its *bilā kayf* commentary secures rational transcendence; Mu'tazila subordinates the wording to a metaphorical frame to prioritize theological transcendence."
+        "titleTr": "Rü'yetullâh: klasik kelâmın en büyük ihtilâflarından biri",
+        "titleEn": "Ru'yatullāh: one of classical kalām's greatest debates",
+        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî + Hanbelî): Rü'yetullâh cennette *hakîkî*dir; keyfiyetsizdir. Kıyâme 75:22-23, Yûnus 10:26 (*ziyâde*), Mutaffifîn 83:15 (*mahcûb* olma) açık delillerdir.\n\nMu'tezile: Rü'yetullâh imkânsızdır. Şûrâ 42:11 (*leyse ke-mislihî şey*) ve A'râf 7:143 (*len terânî*) kesin delillerdir. Kıyâme ayeti *beklenti* anlamında yorumlanır.\n\nİbâzîler: Mu'tezileye yakın; rü'yetullâh reddedilir.\n\nŞiî ekoller (İmâmiyye çoğunluğu): Mu'tezileye yakın; literal anlamda reddedilir, *marifet* (bilme) anlamında kabul.\n\nBu ihtilâf Kur'an'ı reddetme değil, iki farklı *lâfz-mânâ ilişkisi kuramı*nın karşılaşmasıdır: Ehl-i Sünnet lâfzın literal önceliğini korurken *bilâ keyf* şerhi ile aklî tenzîhi sağlar; Mu'tezile teolojik tenzîhi öncelemek için lâfza mecazî çerçeve verir.",
+        "bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī + Ḥanbalī): Ru'yatullāh in Paradise is *real*; without asking how. Qiyāma 75:22-23, Yūnus 10:26 (*ziyādah*), Muṭaffifīn 83:15 (being *veiled*) are clear proofs.\n\nMu'tazila: Ru'yatullāh is impossible. Shūrā 42:11 (*laysa ka-mithlihi shay'*) and A'rāf 7:143 (*lan tarānī*) are decisive. The Qiyāma verse is read as *awaiting*.\n\nIbāḍī: Close to Mu'tazila; ru'yatullāh rejected.\n\nShī'ī schools (majority Imāmiyya): Close to Mu'tazila; rejected literally, accepted as *ma'rifah* (cognitive knowledge).\n\nThis dispute is not a rejection of the Qur'an but a meeting of two different *theories of the word–meaning relationship*: Sunnism preserves literal priority while its *bilā kayf* commentary secures rational transcendence; Mu'tazila subordinates the wording to a metaphorical frame to prioritize theological transcendence."
       },
       "visualMotif": "Sonsuzluğun kaynağına dönmüş, ışıkla parlayan yüz silüetleri; ışık kaynağı görünmez ama etkisi dokular üzerinde net. Palet: parlak-krem + altın-ışık aureolü; hiçbir figüratif İlâhî temsil değil, sadece *yönelme* motifi.",
       "crossLinks": [
         {
-          "labelTr": "Cennet & Cehennem — cennet nimetlerinin en büyüğü olarak",
-          "labelEn": "Paradise & Hell — as the greatest of Paradise's blessings",
+          "labelTr": "Cennet & Cehennem: cennet nimetlerinin en büyüğü olarak",
+          "labelEn": "Paradise & Hell: as the greatest of Paradise's blessings",
           "href": "/arac/cennet-cehennem"
         },
         {
-          "labelTr": "Esmâ Frekans — el-Cemîl / en-Nûr",
-          "labelEn": "Divine Names Frequency — al-Jamīl / al-Nūr",
+          "labelTr": "Esmâ Frekans: el-Cemîl, en-Nûr",
+          "labelEn": "Divine Names Frequency: al-Jamīl, al-Nūr",
           "href": "/arac/esma-frekans"
         }
       ]

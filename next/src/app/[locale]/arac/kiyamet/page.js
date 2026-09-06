@@ -7,9 +7,8 @@ import KiyametSahneleriRoute from './KiyametSahneleriRoute';
 const PATH = '/arac/kiyamet';
 const TITLE_TR = 'Kıyamet Sahneleri';
 const TITLE_EN = 'Scenes of the Day of Judgment';
-const DESC_TR = 'Kıyamet günü ve sonrası — 7 fazlı sahneler: ön belirtiler, sûr, haşr, hesap, kitap, mizan, sırat.';
-const DESC_EN = 'The Day of Judgment and what follows — seven phased scenes: signs, the trumpet, gathering, reckoning, the book, the scale, the path.';
-
+const DESC_TR = "Kıyamet günü ve sonrası, 7 fazda: ön belirtiler, sûr, haşr, hesap, kitap, mizan, sırat.";
+const DESC_EN = "The Day of Judgment and what follows, in seven phases: signs, the trumpet, gathering, reckoning, the book, the scale, the path.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

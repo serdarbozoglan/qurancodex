@@ -7,9 +7,8 @@ import ToolsBrowserRoute from './ToolsBrowserRoute';
 const PATH = '/arac/tum-araclar';
 const TITLE_TR = 'Tüm Araçlar';
 const TITLE_EN = 'All Tools';
-const DESC_TR = "Tüm interaktif araçların kapsamlı kataloğu — atlas, graf ve utility tool'lar bir arada; aramayla hızlıca erişim.";
-const DESC_EN = "A complete catalogue of every interactive tool — atlases, graphs and utility tools in one place; quick access via search.";
-
+const DESC_TR = "Tüm interaktif araçların kataloğu: atlaslar, graflar ve yardımcı araçlar bir arada, aramayla hızlı erişim.";
+const DESC_EN = "A catalogue of every interactive tool: atlases, graphs and utilities in one place, with quick access by search.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

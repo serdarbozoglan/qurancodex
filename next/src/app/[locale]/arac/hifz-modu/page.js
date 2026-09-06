@@ -7,9 +7,8 @@ import HifzModuRoute from './HifzModuRoute';
 const PATH = '/arac/hifz-modu';
 const TITLE_TR = 'Hıfz Modu (Prototip)';
 const TITLE_EN = 'Hıfz Mode (Prototype)';
-const DESC_TR = 'Gerçek mushaf sayfa görseli ve ayet başına dinleme — 4 örnek sayfa prototipi.';
-const DESC_EN = 'Real mushaf page image with per-verse audio — a 4-page prototype.';
-
+const DESC_TR = "Gerçek mushaf sayfa görseli ve ayet başına dinleme; 4 örnek sayfalık prototip.";
+const DESC_EN = "Real mushaf page images with per-verse audio; a 4-page prototype.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

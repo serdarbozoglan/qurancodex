@@ -18,7 +18,7 @@
   "linguisticDNA": {
     "badge": "Linguistic DNA",
     "title": "A 1,400-Year-Old Mystery",
-    "intro": "Twenty-nine chapters of the Quran open with mysterious letters: Alif-Lam-Mim. Ha-Mim. Ya-Sin. No human has been able to establish with certainty what they mean. A pattern that has resisted scholarly consensus for 1,400 years, drawing multiple interpretations across the tradition. But here is what we do know: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14 letters were chosen, why precisely half the alphabet — questions that have remained open to interpretation for 1,400 years. A divine mystery? A system of balance? Only Allah, the Lord of all worlds, knows.",
+    "intro": "Twenty-nine chapters of the Quran open with sequences of letters: Alif-Lam-Mim, Ha-Mim, Ya-Sin. No one has been able to establish with certainty what they mean; the pattern has resisted scholarly consensus for 1,400 years and drawn many interpretations. What we do know is this: these 14 letters make up exactly half of the 28-letter Arabic alphabet. Why exactly these 14, and why precisely half the alphabet? The questions have remained open for 1,400 years. A divine mystery, or a system of balance? Only Allah, the Lord of all worlds, knows.",
     "stats": {
       "letters": {
         "label": "Unique Letters",
@@ -39,7 +39,7 @@
     },
     "checksum": {
       "title": "The Digital Checksum Analogy ⓘ",
-      "description": "Some researchers have proposed that, just as modern digital systems use checksums to protect data integrity, these letters may have served a similar built-in verification function for the Quranic text. This remains an academic hypothesis — the Quran itself does not explain the purpose of these letters."
+      "description": "Some researchers have proposed that, just as modern digital systems use checksums to protect data integrity, these letters may have served a similar built-in verification function for the Quranic text. This remains an academic hypothesis; the Quran itself does not explain the purpose of these letters."
     },
     "verse": {
       "arabic": "الٓمٓ",
@@ -50,7 +50,7 @@
   "impossibleRhythm": {
     "badge": "The Impossible Rhythm",
     "title": "Neither Poetry Nor Prose",
-    "intro": "In 7th-century Arabia, the dominant literary forms were metrical poetry and rhymed/free oratory; the Quran's style was perceived by many contemporaries as not fully fitting these molds — rhythmic yet not reducible to a fixed meter. The classical rhetorical tradition (al-Bāqillānī, al-Jurjānī) regards this 'neither poetry nor prose' form as unique within the framework of iʿjāz al-bayān — a category of its own.",
+    "intro": "In 7th-century Arabia, the dominant literary forms were metrical poetry and rhymed or free oratory. Many contemporaries perceived the Quran's style as fitting neither mold: rhythmic, yet not reducible to a fixed meter. The classical rhetorical tradition (al-Bāqillānī, al-Jurjānī) treats this \"neither poetry nor prose\" form as a category of its own within the framework of iʿjāz al-bayān.",
     "poetry": "Poetry",
     "poetryDesc": "Rigid structure bound to 16 strict meters",
     "quran": "QURAN",
@@ -59,29 +59,29 @@
     "proseDesc": "Free-form, unstructured, without rhythm",
     "unique": "Unique",
     "ijaz": {
-      "label": "The Literary Challenge — I'jaz",
-      "text": "The Meccan opponents tried to dismiss it as 'poetry' — yet it fit none of the 16 Arabic poetic meters. They called it 'soothsayer's speech' — but it transcended even the saj' (rhymed prose) form. The challenge to \"bring something like it\" has gone unanswered for 1,400 years."
+      "label": "The Literary Challenge: I'jaz",
+      "text": "The Meccan opponents tried to dismiss it as \"poetry\", yet it fit none of the 16 Arabic poetic meters. They called it \"soothsayer's speech\", but it went beyond even the saj' (rhymed prose) form. The challenge to \"bring something like it\" has gone unanswered for 1,400 years."
     },
     "fasila": {
       "title": "Fasila: Each Sura's Sound Signature",
-      "desc": "Every sura in the Quran has its own distinctive closing sound — called 'fasila'. This pattern at the end of each verse does not appear reducible to either a simple rhyme rule or coincidence — it suggests a deliberate sound architecture.",
+      "desc": "Every sura in the Quran has its own distinctive closing sound, called \"fasila\". The pattern at the end of each verse does not appear reducible to a simple rhyme rule or to coincidence; it suggests a deliberate sound architecture.",
       "soundLabel": "Dominant closing sound"
     },
     "duha": {
-      "title": "Sura Ad-Duha — The '-â' Fasila",
-      "note": "The first 8 of the sura's 11 verses end with the same long '-ā' sound (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aghnā). In the final 3 verses the sound shifts as the sura moves from describing divine grace to issuing moral commands — sound and meaning break together.",
+      "title": "Sura Ad-Duha: The '-â' Fasila",
+      "note": "The first 8 of the sura's 11 verses end with the same long '-ā' sound (ḍuḥā, sajā, qalā, ūlā, tarḍā, āwā, hadā, aghnā). In the final 3 verses the sound shifts as the sura moves from describing divine grace to issuing moral commands; sound and meaning break together.",
       "badge": "-â"
     },
     "examplesTitle": "Sound Consistency: Examples",
     "examples": [
       {
         "sura": "Sura An-Najm (53)",
-        "detail": "The dominant closing sound remains consistent across 62 verses. The Arabic qaṣīda tradition can also sustain the same rhyme over long stretches; yet the Quran achieves this sonic coherence without requiring strict meter — a distinctive form.",
+        "detail": "The dominant closing sound remains consistent across 62 verses. The Arabic qaṣīda tradition can also sustain the same rhyme over long stretches; the Quran achieves this sonic coherence without requiring strict meter, which makes it a distinctive form.",
         "info": false
       },
       {
         "sura": "Sura Ar-Rahman (55)",
-        "detail": "After every two verses, the refrain 'Which of your Lord's favors will you deny?' returns — fasila and refrain working together, interwoven.",
+        "detail": "After every two verses the refrain \"Which of your Lord's favors will you deny?\" returns; fasila and refrain work together, interwoven.",
         "info": true,
         "infoText": "Refrain: A line or stanza repeated at intervals in poetry or music. In Ar-Rahman, this verse is repeated 31 times."
       },
@@ -89,7 +89,7 @@
         "sura": "Sura Al-Qamar (54)",
         "detail": "The '-în / -ûn' sounds dominate as the closing pattern across all 55 verses. Each section closes with the refrain 'Is there any who will take heed?'",
         "info": true,
-        "infoText": "Refrain: A line repeated at intervals in poetry. In Al-Qamar, 'And We have certainly made the Quran easy to remember — so is there any who will take heed?' (54:17) is repeated 4 times."
+        "infoText": "Refrain: a line repeated at intervals in poetry. In Al-Qamar, \"And We have certainly made the Quran easy to remember, so is there any who will take heed?\" (54:17) is repeated 4 times."
       }
     ],
     "quote": "A rhythm without meter, freedom within discipline."
@@ -97,63 +97,63 @@
   "soundArchitecture": {
     "badge": "Sound Architecture",
     "title": "The Architecture of Sound",
-    "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط — tension in throat, tongue, palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. This contrast is striking — modern linguistics studies similar phenomena under 'phonetic symbolism.' (Note: the classical tajwīd terms tafhīm/tarqīq are rules for the heavy/light articulation of letters, not the same thing as modern sound-meaning symbolism.)",
+    "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط; tension in the throat, tongue and palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. The contrast is striking, and modern linguistics studies similar phenomena under \"phonetic symbolism\". (Note: the classical tajwīd terms tafhīm and tarqīq are rules for the heavy and light articulation of letters, not the same thing as modern sound-meaning symbolism.)",
     "phonetics": {
-      "title": "Phonetic Symbolism — Two Traditions, One Phenomenon",
-      "description": "Modern phonetics (Sapir 1929; Köhler's bouba/kiki effect, 1929) shows that sounds carry meaning in themselves: plosives (ق ك ط) evoke tension; nasals (م ن) and liquids (ل ر) evoke release. The classical Islamic science of tajwid had already classified the same phenomenon — thick/thin (tafhīm/tarqīq), hard/soft (shidda/rakhāwa), echoing/static (qalqala). In the Quran, this pattern reveals a systematic correspondence between subject matter and sonic texture."
+      "title": "Phonetic Symbolism: Two Traditions, One Phenomenon",
+      "description": "Modern phonetics (Sapir 1929; Köhler's bouba/kiki effect, 1929) shows that sounds carry meaning in themselves: plosives (ق ك ط) evoke tension; nasals (م ن) and liquids (ل ر) evoke release. The classical Islamic science of tajwid had already classified the same phenomenon: thick and thin (tafhīm/tarqīq), hard and soft (shidda/rakhāwa), echoing and static (qalqala). In the Quran, this pattern reveals a systematic correspondence between subject matter and sonic texture."
     },
     "comparison": {
-      "title": "Sonic Texture — Side by Side",
+      "title": "Sonic Texture, Side by Side",
       "subtitle": "Two surahs, two sound signatures",
       "punishment": {
         "label": "Punishment & Warning",
         "sura": "Al-Qāriʿa 101:1-3",
         "arabic": "الْقَارِعَةُ ۝ مَا الْقَارِعَةُ ۝ وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
         "dominant": "ق ر ع",
-        "feature": "The sound itself enacts 'the striking'",
-        "noteEn": "ق returns in each of the three verses — clogged in the throat, then bursting. 'Qāriʿa' literally means 'the striker' — sound becomes meaning."
+        "feature": "The sound itself enacts \"the striking\"",
+        "noteEn": "ق returns in each of the three verses; clogged in the throat, then bursting. \"Qāriʿa\" literally means \"the striker\"; sound becomes meaning."
       },
       "mercy": {
         "label": "Mercy & Blessing",
         "sura": "Ar-Rahmān 55:1-4",
         "arabic": "الرَّحْمَٰنُ ۝ عَلَّمَ الْقُرْآنَ ۝ خَلَقَ الْإِنسَانَ ۝ عَلَّمَهُ الْبَيَانَ",
         "dominant": "ر ل م ن",
-        "feature": "Flowing, open sounds — the 'bride of the Quran'",
+        "feature": "Flowing, open sounds; the \"bride of the Quran\"",
         "noteEn": "Classical tradition calls this surah 'arūs al-Qurʾān' (the bride of the Quran) for its sonic beauty. Four liquids/nasals echo continuously."
       },
-      "methodologyEn": "This comparison is intuitive, not statistical — an audible illustration of how sound texture aligns with message, not a precise count."
+      "methodologyEn": "This comparison is intuitive, not statistical: an audible illustration of how sound texture aligns with message, not a precise count."
     },
     "tajwid": {
       "title": "Classical Tajwid: The Islamic Sound Taxonomy",
-      "subtitle": "Muslims have known these categories for 1,400 years — Western linguistics rediscovered them in the 20th century",
+      "subtitle": "Tajwid has defined these categories for centuries; Western linguistics arrived at similar distinctions in the 20th century",
       "categories": [
         {
-          "name": "Tafhīm — Heavy Sounds",
+          "name": "Tafhīm: Heavy Sounds",
           "letters": "خ ص ض ط ظ غ ق",
           "mnemonic": "خُصَّ ضَغْطٍ قِظ — 'khussa ḍaghṭin qiẓ'",
           "trait": "Pressure on palate, tongue raised (istiʿlāʾ)",
-          "function": "Weight, authority, majesty — carries jalāl"
+          "function": "Weight, authority, majesty; carries jalāl"
         },
         {
-          "name": "Tarqīq — Light Sounds",
+          "name": "Tarqīq: Light Sounds",
           "letters": "ل م ن ر و ي ه ف ث س ز ...",
           "mnemonic": "All remaining letters",
           "trait": "Palate relaxed, articulation forward (istifāl)",
-          "function": "Lightness, fluidity, intimacy — carries jamāl"
+          "function": "Lightness, fluidity, intimacy; carries jamāl"
         },
         {
-          "name": "Qalqala — Echoing Sounds",
+          "name": "Qalqala: Echoing Sounds",
           "letters": "ق ط ب ج د",
           "mnemonic": "قُطْبُ جَدٍّ — 'qutb-i jadd'",
           "trait": "When silent, they release a small bounce",
-          "function": "Emphasis, attention — underlines the word"
+          "function": "Emphasis and attention; underlines the word"
         }
       ],
-      "noteEn": "Ibn Sina described the physiology of every Arabic sound in 'Asbāb Ḥudūth al-Ḥurūf' — 900 years before the modern phonetic academy. Tajwid then internalized this knowledge into the practice of Quranic recitation."
+      "noteEn": "Ibn Sina described the physiology of every Arabic sound in \"Asbāb Ḥudūth al-Ḥurūf\", nine centuries before modern phonetics. Tajwid then internalized this knowledge into the practice of Quranic recitation."
     },
     "discovery": {
       "title": "Guess: Which Sound, Which Meaning?",
-      "subtitle": "Three verses — each verse's sound tells you its theme. Can you guess?",
+      "subtitle": "Three verses; each verse's sound tells you its theme. Can you guess?",
       "instructionEn": "Listen or read first. Then guess: punishment or mercy?",
       "items": [
         {
@@ -165,7 +165,7 @@
           "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
           "verseRef": "Al-Ḥāqqa 69:1-2",
           "answer": "punishment",
-          "revealEn": "Punishment. الْحَاقَّةُ keeps returning across the two verses — each ق is geminated by shadda ('ḥāq-qa'). The sound enacts striking, slamming. 'Ḥāqqa' = 'the inevitable reality.'",
+          "revealEn": "Punishment. الْحَاقَّةُ keeps returning across the two verses; each ق is geminated by shadda (\"ḥāq-qa\"). The sound enacts striking, slamming. \"Ḥāqqa\" means \"the inevitable reality\".",
           "dominantLetter": "ق"
         },
         {
@@ -174,7 +174,7 @@
           "arabic": "إِنَّ الْأَبْرَارَ يَشْرَبُونَ مِن كَأْسٍ كَانَ مِزَاجُهَا كَافُورًا",
           "verseRef": "Al-Insān 76:5",
           "answer": "mercy",
-          "revealEn": "Mercy. ن ل ر م — liquids and nasals flow. Description of paradise drinks.",
+          "revealEn": "Mercy. ن ل ر م; liquids and nasals flow. A description of the drinks of paradise.",
           "dominantLetter": "ر"
         },
         {
@@ -183,7 +183,7 @@
           "arabic": "سَأُصْلِيهِ سَقَرَ",
           "verseRef": "Al-Muddaththir 74:26",
           "answer": "punishment",
-          "revealEn": "Punishment. ص ق — two emphatic plosives in a single short phrase. 'Saqar' = a name of hellfire.",
+          "revealEn": "Punishment. ص ق; two emphatic plosives in a single short phrase. \"Saqar\" is a name of hellfire.",
           "dominantLetter": "ق"
         }
       ],
@@ -198,8 +198,8 @@
         "stopLabel": "Stop",
         "submitLabel": "Reveal",
         "completeLabel": "Complete",
-        "perfectClosingEn": "See? Even without knowing Arabic, your ear recognizes this sonic architecture. The Quran's sounds are not random — they carry meaning.",
-        "partialClosingEn": "You caught some. The bond between sound and meaning isn't always conscious — the ear often senses before the mind catches up."
+        "perfectClosingEn": "See? Even without knowing Arabic, your ear recognizes this sonic architecture. The Quran's sounds are not random; they carry meaning.",
+        "partialClosingEn": "You caught some. The bond between sound and meaning is not always conscious; the ear often senses before the mind catches up."
       }
     },
     "classicalSource": {
@@ -209,12 +209,12 @@
       "quoteEn": "According to al-Bāqillānī, the Qur'an's composition resembles neither the poetry, the oratory, nor the rhymed prose of the Arabs; it has a distinct order of its own.",
       "noteEn": "In the 11th century, al-Bāqillānī wrote the first systematic study grounding Quranic iʿjāz (inimitability) in the harmony of sound and meaning. Al-Jurjānī later expanded this with his 'theory of nazm.'"
     },
-    "closing": "In the Quran, sound and meaning are two faces of one fabric — each carries the other."
+    "closing": "In the Quran, sound and meaning are two faces of one fabric; each carries the other."
   },
   "hiddenSymmetry": {
     "badge": "Hidden Symmetry",
     "title": "A Mirror Within a Mirror",
-    "intro": "Consider Al-Fatihah. Seven verses. Deceptively simple. But look at its structure: perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. Ring composition is a modern analytic language developed in the 20th century by Western literary theorists such as Mary Douglas. Classical tafsir addressed these structural symmetries under the headings munāsabāt and tanāsub — most notably Al-Biqāʿī's Naẓm al-Durar fī Tanāsub al-Āyi wa'l-Suwar, a monumental work analyzing exactly this verse-and-sura structure. Modern ring-composition terminology brings that classical tradition into contemporary narrative theory; the framework is not new — its name is.",
+    "intro": "Al-Fatihah has seven verses and looks simple. Its structure, however, shows a mirror symmetry: A-B-C-CENTER-C'-B'-A'. Ring composition is an analytic language developed in the 20th century by Western literary theorists such as Mary Douglas. Classical tafsir addressed these structural symmetries under the headings munāsabāt and tanāsub; most notably, Al-Biqāʿī's Naẓm al-Durar fī Tanāsub al-Āyi wa'l-Suwar is a monumental work analyzing exactly this verse-and-sura structure. Modern ring-composition terminology brings that classical tradition into contemporary narrative theory; the framework is not new, only its name is.",
     "fatiha": {
       "title": "Sura Al-Fatiha",
       "subtitle": "A-B-C-D-C'-B'-A' Ring Composition",
@@ -256,7 +256,7 @@
       "year": "2014",
       "description": "Raymond Farrin's Structure and Quranic Interpretation (2014) is among the most comprehensive academic analyses to identify widespread ring composition structures in the Quran. These findings raise questions about the text's internal architecture."
     },
-    "closing": "This structure could only be formally named in the modern era. But it had always been there — unnamed, within the text, from the very beginning."
+    "closing": "This structure could only be formally named in the modern era. But it had always been there, unnamed, within the text, from the very beginning."
   },
   "sevenLayers": {
     "badge": "Seven Layers",
@@ -313,7 +313,7 @@
     "bucaillismFrame": {
       "label": "Academic Frame",
       "title": "This Page Is Not a Claim of 'Scientific Miracle'",
-      "body": "In modern scholarship, \"Bucaillism\" — named after Maurice Bucaille's *La Bible, le Coran et la Science* (1976), the systematic effort to \"locate\" modern scientific discoveries within Quranic verses — is widely critiqued. Critics (Ziauddin Sardar; Stefano Bigliardi, *Islam and the Quest for Modern Science*; Taner Edis) note that it risks selective reading, can sideline classical exegesis, and remains hostage to shifting scientific theories. Classical Islamic scholars (al-Shāṭibī, *al-Muwāfaqāt*) emphasized that the Quran is a book of guidance, not science. This page does **not** advance a definitive miracle claim — it presents the parallels classical exegetes recognized as ishārāt / iʿjāz as **possible alignments** with modern context; the critical notes within each tab are part of this frame."
+      "body": "In modern scholarship, \"Bucaillism\", named after Maurice Bucaille's La Bible, le Coran et la Science (1976) and meaning the systematic effort to \"locate\" modern scientific discoveries within Quranic verses, is widely critiqued. Critics (Ziauddin Sardar; Stefano Bigliardi, Islam and the Quest for Modern Science; Taner Edis) note that it risks selective reading, can sideline classical exegesis, and remains hostage to shifting scientific theories. Classical Islamic scholars (al-Shāṭibī, al-Muwāfaqāt) emphasized that the Quran is a book of guidance, not of science. This page does not advance a definitive miracle claim; it presents the parallels classical exegetes recognized as ishārāt or iʿjāz as possible alignments with the modern context. The critical notes within each tab are part of this frame."
     },
     "tabs": {
       "iron": "Iron",
@@ -323,40 +323,40 @@
     },
     "iron": {
       "title": "The Cosmic Journey of Iron",
-      "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. At first glance, since iron is a metal 'extracted from the ground,' this expression may evoke different associations for some readers. Modern astrophysics offers a background that makes this word choice notable. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives — in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017) — and scattered into space. The iron on Earth comes from material produced by stellar processes before the Solar System formed; Earth inherited this cosmic material at its formation. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
+      "content": "The Quran chooses an extraordinary verb for iron: anzalnā, \"We sent down\". Not \"created\", not \"formed\": sent down. Since iron is a metal extracted from the ground, the expression may at first evoke different associations for some readers. Modern astrophysics offers a background that makes this word choice notable. Iron cannot form in medium-sized stars like our Sun; the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives, in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017), and scattered into space. The iron on Earth comes from material produced by stellar processes before the Solar System formed; Earth inherited this cosmic material at its formation. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across the centuries.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "We sent down iron, wherein is great might and benefits for humanity.",
         "reference": "Hadid, 57:25"
       },
       "facts": [
-        "Hadid 57:25 — the verb 'anzalnā' (We sent down) is used specifically for iron",
+        "Hadid 57:25: the verb \"anzalnā\" (We sent down) is used specifically for iron",
         "Iron cannot form in stars like our Sun: insufficient temperature and pressure for fusion",
-        "Iron-group elements are produced in supernovae and in neutron-star mergers (kilonovae) — the 2017 GW170817 event directly observed this process",
+        "Iron-group elements are produced in supernovae and in neutron-star mergers (kilonovae); the 2017 GW170817 event directly observed this process",
         "Iron entered Earth's composition as star-forged heavy elements mixed into the primordial material of the Solar System; meteorites carry samples of that material to the present"
       ],
-      "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' Important linguistic nuance: the same verb is used in the Quran for rain, the Book, clothing (Al-An'ām 7:26), and animals (Al-Zumar 39:6) — meaning 'anzalnā' is not a special term reserved for cosmic origin, but a broad pattern of 'We bestowed / We brought into being.' The astrophysical interpretation is a reading that became prominent in the 20th century."
+      "criticalNote": "Whether \"anzalnā\" in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean \"We bestowed\" or \"We provided\". An important linguistic nuance: the same verb is used in the Quran for rain, the Book, clothing (Al-A'rāf 7:26) and animals (Al-Zumar 39:6). \"Anzalnā\" is therefore not a special term reserved for cosmic origin, but a broad pattern of \"We bestowed\" or \"We brought into being\". The astrophysical interpretation is a reading that became prominent in the 20th century."
     },
     "universe": {
       "title": "The Expanding Universe",
-      "content": "In 1929, Edwin Hubble reported a relation between galaxies' distances and the redshift in their spectra. This finding provided a strong observational basis that the universe may not be static, and it became one of the cornerstones of modern cosmology. Verse 47 of Sura Al-Dhariyat states: 'We constructed the heaven with power, and indeed We are its expander.' The Arabic word mūsi'ūn is grammatically notable and can be read in more than one way — e.g., as 'One who expands / gives breadth' or as 'One of vast power'; linking it specifically to cosmic expansion depends on linguistic and contextual judgment. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
+      "content": "In 1929, Edwin Hubble reported a relation between galaxies' distances and the redshift in their spectra. This finding gave strong observational grounds for thinking the universe may not be static, and it became one of the cornerstones of modern cosmology. Verse 47 of Sura Al-Dhariyat states: \"We constructed the heaven with power, and indeed We are its expander.\" The Arabic word mūsi'ūn is grammatically notable and can be read in more than one way, for example as \"One who expands, gives breadth\" or as \"One of vast power\"; linking it specifically to cosmic expansion depends on linguistic and contextual judgment. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
       "verse": {
         "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
         "translation": "We constructed the heaven with power, and indeed We are its expander.",
         "reference": "Zariyat, 51:47"
       },
       "facts": [
-        "1929: Edwin Hubble established the redshift–distance relation, providing strong observational support for cosmic expansion",
-        "Mūsi'ūn — active participle, present tense, indicating continuous and active expansion",
+        "1929: Edwin Hubble established the relation between redshift and distance, providing strong observational support for cosmic expansion",
+        "Mūsi'ūn: active participle, present tense; indicates continuous and active expansion",
         "In some contemporary readings this expression has been associated with the idea of cosmic expansion; the choice of meaning, however, depends on linguistic and contextual assessment",
-        "Al-Anbiya 21:30 — ratq (joined) and fatq (split apart): heavens and earth separating from a single whole",
+        "Al-Anbiya 21:30: ratq (joined) and fatq (split apart); heavens and earth separating from a single whole",
         "This interpretation became prominent in the 20th century; classical commentaries read it in different contexts"
       ],
       "criticalNote": "The cosmic expansion interpretation is supported by scholars including Mawdudi and Sayyid Qutb, as well as some contemporary academics. However, some linguists argue that 'mūsi'ūn' in classical usage means 'one who possesses power and capacity.' Both interpretations are linguistically defensible."
     },
     "ocean": {
       "title": "The Ocean Barrier",
-      "content": "Two distinct bodies of water flow side by side, yet they do not mix. An invisible boundary separates them. This is what modern oceanography calls a halocline: a natural boundary layer formed by differences in salinity, density, and temperature. The Atlantic and the Mediterranean at the Strait of Gibraltar, and the Black Sea and the Sea of Marmara at the Bosphorus, separate in exactly this way. The Quran describes this phenomenon in two separate verses: in Al-Rahman 55:19-20, two seas meet without transgressing each other; in Al-Furqan 25:53, a barzakh (barrier) lies between them. When compared to modern oceanographic terminology, the technical precision of these descriptions is striking.",
+      "content": "Two distinct bodies of water flow side by side, yet they do not mix. An invisible boundary separates them. Modern oceanography calls this a halocline: a natural boundary layer formed by differences in salinity, density and temperature. The Atlantic and the Mediterranean at the Strait of Gibraltar, and the Black Sea and the Sea of Marmara at the Bosphorus, separate in exactly this way. The Quran describes this phenomenon in two separate verses: in Al-Rahman 55:19-20, two seas meet without transgressing each other; in Al-Furqan 25:53, a barzakh (barrier) lies between them. Set beside modern oceanographic terminology, the precision of these descriptions is notable.",
       "verse": {
         "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
         "translation": "He released the two seas, meeting side by side. Between them is a barrier which they do not transgress.",
@@ -365,14 +365,14 @@
       "facts": [
         "Halocline: a natural boundary layer caused by differences in salinity and density",
         "Observed scientifically at the Strait of Gibraltar, the Bosphorus, and the Red Sea",
-        "Al-Rahman 55:19-20: two seas meet but yabghiyān — they do not transgress upon each other",
+        "Al-Rahman 55:19-20: two seas meet but \"lā yabghiyān\", they do not transgress upon each other",
         "Al-Furqan 25:53: between them is a barzakh (barrier) and hijr mahjūr (forbidden boundary)",
-        "Barzakh: an impassable intermediate zone — corresponds precisely to the halocline definition"
+        "Barzakh: an impassable intermediate zone; corresponds to the definition of a halocline"
       ],
-      "criticalNote": "Important contextual note: classical exegesis (Ṭabarī, Rāzī, Ibn Kathīr) typically reads barzakh in the context of fresh-versus-salt water at river–sea junctions, rather than as a halocline between two open seas. The halocline reading (density/salinity stratification, e.g., the Gibraltar–Mediterranean example) is a modern interpretation. Additionally, Quranic statements about the seas are exaggerated in some popular narratives: the widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources, and no such statement appears in Cousteau's own writings."
+      "criticalNote": "Important contextual note: classical exegesis (Ṭabarī, Rāzī, Ibn Kathīr) typically reads barzakh in the context of fresh versus salt water at river and sea junctions, rather than as a halocline between two open seas. The halocline reading (density and salinity stratification, e.g. the Gibraltar and Mediterranean example) is a modern interpretation. In addition, Quranic statements about the seas are exaggerated in some popular narratives: the widely cited story that Jacques Cousteau discovered this verse and converted to Islam cannot be verified in the sources, and no such statement appears in Cousteau's own writings."
     },
     "embryo": {
-      "title": "Embryology — The Word 'Alaqah'",
+      "title": "Embryology: The Word 'Alaqah'",
       "content": "The Quran describes the second stage of the human embryo with the word alaqah. In classical lexicons this word is glossed with senses such as 'a clinging/attaching thing' and 'leech'; readings that associate it with 'blood/blood clot' also appear in the literature. Some analogies have been drawn between the early embryo and these senses; whether this is a technical embryological description or a descriptive simile is open to interpretive difference. In the 7th century, there were no microscopes; the implantation process was invisible to the eye; the embryo measured just 1-2 millimeters. In the Late Antique medical tradition (including Galen), various schemes of embryonic development were transmitted; but these views are not given with the same clarity or order in every text. Al-Mu'minun 23:14 mentions 'bones' and then 'clothing with flesh' (lahm); whether this is a chronological sequence or a descriptive account has been discussed in exegesis and linguistics. In modern embryology, skeletal and muscular tissues largely develop in parallel; the relationship drawn with the verse should therefore be stated as, at most, a limited parallel/interpretation rather than a definite verification.",
       "verse": {
         "arabic": "ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا",
@@ -383,7 +383,7 @@
       "meanings": [
         {
           "term": "A clinging substance",
-          "explanation": "The embryo clings to the uterine wall — implantation, days 6–12"
+          "explanation": "The embryo clings to the uterine wall: implantation, days 6-12"
         },
         {
           "term": "A blood clot",
@@ -395,12 +395,12 @@
         }
       ],
       "facts": [
-        "Alaqah — glossed in classical lexicons as 'clinging substance' and 'leech' (and, in some readings, blood/clot); analogies with the early embryo have been drawn",
-        "Days 6–12: embryo clings to the uterine wall — matches 'clinging substance'",
+        "Alaqah: glossed in classical lexicons as \"clinging substance\" and \"leech\" (and, in some readings, blood or clot); analogies with the early embryo have been drawn",
+        "Days 6-12: the embryo clings to the uterine wall; matches \"clinging substance\"",
         "Al-Mu'minun 23:14: the 'bones → flesh' sequence is roughly compatible with modern embryology (bone and muscle develop in parallel, though the skeletal framework is generally observable a little earlier)",
         "Dr. Keith L. Moore referred to correspondences between Qur'anic descriptions and modern science; this, however, has no probative status in the scientific literature"
       ],
-      "criticalNote": "Keith Moore's interpretations are disputed regarding academic independence: the 'Islamic Additions to Embryology' sections appear only in the Saudi Arabia edition of The Developing Human and were supported by King Abdulaziz University (source: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). This does not question Moore's anatomical expertise but does open the independence of his interpretations to debate. The Galen comparison also requires nuance: Galen's embryological views are inconsistent across his works (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — the one-way claim 'Galen was wrong, the Quran corrected him' is not academically defensible. In modern embryology, bone and muscle tissue develop in parallel; the Quran's 'bones → flesh' sequence is not a literal chronology but a roughly compatible phrasing. The linguistic richness of alaqah, however, can be evaluated independently of Moore."
+      "criticalNote": "Keith Moore's interpretations are disputed regarding academic independence: the \"Islamic Additions to Embryology\" sections appear only in the Saudi Arabia edition of The Developing Human and were supported by King Abdulaziz University (source: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). This does not question Moore's anatomical expertise, but it does open the independence of his interpretations to debate. The Galen comparison also requires nuance: Galen's embryological views are inconsistent across his works (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983), so the one-way claim \"Galen was wrong, the Quran corrected him\" is not academically defensible. In modern embryology, bone and muscle tissue develop in parallel; the Quran's \"bones, then flesh\" sequence is not a literal chronology but a roughly compatible phrasing. The linguistic richness of alaqah, however, can be evaluated independently of Moore."
     }
   },
   "historicalProof": {
@@ -462,7 +462,7 @@
   "livingPreservation": {
     "badge": "Living Preservation",
     "title": "The Only Unchanged Text on Earth",
-    "intro": "The Quran in Mecca = the Quran in Medina = Istanbul = Cairo = Jakarta. The consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages. All read the same text — variations among the ten canonical readings (qirāʾāt) belong to oral recitation tradition.",
+    "intro": "The Quran read in Mecca, Medina, Istanbul, Cairo and Jakarta is the same text; the consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages, all reading the same text. Variations among the ten canonical readings (qirāʾāt) belong to the oral recitation tradition.",
     "counters": {
       "years": {
         "label": "Years Preserved",
@@ -470,7 +470,7 @@
       },
       "sanaa": {
         "label": "EARLIEST CARBON DATE",
-        "description": "Sana'a parchment: 578–669 CE (95% confidence). The Prophet's own era.",
+        "description": "Sana'a parchment: 578-669 CE (95% confidence). The Prophet's own era.",
         "note": "Carbon dating applies to the parchment; ink is typically written later. Sadeghi & Bergmann (2010), University of Arizona AMS lab."
       },
       "variation": {
@@ -485,19 +485,19 @@
     },
     "oral": {
       "title": "Living Preservation",
-      "description": "Millions of huffaz (people who have memorized the entire Quran) worldwide — estimates range between 3-10 million; no precise demographic data exists. Each hafiz learns from their teacher, who learned from theirs — an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
+      "description": "There are millions of huffaz worldwide, people who have memorized the entire Quran; estimates range between 3 and 10 million, and no precise demographic data exists. Each hafiz learns from a teacher, who learned from theirs, in an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
     },
     "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could reconstruct it letter by letter. This is true of no other book in existence.",
     "birmingham": {
       "title": "Birmingham Manuscript",
-      "description": "2015: The parchment of a manuscript at the University of Birmingham was carbon-dated to 568-645 CE — overlapping with the Prophet Muhammad's (pbuh) lifetime. (Note: the date is of the parchment; the ink was typically applied later and has not been separately analyzed.)"
+      "description": "2015: The parchment of a manuscript at the University of Birmingham was carbon-dated to 568-645 CE, a range that overlaps with the Prophet Muhammad's (pbuh) lifetime. (Note: the date is of the parchment; the ink was typically applied later and has not been separately analyzed.)"
     }
   },
   "zeroRedundancy": {
     "badge": "Zero Redundancy",
     "title": "Every Word Carries a Purpose",
-    "intro": "At first glance, the Quran appears to repeat itself. The story of Moses (AS) is told in over 30 chapters. But each retelling emphasizes a DIFFERENT aspect. This is not redundancy - it is pedagogical design. Like a textbook: teaching the same subject from different angles.",
-    "mosesTitle": "The Story of Moses (AS) — Different Chapters, Different Lessons",
+    "intro": "At first glance, the Quran appears to repeat itself. The story of Moses (AS) is told in over 30 chapters. But each retelling emphasizes a different aspect. This is not redundancy but pedagogical design, like a textbook teaching the same subject from different angles.",
+    "mosesTitle": "The Story of Moses (AS): Different Chapters, Different Lessons",
     "mosesExamples": [
       {
         "sura": "Al-Baqara",
@@ -538,7 +538,7 @@
         "label": "APPEARING ONLY ONCE",
         "value": "~455",
         "description": "Of 14,870 forms, only these appear in a single verse",
-        "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). Count varies 400–500 by method."
+        "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). The count varies between 400 and 500 by method."
       }
     },
     "icaz": {
@@ -548,19 +548,19 @@
       },
       "card1": {
         "title": "Takrīr in the Classical Sciences of the Qur'an",
-        "body": "Badr al-Dīn al-Zarkashī (d. 1392) addresses repetition under its own heading in al-Burhān fī ʿUlūm al-Qur'ān, within his forty-seven-fold classification of Quranic sciences. A century later, Jalāl al-Dīn al-Suyūṭī (d. 1505) revisits and expands the same question in al-Itqān fī ʿUlūm al-Qur'ān. Both treat takrīr not as a single defect but as a rhetorical structure that produces layers of meaning.",
-        "body2": "They pose the question explicitly: Does saying the same thing twice weaken or strengthen the discourse? Within classical Arabic rhetoric, the answer depends on context. If the same expression in the same context adds nothing, it is ḥashw (redundant filler); if the context shifts or the repetition performs a specific function, it is takrīr — a rhetorical art.",
+        "body": "Badr al-Dīn al-Zarkashī (d. 1392) addresses repetition under its own heading in al-Burhān fī ʿUlūm al-Qur'ān, within his forty-seven-fold classification of Quranic sciences. A century later, Jalāl al-Dīn al-Suyūṭī (d. 1505) revisits and expands the same question in al-Itqān fī ʿUlūm al-Qur'ān. Both treat takrīr not as a defect in itself but as a rhetorical structure that produces layers of meaning.",
+        "body2": "They pose the question explicitly: does saying the same thing twice weaken or strengthen the discourse? Within classical Arabic rhetoric, the answer depends on context. If the same expression in the same context adds nothing, it is ḥashw (redundant filler); if the context shifts or the repetition performs a specific function, it is takrīr, a rhetorical art.",
         "source": "al-Zarkashī, al-Burhān · al-Suyūṭī, al-Itqān"
       },
       "card2": {
-        "title": "Takrīr Is a Rhetorical Art — Three Typical Functions",
-        "lead": "Classical Arabic rhetoric catalogued takrīr as an art performing multiple functions. The three below are among the most commonly emphasized in the classical takrīr/ta'kīd literature — the term ta'kīd is drawn from the Turkish Religious Foundation Islamic Encyclopedia's \"tekit\" entry; tafṣīl and ihtimām are drawn from the repetition chapters of al-Burhān and al-Itqān.",
+        "title": "Takrīr Is a Rhetorical Art: Three Typical Functions",
+        "lead": "Classical Arabic rhetoric catalogued takrīr as an art performing multiple functions. The three below are among the most commonly emphasized in the classical takrīr and ta'kīd literature. The term ta'kīd is drawn from the \"tekit\" entry of the Turkish Religious Foundation's Islamic Encyclopedia; tafṣīl and ihtimām are drawn from the repetition chapters of al-Burhān and al-Itqān.",
         "functions": [
           {
             "name": "Ta'kīd",
             "subtitle": "Emphasis",
             "desc": "Securing a statement against doubt. Classical grammarians define it as \"consolidating the speech.\"",
-            "example": "\"No! You shall know. Again, no! You shall know.\" (al-Takāthur 102:3–4). The same expression repeats across two adjacent verses — fixing the certainty and urgency of the warning at both the phonetic and semantic levels."
+            "example": "\"No! You shall know. Again, no! You shall know.\" (al-Takāthur 102:3-4). The same expression repeats across two adjacent verses, fixing the certainty and urgency of the warning at both the phonetic and the semantic level."
           },
           {
             "name": "Tafṣīl",
@@ -571,23 +571,23 @@
           {
             "name": "Ihtimām",
             "subtitle": "Marking Centrality",
-            "desc": "Recalling a truth at every occasion — the matter is so central that the narrative returns to it through different doors.",
-            "example": "\"Then which of your Lord's blessings will you both deny?\" (al-Raḥmān 55:13 and following). This refrain, repeated thirty-one times, each time follows a different blessing. The refrain stays fixed while the surrounding content shifts — the fixedness signals centrality, the variation reveals different facets."
+            "desc": "Recalling a truth at every occasion. The matter is so central that the narrative returns to it through different doors.",
+            "example": "\"Then which of your Lord's blessings will you both deny?\" (al-Raḥmān 55:13 and following). This refrain, repeated thirty-one times, each time follows a different blessing. The refrain stays fixed while the surrounding content shifts: the fixedness signals centrality, the variation reveals different facets."
           }
         ],
         "source": "\"Tekit\" entry, TDV İslâm Ansiklopedisi · al-Zarkashī, al-Burhān · al-Suyūṭī, al-Itqān"
       },
       "card3": {
-        "title": "Same Story, Different Surahs — The Classical Commentators' Response",
-        "body": "The most visible form of Quranic repetition is the retelling of stories across multiple surahs. Fakhr al-Dīn al-Rāzī (d. 1210) in Mafātīḥ al-Ghayb and Ṭāhir Ibn ʿĀshūr (d. 1973) in al-Taḥrīr wa-l-Tanwīr address this question systematically. The shared emphasis of the classical commentary tradition: when the same story is retold across different surahs, each retelling foregrounds a different element — character, scene, dialogue, lesson — opening a single event to multi-layered semantic readings.",
-        "body2": "This is most visible in the Moses (AS) narrative: the narrative style, the starting point, which dialogues are reported and which are passed over, all shift between surahs (al-A'rāf foregrounds the prophetic struggle and dialogue with Pharaoh; Ṭāhā emphasizes Moses (AS)'s inner world and the revelation to his mother; al-Qaṣaṣ traces the biographical flow from birth through the Madyan years). Ibn ʿĀshūr frames the retellings as a method of audience pedagogy — the listener encounters a different facet of the event each time and so internalizes the matter in multiple layers.",
+        "title": "Same Story, Different Surahs: The Classical Commentators' Response",
+        "body": "The most visible form of Quranic repetition is the retelling of stories across multiple surahs. Fakhr al-Dīn al-Rāzī (d. 1210) in Mafātīḥ al-Ghayb and Ṭāhir Ibn ʿĀshūr (d. 1973) in al-Taḥrīr wa-l-Tanwīr address this question systematically. The shared emphasis of the classical commentary tradition: when the same story is retold across different surahs, each retelling foregrounds a different element (character, scene, dialogue, lesson), opening a single event to multi-layered semantic readings.",
+        "body2": "This is most visible in the Moses (AS) narrative: the narrative style, the starting point, and which dialogues are reported or passed over all shift between surahs (al-A'rāf foregrounds the prophetic struggle and the dialogue with Pharaoh; Ṭāhā emphasizes Moses (AS)'s inner world and the revelation to his mother; al-Qaṣaṣ traces the biographical flow from birth through the Madyan years). Ibn ʿĀshūr frames the retellings as a method of audience pedagogy: the listener encounters a different facet of the event each time and so internalizes the matter in multiple layers.",
         "source": "Fakhr al-Dīn al-Rāzī, Mafātīḥ al-Ghayb · Ṭāhir Ibn ʿĀshūr, al-Taḥrīr wa-l-Tanwīr"
       },
       "outro": "The classical Islamic tradition reads Quranic repetition contextually. If the same expression in the same context adds nothing, this is criticized; if the context shifts or the repetition performs a function, takrīr is a rhetorical art. Hence the answer the classical tradition gives to \"Is there unnecessary repetition in the Qur'an?\" is not a categorical \"no\" but rather \"one must examine which repetition, in which context, performs which function\". The dedicated chapters of al-Zarkashī and al-Suyūṭī are precisely the map of that examination."
     },
-    "nazmConsensusLabel": "Summary of the Classical I'jāz Tradition — Not a Verbatim Quote",
+    "nazmConsensusLabel": "Summary of the Classical I'jāz Tradition (Not a Verbatim Quote)",
     "nazmConsensusStatement": "Every word of the Quran is a treasure. Remove one, and the entire edifice collapses.",
-    "nazmConsensusSource": "A foundational view of the classical i'jāz al-Qur'ān tradition — summarising the concept of 'naẓm' (structural composition) developed by al-Bāqillānī (I'jāz al-Qur'ān, d. 1013) and al-Zarkashī (al-Burhān, d. 1392)."
+    "nazmConsensusSource": "A foundational view of the classical i'jāz al-Qur'ān tradition, summarising the concept of \"naẓm\" (structural composition) developed by al-Bāqillānī (I'jāz al-Qur'ān, d. 1013) and al-Zarkashī (al-Burhān, d. 1392)."
   },
   "highlights": {
     "badge": "Go Deeper",
@@ -595,18 +595,18 @@
     "cards": [
       {
         "title": "The Prefrontal Cortex",
-        "content": "The Quran says the liar will be seized by his 'forelock' — the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) plays a central role in moral reasoning, planning, and deceptive behavior. Its function was mapped in the 20th century using fMRI technology.",
-        "note": "Classical exegesis (al-Tabari, al-Razi, Ibn Kathir) reads 'seizing by the forelock' as an Arabic idiom for taking control — not a direct anatomical claim about the brain. Modern neuroscience also locates lying in distributed function rather than a single region (Sean Spence et al., 2001+). The parallel is striking, but the reading 'the Quran identified the prefrontal cortex' carries selective-reading risk — part of the broader Bucaillism debate."
+        "content": "The Quran says the liar will be seized by his \"forelock\", the forehead (Al-Alaq 96:15-16). Modern neuroscience: the prefrontal cortex (directly behind the forehead) plays a central role in moral reasoning, planning and deceptive behavior. Its function was mapped in the 20th century using fMRI technology.",
+        "note": "Classical exegesis (al-Tabari, al-Razi, Ibn Kathir) reads \"seizing by the forelock\" as an Arabic idiom for taking control, not as a direct anatomical claim about the brain. Modern neuroscience also locates lying in distributed function rather than a single region (Sean Spence et al., 2001 onward). The parallel is interesting, but the reading \"the Quran identified the prefrontal cortex\" carries selective-reading risk and belongs to the broader Bucaillism debate."
       },
       {
         "title": "Fingerprints",
-        "content": "'We are able to restore even his fingertips' (Al-Qiyama 75:4) — God's answer to resurrection-deniers, demonstrating power to recreate in the finest detail. Classical exegesis interprets this verse as being about the power of resurrection; some contemporary commentators have additionally noted a connection to fingerprint uniqueness. The uniqueness of fingerprints was scientifically documented from the 1880s onward (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
-        "note": "The card title reflects a modern reading; the classical tradition (al-Razi, al-Tabari) reads 'banān' as 'the precision of creation, the power of resurrection.' The fingerprint reading is modern — the verse's primary theological point is the power of resurrection itself."
+        "content": "\"We are able to restore even his fingertips\" (Al-Qiyama 75:4): God's answer to those who deny resurrection, demonstrating the power to recreate in the finest detail. Classical exegesis interprets this verse as being about the power of resurrection; some contemporary commentators have additionally noted a connection to fingerprint uniqueness. The uniqueness of fingerprints was scientifically documented from the 1880s onward (Henry Faulds, Nature 1880; Francis Galton, Finger Prints 1892).",
+        "note": "The card title reflects a modern reading; the classical tradition (al-Razi, al-Tabari) reads \"banān\" as \"the precision of creation, the power of resurrection\". The fingerprint reading is modern; the verse's primary theological point is the power of resurrection itself."
       },
       {
         "title": "Modular Narrative",
-        "content": "Moses (AS)'s story is distributed across 30+ chapters in 10 distinct 'blocks.' Each block reads independently, yet together they form a unified whole. This structure is called 'modular narrative': the same event, different emphases. For example: Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh. Surah Al-Qasas gives a full biography from birth to exile. Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. Same story — a different lesson each time.",
-        "note": "Modular narrative (retelling the same event with different emphases) and non-linear narrative (deliberately disrupting chronology) are distinct techniques. The Quran uses modularity — chronology within each surah is preserved. Modular structure also appears in classical literature (Homer's Odyssey 'in medias res', 8th c. BCE); however, the Quran's systematic distribution across 30+ surahs is characteristic."
+        "content": "The story of Moses (AS) is distributed across more than 30 chapters in 10 distinct \"blocks\". Each block reads independently, yet together they form a unified whole. This structure is called \"modular narrative\": the same event, different emphases. Surah Ta-Ha covers only the moment of revelation and the dialogue with Pharaoh; Surah Al-Qasas gives a full biography from birth to exile; Surah Ash-Shu'ara focuses on the confrontation with the sorcerers. The same story, a different lesson each time.",
+        "note": "Modular narrative (retelling the same event with different emphases) and non-linear narrative (deliberately disrupting chronology) are distinct techniques. The Quran uses modularity; chronology within each surah is preserved. Modular structure also appears in classical literature (Homer's Odyssey, \"in medias res\", 8th century BCE); what is characteristic of the Quran is the systematic distribution across more than 30 surahs."
       },
       {
         "title": "The Word Map",
@@ -629,18 +629,18 @@
             "value": "343"
           }
         ],
-        "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Faith/disbelief ratio ≈ 1.55 (811/525): the Quran carries a positive-hope bias. Hapax legomena rate (~18-20% vs ~15%) is approximate (Leeds Quranic Arabic Corpus).",
+        "statsNote": "Punishment (343) appears to exceed mercy (294), but most \"punishment\" verses recount the historical fates of past peoples rather than direct threats, while mercy is predominantly direct promise. The faith to disbelief ratio is about 1.55 (811/525): the Quran leans toward hope. The hapax legomena rate (about 18-20% versus about 15%) is approximate (Leeds Quranic Arabic Corpus).",
         "note": "Root-frequency counts are based on the Quranic Arabic Corpus (University of Leeds) and Lane's Lexicon; individual lemma counts may vary slightly between sources."
       },
       {
         "title": "Time Flexibility",
-        "content": "In the Quran, future events are described in past tense (Prophetic Perfect) — as though they have already occurred. And past events are narrated in present tense (Historical Present) — as though happening now. The Sleepers of the Cave: 300 solar years = 309 lunar years. The difference corresponds exactly to the solar-lunar calendar conversion. Surah Ar-Rum, revealed around 614 CE while Byzantium had just been defeated (ghulibat — past tense), foretold that within a few years 'they WILL be victorious' (sayaghlibūn — future tense). Byzantium won in 628 CE.",
-        "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, etc.) — the solar-to-lunar reading is a modern one, not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+        "content": "In the Quran, future events are described in the past tense (al-māḍī bi-maʿnā al-mustaqbal), as though they had already occurred; and past events are narrated in the present tense, as though happening now. The Sleepers of the Cave: 300 solar years correspond to 309 lunar years, and the difference is exactly the solar-lunar calendar conversion. Surah Ar-Rum, revealed around 614 CE while Byzantium had just been defeated (ghulibat, past tense), foretold that within a few years \"they will be victorious\" (sayaghlibūn, future tense). Byzantium won in 628 CE.",
+        "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, and so on); the solar-to-lunar reading is a modern one and is not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
       },
       {
         "title": "Iltifat",
-        "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature, this is known as 'polyphonic voice.' Verses 1–3 speak about God — third person ('He'). Then suddenly in verse 5: 'You alone we worship' — a shift to second person. Then: 'Guide us to the straight path' — first person plural. Seven verses, three voices.",
-        "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. Person-shifting is not unique to the Quran in world literature (Psalms, Vedic Sanskrit, Egyptian texts contain similar examples); however, its systematic use in the Quran — notably three perspectives across the seven verses of Surah al-Fatiha — has been treated as a sign of i'jāz al-Qur'ān in the classical Islamic tradition (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+        "content": "Sura Al-Fatiha uses 3 different perspectives in just 7 verses: third person (He), second person (You), first person plural (We). In modern literature this is known as \"polyphonic voice\". Verses 1-3 speak about God in the third person (\"He\"). Then suddenly in verse 5: \"You alone we worship\", a shift to the second person. Then: \"Guide us to the straight path\", the first person plural. Seven verses, three voices.",
+        "note": "The iltifat technique is documented in classical Arabic rhetoric: Ibn Abi al-Isba' and Al-Zarkashi's al-Burhan give it extensive treatment. Person-shifting is not unique to the Quran in world literature (the Psalms, Vedic Sanskrit and Egyptian texts contain similar examples). Its systematic use in the Quran, notably three perspectives across the seven verses of Surah al-Fatiha, has been treated as a sign of i'jāz al-Qur'ān in the classical Islamic tradition (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
       }
     ]
   },
@@ -653,18 +653,18 @@
       "Its structure forms mirror symmetries",
       "Each verse holds seven layers of meaning",
       "Several of its verses are read in parallel with discoveries of modern science",
-      "Its historical reports strikingly coincide with later findings",
+      "Its historical reports coincide with later findings",
       "Not a single unnecessary word among its 77,800",
       "Preserved letter by letter, unchanged for 1,400 years"
     ],
-    "summary": "Its words balanced. Its sounds emotional. Its structure symmetric. Its meaning layered. Unchanged for 1,400 years.",
+    "summary": "Its words are balanced, its sounds carry feeling, its structure is symmetric, its meaning layered; and the text has not changed in 1,400 years.",
     "question": "Could this text be the work of a human being?",
     "verseIntro": "The Quran asks this very question:",
     "ctaExplore": "Back to top",
     "ctaRead": "Read the Quran",
     "discovery": {
       "title": "You've only seen the surface",
-      "desc": "QuranCodex contains 25+ interactive tools and 8 in-depth discovery sections. From variant readings to dialogue networks, parables to occasions of revelation — each a distinct journey.",
+      "desc": "QuranCodex contains 25+ interactive tools and 8 in-depth discovery sections: variant readings, dialogue networks, parables, occasions of revelation and more.",
       "stat1": "tools",
       "stat2": "discovery sections",
       "stat3": "verses",
@@ -682,14 +682,14 @@
     "badge": "The Human in the Quran",
     "title": "How Does It See You?",
     "subtitle": "Across 6,236 verses, the Quran defines, classifies, and seeks to transform the human being.",
-    "intro": "The Quran descends on two fundamental axes: to introduce Allah (mārifatullāh — مَعْرِفَةُ اللهِ) and to transform the human being (tazkiyah — تَزْكِيَة and tarbiyah — تَرْبِيَة). But the destination of that transformation is not vague — it is precisely defined. Who is the Muʾmin? Who is the Muḥsin? What does Muttaqī mean? These terms are not synonyms; each defines a different level of maturity, a different inner state. This section dissects the anatomy of that definition.",
+    "intro": "The Quran descends on two fundamental axes: to introduce Allah (mārifatullāh, مَعْرِفَةُ اللهِ) and to transform the human being (tazkiyah, تَزْكِيَة and tarbiyah, تَرْبِيَة). The destination of that transformation is precisely defined. Who is the Muʾmin? Who is the Muḥsin? What does Muttaqī mean? These terms are not synonyms; each defines a different level of maturity, a different inner state. This section dissects the anatomy of that definition.",
     "methodologyNote": "The data in this section is based on Quranic verses. Occurrence counts and categories are compiled from classical tafsir sources and may vary slightly between scholars. Information drawn from hadith sources is separately marked.",
     "stats": {
       "total": {
         "label": "Total Verses",
         "desc": "The complete Quran",
         "infoTitle": "Where does 6,666 come from?",
-        "infoBody": "The physical verse count of the Quran is 6,236. The number 6,666 is a thematic classification by classical scholars who grouped verses by subject — it is not the actual verse count.\n\nThe classical breakdown:\n• 1,000 verses — Commands\n• 1,000 verses — Prohibitions\n• 1,000 verses — Promises (glad tidings)\n• 1,000 verses — Warnings\n• 1,000 verses — Stories and news\n• 1,000 verses — Parables\n• 500 verses — Lawful and unlawful\n• 100 verses — Prayers and glorifications\n• 66 verses — Abrogating and abrogated\n= Total 6,666\n\nThis memorable breakdown was passed down through generations as a teaching aid and gradually came to be mistaken for the physical verse count."
+        "infoBody": "The physical verse count of the Quran is 6,236. The number 6,666 is a thematic classification by classical scholars who grouped verses by subject; it is not the actual verse count.\n\nThe classical breakdown:\n• 1,000 verses: Commands\n• 1,000 verses: Prohibitions\n• 1,000 verses: Promises (glad tidings)\n• 1,000 verses: Warnings\n• 1,000 verses: Stories and news\n• 1,000 verses: Parables\n• 500 verses: Lawful and unlawful\n• 100 verses: Prayers and glorifications\n• 66 verses: Abrogating and abrogated\n= Total 6,666\n\nThis memorable breakdown was passed down through generations as a teaching aid and gradually came to be mistaken for the physical verse count."
       },
       "human": {
         "label": "Human & Society Verses",
@@ -701,48 +701,48 @@
       }
     },
     "termsTitle": "4 Distinct Words for Human",
-    "termsSubtitle": "The Quran uses 4 different Arabic words for the human being. Each carries a different layer of meaning — not coincidental, but a deliberate terminological system.",
+    "termsSubtitle": "The Quran uses 4 different Arabic words for the human being. Each carries a different layer of meaning; this is a deliberate terminological system, not a coincidence.",
     "termsSourceNote": "Word counts: Quranic Arabic Corpus, University of Leeds (corpus.quran.com)",
     "termsCountLabel": "occurrences",
     "termsNoteLabel": "Context",
     "termsVerseLabel": "Example Verse",
     "muminTitle": "The Anatomy of a Believer",
-    "muminIntro": "The Quran's most comprehensive definition of the 'ideal human' appears in Al-Muʾminun, verses 1–11. Seven traits form an interconnected system.",
+    "muminIntro": "The Quran's most comprehensive definition of the \"ideal human\" appears in Al-Muʾminun, verses 1-11. Seven traits form an interconnected system.",
     "muminHeaderVerse": "قَدْ أَفْلَحَ الْمُؤْمِنُونَ",
     "muminHeaderTr": "\"Indeed, the believers have succeeded.\"",
     "muminHeaderRef": "Al-Muʾminun 23:1",
     "muminVersesGapNote": "This list focuses on character traits expressed as active participles. Verses 23:6-7 address the exception clause regarding spouses and are treated separately in classical tafsir (Rāzī, Ṭabarī, Ibn Kathīr).",
-    "muminWow1": "All traits use the active participle (ism-i fail) — not a momentary act, but a continuous character state.",
-    "muminWow2": "\"قَدْ أَفْلَحَ\" is written in the past tense but refers to the future — emphasis on absolute certainty (see Time Flexibility — Highlights).",
-    "muminWow3": "The sura opens with humility in prayer and closes with preserving prayer — both the beginning and destination: salah.",
+    "muminWow1": "All traits use the active participle (ism-i fail): not a momentary act, but a continuous character state.",
+    "muminWow2": "\"قَدْ أَفْلَحَ\" is written in the past tense but refers to the future; an emphasis on certainty (see Time Flexibility, Highlights).",
+    "muminWow3": "The sura opens with humility in prayer and closes with preserving prayer; both the beginning and the destination are salah.",
     "muminClickHint": "Click each trait for details",
     "oppositionTitle": "The Quran's System of Contrasts",
     "oppositionIntro": "The Quran frequently defines human types through opposing pairs. This is a structural pedagogical choice: to describe a virtue, it also shows its opposite.",
     "oppositionNote": "In Arabic rhetoric this is called \"muqābala\" (the art of contrast). The Quran employs it systematically.",
     "oppositionRef": "Source",
     "istikaametTitle": "Istiqāma: A One-Sentence Roadmap",
-    "istikaametIntro": "The Quran contains hundreds of directives. But the one verse the Prophet described as having aged him is a single verse: Hud 112. Because 'be upright as you have been commanded' is not an action — it is a continuous state.",
+    "istikaametIntro": "The Quran contains hundreds of directives. But the one verse the Prophet described as having aged him is a single verse: Hud 112. Because \"be upright as you have been commanded\" is not an action; it is a continuous state.",
     "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
     "istikaametRef": "Hud 11:112",
-    "istikaametTr": "\"Be upright as you have been commanded — and those who repented with you. Do not transgress. Indeed, He is fully aware of what you do.\"",
+    "istikaametTr": "\"Be upright as you have been commanded, and those who repented with you. Do not transgress. Indeed, He is fully aware of what you do.\"",
     "istikaametHadith": "The Prophet: \"Hud and similar suras have made me old.\"",
     "istikaametHadithNote": "This account comes from hadith sources (Tirmidhi), not from the Quran.",
     "istikaametClickHint": "Click each word for linguistic analysis",
     "transformationTitle": "The Transformation Process",
     "transformationIntro": "The Quran defines a three-stage human transformation. These stages follow one another in sequence, yet are also deeply interwoven.",
-    "transformationHadithNote": "The definition of iḥsān ('worship Allah as though you see Him') is from the Hadith of Gabriel — a hadith source (Muslim), not the Quran."
+    "transformationHadithNote": "The definition of iḥsān (\"worship Allah as though you see Him\") is from the Hadith of Gabriel; its source is hadith (Muslim), not the Quran."
   },
   "iblisSatan": {
     "badge": "Iblis / Satan in the Quran",
     "title": "Same Scene, Seven Surahs",
-    "subtitle": "The command for Adam's prostration and Iblis's refusal appears in seven surahs — no two are identical.",
-    "intro": "Baqarah, A'raf, Hijr, Isra, Kahf, Ta-Ha, and Sād. Seven surahs, one event: the angels' prostration to Adam and Iblis's refusal. In one (Ta-Ha 20:116) Iblis offers no reasoning, says nothing at all; the entire scene collapses into a single verb — abā (he refused). In another, the fire-versus-clay comparison surfaces. Another states Iblis was of the jinn; yet another contains Allah's phrase \"whom I created with My two hands.\" Placed side by side, the seven tellings reveal that each retelling foregrounds a different dimension of the same event.",
+    "subtitle": "The command for Adam's prostration and Iblis's refusal appears in seven surahs; no two are identical.",
+    "intro": "Baqarah, A'raf, Hijr, Isra, Kahf, Ta-Ha and Sād. Seven surahs, one event: the angels' prostration to Adam and Iblis's refusal. In one (Ta-Ha 20:116) Iblis offers no reasoning and says nothing at all; the entire scene collapses into a single verb, abā, \"he refused\". In another, the fire-versus-clay comparison surfaces. Another states that Iblis was of the jinn; yet another contains Allah's phrase \"whom I created with My two hands\". Placed side by side, the seven tellings show that each retelling foregrounds a different dimension of the same event.",
     "subBlockLabel": "The Great Refusal",
     "anchorVerseTitle": "The Core Telling",
     "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْل۪يسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِر۪ينَ",
     "anchorVerseTr": "\"And [mention] when We said to the angels, 'Prostrate before Adam'; so they prostrated, except for Iblis. He refused and was arrogant and became of the disbelievers.\"",
     "anchorVerseRef": "Baqarah 2:34",
-    "statsTitle": "The Seven Tellings — In Numbers",
+    "statsTitle": "The Seven Tellings, in Numbers",
     "stats": {
       "surahs": {
         "value": "7",
@@ -769,7 +769,7 @@
     "passagesIntro": "In Mushaf order, what each surah foregrounds:",
     "observationsTitle": "Cross-Reading",
     "observationsIntro": "Patterns visible only when the seven are read together, not separately:",
-    "closing": "Seven surahs, one event, distinct windows. How a single narrative expands and contracts by context — the Quran uses narrative economy as a rhetorical device. Each retelling foregrounds a different word, a different reasoning, a different identity element; the common core remains. This is the seven-fold registration of pride's origin."
+    "closing": "Seven surahs, one event, distinct windows. They show how a single narrative expands and contracts by context; the Quran uses narrative economy as a rhetorical device. Each retelling foregrounds a different word, a different reasoning, a different identity element; the common core remains. This is the seven-fold registration of pride's origin."
   },
   "bugReport": {
     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdTarPNPX7WfsgxtdXTLMZNYdgX6_f4wsVvdDCS6abu8sr6WQ/viewform?embedded=true"
@@ -781,7 +781,7 @@
     "support": {
       "eyebrow": "SUPPORT THIS WORK",
       "title": "An independent Quranic research project",
-      "description": "QuranCodex is a solo endeavor with no institutional backing. Your contribution covers hosting, API, and content development costs — and helps us continue this journey together.",
+      "description": "QuranCodex is a solo endeavor with no institutional backing. Your contribution covers hosting, API and content development costs.",
       "monthlyBtn": "Monthly Support",
       "onetimeBtn": "One-time Support",
       "monthlyUrl": "https://buy.stripe.com/5kQ00j0x2c1jbIw0CB8Ra02",
@@ -861,8 +861,8 @@
   "psychology": {
     "badge": "Human Psychology",
     "title": "The Quran's Map of the Human Mind",
-    "intro": "For over a century, modern psychology has developed a biological-cognitive vocabulary: Freud named the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning — each within its own framework. The Quran addresses the same human experience in a different language: a moral-theological one. This page presents the parallels between the two frameworks as an academic observation; it does not claim that the Quran predicted modern psychology.",
-    "methodologyNote": "The modern psychology parallels in this section (Freud, Jung, Maslow, Frankl, Seligman, etc.) reflect different epistemological frameworks describing the same human experience in different languages. The classical Islamic position (Shatibi, al-Muwafaqat) understands the Quran as a book of guidance — not a text that anticipates or validates a scientific theory. These parallels are philosophical observations and carry no claim of '1,400-year-old prediction.'",
+    "intro": "For over a century, modern psychology has developed a biological and cognitive vocabulary: Freud named the self, Jung the archetypes, Maslow the hierarchy of needs, Frankl the search for meaning, each within its own framework. The Quran addresses the same human experience in a different language, a moral and theological one. This page presents the parallels between the two frameworks as an academic observation; it does not claim that the Quran predicted modern psychology.",
+    "methodologyNote": "The modern psychology parallels in this section (Freud, Jung, Maslow, Frankl, Seligman and others) reflect different epistemological frameworks describing the same human experience in different languages. The classical Islamic position (Shatibi, al-Muwafaqat) understands the Quran as a book of guidance, not as a text that anticipates or validates a scientific theory. These parallels are philosophical observations and carry no claim of a \"1,400-year-old prediction\".",
     "tabs": {
       "nefs": "Map of the Self",
       "kalp": "Heart Psychology",
@@ -878,11 +878,11 @@
     "sections": {
       "nefs": {
         "title": "Map of the Self (Nafs)",
-        "intro": "The Quran describes the inner world of the human being through the concept of 'nafs'. Not a single static thing — but a journey. The nafs transforms, develops through stages. While modern psychology is only now discovering these stages, the Quran named them fourteen centuries ago. Academic nuance: only three stages are explicitly named in the Quran — ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). Mulhima and rāḍiya/marḍiyya are advanced stations elaborated by the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi) from Quranic categories. The full 7-station system (rāḍiya + marḍiyya + ṣāfiya separated) is presented in the Stages of the Soul Atlas; this page uses the popular 5-stage summary.",
+        "intro": "The Quran describes the inner world of the human being through the concept of \"nafs\". The nafs is not a single static thing; it transforms and develops through stages, a journey. The Quran named these stages fourteen centuries ago; modern psychology describes the same experience in its own language. Academic nuance: only three stages are explicitly named in the Quran: ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). Mulhima and rāḍiya/marḍiyya are advanced stations elaborated by the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi) from Quranic categories. The full seven-station system (rāḍiya, marḍiyya and ṣāfiya separated) is presented in the Stages of the Soul Atlas; this page uses the popular five-stage summary.",
         "items": [
           {
             "id": "emmare",
-            "title": "Ammāra — The Self Commanding Evil",
+            "title": "Ammāra: The Self Commanding Evil",
             "arabic": "إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ",
             "translation": "Indeed, the soul is a persistent enjoiner of evil.",
             "reference": "Yusuf, 12:53",
@@ -891,16 +891,16 @@
           },
           {
             "id": "levvame",
-            "title": "Lawwāma — The Self-Reproaching Self",
+            "title": "Lawwāma: The Self-Reproaching Self",
             "arabic": "وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
             "translation": "And I swear by the reproaching soul.",
             "reference": "Qiyama, 75:2",
-            "description": "The conscience has awakened. The person blames themselves when they err, feels remorse. This is the mark of healthy moral development. Not constant self-flagellation — but the effort to notice mistakes and correct them. The Quran swears by this soul, honoring it.",
+            "description": "The conscience has awakened. The person blames themselves when they err and feels remorse. This is the mark of healthy moral development: not constant self-flagellation, but the effort to notice mistakes and correct them. The Quran swears by this soul, honoring it.",
             "modernNote": "Parallels the concept of 'healthy conscience' and the cognitive dissonance mechanism in psychology."
           },
           {
             "id": "mulhime",
-            "title": "Mulhima — The Inspired Self",
+            "title": "Mulhima: The Inspired Self",
             "arabic": "فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا",
             "translation": "And inspired it with its wickedness and its righteousness.",
             "reference": "Shams, 91:8",
@@ -909,7 +909,7 @@
           },
           {
             "id": "mutmainne",
-            "title": "Mutma'inna — The Tranquil Self",
+            "title": "Mutma'inna: The Tranquil Self",
             "arabic": "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
             "translation": "O tranquil soul!",
             "reference": "Fajr, 89:27",
@@ -918,40 +918,40 @@
           },
           {
             "id": "radiye",
-            "title": "Rāḍiya / Marḍiyya — The Pleased and Pleasing Self",
+            "title": "Rāḍiya / Marḍiyya: The Pleased and Pleasing Self",
             "arabic": "ارْجِعِي إِلَى رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
             "translation": "Return to your Lord, well-pleased and pleasing to Him.",
             "reference": "Fajr, 89:28",
-            "description": "The highest rung of the journey. Not one-sided but mutual: the servant pleased with Allah, and Allah pleased with the servant. This stage is not just inner peace — it is the completion of a divine relationship. Even death is not a threat, but a reunion.",
+            "description": "The highest rung of the journey. Not one-sided but mutual: the servant pleased with Allah, and Allah pleased with the servant. This stage is more than inner peace; it is the completion of a divine relationship. Even death is not a threat, but a reunion.",
             "modernNote": "The highest developmental stage that psychologists call 'transcendence' and 'self-transcendence'."
           }
         ]
       },
       "kalp": {
         "title": "Heart Psychology",
-        "intro": "In the Quran, the heart (qalb) is not merely a physical organ — in classical Sunni kalām (Ghazali, Iḥyāʾ) it is the seat of consciousness, will, and morality, a spiritual locus. The Quran describes this center in five distinct states. The modern neuroscience finding of an intrinsic cardiac nervous system stands on a different epistemological plane; drawing a parallel between the two is methodologically debated in the academic literature.",
+        "intro": "In the Quran, the heart (qalb) is more than a physical organ; in classical Sunni kalām (Ghazali, Iḥyāʾ) it is the seat of consciousness, will and morality, a spiritual locus. The Quran describes this center in five distinct states. The modern neuroscience finding of an intrinsic cardiac nervous system stands on a different epistemological plane; drawing a parallel between the two is methodologically debated in the academic literature.",
         "items": [
           {
             "id": "selim",
-            "title": "Qalb Salīm — The Sound, Purified Heart",
+            "title": "Qalb Salīm: The Sound, Purified Heart",
             "arabic": "إِلَّا مَنْ أَتَى اللَّهَ بِقَلْبٍ سَلِيمٍ",
             "translation": "Except one who comes to Allah with a sound heart.",
             "reference": "Shu'ara, 26:89",
-            "description": "The ideal heart state in the Quran. Purified of envy, arrogance, and hypocrisy; oriented toward Allah. This is the attribute of Prophet Ibrahim. On the Day of Judgment, neither wealth nor children will avail — only this heart.",
+            "description": "The ideal heart state in the Quran. Purified of envy, arrogance and hypocrisy; oriented toward Allah. This is the attribute of Prophet Ibrahim. On the Day of Judgment, neither wealth nor children will avail; only this heart will.",
             "modernNote": "Overlaps with positive psychology's 'psychological integration' and 'authentic living' concepts."
           },
           {
             "id": "munib",
-            "title": "Qalb Munīb — The Returning, Repentant Heart",
+            "title": "Qalb Munīb: The Returning, Repentant Heart",
             "arabic": "مَنْ خَشِيَ الرَّحْمَنَ بِالْغَيْبِ وَجَاءَ بِقَلْبٍ مُنِيبٍ",
             "translation": "Who feared the Most Merciful unseen and came with a repentant heart.",
             "reference": "Qaf, 50:33",
-            "description": "The heart that constantly turns toward Allah, returning when it strays. The mechanism of repentance lies here — not a one-time event but a chronic tendency to return. The Munib heart makes mistakes but does not surrender.",
+            "description": "The heart that constantly turns toward Allah and returns when it strays. The mechanism of repentance lies here: not a one-time event but a chronic tendency to return. The Munib heart makes mistakes but does not surrender.",
             "modernNote": "Parallels psychological resilience and post-traumatic growth concepts."
           },
           {
             "id": "mariz",
-            "title": "Qalb Marīḍ — The Diseased Heart",
+            "title": "Qalb Marīḍ: The Diseased Heart",
             "arabic": "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا",
             "translation": "In their hearts is disease, and Allah has increased their disease.",
             "reference": "Baqara, 2:10",
@@ -964,12 +964,12 @@
             "arabic": "خَتَمَ اللَّهُ عَلَى قُلُوبِهِمْ وَعَلَى سَمْعِهِمْ",
             "translation": "Allah has set a seal upon their hearts and upon their hearing.",
             "reference": "Baqara, 2:7",
-            "description": "After prolonged denial and obstinacy, the heart no longer responds to external stimuli. This is not a divine punishment — it is the natural consequence of a person's own choices. In psychology, it resembles 'learned helplessness' and 'emotional numbness'.",
+            "description": "After prolonged denial and obstinacy, the heart no longer responds to external stimuli. This is not a divine punishment; it is the natural consequence of a person's own choices. In psychology, it resembles \"learned helplessness\" and \"emotional numbness\".",
             "modernNote": "Structural similarity to Seligman's 'learned helplessness': repeated exposure to uncontrollable outcomes leads to passivity."
           },
           {
             "id": "pasli",
-            "title": "The Rusted Heart — Rān",
+            "title": "The Rusted Heart: Rān",
             "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ",
             "translation": "No! Rather, what they were earning has covered their hearts with rust.",
             "reference": "Mutaffifin, 83:14",
@@ -984,94 +984,94 @@
         "items": [
           {
             "id": "havf",
-            "title": "Hawf — Natural Fear",
+            "title": "Hawf: Natural Fear",
             "arabic": "وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
             "translation": "There will be no fear concerning them, nor will they grieve.",
             "reference": "Baqara, 2:62",
-            "description": "Fear arising from consequences. The normal human response to pain, loss, and danger. The Quran does not deny this fear — it even says the friends of Allah experience fear in this world. It is not pathological; it is a functional warning system.",
+            "description": "Fear arising from consequences. The normal human response to pain, loss and danger. The Quran does not deny this fear; it even says the friends of Allah experience fear in this world. It is not pathological; it is a functional warning system.",
             "modernNote": "Adaptive fear response: amygdala-based survival mechanism. The Quran normalizes this."
           },
           {
             "id": "hasyet",
-            "title": "Khashya — Deep Reverence Born of Knowledge",
+            "title": "Khashya: Deep Reverence Born of Knowledge",
             "arabic": "إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ",
             "translation": "Only those fear Allah, from among His servants, who have knowledge.",
             "reference": "Fatir, 35:28",
-            "description": "Deeper than Hawf. Khashya is the deep reverence-fear created by truly knowing Allah — born not from punishment but from helplessness before greatness. The more you know, the more khashya you feel. This overlaps with psychology's 'awe' experience.",
+            "description": "Deeper than hawf. Khashya is the deep reverence and fear created by truly knowing Allah; it is born not of punishment but of helplessness before greatness. The more you know, the more khashya you feel. This overlaps with psychology's experience of awe.",
             "modernNote": "Dacher Keltner's awe research: the shrinking of ego before greatness → connection and sense of meaning."
           },
           {
             "id": "huzun",
-            "title": "Huzn — Healthy Grief and Sorrow",
+            "title": "Huzn: Healthy Grief and Sorrow",
             "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظ۪يمٌ",
             "translation": "His eyes whitened from grief, while he suppressed his sorrow.",
             "reference": "Yusuf, 12:84",
-            "description": "Prophet Ya'qub wept for years after losing Yusuf — until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love, and human pain. Grief should not be suppressed — it must be experienced.",
+            "description": "Prophet Ya'qub wept for years after losing Yusuf, until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love and human pain. Grief should not be suppressed; it must be experienced.",
             "modernNote": "The importance of healthy grief: Elizabeth Kübler-Ross's stages of grief. Suppressed grief turns into trauma."
           },
           {
             "id": "sekinet",
-            "title": "Sakīna — Divine Tranquility, Deep Serenity",
+            "title": "Sakīna: Divine Tranquility, Deep Serenity",
             "arabic": "هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",
             "translation": "It is He who sent down tranquility into the hearts of the believers.",
             "reference": "Fath, 48:4",
-            "description": "Sakina is not tranquility achieved through human effort — it is a state that is 'sent down'. A state of mind that descends upon the prophet and companions in moments of war, danger, and uncertainty. Not the opposite of anxiety — but a foundation that exists within anxiety.",
+            "description": "Sakina is not tranquility achieved through human effort; it is a state that is \"sent down\". A state of mind that descends upon the prophet and his companions in moments of war, danger and uncertainty. It is not the opposite of anxiety; it is a foundation that exists within anxiety.",
             "modernNote": "The 'equanimity' concept in mindfulness research: an inner balance independent of external conditions."
           }
         ]
       },
       "savunma": {
         "title": "Defense Mechanisms",
-        "intro": "Freud's daughter Anna Freud described defense mechanisms in the systematic language of modern psychology in 1936. The Quran points to similar behavioural patterns much earlier — through concrete human stories rather than conceptual terminology, in a moral-narrative register. The parallel between the two languages is an academic observation, not a claim that the Quran anticipated Anna Freud's conceptual system.",
+        "intro": "Freud's daughter Anna Freud described defense mechanisms in the systematic language of modern psychology in 1936. The Quran points to similar behavioural patterns much earlier, through concrete human stories rather than conceptual terminology, in a moral and narrative register. The parallel between the two languages is an academic observation, not a claim that the Quran anticipated Anna Freud's conceptual system.",
         "items": [
           {
             "id": "rasyonalizasyon",
-            "title": "Rationalization — Creating Excuses",
+            "title": "Rationalization: Creating Excuses",
             "arabic": "وَإِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا فِي الْأَرْضِ قَالُوا إِنَّمَا نَحْنُ مُصْلِحُونَ",
             "translation": "When they are told 'Do not cause corruption on earth,' they say 'We are only reformers.'",
             "reference": "Baqara, 2:11",
-            "description": "Producing seemingly rational explanations to justify wrong actions. The classic mechanism of hypocrites: they are causing harm, but they call it 'reform'. It is an unconscious process — they genuinely believe it.",
+            "description": "Producing seemingly rational explanations to justify wrong actions. The classic mechanism of hypocrites: they are causing harm, but they call it \"reform\". It is an unconscious process; they genuinely believe it.",
             "modernNote": "Matches Anna Freud's definition of rationalization: a secondary explanation that conceals the true motivation."
           },
           {
             "id": "projeksiyon",
-            "title": "Projection — Displacing Blame onto Others",
+            "title": "Projection: Displacing Blame onto Others",
             "arabic": "وَجَاءُوا عَلَى قَمِيصِهِ بِدَمٍ كَذِبٍ",
             "translation": "They brought his shirt with false blood on it.",
             "reference": "Yusuf, 12:18",
             "description": "Yusuf's brothers covered their own guilt (jealousy, scheming) with a wolf they invented. They projected the pain of their conscience outward. Projection: displacing one's own unacceptable impulses onto others or transferring responsibility.",
-            "modernNote": "Classic psychoanalytic projection: 'Not me, them!' — externalizing one's own rejected feelings."
+            "modernNote": "Classic psychoanalytic projection: \"Not me, them!\" Externalizing one's own rejected feelings."
           },
           {
             "id": "inkar",
-            "title": "Denial — Rejecting Reality",
+            "title": "Denial: Rejecting Reality",
             "arabic": "وَجَحَدُوا بِهَا وَاسْتَيْقَنَتْهَا أَنفُسُهُمْ ظُلْمًا وَعُلُوًّا",
             "translation": "They denied them, while their souls were certain of them, out of injustice and haughtiness.",
             "reference": "Naml, 27:14",
-            "description": "Pharaoh's attitude in the face of miracles. Seeing, understanding, but not accepting. This is denial born not from ignorance — but from arrogance. In psychology, 'conscious denial': knowing the truth but rejecting it for ego protection.",
+            "description": "Pharaoh's attitude in the face of miracles. Seeing, understanding, but not accepting. This is denial born of arrogance, not of ignorance. In psychology, \"conscious denial\": knowing the truth but rejecting it for ego protection.",
             "modernNote": "Festinger's cognitive dissonance reduction mechanism: rejecting threatening truths."
           },
           {
             "id": "erteleme",
-            "title": "Procrastination — 'I'll Repent Tomorrow'",
+            "title": "Procrastination: \"I'll Repent Tomorrow\"",
             "arabic": "حَتَّى إِذَا حَضَرَ أَحَدَهُمُ الْمَوْتُ قَالَ إِنِّي تُبْتُ الْآنَ",
             "translation": "When death comes to one of them, he says 'I repent now.'",
             "reference": "Nisa, 4:18",
-            "description": "Constantly postponing change — both a defense mechanism and a trap. The Quran clearly warns of this procrastination: there is a threshold beyond which repentance on the last breath is not accepted. The psychological root of procrastination: escape from the anxiety that change creates.",
+            "description": "Constantly postponing change; both a defense mechanism and a trap. The Quran clearly warns of this procrastination: there is a threshold beyond which repentance on the last breath is not accepted. The psychological root of procrastination: escape from the anxiety that change creates.",
             "modernNote": "Hyperbolic discounting in behavioral economics: inability to value distant rewards, escape to immediate comfort."
           },
           {
             "id": "sosyaluyum",
-            "title": "Conformity Pressure — Following the Herd",
+            "title": "Conformity Pressure: Following the Herd",
             "arabic": "إِنَّا وَجَدْنَا آبَاءَنَا عَلَى أُمَّةٍ وَإِنَّا عَلَى آثَارِهِم مُّقْتَدُونَ",
             "translation": "We found our fathers following a religion, and we are following in their footsteps.",
             "reference": "Zukhruf, 43:23",
             "description": "The universal resistance every prophet faced: 'Our ancestors did it this way.' Rejection of truth in the name of tradition, social norms, and identity protection. The Milgram and Asch experiments confirmed this mechanism in the laboratory.",
-            "modernNote": "Asch's conformity experiments (1951): tendency to give clearly wrong answers to conform to the group — the power of social pressure."
+            "modernNote": "Asch's conformity experiments (1951): the tendency to give clearly wrong answers to conform to the group; the power of social pressure."
           },
           {
             "id": "kibirkalkani",
-            "title": "The Pride Shield — Defensive Grandiosity",
+            "title": "The Pride Shield: Defensive Grandiosity",
             "arabic": "وَإِذَا قِيلَ لَهُ اتَّقِ اللَّهَ أَخَذَتْهُ الْعِزَّةُ بِالْإِثْمِ",
             "translation": "When he is told 'Fear Allah,' pride drives him to sin.",
             "reference": "Baqara, 2:206",
@@ -1081,8 +1081,8 @@
         ]
       },
       "yusuf": {
-        "title": "Trauma and Healing — The Story of Prophet Yusuf",
-        "intro": "The Quran calls the story of Yusuf 'ahsanul-qasas' — the best of stories. Not merely a beautiful narrative: it is a complete trauma recovery map encompassing jealousy, betrayal, slavery, false accusation, imprisonment, rise, and forgiveness.",
+        "title": "Trauma and Healing: The Story of Prophet Yusuf",
+        "intro": "The Quran calls the story of Yusuf \"ahsanul-qasas\", the best of stories. It is more than a beautiful narrative: it is a complete map of trauma recovery, encompassing jealousy, betrayal, slavery, false accusation, imprisonment, rise and forgiveness.",
         "items": [
           {
             "id": "ihanet",
@@ -1090,7 +1090,7 @@
             "arabic": "وَأَجْمَعُوا أَن يَجْعَلُوهُ فِي غَيَابَتِ الْجُبِّ",
             "translation": "They agreed to put him in the bottom of the well.",
             "reference": "Yusuf, 12:15",
-            "description": "The beginning of trauma: betrayal from those most trusted. Being thrown by brothers — attachment figures becoming a threat. In modern trauma theory, this is the deepest wound: betrayal experienced within a trust relationship.",
+            "description": "The beginning of trauma: betrayal from those most trusted. Being cast out by brothers means attachment figures becoming a threat. In modern trauma theory this is the deepest wound: betrayal experienced within a trust relationship.",
             "modernNote": "Bowlby's attachment theory: the breaking of secure attachment leaves deep psychological damage."
           },
           {
@@ -1099,7 +1099,7 @@
             "arabic": "وَشَرَوْهُ بِثَمَنٍ بَخْسٍ دَرَاهِمَ مَعْدُودَةٍ",
             "translation": "They sold him for a low price, a few counted coins.",
             "reference": "Yusuf, 12:20",
-            "description": "Identity stripped away. His name, freedom, family taken. But the Quran drops a critical note: 'Allah was with him.' The divine foundation present in the trauma experience — a framework of meaning that does not completely vanish.",
+            "description": "Identity stripped away. His name, freedom and family taken. But the Quran drops a critical note: \"Allah was with him.\" The divine foundation present in the trauma experience, a framework of meaning that does not completely vanish.",
             "modernNote": "Posttraumatic growth: the capacity to grow even under the most severe conditions."
           },
           {
@@ -1108,8 +1108,8 @@
             "arabic": "قَالَ رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ",
             "translation": "He said: My Lord! Prison is more dear to me than what they invite me to.",
             "reference": "Yusuf, 12:33",
-            "description": "Falsely accused and imprisoned while innocent. Yet Yusuf didn't scream, didn't rebel — he chose prayer. Psychology's locus of control: choosing not one's external circumstances but one's response. Directly overlaps with what Viktor Frankl learned from the camp.",
-            "modernNote": "Frankl: 'The last freedom — the freedom to choose one's response to circumstances.' Even prison cannot take this freedom."
+            "description": "Falsely accused and imprisoned while innocent. Yet Yusuf did not scream or rebel; he chose prayer. Psychology's locus of control: choosing not one's external circumstances but one's response. This directly overlaps with what Viktor Frankl learned in the camp.",
+            "modernNote": "Frankl: \"The last freedom is the freedom to choose one's response to circumstances.\" Even prison cannot take this freedom."
           },
           {
             "id": "yalnizlik",
@@ -1117,100 +1117,100 @@
             "arabic": "فَلَبِثَ فِي السِّجْنِ بِضْعَ سِنِينَ",
             "translation": "He remained in prison for several years.",
             "reference": "Yusuf, 12:42",
-            "description": "Years pass. No guarantee of release. Yet Yusuf continues interpreting dreams, helping people. Producing meaning — serving meaning even while imprisoned — is the foundation of healing.",
+            "description": "Years pass. No guarantee of release. Yet Yusuf continues interpreting dreams and helping people. Producing meaning, serving meaning even while imprisoned, is the foundation of healing.",
             "modernNote": "Frankl's logotherapy: finding meaning makes suffering bearable. Not helplessness but a sense of mission."
           },
           {
             "id": "yukselis",
-            "title": "Stage 5: Rise — Transformation of Trauma",
+            "title": "Stage 5: Rise, the Transformation of Trauma",
             "arabic": "وَكَذَلِكَ مَكَّنَّا لِيُوسُفَ فِي الْأَرْضِ",
             "translation": "And thus We established Yusuf in the land.",
             "reference": "Yusuf, 12:56",
-            "description": "From slavery to position of power. His traumatic past did not destroy him — on the contrary, it prepared him for that position. The pinnacle of posttraumatic growth: the painful experience transformed into the capacity to serve others.",
+            "description": "From slavery to a position of power. His traumatic past did not destroy him; on the contrary, it prepared him for that position. The pinnacle of posttraumatic growth: the painful experience transformed into the capacity to serve others.",
             "modernNote": "Tedeschi and Calhoun's posttraumatic growth model: deepening of relationships, broadening of life perception, discovery of personal strength."
           },
           {
             "id": "bagislama",
-            "title": "Stage 6: Forgiveness — The Peak of Healing",
+            "title": "Stage 6: Forgiveness, the Peak of Healing",
             "arabic": "قَالَ لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ",
             "translation": "He said: No blame upon you today.",
             "reference": "Yusuf, 12:92",
-            "description": "The Quran's most powerful forgiveness scene. Yusuf said 'No blame upon you today' to the brothers who had thrown him into the well. Forgiveness when he had every right to revenge. Forgiveness is not the weakness of the wronged — it is the strength of the healed.",
-            "modernNote": "Forgiveness therapy: forgiveness reduces anxiety and depression, and liberates the victim — not the perpetrator."
+            "description": "The Quran's most powerful forgiveness scene. Yusuf said \"No blame upon you today\" to the brothers who had thrown him into the well. Forgiveness when he had every right to revenge. Forgiveness is not the weakness of the wronged; it is the strength of the healed.",
+            "modernNote": "Forgiveness therapy: forgiveness reduces anxiety and depression, and it liberates the victim rather than the perpetrator."
           }
         ]
       },
       "sosyal": {
         "title": "Social Psychology",
-        "intro": "The Quran defines the human being as a social creature. It goes to the root of social diseases and provides their cure. Arrogance, envy, and backbiting — three fundamental pathologies that destroy social bonds.",
+        "intro": "The Quran defines the human being as a social creature. It goes to the root of social diseases and provides their cure. Arrogance, envy and backbiting: three fundamental pathologies that destroy social bonds.",
         "items": [
           {
             "id": "kibir",
-            "title": "Arrogance — The Pathology of Grandiosity",
+            "title": "Arrogance: The Pathology of Grandiosity",
             "arabic": "إِنَّهُ لَا يُحِبُّ الْمُسْتَكْبِرِينَ",
             "translation": "Indeed, He does not like the arrogant.",
             "reference": "Nahl, 16:23",
-            "description": "The most criticized character trait. Iblis fell because of arrogance. Pharaoh met his end because of arrogance. The Quran presents arrogance from a transcendent source: a created being claiming greatness against the Creator — an ontological contradiction.",
+            "description": "The most criticized character trait. Iblis fell because of arrogance; Pharaoh met his end because of arrogance. The Quran presents arrogance from a transcendent angle: a created being claiming greatness against the Creator, an ontological contradiction.",
             "modernNote": "Narcissistic personality: covering underlying vulnerability with grandiosity. Arrogance turns outward, shame turns inward."
           },
           {
             "id": "haset",
-            "title": "Envy and Righteous Emulation — Destructive vs. Constructive",
+            "title": "Envy and Righteous Emulation: Destructive and Constructive",
             "arabic": "أَمْ يَحْسُدُونَ النَّاسَ عَلَى مَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ",
             "translation": "Or do they envy people for what Allah has given them of His bounty?",
             "reference": "Nisa, 4:54",
-            "description": "The Quran uses two separate concepts: Hasad (wanting another's blessing to be taken away) and Ghib'ta (wanting to have the same). Hasad is destructive, ghib'ta is acceptable. Getting rich without effort, appearing successful without working — these trigger hasad.",
+            "description": "The Quran uses two separate concepts: hasad (wanting another's blessing to be taken away) and ghib'ta (wanting to have the same). Hasad is destructive; ghib'ta is acceptable. Getting rich without effort and appearing successful without working trigger hasad.",
             "modernNote": "Social comparison theory (Festinger): comparing oneself to others is natural, but envy turns comparison into destruction."
           },
           {
             "id": "giybet",
-            "title": "Backbiting — Destruction of Social Fabric",
+            "title": "Backbiting: Destruction of the Social Fabric",
             "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
             "translation": "And do not backbite one another. Would one of you like to eat the flesh of his dead brother?",
             "reference": "Hujurat, 49:12",
-            "description": "The metaphor the Quran gives for backbiting is shocking: eating dead flesh. Why so severe? Because backbiting targets the defenseless — those who cannot respond. Psychology's function of gossip: building group identity, gaining status, diverting attention from one's own failures.",
+            "description": "The metaphor the Quran gives for backbiting is shocking: eating dead flesh. Why so severe? Because backbiting targets the defenseless, those who cannot respond. Psychology's account of gossip's function: building group identity, gaining status, diverting attention from one's own failures.",
             "modernNote": "Social psychology: gossip's evolutionary function is to provide group cohesion, but when dysfunctional it destroys social fabric."
           }
         ]
       },
       "araclar": {
         "title": "Psychological Tools",
-        "intro": "The Quran doesn't just diagnose problems — it gives the tools for solutions. Four fundamental tools: Patience, Gratitude, Remembrance (Dhikr), and Prayer. They carry remarkable overlaps with modern therapy techniques — tested psychological strategies.",
+        "intro": "The Quran does not only diagnose problems; it also gives the tools for solutions. Four fundamental tools: patience, gratitude, remembrance (dhikr) and prayer. They overlap with modern therapy techniques; tested psychological strategies.",
         "items": [
           {
             "id": "sabir",
-            "title": "Patience — Active Resistance, Not Passive Endurance",
+            "title": "Patience: Active Resistance, Not Passive Endurance",
             "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
             "translation": "O you who believe! Seek help through patience and prayer.",
             "reference": "Baqara, 2:153",
-            "description": "Patience in English suggests 'endurance' but in the Quran it is active resistance. Perseverance, not giving up, continuing to move forward. The Quran calls us not away from impatience but away from cowardly surrender. It is no coincidence that patience appears in over 90 verses.",
+            "description": "In English, patience suggests endurance, but in the Quran it is active resistance: perseverance, not giving up, continuing to move forward. The Quran calls us away from cowardly surrender, not from impatience. The Quran gives patience clear weight; it appears in over 90 verses.",
             "modernNote": "Overlaps with clinical psychology's 'distress tolerance' and ACT therapy's 'psychological flexibility' concept."
           },
           {
             "id": "sukur",
-            "title": "Gratitude — A Practice That Changes Brain Chemistry",
+            "title": "Gratitude: A Practice That Shifts the Focus",
             "arabic": "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
             "translation": "If you are grateful, I will surely increase you.",
             "reference": "Ibrahim, 14:7",
-            "description": "Gratitude is not a courtesy ritual — it is a cognitive reframing practice. Shifting focus from 'what is missing' to 'what is present'. The Quran says gratitude brings 'increase' — neuroscience confirms this happens through dopamine and serotonin increases.",
+            "description": "Gratitude is not a courtesy ritual; it is a cognitive reframing practice, shifting focus from what is missing to what is present. The Quran says gratitude brings \"increase\"; neuroscience studies associate gratitude practice with increases in dopamine and serotonin.",
             "modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis confirms gratitude interventions show moderate effects on clinical depression and anxiety."
           },
           {
             "id": "zikir",
-            "title": "Dhikr — The Medicine of the Heart",
+            "title": "Dhikr: The Medicine of the Heart",
             "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
             "translation": "Verily, in the remembrance of Allah do hearts find rest.",
             "reference": "Ra'd, 13:28",
-            "description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement — changes brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",
-            "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol, activates the parasympathetic nervous system. Academic nuance: the same findings appear in Buddhist meditation, Christian prayer, and secular mindfulness — the effect is real but not religion-specific."
+            "description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement change brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",
+            "modernNote": "Mindfulness and meditation research: repetitive focused practice lowers cortisol and activates the parasympathetic nervous system. Academic nuance: the same findings appear in Buddhist meditation, Christian prayer and secular mindfulness; the effect is real but not specific to one religion."
           },
           {
             "id": "dua",
-            "title": "Prayer (Du'a) — Conscious Surrender",
+            "title": "Prayer (Du'a): Conscious Surrender",
             "arabic": "وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ",
             "translation": "Your Lord said: Call upon Me; I will respond to you.",
             "reference": "Ghafir, 40:60",
-            "description": "Prayer is not a wish list — it is a practice of conscious surrender. The Quran says 'He will respond to those who ask'; but this response is not always the granting of what was asked. Prayer transfers anxiety externally, making it easier to let go of the illusion of control.",
+            "description": "Prayer is not a wish list; it is a practice of conscious surrender. The Quran says \"He will respond to those who ask\", but this response is not always the granting of what was asked. Prayer transfers anxiety outward, making it easier to let go of the illusion of control.",
             "modernNote": "Psychotherapy research: spiritual and religious practice shows additional therapeutic effect in clinical anxiety and depression."
           }
         ]
@@ -1221,20 +1221,20 @@
         "items": [
           {
             "id": "amac",
-            "title": "Purpose of Creation — The Foundation of Existence",
+            "title": "Purpose of Creation: The Foundation of Existence",
             "arabic": "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",
             "translation": "I did not create jinn and humans except to worship Me.",
             "reference": "Dhariyat, 51:56",
-            "description": "The Quran's framework of meaning is not existential — it is cosmological. The human being was created not randomly but with a conscious purpose. 'Worship' is not a narrow ritual — it is an orientation that makes all of life meaningful. On this foundation, no suffering is meaningless.",
+            "description": "The Quran's framework of meaning is not existential but cosmological. The human being was created not randomly but with a conscious purpose. \"Worship\" is not a narrow ritual; it is an orientation that makes all of life meaningful. On this foundation, no suffering is meaningless.",
             "modernNote": "Frankl's logotherapy: meaning is not 'found', it is discovered. The Quran takes this one step further: meaning has been given; it needs to be recognized."
           },
           {
             "id": "sinav",
-            "title": "The Meaning of Suffering — The Trial Framework",
+            "title": "The Meaning of Suffering: The Trial Framework",
             "arabic": "أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ",
             "translation": "Do people think they will be left alone because they say 'We believe' and not be tried?",
             "reference": "Ankabut, 29:2",
-            "description": "Suffering is not punishment — it is a development mechanism. The Quran's trial framework takes suffering from meaningless to a layer of meaning. The Quran's answer to 'Why me?' is not 'Because you can bear it' but 'Because this will transform you.'",
+            "description": "Suffering is not punishment; it is a mechanism of development. The Quran's trial framework moves suffering from meaninglessness into a layer of meaning. The Quran's answer to \"Why me?\" is not \"Because you can bear it\" but \"Because this will transform you.\"",
             "modernNote": "Posttraumatic growth research: after even the most severe trauma, 70% of people report meaningful positive transformation."
           },
           {
@@ -1243,33 +1243,33 @@
             "arabic": "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ",
             "translation": "Every soul shall taste death.",
             "reference": "Ali Imran, 3:185",
-            "description": "Existential psychology sees escape from death as the greatest source of anxiety (death anxiety). The Quran makes death inevitable but meaningful: not an end but a transition. This framework does not eliminate death anxiety — it transforms it.",
-            "modernNote": "Ernest Becker, 'Denial of Death' (1973): much of life is spent in strategies denying death anxiety. The Quran calls not to denial but to confrontation."
+            "description": "Existential psychology sees escape from death as the greatest source of anxiety (death anxiety). The Quran makes death inevitable but meaningful: not an end but a transition. This framework does not eliminate death anxiety; it transforms it.",
+            "modernNote": "Ernest Becker, The Denial of Death (1973): much of life is spent in strategies denying death anxiety. The Quran calls not to denial but to confrontation."
           },
           {
             "id": "tutarlilik",
-            "title": "Sense of Coherence — The Ground of Resilience",
+            "title": "Sense of Coherence: The Ground of Resilience",
             "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
             "translation": "Indeed, with hardship will be ease.",
             "reference": "Inshirah, 94:6",
-            "description": "The center of Aaron Antonovsky's 'salutogenesis' theory: sense of coherence — the feeling that the world is comprehensible, manageable, and meaningful. The Quran systematically builds this coherence: difficulty is always temporary, ease always accompanies it.",
-            "modernNote": "Antonovsky's salutogenesis model: meaningfulness, manageability, and comprehensibility — the three pillars of psychological health."
+            "description": "At the center of Aaron Antonovsky's \"salutogenesis\" theory is the sense of coherence: the feeling that the world is comprehensible, manageable and meaningful. The Quran systematically builds this coherence: difficulty is always temporary, and ease always accompanies it.",
+            "modernNote": "Antonovsky's salutogenesis model: meaningfulness, manageability and comprehensibility; the three pillars of psychological health."
           }
         ]
       },
       "modern": {
         "title": "Key Differences with Modern Psychology",
-        "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions — they are differences of complementarity and depth. The Quran had long defined dimensions that modern psychology couldn't see or recognized late.",
+        "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions; they are differences of complementarity and depth. The Quran had long defined dimensions that modern psychology could not see or recognized late.",
         "items": [
           {
             "id": "nefs_ego",
             "title": "Nafs Theory ↔ Psychoanalytic Model",
-            "description": "Freud: id (drives) / ego (reality) / superego (morality) — three static structures. The Quran: Ammāra → Lawwāma → Mulhima → Mutma'inna → Rāḍiya — a five-stage developmental journey. Freud's model describes; the Quran's model shows transformation. The most critical difference: the Quran sees the nafs as changeable.",
+            "description": "Freud: id (drives), ego (reality), superego (morality); three static structures. The Quran: ammāra, lawwāma, mulhima, mutma'inna, rāḍiya; a five-stage developmental journey. Freud's model describes; the Quran's model shows transformation. The most critical difference: the Quran sees the nafs as changeable.",
             "modernNote": "Freud's model: structural, static. Quran's model: dynamic, teleological (goal-directed). Positive psychology is closer to the Quran on this point."
           },
           {
             "id": "ilahi_boyut",
-            "title": "The Divine Dimension — The Limit of Secular Psychology",
+            "title": "The Divine Dimension: The Limit of Secular Psychology",
             "description": "Modern psychology prefers to leave the 'God' variable outside. But in the Quran, every psychological process has a divine dimension: Sakina descends from Allah, the heart turns to Allah, patience is for Allah. When you remove this dimension, the coherence of the system breaks down.",
             "modernNote": "Spiritual psychology and psychology of religion (from William James to today) has begun re-examining this dimension. The APA now recognizes the 'spirituality' factor."
           },
@@ -1281,15 +1281,15 @@
           },
           {
             "id": "gunah_psikoloji",
-            "title": "Sin and Repentance — A Psychological Cleansing Mechanism",
-            "description": "In Freud, guilt is pathological — a neurotic burden created by repressed desires. In the Quran, sin is real but can be erased through repentance. This mechanism is liberating: a mistake is not a permanent mark, it is an erasable condition. Not constant self-criticism but active pursuit of forgiveness.",
+            "title": "Sin and Repentance: A Psychological Cleansing Mechanism",
+            "description": "In Freud, guilt is pathological: a neurotic burden created by repressed desires. In the Quran, sin is real but can be erased through repentance. This mechanism is liberating: a mistake is not a permanent mark but an erasable condition. Not constant self-criticism, but the active pursuit of forgiveness.",
             "modernNote": "The difference between liberating guilt vs. destructive shame (Brené Brown): guilt is 'I did wrong', shame is 'I am wrong'. Repentance resolves healthy guilt."
           },
           {
             "id": "maslow",
             "title": "Maslow's Hierarchy ↔ The Quran's Order of Priority",
-            "description": "Maslow: physiological → safety → belonging → esteem → self-actualization. Peak point: realization of individual potential. The Quran presents going beyond the self — the soul's orientation toward God — as a higher stage. Maslow, late in life, added a similar concept ('self-transcendence') to his theory.",
-            "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. The Sufi concept of fanā (annihilation of the self in God) carries a meaningful parallel to this idea — developed on different metaphysical grounds but meeting at the point of 'movement beyond the individual self.'"
+            "description": "Maslow: physiological needs, safety, belonging, esteem, self-actualization. The peak is the realization of individual potential. The Quran presents going beyond the self, the soul's orientation toward God, as a higher stage. Late in life, Maslow added a similar concept (\"self-transcendence\") to his theory.",
+            "modernNote": "Maslow (1969), one year before his death, added a sixth level to his hierarchy: self-transcendence. The Sufi concept of fanā (annihilation of the self in God) carries a meaningful parallel to this idea, developed on different metaphysical grounds but meeting at the point of movement beyond the individual self."
           }
         ]
       }
@@ -1302,47 +1302,47 @@
       },
       "a": {
         "title": "Human Weaknesses",
-        "intro": "The Quran does not idealize human nature. It defines both the potential and the limitations with crystal clarity. These weaknesses are not fate — they are a call to transformation.",
+        "intro": "The Quran does not idealize human nature. It defines both the potential and the limitations clearly. These weaknesses are not fate; they are a call to transformation.",
         "items": [
           {
             "id": "aceleci",
-            "title": "Hastiness — Wanting It Now",
+            "title": "Hastiness: Wanting It Now",
             "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا",
             "translation": "And man is ever hasty.",
             "reference": "Isra, 17:11",
-            "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets, and missed opportunities. The Quran defines this as a fitrah (innate nature) characteristic — it can be overcome but cannot be ignored."
+            "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets and missed opportunities. The Quran defines this as a characteristic of fitrah (innate nature): it can be overcome but cannot be ignored."
           },
           {
             "id": "hirs",
-            "title": "Greed — Never Having Enough",
+            "title": "Greed: Never Having Enough",
             "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى",
             "translation": "Indeed, man transgresses when he sees himself self-sufficient.",
             "reference": "Alaq, 96:6-7",
-            "description": "Not getting rich — but when rich, knowing no bounds. Greed initially looks like motivation, then takes over identity. The Quran defines 'tughyan' (transgression) as a psychological threat born of excess."
+            "description": "The problem is not getting rich but knowing no bounds once rich. Greed initially looks like motivation, then takes over identity. The Quran defines \"tughyan\" (transgression) as a psychological threat born of excess."
           },
           {
             "id": "nankor",
-            "title": "Ingratitude — Not Seeing the Blessings",
+            "title": "Ingratitude: Not Seeing the Blessings",
             "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا",
             "translation": "And man has ever been ungrateful.",
             "reference": "Isra, 17:67",
-            "description": "Seeing what one doesn't have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued."
+            "description": "Seeing what one does not have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued."
           },
           {
             "id": "tartismaci",
-            "title": "Argumentativeness — The Need to Be Right",
+            "title": "Argumentativeness: The Need to Be Right",
             "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا",
             "translation": "And man is the most contentious of things.",
             "reference": "Kahf, 18:54",
-            "description": "Not seeking truth — but appearing right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected."
+            "description": "The aim is not to seek truth but to appear right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected."
           },
           {
             "id": "zaaf",
-            "title": "Weakness — Vulnerability",
+            "title": "Weakness: Vulnerability",
             "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا",
             "translation": "And man was created weak.",
             "reference": "Nisa, 4:28",
-            "description": "The recognition of human fragility — not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength."
+            "description": "The recognition of human fragility; not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength."
           }
         ]
       },
@@ -1354,17 +1354,17 @@
             "id": "oz_farkindalik",
             "title": "Self-Awareness",
             "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ",
-            "translation": "And within yourselves — will you not see?",
+            "translation": "And within yourselves, will you not see?",
             "reference": "Dhariyat, 51:21",
-            "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations, and weak points — it is the foundation of psychological health. Muraqaba (self-monitoring) practice is the Islamic counterpart of self-awareness."
+            "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations and weak points is the foundation of psychological health. The practice of muraqaba (self-monitoring) is the Islamic counterpart of self-awareness."
           },
           {
             "id": "empati",
-            "title": "Empathy — Entering the Other's Interior",
+            "title": "Empathy: Entering the Other's Interior",
             "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ",
             "translation": "There has come to you a Messenger from among yourselves; your suffering is grievous to him.",
             "reference": "Tawba, 9:128",
-            "description": "Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)."
+            "description": "Empathy is not a feeling; it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)."
           },
           {
             "id": "ofke",
@@ -1372,7 +1372,7 @@
             "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ",
             "translation": "Those who restrain anger and pardon people.",
             "reference": "Ali Imran, 3:134",
-            "description": "The Quran does not deny anger — it rewards 'swallowing' it. Not emotional suppression but conscious regulation. The Prophet: 'The strong one is not who wins in wrestling, but who can restrain themselves in anger.' Anger energy preserves existence but requires direction."
+            "description": "The Quran does not deny anger; it rewards \"swallowing\" it. Not emotional suppression but conscious regulation. The Prophet: \"The strong one is not the one who wins in wrestling, but the one who can restrain themselves in anger.\" Anger energy preserves existence but requires direction."
           },
           {
             "id": "sosyal_farkindalik",
@@ -1380,15 +1380,15 @@
             "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى",
             "translation": "O people! We created you from a male and female.",
             "reference": "Hujurat, 49:13",
-            "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds, and vulnerabilities. This is the social version of taqwa (God-consciousness)."
+            "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds and vulnerabilities. This is the social version of taqwa (God-consciousness)."
           },
           {
             "id": "iliski_yonetimi",
-            "title": "Relationship Management — Justice and Compassion",
+            "title": "Relationship Management: Justice and Compassion",
             "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",
             "translation": "Indeed, Allah commands justice and good conduct.",
             "reference": "Nahl, 16:90",
-            "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict — it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity."
+            "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict; it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity."
           }
         ]
       },
@@ -1402,7 +1402,7 @@
             "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ",
             "translation": "Beautified for people is the love of desires.",
             "reference": "Ali Imran, 3:14",
-            "description": "The Quran uses the concept of 'tazyin': beautifying, making attractive. Desire distorts reality — the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting not objective reality but desire."
+            "description": "The Quran uses the concept of \"tazyin\": beautifying, making attractive. Desire distorts reality; the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting desire rather than objective reality."
           },
           {
             "id": "motivasyon",
@@ -1410,7 +1410,7 @@
             "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ",
             "translation": "And you do not will except that Allah wills.",
             "reference": "Insan, 76:30",
-            "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox — it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward-punishment) but internalized meaning motivation."
+            "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox; it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward and punishment) but internalized motivation by meaning."
           },
           {
             "id": "aliskanlik",

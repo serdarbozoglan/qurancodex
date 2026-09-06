@@ -7,9 +7,8 @@ import AhiretYolculuguRoute from './AhiretYolculuguRoute';
 const PATH = '/atlas/ahiret-yolculugu';
 const TITLE_TR = "Âhiret Yolculuğu Atlası";
 const TITLE_EN = "The Afterlife Journey Atlas";
-const DESC_TR = "Kur'an'ın eskatolojik akışı — sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü'yetullâh — 11 kronolojik aşamada, Kur'ânî çekirdek + klasik tefsir çeşitliliği ile.";
-const DESC_EN = "The Qur'an's eschatological flow — death throes, barzakh, trumpet, gathering, scales, basin & intercession, bridge, paradise & hell, vision of God — in 11 chronological stages, grounded in the Qur'anic core with classical tafsir plurality.";
-
+const DESC_TR = "Kur'an'ın eskatolojik akışı 11 kronolojik aşamada: sekerât, berzah, sûr, mahşer, mîzân, havz ve şefâat, sırât, cennet ve cehennem, rü'yetullâh. Kur'ânî çekirdek üzerine klasik tefsir çeşitliliği.";
+const DESC_EN = "The Qur'an's eschatological flow in 11 chronological stages: death throes, barzakh, the trumpet, gathering, the scales, the basin and intercession, the bridge, paradise and hell, the vision of God. Grounded in the Qur'anic core, with the plurality of classical tafsir.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

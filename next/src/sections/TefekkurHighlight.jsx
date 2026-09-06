@@ -42,8 +42,8 @@ const FEATURED_ESSAYS = [
     eyebrowEn: 'Surah & Hermeneutics',
     titleTr: "Kur'an Okuma Prensiplerimiz-1: Epistemik Prensipler",
     titleEn: "Our Quran Reading Principles-1: Epistemic Principles",
-    tldrTr: "Kur'an okumayı sağlıklı yapabilmek için 5 epistemik prensip: Kapsayıcılık (her şeyi kapsar), Genelleme (ad hoc daraltma yanlış), Tutarlılık (tedebbür gerekir), Keskin Anlam (tam eş anlamlı yok), Modelleme (asâ-yı Mûsâ).",
-    tldrEn: 'Five epistemic principles for sound Quranic reading: Inclusivity, Generality, Consistency, Precision (no full synonyms), and Modeling (the Quran provides a reading model linking inner/outer observation to God).',
+    tldrTr: "Kur'an'ı sağlıklı okumak için beş epistemik prensip: kapsayıcılık (her şeyi kapsar), genelleme (ad hoc daraltma yanlıştır), tutarlılık (tedebbür gerekir), keskin anlam (tam eş anlamlı kelime yoktur) ve modelleme (asâ-yı Mûsâ).",
+    tldrEn: 'Five epistemic principles for sound Quranic reading: comprehensiveness, generalization, consistency, precision (no true synonyms) and modeling (the Quran provides a reading model that links inner and outer observation to God).',
     readingMinutes: 14,
   },
   {
@@ -56,8 +56,8 @@ const FEATURED_ESSAYS = [
     eyebrowEn: 'Semantic Series',
     titleTr: 'Semantik 3: Cennet, Cin, Mecnun',
     titleEn: 'Semantic 3: Jannah, Jinn, Majnun',
-    tldrTr: 'Cennet, cin, mecnun, kalkan, cenin, kalp — hepsi tek kökten. Ortak payda: gizlilik. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda akla perde iner.',
-    tldrEn: 'Garden, jinn, majnun, shield, fetus, heart — all from one root. The common thread: concealment. Garden veils with leaves, jinn is invisible, the intellect has a veil over it in majnun.',
+    tldrTr: 'Cennet, cin, mecnun, kalkan, cenin ve kalp aynı kökten gelir. Ortak payda gizliliktir: bahçe yapraklarıyla örter, cin görünmezdir, mecnunda akla perde iner.',
+    tldrEn: 'Garden, jinn, majnun, shield, fetus and heart come from one root. The common thread is concealment: the garden veils with leaves, the jinn is invisible, and in majnun a veil falls over the intellect.',
     readingMinutes: 11,
   },
 ];

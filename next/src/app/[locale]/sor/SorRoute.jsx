@@ -848,7 +848,7 @@ function LoadingState({ language }) {
         opacity: 0.78,
         letterSpacing: '0.06em',
       }}>
-        {tr ? 'Sistem yorum katmaz — sadece rehberler.' : 'The system adds no commentary — it only guides.'}
+        {tr ? 'Sistem yorum katmaz, yalnızca yönlendirir.' : 'The system adds no commentary; it only guides.'}
       </p>
     </div>
   );
@@ -1244,8 +1244,8 @@ function ResponseView({ data, language, feedback, setFeedback }) {
           margin: 0,
         }}>
           {tr
-            ? 'Bu sonuçlar ilgili ayetleri, sayfaları ve kaynakları gösterir — fıkhî bir hüküm ya da fetva değildir. Sistem yorum katmaz; kaynaklara yönlendirir. Amel ve uygulama için ehil bir âlime danışınız.'
-            : 'These results point to relevant verses, pages, and sources — they are not a legal ruling or fatwa. The system adds no interpretation; it guides you to sources. For practice and application, consult a qualified scholar.'}
+            ? 'Bu sonuçlar ilgili ayetleri, sayfaları ve kaynakları gösterir; fıkhî bir hüküm ya da fetva değildir. Sistem yorum katmaz, kaynaklara yönlendirir. Amel ve uygulama için ehil bir âlime danışınız.'
+            : 'These results point to relevant verses, pages and sources; they are not a legal ruling or fatwa. The system adds no interpretation, it guides you to sources. For practice and application, consult a qualified scholar.'}
         </p>
       </div>
 

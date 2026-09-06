@@ -7,9 +7,8 @@ import DuaDiliRoute from './DuaDiliRoute';
 const PATH = '/arac/dua-dili';
 const TITLE_TR = "Dua Dili — Yakarışın Gramatik Kalıbı";
 const TITLE_EN = "Language of Prayer — The Grammar of Supplication";
-const DESC_TR = "Kur'an'da dua dili — Fâtiha'nın gramatik kalıbı, Bakara 2:186'nın \"yakınım\" vaadi, Mü'min 40:60'ın \"icabet ederim\" emri.";
-const DESC_EN = "The language of prayer in the Quran — the grammatical template of al-Fātiḥa, the \"I am near\" promise in al-Baqara 2:186, the \"I respond\" command in al-Muʾmin 40:60.";
-
+const DESC_TR = "Kur'an'da dua dili: Fâtiha'nın gramatik kalıbı, Bakara 2:186'daki \"yakınım\" vaadi ve Mü'min 40:60'taki \"icabet ederim\" emri.";
+const DESC_EN = "The language of prayer in the Quran: the grammatical template of al-Fātiḥa, the \"I am near\" promise in al-Baqara 2:186 and the \"I respond\" command in al-Muʾmin 40:60.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

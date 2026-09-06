@@ -46,8 +46,8 @@
       }
     ]
   },
-  "tldrTr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz. Çoğu çeviri **'Hapishane'** der. Ama bağlam **'Kitap'** diyor.",
-  "tldrEn": "We descend into one of the most enigmatic terms in the Quran. Most translations say **'Prison'**. But context says **'Book'**.",
+  "tldrTr": "Kur'an'daki en tartışmalı terimlerden birine yakından bakıyoruz. Çoğu çeviri \"hapishane\" der. Bağlam ise \"kitap\" diyor.",
+  "tldrEn": "A close look at one of the most debated terms in the Quran. Most translations say \"prison\". The context says \"book\".",
   "relatedTools": [
     "concept-graph",
     "verse-graph"

@@ -7,9 +7,8 @@ import QuranCommandsRoute from './QuranCommandsRoute';
 const PATH = '/arac/buyruklar';
 const TITLE_TR = "Kur'an'da Emir ve Yasaklar";
 const TITLE_EN = "Commands and Prohibitions in the Quran";
-const DESC_TR = "İmperatif fiiller — namaz, oruç, zekât, hac, adâlet, sabır, tevbe ve diğer ilâhî buyruklar; 88 emir, 8 kategori.";
-const DESC_EN = "Imperative verbs in the Quran — prayer, fasting, zakat, hajj, justice, patience, repentance and other divine directives; 88 commands across 8 categories.";
-
+const DESC_TR = "Kur'an'daki emir kipleri: namaz, oruç, zekât, hac, adâlet, sabır, tevbe ve diğer ilâhî buyruklar. 8 kategoride 88 emir.";
+const DESC_EN = "Imperative verbs in the Quran: prayer, fasting, zakat, hajj, justice, patience, repentance and other divine directives. 88 commands in 8 categories.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

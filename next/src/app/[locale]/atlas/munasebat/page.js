@@ -7,9 +7,8 @@ import MunasebatAtlasiRoute from './MunasebatAtlasiRoute';
 const PATH = '/atlas/munasebat';
 const TITLE_TR = 'Münasebât Atlası';
 const TITLE_EN = 'Atlas of Surah Coherence';
-const DESC_TR = 'Sureler arası ve sure içi belagi/temasal bağlantılar — Razi geleneği — sıralama incelemesi.';
-const DESC_EN = 'Rhetorical and thematic connections within and between surahs — the Razi tradition of munasaba — a study of Quranic ordering.';
-
+const DESC_TR = "Sureler arası ve sure içi belâgî ve tematik bağlantılar; Râzî geleneğinde münâsebet ve sıralama incelemesi.";
+const DESC_EN = "Rhetorical and thematic connections within and between surahs; the Razi tradition of munasaba and a study of Quranic ordering.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

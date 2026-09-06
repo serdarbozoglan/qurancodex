@@ -7,9 +7,8 @@ import SebebiNuzulRoute from './SebebiNuzulRoute';
 const PATH = '/arac/sebebi-nuzul';
 const TITLE_TR = 'Sebeb-i Nüzûl';
 const TITLE_EN = 'Occasions of Revelation';
-const DESC_TR = 'Ayetlerin iniş sebepleri — tarihsel olaylar, sorular, bağlamlar; klasik tefsir kaynaklarına dayalı.';
-const DESC_EN = 'The occasions of revelation (asbāb al-nuzūl) — historical events, questions, contexts; drawn from classical tafsir sources.';
-
+const DESC_TR = "Ayetlerin iniş sebepleri: tarihsel olaylar, sorular ve bağlamlar, klasik tefsir kaynaklarına dayalı.";
+const DESC_EN = "The occasions of revelation (asbāb al-nuzūl): historical events, questions and contexts, drawn from classical tafsir sources.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

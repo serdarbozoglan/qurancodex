@@ -11,7 +11,7 @@ import ReadingModeRoute from './ReadingModeRoute';
 const PATH = '/oku';
 const TITLE_TR = "Kur'an'ı Oku";
 const TITLE_EN = 'Read the Quran';
-const DESC_TR = "Sûre sûre tilâvet (6 kâri) + kelime kelime karaoke senkronu + tecvid + Elmalılı ve İbn Kesîr tefsir paneli + satır arası kelime meali.";
+const DESC_TR = "Sûre sûre tilâvet (6 kâri), kelime kelime karaoke senkronu, tecvid, Elmalılı ve İbn Kesîr tefsir paneli ve satır arası kelime meali.";
 const DESC_EN = 'Surah-by-surah recitation (6 reciters) with word-by-word karaoke sync, tajwid coloring, Elmalılı and Ibn Kathīr commentary panels, and interlinear word-for-word translation.';
 
 export async function generateMetadata({ params }) {

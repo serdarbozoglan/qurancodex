@@ -7,9 +7,8 @@ import InsanTanimiRoute from './InsanTanimiRoute';
 const PATH = '/atlas/insan-tanimi';
 const TITLE_TR = "Kur'an'da İnsan — Sizi Nasıl Görüyor?";
 const TITLE_EN = "Humanity in the Quran — How Does It See You?";
-const DESC_TR = "Kur'an'da insan tanımı — nefs, fıtrat, halife, imtihan, hilkat boyutlarıyla çok eksenli bir portre.";
-const DESC_EN = "The definition of humanity in the Quran — a multi-axis portrait through nafs, fiṭra, khalīfa, trial, and creation.";
-
+const DESC_TR = "Kur'an'da insan tanımı: nefs, fıtrat, halife, imtihan ve hilkat boyutlarıyla çok eksenli bir portre.";
+const DESC_EN = "The definition of humanity in the Quran: a multi-axis portrait through nafs, fiṭra, khalīfa, trial and creation.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

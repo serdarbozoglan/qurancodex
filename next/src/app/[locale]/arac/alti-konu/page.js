@@ -7,9 +7,8 @@ import AltiKonuRoute from './AltiKonuRoute';
 const PATH = '/arac/alti-konu';
 const TITLE_TR = "Altı Konu, Altı Sır";
 const TITLE_EN = "Six Topics, Six Secrets";
-const DESC_TR = "Kur'an'da öne çıkan altı konu — prefrontal korteks, parmak izi, modüler anlatı, kelime haritası, zaman esnekliği, iltifât.";
-const DESC_EN = "Six highlighted topics in the Quran — prefrontal cortex, fingerprints, modular narrative, word map, time elasticity, iltifāt.";
-
+const DESC_TR = "Kur'an'da öne çıkan altı konu: prefrontal korteks, parmak izi, modüler anlatı, kelime haritası, zaman esnekliği ve iltifât.";
+const DESC_EN = "Six highlighted topics in the Quran: the prefrontal cortex, fingerprints, modular narrative, the word map, time elasticity and iltifāt.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

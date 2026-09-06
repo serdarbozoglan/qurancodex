@@ -7,9 +7,8 @@ import KuranRetorigiRoute from './KuranRetorigiRoute';
 const PATH = '/arac/retorik';
 const TITLE_TR = "Kur'an Belâgatı";
 const TITLE_EN = "Quranic Rhetoric";
-const DESC_TR = "Belâgat figürleri — tezad, istiare, teşbih, iltifât, sehl-i mümteni ve daha fazlası; Kur'an üslubunun haritası.";
-const DESC_EN = "Rhetorical devices of the Quran — antithesis, metaphor, simile, iltifāt, sahl-i mümtaniʿ and more; a map of Quranic style.";
-
+const DESC_TR = "Belâgat figürleri: tezad, istiare, teşbih, iltifât, sehl-i mümteni ve diğerleri. Kur'an üslubunun haritası.";
+const DESC_EN = "Rhetorical devices of the Quran: antithesis, metaphor, simile, iltifāt, sahl-i mümtaniʿ and others. A map of Quranic style.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

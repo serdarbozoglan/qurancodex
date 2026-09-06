@@ -7,9 +7,8 @@ import KuranRenkleriRoute from './KuranRenkleriRoute';
 const PATH = '/arac/renkler';
 const TITLE_TR = "Kur'an'da Renkler";
 const TITLE_EN = "Colors in the Quran";
-const DESC_TR = "Beyaz, siyah, kırmızı, sarı, yeşil, mavi — Kur'an'da renklerin sembolik kullanımı ve geçtiği ayetler.";
-const DESC_EN = "White, black, red, yellow, green, blue — the symbolic use of color in the Quran and the verses in which each appears.";
-
+const DESC_TR = "Beyaz, siyah, kırmızı, sarı, yeşil ve mavi: Kur'an'da renklerin sembolik kullanımı ve geçtikleri ayetler.";
+const DESC_EN = "White, black, red, yellow, green and blue: the symbolic use of colour in the Quran and the verses in which each appears.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

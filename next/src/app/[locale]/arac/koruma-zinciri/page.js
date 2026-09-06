@@ -5,11 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import KorumaZinciriRoute from './KorumaZinciriRoute';
 
 const PATH = '/arac/koruma-zinciri';
-const TITLE_TR = "Yaşayan Koruma — Sıfır Varyasyon";
-const TITLE_EN = "Living Preservation — Zero Variation";
-const DESC_TR = "Kur'an'ın yaşayan koruma zinciri — Birmingham elyazması (2015), milyonlarca hâfız, isnâd geleneği.";
-const DESC_EN = "The Quran's living preservation chain — the Birmingham manuscript (2015), millions of ḥuffāẓ, the isnād tradition.";
-
+const TITLE_TR = "Yaşayan Koruma — Rasm, Hâfız ve İsnâd";
+const TITLE_EN = "Living Preservation — Rasm, Ḥuffāẓ and Isnād";
+const DESC_TR = "Kur'an'ın yaşayan koruma zinciri: Birmingham elyazması (2015), milyonlarca hâfız ve isnâd geleneği.";
+const DESC_EN = "The Quran's living chain of preservation: the Birmingham manuscript (2015), millions of ḥuffāẓ and the isnād tradition.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

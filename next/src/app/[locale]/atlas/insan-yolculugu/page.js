@@ -7,9 +7,8 @@ import InsanYolculuguRoute from './InsanYolculuguRoute';
 const PATH = '/atlas/insan-yolculugu';
 const TITLE_TR = 'İnsan Yolculuğu Atlası';
 const TITLE_EN = 'The Human Journey Atlas';
-const DESC_TR = "Fıtrattan Cemâlullah'a — Kur'ân'ın çizdiği 10 aşamalı manevî olgunlaşma haritası: fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah.";
-const DESC_EN = "From Fiṭra to Jamāl Allāh — the 10-stage map of spiritual maturation drawn by the Qur'an: fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God.";
-
+const DESC_TR = "Fıtrattan Cemâlullah'a, Kur'ân'ın çizdiği 10 aşamalı manevî olgunlaşma haritası: fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah.";
+const DESC_EN = "From fiṭra to Jamāl Allāh, the 10-stage map of spiritual maturation drawn by the Qur'an: fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

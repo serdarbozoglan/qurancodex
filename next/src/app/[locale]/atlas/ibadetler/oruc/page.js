@@ -5,11 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import OrucRoute from './OrucRoute';
 
 const PATH = '/atlas/ibadetler/oruc';
-const TITLE_TR = "Oruç — Takvanın Okulu";
-const TITLE_EN = "Fasting — The School of Taqwā";
-const DESC_TR = "Sıyâm, savm, Ramazan, iftar, imsâk, itikâf, kefâret — orucun Kur'ânî semantik alanı; takva amacı ve sünnetle tafsili. Klasik tefsir kaynakları.";
-const DESC_EN = "Ṣiyām, ṣawm, Ramaḍān, ifṭār, imsāk, iʿtikāf, kaffāra — the Qur'anic semantic field of fasting; the taqwā aim and sunnah detail. Classical tafsir sources.";
-
+const TITLE_TR = "Oruç — Takvâ Amacı ve Sünnetle Tafsili";
+const TITLE_EN = "Fasting — The Aim of Taqwā and Its Sunnah Detail";
+const DESC_TR = "Oruç Kur'ân'da hangi kelimelerle anlatılır: sıyâm, savm, Ramazan, iftar, imsâk, itikâf, kefâret. Takvâ amacı ve sünnetteki tafsili, klasik tefsir kaynaklarıyla.";
+const DESC_EN = "The words the Qur'an uses for fasting: ṣiyām, ṣawm, Ramaḍān, ifṭār, imsāk, iʿtikāf, kaffāra. The aim of taqwā and sunnah detail, with classical tafsir sources.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

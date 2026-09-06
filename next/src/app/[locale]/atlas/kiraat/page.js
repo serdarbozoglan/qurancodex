@@ -7,9 +7,8 @@ import KiraatAtlasiRoute from './KiraatAtlasiRoute';
 const PATH = '/atlas/kiraat';
 const TITLE_TR = 'Kıraat Atlası';
 const TITLE_EN = 'Atlas of Quranic Recitations';
-const DESC_TR = 'On kanonik kıraat — Hafs, Verş, Kalun, Duri, vs. — farklılıklar, ravileri ve coğrafi yayılımı.';
-const DESC_EN = 'The ten canonical recitations — Hafs, Warsh, Qalun, Duri and others — their variants, transmitters and geographic spread.';
-
+const DESC_TR = "On kanonik kıraat (Hafs, Verş, Kalun, Duri ve diğerleri): farklılıkları, ravileri ve coğrafi yayılımı.";
+const DESC_EN = "The ten canonical recitations (Hafs, Warsh, Qalun, Duri and others): their variants, transmitters and geographic spread.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

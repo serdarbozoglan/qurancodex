@@ -57,25 +57,25 @@ export default function ProofSection({ locale = 'tr' }) {
   const tr = locale === 'tr';
 
   const label = {
-    eyebrow: tr ? 'Örüntü — kanıt değil' : 'A pattern — not a proof',
+    eyebrow: tr ? 'Bir örüntü, kanıt değil' : 'A pattern, not a proof',
     title: tr ? 'Fâtiha\'yı bir de ortadan okuyun' : 'Read al-Fātiḥa from the middle',
     lead: tr
-      ? 'Yedi âyet düz bir liste değil. İlk âyetle son âyet, ikinciyle altıncı, üçüncüyle beşinci aynı temayı taşıyor; ortada eşi olmayan tek bir âyet kalıyor. Aşağıdaki şema bu eşleşmeyi gösteriyor — sayfanın tamamında anlattığımız "mimari" tam olarak bu.'
-      : 'The seven verses are not a flat list. The first pairs with the last, the second with the sixth, the third with the fifth — leaving one verse in the middle with no counterpart. The diagram below shows that pairing; this is precisely the "architecture" the rest of the page talks about.',
+      ? 'Yedi âyet düz bir liste gibi değil. İlk âyetle son âyet, ikinciyle altıncı, üçüncüyle beşinci aynı temayı taşıyor; ortada eşi olmayan tek bir âyet kalıyor. Aşağıdaki şema bu eşleşmeyi gösteriyor. Sayfanın tamamında anlattığımız "mimari" tam olarak bu.'
+      : 'The seven verses are more than a flat list. The first pairs with the last, the second with the sixth, the third with the fifth, leaving one verse in the middle with no counterpart. The diagram below shows that pairing; this is precisely the "architecture" the rest of the page talks about.',
     steps: [
       {
         n: '01',
         h: tr ? 'Örüntü ne?' : 'What is the pattern?',
         p: tr
           ? 'A-B-C-D-C\'-B\'-A\'. Dıştan içe doğru eşleşen üç çift ve ortada tek başına duran bir eksen. Klasik retorikte bu yapıya halka kompozisyonu (ring composition) deniyor; Kur\'an\'a özgü değil, antik Yakın Doğu ve İncil metinlerinde de tarif edilmiş.'
-          : 'A-B-C-D-C\'-B\'-A\'. Three pairs nesting inward and one pivot standing alone at the centre. Classical rhetoric calls this ring composition; it is not unique to the Quran — it is described in ancient Near Eastern and biblical texts as well.',
+          : 'A-B-C-D-C\'-B\'-A\'. Three pairs nesting inward and one pivot standing alone at the centre. Classical rhetoric calls this ring composition. It is also described in ancient Near Eastern and biblical texts, so it is not unique to the Quran.',
       },
       {
         n: '02',
         h: tr ? 'Metinde nerede?' : 'Where is it in the text?',
         p: tr
-          ? 'Şemadaki her düğüm gerçek bir âyet. Besmele (1:1) dışarıda tutuldu — Farrin de kendi analizinde Besmele\'yi sûrenin yapısına saymaz. 1:7 tek âyettir ama iki cümlecikten oluşur — eşlemede B\' ve A\' bu iki cümleciktir. Arapça metin âyet grafiğinden alındı, elle yazılmadı.'
-          : 'Every node in the diagram is an actual verse. The basmala (1:1) is left out — Farrin himself does not count it as part of the sura\'s structure in his own analysis. 1:7 is a single verse but contains two clauses — in this mapping B\' and A\' are those two clauses. The Arabic is taken from the verse graph, not typed from memory.',
+          ? 'Şemadaki her düğüm gerçek bir âyet. Besmele (1:1) dışarıda tutuldu; Farrin de kendi analizinde Besmele\'yi sûrenin yapısına saymaz. 1:7 tek âyettir ama iki cümlecikten oluşur; eşlemede B\' ve A\' bu iki cümleciktir. Arapça metin âyet grafiğinden alındı, elle yazılmadı.'
+          : 'Every node in the diagram is an actual verse. The basmala (1:1) is left out; Farrin himself does not count it as part of the sura\'s structure in his own analysis. 1:7 is a single verse but contains two clauses; in this mapping B\' and A\' are those two clauses. The Arabic is taken from the verse graph, not typed from memory.',
       },
       {
         n: '03',
@@ -88,8 +88,8 @@ export default function ProofSection({ locale = 'tr' }) {
         n: '04',
         h: tr ? 'Neden kesin kanıt değil?' : 'Why is this not proof?',
         p: tr
-          ? 'Tematik eşleştirme bir yorum işlemidir; "hamd" ile "nimet" arasındaki bağı kuran okuyucudur. Bu şema Farrin\'in yönteminden esinlenen, sitenin kendi düzenlemesidir — kitabındaki tam yapının birebir kopyası değil. Halka okuması da tek bir isme özgü değil (bkz. aşağıdaki kaynak notu); bu şema başka bölümlemeleri çürütmez.'
-          : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". This diagram is inspired by Farrin\'s method but is the site\'s own arrangement — not a verbatim copy of his book. Nor is ring reading unique to one scholar (see the source note below); this diagram does not refute other divisions.',
+          ? 'Tematik eşleştirme bir yorum işlemidir; "hamd" ile "nimet" arasındaki bağı kuran okuyucudur. Bu şema Farrin\'in yönteminden esinlenen, sitenin kendi düzenlemesidir; kitabındaki tam yapının birebir kopyası değil. Halka okuması da tek bir isme özgü değil (bkz. aşağıdaki kaynak notu); bu şema başka bölümlemeleri çürütmez.'
+          : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". This diagram is inspired by Farrin\'s method but is the site\'s own arrangement, not a verbatim copy of his book. Nor is ring reading unique to one scholar (see the source note below); this diagram does not refute other divisions.',
       },
     ],
     cta: tr ? "Fâtiha Atlası'na git" : 'Open the Fātiḥa Atlas',
@@ -97,21 +97,21 @@ export default function ProofSection({ locale = 'tr' }) {
     pairsTitle: tr ? 'Eşleşmeler bir arada' : 'The pairings at a glance',
     pairsInfo: [
       { k: 'A ↔ A′', a: '1:2 ↔ 1:7',
-        t: tr ? 'Övgüyle açılış, gazaptan uzak kapanış — sûre aynı çerçevede başlayıp biter.'
-              : 'Opens with praise, closes away from wrath — the sura begins and ends in the same frame.' },
+        t: tr ? 'Övgüyle açılış, gazaptan uzak kapanış: sûre aynı çerçevede başlayıp biter.'
+              : 'Opens with praise, closes away from wrath: the sura begins and ends in the same frame.' },
       { k: 'B ↔ B′', a: '1:3 ↔ 1:7',
         t: tr ? 'Rahmet vurgusu, nimet verilenlerin yolunda somutlaşır.'
               : 'The emphasis on mercy takes concrete form in the path of the favoured.' },
       { k: 'C ↔ C′', a: '1:4 ↔ 1:6',
-        t: tr ? 'Din gününün sahibi ile doğru yola iletilme talebi — hesap ve hidayet.'
-              : 'The Master of the Day and the plea for guidance — reckoning and the straight path.' },
+        t: tr ? 'Din gününün sahibi ile doğru yola iletilme talebi: hesap ve hidayet.'
+              : 'The Master of the Day and the plea for guidance: reckoning and the straight path.' },
       { k: 'D', a: '1:5',
         t: tr ? 'Eksen, eşsiz: dil kişisinin üçüncü şahıstan ikinci şahsa döndüğü nokta.'
               : 'The pivot, unpaired: where the grammatical person turns from third to second.' },
     ],
     source: tr
-      ? 'Esin: Raymond Farrin, Structure and Qur\'anic Interpretation (2014) — kendisi Cuypers\'in retorik yönteminden besleniyor. Buradaki eşleme sitenin kendi düzenlemesi. Arapça: âyet grafiği.'
-      : 'Inspired by: Raymond Farrin, Structure and Qur\'anic Interpretation (2014) — itself building on Cuypers\' rhetorical method. The mapping shown here is the site\'s own arrangement. Arabic: verse graph.',
+      ? 'Esin: Raymond Farrin, Structure and Qur\'anic Interpretation (2014); kendisi Cuypers\'in retorik yönteminden besleniyor. Buradaki eşleme sitenin kendi düzenlemesi. Arapça: âyet grafiği.'
+      : 'Inspired by: Raymond Farrin, Structure and Qur\'anic Interpretation (2014), itself building on Cuypers\' rhetorical method. The mapping shown here is the site\'s own arrangement. Arabic: verse graph.',
   };
 
   return (
@@ -266,7 +266,7 @@ export default function ProofSection({ locale = 'tr' }) {
           letterSpacing: '0.24em', textTransform: 'uppercase',
           color: `${COLORS.gold}cc`, textAlign: 'center', margin: '0 0 20px',
         }}>
-          {tr ? 'Yedi âyet, sırasıyla — eksende 1:5' : 'The seven verses, in order — 1:5 at the axis'}
+          {tr ? 'Yedi âyet, sırasıyla; eksende 1:5' : 'The seven verses, in order; 1:5 at the axis'}
         </div>
         {/* Âyet listesi 980px kapsayıcıdan DAR: RTL metin sağa yaslandığı için
             geniş kapsayıcıda etiket ile âyet arasında kocaman boşluk kalıyordu
