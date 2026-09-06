@@ -128,8 +128,8 @@ export default async function Home({ params }) {
           <PortalCard card={CARD_BY_ID['tekrar-card']} locale={locale} />
         </CompactRow>
         <ClusterWhisper
-          tr="Yorum çok, örüntü tek. Dil bir kapı; girene yeni bir oda açılır."
-          en="Many interpretations, one pattern. Language is a door; for those who enter, a new room opens."
+          tr="Yorum çok, örüntü tek."
+          en="Many readings, one pattern."
         />
         <CardSeam variant="seal" />
       </div>
@@ -160,8 +160,8 @@ export default async function Home({ params }) {
             kendi şeridiyle çelişiyordu. "Tarih ... eğilir" de aynı zaferci
             tonu taşıdığı için birlikte yumuşatıldı. */}
         <ClusterWhisper
-          tr="Bulgular örtüşebilir, izler çoğalabilir; hüküm metne değil, tefekküre aittir. Metin değişmez."
-          en="Findings may align and traces may multiply; the verdict belongs not to the text but to reflection. The text does not change."
+          tr="Bulgular örtüşebilir, izler çoğalabilir; hüküm tefekkürün işidir. Metin değişmez."
+          en="Findings may align and traces may multiply; the verdict belongs to reflection. The text does not change."
         />
         <CardSeam variant="seal" />
       </div>
@@ -191,7 +191,7 @@ export default async function Home({ params }) {
         </CompactRow>
         <ClusterWhisper
           tr="Senden önce seni bilen, senden öte sana yakın olan."
-          en="He who knew you before you knew yourself — nearer to you than you are to yourself."
+          en="He who knew you before you knew yourself, and is nearer to you than you are to yourself."
           verse={{
             arabic: 'وَلَقَدْ خَلَقْنَا الْاِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ وَنَحْنُ اَقْرَبُ اِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ',
             translationTr: 'Andolsun, insanı biz yarattık ve nefsinin kendisine fısıldadıklarını biliriz ve biz ona şah damarından daha yakınız.',

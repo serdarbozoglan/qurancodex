@@ -371,8 +371,8 @@ export default function Hero() {
           )}
         >
           {language === 'tr'
-            ? "Kur'an'ın dilsel, sayısal ve yapısal mimarisi — 6.236 âyet, interaktif görsellerle."
-            : "The linguistic, numerical and structural architecture of the Qur'an — 6,236 verses, explored interactively."}
+            ? "6.236 âyet, etkileşimli görsellerle incelenmiş."
+            : "6,236 verses, explored through interactive visuals."}
         </motion.p>
 
         {/* v2.0 — halka etkileşim ipucu (affordance). Arkadaki halkanın canlı

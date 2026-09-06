@@ -20,7 +20,7 @@ const GATES = [
     scrollTo: 'mukattaa-card',
     accent: SEMANTIC.accentPrimary,   // #d4a574 — aynı hex, UI aksanı rolü
     eyebrowTr: 'KAPI 01',  eyebrowEn: 'GATE 01',
-    titleTr: 'Arapça Bilmeden Görebileceğin Mimari',
+    titleTr: 'Arapça bilmeden görebileceğin mimari',
     titleEn: 'Architecture Visible Without Arabic',
     descTr: '14 mukattaa harfi · 16 vezin · ritim · ses-anlam · halka kompozisyon · nakarat',
     descEn: '14 mukattaʿāt letters · 16 meters · rhythm · sound-meaning · ring composition · refrain',
@@ -40,8 +40,8 @@ const GATES = [
     scrollTo: 'bilimsel-card',
     accent: CATEGORY.violet,          // #9b59b6 → #a78bfa (§13.25: küçük metinde kontrast)
     eyebrowTr: 'KAPI 02',  eyebrowEn: 'GATE 02',
-    titleTr: '1.400 Yıl Önceki Kevnî İşaretler',
-    titleEn: 'Cosmic Signs 1,400 Years Earlier',
+    titleTr: '1.400 yıl önceki kevnî işaretler',
+    titleEn: 'Cosmic signs 1,400 years earlier',
     descTr: 'Demir · genişleyen evren · iki deniz · embriyoloji · Firavun · Hâmân · hâfız zinciri',
     descEn: 'Iron · expanding universe · two seas · embryology · Pharaoh · Hāmān · ḥuffāẓ chain',
     chipsTr: ['Bilimsel İşaretler', 'Tarihsel İzler', 'Yaşayan Koruma'],
@@ -58,8 +58,8 @@ const GATES = [
     scrollTo: 'dua-card',
     accent: CATEGORY.blue,            // aynı hex
     eyebrowTr: 'KAPI 03',  eyebrowEn: 'GATE 03',
-    titleTr: "Kur'an Seni Nasıl Tanımlıyor?",
-    titleEn: 'How Does the Quran Define You?',
+    titleTr: "Kur'an seni nasıl tanımlıyor?",
+    titleEn: 'How does the Quran define you?',
     descTr: 'Dua dili · 6 sır · Esmâ köprüsü · insan tanımı · psikoloji · nefs mertebeleri',
     descEn: 'Language of prayer · 6 secrets · Names bridge · human definition · psychology · nafs',
     chipsTr: ['Dua Dili', 'Öne Çıkanlar', 'Esmâ', 'İnsan Tanımı', 'Psikoloji'],
@@ -76,10 +76,10 @@ const GATES = [
     href: '/atlas/kissa',
     accent: CATEGORY.emerald,         // #27ae60 → #1d9e75 (yakın-tekrar yeşil ayıklandı)
     eyebrowTr: 'KAPI 04',  eyebrowEn: 'GATE 04',
-    titleTr: '23 Yıla Yayılan İnsan Hikâyeleri',
-    titleEn: '23 Years of Human Stories',
-    descTr: 'Peygamberler · kavimler · kadınlar · münâfık · iblîs — Kur\'an\'ın 7 büyük insan portresi',
-    descEn: 'Prophets · peoples · women · hypocrites · Iblīs — the Quran\'s great human portraits',
+    titleTr: '23 yıla yayılan insan hikâyeleri',
+    titleEn: '23 years of human stories',
+    descTr: 'Peygamberler · kavimler · kadınlar · münâfık · iblîs · Kur\'an\'ın 7 insan portresi',
+    descEn: 'Prophets · peoples · women · hypocrites · Iblīs · the Quran\'s 7 human portraits',
     chipsTr: ['Kıssa Atlası', 'Peygamberler', 'Kavimler', 'Kadınlar', 'Münâfık'],
     chipsEn: ['Stories', 'Prophets', 'Peoples', 'Women', 'Hypocrites'],
     icon: (
@@ -96,8 +96,8 @@ const GATES = [
     href: '/graf/ayet',
     accent: CATEGORY.orange,          // aynı hex
     eyebrowTr: 'KAPI 05',  eyebrowEn: 'GATE 05',
-    titleTr: 'Veriyle Keşfet, Görselle Anla',
-    titleEn: 'Discover by Data, Understand by Visual',
+    titleTr: 'Veriyle keşfet, görselle anla',
+    titleEn: 'Discover through data, understand through visuals',
     descTr: 'Ayet graf · kavram ağı · kelime ısı haritası · sûre DNA · semantik harita',
     descEn: 'Verse graph · concept network · word heatmap · sura DNA · semantic map',
     chipsTr: ['Ayet Grafı', 'Kavram', 'Kelime Isı', 'Sûre DNA', 'Semantik'],
@@ -121,8 +121,8 @@ const GATES = [
     href: '/atlas/sunnetullah',
     accent: CATEGORY.red,             // aynı hex
     eyebrowTr: 'KAPI 06',  eyebrowEn: 'GATE 06',
-    titleTr: 'Atlaslarda Detayda Kaybol',
-    titleEn: 'Lose Yourself in Atlas Detail',
+    titleTr: 'Atlaslarda ayrıntıya in',
+    titleEn: 'Go into the detail of the atlases',
     descTr: 'Sünnetullah · tabiat · zaman boyutları · yeminler · renkler · mesel · münâsebât',
     descEn: 'Sunnatullah · nature · time · oaths · colors · parables · munāsabāt',
     chipsTr: ['Sünnetullah', 'Tabiat', 'Zaman', 'Yeminler', 'Renkler'],
@@ -389,7 +389,7 @@ export default function SixGates() {
             margin: '0 auto 12px',
             maxWidth: '720px',
           }}>
-            {tr ? 'Nereden Başlamak İstiyorsun?' : 'Where Would You Like to Begin?'}
+            {tr ? 'Nereden başlamak istiyorsun?' : 'Where would you like to begin?'}
           </h2>
           <p style={{
             color: COLORS.silver,
@@ -401,8 +401,8 @@ export default function SixGates() {
             maxWidth: '620px',
           }}>
             {tr
-              ? 'Konuya göre bir kapı seç — ya anasayfanın derinine in, ya doğrudan bir tool sayfasına geç.'
-              : 'Choose a gate by topic — go deep within this page, or jump straight to a tool page.'}
+              ? 'Konuya göre bir kapı seç: ya bu sayfada aşağı in, ya doğrudan bir araç sayfasına geç.'
+              : 'Choose a gate by topic: go further down this page, or jump straight to a tool page.'}
           </p>
           <div style={{
             width: '120px',
