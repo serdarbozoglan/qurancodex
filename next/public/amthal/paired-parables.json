@@ -5,19 +5,22 @@
       "themeTr": "Münafıkların İki Hali",
       "themeEn": "Two States of Hypocrites",
       "sharedThemeTr": "İkisi de münafığı tasvir eder — biri aktif arayışla, diğeri pasif maruz kalmayla. İki halde de sonuç karanlıktır.",
+      "sharedThemeEn": "Both depict the hypocrite: one through active seeking, the other through passive exposure. In both states the outcome is darkness.",
       "sideA": {
         "parableId": "fire-kindler",
         "ref": "2:17",
         "domainColor": "#c9a227",
         "keyPhrase": "اسْتَوْقَدَ نَارًا",
-        "angleTr": "Aktif arayış — ateş yakar, ışık bulur, sonra söner"
+        "angleTr": "Aktif arayış — ateş yakar, ışık bulur, sonra söner",
+        "angleEn": "Active seeking: he kindles a fire, finds light, then it goes out"
       },
       "sideB": {
         "parableId": "rainstorm",
         "ref": "2:19-20",
         "domainColor": "#3498db",
         "keyPhrase": "صَيِّبٍ مِّنَ السَّمَاءِ",
-        "angleTr": "Pasif maruz kalış — gökten inen fırtınaya yakalanır"
+        "angleTr": "Pasif maruz kalış — gökten inen fırtınaya yakalanır",
+        "angleEn": "Passive exposure: he is caught in a storm descending from the sky"
       }
     },
     {
@@ -25,19 +28,22 @@
       "themeTr": "İman vs. Küfür: Işık ve Karanlık",
       "themeEn": "Faith vs. Disbelief: Light and Darkness",
       "sharedThemeTr": "Aynı bölümde (Nûr Sûresi) art arda gelen iki mesel: biri imanın nurunu, diğeri küfrün karanlığını tasvir eder.",
+      "sharedThemeEn": "Two parables that come one after another in the same chapter (Sūrat al-Nūr): one depicts the light of faith, the other the darkness of disbelief.",
       "sideA": {
         "parableId": "desert-mirage",
         "ref": "24:39",
         "domainColor": "#3498db",
         "keyPhrase": "أَعْمَالُهُمْ كَسَرَابٍ",
-        "angleTr": "Serap — gözle görünür ama yaklaşınca yok olur"
+        "angleTr": "Serap — gözle görünür ama yaklaşınca yok olur",
+        "angleEn": "Mirage: visible to the eye but vanishing when approached"
       },
       "sideB": {
         "parableId": "deep-sea-darkness",
         "ref": "24:40",
         "domainColor": "#3498db",
         "keyPhrase": "كَظُلُمَاتٍ فِي بَحْرٍ لُّجِّيٍّ",
-        "angleTr": "Derin deniz — kat kat karanlık, el bile görünmez"
+        "angleTr": "Derin deniz — kat kat karanlık, el bile görünmez",
+        "angleEn": "Deep sea: layer upon layer of darkness, one cannot even see one's hand"
       }
     },
     {
@@ -45,19 +51,22 @@
       "themeTr": "Güzel Söz vs. Kötü Söz",
       "themeEn": "Good Word vs. Evil Word",
       "sharedThemeTr": "Kelime-i Tevhid ile küfrün karşılaştırması — ağaç metaforu üzerinden.",
+      "sharedThemeEn": "A comparison of the word of monotheism (kalimat al-tawḥīd) with disbelief: through the metaphor of a tree.",
       "sideA": {
         "parableId": "good-tree",
         "ref": "14:24-25",
         "domainColor": "#2ecc71",
         "keyPhrase": "كَشَجَرَةٍ طَيِّبَةٍ أَصْلُهَا ثَابِتٌ",
-        "angleTr": "Güzel ağaç — kökü yerde, dalları gökte, sürekli meyve"
+        "angleTr": "Güzel ağaç — kökü yerde, dalları gökte, sürekli meyve",
+        "angleEn": "The good tree: its root in the earth, its branches in the sky, ever-bearing fruit"
       },
       "sideB": {
         "parableId": "evil-tree",
         "ref": "14:26",
         "domainColor": "#2ecc71",
         "keyPhrase": "كَشَجَرَةٍ خَبِيثَةٍ اجْتُثَّتْ",
-        "angleTr": "Kötü ağaç — kökü kopmuş, yeryüzünde tutunamamış"
+        "angleTr": "Kötü ağaç — kökü kopmuş, yeryüzünde tutunamamış",
+        "angleEn": "The evil tree: its root torn out, unable to hold in the ground"
       }
     },
     {
@@ -65,19 +74,22 @@
       "themeTr": "Şirk vs. Tevhid: Kölelik Meseli",
       "themeEn": "Idolatry vs. Monotheism: The Slave Parable",
       "sharedThemeTr": "Art arda gelen iki mesel aynı soruyla sona erer: 'Eşit olurlar mı?' — tevhidin üstünlüğünü ispatlayan ikili.",
+      "sharedThemeEn": "Two consecutive parables end with the same question: 'Are they equal?': a pair that demonstrates the superiority of monotheism (tawḥīd).",
       "sideA": {
         "parableId": "free-slave",
         "ref": "16:75",
         "domainColor": "#B17EC6",
         "keyPhrase": "عَبْدًا مَّمْلُوكًا لَّا يَقْدِرُ عَلَى شَيْءٍ",
-        "angleTr": "Hiçbir şey yapamayan köle vs. nimet sahibi özgür — eşit olurlar mı?"
+        "angleTr": "Hiçbir şey yapamayan köle vs. nimet sahibi özgür — eşit olurlar mı?",
+        "angleEn": "A slave who can do nothing vs. a free man endowed with bounty: are they equal?"
       },
       "sideB": {
         "parableId": "deaf-dumb-man",
         "ref": "16:76",
         "domainColor": "#B17EC6",
         "keyPhrase": "أَبْكَمُ لَا يَقْدِرُ عَلَى شَيْءٍ",
-        "angleTr": "Dilsiz, beceriksiz adam vs. adalet emreden — eşit olurlar mı?"
+        "angleTr": "Dilsiz, beceriksiz adam vs. adalet emreden — eşit olurlar mı?",
+        "angleEn": "A mute, incapable man vs. one who enjoins justice: are they equal?"
       }
     },
     {
@@ -85,19 +97,22 @@
       "themeTr": "Riyâ vs. İhlas: İnfakın İki Hali",
       "themeEn": "Ostentation vs. Sincerity: Two States of Giving",
       "sharedThemeTr": "Art arda gelen bu iki mesel, toprağa düşen yağmur imgesini ortak kullanır — ama farklı niyetle verilen sadakanın farklı sonuçlarını gösterir.",
+      "sharedThemeEn": "These two consecutive parables share the image of rain falling on soil: but they show the different outcomes of charity given with different intentions.",
       "sideA": {
         "parableId": "rock-soil",
         "ref": "2:264",
         "domainColor": "#A28F77",
         "keyPhrase": "كَمَثَلِ صَفْوَانٍ عَلَيْهِ تُرَابٌ",
-        "angleTr": "Riyâ — yağmurdan sonra çıplak kalan kaya"
+        "angleTr": "Riyâ — yağmurdan sonra çıplak kalan kaya",
+        "angleEn": "Ostentation: a rock left bare after the rain"
       },
       "sideB": {
         "parableId": "fertile-hill",
         "ref": "2:265",
         "domainColor": "#A28F77",
         "keyPhrase": "وَمَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ",
-        "angleTr": "İhlas — yağmur alınca iki kat ürün veren tepe"
+        "angleTr": "İhlas — yağmur alınca iki kat ürün veren tepe",
+        "angleEn": "Sincerity: a hill that yields a double harvest when the rain falls"
       }
     },
     {
@@ -105,19 +120,22 @@
       "themeTr": "İki Bağ Sahibi: Kibir ve Pişmanlık",
       "themeEn": "The Two Vineyard Owners: Arrogance and Regret",
       "sharedThemeTr": "Aynı kıssanın iki ucu — önce kibirli meydan okuma, sonra çardakları çökmüş bağa bakıp avuç ovuşturma.",
+      "sharedThemeEn": "The two ends of the same story: first the arrogant challenge, then wringing the hands over a vineyard whose trellises have collapsed.",
       "sideA": {
         "parableId": "two-gardens-owner",
         "ref": "18:32",
         "domainColor": "#2ecc71",
         "keyPhrase": "وَاضْرِبْ لَهُم مَّثَلًا رَّجُلَيْنِ",
-        "angleTr": "Kibir — zengin bahçe sahibi imanlı arkadaşına meydan okur"
+        "angleTr": "Kibir — zengin bahçe sahibi imanlı arkadaşına meydan okur",
+        "angleEn": "Arrogance: the wealthy garden owner challenges his believing companion"
       },
       "sideB": {
         "parableId": "vineyard-regret",
         "ref": "18:42",
         "domainColor": "#2ecc71",
         "keyPhrase": "وَأُحِيطَ بِثَمَرِهِ فَأَصْبَحَ يُقَلِّبُ كَفَّيْهِ عَلَىٰ مَآ أَنفَقَ فِيهَا وَهِىَ خَاوِيَةٌ",
-        "angleTr": "Pişmanlık — bağı bir gecede yok olunca avuçlarını ovuşturur"
+        "angleTr": "Pişmanlık — bağı bir gecede yok olunca avuçlarını ovuşturur",
+        "angleEn": "Regret: when his vineyard is destroyed in a single night, he wrings his hands"
       }
     },
     {
@@ -125,19 +143,22 @@
       "themeTr": "İlahi Kelâmın Sonsuzluğu: İki Ölçek",
       "themeEn": "The Infinity of Divine Words: Two Scales",
       "sharedThemeTr": "Aynı fikir iki farklı büyüklükte kurulur — biri tek deniz, diğeri ağaçlar + yedi deniz. İkisi de aynı sonuca varır: ölçeği büyütmek sonucu değiştirmez.",
+      "sharedThemeEn": "The same idea is framed at two different magnitudes: one a single sea, the other the trees plus seven seas. Both arrive at the same conclusion: increasing the scale does not change the result.",
       "sideA": {
         "parableId": "ink-sea",
         "ref": "18:109",
         "domainColor": "#3498db",
         "keyPhrase": "قُل لَّوْ كَانَ الْبَحْرُ مِدَادًا لِّكَلِمَٰتِ رَبِّى",
-        "angleTr": "Tek deniz mürekkep olsa — yine tükenmez"
+        "angleTr": "Tek deniz mürekkep olsa — yine tükenmez",
+        "angleEn": "Were a single sea to become ink: still it would not run out"
       },
       "sideB": {
         "parableId": "pen-trees",
         "ref": "31:27",
         "domainColor": "#3498db",
         "keyPhrase": "وَلَوْ أَنَّمَا فِى الْأَرْضِ مِن شَجَرَةٍ أَقْلَٰمٌ وَالْبَحْرُ يَمُدُّهُ مِن بَعْدِهِ سَبْعَةُ أَبْحُرٍ مَّا نَفِدَتْ كَلِمَٰتُ اللَّهِ إِنَّ اللَّهَ عَزِيزٌ حَكِيمٌ",
-        "angleTr": "Tüm ağaçlar kalem, sekiz deniz mürekkep olsa — yine tükenmez"
+        "angleTr": "Tüm ağaçlar kalem, sekiz deniz mürekkep olsa — yine tükenmez",
+        "angleEn": "Were all the trees pens and eight seas ink: still it would not run out"
       }
     },
     {
@@ -145,19 +166,22 @@
       "themeTr": "Ölü Toprağın Dirilişi: İki Sûre, Aynı Kıyas",
       "themeEn": "Revival of Dead Land: Same Analogy, Two Surahs",
       "sharedThemeTr": "Her yıl gözlenen bir olay (yağmurla dirilen toprak), dirilişin (ba's) delili olarak sunulur.",
+      "sharedThemeEn": "An event observed every year (land revived by rain) is presented as proof of the resurrection (ba'th).",
       "sideA": {
         "parableId": "dead-land-revival-1",
         "ref": "30:19",
         "domainColor": "#3498db",
         "keyPhrase": "الْأَرْضَ بَعْدَ مَوْتِهَا وَكَذَٰلِكَ تُخْرَجُونَ",
-        "angleTr": "Rûm 30:19 — 'ölü toprağı diriltir; siz de böyle çıkarılacaksınız'"
+        "angleTr": "Rûm 30:19 — 'ölü toprağı diriltir; siz de böyle çıkarılacaksınız'",
+        "angleEn": "al-Rūm 30:19: 'He revives the dead earth; and thus shall you be brought forth'"
       },
       "sideB": {
         "parableId": "revival-proof",
         "ref": "41:39",
         "domainColor": "#3498db",
         "keyPhrase": "إِنَّ الَّذِىٓ أَحْيَاهَا لَمُحْىِ الْمَوْتَىٰٓ",
-        "angleTr": "Fussilet 41:39 — 'onu dirilten, ölüleri de diriltir'"
+        "angleTr": "Fussilet 41:39 — 'onu dirilten, ölüleri de diriltir'",
+        "angleEn": "Fuṣṣilat 41:39: 'the One who revives it surely revives the dead'"
       }
     },
     {
@@ -165,19 +189,22 @@
       "themeTr": "Cennet Nimetleri: Yakut ve İnci",
       "themeEn": "Paradise Rewards: Rubies and Pearls",
       "sharedThemeTr": "Cennet nimetleri iki değerli, saklı nesneye benzetilir — değer, el değmemişlikten gelir.",
+      "sharedThemeEn": "The rewards of Paradise are likened to two precious, hidden objects: their value comes from being untouched.",
       "sideA": {
         "parableId": "rubies-coral",
         "ref": "55:58",
         "domainColor": "#F472B6",
         "keyPhrase": "كَأَنَّهُنَّ الْيَاقُوتُ وَالْمَرْجَانُ",
-        "angleTr": "Rahmân 55:58 — 'sanki onlar yakut ve mercandır'"
+        "angleTr": "Rahmân 55:58 — 'sanki onlar yakut ve mercandır'",
+        "angleEn": "al-Raḥmān 55:58: 'as though they were rubies and coral'"
       },
       "sideB": {
         "parableId": "hidden-pearls",
         "ref": "56:23",
         "domainColor": "#F472B6",
         "keyPhrase": "كَأَمْثَٰلِ اللُّؤْلُؤِ الْمَكْنُونِ",
-        "angleTr": "Vâkıa 56:23 — 'saklı inciler misali'"
+        "angleTr": "Vâkıa 56:23 — 'saklı inciler misali'",
+        "angleEn": "al-Wāqi'a 56:23: 'like hidden pearls'"
       }
     },
     {
@@ -185,19 +212,22 @@
       "themeTr": "Kıyamet Günü: Gök ve Dağların Dönüşümü",
       "themeEn": "Judgment Day: The Transformation of Sky and Mountains",
       "sharedThemeTr": "Aynı sûrede art arda gelen iki mesel — sağlam görünen gök ve dağlar bile Kıyamette akışkanlaşır.",
+      "sharedThemeEn": "Two parables that come one after another in the same surah: even the sky and the mountains, which appear solid, turn fluid on the Day of Resurrection.",
       "sideA": {
         "parableId": "sky-molten",
         "ref": "70:8",
         "domainColor": "#F472B6",
         "keyPhrase": "يَوْمَ تَكُونُ السَّمَآءُ كَالْمُهْلِ",
-        "angleTr": "Gök erimiş maden gibi olur"
+        "angleTr": "Gök erimiş maden gibi olur",
+        "angleEn": "The sky becomes like molten metal"
       },
       "sideB": {
         "parableId": "mountains-wool-70",
         "ref": "70:9",
         "domainColor": "#F472B6",
         "keyPhrase": "وَتَكُونُ الْجِبَالُ كَالْعِهْنِ",
-        "angleTr": "Dağlar atılmış yün gibi olur"
+        "angleTr": "Dağlar atılmış yün gibi olur",
+        "angleEn": "The mountains become like tufted wool"
       }
     },
     {
@@ -205,19 +235,22 @@
       "themeTr": "Kıyamet Günü: İnsanlar ve Dağlar",
       "themeEn": "Judgment Day: People and Mountains",
       "sharedThemeTr": "Kâria sûresinde art arda gelen iki mesel — insanlar dağılmış kelebekler, dağlar didiklenmiş yün gibi olur.",
+      "sharedThemeEn": "Two consecutive parables in Sūrat al-Qāri'a: people become like scattered moths, and the mountains like carded wool.",
       "sideA": {
         "parableId": "scattered-moths",
         "ref": "101:4",
         "domainColor": "#F472B6",
         "keyPhrase": "يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِ",
-        "angleTr": "İnsanlar dağılmış kelebekler gibi olur"
+        "angleTr": "İnsanlar dağılmış kelebekler gibi olur",
+        "angleEn": "People become like scattered moths"
       },
       "sideB": {
         "parableId": "mountains-wool-101",
         "ref": "101:5",
         "domainColor": "#F472B6",
         "keyPhrase": "وَتَكُونُ الْجِبَالُ كَالْعِهْنِ الْمَنفُوشِ",
-        "angleTr": "Dağlar didiklenmiş renkli yün gibi olur"
+        "angleTr": "Dağlar didiklenmiş renkli yün gibi olur",
+        "angleEn": "The mountains become like carded, colored wool"
       }
     },
     {
@@ -225,19 +258,22 @@
       "themeTr": "Sel Köpüğü ve Maden Cürufu: Hak ile Bâtıl",
       "themeEn": "Flood Foam and Metal Dross: Truth and Falsehood",
       "sharedThemeTr": "Tek bir âyet (Ra'd 13:17) içinde iki ikiz benzetme — ikisinde de yüzeye çıkan 'zebed' gider, faydalı olan kalır. Kitaba göre bu ikili imge, tarihsel bir okumaya da açılır: Mekke'de inkâr açıkça görünürken (su/köpük gibi), Medine'de münafıkların gizli sahteliği ancak Bedir, Uhud, Hendek gibi imtihanların ateşiyle (maden/cüruf gibi) ayrışmıştır.",
+      "sharedThemeEn": "Two twin comparisons within a single verse (al-Ra'd 13:17): in both, the 'zabad' (scum) that rises to the surface passes away, and what is beneficial remains. According to the book, this dual image also opens onto a historical reading: while in Mecca disbelief was openly visible (like water/foam), in Medina the hidden falseness of the hypocrites was separated out only by the fire of trials such as Badr, Uhud, and the Trench (like metal/dross).",
       "sideA": {
         "parableId": "flood-foam",
         "ref": "13:17",
         "domainColor": "#3498db",
         "keyPhrase": "فَسَالَتْ أَوْدِيَةٌ بِقَدَرِهَا فَاحْتَمَلَ السَّيْلُ زَبَدًا رَّابِيًا",
-        "angleTr": "Su ve köpük — sel akar, köpük yüzeye çıkar ama gider"
+        "angleTr": "Su ve köpük — sel akar, köpük yüzeye çıkar ama gider",
+        "angleEn": "Water and foam: the torrent flows, the foam rises to the surface but passes away"
       },
       "sideB": {
         "parableId": "metal-dross",
         "ref": "13:17",
         "domainColor": "#c9a227",
         "keyPhrase": "يُوقِدُونَ عَلَيْهِ فِي النَّارِ ... زَبَدٌ مِّثْلُهُ",
-        "angleTr": "Ateş ve cüruf — maden eritilir, cürufu gider, faydalısı kalır"
+        "angleTr": "Ateş ve cüruf — maden eritilir, cürufu gider, faydalısı kalır",
+        "angleEn": "Fire and dross: the metal is smelted, its dross goes away, and what is useful remains"
       }
     }
   ]

@@ -77,10 +77,9 @@
   - Yapıldı: `RhythmExtensions.jsx` detayına anakronizm notu ("bu sistematik tasnif Kur'ân'ın inişinden sonra olgunlaştı") + **secî (kafiyeli, ritmik nesir)** yakınlığı eklendi; "hiçbirine uymaz" → "ne klasik şiire ne de alışılmış düzyazıya indirgenir". Kimlik korundu (§13.24).
   - Katılım: ✅ tam · Durum: **düzeltildi**
 
-- [ ] **C15 · Fâtiha merkez ayeti "iyyâke na'budu" (4.)** — `/tr/arac/kurani-tani`
-  - Hafs'ta bu 1:5; 7 ayetin ortası (4.) = 1:4 "mâliki yevmi'd-dîn".
-  - Yapılacak: Kullanılan sayım geleneğini her şemada belirt; cümlecik düzeni ile ayet numarasını ayır.
-  - Katılım: 🟡 "hata" değil, **sayım-geleneği etiketi eksik**. Belirt.
+- [x] **C15 · Fâtiha merkez ayeti "iyyâke na'budu" (4.)** — `WowFacts.jsx` ✅ **DÜZELTİLDİ (2026-09-07, commit b70138cd)**
+  - Yapıldı: WowFacts "4. ayet iyyâke na'budu" yanlıştı; Hafs'ta 4. ayet Mâliki yevmi'd-dîn, iyyâke na'budu 1:5 (övgüden isteğe dönüm noktası). Fact doğru yapıyla yeniden yazıldı. TR+EN, humanizer'lı. (Not: checkbox geç işaretlendi.)
+  - Katılım: 🟡→✅ · Durum: **düzeltildi**
 
 - [x] **C17 · Schubert 2005 → hipokampüs** — `/tr/tefekkur/sonsuzlugun-merdiveni` ✅ **DÜZELTİLDİ (2026-09-07)**
   - Web+PubMed 16060739 ile doğrulandı: Schubert 2005 tamamen davranışsal (Study 1-6: yargı/tepki süresi/motor tepki), hipokampüs/nöro-görüntüleme YOK.
@@ -142,9 +141,12 @@
   - Kod tümüyle apex (`qurancodex.com`): sitemap BASE, robots host+sitemap, seo canonical/og hepsi apex. next.config'teki www redirect'i kuran.com API proxy'si (qurancodex değil).
   - Kalan: Canlıdaki www yönlendirmesi **Vercel domain ayarı** → Vercel'de **www→apex (qurancodex.com)** redirect'i seçilmeli (kodun apex canonical'ıyla eşleşsin). Kod tarafı hazır; kod-içi redirect eklemedim (Vercel apex→www ise loop riski). · Katılım: ✅ (kod) + Vercel flag
 
-- [ ] **UX02 · İngilizce sayfalarda Türkçe artık metin** — İngilizce atlaslar
-  - Mesel Atlası motifleri, Tabiat Atlası hayvan adları, İbadetler kaynak açıklamaları.
-  - Yapılacak: Yalnız arayüz sözlüğünü değil veri nesnelerinin tüm açıklayıcı alanlarını yerelleştir. · Katılım: ✅ (`backlog-i18n-gaps.md`)
+- [x] **UX02 · İngilizce sayfalarda Türkçe artık metin** — İngilizce atlaslar ✅ **DÜZELTİLDİ (2026-09-07, 4 paralel agent + humanizer)**
+  - Yapıldı: Doğa Atlası 22 hayvan adı; amthal (parables 73 isim+özet, imagery 50, paired 36, scholars 15, nur-zulumat 14, animals 18, meta 6); ibadetler 8 dosya (hac/hub/kurban/namaz/oruç/tövbe/zekat/zikir — ~460 alan). Toplam ~660+ EN alanı, sadık çeviri, standart İslamî terminoloji.
+  - **Konvansiyon-dışı alanlar da yapıldı** (senin isteğin): `symbolism`, `symbolises`, `principleLabel`, nur-zulumat `stats`, keyVerses `descTr` — data'ya `...En` eklendi + `MeselAtlasi.jsx`'te 7 render sitesine `language==='tr'` kontrolü.
+  - Humanizer: tüm yeni EN alanlarında em-dash (~536) temizlendi; başka AI kalıbı yok.
+  - **Kaynak-tarafı flag'ler** (agent tespiti, ayrı gözden geçir): Lokman "peygamber" ifadesi (zekat, hub); zekat `icBoyut[6]` "mütehallif" TR yazım hatası; zekat 30:39↔2:276 atıf imprecision. Bunlar TR içerik/atıf, çeviri hatası değil.
+  - Katılım: ✅ · Durum: **düzeltildi** (kalan: `Tr`-eksiz Türkçe alanlar başka dosyalarda varsa ayrı denetim)
 
 - [ ] **UX03 · Meal seçiminde eski + yeni metin bir arada** — `/tr/oku/1`
   - Yapılacak: Yeni çeviri yüklenene kadar açık yükleme durumu göster. · Katılım: ✅ · Durum: yükleme UX bug'ı

@@ -20,9 +20,9 @@
   "abdCore": {
     "arabicName": "عَبْد",
     "titleTr": "abd — Kul",
-    "titleEn": "ʿAbd — Servant",
+    "titleEn": "ʿAbd: Servant",
     "descTr": "Kur'ân'da kulluğun kök kelimesi. 'İbâde' (ibadet) 'abd' kökünden gelir; kul olmak, tek bir Rabbe ait olmaktır. Sekiz sütun bu tek kökten türeyen sekiz yüzdür — beden, mal, zaman, arzu, dil, kalp, tevbe ve hac bir bütün olarak 'abd'in Rabbi ile bağlantısını kurar.",
-    "descEn": "The root of servitude in the Qur'an. 'ʿIbāda' derives from the root ʿ-b-d; to be a servant is to belong to a single Lord. The eight pillars are eight faces of a single root — body, wealth, time, desire, tongue, heart, repentance and pilgrimage together forge the servant's link to the Lord.",
+    "descEn": "The root of servitude in the Qur'an. 'ʿIbāda' derives from the root ʿ-b-d; to be a servant is to belong to a single Lord. The eight pillars are eight faces of a single root: body, wealth, time, desire, tongue, heart, repentance and pilgrimage together forge the servant's link to the Lord.",
     "coreAyet": {
       "ref": "Fatiha 1:5",
       "ar": "اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ",
@@ -37,7 +37,7 @@
       "titleTr": "'abd' kökü Kur'ân'da 275 civarında geçiş",
       "titleEn": "The root ʿ-b-d appears around 275 times in the Qur'an",
       "descTr": "Kulluk Kur'ân'ın en yoğun semantik alanlarından biri. 'abd, ibâde, âbid, taʿabbud, maʿbûd — hepsi tek kökten (ع ب د). Ne yapıldığı değil, kime yapıldığı belirleyicidir.",
-      "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd — all from a single root (ʿ-b-d). It is not what is done but to whom it is done that defines it.",
+      "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd: all from a single root (ʿ-b-d). It is not what is done but to whom it is done that defines it.",
       "claimType": "quran_semantic",
       "confidence": "high",
       "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts ('God and Man' bölümü)"
@@ -47,7 +47,7 @@
       "titleTr": "Namaz ve zekât Kur'ân'da onlarca kez yan yana",
       "titleEn": "Prayer and zakat side by side dozens of times",
       "descTr": "Kur'ân'da namaz emri çoğunlukla zekât emriyle birlikte gelir — 'ekîmu's-salât ve âtu'z-zekât' formülü Kur'ân'da klasik hesaplarla 25-30 arası yerde tekrarlanır. İç ibadet (kalp) ile dış ibadet (mal) birbirinden ayrılmaz.",
-      "descEn": "In the Qur'an the command to pray usually appears with the command to give zakat — 'aqīmu al-ṣalāt wa-ātū al-zakāt' repeats in classically some 25-30 locations. Inward worship (heart) and outward worship (wealth) do not part.",
+      "descEn": "In the Qur'an the command to pray usually appears with the command to give zakat: 'aqīmu al-ṣalāt wa-ātū al-zakāt' repeats in classically some 25-30 locations. Inward worship (heart) and outward worship (wealth) do not part.",
       "claimType": "quran_explicit",
       "confidence": "high",
       "kaynak": "Bakara 2:43, 2:83, 2:110, 2:177, 2:277, Nisa 4:77, Nur 24:56, ve devamı; Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti)"
@@ -55,7 +55,7 @@
     {
       "id": "wowfact-oruc-hac-vakti",
       "titleTr": "Oruç ve Hac — Kur'ân'ın adını verdiği iki vakit",
-      "titleEn": "Fasting and Pilgrimage — two named times in the Qur'an",
+      "titleEn": "Fasting and Pilgrimage: two named times in the Qur'an",
       "descTr": "Kur'ân zamana bağlı iki ibadete özel ay adı verir: Ramazan (Bakara 2:185) ve haram aylar (Tevbe 9:36). Zaman Kur'ân'da kulluğun konteyneri olarak inşâ edilir.",
       "descEn": "The Qur'an names two time-bound acts of worship: Ramaḍān (Baqara 2:185) and the sacred months (Tawbah 9:36). Time is framed in the Qur'an as the container of servitude.",
       "claimType": "quran_explicit",
@@ -65,9 +65,9 @@
     {
       "id": "wowfact-tovbe-mercy",
       "titleTr": "Tevbe — Kur'ân'da Allah'ın da yaptığı nadir 'ibadet' fiili",
-      "titleEn": "Tawba — a rare 'worship' verb the Qur'an ascribes to Allah too",
+      "titleEn": "Tawba: a rare 'worship' verb the Qur'an ascribes to Allah too",
       "descTr": "Tevbe (t-w-b) fiili Kur'ân'da hem kul için (dönüş) hem Allah için (dönüş, rahmetle yönelme) kullanılır — 'inne'llâhe tevvâbun rahîm'. Zikr (Bakara 2:152) ve şükr (İbrahim 14:7) gibi az sayıda fiil bu 'karşılıklı' yapıyı taşır; tevbe bu ailenin en açık örneğidir.",
-      "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy) — 'inna'llāha tawwābun raḥīm.' Alongside dhikr (2:152) and shukr (14:7), tāba belongs to a small family of verbs that carry this reciprocal structure; it is that family's clearest instance.",
+      "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy): 'inna'llāha tawwābun raḥīm.' Alongside dhikr (2:152) and shukr (14:7), tāba belongs to a small family of verbs that carry this reciprocal structure; it is that family's clearest instance.",
       "claimType": "quran_semantic",
       "confidence": "high",
       "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tevbesi ↔ kulun tevbesi)"
@@ -164,7 +164,7 @@
       "titleTr": "Dua",
       "titleEn": "Supplication",
       "shortDescTr": "Kulun sesli yakarışı. 'Dua ibadetin özüdür' — Kur'ân'ın kişisel iletişim kanalı.",
-      "shortDescEn": "The servant's spoken plea. 'Supplication is the essence of worship' — the Qur'an's personal channel.",
+      "shortDescEn": "The servant's spoken plea. 'Supplication is the essence of worship': the Qur'an's personal channel.",
       "anchorRef": "Bakara 2:186",
       "domain": "Yakarış",
       "domainEn": "Invocation",
@@ -178,7 +178,7 @@
       "titleTr": "Tevbe",
       "titleEn": "Repentance",
       "shortDescTr": "Dönüş fiili — hem kuldan Rabbe, hem Rabbden kula. Sürekli yenilenen bağın kapısı.",
-      "shortDescEn": "The verb of turning — from the servant to the Lord, and from the Lord to the servant. The gate of a constantly renewed bond.",
+      "shortDescEn": "The verb of turning: from the servant to the Lord, and from the Lord to the servant. The gate of a constantly renewed bond.",
       "anchorRef": "Tahrîm 66:8",
       "domain": "Dönüş",
       "domainEn": "Return",
@@ -225,13 +225,14 @@
   ],
   "sutunlarAgi": {
     "titleTr": "Sütunlar Ağı — Ortak Kaynaktan Sekiz Yüz",
-    "titleEn": "The Web of Pillars — Eight Faces from a Common Source",
+    "titleEn": "The Web of Pillars: Eight Faces from a Common Source",
     "introTr": "Her sütun kendi Kur'ânî kök kelimesi ve semantik alanıyla anılır. Aşağıdaki ağ 'abd' merkezinde toplanan sekiz kulluk yüzünü — her biri kendi Kur'ânî sıklığıyla — birlikte gösterir.",
-    "introEn": "Each pillar has its own Qur'anic root and semantic field. The web below shows the eight faces of servitude gathering around 'abd — each with its Qur'anic frequency.",
+    "introEn": "Each pillar has its own Qur'anic root and semantic field. The web below shows the eight faces of servitude gathering around 'abd: each with its Qur'anic frequency.",
     "nodes": [
       {
         "id": "namaz",
         "labelTr": "Namaz",
+        "labelEn": "Prayer",
         "ar": "الصَّلَاة",
         "root": "ص ل و",
         "freq": 83,
@@ -241,6 +242,7 @@
       {
         "id": "zekat",
         "labelTr": "Zekât",
+        "labelEn": "Zakat",
         "ar": "الزَّكَاة",
         "root": "ز ك و",
         "freq": 32,
@@ -250,6 +252,7 @@
       {
         "id": "oruc",
         "labelTr": "Oruç",
+        "labelEn": "Fasting",
         "ar": "الصَّوْم",
         "root": "ص و م",
         "freq": 14,
@@ -259,6 +262,7 @@
       {
         "id": "hac",
         "labelTr": "Hac",
+        "labelEn": "Ḥajj",
         "ar": "الْحَجّ",
         "root": "ح ج ج",
         "freq": 12,
@@ -268,6 +272,7 @@
       {
         "id": "kurban",
         "labelTr": "Kurban",
+        "labelEn": "Sacrifice",
         "ar": "النُّسُك",
         "root": "ن س ك",
         "freq": 6,
@@ -277,6 +282,7 @@
       {
         "id": "zikir",
         "labelTr": "Zikir",
+        "labelEn": "Dhikr",
         "ar": "الذِّكْر",
         "root": "ذ ك ر",
         "freq": 268,
@@ -286,6 +292,7 @@
       {
         "id": "dua",
         "labelTr": "Dua",
+        "labelEn": "Supplication",
         "ar": "الدُّعَاء",
         "root": "د ع و",
         "freq": 213,
@@ -295,6 +302,7 @@
       {
         "id": "tovbe",
         "labelTr": "Tevbe",
+        "labelEn": "Repentance",
         "ar": "التَّوْبَة",
         "root": "ت و ب",
         "freq": 87,
@@ -307,9 +315,9 @@
   },
   "zamanEkseni": {
     "titleTr": "Zaman Ekseni — Mekke ve Medine",
-    "titleEn": "Time Axis — Mecca and Medina",
+    "titleEn": "Time Axis: Mecca and Medina",
     "introTr": "Kur'ân'da ibadetlerin Kur'ânî inşâsı iki dönemi kapsar: Mekke (kalp, iman, huşû, zikir, dua, tevbe) ve Medine (topluluk, tafsil — namaz vakit çerçevesi, zekât oranları, oruç ayı, hac). Bu ayrım klasik tefsir ve sûrenin nüzûl bilgisine dayanır.",
-    "introEn": "The Qur'anic construction of worship spans two periods: Mecca (heart, faith, khushūʿ, remembrance, supplication, repentance) and Medina (community, elaboration — prayer times, zakat rates, fasting month, pilgrimage). This division draws on classical exegesis and traditional dating.",
+    "introEn": "The Qur'anic construction of worship spans two periods: Mecca (heart, faith, khushūʿ, remembrance, supplication, repentance) and Medina (community, elaboration: prayer times, zakat rates, fasting month, pilgrimage). This division draws on classical exegesis and traditional dating.",
     "phases": [
       {
         "phase": "Mekke",
@@ -327,7 +335,7 @@
         "phase": "Medine",
         "phaseEn": "Medina",
         "descTr": "Topluluk-eksenli tafsil. Namazın vakit çerçevesi (İsra 17:78 — geç dönemi anıyor), oruç farziyeti (Bakara 2:183 — hicrî 2), zekât nisabı ve alacaklıları (Tevbe 9:60, 9:103 — hicrî 9), hac farziyeti (Bakara 2:196, Âl-i İmrân 3:97 — hicrî 6-9), kurban semantiği (Hac 22:37) burada tamamlanır.",
-        "descEn": "Community-centered elaboration. Prayer's time frame (Isrāʾ 17:78 — late period), fasting obligation (Baqara 2:183 — year 2 AH), zakat threshold and recipients (Tawba 9:60, 9:103 — year 9 AH), hajj obligation (Baqara 2:196, Āl ʿImrān 3:97 — years 6-9 AH), sacrifice semantics (Ḥajj 22:37) complete here.",
+        "descEn": "Community-centered elaboration. Prayer's time frame (Isrāʾ 17:78: late period), fasting obligation (Baqara 2:183: year 2 AH), zakat threshold and recipients (Tawba 9:60, 9:103: year 9 AH), hajj obligation (Baqara 2:196, Āl ʿImrān 3:97: years 6-9 AH), sacrifice semantics (Ḥajj 22:37) complete here.",
         "sutunlar": [
           "namaz",
           "zekat",
@@ -361,7 +369,7 @@
           "Mücadele 58:13"
         ],
         "descTr": "İç ibadet (namaz-kalp) ile dış ibadet (zekât-mal) birbirinden ayrılmaz. Namazın olduğu yerde zekât da vardır — kalbin dönüşü mal ile de tasdik olur.",
-        "descEn": "Inward worship (prayer-heart) and outward worship (zakat-wealth) do not part. Where there is prayer, there is zakat — the heart's turning is confirmed also through wealth.",
+        "descEn": "Inward worship (prayer-heart) and outward worship (zakat-wealth) do not part. Where there is prayer, there is zakat: the heart's turning is confirmed also through wealth.",
         "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti); Râzî, Bakara 2:43 tefsiri",
         "claimType": "quran_explicit",
         "confidence": "high"
@@ -371,7 +379,7 @@
         "formulEn": "Seek help through patience and prayer",
         "arabic": "اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
         "occurrenceTr": "İki yerde (2:45, 2:153) — özdeşleşmiş formül",
-        "occurrenceEn": "Twice (2:45, 2:153) — identical formula",
+        "occurrenceEn": "Twice (2:45, 2:153): identical formula",
         "sampleRefs": [
           "Bakara 2:45",
           "Bakara 2:153"
@@ -395,7 +403,7 @@
           "Tâhâ 20:82"
         ],
         "descTr": "Tevbe ne yalnızdır ne pasiftir — Kur'ân'da hep üçlü sıra ile gelir: dönüş (tevbe) → iman → amel. Kalp yenilendiğinde eylem de yenilenir.",
-        "descEn": "Repentance is neither solitary nor passive — in the Qur'an it always comes as a triad: return (tawba) → faith → deed. When the heart renews, action renews.",
+        "descEn": "Repentance is neither solitary nor passive: in the Qur'an it always comes as a triad: return (tawba) → faith → deed. When the heart renews, action renews.",
         "kaynak": "Râzî, Furkan 25:70 tefsiri (üçlü sıralamanın çözümlemesi)",
         "claimType": "quran_explicit",
         "confidence": "high"
@@ -535,7 +543,7 @@
     "titleTr": "Nereden Başlamalı?",
     "titleEn": "Where to Begin?",
     "introTr": "8 sütun bir bakışta çok — herkes aynı kapıdan girmez. Üç farklı okuyucu tipine üç farklı yolculuk önerisi.",
-    "introEn": "Eight pillars at once are a lot — not everyone enters through the same door. Three suggested journeys for three reader types.",
+    "introEn": "Eight pillars at once are a lot: not everyone enters through the same door. Three suggested journeys for three reader types.",
     "yollar": [
       {
         "id": "ilk-defa",
@@ -549,28 +557,28 @@
             "labelTr": "1. Namaz sayfası — Genel Bakış tab",
             "href": "/atlas/ibadetler/namaz?tab=genel",
             "hintTr": "En detaylı sütun; 11 tab, 15+ terim.",
-            "labelEn": "1. Prayer page — Overview tab",
+            "labelEn": "1. Prayer page: Overview tab",
             "hintEn": "The most detailed pillar; 11 tabs, 15+ terms."
           },
           {
             "labelTr": "2. Semantik Alan tab — kelimelerin dünyası",
             "href": "/atlas/ibadetler/namaz?tab=semantik",
             "hintTr": "Kur'ân'ın kendi kelimelerinden bir harita.",
-            "labelEn": "2. Semantic Field tab — the world of terms",
+            "labelEn": "2. Semantic Field tab: the world of terms",
             "hintEn": "A map from the Qur'an's own vocabulary."
           },
           {
             "labelTr": "3. Ana Ayetler tab — Kur'ânî ayet grupları",
             "href": "/atlas/ibadetler/namaz?tab=pasajlar",
             "hintTr": "8 anchor ayet ve bağlam.",
-            "labelEn": "3. Key Verses tab — Qur'anic anchor verses",
+            "labelEn": "3. Key Verses tab: Qur'anic anchor verses",
             "hintEn": "8 anchor verses with their context."
           },
           {
             "labelTr": "4. HUB'a dön — diğer sütunlara bak",
             "href": "/atlas/ibadetler",
             "hintTr": "8 sütunu bir bakışta karşılaştır.",
-            "labelEn": "4. Return to HUB — explore the other pillars",
+            "labelEn": "4. Return to HUB: explore the other pillars",
             "hintEn": "Compare all 8 pillars at a glance."
           }
         ]
@@ -581,27 +589,27 @@
         "titleEn": "Concept Studiers",
         "iconTr": "🧭",
         "descTr": "Semantik alan ve tefsir odaklı okuyucu için — sütunların ortak dokusuna bak.",
-        "descEn": "For semantically and exegetically oriented readers — see the common fabric of the pillars.",
+        "descEn": "For semantically and exegetically oriented readers: see the common fabric of the pillars.",
         "adimlar": [
           {
             "labelTr": "1. Sütunlar Ağı — 8 kök bir arada",
             "href": "/atlas/ibadetler#sutunlar-agi",
             "hintTr": "Her sütunun Kur'ânî frekansı.",
-            "labelEn": "1. The Pillars Network — 8 roots together",
+            "labelEn": "1. The Pillars Network: 8 roots together",
             "hintEn": "Each pillar's Qur'anic frequency."
           },
           {
             "labelTr": "2. Zaman Ekseni — Mekke/Medine",
             "href": "/atlas/ibadetler#zaman-ekseni",
             "hintTr": "Kalp inşâsı vs topluluk tafsili.",
-            "labelEn": "2. Timeline — Mecca / Medina",
+            "labelEn": "2. Timeline: Mecca / Medina",
             "hintEn": "Heart-building vs communal elaboration."
           },
           {
             "labelTr": "3. Ortak Formüller — Kur'ânî iç bağlar",
             "href": "/atlas/ibadetler#ortak-formuller",
             "hintTr": "Namaz-zekât çifti, tevbe-iman-amel üçlemesi.",
-            "labelEn": "3. Shared Formulas — the Qur'an's inner links",
+            "labelEn": "3. Shared Formulas: the Qur'an's inner links",
             "hintEn": "The prayer-zakat pair; the tawba-iman-amal triad."
           },
           {
@@ -619,7 +627,7 @@
         "titleEn": "Fiqh / Comparative Studies",
         "iconTr": "⚖",
         "descTr": "Yükümlülük ve mezhep farklılıklarına ilgi duyan okuyucu için — Kur'ân ile sünnetin tafsili net görülür.",
-        "descEn": "For readers interested in obligation and school variation — the Qur'an-sunnah division is made explicit.",
+        "descEn": "For readers interested in obligation and school variation: the Qur'an-sunnah division is made explicit.",
         "adimlar": [
           {
             "labelTr": "1. Sekiz Sütun Karşılaştırması tablosu",
@@ -639,14 +647,14 @@
             "labelTr": "3. Bu HUB nedir, ne değildir? — çerçeve notu",
             "href": "/atlas/ibadetler",
             "hintTr": "Ehl-i Sünnet + 4 mezhep + Kur'aniyyun karşıtlığı.",
-            "labelEn": "3. What this HUB is and isn't — a framing note",
+            "labelEn": "3. What this HUB is and isn't: a framing note",
             "hintEn": "Ahl al-Sunna + four schools + the Qur'aniyyun contrast."
           },
           {
             "labelTr": "4. Kaynaklar — Râzî/Kurtubî/Elmalılı/Îzutsu",
             "href": "/atlas/ibadetler",
             "hintTr": "Her sütunun klasik kaynak referansları.",
-            "labelEn": "4. Sources — Rāzī / Qurṭubī / Elmalılı / Izutsu",
+            "labelEn": "4. Sources: Rāzī / Qurṭubī / Elmalılı / Izutsu",
             "hintEn": "Each pillar's classical source references."
           }
         ]
@@ -655,7 +663,7 @@
   },
   "peygamberIzleri": {
     "titleTr": "Peygamber İzleri — Sekiz Sütun İçinde",
-    "titleEn": "Prophetic Traces — Across the Eight Pillars",
+    "titleEn": "Prophetic Traces: Across the Eight Pillars",
     "introTr": "Aynı peygamber farklı ibadet sütunlarında farklı yüzleriyle anılır: İbrahim hacda Kâbe'yi kurar, kurbanda oğlunu teslim eder, namazda soyunu için dua eder. Bu aggregation her peygamberi Kur'ân'ın kendi anlatısındaki sütunları ile birlikte gösterir.",
     "introEn": "The same prophet appears in different pillars with different faces: Abraham builds the Kaʿba in ḥajj, surrenders his son in sacrifice, prays for his descendants in prayer. This aggregation shows each prophet with the pillars in which the Qur'an narrates them.",
     "prophets": [
@@ -669,7 +677,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "İsra 17:78-79",
-            "sceneTr": "'Güneşin duluk'undan gecenin karanlığına kadar namaz kıl ve fecr Kur'ân'ını da. Muhakkak fecir Kur'ân'ı şahitlidir.' Peygamber'e verilen namaz vakit çerçevesinin en açık ayetleri."
+            "sceneTr": "'Güneşin duluk'undan gecenin karanlığına kadar namaz kıl ve fecr Kur'ân'ını da. Muhakkak fecir Kur'ân'ı şahitlidir.' Peygamber'e verilen namaz vakit çerçevesinin en açık ayetleri.",
+            "sceneEn": "'Establish prayer from the sun's decline until the darkness of night, and the recitation of dawn (qurʾān al-fajr). Indeed the recitation of dawn is witnessed.' The clearest verses of the prayer-time framework given to the Prophet."
           },
           {
             "pillar": "zekat",
@@ -677,7 +686,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Tevbe 9:103",
-            "sceneTr": "'Onların mallarından bir sadaka al, onları temizle ve arındır.' Ayet peygambere doğrudan hitap eder; klasik tefsir bunu Medine döneminde zekât toplama sisteminin kurulduğu ana Kur'ânî emir olarak okur. Sekiz alacaklı kategorisi (Tevbe 9:60) da aynı sûrede tafsil edilir."
+            "sceneTr": "'Onların mallarından bir sadaka al, onları temizle ve arındır.' Ayet peygambere doğrudan hitap eder; klasik tefsir bunu Medine döneminde zekât toplama sisteminin kurulduğu ana Kur'ânî emir olarak okur. Sekiz alacaklı kategorisi (Tevbe 9:60) da aynı sûrede tafsil edilir.",
+            "sceneEn": "'Take a charity (ṣadaqa) from their wealth, to purify and cleanse them.' The verse addresses the Prophet directly; classical exegesis reads it as the principal Qur'anic command by which the zakat-collection system was established in the Medinan period. The eight categories of recipients (Tawba 9:60) are also detailed in the same sūra."
           },
           {
             "pillar": "zekat",
@@ -685,7 +695,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Meâric 70:24-25",
-            "sceneTr": "'Onların mallarında isteyen ve mahrum için bilinen bir hak vardır.' Mekkî bir ayet olan Meâric, klasik tefsire göre zekâtın 'hakk-ı ma'lûm' ilkesinin Mekke döneminde de yerleşmiş olduğunun işareti. Kur'ân'da zekâtın kökü hem Mekkî hem Medenî sûrelerde bulunur."
+            "sceneTr": "'Onların mallarında isteyen ve mahrum için bilinen bir hak vardır.' Mekkî bir ayet olan Meâric, klasik tefsire göre zekâtın 'hakk-ı ma'lûm' ilkesinin Mekke döneminde de yerleşmiş olduğunun işareti. Kur'ân'da zekâtın kökü hem Mekkî hem Medenî sûrelerde bulunur.",
+            "sceneEn": "'In their wealth is a known right for the one who asks and the one deprived.' Being a Meccan verse, al-Maʿārij is, according to classical exegesis, a sign that the principle of zakat as a 'known right' (ḥaqq maʿlūm) was already established in the Meccan period. In the Qur'an the root of zakat is found in both Meccan and Medinan sūras."
           },
           {
             "pillar": "oruc",
@@ -693,7 +704,8 @@
             "pillarLabelEn": "Fasting",
             "pillarColor": "#3498db",
             "ref": "Bakara 2:183-187",
-            "sceneTr": "Peygamber s.a.v.'e ve ümmetine farz kılınan Ramazan orucunun tam Kur'ânî çerçevesi Bakara 2:183-187'de verilir: farz (183), sayılı günler ve ruhsat (184), Ramazan ve Kur'ân bağı (185), 'ben yakınım' (186), gündüz–gece sınırı ve itikâf (187). Bu beş ayet sûrenin oruç için ayırdığı tek yer olmasına rağmen ibadetin tüm ana omurgasını içerir."
+            "sceneTr": "Peygamber s.a.v.'e ve ümmetine farz kılınan Ramazan orucunun tam Kur'ânî çerçevesi Bakara 2:183-187'de verilir: farz (183), sayılı günler ve ruhsat (184), Ramazan ve Kur'ân bağı (185), 'ben yakınım' (186), gündüz–gece sınırı ve itikâf (187). Bu beş ayet sûrenin oruç için ayırdığı tek yer olmasına rağmen ibadetin tüm ana omurgasını içerir.",
+            "sceneEn": "The full Qur'anic framework of the fasting of Ramadan, made obligatory for the Prophet (peace be upon him) and his community, is given in Baqara 2:183-187: the obligation (183), the numbered days and the dispensation (184), the bond between Ramadan and the Qur'an (185), 'I am near' (186), the day-night limit and iʿtikāf (187). Although these five verses are the only place the sūra allots to fasting, they contain the entire main spine of the worship."
           },
           {
             "pillar": "hac",
@@ -701,7 +713,8 @@
             "pillarLabelEn": "Ḥajj",
             "pillarColor": "#f39c12",
             "ref": "Bakara 2:196-203 / Mâide 5:3 (bağlamı)",
-            "sceneTr": "Peygamber s.a.v.'e ve ümmetine haccın Kur'ânî çerçevesi Bakara 2:196-203'te verilir. Klasik tefsir Bakara 2:196'nın haccın Kur'ânî anayasası olduğunu, 2:197'nin iç disiplinini, 2:198-203'ün ise nüsüklerin coğrafî ve zamansal sırasını (Arefe → Meş'ar-i Harâm → Mina) çizdiğini belirtir. Peygamber s.a.v.'in bir kez yerine getirdiği 'Veda Haccı' (Hicret'in 10. yılı) sünnetin hac uygulamasının Kur'ânî çerçevesini nasıl doldurduğunun canlı örneğidir. Mâide 5:3'ün 'bugün size dininizi ikmal ettim' cümlesi klasik tefsirin ittifakıyla Veda Haccı sırasında Arefe günü inmiştir — hac Kur'ân'ın ikmal ilanının verildiği zaman-mekânıdır."
+            "sceneTr": "Peygamber s.a.v.'e ve ümmetine haccın Kur'ânî çerçevesi Bakara 2:196-203'te verilir. Klasik tefsir Bakara 2:196'nın haccın Kur'ânî anayasası olduğunu, 2:197'nin iç disiplinini, 2:198-203'ün ise nüsüklerin coğrafî ve zamansal sırasını (Arefe → Meş'ar-i Harâm → Mina) çizdiğini belirtir. Peygamber s.a.v.'in bir kez yerine getirdiği 'Veda Haccı' (Hicret'in 10. yılı) sünnetin hac uygulamasının Kur'ânî çerçevesini nasıl doldurduğunun canlı örneğidir. Mâide 5:3'ün 'bugün size dininizi ikmal ettim' cümlesi klasik tefsirin ittifakıyla Veda Haccı sırasında Arefe günü inmiştir — hac Kur'ân'ın ikmal ilanının verildiği zaman-mekânıdır.",
+            "sceneEn": "The Qur'anic framework of ḥajj for the Prophet (peace be upon him) and his community is given in Baqara 2:196-203. Classical exegesis notes that Baqara 2:196 is the Qur'anic constitution of ḥajj, 2:197 its inner discipline, and 2:198-203 the geographical and temporal order of the rites (ʿArafa → al-Mashʿar al-Ḥarām → Minā). The 'Farewell Ḥajj' the Prophet performed once (year 10 of the Hijra) is the living example of how the sunnah fills in the Qur'anic framework of the ḥajj practice. By the consensus of classical exegesis, the sentence of Māʾida 5:3, 'today I have perfected your religion for you,' descended on the Day of ʿArafa during the Farewell Ḥajj: ḥajj is the time-space in which the Qur'an's declaration of completion was given."
           },
           {
             "pillar": "kurban",
@@ -709,7 +722,8 @@
             "pillarLabelEn": "Sacrifice",
             "pillarColor": "#e74c3c",
             "ref": "Bakara 2:196, Hac 22:36",
-            "sceneTr": "Peygamber s.a.v. Veda Haccı'nda bedenelerini keserek kurban ibadetinin Kur'ânî çerçevesini fiilî sünnetiyle tafsil eder. Bakara 2:196'nın 'kolayına gelen bir kurbanlık' emri ve Hac 22:36'nın 'bedene Allah'ın şeâirinden' ifadesi ile Peygamber s.a.v.'in uygulaması iç içedir. Klasik tefsir bu tarihî örneğin kurbanın hem hac bağlamındaki (hedy) hem bayram bağlamındaki (udhıye) uygulamasının kaynağı olduğunu belirtir — Kur'ânî çerçeve, peygamberî tafsil."
+            "sceneTr": "Peygamber s.a.v. Veda Haccı'nda bedenelerini keserek kurban ibadetinin Kur'ânî çerçevesini fiilî sünnetiyle tafsil eder. Bakara 2:196'nın 'kolayına gelen bir kurbanlık' emri ve Hac 22:36'nın 'bedene Allah'ın şeâirinden' ifadesi ile Peygamber s.a.v.'in uygulaması iç içedir. Klasik tefsir bu tarihî örneğin kurbanın hem hac bağlamındaki (hedy) hem bayram bağlamındaki (udhıye) uygulamasının kaynağı olduğunu belirtir — Kur'ânî çerçeve, peygamberî tafsil.",
+            "sceneEn": "At the Farewell Ḥajj the Prophet (peace be upon him) slaughtered his sacrificial camels (budn), detailing the Qur'anic framework of the worship of sacrifice through his practical sunnah. Baqara 2:196's command of 'whatever offering is easy' and Ḥajj 22:36's expression 'the sacrificial camel is among the signs of Allah' are interwoven with the Prophet's practice. Classical exegesis notes that this historical example is the source of the practice of sacrifice both in the ḥajj context (hady) and the festival context (uḍḥiya): a Qur'anic framework, a prophetic detailing."
           },
           {
             "pillar": "zikir",
@@ -717,7 +731,8 @@
             "pillarLabelEn": "Remembrance",
             "pillarColor": "#a78bfa",
             "ref": "Ahzâb 33:56",
-            "sceneTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 'salât' fiilinin özneleri arasında Allah'ın kendisi yer alır. Râzî bu ayetle zikrin karşılıklı doğasını (Bakara 2:152) birleştirir: burada karşılıklılık üç taraflıdır — Allah, melekler, kul; hepsi aynı fiili Peygamber'e yöneltir. Salavat böylece 'sadece bir dua' değil, kâinat çapında bir 'anma' halkasına insanın katılışıdır."
+            "sceneTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 'salât' fiilinin özneleri arasında Allah'ın kendisi yer alır. Râzî bu ayetle zikrin karşılıklı doğasını (Bakara 2:152) birleştirir: burada karşılıklılık üç taraflıdır — Allah, melekler, kul; hepsi aynı fiili Peygamber'e yöneltir. Salavat böylece 'sadece bir dua' değil, kâinat çapında bir 'anma' halkasına insanın katılışıdır.",
+            "sceneEn": "Aḥzāb 33:56 says: 'Allah and His angels send blessings (ṣalāt) upon the Prophet. O you who believe, send blessings upon him and greet him with full submission.' Classical exegesis stresses that this verse contains a rare composition in the Qur'an: among the subjects of the verb 'ṣalāt' is Allah Himself. Rāzī joins this verse with the reciprocal nature of dhikr (Baqara 2:152): here the reciprocity is threefold: Allah, the angels, and the servant, all directing the same act toward the Prophet. The ṣalawāt is thus not 'merely a supplication' but man's joining a cosmos-wide circle of 'remembrance.'"
           },
           {
             "pillar": "tovbe",
@@ -725,7 +740,8 @@
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Fetih 48:2",
-            "sceneTr": "Peygamber s.a.v.'e Fetih sûresinin başında bildirilen: 'liyağfire leke'llâhu mâ tekaddeme min zenbike ve mâ te'aḫḫare.' — 'Allah senin geçmiş ve gelecek zellelerini bağışlasın.' Klasik tefsir bu ayeti farklı okumalarda tartışır: (1) 'zenb' kelimesi klasik terminolojide 'peygamberler için ûlâ' (evla-terk, yani daha iyi olanı yapmamak) anlamındadır, günah olarak okunmaz; (2) ayet Peygamber s.a.v.'in makam-ı istiğfârının Kur'ânî tesbitidir — o dahi sürekli istiğfâr eder. Klasik hadis literatürü Peygamber'in günde yetmiş defa istiğfâr ettiğini nakleder. Ayetin Kur'ânî mesajı: tevbe ve istiğfâr en yüksek makamda bile hayatın nefesidir; ma'sûm olan bile Rabbine 'kelimeler'le döner."
+            "sceneTr": "Peygamber s.a.v.'e Fetih sûresinin başında bildirilen: 'liyağfire leke'llâhu mâ tekaddeme min zenbike ve mâ te'aḫḫare.' — 'Allah senin geçmiş ve gelecek zellelerini bağışlasın.' Klasik tefsir bu ayeti farklı okumalarda tartışır: (1) 'zenb' kelimesi klasik terminolojide 'peygamberler için ûlâ' (evla-terk, yani daha iyi olanı yapmamak) anlamındadır, günah olarak okunmaz; (2) ayet Peygamber s.a.v.'in makam-ı istiğfârının Kur'ânî tesbitidir — o dahi sürekli istiğfâr eder. Klasik hadis literatürü Peygamber'in günde yetmiş defa istiğfâr ettiğini nakleder. Ayetin Kur'ânî mesajı: tevbe ve istiğfâr en yüksek makamda bile hayatın nefesidir; ma'sûm olan bile Rabbine 'kelimeler'le döner.",
+            "sceneEn": "Announced to the Prophet (peace be upon him) at the opening of Sūrat al-Fatḥ: 'liyaghfira laka llāhu mā taqaddama min dhanbika wa mā taʾakhkhar': 'that Allah may forgive you your past and future lapses.' Classical exegesis discusses this verse in different readings: (1) in classical terminology the word 'dhanb' here means, for the prophets, 'the leaving of the more preferable (tark al-awlā),' i.e., not doing what is better, and is not read as sin; (2) the verse is the Qur'anic affirmation of the Prophet's (peace be upon him) station of seeking forgiveness (istighfār): even he continually sought forgiveness. Classical hadith literature relates that the Prophet sought forgiveness seventy times a day. The Qur'anic message of the verse: repentance and seeking forgiveness are the breath of life even in the highest station; even the sinless one returns to his Lord with 'words.'"
           }
         ]
       },
@@ -739,7 +755,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "Tâhâ 20:14",
-            "sceneTr": "Vahyin ilk emri: 'Bana ibadet et ve beni anmak için namaz kıl.' Namaz'ın Musa peygamberliğinin başlangıç emirlerinden biri olduğu ayet."
+            "sceneTr": "Vahyin ilk emri: 'Bana ibadet et ve beni anmak için namaz kıl.' Namaz'ın Musa peygamberliğinin başlangıç emirlerinden biri olduğu ayet.",
+            "sceneEn": "The first command of the revelation: 'Worship Me and establish prayer for My remembrance.' The verse in which prayer is one of the opening commands of Moses' prophethood."
           },
           {
             "pillar": "zekat",
@@ -747,7 +764,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Bakara 2:83",
-            "sceneTr": "'Hani biz İsrailoğullarından şöyle söz almıştık: Allah'tan başkasına kulluk etmeyeceksiniz, anne-babaya iyilikte bulunacaksınız... namazı kılacak ve zekâtı vereceksiniz.' İsrailoğullarına verilen misakta zekât açıkça anılır — Kur'ân zekâtı bir tek ümmete özgü kılmaz."
+            "sceneTr": "'Hani biz İsrailoğullarından şöyle söz almıştık: Allah'tan başkasına kulluk etmeyeceksiniz, anne-babaya iyilikte bulunacaksınız... namazı kılacak ve zekâtı vereceksiniz.' İsrailoğullarına verilen misakta zekât açıkça anılır — Kur'ân zekâtı bir tek ümmete özgü kılmaz.",
+            "sceneEn": "'And when We took a covenant from the Children of Israel: you shall worship none but Allah, and be good to parents... and establish prayer and give zakat.' Zakat is explicitly mentioned in the covenant given to the Children of Israel: the Qur'an does not make zakat unique to a single community."
           },
           {
             "pillar": "oruc",
@@ -755,7 +773,8 @@
             "pillarLabelEn": "Fasting",
             "pillarColor": "#3498db",
             "ref": "A'râf 7:142",
-            "sceneTr": "'Musa ile otuz gece için sözleştik ve buna on gece daha ekledik; böylece Rabbinin belirlediği vakit tam kırk gece olarak tamamlandı.' Klasik tefsir bu kırk geceyi bir 'oruç ve inziva' dönemi olarak okur: Musa Tur'a çıkar, Rabbinin sözünü almadan önce bir dilimlik zamanı bedenini terbiye ederek geçirir. Kırk sayısı sonraki peygamberlerin (Meryem'in doğum sonrası, İsa'nın çölde) inziva sürelerinde de tekrarlanır."
+            "sceneTr": "'Musa ile otuz gece için sözleştik ve buna on gece daha ekledik; böylece Rabbinin belirlediği vakit tam kırk gece olarak tamamlandı.' Klasik tefsir bu kırk geceyi bir 'oruç ve inziva' dönemi olarak okur: Musa Tur'a çıkar, Rabbinin sözünü almadan önce bir dilimlik zamanı bedenini terbiye ederek geçirir. Kırk sayısı sonraki peygamberlerin (Meryem'in doğum sonrası, İsa'nın çölde) inziva sürelerinde de tekrarlanır.",
+            "sceneEn": "'We appointed for Moses thirty nights and completed them with ten more, so that the term set by his Lord was completed as forty full nights.' Classical exegesis reads these forty nights as a period of 'fasting and seclusion': Moses ascends the Mount and, before receiving his Lord's word, spends a span of time disciplining his body. The number forty recurs in the seclusion periods of later prophets (Mary after childbirth, Jesus in the wilderness)."
           },
           {
             "pillar": "tovbe",
@@ -763,7 +782,8 @@
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Kasas 28:16",
-            "sceneTr": "Musa peygamber Mısır'da Kıbtî'yi kazâen öldürdüğü sahnenin ardından Rabbine döner: 'Rabbim! Ben nefsime zulmettim; beni bağışla.' Ayette dikkat çekici üç adım: (1) itiraf; (2) af talebi; (3) hemen kabul ('Allah da onu bağışladı'). Klasik tefsir 'fe-ğafera lehû' (hemen bağışladı) fiil seçiminin tevbenin karşılıklılığının hızını vurguladığını belirtir. Musa'nın duası Yunus'unkiyle aynı iç omurgayı paylaşır: itiraf + talep. Râzî Musa'nın 'nefsime zulmettim' ifadesinin Âdem ve Havvâ'nın A'râf 7:23'teki 'nefslerimize zulmettik' ifadesiyle örtüşmesine dikkat çeker — tevbenin Kur'ânî dilinin sürekliliği."
+            "sceneTr": "Musa peygamber Mısır'da Kıbtî'yi kazâen öldürdüğü sahnenin ardından Rabbine döner: 'Rabbim! Ben nefsime zulmettim; beni bağışla.' Ayette dikkat çekici üç adım: (1) itiraf; (2) af talebi; (3) hemen kabul ('Allah da onu bağışladı'). Klasik tefsir 'fe-ğafera lehû' (hemen bağışladı) fiil seçiminin tevbenin karşılıklılığının hızını vurguladığını belirtir. Musa'nın duası Yunus'unkiyle aynı iç omurgayı paylaşır: itiraf + talep. Râzî Musa'nın 'nefsime zulmettim' ifadesinin Âdem ve Havvâ'nın A'râf 7:23'teki 'nefslerimize zulmettik' ifadesiyle örtüşmesine dikkat çeker — tevbenin Kur'ânî dilinin sürekliliği.",
+            "sceneEn": "After the scene in which the prophet Moses accidentally kills the Copt in Egypt, he turns to his Lord: 'My Lord, I have wronged my soul; forgive me.' Three striking steps in the verse: (1) confession; (2) the request for forgiveness; (3) immediate acceptance ('so He forgave him'). Classical exegesis notes that the verb choice 'fa-ghafara lahu' (He forgave him at once) stresses the speed of the reciprocity of repentance. Moses' supplication shares the same inner spine as Jonah's: confession + request. Rāzī draws attention to how Moses' expression 'I have wronged my soul' coincides with Adam and Eve's 'we have wronged our souls' in Aʿrāf 7:23: the continuity of the Qur'anic language of repentance."
           }
         ]
       },
@@ -777,7 +797,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "Bakara 2:128",
-            "sceneTr": "Beytullah'ın kuruluşunda İbrahim ve İsmail: 'Rabbimiz, ikimizi de sana teslim olanlardan kıl, soyumuzdan da sana teslim olmuş bir ümmet.' Namazın mekân merkezinin duası."
+            "sceneTr": "Beytullah'ın kuruluşunda İbrahim ve İsmail: 'Rabbimiz, ikimizi de sana teslim olanlardan kıl, soyumuzdan da sana teslim olmuş bir ümmet.' Namazın mekân merkezinin duası.",
+            "sceneEn": "Abraham and Ishmael at the founding of the House of Allah: 'Our Lord, make us both submitters to You, and from our offspring a community submitting to You.' The supplication of the spatial center of prayer."
           },
           {
             "pillar": "namaz",
@@ -785,7 +806,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "İbrahim 14:40",
-            "sceneTr": "'Rabbim, beni namazı ikame edenlerden kıl, soyumdan da! Rabbimiz duamı kabul et.' Namazın nesillerdeki devamlılığı için dua."
+            "sceneTr": "'Rabbim, beni namazı ikame edenlerden kıl, soyumdan da! Rabbimiz duamı kabul et.' Namazın nesillerdeki devamlılığı için dua.",
+            "sceneEn": "'My Lord, make me an establisher of prayer, and from my offspring too! Our Lord, accept my supplication.' A supplication for the continuity of prayer across generations."
           },
           {
             "pillar": "zekat",
@@ -793,7 +815,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Enbiyâ 21:73",
-            "sceneTr": "'Onları emrimizle doğru yolu gösteren imamlar kıldık; kendilerine hayırlar yapmayı, namaz kılmayı ve zekât vermeyi vahyettik.' İbrahim ve nesli için Kur'ân'ın açıkça anıldığı zekât ayeti. Namaz-zekât çiftinin peygamberler zincirinde ilk halkalarından biri."
+            "sceneTr": "'Onları emrimizle doğru yolu gösteren imamlar kıldık; kendilerine hayırlar yapmayı, namaz kılmayı ve zekât vermeyi vahyettik.' İbrahim ve nesli için Kur'ân'ın açıkça anıldığı zekât ayeti. Namaz-zekât çiftinin peygamberler zincirinde ilk halkalarından biri.",
+            "sceneEn": "'We made them leaders (imams) guiding by Our command, and We revealed to them the doing of good, the establishment of prayer, and the giving of zakat.' The zakat verse in which the Qur'an explicitly mentions Abraham and his offspring. One of the first links of the prayer-zakat pairing in the chain of prophets."
           },
           {
             "pillar": "hac",
@@ -801,7 +824,8 @@
             "pillarLabelEn": "Ḥajj",
             "pillarColor": "#f39c12",
             "ref": "Bakara 2:125-129 / Hac 22:26-27",
-            "sceneTr": "Haccın Kur'ânî orijini tümüyle İbrahim'e bağlıdır. İki ana sahne: (1) Bakara 2:125-127'de İbrahim ve oğlu İsmail Beyt'in temellerini yükseltir; 'Rabbimiz bizden kabul buyur' der ve 'menâsikimizi bize göster' duasıyla haccın nüsüklerinin isim olarak Kur'ân'a girişini sağlar. (2) Hac 22:26-27'de İbrahim'e Beyt'in yeri hazırlanır ve 'insanlar arasında hacca çağrı yap' emri verilir. Klasik tefsir bu iki sahnenin haccın Kur'ânî mimarisinin iki taşıyıcısı olduğunu vurgular: taş (Beyt) ve ses (çağrı). Elmalılı 'hac İbrahim'in Kur'ân'da uzatılan kolu, hac aylarında Beyt İbrahim'in namazgâhıdır' der."
+            "sceneTr": "Haccın Kur'ânî orijini tümüyle İbrahim'e bağlıdır. İki ana sahne: (1) Bakara 2:125-127'de İbrahim ve oğlu İsmail Beyt'in temellerini yükseltir; 'Rabbimiz bizden kabul buyur' der ve 'menâsikimizi bize göster' duasıyla haccın nüsüklerinin isim olarak Kur'ân'a girişini sağlar. (2) Hac 22:26-27'de İbrahim'e Beyt'in yeri hazırlanır ve 'insanlar arasında hacca çağrı yap' emri verilir. Klasik tefsir bu iki sahnenin haccın Kur'ânî mimarisinin iki taşıyıcısı olduğunu vurgular: taş (Beyt) ve ses (çağrı). Elmalılı 'hac İbrahim'in Kur'ân'da uzatılan kolu, hac aylarında Beyt İbrahim'in namazgâhıdır' der.",
+            "sceneEn": "The Qur'anic origin of ḥajj is bound entirely to Abraham. Two main scenes: (1) In Baqara 2:125-127 Abraham and his son Ishmael raise the foundations of the House; they say 'our Lord, accept from us' and, with the prayer 'show us our rites (manāsik),' bring the rites of ḥajj into the Qur'an by name. (2) In Ḥajj 22:26-27 the site of the House is prepared for Abraham and he is commanded to 'proclaim the ḥajj among the people.' Classical exegesis stresses that these two scenes are the two pillars of ḥajj's Qur'anic architecture: the stone (the House) and the voice (the call). Elmalılı says 'ḥajj is Abraham's arm extended into the Qur'an; in the months of ḥajj, the House is Abraham's place of prayer.'"
           }
         ]
       },
@@ -815,7 +839,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "Âl-i İmrân 3:43",
-            "sceneTr": "'Ey Meryem, Rabbine kunut'la dur, secde et ve rükû edenlerle rükû et.' Bir kadın peygamber muhatabına namaz emrinin en açık şekli."
+            "sceneTr": "'Ey Meryem, Rabbine kunut'la dur, secde et ve rükû edenlerle rükû et.' Bir kadın peygamber muhatabına namaz emrinin en açık şekli.",
+            "sceneEn": "'O Mary, stand in devout obedience (qunūt) to your Lord, prostrate, and bow with those who bow.' The clearest form of the command to pray addressed to a woman as a recipient of divine address."
           },
           {
             "pillar": "oruc",
@@ -823,7 +848,8 @@
             "pillarLabelEn": "Fasting",
             "pillarColor": "#3498db",
             "ref": "Meryem 19:26",
-            "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmekten değil, konuşmaktan bir kesilmedir. Meryem 19:26 savm kelimesinin en geniş Kur'ânî anlamını taşır ve orucun 'dilin de terbiyesi' olabildiğini gösterir."
+            "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmekten değil, konuşmaktan bir kesilmedir. Meryem 19:26 savm kelimesinin en geniş Kur'ânî anlamını taşır ve orucun 'dilin de terbiyesi' olabildiğini gösterir.",
+            "sceneEn": "As Mary comes before the people after giving birth to Jesus, she is told to say: 'I have vowed a fast (ṣawm) to the Most Merciful, so today I will not speak to any human.' This Qur'anic 'ṣawm' is an abstention not from eating and drinking but from speaking. Maryam 19:26 carries the widest Qur'anic sense of the word ṣawm and shows that fasting can also be 'a discipline of the tongue.'"
           },
           {
             "pillar": "zikir",
@@ -831,7 +857,8 @@
             "pillarLabelEn": "Remembrance",
             "pillarColor": "#a78bfa",
             "ref": "Meryem 19:26",
-            "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Klasik tefsir bu 'sessizlik adağını' zikrin 'sessiz mod'unun (khafī) Kur'ânî prototipi olarak okur. Meryem'in fiziksel sessizliği içerideki sürekli zikri kesmez — aksine dilin sesli konuşmadan kesilmesi, kalbin sessiz zikrine yer açar. A'râf 7:205'in 'fî nefsike' ('kendi içinden') emri ile Meryem'in bu adağı arasında klasik tefsirin kurduğu semantik köprü vardır."
+            "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Klasik tefsir bu 'sessizlik adağını' zikrin 'sessiz mod'unun (khafī) Kur'ânî prototipi olarak okur. Meryem'in fiziksel sessizliği içerideki sürekli zikri kesmez — aksine dilin sesli konuşmadan kesilmesi, kalbin sessiz zikrine yer açar. A'râf 7:205'in 'fî nefsike' ('kendi içinden') emri ile Meryem'in bu adağı arasında klasik tefsirin kurduğu semantik köprü vardır.",
+            "sceneEn": "As Mary comes before the people after giving birth to Jesus, she is told to say: 'I have vowed a fast (ṣawm) to the Most Merciful, so today I will not speak to any human.' Classical exegesis reads this 'vow of silence' as the Qur'anic prototype of the 'silent mode' (khafī) of dhikr. Mary's physical silence does not interrupt the ceaseless dhikr within: on the contrary, the tongue's abstention from audible speech makes room for the heart's silent dhikr. Classical exegesis builds a semantic bridge between the command 'fī nafsika' ('within yourself') of Aʿrāf 7:205 and this vow of Mary's."
           }
         ]
       },
@@ -845,7 +872,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "Âl-i İmrân 3:39",
-            "sceneTr": "'Zekeriya mihrapta namaz kılarken melekler ona seslendi: Allah sana Yahyâ'yı müjdeler.' Yakarışın ve namaz'ın buluşma noktası."
+            "sceneTr": "'Zekeriya mihrapta namaz kılarken melekler ona seslendi: Allah sana Yahyâ'yı müjdeler.' Yakarışın ve namaz'ın buluşma noktası.",
+            "sceneEn": "'While Zechariah was praying in the sanctuary (miḥrāb), the angels called to him: Allah gives you glad tidings of John (Yaḥyā).' The meeting point of supplication and prayer."
           },
           {
             "pillar": "oruc",
@@ -853,7 +881,8 @@
             "pillarLabelEn": "Fasting",
             "pillarColor": "#3498db",
             "ref": "Meryem 19:10 / Âl-i İmrân 3:41",
-            "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen 'insanlarla üç gün konuşmama' hali (Meryem 19:10, Âl-i İmrân 3:41). Klasik tefsir bu olayı savm/oruç olarak değil, mucizevî bir dil bağlanması (âyet) olarak yorumlar; ancak Meryem 19:26'daki 'savm-i sükût' ile Kur'ân'ın sessizlik-adama motifi arasında düşünülebilecek semantik bir bağ vardır."
+            "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen 'insanlarla üç gün konuşmama' hali (Meryem 19:10, Âl-i İmrân 3:41). Klasik tefsir bu olayı savm/oruç olarak değil, mucizevî bir dil bağlanması (âyet) olarak yorumlar; ancak Meryem 19:26'daki 'savm-i sükût' ile Kur'ân'ın sessizlik-adama motifi arasında düşünülebilecek semantik bir bağ vardır.",
+            "sceneEn": "The state of 'not speaking to people for three days' given to Zechariah as the sign of the glad tidings of John (Maryam 19:10, Āl ʿImrān 3:41). Classical exegesis interprets this event not as ṣawm/fasting but as a miraculous binding of the tongue (a sign, āya); yet there is a conceivable semantic bond between the 'fast of silence' in Maryam 19:26 and the Qur'an's motif of vowing silence."
           },
           {
             "pillar": "zikir",
@@ -861,7 +890,8 @@
             "pillarLabelEn": "Remembrance",
             "pillarColor": "#a78bfa",
             "ref": "Âl-i İmrân 3:41",
-            "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen üç günlük dil bağlanması bağlamında ona söylenir: 'Üç gün insanlarla ancak işaretle konuşacaksın. Rabbini çokça an (ve'zkur rabbeke kesîran) ve akşam-sabah tesbih et.' Bu ayet iki Kur'ânî motifi tek nefeste birleştirir: (1) 'kesîran' — çokça zikir (Ahzâb 33:41 ile aynı sıfat), (2) 'bi'l-ʿaşiyyi ve'l-ibkâr' — akşam-sabah çerçevesi (Ahzâb 33:42 ile aynı ikili). Klasik tefsir Zekeriyya'ya verilen bu emrin zikrin peygamberler tarihinde süregelen bir pratik olduğunu gösterdiğini vurgular. (Aynı olay Meryem 19:10'da 'üç gece' olarak da geçer — üç gün üç gece bir bütün olarak yorumlanır.)"
+            "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen üç günlük dil bağlanması bağlamında ona söylenir: 'Üç gün insanlarla ancak işaretle konuşacaksın. Rabbini çokça an (ve'zkur rabbeke kesîran) ve akşam-sabah tesbih et.' Bu ayet iki Kur'ânî motifi tek nefeste birleştirir: (1) 'kesîran' — çokça zikir (Ahzâb 33:41 ile aynı sıfat), (2) 'bi'l-ʿaşiyyi ve'l-ibkâr' — akşam-sabah çerçevesi (Ahzâb 33:42 ile aynı ikili). Klasik tefsir Zekeriyya'ya verilen bu emrin zikrin peygamberler tarihinde süregelen bir pratik olduğunu gösterdiğini vurgular. (Aynı olay Meryem 19:10'da 'üç gece' olarak da geçer — üç gün üç gece bir bütün olarak yorumlanır.)",
+            "sceneEn": "In the context of the three-day binding of the tongue given to Zechariah as the sign of the glad tidings of John, he is told: 'For three days you shall speak to people only by gesture. Remember your Lord abundantly (wa-dhkur rabbaka kathīran) and glorify Him evening and morning.' This verse joins two Qur'anic motifs in a single breath: (1) 'kathīran': abundant dhikr (the same attribute as in Aḥzāb 33:41); (2) 'bi-l-ʿashiyyi wa-l-ibkār': the evening-morning frame (the same pair as in Aḥzāb 33:42). Classical exegesis stresses that this command to Zechariah shows dhikr to be a practice continuing throughout the history of the prophets. (The same event appears as 'three nights' in Maryam 19:10: three days and three nights are interpreted as a whole.)"
           }
         ]
       },
@@ -875,7 +905,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "Meryem 19:55",
-            "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında beğenilmişti.' Aile hayatının merkezinde namaz."
+            "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında beğenilmişti.' Aile hayatının merkezinde namaz.",
+            "sceneEn": "'He used to enjoin prayer and zakat upon his family, and he was pleasing in the sight of his Lord.' Prayer at the center of family life."
           },
           {
             "pillar": "zekat",
@@ -883,7 +914,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Meryem 19:55",
-            "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında rızaya erişmişti.' Kur'ân İsmail peygamberi 'ehline zekât emreden' vasıflarıyla anar. Aile yönetimi ve zekât birbirine bağlanır."
+            "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında rızaya erişmişti.' Kur'ân İsmail peygamberi 'ehline zekât emreden' vasıflarıyla anar. Aile yönetimi ve zekât birbirine bağlanır.",
+            "sceneEn": "'He used to enjoin prayer and zakat upon his family, and he attained his Lord's good pleasure.' The Qur'an mentions the prophet Ishmael with the quality of 'one who enjoins zakat upon his household.' The governance of the family and zakat are bound together."
           },
           {
             "pillar": "hac",
@@ -891,7 +923,8 @@
             "pillarLabelEn": "Ḥajj",
             "pillarColor": "#f39c12",
             "ref": "Bakara 2:127 / Bakara 2:158 (arka plan)",
-            "sceneTr": "İsmail Kur'ân'da babasıyla birlikte Beyt'in kurucusudur; Bakara 2:127'nin 'İbrahim ile İsmail Beyt'in temellerini yükseltiyor' cümlesi baba-oğul ortak inşayı gösterir. Bakara 2:158'in Safâ-Merve nüsükünün Kur'ânî arka planı — klasik tefsir naklinde — İsmail'in su ihtiyacı üzerine annesi Hâcer'in bu iki tepe arasında koşmasıdır. Bu hafıza Kur'ân'da doğrudan tafsil edilmez; klasik tefsir rivayet düzeyinde nakleder. Zemzem geleneği de İsmail'in çocukluk hikâyesine bağlıdır; ancak Zemzem ismi Kur'ân'da geçmez. Kur'ân İsmail'in Beyt kuruluşundaki payını isim vererek, sa'y ve Zemzem hafızasını ise tafsile bırakır."
+            "sceneTr": "İsmail Kur'ân'da babasıyla birlikte Beyt'in kurucusudur; Bakara 2:127'nin 'İbrahim ile İsmail Beyt'in temellerini yükseltiyor' cümlesi baba-oğul ortak inşayı gösterir. Bakara 2:158'in Safâ-Merve nüsükünün Kur'ânî arka planı — klasik tefsir naklinde — İsmail'in su ihtiyacı üzerine annesi Hâcer'in bu iki tepe arasında koşmasıdır. Bu hafıza Kur'ân'da doğrudan tafsil edilmez; klasik tefsir rivayet düzeyinde nakleder. Zemzem geleneği de İsmail'in çocukluk hikâyesine bağlıdır; ancak Zemzem ismi Kur'ân'da geçmez. Kur'ân İsmail'in Beyt kuruluşundaki payını isim vererek, sa'y ve Zemzem hafızasını ise tafsile bırakır.",
+            "sceneEn": "In the Qur'an Ishmael is, together with his father, a builder of the House; the sentence in Baqara 2:127, 'Abraham and Ishmael raising the foundations of the House,' shows the joint father-son construction. The Qur'anic background of the Ṣafā-Marwa rite in Baqara 2:158: in the narration of classical exegesis: is his mother Hagar's running between these two hills over Ishmael's need for water. This memory is not detailed directly in the Qur'an; classical exegesis relates it at the level of narration. The Zamzam tradition too is tied to Ishmael's childhood story; yet the name Zamzam does not appear in the Qur'an. The Qur'an names Ishmael's share in the founding of the House, while leaving the memory of the saʿy and Zamzam to the details."
           }
         ]
       },
@@ -905,7 +938,8 @@
             "pillarLabelEn": "Remembrance",
             "pillarColor": "#a78bfa",
             "ref": "Enbiyâ 21:87",
-            "sceneTr": "Yunus balığın karnında karanlığın içinden seslenir: 'Senden başka ilah yoktur; sen noksanlardan uzaksın; ben zalimlerden oldum.' Klasik tefsir bu üç cümlelik zikri 'karanlık içinde zikir' motifi olarak okur — dilin en sıkıştığı, bedenin en teslim olduğu anda kalbin bulduğu formül. Râzî ayette geçen 'zulumât' ('karanlıklar', çoğul) kelimesinin manidar olduğunu, balık karnı + deniz + gece üç katmanlı karanlığı ifade ettiğini belirtir. Yunus'un zikri klasik ahlâk literatürü metinlerinde 'sıkıntı anı zikri'nin Kur'ânî prototipi olarak yer alır."
+            "sceneTr": "Yunus balığın karnında karanlığın içinden seslenir: 'Senden başka ilah yoktur; sen noksanlardan uzaksın; ben zalimlerden oldum.' Klasik tefsir bu üç cümlelik zikri 'karanlık içinde zikir' motifi olarak okur — dilin en sıkıştığı, bedenin en teslim olduğu anda kalbin bulduğu formül. Râzî ayette geçen 'zulumât' ('karanlıklar', çoğul) kelimesinin manidar olduğunu, balık karnı + deniz + gece üç katmanlı karanlığı ifade ettiğini belirtir. Yunus'un zikri klasik ahlâk literatürü metinlerinde 'sıkıntı anı zikri'nin Kur'ânî prototipi olarak yer alır.",
+            "sceneEn": "From within the darkness in the belly of the fish, Jonah calls out: 'There is no god but You; glory be to You; I have been among the wrongdoers.' Classical exegesis reads this three-clause dhikr as the motif of 'dhikr within darkness': the formula the heart finds at the moment the tongue is most constrained and the body most surrendered. Rāzī notes that the word 'ẓulumāt' ('darknesses,' plural) in the verse is significant, expressing a threefold darkness: the belly of the fish + the sea + the night. Jonah's dhikr appears in the texts of classical ethical literature as the Qur'anic prototype of 'the dhikr of the moment of distress.'"
           },
           {
             "pillar": "tovbe",
@@ -913,7 +947,8 @@
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Enbiyâ 21:87",
-            "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tevbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsir literatüründe 'Yunus'un tevbe duasının Kur'ânî yapısı' olarak sistemleştirilir. Ayet 21:88'de 'onu kurtardık' cümlesiyle sonuçlanır — Kur'ân tevbenin somut sonucunu bir peygamber örneğinde gösterir. Hadis literatürü bu dua için 'darda kalan hiçbir mümin onu okumaz ki Allah ona icabet etmesin' bildirimiyle geniş bir uygulama alanı bırakır."
+            "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tevbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsir literatüründe 'Yunus'un tevbe duasının Kur'ânî yapısı' olarak sistemleştirilir. Ayet 21:88'de 'onu kurtardık' cümlesiyle sonuçlanır — Kur'ân tevbenin somut sonucunu bir peygamber örneğinde gösterir. Hadis literatürü bu dua için 'darda kalan hiçbir mümin onu okumaz ki Allah ona icabet etmesin' bildirimiyle geniş bir uygulama alanı bırakır.",
+            "sceneEn": "The prophet Jonah's supplication of repentance in the darkness of the fish's belly: 'lā ilāha illā anta subḥānaka innī kuntu mina ẓ-ẓālimīn.' Classical exegesis stresses the three pillars of the supplication: (1) affirming God's oneness (tawḥīd); (2) glorification (tasbīḥ); (3) confession. This triad is systematized in classical exegetical literature as 'the Qur'anic structure of Jonah's supplication of repentance.' The verse concludes in 21:88 with 'so We saved him': the Qur'an shows the concrete outcome of repentance in a prophet's example. Hadith literature leaves a wide field of application for this supplication with the report that 'no believer in distress recites it without Allah responding to him.'"
           }
         ]
       },
@@ -927,7 +962,8 @@
             "pillarLabelEn": "Sacrifice",
             "pillarColor": "#e74c3c",
             "ref": "Maide 5:27",
-            "sceneTr": "Kurbanın Kur'ânî ilk sahnesi. Âdem'in iki oğlu birer kurban sunar; Habil'inki kabul, Kabil'inki reddedilir. Habil'in cevabı Kur'ânî kabul kriterinin ilk ifadesidir: 'Allah kurbanı yalnızca takva sahibinden kabul eder' (5:27). Klasik tefsir bu sahnenin kurbanın 'niyet eksenli' Kur'ânî öğretisinin ilk sahnelemesi olduğunu vurgular. Râzî 'Kur'ân'ın kurban için verdiği ilk sahne bir başarı sahnesi değil, bir ret sahnesidir — bu ret niyetin belirleyici olduğunu bildirmek içindir' der."
+            "sceneTr": "Kurbanın Kur'ânî ilk sahnesi. Âdem'in iki oğlu birer kurban sunar; Habil'inki kabul, Kabil'inki reddedilir. Habil'in cevabı Kur'ânî kabul kriterinin ilk ifadesidir: 'Allah kurbanı yalnızca takva sahibinden kabul eder' (5:27). Klasik tefsir bu sahnenin kurbanın 'niyet eksenli' Kur'ânî öğretisinin ilk sahnelemesi olduğunu vurgular. Râzî 'Kur'ân'ın kurban için verdiği ilk sahne bir başarı sahnesi değil, bir ret sahnesidir — bu ret niyetin belirleyici olduğunu bildirmek içindir' der.",
+            "sceneEn": "The Qur'anic first scene of sacrifice. The two sons of Adam each offer a sacrifice; Abel's is accepted, Cain's is rejected. Abel's answer is the first statement of the Qur'anic criterion of acceptance: 'Allah accepts only from those of taqwā' (5:27). Classical exegesis stresses that this scene is the first staging of the Qur'an's 'intention-centered' teaching on sacrifice. Rāzī says 'the first scene the Qur'an gives for sacrifice is not a scene of success but a scene of rejection: this rejection is to declare that intention is decisive.'"
           }
         ]
       },
@@ -941,7 +977,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Lokman 31:19",
-            "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et' — orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm peygamberinde de temsil edilir."
+            "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et' — orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm peygamberinde de temsil edilir.",
+            "sceneEn": "In Luqmān's counsels to his son: 'Be moderate in your walk': keep to the middle way, avoid excess. The 'balance between extravagance and stinginess' around zakat is represented also in this wise prophet of the Qur'an."
           }
         ]
       },
@@ -955,7 +992,8 @@
             "pillarLabelEn": "Remembrance",
             "pillarColor": "#a78bfa",
             "ref": "Tâhâ 20:33-34",
-            "sceneTr": "Musa Rabbinden Hârun'un peygamberlik yardımını isterken der: 'Seni bolca tesbih edelim (key nusebbihake kesîran) ve seni çokça analım (ve nezkurake kesîran).' Klasik tefsir bu duayı zikrin 'kardeşlik' motifi olarak okur — peygamberlik yükünün taşınması için istenen ilk şey tesbih ve zikrin bolca yapılabilir olmasıdır. Râzî 'kesîran' (çokça) sıfatının burada da tekrarlandığını, Kur'ân'da zikir emrinin karakteristik sıfatının 'çokluk' olduğunu vurgular."
+            "sceneTr": "Musa Rabbinden Hârun'un peygamberlik yardımını isterken der: 'Seni bolca tesbih edelim (key nusebbihake kesîran) ve seni çokça analım (ve nezkurake kesîran).' Klasik tefsir bu duayı zikrin 'kardeşlik' motifi olarak okur — peygamberlik yükünün taşınması için istenen ilk şey tesbih ve zikrin bolca yapılabilir olmasıdır. Râzî 'kesîran' (çokça) sıfatının burada da tekrarlandığını, Kur'ân'da zikir emrinin karakteristik sıfatının 'çokluk' olduğunu vurgular.",
+            "sceneEn": "As Moses asks his Lord for Aaron's help in prophethood, he says: 'that we may glorify You abundantly (kay nusabbiḥaka kathīran) and remember You much (wa nadhkuraka kathīran).' Classical exegesis reads this supplication as the 'brotherhood' motif of dhikr: the first thing asked for in order to bear the burden of prophethood is that glorification and dhikr may be done abundantly. Rāzī stresses that the attribute 'kathīran' (much) is repeated here too, and that the characteristic attribute of the command to dhikr in the Qur'an is 'abundance.'"
           }
         ]
       },
@@ -969,7 +1007,8 @@
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Hûd 11:47",
-            "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tevbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bir şeyi senden istemekten sana sığınırım; eğer beni bağışlamaz, bana merhamet etmezsen hüsrana uğrayanlardan olurum.' Klasik tefsir bu duanın 'iyi niyetle yapılan cehâlet' bağlamında tevbenin Kur'ânî örneği olduğunu belirtir. Nûh peygamber isyan üzerine değil, bilgisiz talep üzerine döner — tevbe kapısı 'bilerek yapılan hata' kadar 'bilmeden yapılan talep' için de açıktır."
+            "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tevbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bir şeyi senden istemekten sana sığınırım; eğer beni bağışlamaz, bana merhamet etmezsen hüsrana uğrayanlardan olurum.' Klasik tefsir bu duanın 'iyi niyetle yapılan cehâlet' bağlamında tevbenin Kur'ânî örneği olduğunu belirtir. Nûh peygamber isyan üzerine değil, bilgisiz talep üzerine döner — tevbe kapısı 'bilerek yapılan hata' kadar 'bilmeden yapılan talep' için de açıktır.",
+            "sceneEn": "The prophet Noah's repentance after the supplication he made for his son during the Flood was rejected: 'Rabbi innī aʿūdhu bika an asʾalaka mā laysa lī bihi ʿilm; wa illā taghfir lī wa tarḥamnī akun mina l-khāsirīn.': 'My Lord, I seek refuge in You from asking You for that of which I have no knowledge; and unless You forgive me and have mercy on me, I will be among the losers.' Classical exegesis notes that this supplication is a Qur'anic example of repentance in the context of 'ignorance committed in good faith.' The prophet Noah turns back not over rebellion but over an uninformed request: the door of repentance is open for 'a request made in ignorance' as much as for 'an error committed knowingly.'"
           }
         ]
       },
@@ -983,7 +1022,8 @@
             "pillarLabelEn": "Remembrance",
             "pillarColor": "#a78bfa",
             "ref": "Sâd 38:17-25",
-            "sceneTr": "Sâd sûresi Davud'un tesbihini anlatırken der: 'Onunla birlikte akşam-sabah tesbih eden dağları ve toplu halde kuşları emrimize verdik' (38:18-19). Klasik tefsir bu ayetin peygamberlerin zikrinin özel bir örneği olduğunu vurgular — Davud'un tesbihine kâinatın (dağların ve kuşların) katılması. Ayetteki 'ʿaşiyyi ve'l-işrâk' (akşam ve sabah) ifadesi bir kez daha zikrin sabâh-akşam çerçevesini tekrar eder. Süleyman'ın kâinatla iletişimi (Neml 27:16-19), İbrahim'in Rabbini anması (Meryem 19:47-48), İsa'nın beşikte konuşması (Meryem 19:30-33) gibi diğer peygamber sahneleri de zikrin peygamberler tarihindeki sürekliliğini gösterir. Râzî bu süreklilikte 'zikrin insan tarihinin nefes ritmi' olduğunu vurgular."
+            "sceneTr": "Sâd sûresi Davud'un tesbihini anlatırken der: 'Onunla birlikte akşam-sabah tesbih eden dağları ve toplu halde kuşları emrimize verdik' (38:18-19). Klasik tefsir bu ayetin peygamberlerin zikrinin özel bir örneği olduğunu vurgular — Davud'un tesbihine kâinatın (dağların ve kuşların) katılması. Ayetteki 'ʿaşiyyi ve'l-işrâk' (akşam ve sabah) ifadesi bir kez daha zikrin sabâh-akşam çerçevesini tekrar eder. Süleyman'ın kâinatla iletişimi (Neml 27:16-19), İbrahim'in Rabbini anması (Meryem 19:47-48), İsa'nın beşikte konuşması (Meryem 19:30-33) gibi diğer peygamber sahneleri de zikrin peygamberler tarihindeki sürekliliğini gösterir. Râzî bu süreklilikte 'zikrin insan tarihinin nefes ritmi' olduğunu vurgular.",
+            "sceneEn": "Recounting David's glorification, Sūrat Ṣād says: 'We subjected to him the mountains, glorifying evening and morning, and the birds gathered together' (38:18-19). Classical exegesis stresses that this verse is a special example of the prophets' dhikr: the participation of the cosmos (the mountains and the birds) in David's glorification. The expression 'al-ʿashiyyi wa-l-ishrāq' (evening and morning) in the verse once again repeats the morning-evening frame of dhikr. Other prophetic scenes: Solomon's communication with the cosmos (Naml 27:16-19), Abraham's remembrance of his Lord (Maryam 19:47-48), Jesus' speaking in the cradle (Maryam 19:30-33): likewise show the continuity of dhikr throughout the history of the prophets. Rāzī stresses that in this continuity 'dhikr is the breathing rhythm of human history.'"
           }
         ]
       },
@@ -997,7 +1037,8 @@
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Sâd 38:35",
-            "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tevbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana benden sonra kimseye yaraşmayan bir mülk ver; şüphesiz sen çok bahşedensin.' Ayet tevbe ile talep arasındaki Kur'ânî inceliği gösterir: Süleyman önce bağışlanma diler, sonra istekte bulunur — sıra manidardır. Klasik tefsir bu sırayı 'af olmadan mülk taşınmaz' pedagojik ilkenin Kur'ânî örneği olarak okur."
+            "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tevbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana benden sonra kimseye yaraşmayan bir mülk ver; şüphesiz sen çok bahşedensin.' Ayet tevbe ile talep arasındaki Kur'ânî inceliği gösterir: Süleyman önce bağışlanma diler, sonra istekte bulunur — sıra manidardır. Klasik tefsir bu sırayı 'af olmadan mülk taşınmaz' pedagojik ilkenin Kur'ânî örneği olarak okur.",
+            "sceneEn": "The prophet Solomon's repentance after a trial that classical exegesis explains with various narrations: 'Rabbi ghfir lī wa hab lī mulkan lā yanbaghī li-aḥadin min baʿdī; innaka anta l-Wahhāb.': 'My Lord, forgive me and grant me a kingdom that will not befit anyone after me; indeed You are the Bestower.' The verse shows the Qur'anic subtlety between repentance and request: Solomon first asks for forgiveness, then makes his request: the order is significant. Classical exegesis reads this order as the Qur'anic example of the pedagogical principle that 'dominion cannot be borne without forgiveness.'"
           }
         ]
       },
@@ -1011,7 +1052,8 @@
             "pillarLabelEn": "Sacrifice",
             "pillarColor": "#e74c3c",
             "ref": "Al-i İmrân 3:183",
-            "sceneTr": "Al-i İmrân 3:183 Yahudilerin bir bahanesini nakleder: 'ateşin yiyeceği bir kurbân getirmedikçe hiçbir peygambere iman etmeyiz.' Klasik tefsir bu ayetin kurban kavramının önceki peygamber geleneklerinde de mevcut olduğunu gösterdiğini, aynı zamanda inkârın 'işaret bekleme' bahanesine sığındığına dair Kur'ânî bir eleştiri taşıdığını belirtir. Kurban Kur'ân'da böylece Hac 22:34'ün 'her ümmete bir nüsük' ifadesiyle aynı çizgide, semavî geleneğin süregelen bir pratiği olarak konumlanır."
+            "sceneTr": "Al-i İmrân 3:183 Yahudilerin bir bahanesini nakleder: 'ateşin yiyeceği bir kurbân getirmedikçe hiçbir peygambere iman etmeyiz.' Klasik tefsir bu ayetin kurban kavramının önceki peygamber geleneklerinde de mevcut olduğunu gösterdiğini, aynı zamanda inkârın 'işaret bekleme' bahanesine sığındığına dair Kur'ânî bir eleştiri taşıdığını belirtir. Kurban Kur'ân'da böylece Hac 22:34'ün 'her ümmete bir nüsük' ifadesiyle aynı çizgide, semavî geleneğin süregelen bir pratiği olarak konumlanır.",
+            "sceneEn": "Āl ʿImrān 3:183 relates an excuse of the Jews: 'we will not believe any messenger until he brings us a sacrifice (qurbān) that fire will consume.' Classical exegesis notes that this verse shows the concept of sacrifice was present in earlier prophetic traditions too, while also carrying a Qur'anic critique of denial that hides behind the excuse of 'waiting for a sign.' Sacrifice is thus positioned in the Qur'an, on the same line as Ḥajj 22:34's expression 'a rite for every community,' as a continuing practice of the prophetic tradition."
           }
         ]
       },
@@ -1025,7 +1067,8 @@
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "A'râf 7:23 ↔ Bakara 2:37",
-            "sceneTr": "İnsanlığın ilk tevbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'nin 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i bu dua ile özdeşleştirir. Duanın yapısı tevbenin Kur'ânî arketipini kurar: hitap + itiraf + talep + sonuç. İki ayetin birleşimiyle tevbe Kur'ân'da 'insan doğasının kalıbı' olarak yerleşir — insan hem hata yapar, hem de döner; iki yön birlikte insanı tanımlar."
+            "sceneTr": "İnsanlığın ilk tevbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'nin 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i bu dua ile özdeşleştirir. Duanın yapısı tevbenin Kur'ânî arketipini kurar: hitap + itiraf + talep + sonuç. İki ayetin birleşimiyle tevbe Kur'ân'da 'insan doğasının kalıbı' olarak yerleşir — insan hem hata yapar, hem de döner; iki yön birlikte insanı tanımlar.",
+            "sceneEn": "Humanity's first repentance. The supplication Adam and Eve said together in Aʿrāf 7:23 after the error they committed in the Garden: 'Rabbanā ẓalamnā anfusanā wa in lam taghfir lanā wa tarḥamnā la-nakūnanna mina l-khāsirīn.' Classical exegesis identifies the 'words' in Baqara 2:37's expression 'Adam received words from his Lord' with this supplication. The structure of the supplication establishes the Qur'anic archetype of repentance: address + confession + request + outcome. Through the combination of the two verses, repentance is established in the Qur'an as 'the mold of human nature': man both errs and turns back; the two directions together define the human being."
           }
         ]
       },
@@ -1039,7 +1082,8 @@
             "pillarLabelEn": "Ḥajj",
             "pillarColor": "#f39c12",
             "ref": "Bakara 2:125 (arka plan) / Âl-i İmrân 3:96",
-            "sceneTr": "Kur'ân Kâbe'yi 'insanlar için konulan ilk ev' (evvele beytin, 3:96) olarak tanımlar. Klasik tefsir bu ifadenin İbrahim'den önce Beyt'in bir tarihsel var oluşuna işaret edip etmediğini tartışır. Bir okumaya göre Beyt Âdem döneminden kalma bir yapıdır ve İbrahim onu 'yeniden yükseltmiştir' (Bakara 2:127'nin 'yerfeʿu' fiili bu okumaya uygun düşer). Bu okuma Kur'ân'da tafsil edilmez; klasik tefsirin rivayet düzeyindeki bilgisidir. Râzî bu ayrıntının Kur'ânî bir hüküm taşımadığını, ilkenin ise açık olduğunu belirtir: Beyt insanlığın ilk ibadet ekseni olarak Kur'ân'da yerleşiktir."
+            "sceneTr": "Kur'ân Kâbe'yi 'insanlar için konulan ilk ev' (evvele beytin, 3:96) olarak tanımlar. Klasik tefsir bu ifadenin İbrahim'den önce Beyt'in bir tarihsel var oluşuna işaret edip etmediğini tartışır. Bir okumaya göre Beyt Âdem döneminden kalma bir yapıdır ve İbrahim onu 'yeniden yükseltmiştir' (Bakara 2:127'nin 'yerfeʿu' fiili bu okumaya uygun düşer). Bu okuma Kur'ân'da tafsil edilmez; klasik tefsirin rivayet düzeyindeki bilgisidir. Râzî bu ayrıntının Kur'ânî bir hüküm taşımadığını, ilkenin ise açık olduğunu belirtir: Beyt insanlığın ilk ibadet ekseni olarak Kur'ân'da yerleşiktir.",
+            "sceneEn": "The Qur'an defines the Kaʿba as 'the first house set up for mankind' (awwala baytin, 3:96). Classical exegesis debates whether this expression points to a historical existence of the House before Abraham. According to one reading, the House is a structure remaining from the time of Adam, and Abraham 'raised it again' (the verb 'yarfaʿu' in Baqara 2:127 suits this reading). This reading is not detailed in the Qur'an; it is knowledge of classical exegesis at the level of narration. Rāzī notes that this detail carries no Qur'anic ruling, while the principle is clear: the House is established in the Qur'an as humanity's first axis of worship."
           }
         ]
       },
@@ -1053,7 +1097,8 @@
             "pillarLabelEn": "Fasting",
             "pillarColor": "#3498db",
             "ref": "Bakara 2:183",
-            "sceneTr": "'Sizden öncekilere farz kılındığı gibi oruç size de farz kılındı.' Klasik tefsir bu ifadenin orucun sadece bu ümmete has olmadığını, semavî geleneğin süregelen bir pratiği olduğunu vurguladığını belirtir. Râzî önceki ümmetlerin oruç biçimlerinin ayrıntısını Kur'ân'ın vermediğini, tafsilin İsrâiliyyat rivayetlerinde bulunduğunu, bu nedenle 'ayrıntıya girmeden ilkenin süreklilikte olduğunu görmek yeterli' olduğunu söyler."
+            "sceneTr": "'Sizden öncekilere farz kılındığı gibi oruç size de farz kılındı.' Klasik tefsir bu ifadenin orucun sadece bu ümmete has olmadığını, semavî geleneğin süregelen bir pratiği olduğunu vurguladığını belirtir. Râzî önceki ümmetlerin oruç biçimlerinin ayrıntısını Kur'ân'ın vermediğini, tafsilin İsrâiliyyat rivayetlerinde bulunduğunu, bu nedenle 'ayrıntıya girmeden ilkenin süreklilikte olduğunu görmek yeterli' olduğunu söyler.",
+            "sceneEn": "'Fasting is prescribed for you as it was prescribed for those before you.' Classical exegesis notes that this expression stresses that fasting is not unique to this community but a continuing practice of the prophetic tradition. Rāzī says that the Qur'an does not give the details of the earlier communities' forms of fasting, that the details are found in the Isrāʾīliyyāt narrations, and that therefore 'it is enough to see that the principle is continuous, without entering into details.'"
           }
         ]
       },
@@ -1067,7 +1112,8 @@
             "pillarLabelEn": "Sacrifice",
             "pillarColor": "#e74c3c",
             "ref": "Sâffât 37:102-107",
-            "sceneTr": "Kurbanın arketipal sahnesi. Rüya (37:102), istişare ('ne dersin?'), oğulun teslimiyet beyanı ('inşâallah beni sabredenlerden bulacaksın'), çift-teslim (37:103 'ikisi de teslim olduklarında'), ilahî müdahale (37:104), 'sen rüyayı gerçekleştirdin' cümlesi (37:105), 'büyük bir kurban ile fidye' (37:107). Klasik tefsir bu sahnenin kurbanın Kur'ânî tanımını içerdiğini vurgular: kesim değil teslim; sınav bir kesim testi değil, teslim testiydi. Bu sahne İslâm'da hac ve kurban ibadetinin hafıza omurgasıdır."
+            "sceneTr": "Kurbanın arketipal sahnesi. Rüya (37:102), istişare ('ne dersin?'), oğulun teslimiyet beyanı ('inşâallah beni sabredenlerden bulacaksın'), çift-teslim (37:103 'ikisi de teslim olduklarında'), ilahî müdahale (37:104), 'sen rüyayı gerçekleştirdin' cümlesi (37:105), 'büyük bir kurban ile fidye' (37:107). Klasik tefsir bu sahnenin kurbanın Kur'ânî tanımını içerdiğini vurgular: kesim değil teslim; sınav bir kesim testi değil, teslim testiydi. Bu sahne İslâm'da hac ve kurban ibadetinin hafıza omurgasıdır.",
+            "sceneEn": "The archetypal scene of sacrifice. The dream (37:102), the consultation ('what do you think?'), the son's declaration of submission ('you will find me, God willing, among the patient'), the double-submission (37:103, 'when they both submitted'), the divine intervention (37:104), the sentence 'you have fulfilled the vision' (37:105), 'a great sacrifice by way of ransom' (37:107). Classical exegesis stresses that this scene contains the Qur'anic definition of sacrifice: not slaughter but submission; the trial was not a test of slaughter but a test of surrender. This scene is the memory-spine of the worship of ḥajj and sacrifice in Islam."
           }
         ]
       },
@@ -1081,7 +1127,8 @@
             "pillarLabelEn": "Zakāt",
             "pillarColor": "#2ecc71",
             "ref": "Meryem 19:31",
-            "sceneTr": "Beşikte konuşan İsa'nın sözleri arasında: 'Yaşadığım sürece bana namazı ve zekâtı emretti.' Klasik tefsir bu ayeti, zekâtın Kur'ân'da peygamberlik zincirinin devamlı bir emri olarak sunulduğunun kesin delili olarak okur."
+            "sceneTr": "Beşikte konuşan İsa'nın sözleri arasında: 'Yaşadığım sürece bana namazı ve zekâtı emretti.' Klasik tefsir bu ayeti, zekâtın Kur'ân'da peygamberlik zincirinin devamlı bir emri olarak sunulduğunun kesin delili olarak okur.",
+            "sceneEn": "Among the words of Jesus speaking in the cradle: 'He has enjoined upon me prayer and zakat as long as I live.' Classical exegesis reads this verse as decisive proof that zakat is presented in the Qur'an as a constant command of the chain of prophethood."
           }
         ]
       },
@@ -1095,7 +1142,8 @@
             "pillarLabelEn": "Sacrifice",
             "pillarColor": "#e74c3c",
             "ref": "Bakara 2:67-71",
-            "sceneTr": "Musa İsrailoğullarına bir sığır kesmelerini emreder. Klasik tefsir bu kıssanın kurban ibadeti değil, bir 'gaybı ortaya çıkarma' vesilesi olarak inen özel bir emir olduğunu belirtir — kesilen sığırın parçasıyla bir katilin ortaya çıkarılması hedeflenir (2:73). Buna rağmen kıssa Kur'ân'da ibadet-kesim ile emir-kesim arasındaki semantik yakınlığı gösterir: zebh kelimesi her iki bağlamda da geçer. Klasik tefsir 'kurbanın kesim eylemi ibadet niyetiyle birlikte anlam kazanır' okumasının bu kıssayla teyit edildiğini belirtir."
+            "sceneTr": "Musa İsrailoğullarına bir sığır kesmelerini emreder. Klasik tefsir bu kıssanın kurban ibadeti değil, bir 'gaybı ortaya çıkarma' vesilesi olarak inen özel bir emir olduğunu belirtir — kesilen sığırın parçasıyla bir katilin ortaya çıkarılması hedeflenir (2:73). Buna rağmen kıssa Kur'ân'da ibadet-kesim ile emir-kesim arasındaki semantik yakınlığı gösterir: zebh kelimesi her iki bağlamda da geçer. Klasik tefsir 'kurbanın kesim eylemi ibadet niyetiyle birlikte anlam kazanır' okumasının bu kıssayla teyit edildiğini belirtir.",
+            "sceneEn": "Moses commands the Children of Israel to slaughter a cow. Classical exegesis notes that this narrative is not the worship of sacrifice but a special command sent down as a means of 'bringing an unseen matter to light': with a piece of the slaughtered cow, the aim is to reveal a murderer (2:73). Even so, the narrative shows in the Qur'an the semantic closeness between worship-slaughter and command-slaughter: the word dhabḥ appears in both contexts. Classical exegesis notes that the reading 'the act of slaughtering a sacrifice acquires its meaning together with the intention of worship' is confirmed by this narrative."
           }
         ]
       },
@@ -1109,7 +1157,8 @@
             "pillarLabelEn": "Prayer",
             "pillarColor": "#d4a574",
             "ref": "Hud 11:87",
-            "sceneTr": "Kavmi Şu'ayb'e: 'Ey Şu'ayb, namazın mı sana atalarımızın taptığını terk etmeyi emrediyor?' Namaz'ın topluma bir çağrı hâline geldiğinin göstergesi."
+            "sceneTr": "Kavmi Şu'ayb'e: 'Ey Şu'ayb, namazın mı sana atalarımızın taptığını terk etmeyi emrediyor?' Namaz'ın topluma bir çağrı hâline geldiğinin göstergesi.",
+            "sceneEn": "His people to Shuʿayb: 'O Shuʿayb, does your prayer command you that we abandon what our fathers worshipped?' A sign that prayer has become a call to society."
           }
         ]
       }

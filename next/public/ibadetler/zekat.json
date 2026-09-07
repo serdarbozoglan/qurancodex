@@ -30,7 +30,8 @@
       ],
       "claimType": "quran_explicit",
       "confidence": "high",
-      "framingTr": "Zekât kelimesinin kökü (ز ك و) 'arınma ve büyüme' anlamını taşır — mal verildikçe hem veren temizlenir hem alan güçlenir."
+      "framingTr": "Zekât kelimesinin kökü (ز ك و) 'arınma ve büyüme' anlamını taşır — mal verildikçe hem veren temizlenir hem alan güçlenir.",
+      "framingEn": "The root of the word zakāt (z-k-w) carries the meaning of 'purification and growth': as wealth is given, the giver is purified and the receiver is strengthened."
     },
     {
       "claimId": "zekat-semantic-alan-001",
@@ -47,7 +48,7 @@
     {
       "claimId": "zekat-namaz-birligi-001",
       "claimTr": "Kur'ân namaz ile zekâtı defalarca yan yana anar — kulluğun dikey ve yatay eksenleri",
-      "claimEn": "The Qur'an repeatedly pairs prayer with zakāt — the vertical and horizontal axes of worship",
+      "claimEn": "The Qur'an repeatedly pairs prayer with zakāt: the vertical and horizontal axes of worship",
       "refs": [
         "Bakara 2:43",
         "Bakara 2:110",
@@ -61,31 +62,32 @@
     {
       "claimId": "zekat-riba-karsitligi-001",
       "claimTr": "Kur'ân zekâtı ribanın karşı ekseni olarak konumlandırır — biri arttıkça diğeri azalır",
-      "claimEn": "The Qur'an positions zakāt as riba's counter-axis — one grows as the other diminishes",
+      "claimEn": "The Qur'an positions zakāt as riba's counter-axis: one grows as the other diminishes",
       "refs": [
         "Bakara 2:275-279",
         "Rum 30:39"
       ],
       "claimType": "quran_semantic",
       "confidence": "high",
-      "framingTr": "Rum 30:39 açıkça der: 'Allah ribâyı mahveder, sadakaları artırır' — iki eksen aynı ayette karşı karşıya konur."
+      "framingTr": "Rum 30:39 açıkça der: 'Allah ribâyı mahveder, sadakaları artırır' — iki eksen aynı ayette karşı karşıya konur.",
+      "framingEn": "Al-Rūm 30:39 says explicitly: 'Allah destroys ribā and grows charities': the two axes are set face to face in the same verse."
     }
   ],
   "genelBakis": {
     "introTr": "Zekât, Kur'ân'da 'zekât' başta olmak üzere sadaka, infâk, mâûn ve 'hakk-ı ma'lûm' gibi on iki kadar terim etrafında dönen bir kulluk pratiğidir. Kur'ân zekâtı önce bir 'temizlenme' olarak tanımlar (Tevbe 9:103); ardından alacaklıları sekiz kategori halinde açıkça belirler (Tevbe 9:60); riba ile karşı eksende konumlandırır (Bakara 2:275-279; Rum 30:39) ve mal biriktirmenin (kanz) uyarısını yapar (Tevbe 9:34-35). Nisab, oran (1/40) ve havlan gibi somut ölçüler Kur'ân'da sayı olarak geçmez — bunlar sünnet-i mütevâtire ve icma ile tafsil edilir. Bu sayfa zekâtın Kur'ânî mimarisini — kelime alanı, ana ayet grupları, ilke-tafsil ekseni, peygamber varyasyonları ve iç boyut — birlikte gösterir.",
-    "introEn": "Zakāt in the Qur'an revolves around some twelve terms, with 'zakāt' at the core: ṣadaqa, infāq, māʿūn, and 'ḥaqq maʿlūm' (the known due). The Qur'an first defines zakāt as 'purification' (Tawbah 9:103); then names the eight categories of recipients (Tawbah 9:60); positions it as the counter-axis to ribā (Baqara 2:275-279; Rūm 30:39); and warns against hoarding (kanz, Tawbah 9:34-35). Concrete measures — niṣāb, the 1/40 rate, and the annual cycle (ḥawlān) — do not appear numerically in the Qur'an; they are detailed by mutawātir sunnah and consensus. This page shows zakāt's Qur'anic architecture: semantic field, anchor verses, principle-detail axis, prophetic variations, and inner dimension.",
+    "introEn": "Zakāt in the Qur'an revolves around some twelve terms, with 'zakāt' at the core: ṣadaqa, infāq, māʿūn, and 'ḥaqq maʿlūm' (the known due). The Qur'an first defines zakāt as 'purification' (Tawbah 9:103); then names the eight categories of recipients (Tawbah 9:60); positions it as the counter-axis to ribā (Baqara 2:275-279; Rūm 30:39); and warns against hoarding (kanz, Tawbah 9:34-35). Concrete measures: niṣāb, the 1/40 rate, and the annual cycle (ḥawlān): do not appear numerically in the Qur'an; they are detailed by mutawātir sunnah and consensus. This page shows zakāt's Qur'anic architecture: semantic field, anchor verses, principle-detail axis, prophetic variations, and inner dimension.",
     "keyPoints": [
       {
         "titleTr": "Kelime alanı 10+ terim",
         "titleEn": "10+ term semantic field",
         "descTr": "Zekât Kur'ân'da tek bir kelimeyle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Zekât (arınma-büyüme), sadaka (sıdk-doğruluk), infâk (harcama), mâûn (küçük yardım), hakk-ı ma'lûm (mütarızi payı) — her terim aynı pratiğin bir başka yüzünü işaretler.",
-        "descEn": "Zakāt is described in the Qur'an not by a single word but by a complementary semantic field. Zakāt (purification-growth), ṣadaqa (from ṣidq, truthfulness), infāq (spending), māʿūn (small aid), ḥaqq maʿlūm (the known due) — each term marks a different face of the same practice."
+        "descEn": "Zakāt is described in the Qur'an not by a single word but by a complementary semantic field. Zakāt (purification-growth), ṣadaqa (from ṣidq, truthfulness), infāq (spending), māʿūn (small aid), ḥaqq maʿlūm (the known due): each term marks a different face of the same practice."
       },
       {
         "titleTr": "Sekiz alacaklı Kur'ân'da açık",
         "titleEn": "Eight recipients explicit in the Qur'an",
         "descTr": "Tevbe 9:60 zekâtın kimlere verileceğini açıkça sayar: fakirler, miskinler, âmiller, kalpleri ısındırılacaklar, köleler, borçlular, Allah yolundakiler, yolcular. Ayet 'farîdatan minallâh' (Allah'tan bir farz) diye bitirir.",
-        "descEn": "Al-Tawba 9:60 explicitly lists zakāt's recipients: the poor, the destitute, its administrators, those whose hearts are to be reconciled, slaves, debtors, those in the path of Allah, and travelers. The verse closes with 'farīḍatan mina Allāh' — a duty from Allah."
+        "descEn": "Al-Tawba 9:60 explicitly lists zakāt's recipients: the poor, the destitute, its administrators, those whose hearts are to be reconciled, slaves, debtors, those in the path of Allah, and travelers. The verse closes with 'farīḍatan mina Allāh': a duty from Allah."
       },
       {
         "titleTr": "Riba'nın karşı ekseni",
@@ -137,7 +139,7 @@
         {
           "layer": "Büyüme, bereket",
           "descTr": "Aynı kökün ikinci anlamı 'artma, büyüme'. Zekât veren malın azalmadığı, arttığı klasik tefsirin vurguladığı iç paradokstur.",
-          "descEn": "The root's second meaning: growth, increase. Wealth given as zakāt does not diminish but grows — a paradox classical tafsīr underlines.",
+          "descEn": "The root's second meaning: growth, increase. Wealth given as zakāt does not diminish but grows: a paradox classical tafsīr underlines.",
           "kaynak": "Elmalılı, Tevbe 9:103 tefsiri; Kurtubî aynı ayet",
           "claimType": "quran_semantic",
           "confidence": "high"
@@ -145,7 +147,7 @@
         {
           "layer": "Nefsin tezkiyesi",
           "descTr": "'Kim onu temizlerse (zekkâhâ) kurtulmuştur; kim onu kirletirse ziyana uğramıştır' (Şems 91:9-10). Aynı kök, nefsin arınması için de kullanılır — mal-nefs paralelliği.",
-          "descEn": "'He has succeeded who purifies it (zakkāhā); he has failed who corrupts it' (Shams 91:9-10). The same root is used for the soul's purification — the wealth-self parallel.",
+          "descEn": "'He has succeeded who purifies it (zakkāhā); he has failed who corrupts it' (Shams 91:9-10). The same root is used for the soul's purification: the wealth-self parallel.",
           "kaynak": "Râzî, Şems 91:9-10 tefsiri; Îzutsu (tazkiya semantic field)",
           "claimType": "quran_semantic",
           "confidence": "high"
@@ -179,7 +181,7 @@
         {
           "layer": "Farz zekât",
           "descTr": "Tevbe 9:60 ve 9:103'te 'sadaka' kelimesi farz zekât anlamında kullanılır — Kur'ân sadaka ve zekâtı yer yer eş anlamlı işletir.",
-          "descEn": "In Al-Tawba 9:60 and 9:103 'ṣadaqa' is used in the sense of obligatory zakāt — the Qur'an uses ṣadaqa and zakāt synonymously in places.",
+          "descEn": "In Al-Tawba 9:60 and 9:103 'ṣadaqa' is used in the sense of obligatory zakāt: the Qur'an uses ṣadaqa and zakāt synonymously in places.",
           "kaynak": "Râzî, Tevbe 9:60 tefsiri",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -195,7 +197,7 @@
         {
           "layer": "Sıdk ile bağ",
           "descTr": "Kelimenin kökü 'ṣ-d-q' (doğruluk). Klasik tefsir sadakanın 'imanın sadâkatinin (doğruluğunun) fiilî delili' olduğunu vurgular — malla verilen doğruluk sertifikası.",
-          "descEn": "The root ṣ-d-q means 'truthfulness'. Classical exegesis stresses that ṣadaqa is 'the practical proof of faith's truthfulness' — a certificate of sincerity given through wealth.",
+          "descEn": "The root ṣ-d-q means 'truthfulness'. Classical exegesis stresses that ṣadaqa is 'the practical proof of faith's truthfulness': a certificate of sincerity given through wealth.",
           "kaynak": "Elmalılı, Bakara 2:264-271 tefsiri; Îzutsu, Ethico-Religious Concepts (ṣidq-ṣadaqa alanı)",
           "claimType": "semantic_inference",
           "confidence": "high"
@@ -277,7 +279,7 @@
         {
           "layer": "Bilinen pay",
           "descTr": "'Onların mallarında isteyene ve mahruma bilinen bir hak vardır' (Meâric 70:24-25). Klasik tefsir bu ifadenin dikkat çekici incelikte olduğunu belirtir: mal sahibi 'veriyor' değildir, mahrumun 'hakkı' zaten oradadır; sahip sadece o hakkı yerine ulaştırır.",
-          "descEn": "'And in their wealth is a known right for the beggar and the deprived' (Maʿārij 70:24-25). Classical exegesis notes the striking nuance: the wealthy is not 'giving' — the deprived's right is already there; the owner merely delivers it.",
+          "descEn": "'And in their wealth is a known right for the beggar and the deprived' (Maʿārij 70:24-25). Classical exegesis notes the striking nuance: the wealthy is not 'giving': the deprived's right is already there; the owner merely delivers it.",
           "kaynak": "Râzî, Meâric 70:24-25 tefsiri",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -316,7 +318,7 @@
         {
           "layer": "Küçük yardım",
           "descTr": "'Ve mâûnu esirgerler' (Mâûn 107:7). Klasik tefsir mâûnu 'komşuya verilen küçük ödünç, tuz, ateş, kova, ip' gibi gündelik yardımlar olarak açıklar. Elmalılı: 'Zekâtın en küçüğünü bile vermeyen' anlamı da katmandır.",
-          "descEn": "'And they withhold the māʿūn' (Māʿūn 107:7). Classical exegesis explains māʿūn as 'the small everyday helps lent to neighbors — salt, fire, bucket, rope.' Elmalılı: 'Withholding even the smallest of zakāt' is a layered reading.",
+          "descEn": "'And they withhold the māʿūn' (Māʿūn 107:7). Classical exegesis explains māʿūn as 'the small everyday helps lent to neighbors: salt, fire, bucket, rope.' Elmalılı: 'Withholding even the smallest of zakāt' is a layered reading.",
           "kaynak": "Elmalılı, Mâûn 107:7 tefsiri; Kurtubî aynı ayet; Râzî, Mâûn Sûresi tefsiri",
           "claimType": "tafsir_tradition",
           "confidence": "high"
@@ -324,7 +326,7 @@
         {
           "layer": "Namaz-yardım ekseni",
           "descTr": "Mâûn sûresi namazdan gafil olanları (v. 4-6) ve mâûnu esirgeyenleri (v. 7) aynı azarlanma çemberinde bir araya getirir — 'namaz kılıp yardım etmemek' Kur'ân'da iç çelişki olarak işaretlenir.",
-          "descEn": "Sūrat al-Māʿūn brings together those heedless of prayer (vv. 4-6) and those who withhold māʿūn (v. 7) in the same circle of reproach — 'praying while withholding help' is marked as an inner contradiction.",
+          "descEn": "Sūrat al-Māʿūn brings together those heedless of prayer (vv. 4-6) and those who withhold māʿūn (v. 7) in the same circle of reproach: 'praying while withholding help' is marked as an inner contradiction.",
           "kaynak": "Râzî, Mâûn Sûresi tefsiri (namaz-mâûn birleşimi)",
           "claimType": "quran_semantic",
           "confidence": "high"
@@ -356,7 +358,7 @@
         {
           "layer": "Allah'a güzel borç",
           "descTr": "'Kim Allah'a güzel bir borç verir de, Allah onu kendisi için kat kat artırır' (Hadîd 57:11). Klasik tefsir bu ifadeyi 'infakın en yüksek adlandırması' olarak okur — Allah kendini kula 'borçlu' gibi konumlar.",
-          "descEn": "'Who is it that would lend Allah a goodly loan, that He will multiply it many times over for him' (Ḥadīd 57:11). Classical exegesis reads this as 'the highest naming of infāq' — Allah positions Himself as if 'indebted' to the servant.",
+          "descEn": "'Who is it that would lend Allah a goodly loan, that He will multiply it many times over for him' (Ḥadīd 57:11). Classical exegesis reads this as 'the highest naming of infāq': Allah positions Himself as if 'indebted' to the servant.",
           "kaynak": "Râzî, Hadîd 57:11 tefsiri; Kurtubî aynı ayet",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -397,7 +399,7 @@
         {
           "layer": "Zekâtın karşı ekseni",
           "descTr": "Rum 30:39: 'Allah'ın katında artmasını umarak insanların malında bir ribâ vermeniz, Allah katında artmaz; ama zekât — onlar katında (Allah'ın) artırdıklarıdır.' Aynı ayette iki ekonomik hareket karşı karşıya konur.",
-          "descEn": "Rūm 30:39: 'Whatever ribā you give hoping to grow in people's wealth does not grow with Allah; but whatever you give as zakāt seeking Allah's face — those are the multipliers.' The same verse sets the two economic motions face to face.",
+          "descEn": "Rūm 30:39: 'Whatever ribā you give hoping to grow in people's wealth does not grow with Allah; but whatever you give as zakāt seeking Allah's face: those are the multipliers.' The same verse sets the two economic motions face to face.",
           "kaynak": "Râzî, Rum 30:39 tefsiri",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -437,7 +439,7 @@
         {
           "layer": "Biriktirmeye uyarı",
           "descTr": "'Altını ve gümüşü biriktirip de Allah yolunda harcamayanlar — onlara acı bir azabı müjdele' (Tevbe 9:34). Klasik tefsir 'kanz' kelimesinin sadece 'toplama' değil, 'Allah yolunda harcamama şartıyla toplama' olduğunu belirtir. Zekâtı verilen mal — miktarı ne olursa olsun — 'kanz' değildir.",
-          "descEn": "'Those who hoard gold and silver and do not spend it in the way of Allah — announce to them a painful punishment' (Tawbah 9:34). Classical exegesis: 'kanz' is not mere accumulation but 'accumulation while refusing to spend in Allah's way'. Wealth from which zakāt has been paid — whatever its amount — is not kanz.",
+          "descEn": "'Those who hoard gold and silver and do not spend it in the way of Allah: announce to them a painful punishment' (Tawbah 9:34). Classical exegesis: 'kanz' is not mere accumulation but 'accumulation while refusing to spend in Allah's way'. Wealth from which zakāt has been paid: whatever its amount: is not kanz.",
           "kaynak": "Râzî, Tevbe 9:34-35 tefsiri; Kurtubî aynı ayet",
           "claimType": "tafsir_tradition",
           "confidence": "high"
@@ -445,7 +447,7 @@
         {
           "layer": "Ateşle azap sahnesi",
           "descTr": "'O gün cehennem ateşinde onların üzerinde kızdırılır; onunla alınları, yanları ve sırtları dağlanır — işte kendiniz için biriktirdikleriniz!' (Tevbe 9:35). Malın kanz olarak kalması, ahirette sahibine bir azap aracına dönüşmesi olarak resmedilir.",
-          "descEn": "'On the day when it is heated in the fire of Hell and their foreheads, sides and backs are branded with it — this is what you hoarded for yourselves!' (Tawbah 9:35). Wealth left as kanz is depicted as turning into a tool of punishment for its owner in the hereafter.",
+          "descEn": "'On the day when it is heated in the fire of Hell and their foreheads, sides and backs are branded with it: this is what you hoarded for yourselves!' (Tawbah 9:35). Wealth left as kanz is depicted as turning into a tool of punishment for its owner in the hereafter.",
           "kaynak": "Elmalılı, Tevbe 9:35 tefsiri",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -478,7 +480,7 @@
         {
           "layer": "Ölçüsüz harcama",
           "descTr": "'Yiyin, için, israf etmeyin — muhakkak Allah israf edenleri sevmez' (A'râf 7:31). Kur'ân infak ile israfı ayırır: infak veriştir; israf aşırıya kaçmadır.",
-          "descEn": "'Eat and drink, but do not squander — indeed, Allah does not love the squanderers' (Aʿrāf 7:31). The Qur'an separates infāq from isrāf: the former is measured giving, the latter is going beyond measure.",
+          "descEn": "'Eat and drink, but do not squander: indeed, Allah does not love the squanderers' (Aʿrāf 7:31). The Qur'an separates infāq from isrāf: the former is measured giving, the latter is going beyond measure.",
           "kaynak": "Kurtubî, A'râf 7:31 tefsiri",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -550,7 +552,7 @@
         {
           "layer": "Başkasını tercih",
           "descTr": "'Kendilerinde şiddetli ihtiyaç olsa bile başkalarını kendi nefislerine tercih ederler' (Haşr 59:9). İsâr, zekât ve infakın üstünde bir hâl olarak Kur'ân'da anılır — 'verirken bile senden çok başkasını düşünme.'",
-          "descEn": "'They prefer others over themselves even though poverty is upon them' (Ḥashr 59:9). Īthār, in the Qur'an, is named as a state above zakāt and infāq — 'even in giving, thinking of the other more than yourself.'",
+          "descEn": "'They prefer others over themselves even though poverty is upon them' (Ḥashr 59:9). Īthār, in the Qur'an, is named as a state above zakāt and infāq: 'even in giving, thinking of the other more than yourself.'",
           "kaynak": "Râzî, Haşr 59:9 tefsiri",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -558,7 +560,7 @@
         {
           "layer": "Nefsin cimriliğinden korunma",
           "descTr": "Aynı ayet devam eder: 'Kim nefsinin cimriliğinden korunursa, işte onlar kurtuluşa erenlerdir.' Klasik tefsir bu ifadeyi 'zekâtın iç boyutunun formülü' olarak okur — dıştan mal verilir, içten cimrilik atılır.",
-          "descEn": "The same verse continues: 'Whoever is guarded from the greed of his own soul — those are the successful.' Classical exegesis reads this as 'the formula for zakāt's inner dimension' — outer wealth is given, inner miserliness is expelled.",
+          "descEn": "The same verse continues: 'Whoever is guarded from the greed of his own soul: those are the successful.' Classical exegesis reads this as 'the formula for zakāt's inner dimension': outer wealth is given, inner miserliness is expelled.",
           "kaynak": "Kurtubî, Haşr 59:9 tefsiri; Elmalılı aynı ayet",
           "claimType": "quran_explicit",
           "confidence": "high"
@@ -632,7 +634,7 @@
         {
           "layer": "Malın şükrü",
           "descTr": "'Eğer şükrederseniz, size (nimeti) elbette artırırım' (İbrâhîm 14:7). Klasik tefsir zekâtı 'malın şükrünün fiilî ifadesi' olarak okur — dille söylenen şükrün ötesinde, mal ile gerçekleşen bir minnet.",
-          "descEn": "'If you are grateful, I will surely increase you' (Ibrāhīm 14:7). Classical exegesis reads zakāt as 'the practical expression of gratitude for wealth' — a thanksgiving that goes beyond the tongue and is enacted through wealth.",
+          "descEn": "'If you are grateful, I will surely increase you' (Ibrāhīm 14:7). Classical exegesis reads zakāt as 'the practical expression of gratitude for wealth': a thanksgiving that goes beyond the tongue and is enacted through wealth.",
           "kaynak": "Râzî, İbrahim 14:7 tefsiri; Elmalılı, Bakara 2:152 tefsiri",
           "claimType": "quran_semantic",
           "confidence": "high"
@@ -740,6 +742,7 @@
         "tr": "Ey iman edenler! Sadakalarınızı, başa kakma ve eziyetle boşa çıkarmayın; malını insanlara gösteriş için harcayan ve Allah'a, ahiret gününe inanmayan kimse gibi.",
         "en": "O you who believe, do not invalidate your charities with reminders of your generosity or with injury.",
         "sceneTr": "Zekâtın iç boyutunun en açık koruyucu ayeti: verilen mal 'başa kakmak' (menn) veya 'eziyet' (eza) ile iptal edilebilir. Klasik tefsir bu ayeti 'zekâtın niyeti kadar üslûbunun da geçerlilik şartı olduğu' hükmünün Kur'ânî temeli olarak okur.",
+        "sceneEn": "The clearest protective verse of zakāt's inner dimension: the wealth given can be nullified by 'reproach' (mann) or 'injury' (adhā). Classical exegesis reads this verse as the Qur'anic basis for the ruling that 'the manner of zakāt, as much as its intention, is a condition of its validity.'",
         "claimType": "quran_explicit",
         "confidence": "high"
       },
@@ -749,6 +752,7 @@
         "tr": "Mallarını gece ve gündüz, gizli ve açık olarak infak edenler var ya, işte onların Rableri katında ecirleri vardır. Onlara bir korku yoktur, onlar mahzun da olmayacaklardır.",
         "en": "Those who spend their wealth night and day, secretly and openly — they will have their reward with their Lord, and there will be no fear concerning them, nor will they grieve.",
         "sceneTr": "İnfakın süreklilik boyutu: gece-gündüz, gizli-açık. Klasik tefsir bu ayetteki dört zarfın (gece, gündüz, gizli, açık) 'hiçbir zamanda ve hiçbir üslûpta zekât-infakın kesilmemesi' hükmünü kurduğunu belirtir. Bir 'süreklilik matrisi'dir.",
+        "sceneEn": "The continuity dimension of infāq: night and day, secret and open. Classical exegesis notes that the four adverbials in this verse (night, day, secret, open) establish the ruling that 'zakāt and infāq are not to be interrupted at any time or in any manner.' It is a 'matrix of continuity.'",
         "claimType": "quran_explicit",
         "confidence": "high"
       }
@@ -761,7 +765,7 @@
     "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
     "titleEn": "The Qur'an Sets the Principle, Sunnah Details It",
     "framingTr": "Bu bölüm 'Kur'ân eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'ân zekâtın ilkelerini — arınma amacı, sekiz alacaklı, riba karşıtlığı, kanz uyarısı, iç boyut — açıkça koyar; sünnet-i mütevâtire ve icma bunun somut ölçüsünü (nisab, oran, havlan) tafsil eder. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
-    "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an sets zakāt's principles explicitly — purpose of purification, eight recipients, opposition to ribā, warning against kanz, inner dimension; mutawātir sunnah and consensus detail the concrete measures (niṣāb, rate, ḥawlān). They complete each other as an inseparable whole.",
+    "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an sets zakāt's principles explicitly: purpose of purification, eight recipients, opposition to ribā, warning against kanz, inner dimension; mutawātir sunnah and consensus detail the concrete measures (niṣāb, rate, ḥawlān). They complete each other as an inseparable whole.",
     "kuraniSide": {
       "titleTr": "Kur'ân'ın koyduğu ilkeler",
       "titleEn": "The Qur'an's principles",
@@ -837,6 +841,7 @@
       "prophet": "İbrahim",
       "ref": "Enbiyâ 21:73",
       "sceneTr": "'Onları emrimizle doğru yolu gösteren imamlar kıldık; kendilerine hayırlar yapmayı, namaz kılmayı ve zekât vermeyi vahyettik.' İbrahim ve nesli için Kur'ân'ın açıkça anıldığı zekât ayeti. Namaz-zekât çiftinin peygamberler zincirinde ilk halkalarından biri.",
+      "sceneEn": "'And We made them leaders (imāms) guiding by Our command, and We revealed to them the doing of good deeds, the establishment of prayer, and the giving of zakāt.' The zakāt verse in which the Qur'an explicitly mentions Abraham and his descendants. One of the first links of the prayer-zakāt pair in the chain of the prophets.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
@@ -844,6 +849,7 @@
       "prophet": "İsmail",
       "ref": "Meryem 19:55",
       "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında rızaya erişmişti.' Kur'ân İsmail peygamberi 'ehline zekât emreden' vasıflarıyla anar. Aile yönetimi ve zekât birbirine bağlanır.",
+      "sceneEn": "'He used to command his family to prayer and zakāt, and he was pleasing to his Lord.' The Qur'an mentions the prophet Ishmael with the attribute of 'commanding his household to zakāt.' Family stewardship and zakāt are bound together.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
@@ -851,6 +857,7 @@
       "prophet": "İsa",
       "ref": "Meryem 19:31",
       "sceneTr": "Beşikte konuşan İsa'nın sözleri arasında: 'Yaşadığım sürece bana namazı ve zekâtı emretti.' Klasik tefsir bu ayeti, zekâtın Kur'ân'da peygamberlik zincirinin devamlı bir emri olarak sunulduğunun kesin delili olarak okur.",
+      "sceneEn": "Among the words of Jesus speaking in the cradle: 'And He has enjoined upon me prayer and zakāt as long as I live.' Classical exegesis reads this verse as decisive evidence that in the Qur'an zakāt is presented as a continual command of the chain of prophethood.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
@@ -858,6 +865,7 @@
       "prophet": "Musa (İsrailoğulları misakı)",
       "ref": "Bakara 2:83",
       "sceneTr": "'Hani biz İsrailoğullarından şöyle söz almıştık: Allah'tan başkasına kulluk etmeyeceksiniz, anne-babaya iyilikte bulunacaksınız... namazı kılacak ve zekâtı vereceksiniz.' İsrailoğullarına verilen misakta zekât açıkça anılır — Kur'ân zekâtı bir tek ümmete özgü kılmaz.",
+      "sceneEn": "'And [recall] when We took a covenant from the Children of Israel: You shall worship none but Allah, and be good to parents... and you shall establish prayer and give zakāt.' Zakāt is explicitly mentioned in the covenant given to the Children of Israel: the Qur'an does not make zakāt particular to a single community.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
@@ -865,6 +873,7 @@
       "prophet": "Lokman",
       "ref": "Lokman 31:19",
       "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et' — orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm peygamberinde de temsil edilir.",
+      "sceneEn": "Among Luqmān's counsels to his son: 'Be moderate in your walk': keep to the middle way, do not fall into excess. The 'balance between extravagance and miserliness' surrounding zakāt is represented in this wise prophet of the Qur'an as well.",
       "claimType": "quran_semantic",
       "confidence": "medium"
     },
@@ -872,6 +881,7 @@
       "prophet": "Muhammed s.a.v. (Medine döneminde sistem)",
       "ref": "Tevbe 9:103",
       "sceneTr": "'Onların mallarından bir sadaka al, onları temizle ve arındır.' Ayet peygambere doğrudan hitap eder; klasik tefsir bunu Medine döneminde zekât toplama sisteminin kurulduğu ana Kur'ânî emir olarak okur. Sekiz alacaklı kategorisi (Tevbe 9:60) da aynı sûrede tafsil edilir.",
+      "sceneEn": "'Take from their wealth a charity, and purify and cleanse them.' The verse addresses the Prophet directly; classical exegesis reads this as the principal Qur'anic command by which the system of zakāt collection was established in the Medinan period. The eight categories of recipients (Al-Tawba 9:60) are also detailed in the same surah.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
@@ -879,6 +889,7 @@
       "prophet": "Muhammed s.a.v. (Mekke döneminde temel)",
       "ref": "Meâric 70:24-25",
       "sceneTr": "'Onların mallarında isteyen ve mahrum için bilinen bir hak vardır.' Mekkî bir ayet olan Meâric, klasik tefsire göre zekâtın 'hakk-ı ma'lûm' ilkesinin Mekke döneminde de yerleşmiş olduğunun işareti. Kur'ân'da zekâtın kökü hem Mekkî hem Medenî sûrelerde bulunur.",
+      "sceneEn": "'And in their wealth is a known right for the beggar and the deprived.' Al-Maʿārij, a Meccan verse, is according to classical exegesis a sign that the principle of zakāt as a 'known due (ḥaqq maʿlūm)' was already established in the Meccan period. In the Qur'an, the root of zakāt is found in both Meccan and Medinan surahs.",
       "claimType": "quran_semantic",
       "confidence": "high"
     }
@@ -886,47 +897,56 @@
   "icBoyut": [
     {
       "titleTr": "Malın temizlenmesi — arınma metaforu",
+      "titleEn": "The purification of wealth: the metaphor of cleansing",
       "refs": [
         "Tevbe 9:103",
         "Leyl 92:18",
         "A'lâ 87:14"
       ],
       "descTr": "Zekâtın Kur'ânî kalbi: mal verildiğinde geri kalan mal 'temiz' hale gelir. Klasik tefsir bu metaforu ‘malın bir kısmında başkasının hakkı bulunduğu için, o hak yerine ulaşmadıkça geri kalanın da hukuken bulanık kaldığı' olarak açıklar. Zekât verildikçe hem mal hem sahibi arınır. Leyl 92:18 aynı arınmayı 'malını vererek arınan (yetezekkâ)' ifadesiyle anar — kelime seçimi zekâtın kökü ile aynıdır.",
+      "descEn": "The Qur'anic heart of zakāt: when wealth is given, the remaining wealth becomes 'clean.' Classical exegesis explains this metaphor as follows: 'because another's right lies within a portion of the wealth, the remainder too remains legally clouded until that right reaches its due.' As zakāt is paid, both the wealth and its owner are purified. Al-Layl 92:18 refers to the same purification with the expression 'who gives his wealth to purify himself (yatazakkā)': the word choice is the same as the root of zakāt.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
       "titleTr": "Cimrilik-cömertlik ekseni",
+      "titleEn": "The miserliness-generosity axis",
       "refs": [
         "Leyl 92:5-11",
         "Haşr 59:9"
       ],
       "descTr": "Kur'ân insan tipini iki kutupta çizer. Bir yanda 'veren, sakınan, en güzel olanı tasdik eden' (Leyl 92:5-6); öte yanda 'cimrilik eden, kendini müstağni sayan, yalanlayan' (Leyl 92:8-9). Haşr 59:9 bu eksene bir hedef koyar: 'nefsin cimriliğinden korunma' (şuḥḥ an-nefs) — kurtuluşun kendisi. Zekât dıştan verilen ama içten cimriliği söken bir eylem olarak konumlanır.",
+      "descEn": "The Qur'an draws the human type in two poles. On one side, 'the one who gives, is mindful, and affirms the best' (Al-Layl 92:5-6); on the other, 'the one who is miserly, considers himself self-sufficient, and denies' (Al-Layl 92:8-9). Al-Ḥashr 59:9 sets a goal for this axis: 'being guarded from the greed of the soul' (shuḥḥ al-nafs): salvation itself. Zakāt is positioned as an act given outwardly but uprooting miserliness inwardly.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
       "titleTr": "Riba karşısında zekât",
+      "titleEn": "Zakāt against ribā",
       "refs": [
         "Bakara 2:275-279",
         "Rum 30:39"
       ],
       "descTr": "Kur'ân zekâtı ribanın karşı ekseni olarak çizer. Bakara 2:275-279 riba yasağını sıralar; ardından 2:276'da 'Allah ribâyı mahveder, sadakaları artırır' formülünü koyar. Rum 30:39 aynı fikri Mekkî bir üslûpla tekrar eder. Klasik tefsir bu iki eksenin 'zıt yönlü ekonomik hareketler' olduğunu belirtir: riba başkasının malını al, zekât kendi malından ver; riba tek yönlü akış, zekât iki yönlü dolaşım. İkisi aynı ekonomik alanın karşı kutuplarıdır.",
+      "descEn": "The Qur'an draws zakāt as the counter-axis of ribā. Al-Baqara 2:275-279 sets out the prohibition of ribā; then, in 2:276, it lays down the formula 'Allah destroys ribā and grows charities.' Al-Rūm 30:39 repeats the same idea in a Meccan style. Classical exegesis notes that these two axes are 'economic motions in opposite directions': ribā takes another's wealth, zakāt gives from one's own; ribā is a one-way flow, zakāt a two-way circulation. The two are opposing poles of the same economic field.",
       "claimType": "quran_semantic",
       "confidence": "high"
     },
     {
       "titleTr": "İhlâs — verirken üslûp",
+      "titleEn": "Ikhlāṣ: the manner of giving",
       "refs": [
         "Bakara 2:262",
         "Bakara 2:264"
       ],
       "descTr": "'Mallarını Allah yolunda infak edip sonra verdiklerini başa kakmayan, eziyet etmeyenler — onlar için Rableri katında ecir vardır' (Bakara 2:262). Bakara 2:264 aynı ikazı sertleştirir: 'Sadakalarınızı başa kakma ve eziyetle iptal etmeyin.' Klasik tefsir bu iki ayetin birlikte 'zekâtın niyeti kadar üslûbunun da geçerlilik şartı olduğu' hükmünün Kur'ânî temeli olduğunu belirtir. Verilen malın büyüklüğü değil, veriliş biçimi ölçüdür.",
+      "descEn": "'Those who spend their wealth in the way of Allah and then do not follow what they gave with reproach or injury: for them is their reward with their Lord' (Al-Baqara 2:262). Al-Baqara 2:264 sharpens the same warning: 'Do not nullify your charities with reproach and injury.' Classical exegesis notes that these two verses together are the Qur'anic basis for the ruling that 'the manner of zakāt, as much as its intention, is a condition of its validity.' The measure is not the size of the wealth given but the way it is given.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
       "titleTr": "Gizli ve açık infak",
+      "titleEn": "Secret and open infāq",
       "refs": [
         "Bakara 2:271",
         "Bakara 2:274",
@@ -934,25 +954,30 @@
         "İbrahim 14:31"
       ],
       "descTr": "Kur'ân zekât-infakı 'gizli ve açık' zarflarıyla anar. Bakara 2:271 gizli infakın gönüllü sadakada üstünlüğünü vurgular; Ra'd 13:22 ve İbrahim 14:31 mü'minleri 'rızıklarından gizli ve açık infak edenler' olarak tanımlar. Klasik tefsirin dengesi: farz zekât sistem olarak açıktır (toplum bilir); gönüllü sadaka kişisel arınma için gizli olmalıdır. İki uç Kur'ân'da bir arada tutulur.",
+      "descEn": "The Qur'an refers to zakāt-infāq with the adverbs 'secret and open.' Al-Baqara 2:271 stresses the superiority of secret infāq in voluntary charity; Al-Raʿd 13:22 and Ibrāhīm 14:31 describe believers as 'those who spend from their provision secretly and openly.' The balance of classical exegesis: obligatory zakāt is open as a system (the community knows it); voluntary charity should be secret for personal purification. The two extremes are held together in the Qur'an.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
       "titleTr": "Kanz uyarısı — biriktirmeye karşı",
+      "titleEn": "The warning of kanz: against hoarding",
       "refs": [
         "Tevbe 9:34-35"
       ],
       "descTr": "'Altını ve gümüşü biriktirip Allah yolunda harcamayanlara acı bir azabı müjdele' (Tevbe 9:34). Kur'ân mal biriktirmenin (kanz) kendisini bir tehlike olarak işaretler ve 9:35'te bu birikimin ahirette 'cehennemde kızdırılıp sahibine dağlanması' sahnesini resmeder. Klasik tefsir: zekâtı verilen mal — miktarı ne olursa olsun — kanz değildir; zekâtı verilmeyen mal — az olsa bile — kanz'dır. Mesele mal miktarı değil, dolaşımın olup olmadığıdır.",
+      "descEn": "'And those who hoard gold and silver and do not spend it in the way of Allah: give them tidings of a painful punishment' (Al-Tawba 9:34). The Qur'an marks the hoarding of wealth (kanz) itself as a peril, and in 9:35 depicts the scene of this hoard in the hereafter 'being heated in the fire of Hell and branded upon its owner.' Classical exegesis: wealth from which zakāt has been paid: whatever its amount: is not kanz; wealth from which zakāt has not been paid: however little: is kanz. The issue is not the amount of wealth but whether or not it circulates.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
       "titleTr": "Malın imtihanı — mülkün Allah'a aidiyeti",
+      "titleEn": "The trial of wealth: the belonging of property to Allah",
       "refs": [
         "Hadîd 57:7",
         "Nur 24:33"
       ],
       "descTr": "'Allah'a ve resulüne iman edin ve sizi üzerinde mütehallif kıldığı şeylerden infak edin' (Hadîd 57:7). Klasik tefsir bu ayetteki 'mütehallif' (halifelik / vekalet) kelimesinin, insanı mülkün 'sahibi' değil 'emanetçisi' olarak konumlandırdığını belirtir. Nur 24:33'te de 'Allah'ın size verdiği maldan onlara verin' formülü aynı mülkiyet teolojisini kurar. Zekât, bu emanet bilincinin fiilî ifadesidir.",
+      "descEn": "'Believe in Allah and His Messenger, and spend from that over which He has made you trustees (mustakhlafīn)' (Al-Ḥadīd 57:7). Classical exegesis notes that the word denoting vicegerency / trusteeship in this verse positions the human not as the 'owner' of property but as its 'trustee.' In Al-Nūr 24:33 as well, the formula 'give them from the wealth of Allah which He has given you' establishes the same theology of ownership. Zakāt is the practical expression of this consciousness of trust.",
       "claimType": "quran_semantic",
       "confidence": "high"
     }
@@ -961,7 +986,7 @@
     {
       "id": "toplumsal-denge",
       "titleTr": "Toplumsal Denge — Malın Dolaşımı",
-      "titleEn": "Social Balance — The Circulation of Wealth",
+      "titleEn": "Social Balance: The Circulation of Wealth",
       "refs": [
         "Haşr 59:7"
       ],
@@ -982,7 +1007,7 @@
     {
       "id": "kalp-temizligi",
       "titleTr": "Kalp Temizliği — Mala Bağlanmaktan Kurtuluş",
-      "titleEn": "The Cleansing of the Heart — Freedom from Attachment to Wealth",
+      "titleEn": "The Cleansing of the Heart: Freedom from Attachment to Wealth",
       "refs": [
         "Haşr 59:9",
         "Teğâbun 64:16"
@@ -994,7 +1019,7 @@
         "enShort": "So fear Allah as much as you are able, hear, obey, and spend for the good of yourselves. Whoever is guarded from the greed of his own soul — those are the successful."
       },
       "descTr": "Teğâbun 64:16 zekâtın iç kutbunu 'nefsin cimriliğinden korunma' (şuḥḥ an-nefs) olarak koyar. Aynı formül Haşr 59:9'da da geçer — Kur'ân iki farklı sûrede aynı kilit ifadeyi tekrar eder. Klasik tefsir 'şuḥḥ'un 'buhl'den (cimrilik) daha derin bir kavram olduğunu belirtir: buhl vermeyi reddetmek, şuḥḥ ise vermenin kendisinden içten hoşlanmama halidir. Zekât 'buhl'ü çözer ama 'şuḥḥ'un çözülmesi ancak sürekli infak alışkanlığı ile mümkündür. Klasik tefsir zekâtı bu iç arınmanın 'başlangıç kapısı' olarak resmeder — mal verilir, kalp yavaşça özgürleşir.",
-      "descEn": "Taghābun 64:16 sets zakāt's inner pole as 'being guarded from the greed of one's own soul' (shuḥḥ an-nafs). The same formula appears in Ḥashr 59:9 — the Qur'an repeats a key phrase in two different sūras. Classical exegesis: 'shuḥḥ' is a deeper concept than 'bukhl' (miserliness); bukhl is refusing to give, shuḥḥ is an inner not-wanting-to-give. Zakāt dissolves bukhl, but dissolving shuḥḥ requires the ongoing habit of infāq. Classical exegesis paints zakāt as the 'opening gate' of this inner freedom.",
+      "descEn": "Taghābun 64:16 sets zakāt's inner pole as 'being guarded from the greed of one's own soul' (shuḥḥ an-nafs). The same formula appears in Ḥashr 59:9: the Qur'an repeats a key phrase in two different sūras. Classical exegesis: 'shuḥḥ' is a deeper concept than 'bukhl' (miserliness); bukhl is refusing to give, shuḥḥ is an inner not-wanting-to-give. Zakāt dissolves bukhl, but dissolving shuḥḥ requires the ongoing habit of infāq. Classical exegesis paints zakāt as the 'opening gate' of this inner freedom.",
       "modernIzlerTr": "Klasik tasavvuf literatürü bu iki kavramı (buhl-şuḥḥ) ayırt ederek zekâtın 'dış temizlik' ve infak-îsârın 'iç temizlik' düzeyleri olduğunu geliştirmiştir.",
       "modernIzlerEn": "Classical Sufi literature developed the bukhl-shuḥḥ distinction: zakāt as 'outer cleansing,' infāq-īthār as 'inner cleansing.'",
       "kaynak": "Râzî, Teğâbun 64:16 tefsiri; Kurtubî, Haşr 59:9 tefsiri; Elmalılı aynı ayetler",
@@ -1004,7 +1029,7 @@
     {
       "id": "mal-can-ekseni",
       "titleTr": "Mal ve Can Ekseni — En Büyük Kulluk Çifti",
-      "titleEn": "The Wealth and Self Axis — The Greatest Coupling of Worship",
+      "titleEn": "The Wealth and Self Axis: The Greatest Coupling of Worship",
       "refs": [
         "Tevbe 9:111",
         "Saf 61:11"
@@ -1016,9 +1041,9 @@
         "enShort": "Indeed, Allah has purchased from the believers their lives and their wealth in exchange for Paradise."
       },
       "descTr": "Kur'ân müminin varlığını iki eksende çizer: canını (nefs) ve malını. Tevbe 9:111 Allah'ın müminlerden 'canlarını ve mallarını' cennet karşılığında satın aldığını söyler; Saf 61:11 iman-cihad üçlemesinde 'mallarınızla ve canlarınızla' formülü tekrarlanır. Klasik tefsir bu ikiliği 'kulluğun bütünlüğü' olarak okur: mal ve can birbirini tamamlar. Zekât 'mal cihadı'nın Kur'ânî formülüdür — namaz nefsin ve zamanın verilmesiyse, zekât malın verilmesidir. İkisi aynı kulluğun iki elidir.",
-      "descEn": "The Qur'an draws the believer's existence on two axes: self (nafs) and wealth. Tawbah 9:111 says Allah has 'purchased from the believers their lives and their wealth' in exchange for Paradise; Ṣaff 61:11 repeats the formula 'with your wealth and your selves' in the faith-jihād triad. Classical exegesis reads this doublet as 'the wholeness of worship': wealth and self complete each other. Zakāt is the Qur'anic formula of 'jihād of wealth' — if prayer is the giving of self and time, zakāt is the giving of wealth. Two hands of the same worship.",
+      "descEn": "The Qur'an draws the believer's existence on two axes: self (nafs) and wealth. Tawbah 9:111 says Allah has 'purchased from the believers their lives and their wealth' in exchange for Paradise; Ṣaff 61:11 repeats the formula 'with your wealth and your selves' in the faith-jihād triad. Classical exegesis reads this doublet as 'the wholeness of worship': wealth and self complete each other. Zakāt is the Qur'anic formula of 'jihād of wealth': if prayer is the giving of self and time, zakāt is the giving of wealth. Two hands of the same worship.",
       "modernIzlerTr": "Klasik tefsir 'mal ve can' çiftinin sırasına da dikkat çeker: Tevbe 9:111'de 'canları' önce, 'malları' sonra sıralanır — çünkü can vermek malı vermeyi kolaylaştırır. Fıkhî uygulamada da zekâtı vermeye alışan kişide can vermeye hazırlığın kolaylaştığı klasik geleneğin gözlemidir.",
-      "modernIzlerEn": "Classical exegesis notes the order of 'self and wealth': in Tawbah 9:111 selves come first, then wealth — because giving the self makes it easier to give wealth. In classical practice, one who becomes habituated to zakāt more easily prepares to give the self.",
+      "modernIzlerEn": "Classical exegesis notes the order of 'self and wealth': in Tawbah 9:111 selves come first, then wealth: because giving the self makes it easier to give wealth. In classical practice, one who becomes habituated to zakāt more easily prepares to give the self.",
       "kaynak": "Râzî, Tevbe 9:111 tefsiri; Kurtubî, Saf 61:11 tefsiri; Elmalılı, Tevbe 9:111",
       "claimType": "quran_explicit",
       "confidence": "high"
@@ -1026,7 +1051,7 @@
     {
       "id": "adalet-toplum",
       "titleTr": "Adalet — Zekâtın Toplumsal Vaadi",
-      "titleEn": "Justice — Zakāt's Social Promise",
+      "titleEn": "Justice: Zakāt's Social Promise",
       "refs": [
         "Zâriyât 51:19",
         "Meâric 70:24-25"
@@ -1038,7 +1063,7 @@
         "enShort": "And in their wealth was the right of the beggar and the deprived."
       },
       "descTr": "Zâriyât 51:19 ve Meâric 70:24-25 aynı formülü iki farklı Mekkî sûrede tekrarlar: mal sahibinin malında 'isteyenin ve mahrumun' bir hakkı vardır. Klasik tefsir bu tekrarın rastgele olmadığını belirtir. Kelime seçimi de dikkat çekicidir: mal sahibi 'lütuf edici' değil 'hak sahibine hakkını ulaştıran' konumundadır. Bu Kur'ânî çerçeve, zekâtın 'hayır işi' değil bir 'adalet uygulaması' olduğu hükmünü kurar. Râzî bu ayet grubuna dair tefsirinde 'ma'lûm' ('bilinen') kelimesinin özellikle önemine dikkat çeker: hak zaten bilinmektedir, sahibine ulaşması sadece bir 'teslim'dir. Bu bilinç, veriş üslûbunu — Bakara 2:264'ün başa kakma yasağıyla birleştiğinde — köklü şekilde değiştirir.",
-      "descEn": "Dhāriyāt 51:19 and Maʿārij 70:24-25 repeat the same formula in two distinct Meccan sūras: in the wealth of its possessor is the 'right' (ḥaqq) of the beggar and the deprived. Classical exegesis: the wealthy is not 'the giver of a favor' but 'the one who delivers a right.' This Qur'anic framing establishes zakāt as an act of justice rather than charity. Rāzī, in his exegesis of this verse-pair, highlights the significance of the word 'maʿlūm' ('known'): the right is already known — its arrival at its owner is merely a delivery.",
+      "descEn": "Dhāriyāt 51:19 and Maʿārij 70:24-25 repeat the same formula in two distinct Meccan sūras: in the wealth of its possessor is the 'right' (ḥaqq) of the beggar and the deprived. Classical exegesis: the wealthy is not 'the giver of a favor' but 'the one who delivers a right.' This Qur'anic framing establishes zakāt as an act of justice rather than charity. Rāzī, in his exegesis of this verse-pair, highlights the significance of the word 'maʿlūm' ('known'): the right is already known: its arrival at its owner is merely a delivery.",
       "modernIzlerTr": "Bu 'iyilik vs. adalet' ayrımı, klasik tefsirin zekâta bakışında merkezî bir aksla üretilmiş bir vurgudur; sonraki dönem tasavvuf da bu ayrımı iç boyutta işlemiştir.",
       "modernIzlerEn": "This 'charity vs. justice' distinction is a central axial emphasis in classical exegesis's view of zakāt; later Sufi thought developed this distinction on the inner plane.",
       "kaynak": "Râzî, Zâriyât 51:19 tefsiri; Kurtubî, Meâric 70:24-25 tefsiri; Elmalılı aynı ayetler",
@@ -1048,7 +1073,7 @@
     {
       "id": "tevekkul-rizik",
       "titleTr": "Tevekkül — Vermek ve Rızık Genişliğine Güvenmek",
-      "titleEn": "Tawakkul — Giving and Trusting in the Expansion of Provision",
+      "titleEn": "Tawakkul: Giving and Trusting in the Expansion of Provision",
       "refs": [
         "Bakara 2:245",
         "Bakara 2:261",
