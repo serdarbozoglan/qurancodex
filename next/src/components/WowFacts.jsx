@@ -197,12 +197,12 @@ const FACTS = [
   {
     category: 'yapisal',
     surahRef: 'El-Fâtiha · 1',
-    titleTr: 'Fatiha: 7 Ayet, Merkez Tam Ortada',
-    titleEn: 'Al-Fatiha: 7 Verses, Center Perfectly Placed',
-    bodyTr: 'Fatiha 7 ayettir. Tam ortadaki 4. ayet: "Yalnız sana ibadet eder, yalnız senden yardım dileriz." İnsan-Allah ilişkisinin özü, geometrik merkezde.',
-    bodyEn: 'Al-Fatiha has 7 verses. The exact middle (4th) verse: "You alone we worship, You alone we ask for help." The essence of the human-God relationship, at the geometric center.',
-    wowTr: 'Anlam, sûrenin tam kalbinde durur.',
-    wowEn: 'Meaning stands at the exact heart of the surah.',
+    titleTr: 'Fâtiha\'nın Dönüm Noktası: 1:5',
+    titleEn: 'The Turning Point of Al-Fatiha: 1:5',
+    bodyTr: 'Fâtiha yedi âyettir; dördüncü âyeti "Mâliki yevmi\'d-dîn"dir (hesap gününün sahibi). Sûrenin dönüm noktası ise beşinci âyet "İyyâke na\'budu ve iyyâke nesta\'în" (yalnız sana kulluk eder, yalnız senden yardım isteriz): bu âyetten öncesi Allah\'a hamd ve övgü, sonrası kuldan gelen istektir.',
+    bodyEn: 'Al-Fatiha has seven verses; its fourth is "Māliki yawmi\'d-dīn" (Master of the Day of Judgment). The turning point is the fifth verse, "Iyyāka naʿbudu wa iyyāka nastaʿīn" (You alone we worship, You alone we ask for help): before it comes praise of God, after it the servant\'s petition.',
+    wowTr: 'Dördüncü âyet mülkü anar; beşinci âyet övgüden isteğe geçer.',
+    wowEn: 'The fourth verse names sovereignty; the fifth turns from praise to petition.',
     explore: 'Ancak sana kulluk',
     visualType: 'counter',
     visualData: {
