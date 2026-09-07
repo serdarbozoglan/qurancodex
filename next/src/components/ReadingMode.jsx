@@ -1429,20 +1429,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_prefer_single_page') ?? 'false'); }
     catch { return false; }
   });
-  // Classical mushaf-page frame around each visible page (right Arabic,
-  // left Arabic in spread, Turkish meal column). Each page gets its OWN
-  // thin gold frame — keeps the "two facing pages" reading rather than the
-  // "two-column magazine" reading. Default on; togglable in Settings.
-  const [showPageFrame, setShowPageFrame] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_page_frame') ?? 'true'); }
-    catch { return true; }
-  });
-  // Meal text italic toggle — default on (mushaf book feel), off for users
-  // who find continuous italic body fatiguing on long reading sessions.
-  const [mealItalic, setMealItalic] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_meal_italic') ?? 'true'); }
-    catch { return true; }
-  });
+  // Klasik mushaf-sayfa çerçevesi — her zaman açık (premium kitap/mushaf hissi).
+  // Yalnızca sayfa render yolunda çizildiği için kullanıcı toggle'ı gerekmez
+  // (2026-09-07: ayar paneli sadeleştirildi, toggle kaldırıldı).
+  const showPageFrame = true;
+  // Meal metni her zaman düz — italic toggle kaldırıldı (2026-09-07). Uzun
+  // Türkçe meal metni düz dizgide daha okunur; ayar panelini sade tutar.
+  const mealItalic = false;
   // ── Share / copy feedback ─────────────────────────────────────────────────
   const [copiedVerseId, setCopiedVerseId] = useState(null);
   const [showFontPicker, setShowFontPicker] = useState(false);
@@ -2086,8 +2079,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
   useEffect(() => { localStorage.setItem('qurancodex_prefer_single_page', JSON.stringify(preferSinglePage)); }, [preferSinglePage]);
-  useEffect(() => { localStorage.setItem('qurancodex_page_frame', JSON.stringify(showPageFrame)); }, [showPageFrame]);
-  useEffect(() => { localStorage.setItem('qurancodex_meal_italic', JSON.stringify(mealItalic)); }, [mealItalic]);
 
   // Collapsible state for the tajweed legend strip below the navbar.
   // Defaults to collapsed — power users don't need it; new users discover via the chevron.
@@ -5252,27 +5243,63 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           {/* Interlinear (Kırık Meal) toggle — only visible in verse mode */}
 
-          {/* Meal / Translation */}
-          <button
-            onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowSurahPicker(false); setShowReciterPicker(false); }}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
-              border: `1px solid ${showTranslation ? navC.btnBorderActive : dropC.btnBorder}`,
-              background: showTranslation ? dropC.itemBgActive : dropC.btnBg,
-              transition: `all ${TRANSITION.fast}`,
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-            onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : dropC.btnBorder; }}
-          >
-            <span style={{ fontSize: '0.82rem', color: showTranslation ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+          {/* Meal / Translation — satır artık DOĞRUDAN aç/kapa (sağdaki switch,
+              tek tık), yazar adı+▾ ise picker'ı açar. Önce satır picker açıyor,
+              aç/kapa picker içinde gizliydi; en sık eylem (aç/kapa) öne alındı
+              (2026-09-07 kullanıcı UX). */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '8px',
+            padding: '6px 8px 6px 12px', borderRadius: RADIUS.md,
+            border: `1px solid ${showTranslation ? navC.btnBorderActive : dropC.btnBorder}`,
+            background: showTranslation ? dropC.itemBgActive : dropC.btnBg,
+            transition: `all ${TRANSITION.fast}`,
+          }}>
+            {/* Sol: etiket + yazar → yazar picker'ını açar */}
+            <button
+              onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowSurahPicker(false); setShowReciterPicker(false); }}
+              title={language === 'tr' ? 'Meal yazarını seç' : 'Choose translation source'}
+              style={{
+                flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', gap: '6px',
+                background: 'transparent', border: 'none', cursor: 'pointer', padding: '3px 0',
+                textAlign: 'left', color: showTranslation ? gold : dropC.text,
+              }}
+            >
               <TranslateIcon size={13} />
-              {language === 'tr' ? 'Meal' : 'Translation'}
-            </span>
-            <span style={{ fontSize: '0.7rem', color: showTranslation ? gold : dropC.textMuted, fontWeight: 600 }}>
-              {showTranslation ? selectedMealAuthor.shortLabel : (language === 'tr' ? 'Kapalı' : 'Off')}
-            </span>
-          </button>
+              <span style={{ fontSize: '0.82rem', flexShrink: 0 }}>{language === 'tr' ? 'Meal' : 'Translation'}</span>
+              <span style={{
+                fontSize: '0.7rem', fontWeight: 600, marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '3px',
+                color: showTranslation ? gold : dropC.textMuted,
+                maxWidth: '108px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+              }}>
+                {selectedMealAuthor.shortLabel}
+                <span style={{ fontSize: '0.6rem', opacity: 0.75 }}>▾</span>
+              </span>
+            </button>
+            {/* Sağ: aç/kapa switch — tek tık, dropdown gerektirmez */}
+            <button
+              onClick={() => setShowTranslation(v => !v)}
+              role="switch" aria-checked={showTranslation}
+              aria-label={language === 'tr' ? 'Meali aç/kapat' : 'Toggle translation'}
+              title={language === 'tr' ? (showTranslation ? 'Meali kapat' : 'Meali aç') : (showTranslation ? 'Hide translation' : 'Show translation')}
+              style={{
+                width: '40px', height: '22px', borderRadius: '11px', cursor: 'pointer', position: 'relative', flexShrink: 0,
+                background: showTranslation
+                  ? (dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(200,185,165,0.72)')
+                  : (dayMode ? 'rgba(0,0,0,0.12)' : COLORS.glassBorder),
+                border: `1px solid ${showTranslation
+                  ? (dayMode ? 'rgba(154,111,16,0.5)' : 'rgba(212,165,116,0.7)')
+                  : (dayMode ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.15)')}`,
+                transition: `all ${TRANSITION.base}`,
+              }}
+            >
+              <span style={{
+                position: 'absolute', top: '2px', left: showTranslation ? '18px' : '2px',
+                width: '16px', height: '16px', borderRadius: RADIUS.full,
+                background: showTranslation ? gold : (dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.35)'),
+                transition: `all ${TRANSITION.base}`,
+              }} />
+            </button>
+          </div>
 
           {/* Kari / Reciter */}
           <button
@@ -5550,56 +5577,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {renderSwitch(showTajweed)}
           </button>
 
-          {/* Classical mushaf page frame toggle */}
-          {!isMobile && (
-            <button
-              onClick={() => setShowPageFrame(v => !v)}
-              role="switch" aria-checked={showPageFrame}
-              title={language === 'tr'
-                ? 'Her sayfanın etrafına klasik altın çerçeve çiz'
-                : 'Draw a classical gold frame around each page'}
-              style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
-                border: `1px solid ${showPageFrame ? navC.btnBorderActive : dropC.btnBorder}`,
-                background: showPageFrame ? dropC.itemBgActive : dropC.btnBg,
-                transition: `all ${TRANSITION.fast}`,
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-              onMouseLeave={e => { e.currentTarget.style.background = showPageFrame ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showPageFrame ? navC.btnBorderActive : dropC.btnBorder; }}
-            >
-              <span style={{ fontSize: '0.82rem', color: showPageFrame ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontSize: '0.9rem' }}>▭</span>
-                {language === 'tr' ? 'Sayfa Çerçevesi' : 'Page Frame'}
-              </span>
-              {renderSwitch(showPageFrame)}
-            </button>
-          )}
-
-          {/* Italic meal text toggle — default on (mushaf-book feel), off for
-              users who find sustained italic body text fatiguing. */}
-          <button
-            onClick={() => setMealItalic(v => !v)}
-            role="switch" aria-checked={mealItalic}
-            title={language === 'tr'
-              ? 'Meal yazısı italic mi düz mü görünsün'
-              : 'Meal body in italic or upright'}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
-              border: `1px solid ${mealItalic ? navC.btnBorderActive : dropC.btnBorder}`,
-              background: mealItalic ? dropC.itemBgActive : dropC.btnBg,
-              transition: `all ${TRANSITION.fast}`,
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-            onMouseLeave={e => { e.currentTarget.style.background = mealItalic ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = mealItalic ? navC.btnBorderActive : dropC.btnBorder; }}
-          >
-            <span style={{ fontSize: '0.82rem', color: mealItalic ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif", fontWeight: 600 }}>I</span>
-              {language === 'tr' ? 'İtalic Meal' : 'Italic Meal'}
-            </span>
-            {renderSwitch(mealItalic)}
-          </button>
+          {/* Sayfa Çerçevesi ve İtalic Meal toggle'ları kaldırıldı (2026-09-07):
+              çerçeve her zaman açık (premium mushaf hissi), meal her zaman düz.
+              Ayar paneli sadeleştirildi. */}
 
           {/* Layout — single page vs two-page spread. spreadMode is only
               eligible in Kitap/Mushaf (spreadMode = bookMode &&
@@ -5719,8 +5699,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           {/* Font size — Turkish meal (independent of Arabic so users can
               scale the translation column without making the Arabic
-              column huge). Multiplier-style slider: 1.0 = current default. */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              column huge). Multiplier-style slider: 1.0 = current default.
+              Meal metni ekranda yoksa (Meal kapalı ve Kırık Meal değil) bu
+              denetim pasifleşir — durumla tutarlı (2026-09-07 kullanıcı). */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px',
+            opacity: (showTranslation || interlinearMode) ? 1 : 0.4,
+            pointerEvents: (showTranslation || interlinearMode) ? 'auto' : 'none' }}
+            aria-disabled={!(showTranslation || interlinearMode)}
+            title={(showTranslation || interlinearMode) ? undefined : (language === 'tr' ? 'Meal kapalıyken yazı boyutu ayarlanamaz' : 'Turn Meal on to resize the text')}>
             <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Meal Yazı Boyutu' : 'Meal Font Size'}
             </span>
@@ -5734,6 +5720,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <input
                 type="range" min={0.75} max={1.6} step={0.05}
                 value={mealFontSize}
+                disabled={!(showTranslation || interlinearMode)}
                 onChange={e => setMealFontSize(+parseFloat(e.target.value).toFixed(2))}
                 style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
               />
@@ -6027,29 +6014,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '240px', boxShadow: dropC.shadow,
         }}>
-          {/* On/off toggle */}
+          {/* Başlık — aç/kapa artık Meal satırındaki switch'te; picker sadece
+              yazar seçer. Yazar seçmek meali otomatik açar (2026-09-07). */}
           <div style={{ padding: '10px 14px', borderBottom: `1px solid ${dropC.divider}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ color: dropC.text, fontSize: '0.78rem' }}>{language === 'tr' ? 'Meali göster' : 'Show translation'}</span>
-            <button
-              onClick={() => setShowTranslation(v => !v)}
-              style={{
-                width: '40px', height: '22px', borderRadius: '11px', cursor: 'pointer', position: 'relative',
-                background: showTranslation
-                  ? (dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(200,185,165,0.72)')
-                  : (dayMode ? 'rgba(0,0,0,0.12)' : COLORS.glassBorder),
-                border: `1px solid ${showTranslation
-                  ? (dayMode ? 'rgba(154,111,16,0.5)' : 'rgba(212,165,116,0.7)')
-                  : (dayMode ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.15)')}`,
-                transition: `all ${TRANSITION.base}`,
-              }}
-            >
-              <span style={{
-                position: 'absolute', top: '2px', left: showTranslation ? '18px' : '2px',
-                width: '16px', height: '16px', borderRadius: RADIUS.full,
-                background: showTranslation ? gold : (dayMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.35)'),
-                transition: `all ${TRANSITION.base}`,
-              }} />
-            </button>
+            <span style={{ color: dropC.text, fontSize: '0.78rem', fontWeight: 600 }}>{language === 'tr' ? 'Meal kaynağı' : 'Translation source'}</span>
+            {showTranslation && <span style={{ fontSize: '0.66rem', color: gold, fontWeight: 600 }}>{selectedMealAuthor.shortLabel}</span>}
           </div>
 
           {/* Turkish translations */}
