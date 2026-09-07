@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, RADIUS, CATEGORY_SCALE, BREAKPOINT_MOBILE } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
@@ -656,7 +657,12 @@ export default function FatihaAtlasi({ onClose }) {
     }}>
       {TOOL_HEADER}
 
-      <Hero language={language} isMobile={isMobile} />
+      {/* A1: poetik giriş katlanabilir — dönüş ziyaretlerinde çipler+sekmeler
+          üste gelsin. İçerik birebir korunur; StatStrip ve sekmeler dışarıda. */}
+      <CollapsibleHero id="fatiha-atlasi" language={language}
+        labelTr="Fâtiha Atlası" labelEn="Atlas of the Opening">
+        <Hero language={language} isMobile={isMobile} />
+      </CollapsibleHero>
       <StatStrip data={data} language={language} />
 
       {/* Tab bar */}
