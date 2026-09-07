@@ -66,7 +66,8 @@
 - [x] **C10 · "Bütün nüshalarda sıfır rasm varyasyonu"** — `/tr/arac/koruma-zinciri` ✅ **DÜZELTİLDİ (ölçekleme; §13.24 hakem önerilir)**
   - Not: Sayfa San'a/Sadeghi'ye atıf vermiyor (iç çelişki yok); sorun mutlak "her nüsha, her bölge".
   - Yapıldı: "1.400 yıldır her nüsha, her bölge, her nesil aynı metni" → "standart Osmanî mushaf 1.400 yıldır nüshadan nüshaya, nesilden nesle aynı iskeleti taşır". Overclaim standart Osmanî rasma ölçeklendi (doubt-casting yok). Kıraat ayrı katman zaten belirtiliyor.
-  - Katılım: ✅ · Durum: **düzeltildi (§13.24: merge öncesi GPT hakemden geçirmen önerilir)**
+  - **GPT-5.2 hakem incelemesi yapıldı (2026-09-07, OpenAI API):** "sıfır varyasyon" mutlak iddiası abartı onaylandı (ed-Dânî el-Muknî + San'a). Hakemin nihai cümlesi uygulandı: "Osmanî mushaf geleneğinde rasm düzeyinde olağanüstü istikrar… mütevâtir kıraat ayrı belgelenmiş sözlü katman". Em-dash temizlendi. Line 193 "sıfır varyasyon ilkesi" → "istikrar ilkesi".
+  - Katılım: ✅ · Durum: **düzeltildi + hakemden geçti** (opsiyonel: ed-Dânî/San'a'ya hover/dipnot bir sonraki tur)
 
 - [x] **C11 · ه ve ح "nazal"; 109/112 komşuluk** — `/tr/arac/ses-mimarisi` ✅ **DÜZELTİLDİ (2026-09-07)**
   - Yapıldı: `SoundExtensions.jsx` "nazal ه"→"soluklu ه"/"breathy"; 109↔112 "peş peşe/adjacent" kaldırıldı (aralarında 110-111). `SoundArchitecture.jsx`'te ح,ن,م,ل grubu "nazal ve akıcı" → doğru sınıflandırma (ن,م nazal; ل akıcı; ح boğazsıl); "Nazal ح،ن،م" → "Yumuşak". TR+EN.
