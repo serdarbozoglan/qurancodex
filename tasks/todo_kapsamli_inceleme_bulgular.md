@@ -81,10 +81,10 @@
   - Yapılacak: Kullanılan sayım geleneğini her şemada belirt; cümlecik düzeni ile ayet numarasını ayır.
   - Katılım: 🟡 "hata" değil, **sayım-geleneği etiketi eksik**. Belirt.
 
-- [ ] **C17 · Schubert 2005 → hipokampüs** — `/tr/tefekkur/sonsuzlugun-merdiveni`
-  - O çalışma dikey konum–güç algısı (davranışsal), hipokampüs değil.
-  - Yapılacak: Doğrudan araştırma yoksa beyin bölgesi iddiasını çıkar; davranışsal bulguyu doğru kapsamda ver.
-  - Katılım: ✅ tam · Durum: yanlış atıf
+- [x] **C17 · Schubert 2005 → hipokampüs** — `/tr/tefekkur/sonsuzlugun-merdiveni` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Web+PubMed 16060739 ile doğrulandı: Schubert 2005 tamamen davranışsal (Study 1-6: yargı/tepki süresi/motor tepki), hipokampüs/nöro-görüntüleme YOK.
+  - Yapıldı: Gövde (block[4]) + tldr'deki "hipokampüs/Nörobilim" iddiaları çıkarıldı; Schubert'in gerçek bulgusuyla (güç↔yukarı, dikey konum güç yargısını etkiler) değiştirildi. Künye zaten doğruydu. Yazarın embodied-cognition noktası korundu. TR+EN.
+  - Katılım: ✅ tam · Durum: **düzeltildi (yanlış atıf giderildi)**
 
 - [ ] **C20 · 10 aşamalı "zorunlu, atlanamaz sıra"** — `/tr/atlas/insan-yolculugu`
   - Yapılacak: Bunun ayetlerden derlenen manevî olgunlaşma **modeli** olduğunu belirt; ayet lafzı ile yazar tasnifini ayır.
