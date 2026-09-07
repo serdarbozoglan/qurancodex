@@ -6017,9 +6017,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         }}>
           {/* Başlık — aç/kapa artık Meal satırındaki switch'te; picker sadece
               yazar seçer. Yazar seçmek meali otomatik açar (2026-09-07). */}
-          <div style={{ padding: '10px 14px', borderBottom: `1px solid ${dropC.divider}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ color: dropC.text, fontSize: '0.78rem', fontWeight: 600 }}>{language === 'tr' ? 'Meal kaynağı' : 'Translation source'}</span>
+          <div style={{ padding: '8px 8px 8px 14px', borderBottom: `1px solid ${dropC.divider}`, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ color: dropC.text, fontSize: '0.78rem', fontWeight: 600, flex: 1 }}>{language === 'tr' ? 'Meal kaynağı' : 'Translation source'}</span>
             {showTranslation && <span style={{ fontSize: '0.66rem', color: gold, fontWeight: 600 }}>{selectedMealAuthor.shortLabel}</span>}
+            <button
+              onClick={() => setShowMealPicker(false)}
+              aria-label={language === 'tr' ? 'Kapat' : 'Close'}
+              title={language === 'tr' ? 'Kapat' : 'Close'}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '26px', height: '26px', borderRadius: RADIUS.full, background: 'transparent', border: 'none', color: dropC.textMuted, cursor: 'pointer', flexShrink: 0, transition: `all ${TRANSITION.fast}` }}
+              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgHover; e.currentTarget.style.color = gold; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = dropC.textMuted; }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </button>
           </div>
 
           {/* Turkish translations */}
@@ -6057,8 +6067,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           {/* English translations */}
           <div style={{ padding: '6px 0', borderTop: `1px solid ${dropC.divider}` }}>
-            <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              English
+            {/* "ENGLISH" (büyük I) — "English" text-transform:uppercase ile
+                Türkçe yerelde "ENGLİSH" (noktalı İ) oluyordu (2026-09-07). */}
+            <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }} lang="en">
+              ENGLISH
             </div>
             {MEAL_AUTHORS.filter(a => a.lang === 'en').map(author => {
               const isActive = selectedMealId === author.id;
@@ -7383,8 +7395,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         </div>
 
                         <div style={{ padding: '6px 0', borderTop: `1px solid ${dropC.divider}` }}>
-                          <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                            English
+                          <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }} lang="en">
+                            ENGLISH
                           </div>
                           {MEAL_AUTHORS.filter(a => a.lang === 'en').map(author => {
                             const isActive = selectedMealId === author.id;
@@ -9217,7 +9229,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           borderTop: lngIdx > 0 ? `1px solid ${dropC.divider}` : 'none',
                         }}>
                           <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                            {lng === 'tr' ? 'Türkçe' : 'English'}
+                            {lng === 'tr' ? 'Türkçe' : 'ENGLISH'}
                           </div>
                           {MEAL_AUTHORS.filter(a => a.lang === lng).map(author => {
                             const isActive = selectedMealId === author.id;
@@ -9596,8 +9608,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       })}
                     </div>
                     <div style={{ padding: '6px 0', borderTop: `1px solid ${dropC.divider}` }}>
-                      <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                        English
+                      <div style={{ padding: '4px 14px 6px', fontSize: '0.6rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }} lang="en">
+                        ENGLISH
                       </div>
                       {MEAL_AUTHORS.filter(a => a.lang === 'en').map(author => {
                         const isActive = selectedMealId === author.id;
