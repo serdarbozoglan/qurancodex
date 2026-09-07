@@ -4112,21 +4112,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               )}
 
-              {/* MEAL — tek buton (2026-07-08 kullanıcı feedback: KELİME/TEFSİR sibling
-                  pattern'ıyla eş). Tıklama → dropdown açılır; dropdown içinde HEM toggle
-                  HEM author listesi zaten var. Aktif state showTranslation'a bağlı. */}
+              {/* MEAL — DOĞRUDAN aç/kapa (2026-09-07 kullanıcı UX: buton sadece
+                  meali açıp kapatır, tek tık). Yazar seçimi meal sütunundaki
+                  inline dropdown'dan yapılır; picker artık burada açılmıyor. */}
               {!isMobile && <button className="mq-box"
-                onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowReciterPicker(false); setShowSurahPicker(false); }}
+                onClick={() => setShowTranslation(v => !v)}
+                role="switch" aria-checked={showTranslation}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                   minWidth: isMobile ? '36px' : '48px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "5px", '--pr-m': "3px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "5px", '--pl-m': "3px", height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
-                  border: `1px solid ${showTranslation || showMealPicker ? navC.btnBorderActive : navC.btnBorder}`,
-                  background: showTranslation || showMealPicker ? navC.btnBgActive : navC.btnBg,
+                  border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showTranslation ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                onMouseLeave={e => { e.currentTarget.style.background = (showTranslation || showMealPicker) ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = (showTranslation || showMealPicker) ? navC.btnBorderActive : navC.btnBorder; }}
-                title={language === 'tr' ? `Meal: ${selectedMealAuthor.shortLabel}` : `Meaning: ${selectedMealAuthor.shortLabel}`}
+                onMouseLeave={e => { e.currentTarget.style.background = showTranslation ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
+                title={language === 'tr' ? (showTranslation ? `Meali kapat (${selectedMealAuthor.shortLabel})` : 'Meali aç') : (showTranslation ? `Hide meaning (${selectedMealAuthor.shortLabel})` : 'Show meaning')}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px', transform: 'translateY(-1px)' }}>
                   م
