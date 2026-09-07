@@ -7,8 +7,8 @@ import SorRoute from './SorRoute';
 const PATH = '/sor';
 const TITLE_TR = "Kur'an'a Sor — Semantik Rehber";
 const TITLE_EN = "Ask the Quran — Semantic Guide";
-const DESC_TR = "Aklındaki soruyu yaz; sistem Kur'an'ın 6.236 ayeti, tefekkür yazıları ve araç sayfaları arasından en uygun içerikleri seçip sunar. Yorum katmaz, yalnızca yönlendirir.";
-const DESC_EN = "Type your question; the system selects the most relevant among 6,236 verses, essays and tool pages. It adds no interpretation, it only guides.";
+const DESC_TR = "Aklındaki soruyu yaz; sistem Kur'an'ın 6.236 ayeti, tefekkür yazıları ve araç sayfaları arasından en uygun içerikleri seçip sunar. Fetvâ vermez; sorunuzu ilgili âyet, yazı ve araçlara bağlar.";
+const DESC_EN = "Type your question; the system selects the most relevant among 6,236 verses, essays and tool pages. It issues no rulings; it connects your question to relevant verses, essays and tool pages.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

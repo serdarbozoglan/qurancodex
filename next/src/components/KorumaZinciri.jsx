@@ -123,8 +123,8 @@ export default function KorumaZinciri({ onClose }) {
           lineHeight: 1.7, maxWidth: '760px', margin: '18px auto 0',
         }}>
           {tr
-            ? <>Sıfır varyasyon, tek konsonantal iskelettedir (<span style={{ color: COLORS.gold }}>rasm</span>): 1.400 yıldır her nüsha, her bölge, her nesil aynı metni taşır. <span style={{ color: COLORS.gold }}>Mütevâtir kıraat</span> farklılıkları ise bu korumanın ayrı ve belgeli sözlü katmanıdır; çelişkisi değil, kanıtı.</>
-            : <>Zero variation lies in the single consonantal skeleton (<span style={{ color: COLORS.gold }}>rasm</span>): for 1,400 years every copy, region and generation carries the same text. The <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> differences are a separate, fully-documented oral layer of that preservation; its evidence, not its contradiction.</>}
+            ? <>Kur'an metni, Osmanî mushaf geleneğinde <span style={{ color: COLORS.gold }}>rasm</span> düzeyinde olağanüstü bir istikrarla nesilden nesle aktarılmıştır; <span style={{ color: COLORS.gold }}>mütevâtir kıraat</span> farklılıkları ise bu yazılı çekirdeğe bağlı, ayrıca belgelenmiş sözlü aktarım katmanıdır: çelişkisi değil, korumanın bir parçasıdır.</>
+            : <>The Qur'anic text has been transmitted with exceptional stability at the level of the Uthmānic <span style={{ color: COLORS.gold }}>rasm</span> across generations; the <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> are a distinct, well-documented oral layer tied to this written core: not a contradiction, but part of its preservation.</>}
         </p>
       </div>
 
@@ -190,8 +190,8 @@ export default function KorumaZinciri({ onClose }) {
               href: `/${language}/atlas/kiraat`,
               titleTr: 'Kıraat Atlası',
               titleEn: 'Qirāʾāt Atlas',
-              descTr: '10 imam · 20 râvî · coğrafi dağılım: sıfır varyasyon ilkesinin bugünkü görünümü.',
-              descEn: '10 readers · 20 transmitters · geographic spread: the zero-variation principle as it stands today.',
+              descTr: '10 imam · 20 râvî · coğrafi dağılım: bu istikrar ilkesinin bugünkü görünümü.',
+              descEn: '10 readers · 20 transmitters · geographic spread: this principle of stability as it stands today.',
             },
             {
               href: `/${language}/arac/sebebi-nuzul`,

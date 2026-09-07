@@ -7673,3 +7673,22 @@ Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, zorlama ü�
 - **C21** (neden-sonuc): principleTr/En'e "ahlâkî ibret ≠ doğal olayların fiziksel/mekanik sebebi; karıştırılmamalıdır" eklendi; satırdaki em-dash'lar temizlendi.
 
 Humanizer: em/en-dash yok, "değil—ama" rehber ifadeye çevrildi, satış sıfatı yok, uydurma yok.
+
+---
+
+## Hardening (ChatGPT incelemesi) — C10/C19/C22 · 2026-09-07
+
+- **C10** (koruma-zinciri): "1.400 yıldır her nüsha, her bölge, her nesil aynı metni" → "standart Osmanî mushaf 1.400 yıldır nüshadan nüshaya ve nesilden nesle aynı iskeleti taşır". Overclaim standart Osmanî rasma ölçeklendi (doubt yok). §13.24: merge öncesi hakem önerilir.
+- **C19** (tefsir-ihtilaflari): 2 not "İki bağımsız nötr istemle doğrulandı" → "İki bağımsız incelemede tutarlı bulundu" (LLM istemini birincil-kaynak doğrulaması gibi sunma kaldırıldı).
+- **C22** (/sor): "Yorum katmaz, yalnızca yönlendirir" → "Fetvâ vermez; ilgili âyet, yazı ve araçlara yönlendirir/bağlar" (davranışla hizalandı: rewrite+sentez var, ama fetvâ/hüküm yok). TR+EN.
+
+Humanizer: em/en-dash yok, satış sıfatı yok, uydurma yok.
+
+---
+
+## Hardening — C10 GPT-5.2 hakem revizyonu · 2026-09-07
+
+C10 (koruma-zinciri) OpenAI API üzerinden GPT-5.2 hakemine sunuldu (§13.24). Hakem "sıfır varyasyon" mutlaklığını abartı buldu (ed-Dânî el-Muknî bölgesel rasm farkları + San'a) ve nihai cümleyi verdi. Uygulanan:
+ÖNCE: "Sıfır varyasyon, tek konsonantal iskelettedir (rasm): standart Osmanî mushaf 1.400 yıldır… aynı iskeleti taşır."
+SONRA: "Kur'an metni, Osmanî mushaf geleneğinde rasm düzeyinde olağanüstü bir istikrarla nesilden nesle aktarılmıştır; mütevâtir kıraat farklılıkları ise bu yazılı çekirdeğe bağlı, ayrıca belgelenmiş sözlü aktarım katmanıdır: çelişkisi değil, korumanın bir parçasıdır."
+Ayrıca "sıfır varyasyon ilkesi" → "istikrar ilkesi". Hakemin em-dash'ı ": " ile değiştirildi. TR+EN.
