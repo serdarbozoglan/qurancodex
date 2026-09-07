@@ -7,8 +7,8 @@ import FurukAtlasiRoute from './FurukAtlasiRoute';
 const PATH = '/atlas/furuk';
 const TITLE_TR = 'Füruk Atlası';
 const TITLE_EN = 'Atlas of Semantic Distinctions';
-const DESC_TR = "Eş anlamlı sayılan Kur'an kelimeleri arasındaki ince farklar: Matar/Ğays, Havf/Haşye gibi 50'den fazla kelime ailesi.";
-const DESC_EN = "Subtle distinctions between Quranic words long treated as synonyms: more than 50 word families such as Maṭar/Ghayth and Khawf/Khashya.";
+const DESC_TR = "Eş anlamlı sayılan Kur'an kelimeleri arasındaki ince farklar: Matar/Ğays, Havf/Haşye gibi 34 kelime ailesi.";
+const DESC_EN = "Subtle distinctions between Quranic words long treated as synonyms: 34 word families such as Maṭar/Ghayth and Khawf/Khashya.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

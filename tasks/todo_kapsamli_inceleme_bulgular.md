@@ -99,8 +99,9 @@
 
 ### Sayfa içi tutarsızlık / veri sayacı (🔎 kodda doğrulanacak)
 
-- [ ] **C02 · "50+ kelime ailesi" (meta) vs 34 (arayüz)** — `/tr/atlas/furuk`
-  - Yapılacak: Başlık, meta, sayaçlar tek sayımdan üretilsin. · Katılım: 🔎 muhtemelen doğru
+- [x] **C02 · "50+ kelime ailesi" (meta) vs 34 (arayüz)** — `/tr/atlas/furuk` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Gerçek sayı 34 (word-groups.json meta.totalGroups=34). UI "34" doğruydu; hatalı olan meta.
+  - Yapıldı: `furuk/page.js` DESC_TR/EN "50'den fazla / more than 50" → "34". Katılım: ✅ doğru
 
 - [ ] **C05 · Fâtiha "yedi ayet" halkası** — `/tr`
   - Besmele hariç 1:2–1:7 = altı ayet; son ayet ikiye bölünüp yedi konum kuruluyor.
@@ -110,14 +111,16 @@
 - [ ] **C06 · "Modern psikolojiyi öngörmez" (üst) vs "14 asır önce eş" (alt)** — `/tr/atlas/insan-psikolojisi`
   - Yapılacak: Yorum eşleştirmesi ile klinik/tarihsel eşdeğerlik ayrımını tüm sekmelerde koru. · Katılım: ✅
 
-- [ ] **C12 · Katalog 64 araç vs ana sayfa 65** — `/tr/arac/tum-araclar`
-  - Yapılacak: Tek liste kaynağından sayaç + arama + site haritası üret. · Katılım: 🔎 muhtemelen doğru
+- [x] **C12 · Katalog 64 araç vs ana sayfa 65** — `/tr/arac/tum-araclar` ✅ **ÇÖZÜLMÜŞ (2026-09-07)**
+  - `TOOL_CATALOG`=65 (benzersiz route), ToolsBrowser onu render ediyor, InventoryStrip=65 (WIP'te düzeltilmiş). Hardcoded 64 yok.
+  - Sonuç: Tüm kaynaklar 65'te tutarlı; ChatGPT'nin 64'ü eski durum. Kod değişikliği gerekmedi. (Not: InventoryStrip yorum satırındaki "(62)" bayat — kozmetik, WIP'te.) Katılım: ✅ (artık geçerli değil)
 
 - [ ] **C14 · Özet "kesben terk" vs bölüm "kalben terk"** — `/tr/tefekkur/inception-hayatlar`
   - Yapılacak: Özet ile yazarın vardığı sonuç arasındaki tersliği gider. · Katılım: 🔎 muhtemelen doğru
 
-- [ ] **C18 · Seri göstergesi 4/4 vs sonraki sayfa 5/5** — `/tr/tefekkur/tugyan`
-  - Yapılacak: Seri sayacı + önceki/sonraki bağlantıları tek listeden üret. · Katılım: 🔎 muhtemelen doğru
+- [x] **C18 · Seri göstergesi 4/4 vs sonraki sayfa 5/5** — `/tr/tefekkur/tugyan` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Kök sebep: semantik-analizi serisi 5 üyeli (sefer, lehv, cennet-cin-mecnun, tugyan, siccin) ama `tugyan.json` ve `cennet-cin-mecnun.json` `seriesTotal=4` diyordu (5 olmalı).
+  - Yapıldı: İki makale JSON'unda seriesTotal 4→5. Artık 1/5…5/5 tutarlı. (Not: `_index.json`'da seriesId/seriesTotal latent olarak boş — görünür buga yol açmıyor, render tekil makale JSON'unu kullanıyor.) Katılım: ✅ doğru
 
 ### Yöntem / dürüstlük
 
