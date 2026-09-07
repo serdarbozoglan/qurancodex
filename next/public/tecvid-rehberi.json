@@ -1,7 +1,7 @@
 {
   "version": 1,
   "hero": {
-    "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ",
+    "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ",
     "verse": "1:1",
     "reciter": "Alafasy",
     "audio": "/tecvid-audio/alafasy-001001-0-2.mp3"
@@ -22,15 +22,15 @@
           "color": "#d4a574",
           "examples": [
             {
-              "text": "أَنْعَمْتَ",
-              "html": "أَ<span style=\"color:#d4a574\">نْ</span><span style=\"color:#d4a574\">ع</span>َمْتَ",
+              "text": "أَنۡعَمۡتَ",
+              "html": "أَ<span style=\"color:#d4a574\">نۡ</span><span style=\"color:#d4a574\">ع</span>َمۡتَ",
               "verse": "1:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001007-2-3.mp3"
             },
             {
-              "text": "وَانْحَرْ",
-              "html": "وَا<span style=\"color:#d4a574\">نْ</span><span style=\"color:#d4a574\">ح</span>َرْ",
+              "text": "وَانۡحَرۡ",
+              "html": "وَا<span style=\"color:#d4a574\">نۡ</span><span style=\"color:#d4a574\">ح</span>َرۡ",
               "verse": "108:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-108002-2-3.mp3"
@@ -53,22 +53,22 @@
           "color": "#4ade80",
           "examples": [
             {
-              "text": "فَمَن يَعْمَلْ",
-              "html": "فَمَ<span style=\"color:#4ade80\">ن</span> <span style=\"color:#4ade80\">ي</span>َعْمَلْ",
+              "text": "فَمَن يَعۡمَلۡ",
+              "html": "فَمَ<span style=\"color:#4ade80\">ن</span> <span style=\"color:#4ade80\">ي</span>َعۡمَلۡ",
               "verse": "99:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-099007-0-2.mp3"
             },
             {
-              "text": "مَالٌا وَعَدَّدَهُ",
-              "html": "مَا<span style=\"color:#4ade80\">لٌا</span> <span style=\"color:#4ade80\">و</span>َعَدَّدَهُ",
+              "text": "مَالٗا وَعَدَّدَهُۥ",
+              "html": "مَا<span style=\"color:#4ade80\">لٗا</span> <span style=\"color:#4ade80\">و</span>َعَدَّدَهُۥ",
               "verse": "104:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-104002-2-4.mp3"
             },
             {
-              "text": "هُدٌى مِّن",
-              "html": "هُ<span style=\"color:#4ade80\">دٌى</span> <span style=\"color:#4ade80\">مّ</span>ِن",
+              "text": "هُدٗى مِّن",
+              "html": "هُ<span style=\"color:#4ade80\">دٗى</span> <span style=\"color:#4ade80\">مّ</span>ِن",
               "verse": "2:5",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002005-2-4.mp3"
@@ -84,22 +84,22 @@
           "color": "#60a5fa",
           "examples": [
             {
-              "text": "مِّن رَّبِّهِمْ",
-              "html": "مِّ<span style=\"color:#60a5fa\">ن</span> <span style=\"color:#60a5fa\">رّ</span>َبِّهِمْ",
+              "text": "مِّن رَّبِّهِمۡ",
+              "html": "مِّ<span style=\"color:#60a5fa\">ن</span> <span style=\"color:#60a5fa\">رّ</span>َبِّهِمۡ",
               "verse": "2:5",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002005-3-5.mp3"
             },
             {
-              "text": "يَكُن لَّهُ",
-              "html": "يَكُ<span style=\"color:#60a5fa\">ن</span> <span style=\"color:#60a5fa\">لّ</span>َهُ",
+              "text": "يَكُن لَّهُۥ",
+              "html": "يَكُ<span style=\"color:#60a5fa\">ن</span> <span style=\"color:#60a5fa\">لّ</span>َهُۥ",
               "verse": "112:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-112004-1-3.mp3"
             },
             {
-              "text": "عِيشَةٍ رَّاضِيَةٍ",
-              "html": "عِيشَ<span style=\"color:#60a5fa\">ةٍ</span> <span style=\"color:#60a5fa\">رّ</span>َاضِيَةٍ",
+              "text": "عِيشَة۪ رَّاضِيَة۪",
+              "html": "عِيشَ<span style=\"color:#60a5fa\">ة۪</span> <span style=\"color:#60a5fa\">رّ</span>َاضِيَة۪",
               "verse": "101:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-101007-2-4.mp3"
@@ -115,22 +115,22 @@
           "color": "#f472b6",
           "examples": [
             {
-              "text": "مِن بَعْدِ",
-              "html": "مِ<span style=\"color:#f472b6\">ن</span> <span style=\"color:#f472b6\">ب</span>َعْدِ",
+              "text": "مِنۢ بَعۡدِ",
+              "html": "مِ<span style=\"color:#f472b6\">نۢ</span> <span style=\"color:#f472b6\">ب</span>َعۡدِ",
               "verse": "2:27",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002027-4-6.mp3"
             },
             {
-              "text": "لَيُنبَذَنَّ",
-              "html": "لَيُ<span style=\"color:#f472b6\">ن</span><span style=\"color:#f472b6\">ب</span>َذَنَّ",
+              "text": "لَيُنۢبَذَنَّ",
+              "html": "لَيُ<span style=\"color:#f472b6\">نۢ</span><span style=\"color:#f472b6\">ب</span>َذَنَّ",
               "verse": "104:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-104004-1-2.mp3"
             },
             {
-              "text": "لَنَسْفَعَا بِالنَّاصِيَةِ",
-              "html": "<span style=\"color:#f472b6\">لَنَسْفَعَا بِالنَّاصِيَةِ</span>",
+              "text": "لَنَسۡفَعَۢا بِالنَّاصِيَةِ",
+              "html": "<span style=\"color:#f472b6\">لَنَسۡفَعَۢا بِالنَّاصِيَةِ</span>",
               "verse": "96:15",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-096015-4-6.mp3"
@@ -153,15 +153,15 @@
               "audio": "/tecvid-audio/alafasy-113002-0-2.mp3"
             },
             {
-              "text": "مِّن جُوعٍ",
-              "html": "مِّ<span style=\"color:#22d3ee\">ن</span> <span style=\"color:#22d3ee\">ج</span>ُوعٍ",
+              "text": "مِّن جُوع۪",
+              "html": "مِّ<span style=\"color:#22d3ee\">ن</span> <span style=\"color:#22d3ee\">ج</span>ُوع۪",
               "verse": "106:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-106004-2-4.mp3"
             },
             {
-              "text": "مِن تَحْتِهَا",
-              "html": "مِ<span style=\"color:#22d3ee\">ن</span> <span style=\"color:#22d3ee\">ت</span>َحْتِهَا",
+              "text": "مِن تَحۡتِهَا",
+              "html": "مِ<span style=\"color:#22d3ee\">ن</span> <span style=\"color:#22d3ee\">ت</span>َحۡتِهَا",
               "verse": "2:25",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002025-9-11.mp3"
@@ -185,22 +185,22 @@
           "color": "#38bdf8",
           "examples": [
             {
-              "text": "تَرْمِيهِم بِحِجَارَةٍ",
-              "html": "تَرْمِيهِ<span style=\"color:#38bdf8\">م</span> <span style=\"color:#38bdf8\">ب</span>ِحِجَارَةٍ",
+              "text": "تَرۡمِيهِم بِحِجَارَة۪",
+              "html": "تَرۡمِيهِ<span style=\"color:#38bdf8\">م</span> <span style=\"color:#38bdf8\">ب</span>ِحِجَارَة۪",
               "verse": "105:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-105004-0-2.mp3"
             },
             {
-              "text": "هُم بِمُؤْمِنِينَ",
-              "html": "هُ<span style=\"color:#38bdf8\">م</span> <span style=\"color:#38bdf8\">ب</span>ِمُؤْمِنِينَ",
+              "text": "هُم بِمُؤۡمِنِينَ",
+              "html": "هُ<span style=\"color:#38bdf8\">م</span> <span style=\"color:#38bdf8\">ب</span>ِمُؤۡمِنِينَ",
               "verse": "2:8",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002008-9-11.mp3"
             },
             {
-              "text": "رَبَّهُم بِالْغَيْبِ",
-              "html": "رَبَّهُ<span style=\"color:#38bdf8\">م</span> <span style=\"color:#38bdf8\">ب</span>ِالْغَيْبِ",
+              "text": "رَبَّهُم بِالۡغَيۡبِ",
+              "html": "رَبَّهُ<span style=\"color:#38bdf8\">م</span> <span style=\"color:#38bdf8\">ب</span>ِالۡغَيۡبِ",
               "verse": "67:12",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-067012-3-5.mp3"
@@ -223,15 +223,15 @@
               "audio": "/tecvid-audio/alafasy-002029-3-5.mp3"
             },
             {
-              "text": "وَءَامَنَهُم مِّنْ",
-              "html": "وَءَامَنَهُ<span style=\"color:#4ade80\">م</span> <span style=\"color:#4ade80\">مّ</span>ِنْ",
+              "text": "وَءَامَنَهُم مِّنۡ",
+              "html": "وَءَامَنَهُ<span style=\"color:#4ade80\">م</span> <span style=\"color:#4ade80\">مّ</span>ِنۡ",
               "verse": "106:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-106004-4-6.mp3"
             },
             {
-              "text": "عَلَيْهِم مُّؤْصَدَةٞ",
-              "html": "عَلَيْهِ<span style=\"color:#4ade80\">م</span> <span style=\"color:#4ade80\">مّ</span>ُؤْصَدَةٞ",
+              "text": "عَلَيۡهِم مُّؤۡصَدَةٞ",
+              "html": "عَلَيۡهِ<span style=\"color:#4ade80\">م</span> <span style=\"color:#4ade80\">مّ</span>ُؤۡصَدَةٞ",
               "verse": "104:8",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-104008-1-3.mp3"
@@ -247,22 +247,22 @@
           "color": "#d4a574",
           "examples": [
             {
-              "text": "أَلَمْ تَرَ",
-              "html": "أَلَ<span style=\"color:#d4a574\">مْ</span> تَرَ",
+              "text": "أَلَمۡ تَرَ",
+              "html": "أَلَ<span style=\"color:#d4a574\">مۡ</span> تَرَ",
               "verse": "105:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-105001-0-2.mp3"
             },
             {
-              "text": "لَمْ يَلِدْ",
-              "html": "لَ<span style=\"color:#d4a574\">مْ</span> يَلِدْ",
+              "text": "لَمۡ يَلِدۡ",
+              "html": "لَ<span style=\"color:#d4a574\">مۡ</span> يَلِدۡ",
               "verse": "112:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-112003-0-2.mp3"
             },
             {
-              "text": "كَيْدَهُمْ فِي",
-              "html": "كَيْدَهُ<span style=\"color:#d4a574\">مْ</span> فِي",
+              "text": "كَيۡدَهُمۡ فِي",
+              "html": "كَيۡدَهُ<span style=\"color:#d4a574\">مۡ</span> فِي",
               "verse": "105:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-105002-2-4.mp3"
@@ -324,8 +324,8 @@
               "audio": "/tecvid-audio/alafasy-102008-0-1.mp3"
             },
             {
-              "text": "فَأُمُّهُ",
-              "html": "فَأُ<span style=\"color:#4ade80\">مّ</span>ُهُ",
+              "text": "فَأُمُّهُۥ",
+              "html": "فَأُ<span style=\"color:#4ade80\">مّ</span>ُهُۥ",
               "verse": "101:9",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-101009-0-1.mp3"
@@ -356,8 +356,8 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "مَٰلِكِ",
-              "html": "مَ<span style=\"color:#c084fc\">ٰ</span>لِكِ",
+              "text": "مٰلِكِ",
+              "html": "م<span style=\"color:#c084fc\">ٰ</span>لِكِ",
               "verse": "1:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001004-0-1.mp3"
@@ -370,8 +370,8 @@
               "audio": "/tecvid-audio/alafasy-114001-1-2.mp3"
             },
             {
-              "text": "عَٰبِدُونَ",
-              "html": "عَ<span style=\"color:#c084fc\">ٰ</span>بِد<span style=\"color:#c084fc\">ُو</span>نَ",
+              "text": "عٰبِدُونَ",
+              "html": "ع<span style=\"color:#c084fc\">ٰ</span>بِد<span style=\"color:#c084fc\">ُو</span>نَ",
               "verse": "109:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-109003-2-3.mp3"
@@ -401,8 +401,8 @@
               "audio": "/tecvid-audio/alafasy-086001-0-1.mp3"
             },
             {
-              "text": "مَآءٌ",
-              "html": "م<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span>ءٌ",
+              "text": "مَآءٗ",
+              "html": "م<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span>ءٗ",
               "verse": "2:22",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002022-10-11.mp3"
@@ -418,22 +418,22 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "إِنَّآ أَعْطَيْنَٰكَ",
-              "html": "إِنّ<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span> أَعْطَيْنَ<span style=\"color:#c084fc\">ٰ</span>كَ",
+              "text": "إِنَّآ أَعۡطَيۡنٰكَ",
+              "html": "إِنّ<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span> أَعۡطَيۡن<span style=\"color:#c084fc\">ٰ</span>كَ",
               "verse": "108:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-108001-0-2.mp3"
             },
             {
-              "text": "لَآ أَعْبُدُ",
-              "html": "ل<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span> أَعْبُدُ",
+              "text": "لَآ أَعۡبُدُ",
+              "html": "ل<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span> أَعۡبُدُ",
               "verse": "109:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-109002-0-2.mp3"
             },
             {
-              "text": "إِنَّآ أَنزَلْنَٰهُ",
-              "html": "إِنّ<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span> أَنزَلْنَ<span style=\"color:#c084fc\">ٰ</span>هُ",
+              "text": "إِنَّآ أَنزَلۡنٰهُ",
+              "html": "إِنّ<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span> أَنزَلۡن<span style=\"color:#c084fc\">ٰ</span>هُ",
               "verse": "97:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-097001-0-2.mp3"
@@ -480,8 +480,8 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "الْعَٰلَمِينَ",
-              "html": "الْعَ<span style=\"color:#c084fc\">ٰ</span>لَم<span style=\"color:#c084fc\">ِي</span>نَ",
+              "text": "الۡعٰلَمِينَ",
+              "html": "الۡع<span style=\"color:#c084fc\">ٰ</span>لَم<span style=\"color:#c084fc\">ِي</span>نَ",
               "verse": "1:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001002-3-4.mp3"
@@ -511,22 +511,22 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "قُرَيْشٍ",
-              "html": "<span style=\"color:#c084fc\">قُرَيْشٍ</span>",
+              "text": "قُرَيۡشٍ",
+              "html": "<span style=\"color:#c084fc\">قُرَيۡشٍ</span>",
               "verse": "106:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-106001-1-2.mp3"
             },
             {
-              "text": "وَالصَّيْفِ",
-              "html": "و<span style=\"color:#c084fc\">َا</span>لصَّيْفِ",
+              "text": "وَالصَّيۡفِ",
+              "html": "و<span style=\"color:#c084fc\">َا</span>لصَّيۡفِ",
               "verse": "106:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-106002-3-4.mp3"
             },
             {
-              "text": "خَوْفِ",
-              "html": "<span style=\"color:#c084fc\">خَوْفِ</span>",
+              "text": "خَوۡفِۭ",
+              "html": "<span style=\"color:#c084fc\">خَوۡفِۭ</span>",
               "verse": "106:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-106004-6-7.mp3"
@@ -604,22 +604,22 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "أَفْوَاجٌا",
-              "html": "أَفْو<span style=\"color:#c084fc\">َا</span>جٌا",
+              "text": "أَفۡوَاجٗا",
+              "html": "أَفۡو<span style=\"color:#c084fc\">َا</span>جٗا",
               "verse": "110:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110002-6-7.mp3"
             },
             {
-              "text": "تَوَّابَا",
-              "html": "تَوّ<span style=\"color:#c084fc\">َا</span>ب<span style=\"color:#c084fc\">َا</span>",
+              "text": "تَوَّابَۢا",
+              "html": "تَوّ<span style=\"color:#c084fc\">َا</span>بَۢا",
               "verse": "110:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110003-6-7.mp3"
             },
             {
-              "text": "ضَبْحٌا",
-              "html": "<span style=\"color:#c084fc\">ضَبْحٌا</span>",
+              "text": "ضَبۡحٗا",
+              "html": "<span style=\"color:#c084fc\">ضَبۡحٗا</span>",
               "verse": "100:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-100001-1-2.mp3"
@@ -635,8 +635,8 @@
           "color": "#f2d9a8",
           "examples": [
             {
-              "text": "إِنَّهُ كَانَ",
-              "html": "إِنَّ<span style=\"color:#f2d9a8\">هُ</span> كَانَ",
+              "text": "إِنَّهُۥ كَانَ",
+              "html": "إِنَّ<span style=\"color:#f2d9a8\">هُ</span>ۥ كَانَ",
               "verse": "110:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110003-4-6.mp3"
@@ -649,8 +649,8 @@
               "audio": "/tecvid-audio/alafasy-100006-2-4.mp3"
             },
             {
-              "text": "بِهِ  بَصِيرٌا",
-              "html": "بِ<span style=\"color:#f2d9a8\">هِ</span>  بَصِيرٌا",
+              "text": "بِهِ  بَصِيرٗا",
+              "html": "بِ<span style=\"color:#f2d9a8\">هِ</span>  بَصِيرٗا",
               "verse": "84:15",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-084015-4-6.mp3"
@@ -666,22 +666,22 @@
           "color": "#f2d9a8",
           "examples": [
             {
-              "text": "مَالَهُٓ أَخْلَدَهُ",
-              "html": "مَالَ<span style=\"color:#f2d9a8\">هُ</span>ٓ أَخْلَدَ<span style=\"color:#f2d9a8\">هُ</span>",
+              "text": "مَالَهُۥٓ أَخۡلَدَهُۥ",
+              "html": "مَالَ<span style=\"color:#f2d9a8\">هُ</span>ۥٓ أَخۡلَدَ<span style=\"color:#f2d9a8\">هُ</span>ۥ",
               "verse": "104:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-104003-2-4.mp3"
             },
             {
-              "text": "يَرَهُٓ أَحَدٌ",
-              "html": "يَرَ<span style=\"color:#f2d9a8\">هُ</span>ٓ أَحَدٌ",
+              "text": "يَرَهُۥٓ أَحَدٌ",
+              "html": "يَرَ<span style=\"color:#f2d9a8\">هُ</span>ۥٓ أَحَدٌ",
               "verse": "90:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-090007-3-5.mp3"
             },
             {
-              "text": "عِندَهُٓ إِلَّا",
-              "html": "عِندَ<span style=\"color:#f2d9a8\">هُ</span>ٓ إِلَّا",
+              "text": "عِندَهُۥٓ إِلَّا",
+              "html": "عِندَ<span style=\"color:#f2d9a8\">هُ</span>ۥٓ إِلَّا",
               "verse": "2:255",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002255-23-25.mp3"
@@ -697,15 +697,15 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "ءَآلذَّكَرَيْنِ",
-              "html": "ء<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span>لذَّكَرَيْنِ",
+              "text": "ءَآلذَّكَرَيۡنِ",
+              "html": "ء<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span>لذَّكَرَيۡنِ",
               "verse": "6:143",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-006143-9-10.mp3"
             },
             {
-              "text": "ءَآلذَّكَرَيْنِ",
-              "html": "ء<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span>لذَّكَرَيْنِ",
+              "text": "ءَآلذَّكَرَيۡنِ",
+              "html": "ء<span style=\"color:#c084fc\">َا</span><span style=\"color:#c084fc\">ٓ</span>لذَّكَرَيۡنِ",
               "verse": "6:144",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-006144-7-8.mp3"
@@ -736,22 +736,22 @@
           "color": "#f87171",
           "examples": [
             {
-              "text": "يَجْعَلْ",
-              "html": "يَ<span style=\"color:#f87171\">جْ</span>عَلْ",
+              "text": "يَجۡعَلۡ",
+              "html": "يَ<span style=\"color:#f87171\">جۡ</span>عَلۡ",
               "verse": "105:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-105002-1-2.mp3"
             },
             {
-              "text": "الْأَبْتَرُ",
-              "html": "الْأَ<span style=\"color:#f87171\">بْ</span>تَرُ",
+              "text": "الۡأَبۡتَرُ",
+              "html": "الۡأَ<span style=\"color:#f87171\">بۡ</span>تَرُ",
               "verse": "108:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-108003-3-4.mp3"
             },
             {
-              "text": "فَوَسَطْنَ",
-              "html": "فَوَسَ<span style=\"color:#f87171\">طْ</span>نَ",
+              "text": "فَوَسَطۡنَ",
+              "html": "فَوَسَ<span style=\"color:#f87171\">طۡ</span>نَ",
               "verse": "100:5",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-100005-0-1.mp3"
@@ -781,8 +781,8 @@
               "audio": "/tecvid-audio/alafasy-112002-1-2.mp3"
             },
             {
-              "text": "الْفَلَقِ",
-              "html": "الْفَلَ<span style=\"color:#f87171\">ق</span>ِ",
+              "text": "الۡفَلَقِ",
+              "html": "الۡفَلَ<span style=\"color:#f87171\">ق</span>ِ",
               "verse": "113:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
@@ -806,22 +806,22 @@
           "color": "#E67E22",
           "examples": [
             {
-              "text": "قُلْ",
-              "html": "<span style=\"color:#E67E22\">ق</span>ُلْ",
+              "text": "قُلۡ",
+              "html": "<span style=\"color:#E67E22\">ق</span>ُلۡ",
               "verse": "112:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-112001-0-1.mp3"
             },
             {
-              "text": "صِرَٰطَ",
-              "html": "<span style=\"color:#E67E22\">ص</span>ِرَٰ<span style=\"color:#E67E22\">ط</span>َ",
+              "text": "صِرٰطَ",
+              "html": "<span style=\"color:#E67E22\">ص</span>ِرٰ<span style=\"color:#E67E22\">ط</span>َ",
               "verse": "1:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001007-0-1.mp3"
             },
             {
-              "text": "الْفَلَقِ",
-              "html": "الْفَلَ<span style=\"color:#E67E22\">ق</span>ِ",
+              "text": "الۡفَلَقِ",
+              "html": "الۡفَلَ<span style=\"color:#E67E22\">ق</span>ِ",
               "verse": "113:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
@@ -837,22 +837,22 @@
           "color": "#c4b5fd",
           "examples": [
             {
-              "text": "بِسْمِ",
-              "html": "<span style=\"color:#c4b5fd\">بِسْمِ</span>",
+              "text": "بِسۡمِ",
+              "html": "<span style=\"color:#c4b5fd\">بِسۡمِ</span>",
               "verse": "1:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001001-0-1.mp3"
             },
             {
-              "text": "إِلَٰهِ",
-              "html": "<span style=\"color:#c4b5fd\">إِلَٰهِ</span>",
+              "text": "إِلٰهِ",
+              "html": "<span style=\"color:#c4b5fd\">إِلٰهِ</span>",
               "verse": "114:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-114003-0-1.mp3"
             },
             {
-              "text": "يَوْمِ",
-              "html": "<span style=\"color:#c4b5fd\">يَوْمِ</span>",
+              "text": "يَوۡمِ",
+              "html": "<span style=\"color:#c4b5fd\">يَوۡمِ</span>",
               "verse": "1:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001004-1-2.mp3"
@@ -868,22 +868,22 @@
           "color": "#E67E22",
           "examples": [
             {
-              "text": "الرَّحْمَٰنِ",
-              "html": "ال<span style=\"color:#E67E22\">ر</span>َّحْمَٰنِ",
+              "text": "الرَّحۡمٰنِ",
+              "html": "ال<span style=\"color:#E67E22\">ر</span>َّحۡمٰنِ",
               "verse": "1:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001003-0-1.mp3"
             },
             {
-              "text": "وَالْفَجْرِ",
-              "html": "وَالْفَجْ<span style=\"color:#E67E22\">ر</span>ِ",
+              "text": "وَالۡفَجۡرِ",
+              "html": "وَالۡفَجۡ<span style=\"color:#E67E22\">ر</span>ِ",
               "verse": "89:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-089001-0-1.mp3"
             },
             {
-              "text": "رِّزْقٌا",
-              "html": "<span style=\"color:#E67E22\">ر</span>ِّزْقٌا",
+              "text": "رِّزۡقٗا",
+              "html": "<span style=\"color:#E67E22\">ر</span>ِّزۡقٗا",
               "verse": "2:25",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002025-17-18.mp3"
@@ -899,8 +899,8 @@
           "color": "#d4a574",
           "examples": [
             {
-              "text": "بِسْمِ اللَّهِ",
-              "html": "<span style=\"color:#d4a574\">بِسْمِ اللَّهِ</span>",
+              "text": "بِسۡمِ اللَّهِ",
+              "html": "<span style=\"color:#d4a574\">بِسۡمِ اللَّهِ</span>",
               "verse": "1:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001001-0-2.mp3"
@@ -913,8 +913,8 @@
               "audio": "/tecvid-audio/alafasy-112001-1-3.mp3"
             },
             {
-              "text": "نَصْرُ اللَّهِ",
-              "html": "<span style=\"color:#d4a574\">نَصْرُ اللَّهِ</span>",
+              "text": "نَصۡرُ اللَّهِ",
+              "html": "<span style=\"color:#d4a574\">نَصۡرُ اللَّهِ</span>",
               "verse": "110:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110001-2-4.mp3"
@@ -938,8 +938,8 @@
           "color": "#3498DB",
           "examples": [
             {
-              "text": "الرَّحْمَٰنِ",
-              "html": "ال<span style=\"color:#3498DB\">رّ</span>َحْمَٰنِ",
+              "text": "الرَّحۡمٰنِ",
+              "html": "ال<span style=\"color:#3498DB\">رّ</span>َحۡمٰنِ",
               "verse": "1:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001003-0-1.mp3"
@@ -969,22 +969,22 @@
           "color": "#60a5fa",
           "examples": [
             {
-              "text": "الْحَمْدُ",
-              "html": "<span style=\"color:#60a5fa\">الْ</span>حَمْدُ",
+              "text": "الۡحَمۡدُ",
+              "html": "<span style=\"color:#60a5fa\">الۡ</span>حَمۡدُ",
               "verse": "1:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001002-0-1.mp3"
             },
             {
-              "text": "الْفَلَقِ",
-              "html": "<span style=\"color:#60a5fa\">الْ</span>فَلَقِ",
+              "text": "الۡفَلَقِ",
+              "html": "<span style=\"color:#60a5fa\">الۡ</span>فَلَقِ",
               "verse": "113:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
             },
             {
-              "text": "الْكَوْثَرَ",
-              "html": "<span style=\"color:#60a5fa\">الْ</span>كَوْثَرَ",
+              "text": "الۡكَوۡثَرَ",
+              "html": "<span style=\"color:#60a5fa\">الۡ</span>كَوۡثَرَ",
               "verse": "108:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-108001-2-3.mp3"
@@ -1000,22 +1000,22 @@
           "color": "#4ade80",
           "examples": [
             {
-              "text": "رَبِحَت تِّجَٰرَتُهُمْ",
-              "html": "رَبِحَت <span style=\"color:#4ade80\">تّ</span>ِجَٰرَتُهُمْ",
+              "text": "رَبِحَت تِّجٰرَتُهُمۡ",
+              "html": "رَبِحَت <span style=\"color:#4ade80\">تّ</span>ِجٰرَتُهُمۡ",
               "verse": "2:16",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002016-6-8.mp3"
             },
             {
-              "text": "يُدْرِككُّمُ",
-              "html": "يُدْرِك<span style=\"color:#4ade80\">كّ</span>ُمُ",
+              "text": "يُدۡرِككُّمُ",
+              "html": "يُدۡرِك<span style=\"color:#4ade80\">كّ</span>ُمُ",
               "verse": "4:78",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-004078-2-3.mp3"
             },
             {
-              "text": "يُسْرِف فِّي",
-              "html": "يُسْرِف <span style=\"color:#4ade80\">فّ</span>ِي",
+              "text": "يُسۡرِف فِّي",
+              "html": "يُسۡرِف <span style=\"color:#4ade80\">فّ</span>ِي",
               "verse": "17:33",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-017033-16-18.mp3"
@@ -1031,8 +1031,8 @@
           "color": "#38bdf8",
           "examples": [
             {
-              "text": "أَثْقَلَت دَّعَوَا",
-              "html": "أَثْقَلَت <span style=\"color:#38bdf8\">دّ</span>َعَوَا",
+              "text": "أَثۡقَلَت دَّعَوَا",
+              "html": "أَثۡقَلَت <span style=\"color:#38bdf8\">دّ</span>َعَوَا",
               "verse": "7:189",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-007189-19-21.mp3"
@@ -1045,8 +1045,8 @@
               "audio": "/tecvid-audio/alafasy-002256-4-6.mp3"
             },
             {
-              "text": "أُجِيبَت دَّعْوَتُكُمَا",
-              "html": "أُجِيبَت <span style=\"color:#38bdf8\">دّ</span>َعْوَتُكُمَا",
+              "text": "أُجِيبَت دَّعۡوَتُكُمَا",
+              "html": "أُجِيبَت <span style=\"color:#38bdf8\">دّ</span>َعۡوَتُكُمَا",
               "verse": "10:89",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-010089-2-4.mp3"
@@ -1076,8 +1076,8 @@
               "audio": "/tecvid-audio/alafasy-018022-14-16.mp3"
             },
             {
-              "text": "نَخْلُقكُّم",
-              "html": "نَخْلُق<span style=\"color:#60a5fa\">كّ</span>ُم",
+              "text": "نَخۡلُقكُّم",
+              "html": "نَخۡلُق<span style=\"color:#60a5fa\">كّ</span>ُم",
               "verse": "77:20",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-077020-1-2.mp3"
@@ -1093,22 +1093,22 @@
           "color": "#A78BFA",
           "examples": [
             {
-              "text": "اهْدِنَا",
-              "html": "<span style=\"color:#A78BFA\">اهْدِنَا</span>",
+              "text": "اهۡدِنَا",
+              "html": "<span style=\"color:#A78BFA\">اهۡدِنَا</span>",
               "verse": "1:6",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001006-0-1.mp3"
             },
             {
-              "text": "اقْرَأْ",
-              "html": "<span style=\"color:#A78BFA\">اقْرَأْ</span>",
+              "text": "اقۡرَأۡ",
+              "html": "<span style=\"color:#A78BFA\">اقۡرَأۡ</span>",
               "verse": "96:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-096001-0-1.mp3"
             },
             {
-              "text": "ادْخُلُوهَا",
-              "html": "<span style=\"color:#A78BFA\">ادْخُلُوهَا</span>",
+              "text": "ادۡخُلُوهَا",
+              "html": "<span style=\"color:#A78BFA\">ادۡخُلُوهَا</span>",
               "verse": "15:46",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-015046-0-1.mp3"
@@ -1132,8 +1132,8 @@
           "color": "#f87171",
           "examples": [
             {
-              "text": "الْعَٰلَمِينَ",
-              "html": "<span style=\"color:#f87171\">الْعَٰلَمِينَ</span>",
+              "text": "الۡعٰلَمِينَ",
+              "html": "<span style=\"color:#f87171\">الۡعٰلَمِينَ</span>",
               "verse": "1:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001002-3-4.mp3"
@@ -1163,8 +1163,8 @@
           "color": "#E67E22",
           "examples": [
             {
-              "text": "الْقَارِعَةُ",
-              "html": "<span style=\"color:#E67E22\">الْقَارِعَةُ</span>",
+              "text": "الۡقَارِعَةُ",
+              "html": "<span style=\"color:#E67E22\">الۡقَارِعَةُ</span>",
               "verse": "101:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-101001-0-1.mp3"
@@ -1177,8 +1177,8 @@
               "audio": "/tecvid-audio/alafasy-104001-3-4.mp3"
             },
             {
-              "text": "تَوَّابَا",
-              "html": "<span style=\"color:#E67E22\">تَوَّابَا</span>",
+              "text": "تَوَّابَۢا",
+              "html": "<span style=\"color:#E67E22\">تَوَّابَۢا</span>",
               "verse": "110:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110003-6-7.mp3"
@@ -1194,22 +1194,22 @@
           "color": "#A78BFA",
           "examples": [
             {
-              "text": "مَنْ رَاقٍ",
-              "html": "<span style=\"color:#A78BFA\">مَنْ رَاقٍ</span>",
+              "text": "مَنۡ رَاق۪",
+              "html": "<span style=\"color:#A78BFA\">مَنۡ رَاق۪</span>",
               "verse": "75:27",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-075027-1-3.mp3"
             },
             {
-              "text": "بَلْ رَانَ",
-              "html": "<span style=\"color:#A78BFA\">بَلْ رَانَ</span>",
+              "text": "بَلۡ رَانَ",
+              "html": "<span style=\"color:#A78BFA\">بَلۡ رَانَ</span>",
               "verse": "83:14",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-083014-1-3.mp3"
             },
             {
-              "text": "مَّرْقَدِنَا هَٰذَا",
-              "html": "<span style=\"color:#A78BFA\">مَّرْقَدِنَا هَٰذَا</span>",
+              "text": "مَّرۡقَدِنَا هٰذَا",
+              "html": "<span style=\"color:#A78BFA\">مَّرۡقَدِنَا هٰذَا</span>",
               "verse": "36:52",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-036052-5-7.mp3"
@@ -1233,22 +1233,22 @@
           "color": "#d4a574",
           "examples": [
             {
-              "text": "أَنْعَمْتَ",
-              "html": "<span style=\"color:#d4a574\">أَنْعَمْتَ</span>",
+              "text": "أَنۡعَمۡتَ",
+              "html": "<span style=\"color:#d4a574\">أَنۡعَمۡتَ</span>",
               "verse": "1:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001007-2-3.mp3"
             },
             {
-              "text": "قُلْ",
-              "html": "<span style=\"color:#d4a574\">قُلْ</span>",
+              "text": "قُلۡ",
+              "html": "<span style=\"color:#d4a574\">قُلۡ</span>",
               "verse": "112:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-112001-0-1.mp3"
             },
             {
-              "text": "الْحَمْدُ",
-              "html": "<span style=\"color:#d4a574\">الْحَمْدُ</span>",
+              "text": "الۡحَمۡدُ",
+              "html": "<span style=\"color:#d4a574\">الۡحَمۡدُ</span>",
               "verse": "1:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001002-0-1.mp3"
@@ -1271,15 +1271,15 @@
               "audio": "/tecvid-audio/alafasy-112002-1-2.mp3"
             },
             {
-              "text": "الْفَلَقِ",
-              "html": "<span style=\"color:#c084fc\">الْفَلَقِ</span>",
+              "text": "الۡفَلَقِ",
+              "html": "<span style=\"color:#c084fc\">الۡفَلَقِ</span>",
               "verse": "113:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
             },
             {
-              "text": "الْوَسْوَاسِ",
-              "html": "<span style=\"color:#c084fc\">الْوَسْوَاسِ</span>",
+              "text": "الۡوَسۡوَاسِ",
+              "html": "<span style=\"color:#c084fc\">الۡوَسۡوَاسِ</span>",
               "verse": "114:4",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-114004-2-3.mp3"
@@ -1295,22 +1295,22 @@
           "color": "#A78BFA",
           "examples": [
             {
-              "text": "مَجْرٜىٰهَا",
-              "html": "<span style=\"color:#A78BFA\">مَجْرٜىٰهَا</span>",
+              "text": "مَجۡرٜىٰهَا",
+              "html": "<span style=\"color:#A78BFA\">مَجۡرٜىٰهَا</span>",
               "verse": "11:41",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-011041-5-6.mp3"
             },
             {
-              "text": "مَجْرٜىٰهَا",
-              "html": "<span style=\"color:#A78BFA\">مَجْرٜىٰهَا</span>",
+              "text": "مَجۡرٜىٰهَا",
+              "html": "<span style=\"color:#A78BFA\">مَجۡرٜىٰهَا</span>",
               "verse": "11:41",
               "reciter": "Husary",
               "audio": "/tecvid-audio/husary-011041-5-6.mp3"
             },
             {
-              "text": "مَجْرٜىٰهَا",
-              "html": "<span style=\"color:#A78BFA\">مَجْرٜىٰهَا</span>",
+              "text": "مَجۡرٜىٰهَا",
+              "html": "<span style=\"color:#A78BFA\">مَجۡرٜىٰهَا</span>",
               "verse": "11:41",
               "reciter": "Minshawy",
               "audio": "/tecvid-audio/minshawy-011041-5-6.mp3"
@@ -1326,22 +1326,22 @@
           "color": "#F472B6",
           "examples": [
             {
-              "text": "تَأْمَنَّا",
-              "html": "<span style=\"color:#F472B6\">تَأْمَنَّا</span>",
+              "text": "تَأۡمَ۬نَّا",
+              "html": "<span style=\"color:#F472B6\">تَأۡمَ۬نَّا</span>",
               "verse": "12:11",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-012011-5-6.mp3"
             },
             {
-              "text": "تَأْمَنَّا",
-              "html": "<span style=\"color:#F472B6\">تَأْمَنَّا</span>",
+              "text": "تَأۡمَ۬نَّا",
+              "html": "<span style=\"color:#F472B6\">تَأۡمَ۬نَّا</span>",
               "verse": "12:11",
               "reciter": "Husary",
               "audio": "/tecvid-audio/husary-012011-5-6.mp3"
             },
             {
-              "text": "تَأْمَنَّا",
-              "html": "<span style=\"color:#F472B6\">تَأْمَنَّا</span>",
+              "text": "تَأۡمَ۬نَّا",
+              "html": "<span style=\"color:#F472B6\">تَأۡمَ۬نَّا</span>",
               "verse": "12:11",
               "reciter": "Minshawy",
               "audio": "/tecvid-audio/minshawy-012011-5-6.mp3"
@@ -1357,22 +1357,22 @@
           "color": "#22d3ee",
           "examples": [
             {
-              "text": "ءَاعْجَمِيّٞ",
-              "html": "<span style=\"color:#22d3ee\">ءَاعْجَمِيّٞ</span>",
+              "text": "ءَا۬عۡجَمِيّٞ",
+              "html": "<span style=\"color:#22d3ee\">ءَا۬عۡجَمِيّٞ</span>",
               "verse": "41:44",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-041044-8-9.mp3"
             },
             {
-              "text": "ءَاعْجَمِيّٞ",
-              "html": "<span style=\"color:#22d3ee\">ءَاعْجَمِيّٞ</span>",
+              "text": "ءَا۬عۡجَمِيّٞ",
+              "html": "<span style=\"color:#22d3ee\">ءَا۬عۡجَمِيّٞ</span>",
               "verse": "41:44",
               "reciter": "Husary",
               "audio": "/tecvid-audio/husary-041044-8-9.mp3"
             },
             {
-              "text": "ءَاعْجَمِيّٞ",
-              "html": "<span style=\"color:#22d3ee\">ءَاعْجَمِيّٞ</span>",
+              "text": "ءَا۬عۡجَمِيّٞ",
+              "html": "<span style=\"color:#22d3ee\">ءَا۬عۡجَمِيّٞ</span>",
               "verse": "41:44",
               "reciter": "Minshawy",
               "audio": "/tecvid-audio/minshawy-041044-8-9.mp3"

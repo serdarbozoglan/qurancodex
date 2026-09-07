@@ -15,10 +15,9 @@ import useNavbarOffset from './useNavbarOffset';
 import { COLORS, FONTS, SEMANTIC, TAJWEED, RADIUS, TRANSITION, BREAKPOINT_MOBILE } from '../tokens';
 import tecvidData from '../../public/tecvid-rehberi.json';
 
-// §13.2 istisnası: tecvid işaretleri (waqf, sükûn U+06E1 vb.) yalnız bu font
-// zincirinde doğru render olur — okuma modunun (ReadingMode/InterlinearView)
-// aynı gerekçesi. KFGQPC bu işaretleri tofu gösterir; normalize edince de tam
-// öğretilen waqf işaretleri silinir.
+// Okuma modu fontu (ShaykhHamdullah) — otantik Uthmâni tecvid işaretlerini
+// (izhâr sükûnu, iklâb küçük mîmi ۢ, asar) render eder. KFGQPC bunları
+// gösteremiyor. Örnekler build'de cleanArabic + waqf-strip ile normalize edildi.
 const QFONT = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
 
 const LEGEND = [
@@ -103,6 +102,9 @@ export default function TecvidRehberi() {
         subtitleTr="Kuralları gör, gerçek kārîden dinle"
         subtitleEn="See the rules, hear a real reciter"
         language={language}
+        homeHref={`/${language}/oku`}
+        homeLabelTr="Kur'an'ı Oku"
+        homeLabelEn="Read Quran"
       />
 
       <div style={{
@@ -139,11 +141,8 @@ export default function TecvidRehberi() {
             <div style={{ fontFamily: QFONT, direction: 'rtl', color: SEMANTIC.scriptureText, fontSize: 'clamp(2rem, 7vw, 2.9rem)', lineHeight: 1.9 }}>
               {data.hero.ar}
             </div>
-            <div style={{ fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: gold, opacity: 0.7, marginTop: 8 }}>
-              — {isEn ? 'al-Fātiḥa 1:3' : 'Fâtiha 1:3'}
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
-              <PlayBtn url={data.hero.audio} ar={data.hero.ar} meta={(isEn ? 'al-Fātiḥa 1:3' : 'Fâtiha 1:3') + ' · ' + data.hero.reciter} />
+            <div style={{ fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: gold, opacity: 0.7, marginTop: 10 }}>
+              {isEn ? 'Bismillah · al-Fātiḥa 1:1' : 'Besmele · Fâtiha 1:1'}
             </div>
           </div>
 
@@ -235,7 +234,7 @@ export default function TecvidRehberi() {
                         borderBottom: ei < r.examples.length - 1 ? `1px solid ${COLORS.glassBorderSoft}` : 'none',
                       }}>
                         <PlayBtn url={e.audio} ar={e.text} meta={e.verse + ' · ' + e.reciter} accent={r.color} />
-                        <div style={{ fontFamily: QFONT, direction: 'rtl', fontSize: '1.65rem', color: SEMANTIC.textPrimary, flex: 1, minWidth: 0, textAlign: 'right' }}>{e.text}</div>
+                        <div style={{ fontFamily: QFONT, direction: 'rtl', fontSize: '1.65rem', color: SEMANTIC.textPrimary, flex: 1, minWidth: 0, textAlign: 'right' }} dangerouslySetInnerHTML={{ __html: e.html }} />
                         <div style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, fontVariantNumeric: 'tabular-nums', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{e.verse}</div>
                       </div>
                     ))}
