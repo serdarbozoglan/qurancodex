@@ -790,7 +790,7 @@ function TabNurZulumat({ data, language, isMobile }) {
           <div className="mq-fs" style={{ '--fs-d': '5rem', '--fs-m': '3.5rem', fontWeight: 900, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>43</div>
           <div style={{ color: COLORS.gold, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">نُور</div>
           <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Nûr</div>
-          <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.nurForm}</div>
+          <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{language === 'tr' ? stats.nurForm : (stats.nurFormEn ?? stats.nurForm)}</div>
         </div>
         <div className="fd-col-reverse mq-box" style={{
           display: 'flex',
@@ -813,13 +813,13 @@ function TabNurZulumat({ data, language, isMobile }) {
           <div className="mq-fs" style={{ '--fs-d': '5rem', '--fs-m': '3.5rem', fontWeight: 900, color: SEMANTIC.textFaint, fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
           <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">ظُلُمَات</div>
           <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Zulumât</div>
-          <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.zulumatForm}</div>
+          <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{language === 'tr' ? stats.zulumatForm : (stats.zulumatFormEn ?? stats.zulumatForm)}</div>
         </div>
       </div>
 
       <div style={{ ...GLASS_CARD, padding: '12px 16px', textAlign: 'center' }}>
         <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem' }}>
-          {stats.linguisticLink}
+          {language === 'tr' ? stats.linguisticLink : (stats.linguisticLinkEn ?? stats.linguisticLink)}
         </span>
       </div>
 
@@ -875,7 +875,7 @@ function TabNurZulumat({ data, language, isMobile }) {
                 {cleanArabic(layerMap[activeLayer]?.labelAr)}
               </div>
               <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
-                {layerMap[activeLayer]?.symbolises}
+                {language === 'tr' ? layerMap[activeLayer]?.symbolises : (layerMap[activeLayer]?.symbolisesEn ?? layerMap[activeLayer]?.symbolises)}
               </p>
             </div>
           ) : (
@@ -912,7 +912,7 @@ function TabNurZulumat({ data, language, isMobile }) {
                       background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
                       color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, flexShrink: 0,
                     }}>{surahRef(v.ref)}</span>
-                    <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>{v.descTr}</span>
+                    <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>{language === 'tr' ? v.descTr : (v.descEn ?? v.descTr)}</span>
                   </div>
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', gap: '4px', flexShrink: 0,
@@ -1055,7 +1055,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
               <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px' }} />
               {/* Symbolism */}
               <p style={{ color: COLORS.silver, fontSize: '0.83rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: '0 0 14px' }}>
-                {a.symbolism}
+                {language === 'tr' ? a.symbolism : (a.symbolismEn ?? a.symbolism)}
               </p>
               {/* Verse block */}
               <div style={{ borderLeft: `2px solid ${COLORS.goldAlpha45}`, paddingLeft: '12px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -1194,7 +1194,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
               {/* Principle label + ref */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                 <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.88rem' }}>
-                  {mv.principleLabel}
+                  {language === 'tr' ? mv.principleLabel : (mv.principleLabelEn ?? mv.principleLabel)}
                 </div>
                 <span style={{
                   padding: '2px 8px', borderRadius: '99px',

@@ -22,13 +22,14 @@
     {
       "claimId": "tovbe-karsilikli-fiil-001",
       "claimTr": "Kur'ân tevbe fiilini hem kula hem Allah'a nispet eder; 'tâbe' fiili karşılıklıdır — kul döner, Allah da döner",
-      "claimEn": "The Qur'an attributes the verb of tawba to both the servant and to Allah; 'tāba' is mutual — the servant turns, Allah also turns",
+      "claimEn": "The Qur'an attributes the verb of tawba to both the servant and to Allah; 'tāba' is mutual: the servant turns, Allah also turns",
       "refs": [
         "Bakara 2:37",
         "Bakara 2:160",
         "Tevbe 9:118"
       ],
       "framingTr": "Bakara 2:37'de Âdem Rabbinden kelimeler alır; ayet 'fe-tâbe aleyh' — Allah onun tevbesini kabul etti, dedikten sonra Allah'ın ismini 'et-Tevvâbü'r-Rahîm' olarak verir. Kul için tâbe, Allah için tâbe: aynı kökten iki karşılıklı fiil.",
+      "framingEn": "In Al-Baqara 2:37 Adam receives words from his Lord; the verse says 'fa-tāba ʿalayh': Allah accepted his repentance: and then gives Allah's name as 'al-Tawwāb al-Raḥīm.' Tāba for the servant, tāba for Allah: two reciprocal verbs from the same root.",
       "claimType": "linguistic_observation",
       "confidence": "high"
     },
@@ -40,6 +41,7 @@
         "Tahrîm 66:8"
       ],
       "framingTr": "Tahrîm 66:8'in 'tevbeten nasûhâ' terkibi klasik tefsirde uzun uzun tartışılır; kelime tevbenin sıradan bir üzüntü değil, geri dönmemek üzere alınan bir karar olduğunu bildirir.",
+      "framingEn": "The phrase 'tawba naṣūḥā' in Al-Taḥrīm 66:8 is discussed at length in classical exegesis; the word declares that tawba is not an ordinary sorrow but a resolve undertaken not to return to sin.",
       "claimType": "linguistic_observation",
       "confidence": "high"
     },
@@ -51,6 +53,7 @@
         "Zümer 39:53"
       ],
       "framingTr": "Zümer 39:53 klasik tefsirin 'Kur'ân'ın en ümit verici ayeti' (ercâ âyetin fi'l-Kur'ân) olarak nitelediği ayettir; bu tanımlama İbn Abbâs'tan gelen bir rivayete dayanır.",
+      "framingEn": "Al-Zumar 39:53 is the verse that classical exegesis describes as 'the most hope-giving verse of the Qur'an' (arjā āya fī'l-Qur'ān); this characterization rests on a report from Ibn ʿAbbās.",
       "claimType": "attributed_quotation",
       "confidence": "high"
     },
@@ -63,37 +66,38 @@
         "Furkan 25:71"
       ],
       "framingTr": "Furkan 25:70'in 'yübeddilullahu seyyi'âtihim hasenât' ifadesi klasik tefsirde birden fazla okuma alır; tefsir literatürü bu dönüşümün 'defterde' mi 'kişilikte' mi olduğunu tartışır.",
+      "framingEn": "The expression 'yubaddilu'llāhu sayyiʾātihim ḥasanāt' in Al-Furqān 25:70 receives more than one reading in classical exegesis; the tafsīr literature debates whether this transformation takes place 'in the record' or 'in the character.'",
       "claimType": "linguistic_observation",
       "confidence": "high"
     }
   ],
   "genelBakis": {
     "introTr": "Kur'ân tevbeyi tek yönlü bir yalvarış olarak değil, karşılıklı bir fiil olarak anlatır. Kul döner (tâbe) — Allah da döner (tâbe). Aynı kökten iki hareket, aynı ayetin içinde iç içe geçer: Bakara 2:37'de Âdem Rabbinden kelimeler alır ve Allah onun tevbesini kabul eder; Allah kendi ismini burada 'et-Tevvâbü'r-Rahîm' olarak koyar — 'çok dönen, sürekli affeden'. Tevbe böylece Kur'ân'da bir 'aşağıdan yukarı yalvarış' değil, iki taraftan açılan bir kapıdır. Kapının iç yüzü nedâmet ve ıslâh, dış yüzü rahmet ve kabûldür. Tahrîm 66:8 tevbeye 'nasûhâ' (halis, samimî, geri dönmemek üzere) sıfatını verir; Bakara 2:160 kabul için sözle değil eylemle ıslâhı şart koşar; Zümer 39:53 rahmet kapısını 'nefslerine aşırı gidenler' için bile sonuna kadar açık tutar; Furkan 25:70 samimî dönüşün geçmiş kötülükleri iyiliklere çevireceğini vaat eder. Kur'ân'da tevbe bir seferlik bir olay değil, mümin hayatının sürekli döngüsüdür — peygamberlerin kendisi de dahil.",
-    "introEn": "The Qur'an narrates repentance not as a one-directional plea but as a mutual verb. The servant turns (tāba) — and Allah also turns (tāba). Two motions of the same root interlace inside a single verse: in Baqara 2:37 Adam receives words from his Lord and Allah accepts his repentance; Allah names Himself there as 'al-Tawwāb al-Raḥīm' — 'the ever-Turning, the ever-Merciful.' Repentance is thus not a plea rising from below, but a door opened from both sides. Its inner face is remorse and reform; its outer face is mercy and acceptance. Al-Taḥrīm 66:8 qualifies tawba as 'naṣūḥā' (sincere, purified, undertaken with the intent not to return); Baqara 2:160 conditions acceptance on reform in action, not merely in speech; Al-Zumar 39:53 keeps the door of mercy fully open even for those who have transgressed against themselves; Al-Furqān 25:70 promises that sincere return transforms past evils into good deeds. In the Qur'an, tawba is not a one-time event but the constant cycle of a believer's life — the prophets themselves included.",
+    "introEn": "The Qur'an narrates repentance not as a one-directional plea but as a mutual verb. The servant turns (tāba): and Allah also turns (tāba). Two motions of the same root interlace inside a single verse: in Baqara 2:37 Adam receives words from his Lord and Allah accepts his repentance; Allah names Himself there as 'al-Tawwāb al-Raḥīm': 'the ever-Turning, the ever-Merciful.' Repentance is thus not a plea rising from below, but a door opened from both sides. Its inner face is remorse and reform; its outer face is mercy and acceptance. Al-Taḥrīm 66:8 qualifies tawba as 'naṣūḥā' (sincere, purified, undertaken with the intent not to return); Baqara 2:160 conditions acceptance on reform in action, not merely in speech; Al-Zumar 39:53 keeps the door of mercy fully open even for those who have transgressed against themselves; Al-Furqān 25:70 promises that sincere return transforms past evils into good deeds. In the Qur'an, tawba is not a one-time event but the constant cycle of a believer's life: the prophets themselves included.",
     "keyPoints": [
       {
         "titleTr": "Karşılıklı tevbe — kul + Allah",
-        "titleEn": "Mutual tawba — servant and Allah",
+        "titleEn": "Mutual tawba: servant and Allah",
         "descTr": "Bakara 2:37'de aynı fiil (tâbe) hem Âdem'e hem Allah'a nispet edilir. Kul döner, Allah da onun dönüşüne döner. Klasik tefsir bu karşılıklılığın 'et-Tevvâb' isminde toplandığını vurgular: sıfat 'çok dönen' anlamındadır — Allah kulun tekrar tekrar dönüşüne tekrar tekrar döner.",
-        "descEn": "In Baqara 2:37, the same verb (tāba) is attributed both to Adam and to Allah. The servant turns; Allah turns to his turning. Classical exegesis stresses that this mutuality is gathered in the divine name 'al-Tawwāb' — the intensive form denoting 'the One who turns often': Allah turns again and again to the servant's repeated returning."
+        "descEn": "In Baqara 2:37, the same verb (tāba) is attributed both to Adam and to Allah. The servant turns; Allah turns to his turning. Classical exegesis stresses that this mutuality is gathered in the divine name 'al-Tawwāb': the intensive form denoting 'the One who turns often': Allah turns again and again to the servant's repeated returning."
       },
       {
         "titleTr": "Nasûhâ tevbesi — geri dönmemek üzere",
-        "titleEn": "Tawba naṣūḥā — with the resolve not to return",
+        "titleEn": "Tawba naṣūḥā: with the resolve not to return",
         "descTr": "Tahrîm 66:8 tevbeye tek bir sıfat verir: nasûhâ. Klasik tefsir kelimeyi üç ana katmanda okur: (1) samimî — kulun kendisini kandırmadığı; (2) halis — başka niyet karışmayan; (3) 'geri dönmemek üzere' verilmiş — sütü memeye geri dönmez gibi. Râzî bu son okumayı 'nasûhâ'nın Kur'ânî ağırlığı' olarak niteler.",
-        "descEn": "Al-Taḥrīm 66:8 gives tawba a single qualifier: naṣūḥā. Classical exegesis reads it in three layers: (1) sincere — the servant does not deceive himself; (2) pure — no other intent mixed in; (3) 'undertaken not to return' — as milk does not return to the udder. Rāzī names this last reading 'the Qur'anic weight of naṣūḥā.'"
+        "descEn": "Al-Taḥrīm 66:8 gives tawba a single qualifier: naṣūḥā. Classical exegesis reads it in three layers: (1) sincere: the servant does not deceive himself; (2) pure: no other intent mixed in; (3) 'undertaken not to return': as milk does not return to the udder. Rāzī names this last reading 'the Qur'anic weight of naṣūḥā.'"
       },
       {
         "titleTr": "Rahmet kapısı — ümit kesmeme",
-        "titleEn": "The door of mercy — do not despair",
+        "titleEn": "The door of mercy: do not despair",
         "descTr": "Zümer 39:53 rahmet kapısını en geniş şekilde açar: 'Ey nefislerine aşırı gitmiş kullarım! Allah'ın rahmetinden ümit kesmeyin.' Klasik tefsir bu ayeti 'ercâ âyetin fi'l-Kur'ân' — Kur'ân'ın en ümit verici ayeti — olarak niteler (İbn Abbâs'tan gelen rivayete dayanır). Ayet kimseyi dışarıda bırakmaz: 'cemîʿan' (bütün günahları) diye der.",
-        "descEn": "Al-Zumar 39:53 opens the door of mercy at its widest: 'O My servants who have transgressed against themselves! Do not despair of Allah's mercy.' Classical exegesis calls this 'the most hope-giving verse of the Qur'an' (arjā āya, based on a report from Ibn ʿAbbās). The verse leaves no one outside: it says 'jamīʿan' — all sins."
+        "descEn": "Al-Zumar 39:53 opens the door of mercy at its widest: 'O My servants who have transgressed against themselves! Do not despair of Allah's mercy.' Classical exegesis calls this 'the most hope-giving verse of the Qur'an' (arjā āya, based on a report from Ibn ʿAbbās). The verse leaves no one outside: it says 'jamīʿan': all sins."
       },
       {
         "titleTr": "Kötülüklerin iyiliğe dönüşü",
         "titleEn": "Evils turned into good",
         "descTr": "Furkan 25:70 tevbe + iman + salih amel üçlüsü için dikkat çekici bir vaad koyar: 'Allah onların kötülüklerini iyiliklere çevirir.' Klasik tefsir bu ayet için iki okuma tartışır: (1) defter okuması — geçmiş günah amel defterinde silinip yerine iyilik yazılır; (2) kişilik okuması — kişide o kötülüğe iten meyil, iyilik meyline dönüşür. İkinci okuma İbn Kayyim gibi ahlâk odaklı müfessirlerde öne çıkar.",
-        "descEn": "Al-Furqān 25:70 sets a striking promise for the triad of tawba, faith, and righteous deed: 'Allah will convert their evils into good deeds.' Classical exegesis debates two readings: (1) the ledger reading — the past sin is erased and replaced by good in the record; (2) the character reading — the inclination that drove the sin is transformed into an inclination toward good. The second reading is favored by ethically oriented exegetes such as Ibn al-Qayyim."
+        "descEn": "Al-Furqān 25:70 sets a striking promise for the triad of tawba, faith, and righteous deed: 'Allah will convert their evils into good deeds.' Classical exegesis debates two readings: (1) the ledger reading: the past sin is erased and replaced by good in the record; (2) the character reading: the inclination that drove the sin is transformed into an inclination toward good. The second reading is favored by ethically oriented exegetes such as Ibn al-Qayyim."
       }
     ]
   },
@@ -126,19 +130,19 @@
         {
           "layer": "Kök anlamı: dönme",
           "descTr": "Kök t-w-b lugatte 'dönme, geri gelme' demektir. Klasik lugatçılar (İbn Fâris, Râgıb el-İsfahânî) kökün 'bir yerden başka bir yere yönelme' anlam alanını taşıdığını belirtir. Tevbe bu köke göre bir 'yön değiştirme'dir — günahtan Allah'a dönüş. Kelime kendi içinde bir hareketi taşır; sabit bir hal değil, aktif bir yönelmedir.",
-          "descEn": "The root t-w-b lexically denotes 'turning, coming back.' Classical lexicographers (Ibn Fāris, Rāghib al-Iṣfahānī) locate the root in the semantic field of 'turning from one place toward another.' Tawba by this root is a 'change of direction' — a turning from sin toward Allah. The word carries motion inside itself; not a static state but an active orientation.",
+          "descEn": "The root t-w-b lexically denotes 'turning, coming back.' Classical lexicographers (Ibn Fāris, Rāghib al-Iṣfahānī) locate the root in the semantic field of 'turning from one place toward another.' Tawba by this root is a 'change of direction': a turning from sin toward Allah. The word carries motion inside itself; not a static state but an active orientation.",
           "kaynak": "Elmalılı, Bakara 2:37 tefsiri (kök açılımı); Râzî, aynı ayet"
         },
         {
           "layer": "Karşılıklı fiil",
           "descTr": "Kur'ân'ın en dikkat çekici semantik özelliği: fiil hem kula hem Allah'a nispet edilir. Bakara 2:37'de Âdem tevbe eder, ayetin aynı cümlesi Allah'ın 'ona döndüğünü' (fe-tâbe aleyh) söyler. Klasik tefsir bu karşılıklılığın Kur'ân'a mahsus bir semantik zenginlik olduğunu, tevbeyi bir 'yalvarma' değil bir 'buluşma' olarak konumlandırdığını vurgular.",
-          "descEn": "The Qur'an's most striking semantic feature: the verb is attributed to both the servant and Allah. In Baqara 2:37 Adam repents, and the same sentence says Allah 'turned to him' (fa-tāba ʿalayh). Classical exegesis stresses this mutuality as a distinctive Qur'anic semantic richness — positioning tawba not as a 'plea' but as a 'meeting.'",
+          "descEn": "The Qur'an's most striking semantic feature: the verb is attributed to both the servant and Allah. In Baqara 2:37 Adam repents, and the same sentence says Allah 'turned to him' (fa-tāba ʿalayh). Classical exegesis stresses this mutuality as a distinctive Qur'anic semantic richness: positioning tawba not as a 'plea' but as a 'meeting.'",
           "kaynak": "Râzî, Bakara 2:37 tefsiri (karşılıklı fiil okuması)"
         },
         {
           "layer": "Nasûhâ — halis tevbe",
           "descTr": "Tahrîm 66:8 tevbeye tek sıfat verir: nasûhâ. Klasik tefsir kelimeyi 'samimî, halis, geri dönmemek üzere' olarak açar. Kurtubî nasûhâ kelimesinin kökeninin 'nush' (samimî nasihat, saf öğüt) olduğunu, tevbenin bu tür bir 'kendine samimî nasihat' olduğunu belirtir.",
-          "descEn": "Al-Taḥrīm 66:8 gives tawba a single qualifier: naṣūḥā. Classical exegesis unfolds the word as 'sincere, pure, undertaken not to return.' Qurṭubī notes the word's origin in nuṣḥ (sincere counsel, pure advice) — tawba being such a 'sincere self-counsel.'",
+          "descEn": "Al-Taḥrīm 66:8 gives tawba a single qualifier: naṣūḥā. Classical exegesis unfolds the word as 'sincere, pure, undertaken not to return.' Qurṭubī notes the word's origin in nuṣḥ (sincere counsel, pure advice): tawba being such a 'sincere self-counsel.'",
           "kaynak": "Kurtubî, Tahrîm 66:8 tefsiri; Râzî aynı ayet"
         }
       ]
@@ -168,7 +172,7 @@
         {
           "layer": "Allah'ın ismi: çok dönen",
           "descTr": "Tevvâb, tâbe fiilinin mübalağa (yoğun tekrar) sigasıdır — 'çok dönen, sürekli dönen, tekrar tekrar dönen'. Bakara 2:37 ismi 'et-Tevvâbü'r-Rahîm' olarak koyar. Klasik tefsir mübalağa sigasının Kur'ânî inceliği olduğunu vurgular: kul bir kez döner, Allah her seferinde tekrar tekrar döner — kulun her yeni dönüşüne yeni bir dönüşle karşılık verir.",
-          "descEn": "Tawwāb is the intensive form (mubālagha) of the verb tāba — 'the One who turns often, who turns repeatedly.' Baqara 2:37 sets the name as 'al-Tawwāb al-Raḥīm.' Classical exegesis stresses the Qur'anic nuance of the intensive form: the servant turns once, but Allah turns repeatedly at each new turning of the servant — matching each fresh return with a fresh reception.",
+          "descEn": "Tawwāb is the intensive form (mubālagha) of the verb tāba: 'the One who turns often, who turns repeatedly.' Baqara 2:37 sets the name as 'al-Tawwāb al-Raḥīm.' Classical exegesis stresses the Qur'anic nuance of the intensive form: the servant turns once, but Allah turns repeatedly at each new turning of the servant: matching each fresh return with a fresh reception.",
           "kaynak": "Râzî, Bakara 2:37 tefsiri (mübalağa sigasının okunuşu); Kurtubî aynı ayet"
         }
       ]
@@ -200,13 +204,13 @@
         {
           "layer": "Örtülmeyi isteme",
           "descTr": "Kök ğ-f-r 'örtme' demektir; miğfer (baş örtüsü/miğfer) aynı köktendir. İstiğfâr istifʿâl kalıbında 'örtülmeyi isteme'dir — günahın Allah tarafından örtülmesini talep etmek. Klasik tefsir istiğfârı tevbenin sözlü yüzü olarak tanımlar: tevbe iç kararı, istiğfâr dille dışa çıkışı.",
-          "descEn": "The root gh-f-r means 'to cover'; the word for a helmet (mighfar) shares the root. Istighfār in the istifʿāl form is 'seeking to be covered' — asking Allah to cover the sin. Classical exegesis defines istighfār as the verbal face of tawba: tawba the inner decision, istighfār its outward vocalization.",
+          "descEn": "The root gh-f-r means 'to cover'; the word for a helmet (mighfar) shares the root. Istighfār in the istifʿāl form is 'seeking to be covered': asking Allah to cover the sin. Classical exegesis defines istighfār as the verbal face of tawba: tawba the inner decision, istighfār its outward vocalization.",
           "kaynak": "Elmalılı, Nûh 71:10 tefsiri (kök açılımı); Kurtubî, Hûd 11:3 tefsiri"
         },
         {
           "layer": "Peygamberlerin daimi çağrısı",
           "descTr": "Kur'ân'daki peygamberlerin ortak çağrısı istiğfâr + tevbe ikilisidir. Hûd 11:3 ve 11:52'de Hûd peygamberin, 11:61'de Sâlih'in, 11:90'da Şuayb'in kavimlerine ortak çağrısı: 'Rabbinizden mağfiret dileyin, sonra ona tevbe edin.' İki fiil ayrı ama iç içedir: istiğfâr afın talebi, tevbe fiilî dönüş.",
-          "descEn": "The common call of the prophets in the Qur'an is the pair istighfār + tawba. In Hūd 11:3 and 11:52 the prophet Hūd, in 11:61 Ṣāliḥ, in 11:90 Shuʿayb — all address their peoples with the same pair: 'Seek forgiveness from your Lord, then turn to Him.' Two distinct verbs, but interwoven: istighfār is the plea for forgiveness, tawba the actual return.",
+          "descEn": "The common call of the prophets in the Qur'an is the pair istighfār + tawba. In Hūd 11:3 and 11:52 the prophet Hūd, in 11:61 Ṣāliḥ, in 11:90 Shuʿayb: all address their peoples with the same pair: 'Seek forgiveness from your Lord, then turn to Him.' Two distinct verbs, but interwoven: istighfār is the plea for forgiveness, tawba the actual return.",
           "kaynak": "Râzî, Hûd 11:3 ve 11:52 tefsirleri; Kurtubî, Hûd sûresi mukaddime"
         }
       ]
@@ -236,7 +240,7 @@
         {
           "layer": "İç pişmanlık",
           "descTr": "Nedâmet Kur'ân'da yapılan bir işten sonraki iç kalbî pişmanlık halidir. Klasik ulema (İbn Kayyim, İhyâ) nedâmeti tevbenin ilk şartı olarak koyar: 'nedâmet olmadan tevbe yoktur.' Hadis literatürü de bunu destekler ('en-nedemetü tevbe' — nedâmet tevbedir). Kur'ân'da nedâmet hem imanlı bir pişmanlık hem de kıyamette artık faydasız kalan bir pişmanlık olarak iki bağlamda geçer.",
-          "descEn": "Nadāma in the Qur'an is the inner heart-state of regret following an action. Classical scholars (Ibn al-Qayyim, Iḥyāʾ) place nadāma as the first condition of tawba: 'without nadāma there is no tawba.' Ḥadīth literature confirms this ('al-nadāmatu tawba' — regret itself is repentance). In the Qur'an, nadāma appears in two contexts: the believing remorse, and the too-late remorse at the Resurrection when it no longer benefits.",
+          "descEn": "Nadāma in the Qur'an is the inner heart-state of regret following an action. Classical scholars (Ibn al-Qayyim, Iḥyāʾ) place nadāma as the first condition of tawba: 'without nadāma there is no tawba.' Ḥadīth literature confirms this ('al-nadāmatu tawba': regret itself is repentance). In the Qur'an, nadāma appears in two contexts: the believing remorse, and the too-late remorse at the Resurrection when it no longer benefits.",
           "kaynak": "Kurtubî, Mâide 5:31 tefsiri; Elmalılı, Mâide 5:52"
         }
       ]
@@ -267,7 +271,7 @@
         {
           "layer": "Tevbenin kabul şartı",
           "descTr": "Bakara 2:160 tevbe için üç fiil koyar: 'tâbû (tevbe ettiler), aslahû (ıslah ettiler), beyyenû (açıkladılar)'. Klasik tefsir 'aslahû'nun kabul için asıl şart olduğunu vurgular: sözle tevbe yeterli değildir, eylemle düzeltme gerekir. Islah bozulanı onarma, yıkılanı ayakta tutmadır — kelimenin kök anlamı 'düzgün olma'dır. Nisa 4:16 zina bağlamında da aynı şart: 'tevbe eder ve ıslah ederse'. Nisa 4:146 münâfıklar için de aynı çift: 'tevbe edip ıslah edenler ve Allah'a sarılanlar'.",
-          "descEn": "Baqara 2:160 sets three verbs for repentance: 'tābū (repented), aṣlaḥū (reformed), bayyanū (clarified).' Classical exegesis stresses that 'aṣlaḥū' is the actual condition of acceptance: verbal tawba is not sufficient; reform in action is required. Iṣlāḥ is the repair of what is broken, the setting upright of what has collapsed — the root's core sense is 'to become sound.' The same condition appears in Nisāʾ 4:16 (zinā), and in Nisāʾ 4:146 for the hypocrites: 'those who repent, reform, and hold fast to Allah.'",
+          "descEn": "Baqara 2:160 sets three verbs for repentance: 'tābū (repented), aṣlaḥū (reformed), bayyanū (clarified).' Classical exegesis stresses that 'aṣlaḥū' is the actual condition of acceptance: verbal tawba is not sufficient; reform in action is required. Iṣlāḥ is the repair of what is broken, the setting upright of what has collapsed: the root's core sense is 'to become sound.' The same condition appears in Nisāʾ 4:16 (zinā), and in Nisāʾ 4:146 for the hypocrites: 'those who repent, reform, and hold fast to Allah.'",
           "kaynak": "Kurtubî, Bakara 2:160 tefsiri; Râzî aynı ayet"
         }
       ]
@@ -297,7 +301,7 @@
         {
           "layer": "Halis, samimî, geri dönmemek üzere",
           "descTr": "Kök n-ṣ-ḥ 'saflaştırma, samimî öğüt verme' anlam alanındadır. Bal saflaştırıldığında 'nasaha el-ʿasel' denir. Nasûhâ tevbe bu köke göre 'saflaştırılmış, samimî, arınmış' tevbedir. Klasik tefsir üç okuma listeler: (1) samimî — kul kendini kandırmaz; (2) halis — başka niyet karışmaz; (3) 'geri dönmemek üzere' — sütün memeye dönmediği gibi. Râzî üçüncü okumayı 'nasûhâ'nın Kur'ânî yükü' olarak niteler.",
-          "descEn": "The root n-ṣ-ḥ is in the semantic field of 'purifying, giving sincere counsel.' Honey when purified is called 'naṣaḥa al-ʿasal.' A tawba naṣūḥā by this root is 'purified, sincere, cleansed' repentance. Classical exegesis lists three readings: (1) sincere — the servant does not deceive himself; (2) pure — no other intent mixed in; (3) 'undertaken not to return' — as milk does not return to the udder. Rāzī names the third reading 'the Qur'anic weight of naṣūḥā.'",
+          "descEn": "The root n-ṣ-ḥ is in the semantic field of 'purifying, giving sincere counsel.' Honey when purified is called 'naṣaḥa al-ʿasal.' A tawba naṣūḥā by this root is 'purified, sincere, cleansed' repentance. Classical exegesis lists three readings: (1) sincere: the servant does not deceive himself; (2) pure: no other intent mixed in; (3) 'undertaken not to return': as milk does not return to the udder. Rāzī names the third reading 'the Qur'anic weight of naṣūḥā.'",
           "kaynak": "Râzî, Tahrîm 66:8 tefsiri (üç okuma); Kurtubî aynı ayet; Elmalılı Tahrîm 66:8"
         }
       ]
@@ -328,7 +332,7 @@
         {
           "layer": "Ontolojik dönüş",
           "descTr": "Kök r-j-ʿ 'geri dönme, aslına dönme' demektir. Bakara 2:156 ölüm karşısında 'innâ lillâhi ve innâ ileyhi râciʿûn' der — 'biz Allah'a aidiz, ona döneceğiz.' Kelime tevbe kökünün (t-w-b) semantik yakın komşusudur: ikisi de 'dönüş' anlamı taşır. Fark: tâbe bilinçli, iradî ahlâki dönüştür; râciʿa ontolojik zorunlu dönüştür. Klasik tefsir bu iki kökü tevbenin 'kişinin kendi ontolojisini fark etmesi' — nasılsa döneceksin, şimdi de dön — okumasına açar.",
-          "descEn": "The root r-j-ʿ means 'to return, to go back to one's origin.' Baqara 2:156 says at the moment of death: 'innā lillāhi wa innā ilayhi rājiʿūn' — 'we belong to Allah, and to Him we shall return.' The word is the semantic neighbor of the tawba root: both carry 'return.' The difference: tāba is the conscious, voluntary ethical turning; rājaʿa is the ontological, necessary returning. Classical exegesis reads these two roots as opening tawba into 'the servant's recognition of his own ontology' — you shall return anyway, so return now.",
+          "descEn": "The root r-j-ʿ means 'to return, to go back to one's origin.' Baqara 2:156 says at the moment of death: 'innā lillāhi wa innā ilayhi rājiʿūn': 'we belong to Allah, and to Him we shall return.' The word is the semantic neighbor of the tawba root: both carry 'return.' The difference: tāba is the conscious, voluntary ethical turning; rājaʿa is the ontological, necessary returning. Classical exegesis reads these two roots as opening tawba into 'the servant's recognition of his own ontology': you shall return anyway, so return now.",
           "kaynak": "Elmalılı, Bakara 2:156 tefsiri (iki kök karşılaştırması)"
         }
       ]
@@ -359,7 +363,7 @@
         {
           "layer": "Sürekli yöneliş",
           "descTr": "Zümer 39:54 'Rabbinize inâbe edin, ona teslim olun' der. Klasik tefsir inâbe ile tevbe arasındaki farkı vurgular: tevbe belirli bir günahtan belirli bir dönüştür; inâbe ise sürekli yönelme halidir — kul artık kalbini Allah'tan başka yere yöneltmez. Kurtubî inâbeyi 'tevbenin devamı' olarak niteler: tevbe kapıdır, inâbe içeride sürekli oturuş.",
-          "descEn": "Al-Zumar 39:54 says 'Turn back (anībū) to your Lord and submit to Him.' Classical exegesis distinguishes ināba from tawba: tawba is a specific turning away from a specific sin; ināba is the continuous state of orientation — the servant no longer directs his heart anywhere but to Allah. Qurṭubī calls ināba 'the continuation of tawba': tawba is the door, ināba is the sustained sitting inside.",
+          "descEn": "Al-Zumar 39:54 says 'Turn back (anībū) to your Lord and submit to Him.' Classical exegesis distinguishes ināba from tawba: tawba is a specific turning away from a specific sin; ināba is the continuous state of orientation: the servant no longer directs his heart anywhere but to Allah. Qurṭubī calls ināba 'the continuation of tawba': tawba is the door, ināba is the sustained sitting inside.",
           "kaynak": "Kurtubî, Zümer 39:54 tefsiri; Râzî aynı ayet"
         }
       ]
@@ -391,7 +395,7 @@
         {
           "layer": "Örtme, kapatma, silme",
           "descTr": "Kök ğ-f-r 'örtme' demektir — miğfer aynı kökten. Gufrân Allah'ın günahı 'örtme, gizleme, geriye dönmüş gibi yapma'sıdır. Klasik tefsir Allah'ın 'el-Ğafûr' (çok bağışlayan) ve 'el-Ğaffâr' (sürekli bağışlayan) isimlerinin bu köke bağlı olduğunu, Kur'ân'ın Allah'ı bir 'affeden' değil, 'affetmesi zâtından ayrılamaz olan' olarak sunduğunu belirtir. Zümer 39:53'ün 'Allah bütün günahları bağışlar' vaadi bu isim yoğunluğunun Kur'ânî tepe noktasıdır.",
-          "descEn": "The root gh-f-r means 'to cover' — mighfar (helmet) from the same root. Ghufrān is Allah's 'covering, concealing, treating as if returned' the sin. Classical exegesis notes that Allah's names al-Ghafūr ('the ever-Forgiving') and al-Ghaffār ('the constantly-Forgiving') belong to this root, and that the Qur'an presents Allah not as 'one who forgives' but as 'one whose forgiving is inseparable from His essence.' Al-Zumar 39:53's promise that 'Allah forgives all sins' is the Qur'anic apex of this name-density.",
+          "descEn": "The root gh-f-r means 'to cover': mighfar (helmet) from the same root. Ghufrān is Allah's 'covering, concealing, treating as if returned' the sin. Classical exegesis notes that Allah's names al-Ghafūr ('the ever-Forgiving') and al-Ghaffār ('the constantly-Forgiving') belong to this root, and that the Qur'an presents Allah not as 'one who forgives' but as 'one whose forgiving is inseparable from His essence.' Al-Zumar 39:53's promise that 'Allah forgives all sins' is the Qur'anic apex of this name-density.",
           "kaynak": "Râzî, Zümer 39:53 tefsiri; Elmalılı aynı ayet"
         }
       ]
@@ -422,7 +426,7 @@
         {
           "layer": "Ana rahmi — kaynak ilişkisi",
           "descTr": "Kök r-ḥ-m 'ana rahmi' anlamındadır (rahim). Klasik lugatçılar (İbn Fâris) rahmetin bu köke bağlanışını 'kaynağı bir olanın kaynağa doğru ilgisi' olarak açar — anne çocuğunu, çünkü ondan gelmiştir. Zümer 39:53 rahmet kapısını en geniş şekilde açar: 'Nefslerine aşırı gitmiş kullarım! Allah'ın rahmetinden ümit kesmeyin. Şüphesiz Allah bütün günahları bağışlar.' Klasik tefsir bu ayeti 'Kur'ân'ın en ümit verici ayeti' (ercâ âyetin fi'l-Kur'ân) olarak niteler — atıf İbn Abbâs'a nispet edilir.",
-          "descEn": "The root r-ḥ-m denotes 'the womb.' Classical lexicographers (Ibn Fāris) unfold raḥma from this root as 'the affinity of one whose origin is shared for its source' — a mother for her child, because it came from her. Al-Zumar 39:53 opens the door of mercy at its widest: 'O My servants who have transgressed against themselves! Do not despair of Allah's mercy. Verily Allah forgives all sins.' Classical exegesis names this 'the most hope-giving verse of the Qur'an' (arjā āya) — the attribution reported from Ibn ʿAbbās.",
+          "descEn": "The root r-ḥ-m denotes 'the womb.' Classical lexicographers (Ibn Fāris) unfold raḥma from this root as 'the affinity of one whose origin is shared for its source': a mother for her child, because it came from her. Al-Zumar 39:53 opens the door of mercy at its widest: 'O My servants who have transgressed against themselves! Do not despair of Allah's mercy. Verily Allah forgives all sins.' Classical exegesis names this 'the most hope-giving verse of the Qur'an' (arjā āya): the attribution reported from Ibn ʿAbbās.",
           "kaynak": "Râzî, Zümer 39:53 tefsiri; Kurtubî aynı ayet (ercâ âyetin İbn Abbâs rivayeti)"
         }
       ]
@@ -453,7 +457,7 @@
         {
           "layer": "Karşılama, yüz döndürme",
           "descTr": "Kök q-b-l 'karşılamak, yüzünü döndürmek' demektir; kıble (karşı yön), kabûl (karşılama) aynı köktendir. Ğâfir 40:3 Allah'ı 'kâbilü't-tevb' — tevbeyi kabul eden — olarak niteler. Klasik tefsir bu ismin fiil anlamını vurgular: Allah tevbeyi 'pasifçe kabul etmez', 'karşılamaya çıkar'. Bakara 2:37'nin 'fe-tâbe aleyh' (Allah ona döndü) yapısı bu 'karşılama'nın hareketli bir sahnesi olarak okunur.",
-          "descEn": "The root q-b-l means 'to face, to receive' — qibla (facing direction) and qabūl (reception) share the root. Ghāfir 40:3 names Allah 'qābil al-tawb' — the Receiver of repentance. Classical exegesis stresses the verbal sense: Allah does not passively 'accept' tawba; He 'comes forward to receive.' The 'fa-tāba ʿalayh' structure of Baqara 2:37 reads as a moving scene of that reception.",
+          "descEn": "The root q-b-l means 'to face, to receive': qibla (facing direction) and qabūl (reception) share the root. Ghāfir 40:3 names Allah 'qābil al-tawb': the Receiver of repentance. Classical exegesis stresses the verbal sense: Allah does not passively 'accept' tawba; He 'comes forward to receive.' The 'fa-tāba ʿalayh' structure of Baqara 2:37 reads as a moving scene of that reception.",
           "kaynak": "Râzî, Ğâfir 40:3 tefsiri; Kurtubî, Bakara 2:37"
         }
       ]
@@ -591,11 +595,13 @@
     "rituelBaglam": [
       {
         "ref": "Bakara 2:37 ↔ A'râf 7:23",
-        "sceneTr": "Klasik tefsir Bakara 2:37'deki 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i A'râf 7:23'teki dua ile özdeşleştirir. İki ayet birlikte tevbenin Kur'ânî arketipini kurar: kul kendinden değil, Rabbinden aldığı sözle döner. Râzî bu bağın 'tevbenin kendisinin bile Allah'ın öğretisi olduğunu' bildirdiğini belirtir — dönüşün fiili kula ait, dönüşün kelimeleri Allah'a aittir. Bu Kur'ânî inceliği tevbenin 'kul-merkezli' değil 'Rab-merkezli' okunmasının temelidir."
+        "sceneTr": "Klasik tefsir Bakara 2:37'deki 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i A'râf 7:23'teki dua ile özdeşleştirir. İki ayet birlikte tevbenin Kur'ânî arketipini kurar: kul kendinden değil, Rabbinden aldığı sözle döner. Râzî bu bağın 'tevbenin kendisinin bile Allah'ın öğretisi olduğunu' bildirdiğini belirtir — dönüşün fiili kula ait, dönüşün kelimeleri Allah'a aittir. Bu Kur'ânî inceliği tevbenin 'kul-merkezli' değil 'Rab-merkezli' okunmasının temelidir.",
+        "sceneEn": "Classical exegesis identifies the 'words' in the expression 'Adam received words from his Lord' in Al-Baqara 2:37 with the supplication in Al-Aʿrāf 7:23. Together the two verses establish the Qur'anic archetype of tawba: the servant turns back not with words of his own but with a word received from his Lord. Rāzī notes that this link declares that 'even tawba itself is Allah's teaching': the act of turning belongs to the servant, the words of the turning belong to Allah. This Qur'anic subtlety is the basis for reading tawba as 'Lord-centered' rather than 'servant-centered.'"
       },
       {
         "ref": "Zümer 39:53 ↔ Nisa 4:17-18",
-        "sceneTr": "Kur'ân tevbenin zamanını iki kutupla çizer: Zümer 39:53 kapıyı en geniş açar ('Allah bütün günahları bağışlar'), Nisa 4:18 kapının kapanış anını gösterir (ölüm anındaki tevbe kabul edilmez, küfür üzere ölüm kabul edilmez). Klasik tefsir iki ayetin çelişkili değil tamamlayıcı olduğunu vurgular: rahmet niteliği sınırsızdır, ama insan tercih zamanı sınırlıdır. Nisa 4:17'nin 'min karîb' (hemen) ifadesi bu iki kutup arasındaki hareket alanını çizer — kul tevbe koridorunun içindedir, koridor geniştir ama sonsuz değildir."
+        "sceneTr": "Kur'ân tevbenin zamanını iki kutupla çizer: Zümer 39:53 kapıyı en geniş açar ('Allah bütün günahları bağışlar'), Nisa 4:18 kapının kapanış anını gösterir (ölüm anındaki tevbe kabul edilmez, küfür üzere ölüm kabul edilmez). Klasik tefsir iki ayetin çelişkili değil tamamlayıcı olduğunu vurgular: rahmet niteliği sınırsızdır, ama insan tercih zamanı sınırlıdır. Nisa 4:17'nin 'min karîb' (hemen) ifadesi bu iki kutup arasındaki hareket alanını çizer — kul tevbe koridorunun içindedir, koridor geniştir ama sonsuz değildir.",
+        "sceneEn": "The Qur'an draws the time of tawba with two poles: Al-Zumar 39:53 opens the door widest ('Allah forgives all sins'), while Al-Nisāʾ 4:18 shows the moment the door closes (repentance at the moment of death is not accepted, nor is death upon disbelief accepted). Classical exegesis stresses that the two verses are not contradictory but complementary: the attribute of mercy is limitless, but a person's time of choice is limited. The expression 'min qarīb' (soon) in Al-Nisāʾ 4:17 draws the field of movement between these two poles: the servant is within the corridor of tawba; the corridor is wide but not endless."
       }
     ]
   },
@@ -604,8 +610,9 @@
   "kiraatBoyutu": null,
   "rakamsalMimari": {
     "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
+    "titleEn": "The Qur'an Sets the Principle, the Sunnah Details It",
     "framingTr": "Bu bölüm 'Kur'ân eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'ân tevbenin ne olduğunu (karşılıklı fiil — Bakara 2:37), niteliğini (nasûhâ — Tahrîm 66:8), şartını (ıslah — Bakara 2:160), zamanının sınırını (min karîb — Nisa 4:17-18), rahmet vaadini (Zümer 39:53) ve amelî meyvesini (Furkan 25:70) açıkça çizer. Sünnet-i mütevâtire tevbenin günlük ritmini (seher vakti istiğfâr, namaz sonu istiğfâr, tevbe namazı), sözlerini (seyyidü'l-istiğfâr) ve içeriğini tafsil eder. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
-    "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an explicitly draws what tawba is (a mutual verb — Baqara 2:37), its quality (naṣūḥā — Al-Taḥrīm 66:8), its condition (iṣlāḥ — Baqara 2:160), its temporal limit (min qarīb — Al-Nisāʾ 4:17-18), the promise of mercy (Al-Zumar 39:53), and its practical fruit (Al-Furqān 25:70). Mutawātir sunnah details the daily rhythm of tawba (istighfār at the pre-dawn hour, after prayers, the tawba prayer), its formulas (sayyid al-istighfār), and its content. They complete each other as an inseparable whole.",
+    "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an explicitly draws what tawba is (a mutual verb: Baqara 2:37), its quality (naṣūḥā: Al-Taḥrīm 66:8), its condition (iṣlāḥ: Baqara 2:160), its temporal limit (min qarīb: Al-Nisāʾ 4:17-18), the promise of mercy (Al-Zumar 39:53), and its practical fruit (Al-Furqān 25:70). Mutawātir sunnah details the daily rhythm of tawba (istighfār at the pre-dawn hour, after prayers, the tawba prayer), its formulas (sayyid al-istighfār), and its content. They complete each other as an inseparable whole.",
     "kuraniSide": {
       "titleTr": "Kur'ân'ın koyduğu ilkeler",
       "titleEn": "The Qur'an's principles",
@@ -684,95 +691,115 @@
     {
       "prophet": "Âdem ve Havvâ",
       "ref": "A'râf 7:23 ↔ Bakara 2:37",
-      "sceneTr": "İnsanlığın ilk tevbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'nin 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i bu dua ile özdeşleştirir. Duanın yapısı tevbenin Kur'ânî arketipini kurar: hitap + itiraf + talep + sonuç. İki ayetin birleşimiyle tevbe Kur'ân'da 'insan doğasının kalıbı' olarak yerleşir — insan hem hata yapar, hem de döner; iki yön birlikte insanı tanımlar."
+      "sceneTr": "İnsanlığın ilk tevbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'nin 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i bu dua ile özdeşleştirir. Duanın yapısı tevbenin Kur'ânî arketipini kurar: hitap + itiraf + talep + sonuç. İki ayetin birleşimiyle tevbe Kur'ân'da 'insan doğasının kalıbı' olarak yerleşir — insan hem hata yapar, hem de döner; iki yön birlikte insanı tanımlar.",
+      "sceneEn": "Humanity's first repentance. After the fault they committed in the Garden, the supplication Adam and Eve said together in Al-Aʿrāf 7:23: 'Rabbanā ẓalamnā anfusanā wa in lam taghfir lanā wa tarḥamnā lanakūnanna mina'l-khāsirīn' ('Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy on us, we shall surely be among the losers'). Classical exegesis identifies the 'words' in Al-Baqara 2:37's expression 'Adam received words from his Lord' with this supplication. The structure of the supplication establishes the Qur'anic archetype of tawba: address + confession + request + outcome. Through the joining of the two verses, tawba is set in the Qur'an as 'the mold of human nature': the human both errs and turns back; the two directions together define the human."
     },
     {
       "prophet": "Yunus (Zünnûn)",
       "ref": "Enbiyâ 21:87",
-      "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tevbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsir literatüründe 'Yunus'un tevbe duasının Kur'ânî yapısı' olarak sistemleştirilir. Ayet 21:88'de 'onu kurtardık' cümlesiyle sonuçlanır — Kur'ân tevbenin somut sonucunu bir peygamber örneğinde gösterir. Hadis literatürü bu dua için 'darda kalan hiçbir mümin onu okumaz ki Allah ona icabet etmesin' bildirimiyle geniş bir uygulama alanı bırakır."
+      "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tevbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsir literatüründe 'Yunus'un tevbe duasının Kur'ânî yapısı' olarak sistemleştirilir. Ayet 21:88'de 'onu kurtardık' cümlesiyle sonuçlanır — Kur'ân tevbenin somut sonucunu bir peygamber örneğinde gösterir. Hadis literatürü bu dua için 'darda kalan hiçbir mümin onu okumaz ki Allah ona icabet etmesin' bildirimiyle geniş bir uygulama alanı bırakır.",
+      "sceneEn": "In the darkness inside the fish, the prophet Jonah's supplication of repentance: 'lā ilāha illā anta subḥānaka innī kuntu mina'ẓ-ẓālimīn' ('There is no deity except You; glory be to You; indeed I was among the wrongdoers'). Classical exegesis stresses the three pillars of the supplication: (1) tawḥīd; (2) tasbīḥ; (3) confession. This triad is systematized in the classical tafsīr literature as 'the Qur'anic structure of Jonah's supplication of repentance.' The verse concludes in 21:88 with 'We saved him': the Qur'an shows the concrete result of tawba in the example of a prophet. Ḥadīth literature leaves a broad field of application for this supplication with the report that 'no believer in distress recites it without Allah answering him.'"
     },
     {
       "prophet": "Musa",
       "ref": "Kasas 28:16",
-      "sceneTr": "Musa peygamber Mısır'da Kıbtî'yi kazâen öldürdüğü sahnenin ardından Rabbine döner: 'Rabbim! Ben nefsime zulmettim; beni bağışla.' Ayette dikkat çekici üç adım: (1) itiraf; (2) af talebi; (3) hemen kabul ('Allah da onu bağışladı'). Klasik tefsir 'fe-ğafera lehû' (hemen bağışladı) fiil seçiminin tevbenin karşılıklılığının hızını vurguladığını belirtir. Musa'nın duası Yunus'unkiyle aynı iç omurgayı paylaşır: itiraf + talep. Râzî Musa'nın 'nefsime zulmettim' ifadesinin Âdem ve Havvâ'nın A'râf 7:23'teki 'nefslerimize zulmettik' ifadesiyle örtüşmesine dikkat çeker — tevbenin Kur'ânî dilinin sürekliliği."
+      "sceneTr": "Musa peygamber Mısır'da Kıbtî'yi kazâen öldürdüğü sahnenin ardından Rabbine döner: 'Rabbim! Ben nefsime zulmettim; beni bağışla.' Ayette dikkat çekici üç adım: (1) itiraf; (2) af talebi; (3) hemen kabul ('Allah da onu bağışladı'). Klasik tefsir 'fe-ğafera lehû' (hemen bağışladı) fiil seçiminin tevbenin karşılıklılığının hızını vurguladığını belirtir. Musa'nın duası Yunus'unkiyle aynı iç omurgayı paylaşır: itiraf + talep. Râzî Musa'nın 'nefsime zulmettim' ifadesinin Âdem ve Havvâ'nın A'râf 7:23'teki 'nefslerimize zulmettik' ifadesiyle örtüşmesine dikkat çeker — tevbenin Kur'ânî dilinin sürekliliği.",
+      "sceneEn": "After the scene in which the prophet Moses accidentally kills the Copt in Egypt, he turns to his Lord: 'My Lord, I have wronged myself; forgive me.' The verse has three striking steps: (1) confession; (2) request for forgiveness; (3) immediate acceptance ('and He forgave him'). Classical exegesis notes that the choice of the verb 'fa-ghafara lahu' (He forgave him at once) emphasizes the speed of tawba's reciprocity. Moses' supplication shares the same inner spine as Jonah's: confession + request. Rāzī draws attention to how Moses' expression 'I have wronged myself' coincides with Adam and Eve's 'we have wronged ourselves' in Al-Aʿrāf 7:23: the continuity of the Qur'anic language of tawba."
     },
     {
       "prophet": "Nûh",
       "ref": "Hûd 11:47",
-      "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tevbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bir şeyi senden istemekten sana sığınırım; eğer beni bağışlamaz, bana merhamet etmezsen hüsrana uğrayanlardan olurum.' Klasik tefsir bu duanın 'iyi niyetle yapılan cehâlet' bağlamında tevbenin Kur'ânî örneği olduğunu belirtir. Nûh peygamber isyan üzerine değil, bilgisiz talep üzerine döner — tevbe kapısı 'bilerek yapılan hata' kadar 'bilmeden yapılan talep' için de açıktır."
+      "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tevbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bir şeyi senden istemekten sana sığınırım; eğer beni bağışlamaz, bana merhamet etmezsen hüsrana uğrayanlardan olurum.' Klasik tefsir bu duanın 'iyi niyetle yapılan cehâlet' bağlamında tevbenin Kur'ânî örneği olduğunu belirtir. Nûh peygamber isyan üzerine değil, bilgisiz talep üzerine döner — tevbe kapısı 'bilerek yapılan hata' kadar 'bilmeden yapılan talep' için de açıktır.",
+      "sceneEn": "During the Flood, after the prophet Noah's plea for his son is rejected, his repentance: 'Rabbi innī aʿūdhu bika an asʾalaka mā laysa lī bihī ʿilm; wa illā taghfir lī wa tarḥamnī akun mina'l-khāsirīn': 'My Lord, I seek refuge in You from asking You for that of which I have no knowledge; and unless You forgive me and have mercy on me, I shall be among the losers.' Classical exegesis notes that this supplication is a Qur'anic example of tawba in the context of 'ignorance committed with good intention.' Noah turns back not over rebellion but over a request made without knowledge: the door of tawba is open for 'a request made unknowingly' as much as for 'an error made knowingly.'"
     },
     {
       "prophet": "Süleyman",
       "ref": "Sâd 38:35",
-      "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tevbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana benden sonra kimseye yaraşmayan bir mülk ver; şüphesiz sen çok bahşedensin.' Ayet tevbe ile talep arasındaki Kur'ânî inceliği gösterir: Süleyman önce bağışlanma diler, sonra istekte bulunur — sıra manidardır. Klasik tefsir bu sırayı 'af olmadan mülk taşınmaz' pedagojik ilkenin Kur'ânî örneği olarak okur."
+      "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tevbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana benden sonra kimseye yaraşmayan bir mülk ver; şüphesiz sen çok bahşedensin.' Ayet tevbe ile talep arasındaki Kur'ânî inceliği gösterir: Süleyman önce bağışlanma diler, sonra istekte bulunur — sıra manidardır. Klasik tefsir bu sırayı 'af olmadan mülk taşınmaz' pedagojik ilkenin Kur'ânî örneği olarak okur.",
+      "sceneEn": "The prophet Solomon's repentance after a trial that classical exegesis explains through various reports: 'Rabbi'ghfir lī wa hab lī mulkan lā yanbaghī li-aḥadin min baʿdī; innaka anta'l-Wahhāb': 'My Lord, forgive me and grant me a kingdom that will not befit anyone after me; indeed You are the Bestower.' The verse shows the Qur'anic subtlety between tawba and request: Solomon first asks for forgiveness and then makes his request: the order is meaningful. Classical exegesis reads this order as a Qur'anic example of the pedagogical principle that 'kingship cannot be borne without forgiveness.'"
     },
     {
       "prophet": "Muhammed s.a.v.",
       "ref": "Fetih 48:2",
-      "sceneTr": "Peygamber s.a.v.'e Fetih sûresinin başında bildirilen: 'liyağfire leke'llâhu mâ tekaddeme min zenbike ve mâ te'aḫḫare.' — 'Allah senin geçmiş ve gelecek zellelerini bağışlasın.' Klasik tefsir bu ayeti farklı okumalarda tartışır: (1) 'zenb' kelimesi klasik terminolojide 'peygamberler için ûlâ' (evla-terk, yani daha iyi olanı yapmamak) anlamındadır, günah olarak okunmaz; (2) ayet Peygamber s.a.v.'in makam-ı istiğfârının Kur'ânî tesbitidir — o dahi sürekli istiğfâr eder. Klasik hadis literatürü Peygamber'in günde yetmiş defa istiğfâr ettiğini nakleder. Ayetin Kur'ânî mesajı: tevbe ve istiğfâr en yüksek makamda bile hayatın nefesidir; ma'sûm olan bile Rabbine 'kelimeler'le döner."
+      "sceneTr": "Peygamber s.a.v.'e Fetih sûresinin başında bildirilen: 'liyağfire leke'llâhu mâ tekaddeme min zenbike ve mâ te'aḫḫare.' — 'Allah senin geçmiş ve gelecek zellelerini bağışlasın.' Klasik tefsir bu ayeti farklı okumalarda tartışır: (1) 'zenb' kelimesi klasik terminolojide 'peygamberler için ûlâ' (evla-terk, yani daha iyi olanı yapmamak) anlamındadır, günah olarak okunmaz; (2) ayet Peygamber s.a.v.'in makam-ı istiğfârının Kur'ânî tesbitidir — o dahi sürekli istiğfâr eder. Klasik hadis literatürü Peygamber'in günde yetmiş defa istiğfâr ettiğini nakleder. Ayetin Kur'ânî mesajı: tevbe ve istiğfâr en yüksek makamda bile hayatın nefesidir; ma'sûm olan bile Rabbine 'kelimeler'le döner.",
+      "sceneEn": "Announced at the opening of Sūrat al-Fatḥ to the Prophet (peace be upon him): 'li-yaghfira laka'llāhu mā taqaddama min dhanbika wa mā taʾakhkhar': 'That Allah may forgive you your past and future lapses.' Classical exegesis discusses this verse in different readings: (1) the word 'dhanb' in classical terminology means, for the prophets, 'the leaving of the more excellent (tark al-awlā)': that is, not doing the better option: and is not read as sin; (2) the verse is the Qur'anic affirmation of the Prophet's (peace be upon him) station of istighfār: even he continually seeks forgiveness. Classical ḥadīth literature reports that the Prophet sought forgiveness seventy times a day. The Qur'anic message of the verse: tawba and istighfār are the breath of life even at the highest station; even the sinless one turns to his Lord with 'words.'"
     }
   ],
   "icBoyut": [
     {
       "titleTr": "Karşılıklı Fiil — Kul Döner, Allah da Döner",
+      "titleEn": "The Reciprocal Verb: the Servant Turns, and Allah Turns Too",
       "refs": [
         "Bakara 2:37"
       ],
-      "descTr": "Bakara 2:37'nin en dikkat çekici Kur'ânî inceliği: aynı fiil (tâbe) hem Âdem'e hem Allah'a nispet edilir. Klasik tefsir bu karşılıklılığın Kur'ân'a mahsus bir semantik zenginlik olduğunu vurgular. Râzî 'et-Tevvâb' isminin mübalağa (yoğun tekrar) sigasında olduğunu belirtir — Allah bir kez değil, tekrar tekrar döner. Kul her yeni dönüşünde Allah'ın yeni bir dönüşüyle karşılaşır. Bu Kur'ânî 'buluşma' okuması tevbeyi bir 'yalvarma' değil bir 'randevu' haline getirir: kapı iki taraftan açılır. Elmalılı bu inceliği 'tevbenin kendisinin bile Allah'ın öğretisi olduğunu' belirtir — Âdem kelimeleri kendi bulmaz, Rabbinden alır. Böylece tevbenin fiili kula, kelimeleri Allah'a ait olur."
+      "descTr": "Bakara 2:37'nin en dikkat çekici Kur'ânî inceliği: aynı fiil (tâbe) hem Âdem'e hem Allah'a nispet edilir. Klasik tefsir bu karşılıklılığın Kur'ân'a mahsus bir semantik zenginlik olduğunu vurgular. Râzî 'et-Tevvâb' isminin mübalağa (yoğun tekrar) sigasında olduğunu belirtir — Allah bir kez değil, tekrar tekrar döner. Kul her yeni dönüşünde Allah'ın yeni bir dönüşüyle karşılaşır. Bu Kur'ânî 'buluşma' okuması tevbeyi bir 'yalvarma' değil bir 'randevu' haline getirir: kapı iki taraftan açılır. Elmalılı bu inceliği 'tevbenin kendisinin bile Allah'ın öğretisi olduğunu' belirtir — Âdem kelimeleri kendi bulmaz, Rabbinden alır. Böylece tevbenin fiili kula, kelimeleri Allah'a ait olur.",
+      "descEn": "The most striking Qur'anic subtlety of Al-Baqara 2:37: the same verb (tāba) is attributed both to Adam and to Allah. Classical exegesis stresses that this reciprocity is a semantic richness peculiar to the Qur'an. Rāzī notes that the name 'al-Tawwāb' is in the intensive form (mubālagha, denoting repeated intensity): Allah turns not once but again and again. At each new turning, the servant meets a new turning of Allah. This Qur'anic reading of a 'meeting' makes tawba not a 'plea' but a 'rendezvous': the door opens from both sides. Elmalılı notes this subtlety as 'even tawba itself being Allah's teaching': Adam does not find the words himself but receives them from his Lord. Thus the act of tawba belongs to the servant and its words to Allah."
     },
     {
       "titleTr": "Nasûhâ — Sütün Memeye Dönmediği Gibi",
+      "titleEn": "Naṣūḥā: As Milk Does Not Return to the Udder",
       "refs": [
         "Tahrîm 66:8"
       ],
-      "descTr": "Tahrîm 66:8 tevbeye tek sıfat verir: nasûhâ. Klasik tefsir kelimeyi üç okumada açar. Birincisi 'samimî' — kul kendisini kandırmaz; ikincisi 'halis' — başka niyet karışmaz; üçüncüsü 'geri dönmemek üzere' — sütün memeye geri dönmediği gibi, tevbeden sonra günaha dönüş yoktur. Râzî üçüncü okumayı 'nasûhâ'nın Kur'ânî ağırlığı' olarak niteler. Ayet aynı zamanda 'umulur ki' (ʿasâ) sigasıyla kapanır — nasûhâ tevbe bile 'garanti kabul' olarak sunulmaz. Klasik tefsir bu inceliği vurgular: kabul kulun hakkı değildir, her zaman Allah'ın lütfudur. Kurtubî nasûhâ kelimesinin kök anlamının 'nush' (samimî nasihat, saf öğüt) olduğunu belirtir — tevbe kişinin kendisine söylediği en samimî nasihattir."
+      "descTr": "Tahrîm 66:8 tevbeye tek sıfat verir: nasûhâ. Klasik tefsir kelimeyi üç okumada açar. Birincisi 'samimî' — kul kendisini kandırmaz; ikincisi 'halis' — başka niyet karışmaz; üçüncüsü 'geri dönmemek üzere' — sütün memeye geri dönmediği gibi, tevbeden sonra günaha dönüş yoktur. Râzî üçüncü okumayı 'nasûhâ'nın Kur'ânî ağırlığı' olarak niteler. Ayet aynı zamanda 'umulur ki' (ʿasâ) sigasıyla kapanır — nasûhâ tevbe bile 'garanti kabul' olarak sunulmaz. Klasik tefsir bu inceliği vurgular: kabul kulun hakkı değildir, her zaman Allah'ın lütfudur. Kurtubî nasûhâ kelimesinin kök anlamının 'nush' (samimî nasihat, saf öğüt) olduğunu belirtir — tevbe kişinin kendisine söylediği en samimî nasihattir.",
+      "descEn": "Al-Taḥrīm 66:8 gives tawba a single qualifier: naṣūḥā. Classical exegesis unfolds the word in three readings. The first is 'sincere': the servant does not deceive himself; the second is 'pure': no other intent is mixed in; the third is 'undertaken not to return': just as milk does not return to the udder, there is no return to sin after tawba. Rāzī describes the third reading as 'the Qur'anic weight of naṣūḥā.' The verse also closes with the form 'perhaps' (ʿasā): even a naṣūḥā repentance is not presented as 'guaranteed acceptance.' Classical exegesis stresses this subtlety: acceptance is not the servant's right but always Allah's grace. Qurṭubī notes that the root meaning of the word naṣūḥā is 'nuṣḥ' (sincere counsel, pure advice): tawba is the most sincere counsel a person gives himself."
     },
     {
       "titleTr": "Rahmet Kapısı — 'Ümit Kesmeyin'",
+      "titleEn": "The Door of Mercy: 'Do Not Despair'",
       "refs": [
         "Zümer 39:53"
       ],
-      "descTr": "Klasik tefsirin 'Kur'ân'ın en ümit verici ayeti' (ercâ âyetin fi'l-Kur'ân) olarak nitelediği Zümer 39:53 rahmet kapısını en geniş şekilde açar. Ayette üç Kur'ânî incelik: (1) 'kullarım' — Allah aşırı gidenleri hâlâ kendi kulları olarak sahiplenir, dışlamaz; (2) 'cemîʿan' — bütün günahlar bağışlanır, istisnasız; (3) 'lâ taknatû' — ümitsizliğe düşmeyin. Klasik tefsir bu ayetin nüzul sebebini 'büyük günahlardan sonra tevbe kabul edilir mi?' sorusuyla ilişkilendirir. Râzî 'cemîʿan'ın 'küfür de dahil' okumasını, ayetin tevbe şartını içerdiğini vurgular — hemen ardından gelen 39:54 'Rabbinize inâbe edin' der. İki ayet birlikte: rahmet niteliği sınırsız, insan tercihi sınırlıdır. Ümitsizlik Kur'ân'da özellikle yasaklanır — çünkü ümitsizlik, tevbe kapısını kulun kendi elleriyle kapatmasıdır."
+      "descTr": "Klasik tefsirin 'Kur'ân'ın en ümit verici ayeti' (ercâ âyetin fi'l-Kur'ân) olarak nitelediği Zümer 39:53 rahmet kapısını en geniş şekilde açar. Ayette üç Kur'ânî incelik: (1) 'kullarım' — Allah aşırı gidenleri hâlâ kendi kulları olarak sahiplenir, dışlamaz; (2) 'cemîʿan' — bütün günahlar bağışlanır, istisnasız; (3) 'lâ taknatû' — ümitsizliğe düşmeyin. Klasik tefsir bu ayetin nüzul sebebini 'büyük günahlardan sonra tevbe kabul edilir mi?' sorusuyla ilişkilendirir. Râzî 'cemîʿan'ın 'küfür de dahil' okumasını, ayetin tevbe şartını içerdiğini vurgular — hemen ardından gelen 39:54 'Rabbinize inâbe edin' der. İki ayet birlikte: rahmet niteliği sınırsız, insan tercihi sınırlıdır. Ümitsizlik Kur'ân'da özellikle yasaklanır — çünkü ümitsizlik, tevbe kapısını kulun kendi elleriyle kapatmasıdır.",
+      "descEn": "Al-Zumar 39:53, which classical exegesis describes as 'the most hope-giving verse of the Qur'an' (arjā āya fī'l-Qur'ān), opens the door of mercy at its widest. The verse holds three Qur'anic subtleties: (1) 'My servants': Allah still claims those who have gone to excess as His own servants and does not cast them out; (2) 'jamīʿan': all sins are forgiven, without exception; (3) 'lā taqnaṭū': do not fall into despair. Classical exegesis links the occasion of this verse's revelation to the question 'is repentance accepted after grave sins?' Rāzī stresses the reading of 'jamīʿan' as 'disbelief included' and that the verse contains the condition of tawba: for the verse immediately following, 39:54, says 'turn back (anībū) to your Lord.' The two verses together: the attribute of mercy is limitless, human choice is limited. Despair is specifically forbidden in the Qur'an: because despair is the servant closing the door of tawba with his own hands."
     },
     {
       "titleTr": "Islâh — Sözle Değil Eylemle",
+      "titleEn": "Iṣlāḥ: Not by Speech but by Action",
       "refs": [
         "Bakara 2:160"
       ],
-      "descTr": "Bakara 2:160 tevbenin kabul şartlarını üç fiille koyar: 'tâbû + aslahû + beyyenû' — döndüler + ıslah ettiler + açıkladılar. Klasik tefsir 'aslahû'yu ayetin kalbi olarak niteler: sözle tevbe yeterli değildir, eylemle düzeltme gerekir. Kurtubî ıslahı 'bozulanı onarma, yıkılanı ayakta tutma' olarak açar. Nisa 4:16 zina bağlamında da aynı şart tekrarlanır; Nisa 4:146 münâfıklar için aynı çifti kurar. Ayetin bağlamı ilmi gizleyenlerdir — onların tevbesi 'açıklama' ile tamamlanır. Râzî 'beyyenû'nun tevbenin sosyal yüzü olduğunu belirtir: kul yaptığı hatayı gerektiğinde açıkça reddetmelidir. Elmalılı ıslah şartının tevbeyi 'iç vicdanın gizli işi' olmaktan çıkarıp 'dış hayatta izlenebilir bir dönüşüm' olarak yerleştirdiğini vurgular."
+      "descTr": "Bakara 2:160 tevbenin kabul şartlarını üç fiille koyar: 'tâbû + aslahû + beyyenû' — döndüler + ıslah ettiler + açıkladılar. Klasik tefsir 'aslahû'yu ayetin kalbi olarak niteler: sözle tevbe yeterli değildir, eylemle düzeltme gerekir. Kurtubî ıslahı 'bozulanı onarma, yıkılanı ayakta tutma' olarak açar. Nisa 4:16 zina bağlamında da aynı şart tekrarlanır; Nisa 4:146 münâfıklar için aynı çifti kurar. Ayetin bağlamı ilmi gizleyenlerdir — onların tevbesi 'açıklama' ile tamamlanır. Râzî 'beyyenû'nun tevbenin sosyal yüzü olduğunu belirtir: kul yaptığı hatayı gerektiğinde açıkça reddetmelidir. Elmalılı ıslah şartının tevbeyi 'iç vicdanın gizli işi' olmaktan çıkarıp 'dış hayatta izlenebilir bir dönüşüm' olarak yerleştirdiğini vurgular.",
+      "descEn": "Al-Baqara 2:160 sets the conditions for the acceptance of tawba with three verbs: 'tābū + aṣlaḥū + bayyanū': they repented + they reformed + they made clear. Classical exegesis describes 'aṣlaḥū' as the heart of the verse: verbal tawba is not enough; reform through action is required. Qurṭubī unfolds iṣlāḥ as 'repairing what is broken, holding up what has collapsed.' The same condition recurs in Al-Nisāʾ 4:16 in the context of zinā; Al-Nisāʾ 4:146 sets the same pair for the hypocrites. The context of the verse is those who conceal knowledge: their tawba is completed by 'making clear.' Rāzī notes that 'bayyanū' is the social face of tawba: the servant must openly renounce his error when necessary. Elmalılı stresses that the condition of iṣlāḥ removes tawba from being 'the hidden work of the inner conscience' and sets it as 'a transformation observable in outward life.'"
     },
     {
       "titleTr": "Kötülüklerin İyiliğe Dönüşü — Defterde mi, Kişilikte mi?",
+      "titleEn": "The Turning of Evils into Good: in the Record or in the Character?",
       "refs": [
         "Furkan 25:70",
         "Furkan 25:71"
       ],
-      "descTr": "Furkan 25:70 tevbenin en dikkat çekici Kur'ânî vaadini koyar: 'yübeddilullahu seyyi'âtihim hasenât' — Allah kötülüklerini iyiliklere çevirir. Klasik tefsir bu vaad için iki okuma tartışır. Birincisi 'defter okuması': geçmiş günah amel defterinde silinip yerine iyilik yazılır. İkincisi 'kişilik okuması': kişide o günaha iten meyil, iyilik meyline dönüşür — öfke şecaat olur, kıskançlık iyi rekabet olur, korku takva olur. Râzî her iki okumaya değinir, ikinci okumayı ahlâki derinliği açısından öne çıkarır. İbn Kayyim gibi ahlâk odaklı klasik ulema ikinci okumayı sistemleştirir: tevbe kişide dönüşüm üretir, yalnızca defterde tashih değil. Ayet üç şart koyar: tevbe + iman + salih amel. Kurtubî bu üçlünün 'tevbenin tamamlanması' olduğunu, tek bir öğe eksik olursa vaadin karşılanmayacağını belirtir."
+      "descTr": "Furkan 25:70 tevbenin en dikkat çekici Kur'ânî vaadini koyar: 'yübeddilullahu seyyi'âtihim hasenât' — Allah kötülüklerini iyiliklere çevirir. Klasik tefsir bu vaad için iki okuma tartışır. Birincisi 'defter okuması': geçmiş günah amel defterinde silinip yerine iyilik yazılır. İkincisi 'kişilik okuması': kişide o günaha iten meyil, iyilik meyline dönüşür — öfke şecaat olur, kıskançlık iyi rekabet olur, korku takva olur. Râzî her iki okumaya değinir, ikinci okumayı ahlâki derinliği açısından öne çıkarır. İbn Kayyim gibi ahlâk odaklı klasik ulema ikinci okumayı sistemleştirir: tevbe kişide dönüşüm üretir, yalnızca defterde tashih değil. Ayet üç şart koyar: tevbe + iman + salih amel. Kurtubî bu üçlünün 'tevbenin tamamlanması' olduğunu, tek bir öğe eksik olursa vaadin karşılanmayacağını belirtir.",
+      "descEn": "Al-Furqān 25:70 sets tawba's most striking Qur'anic promise: 'yubaddilu'llāhu sayyiʾātihim ḥasanāt': Allah converts their evils into good deeds. Classical exegesis debates two readings for this promise. The first is the 'record reading': the past sin is erased from the book of deeds and a good deed is written in its place. The second is the 'character reading': the inclination that drove the person to that sin is transformed into an inclination toward good: anger becomes courage, envy becomes wholesome competition, fear becomes taqwā. Rāzī touches on both readings and foregrounds the second for its ethical depth. Ethically oriented classical scholars such as Ibn al-Qayyim systematize the second reading: tawba produces a transformation in the person, not merely a correction in the record. The verse sets three conditions: tawba + faith + righteous deed. Qurṭubī notes that this triad is 'the completion of tawba,' and that if a single element is missing the promise is not met."
     },
     {
       "titleTr": "Ânî vs Sürekli — İki Tevbe Zamanı",
+      "titleEn": "Instant vs. Continuous: Two Times of Tawba",
       "refs": [
         "Nisa 4:17",
         "Nisa 4:18",
         "Nûr 24:31"
       ],
-      "descTr": "Kur'ân tevbe için iki zaman koridoru çizer. Birincisi ânî tevbe: Nisa 4:17 'cehâlet ile' işlenen bir günahtan 'hemen' (min karîb) dönmek. Kabul şartı kısa süredir — geciken tevbe niyet güvenilirliğini kaybetmeye başlar. İkincisi sürekli tevbe: Nûr 24:31 tüm müminlere hitap eder — 'hep birlikte Allah'a tevbe edin.' Bu ikinci tevbe bir 'günahtan dönüş' değil, iman hayatının sürekli düzenidir. Klasik tefsir iki tevbe zamanının farkını vurgular: birinci ânî, ikinci hayatın nefesi. Nisa 4:18 kapanış anını da koyar: ölüm anındaki tevbe ve küfür üzere ölüm kabul edilmez. Râzî üç ayetin birlikte 'tevbenin zaman haritasını' oluşturduğunu belirtir: koridor geniş (39:53), giriş zamanı hızlı (4:17), yaşayış zamanı sürekli (24:31), kapanış anı vardır (4:18)."
+      "descTr": "Kur'ân tevbe için iki zaman koridoru çizer. Birincisi ânî tevbe: Nisa 4:17 'cehâlet ile' işlenen bir günahtan 'hemen' (min karîb) dönmek. Kabul şartı kısa süredir — geciken tevbe niyet güvenilirliğini kaybetmeye başlar. İkincisi sürekli tevbe: Nûr 24:31 tüm müminlere hitap eder — 'hep birlikte Allah'a tevbe edin.' Bu ikinci tevbe bir 'günahtan dönüş' değil, iman hayatının sürekli düzenidir. Klasik tefsir iki tevbe zamanının farkını vurgular: birinci ânî, ikinci hayatın nefesi. Nisa 4:18 kapanış anını da koyar: ölüm anındaki tevbe ve küfür üzere ölüm kabul edilmez. Râzî üç ayetin birlikte 'tevbenin zaman haritasını' oluşturduğunu belirtir: koridor geniş (39:53), giriş zamanı hızlı (4:17), yaşayış zamanı sürekli (24:31), kapanış anı vardır (4:18).",
+      "descEn": "The Qur'an draws two time-corridors for tawba. The first is instant tawba: Al-Nisāʾ 4:17, turning back 'soon' (min qarīb) from a sin committed 'in ignorance.' The condition of acceptance is a short span: a delayed repentance begins to lose the reliability of its intention. The second is continuous tawba: Al-Nūr 24:31 addresses all believers: 'turn to Allah all together.' This second tawba is not a 'turning from a sin' but the constant order of the life of faith. Classical exegesis stresses the difference between the two times of tawba: the first instant, the second the breath of life. Al-Nisāʾ 4:18 also sets the closing moment: repentance at the moment of death, and death upon disbelief, are not accepted. Rāzī notes that the three verses together form 'the time-map of tawba': the corridor is wide (39:53), the entry time is swift (4:17), the time of living it is continuous (24:31), and there is a closing moment (4:18)."
     },
     {
       "titleTr": "Süreklilik — Hayatın Nefesi",
+      "titleEn": "Continuity: the Breath of Life",
       "refs": [
         "Zümer 39:54",
         "Hûd 11:52",
         "Fetih 48:2"
       ],
-      "descTr": "Kur'ân tevbeyi bir kereye mahsus bir olay olarak değil, sürekli bir hal olarak konumlandırır. Zümer 39:54 inâbe kelimesini kullanır — 'sürekli yöneliş, defalarca dönme'. Klasik tefsir inâbe ile tevbe arasındaki farkı vurgular: tevbe belirli bir günahtan belirli bir dönüştür; inâbe kalbin sürekli yönelme halidir. Peygamberlerin ortak çağrısı (Hûd 11:3, 11:52, 11:61, 11:90) 'istiğfâr + tevbe' ikilisidir — iki fiil ayrı ama birbirini besler: istiğfâr sözle af talebi, tevbe fiilî dönüş. Fetih 48:2 Peygamber s.a.v.'in bile makam-ı istiğfârının Kur'ânî tesbitidir. Klasik ulema bu ayetlerden hareketle tevbenin 'iman hayatının sürekli döngüsü' olduğunu sistemleştirmiştir. İbn Kayyim tevbeyi 'kulun Allah'a doğru sürekli hicreti' olarak niteler — hicret bir kez olmaz, hayat boyu sürer."
+      "descTr": "Kur'ân tevbeyi bir kereye mahsus bir olay olarak değil, sürekli bir hal olarak konumlandırır. Zümer 39:54 inâbe kelimesini kullanır — 'sürekli yöneliş, defalarca dönme'. Klasik tefsir inâbe ile tevbe arasındaki farkı vurgular: tevbe belirli bir günahtan belirli bir dönüştür; inâbe kalbin sürekli yönelme halidir. Peygamberlerin ortak çağrısı (Hûd 11:3, 11:52, 11:61, 11:90) 'istiğfâr + tevbe' ikilisidir — iki fiil ayrı ama birbirini besler: istiğfâr sözle af talebi, tevbe fiilî dönüş. Fetih 48:2 Peygamber s.a.v.'in bile makam-ı istiğfârının Kur'ânî tesbitidir. Klasik ulema bu ayetlerden hareketle tevbenin 'iman hayatının sürekli döngüsü' olduğunu sistemleştirmiştir. İbn Kayyim tevbeyi 'kulun Allah'a doğru sürekli hicreti' olarak niteler — hicret bir kez olmaz, hayat boyu sürer.",
+      "descEn": "The Qur'an positions tawba not as a one-time event but as a continuous state. Al-Zumar 39:54 uses the word ināba: 'continual orientation, turning again and again.' Classical exegesis stresses the difference between ināba and tawba: tawba is a specific turning from a specific sin; ināba is the heart's continual state of turning. The common call of the prophets (Hūd 11:3, 11:52, 11:61, 11:90) is the pair 'istighfār + tawba': two distinct verbs that feed each other: istighfār the verbal plea for forgiveness, tawba the actual return. Al-Fatḥ 48:2 is the Qur'anic affirmation of even the Prophet's (peace be upon him) station of istighfār. From these verses classical scholars systematized tawba as 'the constant cycle of the life of faith.' Ibn al-Qayyim describes tawba as 'the servant's continual migration (hijra) toward Allah': a migration that happens not once but lasts a lifetime."
     }
   ],
   "insanEtkisi": [
     {
       "id": "psikolojik-yenilenme",
       "titleTr": "Psikolojik Yenilenme — Suçluluk Yükünün Kaldırılması",
-      "titleEn": "Psychological Renewal — The Lifting of the Weight of Guilt",
+      "titleEn": "Psychological Renewal: The Lifting of the Weight of Guilt",
       "refs": [
         "Zümer 39:53",
         "Furkan 25:70"
@@ -783,7 +810,7 @@
         "enShort": "O My servants who have transgressed against themselves — do not despair of Allah's mercy. Indeed Allah forgives all sins."
       },
       "descTr": "Kur'ân tevbeyi bir 'suçluluk yükünün korunması' değil, 'kaldırılması' olarak konumlandırır. Zümer 39:53 rahmet kapısını sonuna kadar açar; Furkan 25:70 geçmiş kötülüklerin iyiliklere çevrileceğini vaat eder. Klasik tefsir bu iki vaadin psikolojik ağırlığını vurgular: mümin ne kadar hata etmiş olursa olsun, tevbenin ardından hafiflemiş olarak yürür. Râzî ümit kesmeme emrinin (lâ taknatû) Kur'ânî en açık uyarılardan biri olduğunu belirtir — çünkü ümitsizlik tevbe kapısını kulun kendi elinden kapatmasıdır. Klasik tasavvuf metinleri tevbenin 'kalbin cilalanması' olduğunu ve hüzünlü suçluluğun tevbe sonrasında sükûnete dönüşmesini işler.",
-      "descEn": "The Qur'an positions tawba not as the 'preservation' of guilt but as its 'lifting.' Al-Zumar 39:53 opens the door of mercy all the way; Al-Furqān 25:70 promises the transformation of past evils into good deeds. Classical exegesis emphasizes the psychological weight of these two promises: no matter how many faults the believer has committed, he walks lightened after tawba. Rāzī notes the commandment 'do not despair' (lā taqnaṭū) is one of the Qur'an's clearest warnings — for despair is the servant closing the door of tawba from his own hand.",
+      "descEn": "The Qur'an positions tawba not as the 'preservation' of guilt but as its 'lifting.' Al-Zumar 39:53 opens the door of mercy all the way; Al-Furqān 25:70 promises the transformation of past evils into good deeds. Classical exegesis emphasizes the psychological weight of these two promises: no matter how many faults the believer has committed, he walks lightened after tawba. Rāzī notes the commandment 'do not despair' (lā taqnaṭū) is one of the Qur'an's clearest warnings: for despair is the servant closing the door of tawba from his own hand.",
       "modernIzlerTr": "Modern psikoloji suçluluğun sağlıklı bir hal olabildiği ('reparatif suçluluk') ve zehirli bir hal olabildiği ('kronik utanç') ayrımını yapar; tevbe Kur'ân'da birinciyi ikincisinden ayıran mekanizma olarak durur. Bu sayfa bu iki dili özdeşleştirmez, ancak Kur'ânî tevbenin 'sürekli suçlulukta kalma' yükünden çıkışa açtığı kapıyı görmezden gelmez.",
       "modernIzlerEn": "Modern psychology distinguishes healthy 'reparative guilt' from toxic 'chronic shame'; tawba in the Qur'an stands as the mechanism that separates the first from the second. The page does not equate the two languages, but does not overlook the door tawba opens out of the burden of 'staying in guilt.'",
       "kaynak": "Râzî, Zümer 39:53 tefsiri (ümit kesmemenin psikolojik önemi); Elmalılı Furkan 25:70"
@@ -802,7 +829,7 @@
         "enShort": "Allah accepts the repentance of those who do evil in ignorance and then repent soon after."
       },
       "descTr": "Kur'ân tevbeyi iki karşıt kutup arasında konumlandırır: aşırı suçluluk ve aşırı ümit. Bir uçta ümitsizlik (Zümer 39:53 yasaklar); diğer uçta 'gevşek ümit' — Nisa 4:17-18 gösterir ki tevbe ertelemez, kabul edilebilir olması için 'hemen' (min karîb) olmalıdır. Klasik tefsir bu iki kutbun arasındaki 'orta yol'un tevbenin Kur'ânî psikolojisini kurduğunu vurgular. Râzî mü'minin iki kanatla uçtuğunu belirtir: havf (Allah'tan sakınma) ve recâ (rahmete ümit). İki kanattan biri eksik olursa mü'min düşer — ümitsizlik onu kanat kırar, aşırı gevşeklik ise onu uçmaktan alıkoyar. Bakara 2:222 bu dengeyi 'Allah tevbe edenleri sever' cümlesiyle özetler: suçluluk sonrası tevbe sevgi ilişkisine açılır.",
-      "descEn": "The Qur'an positions tawba between two opposing poles: excessive guilt and excessive hope. On one end, despair (forbidden by Al-Zumar 39:53); on the other, 'loose hope' — Al-Nisāʾ 4:17-18 shows tawba cannot be postponed, and for it to be acceptable it must be 'soon' (min qarīb). Classical exegesis stresses that the 'middle path' between these poles establishes the Qur'anic psychology of tawba. Rāzī notes the believer flies with two wings: khawf (guarding against Allah) and rajāʾ (hope in mercy). If either is missing, the believer falls.",
+      "descEn": "The Qur'an positions tawba between two opposing poles: excessive guilt and excessive hope. On one end, despair (forbidden by Al-Zumar 39:53); on the other, 'loose hope': Al-Nisāʾ 4:17-18 shows tawba cannot be postponed, and for it to be acceptable it must be 'soon' (min qarīb). Classical exegesis stresses that the 'middle path' between these poles establishes the Qur'anic psychology of tawba. Rāzī notes the believer flies with two wings: khawf (guarding against Allah) and rajāʾ (hope in mercy). If either is missing, the believer falls.",
       "modernIzlerTr": "Modern klinik psikoloji suçluluğun sağlıklı işlevini ('davranış düzeltici sinyal') ve patolojik bir hal alışını (kronik depresif düşünce) ayırt eder. Kur'ânî 'iki kanatla uçma' modeli bu ayrıma yüzeysel olarak benzer bir denge önerir; ancak bu sayfa iki dili özdeşleştirmez.",
       "modernIzlerEn": "Modern clinical psychology distinguishes guilt's healthy function ('behavior-correcting signal') from its pathological turn (chronic depressive rumination). The Qur'anic 'two-winged flight' model offers a superficially analogous balance; the page does not equate the two languages.",
       "kaynak": "Râzî, Nisa 4:17 tefsiri (havf-recâ dengesi); Elmalılı Zümer 39:53"
@@ -810,7 +837,7 @@
     {
       "id": "ahlaki-buyume",
       "titleTr": "Ahlâki Büyüme — Meylin Dönüşümü",
-      "titleEn": "Ethical Growth — The Transformation of Inclination",
+      "titleEn": "Ethical Growth: The Transformation of Inclination",
       "refs": [
         "Furkan 25:70",
         "Furkan 25:71"
@@ -821,7 +848,7 @@
         "enShort": "Except those who repent, believe, and do righteous deeds — for them Allah will convert their evil deeds into good ones."
       },
       "descTr": "Klasik tefsir Furkan 25:70'in 'kötülükleri iyiliklere çevirme' vaadini iki okumada tartışır. Defter okuması: geçmiş günah amel defterinde silinir. Kişilik okuması: kişide o günaha iten meyil, iyilik meyline dönüşür. Öfke şecaate, kıskançlık salih rekabete, korku takvaya dönüşür. İkinci okuma İbn Kayyim ve klasik ahlâk literatüründe sistemleştirilir — tevbe kişide bir dönüşüm üretir, yalnızca defterde tashih değildir. Kurtubî bu 'meyil dönüşümü' okumasının ayete daha 'ahlâki büyüme' rengini kattığını, tevbenin bir 'silme' değil bir 'yenilenme' olduğunu vurgular. Bakara 2:222'nin 'tevbe edenleri sever' ifadesi bu büyüme sürecinin Kur'ânî onayıdır.",
-      "descEn": "Classical exegesis debates Al-Furqān 25:70's promise of 'converting evils into good deeds' in two readings. Ledger reading: past sin erased from the record. Character reading: the inclination driving the sin transforms into an inclination toward good. Anger becomes courage; envy becomes righteous ambition; fear becomes taqwā. The second reading is systematized by Ibn al-Qayyim and the classical ethical tradition — tawba produces transformation in the person, not merely a correction in the ledger. Qurṭubī notes this 'inclination transformation' reading colors the verse with 'ethical growth,' making tawba not an 'erasure' but a 'renewal.'",
+      "descEn": "Classical exegesis debates Al-Furqān 25:70's promise of 'converting evils into good deeds' in two readings. Ledger reading: past sin erased from the record. Character reading: the inclination driving the sin transforms into an inclination toward good. Anger becomes courage; envy becomes righteous ambition; fear becomes taqwā. The second reading is systematized by Ibn al-Qayyim and the classical ethical tradition: tawba produces transformation in the person, not merely a correction in the ledger. Qurṭubī notes this 'inclination transformation' reading colors the verse with 'ethical growth,' making tawba not an 'erasure' but a 'renewal.'",
       "modernIzlerTr": "Modern gelişim psikolojisi 'karakter dönüşümü'nün mümkün olup olmadığını uzun uzun tartışır. Kur'ânî tevbe modeli bir 'dönüşüm imkânı' olarak durur; bu sayfa modern psikolojinin kavramlarını Kur'ân'ın ağzına koymaz, ancak iki dilin bakabildiği ortak zeminin farkındadır.",
       "modernIzlerEn": "Modern developmental psychology debates at length whether 'character transformation' is possible. The Qur'anic tawba model stands as a 'possibility of transformation'; this page does not place modern psychology's concepts into the Qur'an's mouth, but is aware of the common ground both languages can look upon.",
       "kaynak": "Elmalılı Furkan 25:70 tefsiri (iki okuma); Râzî aynı ayet"
@@ -829,7 +856,7 @@
     {
       "id": "sosyal-duzeltme",
       "titleTr": "Sosyal Düzeltme — Kul Hakları ve Islah",
-      "titleEn": "Social Reform — Rights of Others and Iṣlāḥ",
+      "titleEn": "Social Reform: Rights of Others and Iṣlāḥ",
       "refs": [
         "Bakara 2:160"
       ],
@@ -847,7 +874,7 @@
     {
       "id": "olum-bilinci-zamanlama",
       "titleTr": "Ölüm Bilinci ve Zamanlama — Koridorun Kapanış Anı",
-      "titleEn": "Death-Awareness and Timing — The Closing Moment of the Corridor",
+      "titleEn": "Death-Awareness and Timing: The Closing Moment of the Corridor",
       "refs": [
         "Nisa 4:17",
         "Nisa 4:18"
@@ -858,7 +885,7 @@
         "enShort": "But repentance is not for those who continue to do evil deeds until, when death comes to one of them, he says: 'Now I repent.'"
       },
       "descTr": "Kur'ân tevbenin bir 'sonsuz erteleme' alanı olmadığını Nisa 4:17-18 ile açıkça bildirir. Nisa 4:17 'hemen' (min karîb) şartını koyar; 4:18 kapanış anını gösterir: ölümün geldiği anda tevbe kabul edilmez. Klasik tefsir bu kapanışın nedenini açar: ölüm anında yapılan tevbe artık iradî değildir; korkunun ve zorunluluğun ürünüdür, samimî iç dönüşün değil. Râzî bu bağlamda 'ma'yûs' (ümitsiz) ve 'muǧber' (zorunlu) tevbenin ayrımını yapar — ikisi de kabul edilmez. Klasik ulema bu ayetlerden hareketle 'ölüm bilinci'nin tevbe için pedagojik zeminini işlemiştir: kul ölümün ne zaman geleceğini bilmediği için her gün 'sanki bugün ölecekmiş gibi' tevbe etmelidir. Bu 'ölüm bilinci' Kur'ânî bir 'karamsarlık' değil, tevbenin zamanlamasını bugüne çeken bir pratik uyarıdır. Nûr 24:31'in 'hep birlikte tevbe edin' emri bu bilincin toplumsal yansımasıdır.",
-      "descEn": "The Qur'an clearly declares in Al-Nisāʾ 4:17-18 that tawba is not a field of 'infinite postponement.' Al-Nisāʾ 4:17 sets the condition of 'soon' (min qarīb); 4:18 shows the closing moment: tawba at the arrival of death is not accepted. Classical exegesis unfolds the reason: tawba at the moment of death is no longer voluntary; it is the product of fear and necessity, not sincere inner turning. Rāzī distinguishes maʾyūs (despair-driven) from mujbar (compulsion-driven) tawba — both rejected. Classical scholars, from these verses, worked out the pedagogical ground of 'death-awareness' for tawba: since the servant does not know when death comes, he must repent each day 'as if today were his death.'",
+      "descEn": "The Qur'an clearly declares in Al-Nisāʾ 4:17-18 that tawba is not a field of 'infinite postponement.' Al-Nisāʾ 4:17 sets the condition of 'soon' (min qarīb); 4:18 shows the closing moment: tawba at the arrival of death is not accepted. Classical exegesis unfolds the reason: tawba at the moment of death is no longer voluntary; it is the product of fear and necessity, not sincere inner turning. Rāzī distinguishes maʾyūs (despair-driven) from mujbar (compulsion-driven) tawba: both rejected. Classical scholars, from these verses, worked out the pedagogical ground of 'death-awareness' for tawba: since the servant does not know when death comes, he must repent each day 'as if today were his death.'",
       "modernIzlerTr": "Modern varoluşçu düşüncede 'ölüm bilinci' otantik yaşamın motoru olarak konumlandırılır (Heidegger, Yalom). Kur'ânî ölüm bilinci ise tevbenin ertelenmemesinin pratik uyarısı olarak durur; iki dil farklı zeminlerde çalışır ancak 'ölüm gerçekliğinin bugünü şekillendirmesi' fikrinde bir yüzey akrabalığı vardır.",
       "modernIzlerEn": "In modern existentialist thought, 'death-awareness' is positioned as the engine of authentic living (Heidegger, Yalom). The Qur'anic death-awareness stands as the practical warning that tawba cannot be postponed; the two languages operate on different grounds, but share a surface kinship in the idea that 'the reality of death shapes today.'",
       "kaynak": "Râzî, Nisa 4:17-18 tefsiri (ma'yûs-muǧber ayrımı); Kurtubî aynı ayetler"
@@ -870,28 +897,32 @@
       "workTr": "Mefâtîhu'l-Ğayb",
       "workEn": "Mafātīḥ al-Ghayb",
       "period": "1149-1209 (Rey)",
-      "noteTr": "Bakara 2:37 ve Tahrîm 66:8'in kelâmî derinliği için birincil referans. 'Et-Tevvâb' isminin mübalağa sigasının okunuşu, karşılıklı tevbe fiilinin semantik analizi, 'nasûhâ' kelimesinin üç okuması, Zümer 39:53-54'ün 'ercâ âyet'-'zaman sınırı' çifti ve Nisa 4:17-18'in 'min karîb' incelemesi bu sayfanın kelâmî omurgasıdır."
+      "noteTr": "Bakara 2:37 ve Tahrîm 66:8'in kelâmî derinliği için birincil referans. 'Et-Tevvâb' isminin mübalağa sigasının okunuşu, karşılıklı tevbe fiilinin semantik analizi, 'nasûhâ' kelimesinin üç okuması, Zümer 39:53-54'ün 'ercâ âyet'-'zaman sınırı' çifti ve Nisa 4:17-18'in 'min karîb' incelemesi bu sayfanın kelâmî omurgasıdır.",
+      "noteEn": "The primary reference for the theological depth of Al-Baqara 2:37 and Al-Taḥrīm 66:8. The reading of the intensive form of the name 'al-Tawwāb,' the semantic analysis of the reciprocal verb of tawba, the three readings of the word 'naṣūḥā,' the 'most hope-giving verse'-'time limit' pair of Al-Zumar 39:53-54, and the examination of 'min qarīb' in Al-Nisāʾ 4:17-18 form the theological spine of this page."
     },
     {
       "author": "Kurtubî",
       "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
       "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
       "period": "1214-1273 (Kurtuba)",
-      "noteTr": "Bakara 2:160'ın 'aslahû' şartının fıkhî açılımı ve kul haklarının iadesi çerçevesi için birincil referans. Furkan 25:70'in iki okuması, 'nasûhâ' kelimesinin nush kökeni ve Meryem 19:26'daki savm ile tevbe arasındaki semantik yakınlık bu sayfanın ıslah-eylem ekseninin ana kaynağıdır."
+      "noteTr": "Bakara 2:160'ın 'aslahû' şartının fıkhî açılımı ve kul haklarının iadesi çerçevesi için birincil referans. Furkan 25:70'in iki okuması, 'nasûhâ' kelimesinin nush kökeni ve Meryem 19:26'daki savm ile tevbe arasındaki semantik yakınlık bu sayfanın ıslah-eylem ekseninin ana kaynağıdır.",
+      "noteEn": "The primary reference for the juristic elaboration of the 'aṣlaḥū' condition in Al-Baqara 2:160 and the framework of restoring the rights of others. The two readings of Al-Furqān 25:70, the nuṣḥ origin of the word 'naṣūḥā,' and the semantic closeness between the ṣawm in Maryam 19:26 and tawba are the main source for this page's reform-and-action axis."
     },
     {
       "author": "Elmalılı Hamdi Yazır",
       "workTr": "Hak Dini Kur'ân Dili",
       "workEn": "Ḥaqq Dīnī Qur'ān Dili",
       "period": "1878-1942 (İstanbul)",
-      "noteTr": "Tevbe kökünün 'dönme' lugat açılımı için Bakara 2:37 tefsiri. Nûr 24:31'in 'felâh' kelimesinin 'yarıp geçme' okuması, Zümer 39:53'ün 'kullarım' hitabının rahmet vurgusu ve peygamberlerin ortak istiğfâr + tevbe çağrısının Türkçe okuyucu için pedagojik yerleşimi. Modern Türk okuyucu için Kur'ânî tevbe terminolojisinin en yakın referansı."
+      "noteTr": "Tevbe kökünün 'dönme' lugat açılımı için Bakara 2:37 tefsiri. Nûr 24:31'in 'felâh' kelimesinin 'yarıp geçme' okuması, Zümer 39:53'ün 'kullarım' hitabının rahmet vurgusu ve peygamberlerin ortak istiğfâr + tevbe çağrısının Türkçe okuyucu için pedagojik yerleşimi. Modern Türk okuyucu için Kur'ânî tevbe terminolojisinin en yakın referansı.",
+      "noteEn": "The commentary on Al-Baqara 2:37 for the lexical unfolding of the tawba root as 'turning.' The reading of the word 'falāḥ' in Al-Nūr 24:31 as 'breaking through,' the mercy-emphasis of the 'My servants' address in Al-Zumar 39:53, and the pedagogical placement of the prophets' shared call of istighfār + tawba for the Turkish reader. The closest reference to Qur'anic tawba terminology for the modern Turkish reader."
     },
     {
       "author": "İbn Kayyim el-Cevziyye",
       "workTr": "Medâricü's-Sâlikîn",
       "workEn": "Madārij al-Sālikīn",
       "period": "1292-1350 (Dımaşk)",
-      "noteTr": "Tevbenin ahlâki-tasavvufî derinliği için birincil referans. Furkan 25:70'in 'kötülüklerin iyiliğe çevrilmesi' vaadinin 'kişilik okuması' — meylin dönüşümü — bu eserde sistemleştirilir. Tevbenin 'sürekli hicret' olarak nitelenmesi ve inâbe ile tevbe arasındaki fark bu sayfanın 'süreklilik' okumasının klasik omurgasıdır."
+      "noteTr": "Tevbenin ahlâki-tasavvufî derinliği için birincil referans. Furkan 25:70'in 'kötülüklerin iyiliğe çevrilmesi' vaadinin 'kişilik okuması' — meylin dönüşümü — bu eserde sistemleştirilir. Tevbenin 'sürekli hicret' olarak nitelenmesi ve inâbe ile tevbe arasındaki fark bu sayfanın 'süreklilik' okumasının klasik omurgasıdır.",
+      "noteEn": "The primary reference for the ethical-Sufi depth of tawba. The 'character reading' of Al-Furqān 25:70's promise of 'the turning of evils into good': the transformation of inclination: is systematized in this work. The characterization of tawba as 'continual migration' and the difference between ināba and tawba form the classical spine of this page's reading of 'continuity.'"
     }
   ]
 }

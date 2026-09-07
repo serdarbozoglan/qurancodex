@@ -16,36 +16,39 @@
     "eyebrowTr": "KALBİN SUYUKATI · KUR'ÂN'IN NEFESİ",
     "eyebrowEn": "THE HEART'S IRRIGATION · THE QUR'AN'S BREATH",
     "subtitleTr": "'Beni anın, ben de sizi anayım' — Kur'ân'da tek karşılıklı fiil: unutulmamak için hatırlamak, hatırlanmak için hatırlamak.",
-    "subtitleEn": "'Remember Me; I will remember you' — the Qur'an's one reciprocal verb: remembering not to be forgotten, remembering to be remembered."
+    "subtitleEn": "'Remember Me; I will remember you': the Qur'an's one reciprocal verb: remembering not to be forgotten, remembering to be remembered."
   },
   "claims": [
     {
       "claimId": "zikir-karsilikli-fiil-001",
       "claimTr": "Kur'ân'da zikir, kul ile Allah arasında karşılıklı bir fiil olarak kurulur — nadir bir gramatikal denklik",
-      "claimEn": "In the Qur'an, dhikr is set as a reciprocal verb between servant and Allah — a rare grammatical parity",
+      "claimEn": "In the Qur'an, dhikr is set as a reciprocal verb between servant and Allah: a rare grammatical parity",
       "refs": [
         "Bakara 2:152"
       ],
-      "framingTr": "'Fezkurunî ezkurkum' — Bakara 2:152 iki tarafı da fâil olarak taşıyan ender ayetlerden. Klasik tefsir bu simetriyi zikrin Kur'ânî omurgası olarak okur."
+      "framingTr": "'Fezkurunî ezkurkum' — Bakara 2:152 iki tarafı da fâil olarak taşıyan ender ayetlerden. Klasik tefsir bu simetriyi zikrin Kur'ânî omurgası olarak okur.",
+      "framingEn": "'Fadhkurūnī adhkurkum': Al-Baqara 2:152 is among the rare verses that carry both parties as agents. Classical exegesis reads this symmetry as the Qur'anic spine of dhikr."
     },
     {
       "claimId": "zikir-kalp-mutmain-001",
       "claimTr": "Kur'ân kalbin mutmain olmasını Allah'ı zikretmenin tek yoluyla değil, en kesin yoluyla eşleştirir",
-      "claimEn": "The Qur'an pairs the heart's tranquility with the remembrance of Allah — not as one way but as the surest way",
+      "claimEn": "The Qur'an pairs the heart's tranquility with the remembrance of Allah: not as one way but as the surest way",
       "refs": [
         "Ra'd 13:28"
       ],
-      "framingTr": "Ra'd 13:28 'kalpler ancak Allah'ı zikirle mutmain olur' der. 'Ancak' (elâ) kelimesi klasik tefsirde 'kesinlik' anlamıyla okunur — dikkat çağıran uyarı edatı."
+      "framingTr": "Ra'd 13:28 'kalpler ancak Allah'ı zikirle mutmain olur' der. 'Ancak' (elâ) kelimesi klasik tefsirde 'kesinlik' anlamıyla okunur — dikkat çağıran uyarı edatı.",
+      "framingEn": "Al-Raʿd 13:28 says 'hearts find rest only in the remembrance of Allah.' The word 'only' (alā) is read in classical exegesis with the sense of 'certainty': an attention-calling particle of alert."
     },
     {
       "claimId": "zikir-her-hal-001",
       "claimTr": "Kur'ân zikri hiçbir bedensel duruşa bağlamaz — ayakta, oturarak, yanlar üzere, uyanıkken",
-      "claimEn": "The Qur'an binds dhikr to no bodily posture — standing, sitting, lying on one's side",
+      "claimEn": "The Qur'an binds dhikr to no bodily posture: standing, sitting, lying on one's side",
       "refs": [
         "Âl-i İmrân 3:191",
         "Nisa 4:103"
       ],
-      "framingTr": "Âl-i İmrân 3:191 ve Nisa 4:103 aynı üçlü duruş listesini kullanır: kıyâmen, kuûden, alâ cunûbihim. Zikrin bedenle sınırı yok — hâlin sınırı yok."
+      "framingTr": "Âl-i İmrân 3:191 ve Nisa 4:103 aynı üçlü duruş listesini kullanır: kıyâmen, kuûden, alâ cunûbihim. Zikrin bedenle sınırı yok — hâlin sınırı yok.",
+      "framingEn": "Āl ʿImrān 3:191 and Al-Nisāʾ 4:103 use the same list of three postures: qiyāman, quʿūdan, ʿalā junūbihim (standing, sitting, and on their sides). Dhikr has no bodily limit: no limit of state."
     },
     {
       "claimId": "zikir-namaz-hedef-birligi-001",
@@ -55,36 +58,37 @@
         "Tâhâ 20:14",
         "Ankebût 29:45"
       ],
-      "framingTr": "Tâhâ 20:14: 'Beni anmak için namaz kıl' — namazın amacı zikir. Ankebût 29:45: 'Allah'ı zikretmek daha büyüktür' — namazın kendi büyüklüğü zikrin içine yerleşir. İki ayet çelişmez; hiyerarşiyi kurar."
+      "framingTr": "Tâhâ 20:14: 'Beni anmak için namaz kıl' — namazın amacı zikir. Ankebût 29:45: 'Allah'ı zikretmek daha büyüktür' — namazın kendi büyüklüğü zikrin içine yerleşir. İki ayet çelişmez; hiyerarşiyi kurar.",
+      "framingEn": "Ṭāhā 20:14: 'Establish the prayer for My remembrance': the aim of prayer is dhikr. Al-ʿAnkabūt 29:45: 'The remembrance of Allah is greater': prayer's own greatness is set within dhikr. The two verses do not contradict; they establish a hierarchy."
     }
   ],
   "genelBakis": {
     "introTr": "Kur'ân zikri tek bir kalıba sıkıştırmaz. Zikir bazen dilin bir kelimeyi tekrarı (tesbih, tahmid, tekbir, tehlil, istiğfar); bazen kalbin bir hâli (mutmain olma, gaflete karşı uyanıklık); bazen aklın bir hareketi (tefekkür, âyetleri düşünme); bazen bedenin bir duruşu (namaz — 'beni anmak için namaz kıl'). Bu geniş semantik alanın merkezinde tek bir denklik durur: 'Beni anın, ben de sizi anayım' (Bakara 2:152). Bu ayetin gramatik simetrisi — iki tarafın da fâil olarak yerleştirilmesi — Kur'ân'da nadir bir denkliktir ve klasik tefsir bu simetriyi zikrin ontolojik omurgası olarak okur. Sabah ve akşam sınırları (Ahzâb 33:41-42), her bedensel duruş için verilen açık izin (Âl-i İmrân 3:191), gafletin uyandırılması (Kehf 18:24), namazın kendi amacının zikir olarak tanımlanması (Tâhâ 20:14) — bunların hepsi Kur'ân'ın zikri belirli bir 'ibadet' değil, ibadetin nefesi olarak konumlandırdığını gösterir. Kalp mutmain olur (Ra'd 13:28), dil arınır (A'lâ 87:14-15), toplum zikirle bir araya gelir (Cum'a 62:9).",
-    "introEn": "The Qur'an does not compress dhikr into a single mold. Dhikr is sometimes the tongue's repetition of a word (tasbīḥ, taḥmīd, takbīr, tahlīl, istighfār); sometimes a state of the heart (attaining tranquility, being awake against heedlessness); sometimes a movement of the mind (tafakkur, contemplating the verses); sometimes a bodily posture (prayer — 'establish the prayer for My remembrance'). At the center of this broad semantic field stands a single reciprocity: 'Remember Me; I will remember you' (Baqara 2:152). The grammatical symmetry of this verse — both parties placed as agents — is rare in the Qur'an, and classical exegesis reads this symmetry as the ontological spine of dhikr. Morning-evening limits (Aḥzāb 33:41-42), the explicit permission for every bodily posture (Āl ʿImrān 3:191), the awakening from forgetting (Kahf 18:24), and prayer defined by its own aim as dhikr (Ṭāhā 20:14) — all show that the Qur'an positions dhikr not as one specific 'act of worship' but as the breath of worship itself. The heart attains tranquility (Raʿd 13:28), the tongue is purified (Aʿlā 87:14-15), the community gathers in remembrance (Jumuʿa 62:9).",
+    "introEn": "The Qur'an does not compress dhikr into a single mold. Dhikr is sometimes the tongue's repetition of a word (tasbīḥ, taḥmīd, takbīr, tahlīl, istighfār); sometimes a state of the heart (attaining tranquility, being awake against heedlessness); sometimes a movement of the mind (tafakkur, contemplating the verses); sometimes a bodily posture (prayer: 'establish the prayer for My remembrance'). At the center of this broad semantic field stands a single reciprocity: 'Remember Me; I will remember you' (Baqara 2:152). The grammatical symmetry of this verse: both parties placed as agents: is rare in the Qur'an, and classical exegesis reads this symmetry as the ontological spine of dhikr. Morning-evening limits (Aḥzāb 33:41-42), the explicit permission for every bodily posture (Āl ʿImrān 3:191), the awakening from forgetting (Kahf 18:24), and prayer defined by its own aim as dhikr (Ṭāhā 20:14): all show that the Qur'an positions dhikr not as one specific 'act of worship' but as the breath of worship itself. The heart attains tranquility (Raʿd 13:28), the tongue is purified (Aʿlā 87:14-15), the community gathers in remembrance (Jumuʿa 62:9).",
     "keyPoints": [
       {
         "titleTr": "Karşılıklı zikir — 'Beni anın, ben de sizi anayım'",
-        "titleEn": "Reciprocal remembrance — 'Remember Me; I will remember you'",
+        "titleEn": "Reciprocal remembrance: 'Remember Me; I will remember you'",
         "descTr": "Bakara 2:152 iki tarafı fâil kılan bir simetri kurar: fe-zkurûnî ezkurkum. Klasik tefsir Kur'ân'da bu gramatikal denkliğin nadir olduğunu vurgular — çünkü genellikle Allah 'gerçekleştiren', kul 'gerçekleşen'dir. Zikirde ise iki taraf da özne konumundadır. Râzî bu simetriyi 'Allah'ın kulunu anması' ifadesinin ne anlama geldiği üzerine uzun uzun durur: rahmetle anma, meleklerin şahitliğinde anma, ödülle karşılık verme.",
-        "descEn": "Baqara 2:152 sets up a symmetry that places both parties as agents: fa-dhkurūnī adhkurkum. Classical exegesis emphasizes the rarity of this grammatical parity in the Qur'an — usually Allah is the actor and the servant the recipient. In dhikr, both stand as subjects. Rāzī dwells at length on what 'Allah's remembrance of the servant' means: remembering with mercy, remembering in the witness of the angels, answering with reward."
+        "descEn": "Baqara 2:152 sets up a symmetry that places both parties as agents: fa-dhkurūnī adhkurkum. Classical exegesis emphasizes the rarity of this grammatical parity in the Qur'an: usually Allah is the actor and the servant the recipient. In dhikr, both stand as subjects. Rāzī dwells at length on what 'Allah's remembrance of the servant' means: remembering with mercy, remembering in the witness of the angels, answering with reward."
       },
       {
         "titleTr": "Kalp mutmainliği — 'Ancak' edatının ağırlığı",
-        "titleEn": "The heart's tranquility — the weight of 'only'",
+        "titleEn": "The heart's tranquility: the weight of 'only'",
         "descTr": "Ra'd 13:28 der ki: 'Elâ bi-zikrillâhi tatmainnu'l-kulûb' — 'Bilesiniz ki kalpler ancak Allah'ı zikirle mutmain olur.' Klasik tefsir 'elâ' edatının Arapçada dikkat çekme ve kesinlik anlamı taşıdığına, 'ancak' anlamındaki (mâ) sınırlamanın ise diğer huzur yollarını değil, zikirle huzuru yalnızlaştırdığına dikkat çeker. Elmalılı bu ayeti 'insanın kalbinin gerçek ekseni' olarak okur.",
-        "descEn": "Raʿd 13:28 says: 'Alā bi-dhikrillāhi taṭmaʾinnu'l-qulūb' — 'Verily, in the remembrance of Allah do hearts find rest.' Classical exegesis notes that the particle 'alā' carries both attention-calling and certainty in Arabic, and the restrictive negation (mā) does not deny other paths to peace but singles out remembrance as the peace-giver. Elmalılı reads this verse as 'the true axis of the human heart.'"
+        "descEn": "Raʿd 13:28 says: 'Alā bi-dhikrillāhi taṭmaʾinnu'l-qulūb': 'Verily, in the remembrance of Allah do hearts find rest.' Classical exegesis notes that the particle 'alā' carries both attention-calling and certainty in Arabic, and the restrictive negation (mā) does not deny other paths to peace but singles out remembrance as the peace-giver. Elmalılı reads this verse as 'the true axis of the human heart.'"
       },
       {
         "titleTr": "Zikir > namaz — büyük çerçeve",
-        "titleEn": "Dhikr > prayer — the larger frame",
+        "titleEn": "Dhikr > prayer: the larger frame",
         "descTr": "Ankebût 29:45 der: 'Şüphesiz namaz fahşadan ve münkerden alıkoyar; Allah'ı zikretmek ise daha büyüktür.' Klasik tefsir bu ayetin dikkat çekici bir cümlesini uzun uzun tartışır. 'Allah'ı zikretmek daha büyüktür' ifadesi üç okuma alır: (1) Allah'ın kulunu anması namazdan büyüktür (Râzî'nin tercih ettiği); (2) namaz zikrin bir biçimidir, kaplayıcı olan zikirdir (İbn Abbâs'a nispet edilen); (3) namaz içindeki zikir namazın diğer boyutlarından büyüktür. Üç okuma da zikri namaz ile aynı düzlemde değil, onu kapsayan bir çerçevede konumlar.",
         "descEn": "ʿAnkabūt 29:45 says: 'Indeed the prayer forbids indecency and evil; and the remembrance of Allah is greater.' Classical exegesis discusses this striking clause at length. 'The remembrance of Allah is greater' receives three readings: (1) Allah's remembrance of the servant is greater than prayer (Rāzī's preferred reading); (2) prayer is a form of dhikr, and dhikr is the encompassing frame (attributed to Ibn ʿAbbās); (3) the dhikr within prayer is greater than prayer's other dimensions. All three readings place dhikr not on a plane equal to prayer but in a frame that encompasses it."
       },
       {
         "titleTr": "Sabah-akşam ritmi — günün iki ucu",
-        "titleEn": "Morning-evening rhythm — the two ends of the day",
+        "titleEn": "Morning-evening rhythm: the two ends of the day",
         "descTr": "Ahzâb 33:41-42 der: 'Ey iman edenler! Allah'ı çokça zikredin ve O'nu sabah akşam tesbih edin.' Aynı ikili sınır A'râf 7:205, Nûr 24:36, Ra'd 13:15, İnsan 76:25 gibi başka ayetlerde de tekrarlanır. Klasik tefsir 'bukratan ve asîlâ' ifadesinin günün iki ucunu — güneşin doğuşu ve batışı sınırlarını — özetlediğini, bu ritmin zikrin bedensel değil, zamansal bir çerçevesi olduğunu vurgular. Namaz vakitleri bu çerçeveye yerleşir; zikir ise vakitleri kapsar.",
-        "descEn": "Aḥzāb 33:41-42 says: 'O you who believe! Remember Allah with much remembrance, and glorify Him morning and evening.' The same twofold limit is repeated in Aʿrāf 7:205, Nūr 24:36, Raʿd 13:15, and Insān 76:25. Classical exegesis emphasizes that 'bukratan wa aṣīlan' sums up the two ends of the day — the limits of sunrise and sunset — and that this rhythm is not a bodily but a temporal frame for dhikr. The prayer times settle within this frame; dhikr itself encompasses the times."
+        "descEn": "Aḥzāb 33:41-42 says: 'O you who believe! Remember Allah with much remembrance, and glorify Him morning and evening.' The same twofold limit is repeated in Aʿrāf 7:205, Nūr 24:36, Raʿd 13:15, and Insān 76:25. Classical exegesis emphasizes that 'bukratan wa aṣīlan' sums up the two ends of the day: the limits of sunrise and sunset: and that this rhythm is not a bodily but a temporal frame for dhikr. The prayer times settle within this frame; dhikr itself encompasses the times."
       }
     ]
   },
@@ -120,25 +124,25 @@
         {
           "layer": "İbadet olarak zikir",
           "descTr": "Kur'ânî ana kullanım — Allah'ı anma ibadeti. Bakara 2:152 ('Beni anın, ben de sizi anayım'), Ahzâb 33:41-42 ('Allah'ı çokça zikredin'), Cum'a 62:10 ('Allah'ı çokça zikredin') gibi ayetler zikri müstakil bir ibadet biçimi olarak sabitler.",
-          "descEn": "The Qur'an's primary usage — the worship of remembering Allah. Verses like Baqara 2:152 ('Remember Me; I will remember you'), Aḥzāb 33:41-42 ('Remember Allah with much remembrance'), and Jumuʿa 62:10 ('Remember Allah abundantly') establish dhikr as a distinct form of worship.",
+          "descEn": "The Qur'an's primary usage: the worship of remembering Allah. Verses like Baqara 2:152 ('Remember Me; I will remember you'), Aḥzāb 33:41-42 ('Remember Allah with much remembrance'), and Jumuʿa 62:10 ('Remember Allah abundantly') establish dhikr as a distinct form of worship.",
           "kaynak": "Râzî, Bakara 2:152 tefsiri"
         },
         {
           "layer": "Hatırlama, gafletin karşıtı",
           "descTr": "Kök 'hatırlamak, unuttuğunu geri getirmek' anlamındadır. Kehf 18:24 'Rabbini unuttuğunda hemen an' der; A'râf 7:205 zikri 'gafil olma' fiiliyle karşı karşıya koyar. Zikir bu katmanda 'gaflete karşı sürekli uyanıklık'tır; ibadet olarak zikrin altında yatan psikolojik omurga.",
-          "descEn": "The root denotes 'remembering, bringing back what was forgotten.' Kahf 18:24 says 'remember your Lord when you forget'; Aʿrāf 7:205 sets dhikr against the verb 'being heedless.' Dhikr in this layer is 'continuous wakefulness against heedlessness' — the psychological spine beneath dhikr as worship.",
+          "descEn": "The root denotes 'remembering, bringing back what was forgotten.' Kahf 18:24 says 'remember your Lord when you forget'; Aʿrāf 7:205 sets dhikr against the verb 'being heedless.' Dhikr in this layer is 'continuous wakefulness against heedlessness': the psychological spine beneath dhikr as worship.",
           "kaynak": "Kurtubî, Kehf 18:24 tefsiri; Elmalılı, A'râf 7:205"
         },
         {
           "layer": "Kur'ân'ın kendi ismi",
           "descTr": "Kur'ân kendi kendini 'Zikr' olarak da adlandırır: 'İnnâ nahnu nezzelne'z-Zikra ve innâ lehû lehâfizûn' (Hicr 15:9). Enbiyâ 21:50 'Bu (Kur'ân), indirdiğimiz mübarek bir Zikr'dir' der. Klasik tefsir bu adın Kur'ân'ın 'insanı hatırlatan, uyandıran' işlevini vurguladığını belirtir — kelime bir ibadet fiilinden bir Kitap adına yükselir.",
-          "descEn": "The Qur'an names itself 'Dhikr' as well: 'Indeed, We have sent down the Dhikr, and We are its guardian' (Ḥijr 15:9). Anbiyāʾ 21:50: 'This is a blessed Dhikr which We have sent down.' Classical exegesis notes that this naming emphasizes the Qur'an's function as 'that which reminds and awakens' — the word rises from an act of worship to the name of the Book.",
+          "descEn": "The Qur'an names itself 'Dhikr' as well: 'Indeed, We have sent down the Dhikr, and We are its guardian' (Ḥijr 15:9). Anbiyāʾ 21:50: 'This is a blessed Dhikr which We have sent down.' Classical exegesis notes that this naming emphasizes the Qur'an's function as 'that which reminds and awakens': the word rises from an act of worship to the name of the Book.",
           "kaynak": "Râzî, Hicr 15:9 tefsiri; Elmalılı, Enbiyâ 21:50"
         },
         {
           "layer": "Kök anlamı: hazır tutmak",
           "descTr": "Klasik lugatta ذ ك ر kökü 'zihinde bir şeyi hazır tutmak, unutulmasına izin vermemek' anlamındadır. Bu, sözlü tekrardan önce gelen bir zihinsel duruştur — dilin hareketi bu zihinsel duruşun sesli hâlidir. Klasik ahlâk literatürü zikri iki katmanlı okur: 'dilin zikri' (jahrī) ve 'kalbin zikri' (khafī), ikincisi kökün asıl semantik omurgası.",
-          "descEn": "In classical lexicography, the root dh-k-r denotes 'holding something present in the mind, not allowing it to be forgotten.' This is a mental stance preceding oral repetition — the tongue's motion is the audible form of this mental stance. Classical ethical literature reads dhikr in two layers: 'the tongue's dhikr' (jahrī) and 'the heart's dhikr' (khafī), the latter being the root's true semantic spine.",
+          "descEn": "In classical lexicography, the root dh-k-r denotes 'holding something present in the mind, not allowing it to be forgotten.' This is a mental stance preceding oral repetition: the tongue's motion is the audible form of this mental stance. Classical ethical literature reads dhikr in two layers: 'the tongue's dhikr' (jahrī) and 'the heart's dhikr' (khafī), the latter being the root's true semantic spine.",
           "kaynak": "Elmalılı, Bakara 2:152 tefsiri (lugat açılımı)"
         }
       ]
@@ -170,7 +174,7 @@
         {
           "layer": "Tenzih — noksandan uzaklaştırma",
           "descTr": "Tesbih 'Subhânallâh' — 'Allah her türlü noksandan uzaktır' — formülüyle Kur'ân'ın en yaygın zikir biçimidir. Kök 'yüzmek, akıp gitmek' asıl anlamındandır; mecazen 'sıfatları noksandan çıkarıp yücede tutmak' anlamı verir. Klasik tefsir tesbihin zikrin 'tenzîhî' yönü olduğunu — Allah'ı 'ne değildir' yönüyle andığını — vurgular.",
-          "descEn": "Tasbīḥ is the Qur'an's most frequent form of dhikr, expressed in the formula 'Subḥān Allāh' — 'Allah is far from every deficiency.' The root's primary sense is 'swimming, flowing swiftly'; metaphorically it yields 'lifting the attributes from deficiency and holding them in exaltation.' Classical exegesis emphasizes that tasbīḥ is the tanzīhī side of dhikr — remembering Allah in terms of 'what He is not.'",
+          "descEn": "Tasbīḥ is the Qur'an's most frequent form of dhikr, expressed in the formula 'Subḥān Allāh': 'Allah is far from every deficiency.' The root's primary sense is 'swimming, flowing swiftly'; metaphorically it yields 'lifting the attributes from deficiency and holding them in exaltation.' Classical exegesis emphasizes that tasbīḥ is the tanzīhī side of dhikr: remembering Allah in terms of 'what He is not.'",
           "kaynak": "Râzî, İsrâ 17:44 tefsiri (kâinatın tesbihi bağlamı)"
         },
         {
@@ -207,7 +211,7 @@
         {
           "layer": "Şükrün üstü — koşulsuz övgü",
           "descTr": "Tahmid 'el-hamdu lillâh' — 'Övgü Allah'a mahsustur' — formülüyle Kur'ân'ın en özet zikir biçimidir. Fatiha bu formülle açılır. Klasik tefsir hamd ile şükr arasındaki farkı önemle çizer: şükr 'bir iyilik karşısında' yapılan teşekkür, hamd ise iyilik olsun olmasın 'övgüye layık olana' yapılan koşulsuz övgüdür. Fatiha 'el-hamdu lillâh' der, 'eş-şükru lillâh' demez — ayrım Kur'ânî bir tercihtir.",
-          "descEn": "Taḥmīd is the Qur'an's most compressed form of dhikr, expressed in the formula 'al-ḥamdu lillāh' — 'praise belongs to Allah.' The Fātiḥa opens with this formula. Classical exegesis carefully draws the distinction between ḥamd and shukr: shukr is the thanks given in response to a favor received, while ḥamd is the unconditional praise given to what is worthy of praise, whether one has received a favor or not. The Fātiḥa says 'al-ḥamdu lillāh,' not 'ash-shukru lillāh' — the choice is Qur'anic.",
+          "descEn": "Taḥmīd is the Qur'an's most compressed form of dhikr, expressed in the formula 'al-ḥamdu lillāh': 'praise belongs to Allah.' The Fātiḥa opens with this formula. Classical exegesis carefully draws the distinction between ḥamd and shukr: shukr is the thanks given in response to a favor received, while ḥamd is the unconditional praise given to what is worthy of praise, whether one has received a favor or not. The Fātiḥa says 'al-ḥamdu lillāh,' not 'ash-shukru lillāh': the choice is Qur'anic.",
           "kaynak": "Râzî, Fâtiha 1:2 tefsiri (hamd ↔ şükr farkı); Kurtubî aynı ayet"
         }
       ]
@@ -238,7 +242,7 @@
         {
           "layer": "Yüceltme formülü",
           "descTr": "Tekbir 'Allâhu Ekber' — 'Allah en büyüktür' — formülüyle namazın açılış anahtarı ve zikrin en yoğun kaplayıcı biçimidir. Bakara 2:185 der: 'Sayıyı tamamlamanız ve sizi doğru yola iletmesinden dolayı Allah'ı yüceltmeniz için (li-tukebbirû'llâh)' — Ramazan sonrası tekbirin Kur'ânî kaynağı bu ayette yerleşiktir. İsrâ 17:111 aynı fiil çekimini kullanır: 've kebbirhu tekbîran'.",
-          "descEn": "Takbīr is the opening key of prayer and the most encompassing form of dhikr, expressed in the formula 'Allāhu Akbar' — 'Allah is the greatest.' Baqara 2:185 says: 'That you may complete the count and glorify Allah for having guided you (li-tukabbirū'llāh)' — the Qur'anic source for post-Ramaḍān takbīr sits in this verse. Isrāʾ 17:111 uses the same verb-form: 'wa kabbirhu takbīrā.'",
+          "descEn": "Takbīr is the opening key of prayer and the most encompassing form of dhikr, expressed in the formula 'Allāhu Akbar': 'Allah is the greatest.' Baqara 2:185 says: 'That you may complete the count and glorify Allah for having guided you (li-tukabbirū'llāh)': the Qur'anic source for post-Ramaḍān takbīr sits in this verse. Isrāʾ 17:111 uses the same verb-form: 'wa kabbirhu takbīrā.'",
           "kaynak": "Kurtubî, Bakara 2:185 tefsiri; Râzî, İsrâ 17:111"
         }
       ]
@@ -268,7 +272,7 @@
         {
           "layer": "Tevhidin özet cümlesi",
           "descTr": "Tehlîl 'Lâ ilâhe illâllah' — 'Allah'tan başka ilah yoktur' — formülüyle tevhidin özet cümlesidir. Klasik ahlâk literatürü bunu 'zikirlerin efdali' olarak niteler. Sâffât 37:35 der: 'Kendilerine 'Lâ ilâhe illâllah' denildiğinde büyüklük taslarlardı.' Muhammed 47:19 emir kipiyle gelir: 'Bil ki Allah'tan başka ilah yoktur.' Kelime-i tevhid Kur'ân'da bir kimliğin — mü'min olma halinin — açığa çıkışı olarak konumlanır.",
-          "descEn": "Tahlīl is the compressed sentence of tawḥīd, expressed in the formula 'Lā ilāha illā-llāh' — 'There is no deity except Allah.' Classical ethical literature names this 'the noblest of dhikrs.' Ṣāffāt 37:35 says: 'When it was said to them, 'There is no deity except Allah,' they were arrogant.' Muḥammad 47:19 comes in imperative form: 'Know that there is no deity except Allah.' The kalimat al-tawḥīd stands in the Qur'an as the emergence of an identity — the state of being a believer.",
+          "descEn": "Tahlīl is the compressed sentence of tawḥīd, expressed in the formula 'Lā ilāha illā-llāh': 'There is no deity except Allah.' Classical ethical literature names this 'the noblest of dhikrs.' Ṣāffāt 37:35 says: 'When it was said to them, 'There is no deity except Allah,' they were arrogant.' Muḥammad 47:19 comes in imperative form: 'Know that there is no deity except Allah.' The kalimat al-tawḥīd stands in the Qur'an as the emergence of an identity: the state of being a believer.",
           "kaynak": "Râzî, Muhammed 47:19 tefsiri; Elmalılı aynı ayet"
         }
       ]
@@ -300,7 +304,7 @@
         {
           "layer": "Örtülmeyi isteme",
           "descTr": "Kök غ ف ر 'örtmek' demektir. İstiğfâr 'estağfirullah' — 'Allah'tan örtmesini/bağışlamasını dilerim' — formülüyle günahın 'üstünü kapatmasını' isteme fiilidir. Nûh 71:10-12 istiğfârın kozmik bereketle bağını kurar: 'Rabbinize istiğfâr edin; O çokça bağışlayıcıdır. Üzerinize bereketli yağmurlar gönderir, size mallar ve oğullar bağışlar.' Klasik tefsir istiğfârın zikrin en somut kul-cihetli halka olduğunu vurgular.",
-          "descEn": "The root gh-f-r means 'to cover.' Istighfār is the act of asking that a sin be 'covered' — expressed in the formula 'astaghfirullāh' — 'I seek covering/forgiveness from Allah.' Nūḥ 71:10-12 ties istighfār to cosmic blessing: 'Seek forgiveness from your Lord; He is ever a Perpetual Forgiver. He will send rain from the sky in abundance and give you wealth and children.' Classical exegesis emphasizes istighfār as the most concrete servant-facing link of dhikr.",
+          "descEn": "The root gh-f-r means 'to cover.' Istighfār is the act of asking that a sin be 'covered': expressed in the formula 'astaghfirullāh': 'I seek covering/forgiveness from Allah.' Nūḥ 71:10-12 ties istighfār to cosmic blessing: 'Seek forgiveness from your Lord; He is ever a Perpetual Forgiver. He will send rain from the sky in abundance and give you wealth and children.' Classical exegesis emphasizes istighfār as the most concrete servant-facing link of dhikr.",
           "kaynak": "Râzî, Nûh 71:10-12 tefsiri; Kurtubî aynı ayet"
         }
       ]
@@ -323,7 +327,7 @@
         "root": "ص ل و",
         "source": "manual — kök namaz + salavat türevlerini birlikte içerir",
         "displayLabelTr": "1 (salavat özel emri — Ahzâb 33:56)",
-        "displayLabelEn": "1 (specific command — Aḥzāb 33:56)",
+        "displayLabelEn": "1 (specific command: Aḥzāb 33:56)",
         "humanSpotChecked": true,
         "spotCheckNote": "Kök ص ل و çok geniş (~100+ türev); 'salavat' özel anlamıyla Peygamber'e getirilen dua Ahzâb 33:56'da doğrudan emredilir. Diğer türevler namaz (ṣalāh) anlamındadır."
       },
@@ -331,7 +335,7 @@
         {
           "layer": "Peygamber'e dua",
           "descTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin iki yönünü vurgular. Birincisi: 'salât' fiilinin özneleri arasında Allah'ın kendisi bulunur — nadir bir Kur'ânî kompozisyon. İkincisi: kula verilen emir, kâinatın yaptığı bir eyleme katılma emridir. Salavat böylece 'sadece bir dua' değil, 'kozmik bir korodaki insanın yeri'dir.",
-          "descEn": "Aḥzāb 33:56 says: 'Indeed, Allah and His angels send blessings upon the Prophet. O you who believe! Send blessings upon him and greet him with (a becoming) salutation.' Classical exegesis emphasizes two dimensions. First: Allah Himself is among the subjects of the verb ṣallā — a rare Qur'anic composition. Second: the command given to the servant is a command to join an action already underway across creation. Ṣalawāt thus stands not as 'merely a supplication' but as 'the human's place in a cosmic chorus.'",
+          "descEn": "Aḥzāb 33:56 says: 'Indeed, Allah and His angels send blessings upon the Prophet. O you who believe! Send blessings upon him and greet him with (a becoming) salutation.' Classical exegesis emphasizes two dimensions. First: Allah Himself is among the subjects of the verb ṣallā: a rare Qur'anic composition. Second: the command given to the servant is a command to join an action already underway across creation. Ṣalawāt thus stands not as 'merely a supplication' but as 'the human's place in a cosmic chorus.'",
           "kaynak": "Râzî, Ahzâb 33:56 tefsiri; Kurtubî aynı ayet"
         }
       ]
@@ -362,7 +366,7 @@
         {
           "layer": "Zikrin zihinsel halkası",
           "descTr": "Âl-i İmrân 3:191 der: 'Onlar ayakta, oturarak ve yanları üzeri Allah'ı zikrederler; göklerin ve yerin yaratılışı üzerinde tefekkür ederler.' Bu ayet zikir ile tefekkürü tek nefeste birleştirir. Klasik tefsir tefekkürü 'zikrin zihinsel halkası' olarak okur — dilin sesli zikri kalpte titrer, zihinde tefekküre dönüşür. Ra'd 13:28 'kalpler mutmain olur' der; Âl-i İmrân 3:191 kalbin bu mutmain halinin akılla birlikte yürüdüğünü gösterir.",
-          "descEn": "Āl ʿImrān 3:191 says: 'Those who remember Allah standing, sitting, and on their sides, and reflect (yatafakkarūna) upon the creation of the heavens and the earth.' This verse unites dhikr and tafakkur in a single breath. Classical exegesis reads tafakkur as 'the mental link of dhikr' — the tongue's audible dhikr trembles in the heart, and turns in the mind into tafakkur. Raʿd 13:28 says 'hearts find rest'; Āl ʿImrān 3:191 shows that this restful state walks together with the intellect.",
+          "descEn": "Āl ʿImrān 3:191 says: 'Those who remember Allah standing, sitting, and on their sides, and reflect (yatafakkarūna) upon the creation of the heavens and the earth.' This verse unites dhikr and tafakkur in a single breath. Classical exegesis reads tafakkur as 'the mental link of dhikr': the tongue's audible dhikr trembles in the heart, and turns in the mind into tafakkur. Raʿd 13:28 says 'hearts find rest'; Āl ʿImrān 3:191 shows that this restful state walks together with the intellect.",
           "kaynak": "Râzî, Âl-i İmrân 3:191 tefsiri; Elmalılı aynı ayet"
         }
       ]
@@ -424,7 +428,7 @@
         {
           "layer": "Zikrin zamansal çerçevesi",
           "descTr": "Kur'ân zikri gün içinde iki uçla sınırlar: sabâh ve akşam. Ahzâb 33:42 'sabah akşam O'nu tesbih edin' der; A'râf 7:205 'sabah akşam kendi içinden Rabbini an, gafillerden olma' der. Klasik tefsir bu ikili sınırın 'günün iki eşiği' anlamına geldiğini, iki eşikte durulan bir zikrin ise 'günün tamamına yayılmış bir uyanıklık' anlamını taşıdığını vurgular. Namaz vakitleri bu iki uç arasında dağılır.",
-          "descEn": "The Qur'an bounds dhikr within the day by two ends: morning and evening. Aḥzāb 33:42 says 'glorify Him morning and evening'; Aʿrāf 7:205 says 'remember your Lord within yourself morning and evening, do not be among the heedless.' Classical exegesis notes that this twofold limit denotes 'the two thresholds of the day' — and that a dhikr held at both thresholds carries the meaning of 'wakefulness stretched across the whole day.' The prayer times distribute themselves between these two ends.",
+          "descEn": "The Qur'an bounds dhikr within the day by two ends: morning and evening. Aḥzāb 33:42 says 'glorify Him morning and evening'; Aʿrāf 7:205 says 'remember your Lord within yourself morning and evening, do not be among the heedless.' Classical exegesis notes that this twofold limit denotes 'the two thresholds of the day': and that a dhikr held at both thresholds carries the meaning of 'wakefulness stretched across the whole day.' The prayer times distribute themselves between these two ends.",
           "kaynak": "Kurtubî, Ahzâb 33:42 tefsiri; Elmalılı, A'râf 7:205"
         }
       ]
@@ -455,7 +459,7 @@
         {
           "layer": "Zikrin zıddı — dikkatin dağılması",
           "descTr": "A'râf 7:205 der: 'Sabah akşam kendi içinden Rabbini an; ve gafillerden olma.' Ayet zikri emrederken hemen ardından gafleti yasaklar — iki fiil Kur'ân'da doğrudan karşı karşıya konumlanır. Klasik tefsir gafletin 'unutma' değil, 'unutmayı hissetmeme' hali olduğunu vurgular. Kehf 18:24 'unuttuğunda hemen an' der — unutmak gafletten çıkışın kapısıdır; gaflet ise unuttuğunun bile farkında olmamaktır. Zikir bu farkındalığın kendisidir.",
-          "descEn": "Aʿrāf 7:205 says: 'Remember your Lord within yourself morning and evening, and do not be among the heedless.' The verse commands dhikr and immediately forbids ghafla — the two verbs are placed directly opposite each other in the Qur'an. Classical exegesis emphasizes that ghafla is not 'forgetting' but 'not feeling the forgetting.' Kahf 18:24 says 'remember when you forget' — forgetting is the door out of ghafla; ghafla itself is not being aware even that one has forgotten. Dhikr is that awareness itself.",
+          "descEn": "Aʿrāf 7:205 says: 'Remember your Lord within yourself morning and evening, and do not be among the heedless.' The verse commands dhikr and immediately forbids ghafla: the two verbs are placed directly opposite each other in the Qur'an. Classical exegesis emphasizes that ghafla is not 'forgetting' but 'not feeling the forgetting.' Kahf 18:24 says 'remember when you forget': forgetting is the door out of ghafla; ghafla itself is not being aware even that one has forgotten. Dhikr is that awareness itself.",
           "kaynak": "Kurtubî, A'râf 7:205 tefsiri; Elmalılı, Kehf 18:24"
         }
       ]
@@ -478,7 +482,7 @@
         "root": "-",
         "source": "manual — kavram A'râf 7:205'te yerleşiktir",
         "displayLabelTr": "1 (A'râf 7:205 — 'kendi içinden')",
-        "displayLabelEn": "1 (Aʿrāf 7:205 — 'within yourself')",
+        "displayLabelEn": "1 (Aʿrāf 7:205: 'within yourself')",
         "humanSpotChecked": true,
         "spotCheckNote": "'Sessiz zikir' (khafī) terimi klasik ahlâk literatüründedir; Kur'ânî temeli A'râf 7:205'in 'fî nefsike' (kendi içinden) ifadesi ve 'dûne'l-cehr' (yüksek sesten kaçınarak) kaydıdır."
       },
@@ -486,7 +490,7 @@
         {
           "layer": "Kendi içinden zikir",
           "descTr": "A'râf 7:205 der: 'Rabbini kendi içinden, yalvararak ve korkarak, yüksek sesten kaçınarak sabah akşam an.' Ayet zikrin dört ölçüsünü çizer: (1) 'kendi içinden' (fî nefsike) — sessiz; (2) 'yalvararak' (tadarru') — alçakgönüllü; (3) 'korkarak' (khîfeten) — huşû ile; (4) 'yüksek sesten kaçınarak' (dûne'l-cehr) — gösterişten uzak. Klasik ahlâk literatürü bu ayeti 'sessiz zikir'in (khafī) Kur'ânî omurgası olarak okur — dilin değil, kalbin zikri.",
-          "descEn": "Aʿrāf 7:205 says: 'And remember your Lord within yourself, humbly and with awe, and without loudness in words, in the morning and evening.' The verse draws four measures of dhikr: (1) 'within yourself' (fī nafsika) — silent; (2) 'humbly' (taḍarruʿ); (3) 'with awe' (khīfa) — with reverence; (4) 'without loudness' (dūna'l-jahr) — away from display. Classical ethical literature reads this verse as the Qur'anic spine of 'silent dhikr' (khafī) — not the tongue's dhikr but the heart's.",
+          "descEn": "Aʿrāf 7:205 says: 'And remember your Lord within yourself, humbly and with awe, and without loudness in words, in the morning and evening.' The verse draws four measures of dhikr: (1) 'within yourself' (fī nafsika): silent; (2) 'humbly' (taḍarruʿ); (3) 'with awe' (khīfa): with reverence; (4) 'without loudness' (dūna'l-jahr): away from display. Classical ethical literature reads this verse as the Qur'anic spine of 'silent dhikr' (khafī): not the tongue's dhikr but the heart's.",
           "kaynak": "Râzî, A'râf 7:205 tefsiri; Elmalılı aynı ayet"
         }
       ]
@@ -589,11 +593,13 @@
     "rituelBaglam": [
       {
         "ref": "A'râf 7:205",
-        "sceneTr": "A'râf 7:205 zikrin nasıl yapılacağının en tafsilli Kur'ânî talimatıdır: 'Rabbini kendi içinden, yalvararak ve korkarak, yüksek sesten kaçınarak sabah akşam an; ve gafillerden olma.' Klasik tefsir dört kaydın (fî nefsike, tadarru'an, khîfeten, dûne'l-cehr) zikrin karakterini belirlediğini vurgular: sessiz, alçakgönüllü, huşû ile, gösterişten uzak. Râzî bu ayeti 'sessiz zikir'in (khafī) Kur'ânî omurgası olarak okur; Elmalılı 'yüksek sesten kaçınma' kaydının 'zikri gösteri değil, iç iş' olarak sabitlediğini belirtir. Ayetin sonu ('gafillerden olma') zikir emrini gafletin yasağıyla çerçeveler."
+        "sceneTr": "A'râf 7:205 zikrin nasıl yapılacağının en tafsilli Kur'ânî talimatıdır: 'Rabbini kendi içinden, yalvararak ve korkarak, yüksek sesten kaçınarak sabah akşam an; ve gafillerden olma.' Klasik tefsir dört kaydın (fî nefsike, tadarru'an, khîfeten, dûne'l-cehr) zikrin karakterini belirlediğini vurgular: sessiz, alçakgönüllü, huşû ile, gösterişten uzak. Râzî bu ayeti 'sessiz zikir'in (khafī) Kur'ânî omurgası olarak okur; Elmalılı 'yüksek sesten kaçınma' kaydının 'zikri gösteri değil, iç iş' olarak sabitlediğini belirtir. Ayetin sonu ('gafillerden olma') zikir emrini gafletin yasağıyla çerçeveler.",
+        "sceneEn": "Al-Aʿrāf 7:205 is the most detailed Qur'anic instruction on how dhikr is to be performed: 'Remember your Lord within yourself, in humility and in fear, without raising your voice, morning and evening; and do not be among the heedless.' Classical exegesis stresses that the four conditions (fī nafsika, taḍarruʿan, khīfatan, dūna'l-jahr) determine the character of dhikr: silent, humble, with awe (khushūʿ), free of display. Rāzī reads this verse as the Qur'anic spine of 'silent dhikr' (khafī); Elmalılı notes that the condition of 'refraining from a loud voice' fixes 'dhikr as an inner work, not a display.' The end of the verse ('do not be among the heedless') frames the command of dhikr with the prohibition of heedlessness."
       },
       {
         "ref": "İsrâ 17:44",
-        "sceneTr": "İsrâ 17:44 zikri kozmik bir çerçeveye yerleştirir: 'Yedi gök, yer ve içindekiler O'nu tesbih eder; hamd ile tesbih etmeyen hiçbir şey yoktur, fakat siz onların tesbihlerini anlamazsınız.' Klasik tefsir bu ayetin tesbihi bir 'insan eylemi' olmaktan çıkarıp 'varlığın dili' olarak konumlandırdığını vurgular. Râzî kâinatın tesbihini iki katmanda okur: (1) 'hâl dili' — her varlığın var olmasıyla Yaratıcı'yı işaret etmesi; (2) 'kâl dili' — akıl ve dil sahibi varlıkların sesli tesbihi. İnsan bu iki dile aynı anda katılır. Namazın rukû ve secde tesbihleri (Sübhâne rabbiye'l-azîm / Sübhâne rabbiye'l-a'lâ) bu kozmik dile insanın sesle katıldığı andır."
+        "sceneTr": "İsrâ 17:44 zikri kozmik bir çerçeveye yerleştirir: 'Yedi gök, yer ve içindekiler O'nu tesbih eder; hamd ile tesbih etmeyen hiçbir şey yoktur, fakat siz onların tesbihlerini anlamazsınız.' Klasik tefsir bu ayetin tesbihi bir 'insan eylemi' olmaktan çıkarıp 'varlığın dili' olarak konumlandırdığını vurgular. Râzî kâinatın tesbihini iki katmanda okur: (1) 'hâl dili' — her varlığın var olmasıyla Yaratıcı'yı işaret etmesi; (2) 'kâl dili' — akıl ve dil sahibi varlıkların sesli tesbihi. İnsan bu iki dile aynı anda katılır. Namazın rukû ve secde tesbihleri (Sübhâne rabbiye'l-azîm / Sübhâne rabbiye'l-a'lâ) bu kozmik dile insanın sesle katıldığı andır.",
+        "sceneEn": "Al-Isrāʾ 17:44 places dhikr within a cosmic frame: 'The seven heavens, the earth, and all that is in them glorify Him; there is nothing that does not glorify His praise, but you do not understand their glorification.' Classical exegesis stresses that this verse takes tasbīḥ out of being a 'human act' and positions it as 'the language of being.' Rāzī reads the glorification of the cosmos in two layers: (1) 'the language of state (ḥāl)': every being pointing to the Creator by its very existence; (2) 'the language of speech (qāl)': the audible glorification of beings possessing reason and speech. The human joins both languages at once. The tasbīḥ of prayer's bowing and prostration (Subḥāna rabbiya'l-ʿaẓīm / Subḥāna rabbiya'l-aʿlā) is the moment the human joins this cosmic language with sound."
       }
     ]
   },
@@ -602,6 +608,7 @@
   "kiraatBoyutu": null,
   "rakamsalMimari": {
     "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
+    "titleEn": "The Qur'an Sets the Principle, the Sunnah Details It",
     "framingTr": "Bu bölüm 'Kur'ân eksik, tasavvuf ekledi' iddiası DEĞİLDİR. Kur'ân zikrin karşılıklı doğasını (Bakara 2:152), kalp mutmainliğini (Ra'd 13:28), her bedensel duruşu (Âl-i İmrân 3:191), sabâh-akşam ritmini (Ahzâb 33:42), namazla iç içeliği (Tâhâ 20:14, Ankebût 29:45) açıkça çizer. Sünnet-i mütevâtire ise namaz sonrası tesbihatın (33 tesbih + 33 tahmid + 33 tekbir + 1 tehlil) sayısal düzenini, salavat formülünü, sabâh-akşam evrâdının içeriğini ve bunun cemaatle icra biçimini tafsil eder. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
     "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and Sufism added to it.' The Qur'an explicitly draws dhikr's reciprocal nature (Baqara 2:152), the heart's tranquility (Raʿd 13:28), every bodily posture (Āl ʿImrān 3:191), the morning-evening rhythm (Aḥzāb 33:42), and its interweaving with prayer (Ṭāhā 20:14, ʿAnkabūt 29:45). Mutawātir sunnah details the numerical structure of post-prayer tasbīḥāt (33 tasbīḥ + 33 taḥmīd + 33 takbīr + 1 tahlīl), the ṣalawāt formula, the content of the morning-evening awrād, and their communal form. They complete each other as an inseparable whole.",
     "kuraniSide": {
@@ -677,23 +684,26 @@
     {
       "prophet": "Yunus",
       "ref": "Enbiyâ 21:87",
-      "sceneTr": "Yunus balığın karnında karanlığın içinden seslenir: 'Senden başka ilah yoktur; sen noksanlardan uzaksın; ben zalimlerden oldum.' Klasik tefsir bu üç cümlelik zikri 'karanlık içinde zikir' motifi olarak okur — dilin en sıkıştığı, bedenin en teslim olduğu anda kalbin bulduğu formül. Râzî ayette geçen 'zulumât' ('karanlıklar', çoğul) kelimesinin manidar olduğunu, balık karnı + deniz + gece üç katmanlı karanlığı ifade ettiğini belirtir. Yunus'un zikri klasik ahlâk literatürü metinlerinde 'sıkıntı anı zikri'nin Kur'ânî prototipi olarak yer alır."
+      "sceneTr": "Yunus balığın karnında karanlığın içinden seslenir: 'Senden başka ilah yoktur; sen noksanlardan uzaksın; ben zalimlerden oldum.' Klasik tefsir bu üç cümlelik zikri 'karanlık içinde zikir' motifi olarak okur — dilin en sıkıştığı, bedenin en teslim olduğu anda kalbin bulduğu formül. Râzî ayette geçen 'zulumât' ('karanlıklar', çoğul) kelimesinin manidar olduğunu, balık karnı + deniz + gece üç katmanlı karanlığı ifade ettiğini belirtir. Yunus'un zikri klasik ahlâk literatürü metinlerinde 'sıkıntı anı zikri'nin Kur'ânî prototipi olarak yer alır.",
+      "sceneEn": "From the darkness inside the fish, Jonah calls out: 'There is no deity except You; glory be to You; indeed I was among the wrongdoers.' Classical exegesis reads this three-clause dhikr as the motif of 'dhikr within darkness': the formula the heart finds at the moment the tongue is most constricted and the body most surrendered. Rāzī notes that the word 'ẓulumāt' ('darknesses,' plural) in the verse is meaningful, expressing a three-layered darkness: the belly of the fish + the sea + the night. Jonah's dhikr appears in the texts of classical ethical literature as the Qur'anic prototype of 'the dhikr of the moment of distress.'"
     },
     {
       "prophet": "Zekeriyya",
       "ref": "Âl-i İmrân 3:41",
-      "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen üç günlük dil bağlanması bağlamında ona söylenir: 'Üç gün insanlarla ancak işaretle konuşacaksın. Rabbini çokça an (ve'zkur rabbeke kesîran) ve akşam-sabah tesbih et.' Bu ayet iki Kur'ânî motifi tek nefeste birleştirir: (1) 'kesîran' — çokça zikir (Ahzâb 33:41 ile aynı sıfat), (2) 'bi'l-ʿaşiyyi ve'l-ibkâr' — akşam-sabah çerçevesi (Ahzâb 33:42 ile aynı ikili). Klasik tefsir Zekeriyya'ya verilen bu emrin zikrin peygamberler tarihinde süregelen bir pratik olduğunu gösterdiğini vurgular. (Aynı olay Meryem 19:10'da 'üç gece' olarak da geçer — üç gün üç gece bir bütün olarak yorumlanır.)"
+      "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen üç günlük dil bağlanması bağlamında ona söylenir: 'Üç gün insanlarla ancak işaretle konuşacaksın. Rabbini çokça an (ve'zkur rabbeke kesîran) ve akşam-sabah tesbih et.' Bu ayet iki Kur'ânî motifi tek nefeste birleştirir: (1) 'kesîran' — çokça zikir (Ahzâb 33:41 ile aynı sıfat), (2) 'bi'l-ʿaşiyyi ve'l-ibkâr' — akşam-sabah çerçevesi (Ahzâb 33:42 ile aynı ikili). Klasik tefsir Zekeriyya'ya verilen bu emrin zikrin peygamberler tarihinde süregelen bir pratik olduğunu gösterdiğini vurgular. (Aynı olay Meryem 19:10'da 'üç gece' olarak da geçer — üç gün üç gece bir bütün olarak yorumlanır.)",
+      "sceneEn": "In the context of the three-day binding of his tongue given to Zechariah as the sign of the glad tidings of John, he is told: 'You shall not speak to people for three days except by gesture. Remember your Lord abundantly (wa'dhkur rabbaka kathīran) and glorify Him evening and morning.' This verse joins two Qur'anic motifs in a single breath: (1) 'kathīran': abundant dhikr (the same qualifier as Aḥzāb 33:41); (2) 'bi'l-ʿashiyyi wa'l-ibkār': the evening-morning frame (the same pair as Aḥzāb 33:42). Classical exegesis stresses that this command given to Zechariah shows that dhikr is a practice continuing throughout the history of the prophets. (The same event also appears in Maryam 19:10 as 'three nights': three days and three nights are interpreted as a whole.)"
     },
     {
       "prophet": "Musa ve Hârun",
       "ref": "Tâhâ 20:33-34",
-      "sceneTr": "Musa Rabbinden Hârun'un peygamberlik yardımını isterken der: 'Seni bolca tesbih edelim (key nusebbihake kesîran) ve seni çokça analım (ve nezkurake kesîran).' Klasik tefsir bu duayı zikrin 'kardeşlik' motifi olarak okur — peygamberlik yükünün taşınması için istenen ilk şey tesbih ve zikrin bolca yapılabilir olmasıdır. Râzî 'kesîran' (çokça) sıfatının burada da tekrarlandığını, Kur'ân'da zikir emrinin karakteristik sıfatının 'çokluk' olduğunu vurgular."
+      "sceneTr": "Musa Rabbinden Hârun'un peygamberlik yardımını isterken der: 'Seni bolca tesbih edelim (key nusebbihake kesîran) ve seni çokça analım (ve nezkurake kesîran).' Klasik tefsir bu duayı zikrin 'kardeşlik' motifi olarak okur — peygamberlik yükünün taşınması için istenen ilk şey tesbih ve zikrin bolca yapılabilir olmasıdır. Râzî 'kesîran' (çokça) sıfatının burada da tekrarlandığını, Kur'ân'da zikir emrinin karakteristik sıfatının 'çokluk' olduğunu vurgular.",
+      "sceneEn": "As Moses asks his Lord for Aaron's help in prophethood, he says: 'That we may glorify You abundantly (kay nusabbiḥaka kathīran) and remember You abundantly (wa nadhkuraka kathīran).' Classical exegesis reads this supplication as the 'brotherhood' motif of dhikr: the first thing asked for in bearing the burden of prophethood is that glorification and dhikr may be done abundantly. Rāzī notes that the qualifier 'kathīran' (abundantly) is repeated here as well, and that the characteristic qualifier of the command of dhikr in the Qur'an is 'abundance.'"
     },
     {
       "prophet": "Meryem",
       "ref": "Meryem 19:26",
       "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Klasik tefsir bu 'sessizlik adağını' zikrin 'sessiz mod'unun (khafī) Kur'ânî prototipi olarak okur. Meryem'in fiziksel sessizliği içerideki sürekli zikri kesmez — aksine dilin sesli konuşmadan kesilmesi, kalbin sessiz zikrine yer açar. A'râf 7:205'in 'fî nefsike' ('kendi içinden') emri ile Meryem'in bu adağı arasında klasik tefsirin kurduğu semantik köprü vardır.",
-      "sceneEn": "After giving birth to ʿĪsā, Mary is instructed as she comes before her people: 'I have vowed a ṣawm to the Most Merciful; today I shall not speak to any human.' Classical exegesis reads this 'vow of silence' as the Qur'anic prototype of dhikr's 'silent mode' (khafī). Mary's outward silence does not interrupt the interior continuous dhikr — indeed, the tongue's cessation from audible speech opens space for the heart's silent dhikr. Classical exegesis draws a semantic bridge between Aʿrāf 7:205's 'fī nafsika' ('within yourself') and Mary's vow.",
+      "sceneEn": "After giving birth to ʿĪsā, Mary is instructed as she comes before her people: 'I have vowed a ṣawm to the Most Merciful; today I shall not speak to any human.' Classical exegesis reads this 'vow of silence' as the Qur'anic prototype of dhikr's 'silent mode' (khafī). Mary's outward silence does not interrupt the interior continuous dhikr: indeed, the tongue's cessation from audible speech opens space for the heart's silent dhikr. Classical exegesis draws a semantic bridge between Aʿrāf 7:205's 'fī nafsika' ('within yourself') and Mary's vow.",
       "claimType": "semantic_inference",
       "confidence": "medium",
       "auditGuardTr": "Meryem'in adağını doğrudan 'sessiz zikir' olarak nitelemek klasik tefsirin ana çizgisi değildir; ayetin ana okuması bir 'savm-ı sükût'tur. Sessiz zikir ile bağlantı klasik ahlâk literatüründe kurulan bir semantik köprüdür — bu sayfa köprüyü açıkça belirtir, özdeşleştirmez."
@@ -701,74 +711,90 @@
     {
       "prophet": "Muhammed s.a.v. (Salavât)",
       "ref": "Ahzâb 33:56",
-      "sceneTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 'salât' fiilinin özneleri arasında Allah'ın kendisi yer alır. Râzî bu ayetle zikrin karşılıklı doğasını (Bakara 2:152) birleştirir: burada karşılıklılık üç taraflıdır — Allah, melekler, kul; hepsi aynı fiili Peygamber'e yöneltir. Salavat böylece 'sadece bir dua' değil, kâinat çapında bir 'anma' halkasına insanın katılışıdır."
+      "sceneTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 'salât' fiilinin özneleri arasında Allah'ın kendisi yer alır. Râzî bu ayetle zikrin karşılıklı doğasını (Bakara 2:152) birleştirir: burada karşılıklılık üç taraflıdır — Allah, melekler, kul; hepsi aynı fiili Peygamber'e yöneltir. Salavat böylece 'sadece bir dua' değil, kâinat çapında bir 'anma' halkasına insanın katılışıdır.",
+      "sceneEn": "Aḥzāb 33:56 says: 'Indeed, Allah and His angels send blessings upon the Prophet. O you who believe! Send blessings upon him and greet him with full submission.' Classical exegesis stresses that this verse contains a rare composition in the Qur'an: Allah Himself is among the subjects of the verb 'ṣalāt.' Rāzī joins this verse with the reciprocal nature of dhikr (Al-Baqara 2:152): here the reciprocity is three-sided: Allah, the angels, the servant; all direct the same act toward the Prophet. Ṣalawāt is thus not 'merely a supplication' but the human's joining of a cosmos-wide circle of 'remembrance.'"
     },
     {
       "prophet": "Peygamberler genel",
       "ref": "Sâd 38:17-25",
-      "sceneTr": "Sâd sûresi Davud'un tesbihini anlatırken der: 'Onunla birlikte akşam-sabah tesbih eden dağları ve toplu halde kuşları emrimize verdik' (38:18-19). Klasik tefsir bu ayetin peygamberlerin zikrinin özel bir örneği olduğunu vurgular — Davud'un tesbihine kâinatın (dağların ve kuşların) katılması. Ayetteki 'ʿaşiyyi ve'l-işrâk' (akşam ve sabah) ifadesi bir kez daha zikrin sabâh-akşam çerçevesini tekrar eder. Süleyman'ın kâinatla iletişimi (Neml 27:16-19), İbrahim'in Rabbini anması (Meryem 19:47-48), İsa'nın beşikte konuşması (Meryem 19:30-33) gibi diğer peygamber sahneleri de zikrin peygamberler tarihindeki sürekliliğini gösterir. Râzî bu süreklilikte 'zikrin insan tarihinin nefes ritmi' olduğunu vurgular."
+      "sceneTr": "Sâd sûresi Davud'un tesbihini anlatırken der: 'Onunla birlikte akşam-sabah tesbih eden dağları ve toplu halde kuşları emrimize verdik' (38:18-19). Klasik tefsir bu ayetin peygamberlerin zikrinin özel bir örneği olduğunu vurgular — Davud'un tesbihine kâinatın (dağların ve kuşların) katılması. Ayetteki 'ʿaşiyyi ve'l-işrâk' (akşam ve sabah) ifadesi bir kez daha zikrin sabâh-akşam çerçevesini tekrar eder. Süleyman'ın kâinatla iletişimi (Neml 27:16-19), İbrahim'in Rabbini anması (Meryem 19:47-48), İsa'nın beşikte konuşması (Meryem 19:30-33) gibi diğer peygamber sahneleri de zikrin peygamberler tarihindeki sürekliliğini gösterir. Râzî bu süreklilikte 'zikrin insan tarihinin nefes ritmi' olduğunu vurgular.",
+      "sceneEn": "As Sūrat Ṣād recounts David's glorification, it says: 'We subjected the mountains to glorify [Allah] with him in the evening and the morning, and the birds gathered together' (38:18-19). Classical exegesis stresses that this verse is a special example of the prophets' dhikr: the cosmos (the mountains and birds) joining David's glorification. The expression 'al-ʿashiyyi wa'l-ishrāq' (evening and morning) in the verse once again repeats the morning-evening frame of dhikr. Other prophetic scenes: Solomon's communication with the cosmos (Al-Naml 27:16-19), Abraham's remembrance of his Lord (Maryam 19:47-48), Jesus speaking in the cradle (Maryam 19:30-33): also show the continuity of dhikr throughout the history of the prophets. Rāzī stresses in this continuity that 'dhikr is the breath-rhythm of human history.'"
     }
   ],
   "icBoyut": [
     {
       "titleTr": "Karşılıklı Zikir — İki Tarafın da Fâil Olması",
+      "titleEn": "Reciprocal Dhikr: Both Parties Being Agents",
       "refs": [
         "Bakara 2:152"
       ],
-      "descTr": "Bakara 2:152 iki tarafın da fâil olarak yerleştirildiği nadir bir Kur'ânî ayettir: 'Fe-zkurûnî ezkurkum' — 'Beni anın, ben de sizi anayım.' Klasik tefsir bu simetrinin manidar olduğunu vurgular. Kur'ân'da genellikle Allah gerçekleştiren, insan gerçekleşendir; ayetlerin çoğu Allah'ın fiillerini konu edinir. Zikirde ise iki taraf da özne konumundadır — insan Allah'ı anar, Allah insanı anar. Râzî 'Allah'ın kulunu anması ne demektir?' sorusuna üç yolla cevap arar: (1) rahmet ile anma — özel bir merhamet cezbesi; (2) melekler arasında anma — kulun ismini melekler önünde anma; (3) ödül ile anma — kulun eylemine karşılık iyilikle anma. Elmalılı bu ayeti 'Kur'ân'ın kalbinden çıkan bir denklik cümlesi' olarak niteler. Bu simetri zikrin ontolojik omurgasıdır — zikir bir 'çabalama' değil, bir 'katılım'dır; kul zaten devam eden bir anmaya kendi zikriyle katılır."
+      "descTr": "Bakara 2:152 iki tarafın da fâil olarak yerleştirildiği nadir bir Kur'ânî ayettir: 'Fe-zkurûnî ezkurkum' — 'Beni anın, ben de sizi anayım.' Klasik tefsir bu simetrinin manidar olduğunu vurgular. Kur'ân'da genellikle Allah gerçekleştiren, insan gerçekleşendir; ayetlerin çoğu Allah'ın fiillerini konu edinir. Zikirde ise iki taraf da özne konumundadır — insan Allah'ı anar, Allah insanı anar. Râzî 'Allah'ın kulunu anması ne demektir?' sorusuna üç yolla cevap arar: (1) rahmet ile anma — özel bir merhamet cezbesi; (2) melekler arasında anma — kulun ismini melekler önünde anma; (3) ödül ile anma — kulun eylemine karşılık iyilikle anma. Elmalılı bu ayeti 'Kur'ân'ın kalbinden çıkan bir denklik cümlesi' olarak niteler. Bu simetri zikrin ontolojik omurgasıdır — zikir bir 'çabalama' değil, bir 'katılım'dır; kul zaten devam eden bir anmaya kendi zikriyle katılır.",
+      "descEn": "Al-Baqara 2:152 is a rare Qur'anic verse in which both parties are placed as agents: 'Fadhkurūnī adhkurkum': 'Remember Me; I will remember you.' Classical exegesis stresses that this symmetry is meaningful. In the Qur'an, Allah is usually the one who acts and the human the one acted upon; most verses take Allah's acts as their subject. In dhikr, however, both parties stand as subjects: the human remembers Allah, and Allah remembers the human. Rāzī seeks an answer to the question 'what does it mean for Allah to remember His servant?' in three ways: (1) remembering with mercy: a special draw of compassion; (2) remembering among the angels: mentioning the servant's name before the angels; (3) remembering with reward: remembering with good in return for the servant's act. Elmalılı describes this verse as 'a sentence of parity issuing from the heart of the Qur'an.' This symmetry is the ontological spine of dhikr: dhikr is not a 'striving' but a 'participation'; the servant joins with his own dhikr a remembrance that is already ongoing."
     },
     {
       "titleTr": "Kalp Mutmainliği — 'Ancak' Edatının Ağırlığı",
+      "titleEn": "The Heart's Tranquility: the Weight of the Particle 'Only'",
       "refs": [
         "Ra'd 13:28"
       ],
-      "descTr": "Ra'd 13:28 der: 'Elâ bi-zikrillâhi tatmainnu'l-kulûb' — 'Bilesiniz ki kalpler ancak Allah'ı zikirle mutmain olur.' Klasik tefsir ayetin iki dilbilimsel inceliğine dikkat çeker. Birincisi 'elâ' edatı — Arapçada dikkat çağırma ve kesinlik anlamı taşır; okuyucuyu bir sınırın önüne getirir. İkincisi 'bi-zikrillâh' ifadesindeki 'bâ' harfi — 'ile, ancak, sadece' anlamlarının kesişimi. Ayet zikri kalbin huzurunun 'tek yolu' olarak sunmaz (bu iddia diğer ibadetleri iptal ederdi), fakat en kesin ve en Kur'ânî ekseni olarak konumlar. Râzî 'mutmain olma' (itmi'nân) fiilinin 'huzur bulma' (sekîne) fiilinden farklı olduğunu vurgular: mutmain olma huzurun ötesinde bir 'yerleşme, sabitlenme' halidir. Elmalılı ayeti 'insanın kalbinin gerçek ekseni' olarak okur — kalp ('dönen, sürekli hal değiştiren') zikirle ekseninde döner; zikirsiz kalp ise eksenini kaybeder."
+      "descTr": "Ra'd 13:28 der: 'Elâ bi-zikrillâhi tatmainnu'l-kulûb' — 'Bilesiniz ki kalpler ancak Allah'ı zikirle mutmain olur.' Klasik tefsir ayetin iki dilbilimsel inceliğine dikkat çeker. Birincisi 'elâ' edatı — Arapçada dikkat çağırma ve kesinlik anlamı taşır; okuyucuyu bir sınırın önüne getirir. İkincisi 'bi-zikrillâh' ifadesindeki 'bâ' harfi — 'ile, ancak, sadece' anlamlarının kesişimi. Ayet zikri kalbin huzurunun 'tek yolu' olarak sunmaz (bu iddia diğer ibadetleri iptal ederdi), fakat en kesin ve en Kur'ânî ekseni olarak konumlar. Râzî 'mutmain olma' (itmi'nân) fiilinin 'huzur bulma' (sekîne) fiilinden farklı olduğunu vurgular: mutmain olma huzurun ötesinde bir 'yerleşme, sabitlenme' halidir. Elmalılı ayeti 'insanın kalbinin gerçek ekseni' olarak okur — kalp ('dönen, sürekli hal değiştiren') zikirle ekseninde döner; zikirsiz kalp ise eksenini kaybeder.",
+      "descEn": "Al-Raʿd 13:28 says: 'Alā bi-dhikri'llāhi taṭmaʾinnu'l-qulūb': 'Verily, in the remembrance of Allah do hearts find rest.' Classical exegesis draws attention to two linguistic subtleties of the verse. The first is the particle 'alā': in Arabic it carries the sense of calling attention and of certainty; it brings the reader to the edge of a limit. The second is the letter 'bā' in the expression 'bi-dhikri'llāh': the intersection of the meanings 'with, only, solely.' The verse does not present dhikr as the 'sole way' to the heart's peace (such a claim would nullify the other acts of worship), but positions it as its most certain and most Qur'anic axis. Rāzī stresses that the verb 'to find rest' (iṭmiʾnān) differs from the verb 'to find peace' (sakīna): finding rest is a state of 'settling, becoming fixed' beyond peace. Elmalılı reads the verse as 'the true axis of the human heart': the heart ('ever-turning, ever-changing state') turns on its axis through dhikr; a heart without dhikr loses its axis."
     },
     {
       "titleTr": "Gafletten Uyanış — Unutmak ile Unuttuğunu Fark Etmek",
+      "titleEn": "Awakening from Heedlessness: Forgetting and Noticing That One Has Forgotten",
       "refs": [
         "Kehf 18:24",
         "A'râf 7:205"
       ],
-      "descTr": "Kur'ân zikri gafletin doğrudan zıddı olarak konumlar. A'râf 7:205 zikri emrederken hemen ardından 'gafillerden olma' der — iki fiil aynı ayette karşı karşıya. Kehf 18:24 ise gafletten çıkışın kapısını verir: 'Unuttuğunda hemen an.' Klasik tefsir bu iki ayetin birlikte okunması gerektiğini vurgular. Gaflet 'unutma' değil, 'unuttuğunu bile fark etmeme' halidir; zikir ise 'unutuşu fark etme ve dönme' fiilidir. Râzî bu ayrımı şöyle çizer: unutan kişi kurtulabilir, çünkü unuttuğunu bilir; gafil olan ise kurtulamaz, çünkü gafletinden bile habersizdir. Zikir gaflete karşı 'sürekli uyanıklık'tır — bir kez yapıp bırakılan bir eylem değil, hâlinin adı. Elmalılı 'gafletten uyanış' motifinin klasik tasavvuf literatüründe 'yakaza' (uyanıklık) ismiyle uzun bir gelenek başlattığını, kaynağının bu ayetler olduğunu belirtir."
+      "descTr": "Kur'ân zikri gafletin doğrudan zıddı olarak konumlar. A'râf 7:205 zikri emrederken hemen ardından 'gafillerden olma' der — iki fiil aynı ayette karşı karşıya. Kehf 18:24 ise gafletten çıkışın kapısını verir: 'Unuttuğunda hemen an.' Klasik tefsir bu iki ayetin birlikte okunması gerektiğini vurgular. Gaflet 'unutma' değil, 'unuttuğunu bile fark etmeme' halidir; zikir ise 'unutuşu fark etme ve dönme' fiilidir. Râzî bu ayrımı şöyle çizer: unutan kişi kurtulabilir, çünkü unuttuğunu bilir; gafil olan ise kurtulamaz, çünkü gafletinden bile habersizdir. Zikir gaflete karşı 'sürekli uyanıklık'tır — bir kez yapıp bırakılan bir eylem değil, hâlinin adı. Elmalılı 'gafletten uyanış' motifinin klasik tasavvuf literatüründe 'yakaza' (uyanıklık) ismiyle uzun bir gelenek başlattığını, kaynağının bu ayetler olduğunu belirtir.",
+      "descEn": "The Qur'an positions dhikr as the direct opposite of heedlessness. When Al-Aʿrāf 7:205 commands dhikr, it says immediately afterward 'do not be among the heedless': the two acts stand face to face in the same verse. Al-Kahf 18:24 gives the door out of heedlessness: 'Remember [your Lord] when you forget.' Classical exegesis stresses that these two verses must be read together. Heedlessness is not 'forgetting' but the state of 'not even noticing that one has forgotten'; dhikr is the act of 'noticing the forgetting and turning back.' Rāzī draws the distinction thus: the one who forgets may be saved, because he knows he has forgotten; the heedless one cannot be saved, because he is unaware even of his heedlessness. Dhikr is 'continual wakefulness' against heedlessness: not an act done once and set aside, but the name of a state. Elmalılı notes that the motif of 'awakening from heedlessness' began a long tradition in classical Sufi literature under the name 'yaqaẓa' (wakefulness), whose source is these verses."
     },
     {
       "titleTr": "Sabâh-Akşam — Günün İki Eşiği",
+      "titleEn": "Morning-Evening: the Two Thresholds of the Day",
       "refs": [
         "Ahzâb 33:41-42",
         "A'râf 7:205",
         "Ra'd 13:15"
       ],
-      "descTr": "Kur'ân zikri gün içinde iki uçla sınırlar: sabâh ve akşam. Ahzâb 33:41-42, A'râf 7:205, Ra'd 13:15, Nûr 24:36, Furkan 25:5, İnsan 76:25 — hepsinde aynı ikili çerçeve tekrarlanır. Klasik tefsir 'bukratan ve asîlâ' ifadesinin 'günün eşikleri' anlamına geldiğini vurgular: sabâh gündüzün 'başlangıç eşiği', akşam ise gündüzün 'kapanış eşiği'. Bu iki eşikte yapılan zikir 'iki eşik arasında geçen bütün gündüzü uyanık tutma' anlamı taşır. Elmalılı bu ritmin klasik dünyanın gündelik yaşamına yerleşmiş 'sabah tenbihi, akşam toparlanışı' kalıbıyla örtüştüğünü belirtir. Namaz vakitleri bu iki uç arasında dağılır — beş vakit namazın bu ritmin içine yerleşmesi tesadüf değildir; namaz zikrin sistematik biçimidir, zikir ise namazın kaplayıcı çerçevesidir."
+      "descTr": "Kur'ân zikri gün içinde iki uçla sınırlar: sabâh ve akşam. Ahzâb 33:41-42, A'râf 7:205, Ra'd 13:15, Nûr 24:36, Furkan 25:5, İnsan 76:25 — hepsinde aynı ikili çerçeve tekrarlanır. Klasik tefsir 'bukratan ve asîlâ' ifadesinin 'günün eşikleri' anlamına geldiğini vurgular: sabâh gündüzün 'başlangıç eşiği', akşam ise gündüzün 'kapanış eşiği'. Bu iki eşikte yapılan zikir 'iki eşik arasında geçen bütün gündüzü uyanık tutma' anlamı taşır. Elmalılı bu ritmin klasik dünyanın gündelik yaşamına yerleşmiş 'sabah tenbihi, akşam toparlanışı' kalıbıyla örtüştüğünü belirtir. Namaz vakitleri bu iki uç arasında dağılır — beş vakit namazın bu ritmin içine yerleşmesi tesadüf değildir; namaz zikrin sistematik biçimidir, zikir ise namazın kaplayıcı çerçevesidir.",
+      "descEn": "The Qur'an bounds dhikr within the day by two ends: morning and evening. Aḥzāb 33:41-42, Al-Aʿrāf 7:205, Al-Raʿd 13:15, Al-Nūr 24:36, Al-Furqān 25:5, Al-Insān 76:25: the same twofold frame recurs in all of them. Classical exegesis stresses that the expression 'bukratan wa aṣīlā' means 'the thresholds of the day': morning is the 'opening threshold' of the day, evening its 'closing threshold.' Dhikr performed at these two thresholds carries the meaning of 'keeping awake through the whole day that passes between the two thresholds.' Elmalılı notes that this rhythm coincides with the 'morning alert, evening gathering' pattern settled into the daily life of the classical world. The prayer times distribute themselves between these two ends: the placement of the five daily prayers within this rhythm is no coincidence; prayer is the systematic form of dhikr, and dhikr is the encompassing frame of prayer."
     },
     {
       "titleTr": "Namaz–Zikir Hiyerarşisi — Amaç ve Araç",
+      "titleEn": "The Prayer-Dhikr Hierarchy: End and Means",
       "refs": [
         "Tâhâ 20:14",
         "Ankebût 29:45"
       ],
-      "descTr": "Kur'ân namaz ile zikir arasında bir 'amaç–araç' ilişkisi kurar. Tâhâ 20:14 Musa'ya vahyin ilk anında der: 'Beni anmak için namaz kıl' (ekimi's-salâte li-zikrî). Klasik tefsir 'lâm-ı ta'lîl' harfinin (li-) namazın 'sebebini' ya da 'gayesini' bildirdiğini vurgular — her iki durumda da zikir namazın hedefidir. Ankebût 29:45 aynı ilişkinin ters yönünden gelir: 'Namaz fahşadan alıkoyar; Allah'ı zikretmek ise daha büyüktür.' İki ayet birlikte hiyerarşiyi kurar: namaz zikrin sistematik ve zaman-sabit biçimi, zikir ise namazı da kapsayan sürekli çerçeve. Râzî bu ilişkiyi 'namaz zikirin en yoğun anıdır, zikir ise namazın gündelik uzantısıdır' cümlesiyle özetler. Elmalılı 'namaz zikrin en sistemli formudur; zikir ise namazın ruhu' der. İki ayet birbirini iptal etmez, çerçeveyi katmanlar."
+      "descTr": "Kur'ân namaz ile zikir arasında bir 'amaç–araç' ilişkisi kurar. Tâhâ 20:14 Musa'ya vahyin ilk anında der: 'Beni anmak için namaz kıl' (ekimi's-salâte li-zikrî). Klasik tefsir 'lâm-ı ta'lîl' harfinin (li-) namazın 'sebebini' ya da 'gayesini' bildirdiğini vurgular — her iki durumda da zikir namazın hedefidir. Ankebût 29:45 aynı ilişkinin ters yönünden gelir: 'Namaz fahşadan alıkoyar; Allah'ı zikretmek ise daha büyüktür.' İki ayet birlikte hiyerarşiyi kurar: namaz zikrin sistematik ve zaman-sabit biçimi, zikir ise namazı da kapsayan sürekli çerçeve. Râzî bu ilişkiyi 'namaz zikirin en yoğun anıdır, zikir ise namazın gündelik uzantısıdır' cümlesiyle özetler. Elmalılı 'namaz zikrin en sistemli formudur; zikir ise namazın ruhu' der. İki ayet birbirini iptal etmez, çerçeveyi katmanlar.",
+      "descEn": "The Qur'an establishes an 'end-means' relationship between prayer and dhikr. In the first moment of revelation to Moses, Ṭāhā 20:14 says: 'Establish the prayer for My remembrance' (aqimi'ṣ-ṣalāta li-dhikrī). Classical exegesis stresses that the letter 'lām of causation' (li-) declares the 'reason' or the 'aim' of prayer: in either case dhikr is the goal of prayer. Al-ʿAnkabūt 29:45 comes from the reverse direction of the same relationship: 'The prayer forbids indecency; and the remembrance of Allah is greater.' The two verses together establish the hierarchy: prayer is the systematic and time-fixed form of dhikr, while dhikr is the continuous frame that encompasses prayer as well. Rāzī summarizes this relationship in the sentence 'prayer is the most intense moment of dhikr, while dhikr is the everyday extension of prayer.' Elmalılı says, 'prayer is the most systematic form of dhikr; dhikr is the spirit of prayer.' The two verses do not cancel each other but layer the frame."
     },
     {
       "titleTr": "Tefekkür — Zihnin Zikri",
+      "titleEn": "Tafakkur: the Dhikr of the Mind",
       "refs": [
         "Âl-i İmrân 3:191"
       ],
-      "descTr": "Âl-i İmrân 3:191 zikir ile tefekkürü tek nefeste birleştirir: 'Onlar ayakta, oturarak ve yanları üzeri Allah'ı zikrederler; göklerin ve yerin yaratılışı üzerinde tefekkür ederler.' Klasik tefsir bu ayetin manidar olduğunu vurgular: zikir dilin ve kalbin bir eylemi ise, tefekkür aklın bir eylemi olarak yan yana konumlanır. Râzî bu birleşimi 'zikir kalbi mutmain kılar, tefekkür aklı berrak kılar; ikisinin birlikte olduğu insan tam mü'mindir' cümlesiyle özetler. Ayetteki üç bedensel duruş (ayakta, oturarak, yanları üzeri) zikrin bedensel serbestliğini gösterir; ayetin ikinci yarısı bu serbest zikri tefekküre bağlar. Elmalılı Kur'ân'da tefekkürün zikrin 'zihinsel devamı' olarak konumlandığını, zikirsiz tefekkürün sistemsiz spekülasyona düşebileceğini, tefekkürsüz zikrin ise tekrara sıkışabileceğini belirtir. İki fiil birbirini destekler."
+      "descTr": "Âl-i İmrân 3:191 zikir ile tefekkürü tek nefeste birleştirir: 'Onlar ayakta, oturarak ve yanları üzeri Allah'ı zikrederler; göklerin ve yerin yaratılışı üzerinde tefekkür ederler.' Klasik tefsir bu ayetin manidar olduğunu vurgular: zikir dilin ve kalbin bir eylemi ise, tefekkür aklın bir eylemi olarak yan yana konumlanır. Râzî bu birleşimi 'zikir kalbi mutmain kılar, tefekkür aklı berrak kılar; ikisinin birlikte olduğu insan tam mü'mindir' cümlesiyle özetler. Ayetteki üç bedensel duruş (ayakta, oturarak, yanları üzeri) zikrin bedensel serbestliğini gösterir; ayetin ikinci yarısı bu serbest zikri tefekküre bağlar. Elmalılı Kur'ân'da tefekkürün zikrin 'zihinsel devamı' olarak konumlandığını, zikirsiz tefekkürün sistemsiz spekülasyona düşebileceğini, tefekkürsüz zikrin ise tekrara sıkışabileceğini belirtir. İki fiil birbirini destekler.",
+      "descEn": "Āl ʿImrān 3:191 joins dhikr and tafakkur in a single breath: 'Those who remember Allah standing, sitting, and on their sides, and reflect upon the creation of the heavens and the earth.' Classical exegesis stresses that this verse is meaningful: if dhikr is an act of the tongue and the heart, tafakkur is positioned alongside it as an act of the mind. Rāzī summarizes this joining in the sentence 'dhikr makes the heart tranquil, tafakkur makes the mind clear; the human in whom both are present is a complete believer.' The three bodily postures in the verse (standing, sitting, on one's side) show the bodily freedom of dhikr; the second half of the verse binds this free dhikr to tafakkur. Elmalılı notes that in the Qur'an tafakkur is positioned as the 'mental continuation' of dhikr, that tafakkur without dhikr can fall into systemless speculation, while dhikr without tafakkur can be confined to repetition. The two acts support each other."
     },
     {
       "titleTr": "Salavât — Peygamber'e Zikir",
+      "titleEn": "Ṣalawāt: Dhikr for the Prophet",
       "refs": [
         "Ahzâb 33:56"
       ],
-      "descTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 'salât' fiilinin özneleri arasında Allah'ın kendisi yer alır. Râzî ayetteki 'yusallûn' (salât ederler) fiilinin muzari (sürekli, tamamlanmamış) çekiminde olduğuna dikkat çeker — bu salât hâlihazırda süregelen bir eylemdir; kula verilen emir bu süregelen eyleme katılmaktır. Salavat böylece 'sadece bir dua' değil, kâinat çapında bir 'anma' halkasına insanın katılışıdır. Bakara 2:152'nin karşılıklı zikri burada üç taraflı bir kompozisyona dönüşür: Allah, melekler, kul — hepsi aynı fiili Peygamber'e yöneltir. Klasik ahlâk literatürü salavatı 'zikrin en dolaylı ama en güçlü halkalarından biri' olarak konumlar."
+      "descTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 'salât' fiilinin özneleri arasında Allah'ın kendisi yer alır. Râzî ayetteki 'yusallûn' (salât ederler) fiilinin muzari (sürekli, tamamlanmamış) çekiminde olduğuna dikkat çeker — bu salât hâlihazırda süregelen bir eylemdir; kula verilen emir bu süregelen eyleme katılmaktır. Salavat böylece 'sadece bir dua' değil, kâinat çapında bir 'anma' halkasına insanın katılışıdır. Bakara 2:152'nin karşılıklı zikri burada üç taraflı bir kompozisyona dönüşür: Allah, melekler, kul — hepsi aynı fiili Peygamber'e yöneltir. Klasik ahlâk literatürü salavatı 'zikrin en dolaylı ama en güçlü halkalarından biri' olarak konumlar.",
+      "descEn": "Aḥzāb 33:56 says: 'Indeed, Allah and His angels send blessings upon the Prophet. O you who believe! Send blessings upon him and greet him with full submission.' Classical exegesis stresses that this verse contains a rare composition in the Qur'an: Allah Himself is among the subjects of the verb 'ṣalāt.' Rāzī draws attention to the verb 'yuṣallūn' (they send blessings) in the verse being in the imperfect (continuous, incomplete) form: this ṣalāt is an act already ongoing; the command given to the servant is to join this ongoing act. Ṣalawāt is thus not 'merely a supplication' but the human's joining of a cosmos-wide circle of 'remembrance.' The reciprocal dhikr of Al-Baqara 2:152 turns here into a three-sided composition: Allah, the angels, the servant: all direct the same act toward the Prophet. Classical ethical literature positions ṣalawāt as 'one of the most indirect yet most powerful links of dhikr.'"
     }
   ],
   "insanEtkisi": [
     {
       "id": "kalp-mutmainligi-modern",
       "titleTr": "Kalbin Sabitlenmesi — Modern Bir Yankı",
-      "titleEn": "The Heart's Anchoring — A Modern Echo",
+      "titleEn": "The Heart's Anchoring: A Modern Echo",
       "refs": [
         "Ra'd 13:28"
       ],
@@ -778,9 +804,9 @@
         "enShort": "Verily, in the remembrance of Allah do hearts find rest."
       },
       "descTr": "Ra'd 13:28 kalbin mutmain olmasını zikirle eşleştirir. Modern meditasyon araştırmaları da tekrarlı zihinsel odaklanmanın (mantra, mindfulness, dua) fizyolojik gevşeme ve psikolojik iç dinginlik ürettiğini raporlar — kalp atış hızı düşmesi, kortizol seviyesinin gerilemesi, prefrontal korteks aktivitesinde belirli değişiklikler. Bu paralellikler ilgi çekicidir; ancak bu sayfa Kur'ân'ın modern bilimin bulgularını 'önceden bildiğini' iddia etmez. Kur'ânî çerçeve fenomenolojiktir — insan tecrübesinin bir hâlini adlandırır ('mutmain olma'); modern bilim aynı fenomeni biyokimyasal düzlemde inceler. İki dil farklı; örtüşme noktaları ise dikkate değer.",
-      "descEn": "Raʿd 13:28 pairs the heart's rest with dhikr. Modern meditation research also reports that repetitive mental focus (mantra, mindfulness, prayer) produces physiological relaxation and psychological calm — decreased heart rate, lowered cortisol, specific shifts in prefrontal cortex activity. These parallels are noteworthy; but this page does not claim that the Qur'an 'foreknew' modern science. The Qur'anic frame is phenomenological — it names a state of human experience ('finding rest'); modern science investigates the same phenomenon at a biochemical level. Two different languages, with an overlap that merits attention.",
+      "descEn": "Raʿd 13:28 pairs the heart's rest with dhikr. Modern meditation research also reports that repetitive mental focus (mantra, mindfulness, prayer) produces physiological relaxation and psychological calm: decreased heart rate, lowered cortisol, specific shifts in prefrontal cortex activity. These parallels are noteworthy; but this page does not claim that the Qur'an 'foreknew' modern science. The Qur'anic frame is phenomenological: it names a state of human experience ('finding rest'); modern science investigates the same phenomenon at a biochemical level. Two different languages, with an overlap that merits attention.",
       "modernIzlerTr": "Modern psikoloji ve nörobilim 'mindfulness meditation' ve 'contemplative practices' başlıklarında bu alanı geniş bir literatürle inceler. Ancak bu sayfa zikri modern meditasyonun 'İslamî versiyonu' olarak sunmaz — zikrin Kur'ânî omurgası (Bakara 2:152'nin karşılıklı yapısı, Ra'd 13:28'in 'ancak' edatı) modern meditasyonda karşılığı olmayan teolojik bir denklik kurar.",
-      "modernIzlerEn": "Modern psychology and neuroscience explore this field extensively under 'mindfulness meditation' and 'contemplative practices.' However, this page does not present dhikr as the 'Islamic version' of modern meditation — dhikr's Qur'anic spine (the reciprocal structure of Baqara 2:152, the 'only' particle of Raʿd 13:28) sets up a theological parity absent from modern meditation.",
+      "modernIzlerEn": "Modern psychology and neuroscience explore this field extensively under 'mindfulness meditation' and 'contemplative practices.' However, this page does not present dhikr as the 'Islamic version' of modern meditation: dhikr's Qur'anic spine (the reciprocal structure of Baqara 2:152, the 'only' particle of Raʿd 13:28) sets up a theological parity absent from modern meditation.",
       "claimType": "semantic_inference",
       "confidence": "medium",
       "kaynak": "Râzî, Ra'd 13:28 tefsiri (mutmain olma ↔ sekîne farkı); Elmalılı aynı ayet"
@@ -788,7 +814,7 @@
     {
       "id": "sureklilik-24-7",
       "titleTr": "Süreklilik — 24 Saatlik Bir Din",
-      "titleEn": "Continuity — A 24-Hour Religion",
+      "titleEn": "Continuity: A 24-Hour Religion",
       "refs": [
         "Âl-i İmrân 3:191",
         "Ahzâb 33:41"
@@ -799,15 +825,15 @@
         "enShort": "Those who remember Allah standing, sitting, and on their sides."
       },
       "descTr": "Namaz beş vakittir, oruç bir aydır, zekât yıllıktır, hac ömürdedir. Ancak zikir Kur'ân'da hiçbir vakit sınırlaması olmayan tek ibadettir. Âl-i İmrân 3:191 zikri her üç bedensel duruşa açar (ayakta, oturarak, yanları üzeri) — yani gün boyunca insanın bulunduğu her hale. Ahzâb 33:41 'çokça anın' der — üst sınırı yok. Klasik tefsir bu 'sınırsızlığı' zikrin karakteristik özelliği olarak vurgular. İbn Kayyim gibi klasik ahlâk yazarları 'yürürken zikir, otururken zikir, işte zikir, evde zikir' formülüyle zikri günün her anına yayar. Bu 24 saatlik yaygınlık zikri diğer ibadetlerden ayıran özelliktir — Kur'ân'da başka hiçbir ibadet için verilen bu esneklik verilmez.",
-      "descEn": "Prayer is five times daily, fasting is one month, zakāt is annual, ḥajj is once in a lifetime. But dhikr is the only worship in the Qur'an with no temporal restriction. Āl ʿImrān 3:191 opens dhikr to all three bodily postures (standing, sitting, on one's side) — that is, to every state one is in throughout the day. Aḥzāb 33:41 says 'remember much' — no upper limit. Classical exegesis emphasizes this 'boundlessness' as dhikr's defining feature. Classical ethical writers like Ibn Qayyim extend dhikr into every moment of the day: 'dhikr while walking, sitting, working, at home.' This 24-hour spread is what distinguishes dhikr from other acts of worship — no other worship in the Qur'an is given this flexibility.",
+      "descEn": "Prayer is five times daily, fasting is one month, zakāt is annual, ḥajj is once in a lifetime. But dhikr is the only worship in the Qur'an with no temporal restriction. Āl ʿImrān 3:191 opens dhikr to all three bodily postures (standing, sitting, on one's side): that is, to every state one is in throughout the day. Aḥzāb 33:41 says 'remember much': no upper limit. Classical exegesis emphasizes this 'boundlessness' as dhikr's defining feature. Classical ethical writers like Ibn Qayyim extend dhikr into every moment of the day: 'dhikr while walking, sitting, working, at home.' This 24-hour spread is what distinguishes dhikr from other acts of worship: no other worship in the Qur'an is given this flexibility.",
       "modernIzlerTr": "'Sürekli hatırlama' motifi tasavvuf usulünün temel eğitim halkalarındandır. Klasik ahlâk metinleri 'devam eden zikir' (dâim zikir) kavramını uzun uzun işler — dilin sesli zikri yorulabilir, kalbin sessiz zikri devam edebilir. Bu sürekli mod modern psikolojinin 'implicit self-regulation' araştırmalarıyla yüzeyden karşılaştırılabilir; ancak iki dil farklıdır.",
-      "modernIzlerEn": "The 'continuous remembrance' motif is a foundational training in classical Sufi literature. Classical ethical texts extensively treat 'perpetual dhikr' (ḏikr dāʾim) — the tongue's audible dhikr may tire, but the heart's silent dhikr may continue. This continuous mode admits a surface comparison with modern psychology's research on implicit self-regulation, but the two languages differ.",
+      "modernIzlerEn": "The 'continuous remembrance' motif is a foundational training in classical Sufi literature. Classical ethical texts extensively treat 'perpetual dhikr' (ḏikr dāʾim): the tongue's audible dhikr may tire, but the heart's silent dhikr may continue. This continuous mode admits a surface comparison with modern psychology's research on implicit self-regulation, but the two languages differ.",
       "kaynak": "Râzî, Âl-i İmrân 3:191 tefsiri; Elmalılı, Ahzâb 33:41"
     },
     {
       "id": "sozel-dil-zikir",
       "titleTr": "Dilin Zikri — Sözün Kalbe İnişi",
-      "titleEn": "The Tongue's Dhikr — Word Descending to the Heart",
+      "titleEn": "The Tongue's Dhikr: Word Descending to the Heart",
       "refs": [
         "A'râf 7:205",
         "A'lâ 87:14-15"
@@ -818,7 +844,7 @@
         "enShort": "Remember your Lord within yourself, humbly and with awe, without loudness in words, in the morning and evening."
       },
       "descTr": "A'râf 7:205 zikrin sesli boyutuna bir 'sınır' getirir: 'yüksek sesten kaçınarak' (dûne'l-cehr). Klasik tefsir bu kaydın 'sesli zikri yasaklamak' değil, 'gösteri boyutunu engellemek' anlamı taşıdığını vurgular. A'lâ 87:14-15 ise 'Rabbinin adını andı' (zekera'sme rabbihî) der — dilin bir ismi anması. Klasik ahlâk literatürü bu iki ayeti birlikte okur: dilin zikri kalbin zikrinin dış hâlidir; ancak dil kalbe inmezse zikir 'boşa dönen bir tekrar' halinde kalır. Elmalılı 'zikir dilin ağzın, kalbin, kulağın ve nihayet elin ortak işi olduğunda tamamdır' der. Kur'ânî çerçeve dilin ismi tekrarını meşrulaştırır, ancak dilin yalnız başına yeterli olmadığını gösterir.",
-      "descEn": "Aʿrāf 7:205 places a 'limit' on the audible dimension of dhikr: 'without loudness in words' (dūna'l-jahr). Classical exegesis emphasizes that this restriction does not prohibit audible dhikr but rather forbids its ostentatious form. Aʿlā 87:14-15 says 'remembers the name of his Lord' (dhakara'sma rabbihī) — the tongue's remembering of a name. Classical ethical literature reads these two verses together: the tongue's dhikr is the outward form of the heart's dhikr; but if the tongue does not descend to the heart, dhikr remains 'a repetition spinning in emptiness.' Elmalılı: 'dhikr is complete when it is the joint work of tongue, mouth, heart, ear, and finally hand.' The Qur'anic frame legitimates the tongue's repetition of the Name yet shows that the tongue alone is not enough.",
+      "descEn": "Aʿrāf 7:205 places a 'limit' on the audible dimension of dhikr: 'without loudness in words' (dūna'l-jahr). Classical exegesis emphasizes that this restriction does not prohibit audible dhikr but rather forbids its ostentatious form. Aʿlā 87:14-15 says 'remembers the name of his Lord' (dhakara'sma rabbihī): the tongue's remembering of a name. Classical ethical literature reads these two verses together: the tongue's dhikr is the outward form of the heart's dhikr; but if the tongue does not descend to the heart, dhikr remains 'a repetition spinning in emptiness.' Elmalılı: 'dhikr is complete when it is the joint work of tongue, mouth, heart, ear, and finally hand.' The Qur'anic frame legitimates the tongue's repetition of the Name yet shows that the tongue alone is not enough.",
       "modernIzlerTr": "Modern nörolinguistik araştırmaları tekrarlı sözlü ifadenin (verbal repetition) beynin belirli bölgelerinde (motor korteks, dil işleme merkezleri) tetiklediği aktivasyonu ve otonom sinir sistemi üzerindeki etkilerini inceler. Bu gözlemler zikrin fizyolojik boyutuna bir dil sunar; ancak zikrin Kur'ânî anlam çerçevesi (Allah'a yöneliş, karşılıklılık, kalp mutmainliği) bu nörolinguistik dil ile örtüşmez.",
       "modernIzlerEn": "Modern neurolinguistic research studies the activation triggered in specific brain regions (motor cortex, language processing areas) by repetitive verbal expression and its effects on the autonomic nervous system. These observations offer a language for dhikr's physiological dimension; but dhikr's Qur'anic semantic frame (orientation toward Allah, reciprocity, heart's tranquility) does not overlap with this neurolinguistic language.",
       "kaynak": "Râzî, A'râf 7:205 tefsiri ('dûne'l-cehr' kaydı); Elmalılı, A'lâ 87:14-15"
@@ -826,7 +852,7 @@
     {
       "id": "modern-mindfulness-paralel",
       "titleTr": "Mindfulness Paraleli — Bir Karşılaştırma ve Sınır",
-      "titleEn": "The Mindfulness Parallel — A Comparison and Its Limit",
+      "titleEn": "The Mindfulness Parallel: A Comparison and Its Limit",
       "refs": [
         "A'râf 7:205",
         "Ra'd 13:28"
@@ -837,9 +863,9 @@
         "enShort": "Remember your Lord within yourself... morning and evening; and do not be among the heedless."
       },
       "descTr": "A'râf 7:205'in 'gafillerden olma' emri modern mindfulness literatüründeki 'anda kalma' (present-moment awareness) kavramı ile bir yüzey benzerliği taşır. İki dil de 'dikkatin dağılmasını' (Kur'ân: gaflet, mindfulness: mind-wandering) merkeze koyar. Ancak bu paralellik önemli bir sınırla gelir. Mindfulness genelde 'içeriksiz farkındalık' — dikkatin herhangi bir nesneye değil, farkındalığın kendisine yönelmesi. Zikir ise Kur'ân'da açıkça 'Allah'ı zikretme'dir — nesne bellidir. Ra'd 13:28 'kalpler ancak Allah'ı zikirle mutmain olur' der; 'zikir' değil, 'Allah'ı zikir'. Bu ayrım Kur'ânî bir tercihtir. Bu sayfa iki geleneği eşitlemez; sadece 'dikkatin farkındalığı' ortak zemininin varlığını kaydeder ve zikrin bu ortak zemin üzerine ontolojik bir yönelim eklediğini gösterir.",
-      "descEn": "Aʿrāf 7:205's command 'do not be among the heedless' bears a surface resemblance to the modern mindfulness concept of 'present-moment awareness.' Both languages place at the center 'the mind's wandering' (Qur'an: ghafla; mindfulness: mind-wandering). Yet this parallel comes with a crucial limit. Mindfulness is generally 'contentless awareness' — the mind's turning not toward any object but toward awareness itself. Dhikr, in the Qur'an, is explicitly 'the remembrance of Allah' — the object is specified. Raʿd 13:28 says 'in the remembrance of Allah hearts find rest' — not 'in remembrance,' but 'in the remembrance of Allah.' This distinction is a Qur'anic choice. This page does not equate the two traditions; it records the shared ground of 'attentional awareness' and shows that dhikr adds an ontological orientation to that ground.",
+      "descEn": "Aʿrāf 7:205's command 'do not be among the heedless' bears a surface resemblance to the modern mindfulness concept of 'present-moment awareness.' Both languages place at the center 'the mind's wandering' (Qur'an: ghafla; mindfulness: mind-wandering). Yet this parallel comes with a crucial limit. Mindfulness is generally 'contentless awareness': the mind's turning not toward any object but toward awareness itself. Dhikr, in the Qur'an, is explicitly 'the remembrance of Allah': the object is specified. Raʿd 13:28 says 'in the remembrance of Allah hearts find rest': not 'in remembrance,' but 'in the remembrance of Allah.' This distinction is a Qur'anic choice. This page does not equate the two traditions; it records the shared ground of 'attentional awareness' and shows that dhikr adds an ontological orientation to that ground.",
       "modernIzlerTr": "Klasik ahlâk literatürü metinleri 'murâkabe' (Allah'ın bakışının farkındalığı) kavramını uzun uzun işler — bu kavram mindfulness'ın 'içeriksiz farkındalığından' Kur'ânî bir 'içerikli farkındalığa' geçişi gösterir. Ġazâlî'nin 'İhyâu Ulûmi'd-Dîn'de murâkabe için ayırdığı bölüm bu ayrımın klasik metnidir.",
-      "modernIzlerEn": "Classical ethical literature extensively treats the concept of murāqaba (awareness of Allah's gaze) — showing the shift from mindfulness's 'contentless awareness' to a Qur'anic 'content-bearing awareness.' The chapter on murāqaba in al-Ghazālī's Iḥyāʾ ʿUlūm al-Dīn is the classical text of this distinction.",
+      "modernIzlerEn": "Classical ethical literature extensively treats the concept of murāqaba (awareness of Allah's gaze): showing the shift from mindfulness's 'contentless awareness' to a Qur'anic 'content-bearing awareness.' The chapter on murāqaba in al-Ghazālī's Iḥyāʾ ʿUlūm al-Dīn is the classical text of this distinction.",
       "claimType": "semantic_inference",
       "confidence": "medium",
       "kaynak": "Râzî, A'râf 7:205 tefsiri; Kurtubî aynı ayet"
@@ -847,7 +873,7 @@
     {
       "id": "toplumsal-zikir-cemaat",
       "titleTr": "Toplumsal Zikir — Cemaatin Anma Halkası",
-      "titleEn": "Communal Dhikr — The Community's Circle of Remembrance",
+      "titleEn": "Communal Dhikr: The Community's Circle of Remembrance",
       "refs": [
         "Cum'a 62:9-10",
         "Bakara 2:200"
@@ -858,9 +884,9 @@
         "enShort": "When the call is made for the prayer on Friday, hasten to the remembrance of Allah and leave off business."
       },
       "descTr": "Kur'ân zikri sadece bireysel bir eylem olarak konumlamaz. Cum'a 62:9 der: 'Cuma günü namaz için çağrıldığında hemen Allah'ın zikrine koşun.' Ayette 'namaza koşun' değil, 'zikre koşun' (fe's'av ilâ zikrillâh) denir — cuma namazı 'zikir' üst adıyla anılır. Bakara 2:200 hac sonrası zikri emreder: 'Hac ibadetinizi bitirdiğinizde... Allah'ı çokça anın.' Klasik tefsir bu ayetlerin zikrin 'toplumsal boyutunu' — cemaatle icra edilmesini — Kur'ânî zeminde meşrulaştırdığını vurgular. Cuma cemaati, hac cemaati, cenâze cemaati, bayram tekbirleri — hepsi zikrin toplumsal halkalarıdır. Ancak Kur'ân A'râf 7:205 ile 'gösteriye kaçmayın' kaydını da koyar; toplumsal zikir 'birlikte olmak' amacındadır, 'öne çıkmak' değil. Elmalılı bu dengeyi 'zikrin sesi kalpten gelmelidir; kalpten gelmezse ne yalnız ne toplu zikir semere verir' cümlesiyle özetler.",
-      "descEn": "The Qur'an does not position dhikr as a purely individual act. Jumuʿa 62:9 says: 'When the call is made for the prayer on Friday, hasten to the remembrance of Allah.' The verse does not say 'hasten to the prayer' but 'hasten to the remembrance' (fa'saʿū ilā dhikri'llāh) — Friday prayer is named by the superordinate 'dhikr.' Baqara 2:200 commands dhikr after ḥajj: 'When you have completed your rites... remember Allah abundantly.' Classical exegesis emphasizes that these verses legitimate on Qur'anic ground the 'communal dimension' of dhikr — its performance in congregation. The Friday congregation, the ḥajj congregation, the funeral congregation, the ʿīd takbīrs — all are the community's circles of dhikr. Yet the Qur'an also lays down in Aʿrāf 7:205 the restriction 'do not fall into display'; communal dhikr aims at 'being together,' not at 'standing out.' Elmalılı sums up this balance: 'the voice of dhikr must come from the heart; if it does not come from the heart, neither solitary nor communal dhikr bears fruit.'",
+      "descEn": "The Qur'an does not position dhikr as a purely individual act. Jumuʿa 62:9 says: 'When the call is made for the prayer on Friday, hasten to the remembrance of Allah.' The verse does not say 'hasten to the prayer' but 'hasten to the remembrance' (fa'saʿū ilā dhikri'llāh): Friday prayer is named by the superordinate 'dhikr.' Baqara 2:200 commands dhikr after ḥajj: 'When you have completed your rites... remember Allah abundantly.' Classical exegesis emphasizes that these verses legitimate on Qur'anic ground the 'communal dimension' of dhikr: its performance in congregation. The Friday congregation, the ḥajj congregation, the funeral congregation, the ʿīd takbīrs: all are the community's circles of dhikr. Yet the Qur'an also lays down in Aʿrāf 7:205 the restriction 'do not fall into display'; communal dhikr aims at 'being together,' not at 'standing out.' Elmalılı sums up this balance: 'the voice of dhikr must come from the heart; if it does not come from the heart, neither solitary nor communal dhikr bears fruit.'",
       "modernIzlerTr": "Sosyoloji araştırmaları 'kolektif biçim' (collective ritual) ve 'senkron davranış' (behavioral synchrony) başlıklarında topluca yapılan tekrarlı eylemlerin grup dinamikleri ve iç bağlılık üzerindeki etkilerini inceler. Emile Durkheim'ın 'biçim efervesans' kavramı bu literatürün klasik başlangıcıdır. Toplumsal zikir bu literatüre bir örnek sağlar; ancak bu sayfa zikri sosyolojik bir 'grup bağlılığı aracı' olarak indirgemez — Kur'ânî çerçeve toplumsal zikri Allah'a yönelmenin bir biçimi olarak konumlar.",
-      "modernIzlerEn": "Sociological research studies communal repetitive actions under 'collective ritual' and 'behavioral synchrony,' examining their effects on group dynamics and cohesion. Émile Durkheim's concept of 'ritual effervescence' is the classical starting point of this literature. Communal dhikr offers this literature an example; but this page does not reduce dhikr to a sociological 'group bonding device' — the Qur'anic frame positions communal dhikr as a form of orientation toward Allah.",
+      "modernIzlerEn": "Sociological research studies communal repetitive actions under 'collective ritual' and 'behavioral synchrony,' examining their effects on group dynamics and cohesion. Émile Durkheim's concept of 'ritual effervescence' is the classical starting point of this literature. Communal dhikr offers this literature an example; but this page does not reduce dhikr to a sociological 'group bonding device': the Qur'anic frame positions communal dhikr as a form of orientation toward Allah.",
       "kaynak": "Râzî, Cum'a 62:9 tefsiri; Kurtubî, Bakara 2:200"
     }
   ],
@@ -871,7 +897,7 @@
       "workEn": "Mafātīḥ al-Ghayb",
       "period": "1149-1209 (Rey)",
       "noteTr": "Bakara 2:152 karşılıklı zikir simetrisi, Ra'd 13:28 'elâ' edatının kesinlik gücü, Ankebût 29:45 'zikir daha büyüktür' üç okuması, Ahzâb 33:56 salavat kompozisyonu — bu sayfanın Kur'ânî zikir mimarisi okumasının ana kelâmî çerçevesi.",
-      "noteEn": "Baqara 2:152 reciprocal symmetry of dhikr, Raʿd 13:28 the certifying force of the particle 'alā, ʿAnkabūt 29:45 the three readings of 'dhikr is greater,' Aḥzāb 33:56 the composition of ṣalawāt — the primary kalāmī frame for this page's reading of the Qur'anic architecture of dhikr."
+      "noteEn": "Baqara 2:152 reciprocal symmetry of dhikr, Raʿd 13:28 the certifying force of the particle 'alā, ʿAnkabūt 29:45 the three readings of 'dhikr is greater,' Aḥzāb 33:56 the composition of ṣalawāt: the primary kalāmī frame for this page's reading of the Qur'anic architecture of dhikr."
     },
     {
       "author": "Kurtubî",
@@ -879,7 +905,7 @@
       "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
       "period": "1214-1273 (Kurtuba)",
       "noteTr": "A'râf 7:205'in dört ölçüsü (fî nefsike, tadarru'an, khîfeten, dûne'l-cehr), Kehf 18:24'ün gaflet-unutuş ayrımı, Cum'a 62:9'un 'zikre koşun' ifadesinin fıkhî okuması, İsrâ 17:44'ün kâinat tesbihi. Sessiz zikir (khafī) çerçevesinin Kur'ânî omurgası için birincil referans.",
-      "noteEn": "The four measures of Aʿrāf 7:205 (fī nafsika, taḍarruʿ, khīfa, dūna'l-jahr), the ghafla–forgetting distinction in Kahf 18:24, the juridical reading of 'hasten to remembrance' in Jumuʿa 62:9, the cosmic tasbīḥ of Isrāʾ 17:44. Primary reference for the Qur'anic spine of silent dhikr (khafī)."
+      "noteEn": "The four measures of Aʿrāf 7:205 (fī nafsika, taḍarruʿ, khīfa, dūna'l-jahr), the ghafla-forgetting distinction in Kahf 18:24, the juridical reading of 'hasten to remembrance' in Jumuʿa 62:9, the cosmic tasbīḥ of Isrāʾ 17:44. Primary reference for the Qur'anic spine of silent dhikr (khafī)."
     },
     {
       "author": "Elmalılı Hamdi Yazır",

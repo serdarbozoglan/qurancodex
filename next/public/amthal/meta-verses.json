@@ -4,43 +4,55 @@
       "ref": "2:26",
       "keyPhrase": "لَا يَسْتَحْيِي أَن يَضْرِبَ مَثَلًا مَّا بَعُوضَةً",
       "messageTr": "Allah sivrisineği bile mesel vermekten çekinmez",
+      "messageEn": "Allah does not shy from striking a parable even of a mosquito",
       "principleKey": "scale-free",
-      "principleLabel": "Boyut Tanımaz"
+      "principleLabel": "Boyut Tanımaz",
+      "principleLabelEn": "No Limit of Scale"
     },
     {
       "ref": "29:43",
       "keyPhrase": "وَمَا يَعْقِلُهَا إِلَّا الْعَالِمُونَ",
       "messageTr": "Bu meselleri ancak bilgi sahipleri anlar",
+      "messageEn": "Only those who have knowledge understand these parables",
       "principleKey": "depth",
-      "principleLabel": "Derinlik"
+      "principleLabel": "Derinlik",
+      "principleLabelEn": "Depth"
     },
     {
       "ref": "59:21",
       "keyPhrase": "لَعَلَّهُمْ يَتَفَكَّرُونَ",
       "messageTr": "Düşünsünler diye meseller veriyoruz",
+      "messageEn": "We set forth parables so that they may reflect",
       "principleKey": "purpose",
-      "principleLabel": "Amaç: Tefekkür"
+      "principleLabel": "Amaç: Tefekkür",
+      "principleLabelEn": "Purpose: Reflection"
     },
     {
       "ref": "39:27",
       "keyPhrase": "وَلَقَدْ ضَرَبْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ",
       "messageTr": "Bu Kur'an'da insanlar için her türden mesel verdik",
+      "messageEn": "In this Quran We have set forth for mankind every kind of parable",
       "principleKey": "comprehensiveness",
-      "principleLabel": "Kapsamlılık"
+      "principleLabel": "Kapsamlılık",
+      "principleLabelEn": "Comprehensiveness"
     },
     {
       "ref": "30:58",
       "keyPhrase": "وَلَقَدْ ضَرَبْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ",
       "messageTr": "İnsanlar için her türlü meseli verdik",
+      "messageEn": "We have set forth for mankind every kind of parable",
       "principleKey": "variety",
-      "principleLabel": "Çeşitlilik"
+      "principleLabel": "Çeşitlilik",
+      "principleLabelEn": "Variety"
     },
     {
       "ref": "17:89",
       "keyPhrase": "وَلَقَدْ صَرَّفْنَا لِلنَّاسِ فِي هَٰذَا الْقُرْآنِ مِن كُلِّ مَثَلٍ",
       "messageTr": "Her türlü meseli döndürüp anlattık",
+      "messageEn": "We have expounded every kind of parable in various ways",
       "principleKey": "multi-angle",
-      "principleLabel": "Çok Yönlü Anlatım"
+      "principleLabel": "Çok Yönlü Anlatım",
+      "principleLabelEn": "Multi-faceted Expression"
     }
   ]
 }

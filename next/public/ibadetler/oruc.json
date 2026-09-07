@@ -16,7 +16,7 @@
     "eyebrowTr": "TAKVANIN OKULU",
     "eyebrowEn": "SCHOOL OF TAQWA",
     "subtitleTr": "Gündüzün beyaz ipliğinden gecenin karanlığına — açlığa değil takvaya çekilmiş bir sınır.",
-    "subtitleEn": "From the white thread of dawn to the darkness of night — a line drawn not around hunger but around taqwā."
+    "subtitleEn": "From the white thread of dawn to the darkness of night: a line drawn not around hunger but around taqwā."
   },
   "claims": [
     {
@@ -26,7 +26,8 @@
       "refs": [
         "Bakara 2:183"
       ],
-      "framingTr": "Bakara 2:183'ün son cümlesi ('leallekum tettekûn') orucun neden farz kılındığını tek kelimeyle açıklar."
+      "framingTr": "Bakara 2:183'ün son cümlesi ('leallekum tettekûn') orucun neden farz kılındığını tek kelimeyle açıklar.",
+      "framingEn": "The closing clause of Al-Baqara 2:183 ('la'allakum tattaqūn') explains in a single word why fasting was prescribed."
     },
     {
       "claimId": "oruc-ramazan-kuran-bagi-001",
@@ -35,7 +36,8 @@
       "refs": [
         "Bakara 2:185"
       ],
-      "framingTr": "Ramazan Kur'ân'da ismiyle anılan tek aydır — ve bu tek anılış orucun farz ayı bağlamındadır."
+      "framingTr": "Ramazan Kur'ân'da ismiyle anılan tek aydır — ve bu tek anılış orucun farz ayı bağlamındadır.",
+      "framingEn": "Ramaḍān is the only month mentioned by name in the Qur'an: and this single mention comes in the context of the month in which fasting is prescribed."
     },
     {
       "claimId": "oruc-ruhsat-hasta-yolcu-001",
@@ -45,7 +47,8 @@
         "Bakara 2:184",
         "Bakara 2:185"
       ],
-      "framingTr": "Rukhsa (ruhsat) orucun sonraki bir fıkhî yumuşatması değil, farziyet ayetinin kendi içine yerleşiktir."
+      "framingTr": "Rukhsa (ruhsat) orucun sonraki bir fıkhî yumuşatması değil, farziyet ayetinin kendi içine yerleşiktir.",
+      "framingEn": "The rukhṣa (concession) is not a later juristic softening of the fast but is embedded within the very verse that makes it obligatory."
     },
     {
       "claimId": "oruc-savm-semantik-genislik-001",
@@ -54,18 +57,19 @@
       "refs": [
         "Meryem 19:26"
       ],
-      "framingTr": "Meryem 19:26'da Hz. Meryem'in adadığı savm bir 'sessizlik orucu'dur — kelime tek anlama sıkıştırılamaz."
+      "framingTr": "Meryem 19:26'da Hz. Meryem'in adadığı savm bir 'sessizlik orucu'dur — kelime tek anlama sıkıştırılamaz.",
+      "framingEn": "The ṣawm that Mary vows in Maryam 19:26 is a 'fast of silence': the word cannot be confined to a single meaning."
     }
   ],
   "genelBakis": {
     "introTr": "Kur'ân orucu 'savm' ve 'sıyâm' kökü etrafında, tek bir aya (Ramazan) çakılı, iki ucu tanımlı bir zaman diliminde (fecrin beyaz ipliğinden gecenin karanlığına) anlatır. Farz orucun amacı açıkça bildirilir: takva. Ayetler farziyeti koyarken aynı nefeste hasta ve yolcu için ruhsatı, gücü yetmeyene fidyeyi, ihlâli kefaretle onarmayı da yerleştirir — böylece Kur'ân'da oruç 'sertlik' değil, sınırları önceden tanımlı bir terbiye olarak durur. Yanına Meryem'in savm-i sükût'u, Musa'nın kırk gecesi, Zekeriyya'nın konuşmama işareti eklenince oruç Kur'ân'da tek bir bedensel pratik değil, dilin, midenin ve arzunun birlikte terbiye edildiği geniş bir semantik alan olarak görünür.",
-    "introEn": "The Qur'an frames fasting around the roots ṣawm/ṣiyām, anchored to a single month (Ramaḍān) and to a defined temporal span (from the white thread of dawn to the darkness of night). The purpose of the prescribed fast is stated plainly: taqwā. In the same breath that fasting is prescribed, the concession for the sick and the traveler, the fidya for those unable, and the kaffāra for breach are also fixed — so in the Qur'an, fasting stands not as severity but as a discipline whose limits are drawn beforehand. Beside it Mary's ṣawm of silence, Moses' forty nights, and Zechariah's speech-abstention widen ṣawm from a single bodily practice into a broad semantic field where tongue, stomach and appetite are trained together.",
+    "introEn": "The Qur'an frames fasting around the roots ṣawm/ṣiyām, anchored to a single month (Ramaḍān) and to a defined temporal span (from the white thread of dawn to the darkness of night). The purpose of the prescribed fast is stated plainly: taqwā. In the same breath that fasting is prescribed, the concession for the sick and the traveler, the fidya for those unable, and the kaffāra for breach are also fixed: so in the Qur'an, fasting stands not as severity but as a discipline whose limits are drawn beforehand. Beside it Mary's ṣawm of silence, Moses' forty nights, and Zechariah's speech-abstention widen ṣawm from a single bodily practice into a broad semantic field where tongue, stomach and appetite are trained together.",
     "keyPoints": [
       {
         "titleTr": "Amaç açık: takva",
         "titleEn": "The purpose is explicit: taqwā",
         "descTr": "Bakara 2:183 orucu farz kılan cümlenin ardından 'leallekum tettekûn' der. Klasik tefsir bu cümlenin orucu bedensel imsâktan tefrik ettiğini vurgular — açlık amacın kendisi değil, takvaya götüren yoldur.",
-        "descEn": "Bakara 2:183 closes its prescription with 'so that you may attain taqwā.' Classical exegesis stresses that this clause distinguishes fasting from mere bodily abstention — hunger is not the goal but the road to taqwā."
+        "descEn": "Bakara 2:183 closes its prescription with 'so that you may attain taqwā.' Classical exegesis stresses that this clause distinguishes fasting from mere bodily abstention: hunger is not the goal but the road to taqwā."
       },
       {
         "titleTr": "Sayılı günler + ruhsat",
@@ -75,9 +79,9 @@
       },
       {
         "titleTr": "Ramazan — Kur'ân'ın ayı",
-        "titleEn": "Ramaḍān — the month of the Qur'an",
+        "titleEn": "Ramaḍān: the month of the Qur'an",
         "descTr": "Bakara 2:185 Ramazanı 'Kur'ân'ın indirildiği ay' olarak tanıtır. Kur'ân'da adıyla anılan tek ay olan Ramazan bir 'oruç ayı' değil, 'Kur'ân ayı'dır — oruç bu ay ile Kur'ân arasındaki ilişkinin bedendeki karşılığıdır.",
-        "descEn": "Bakara 2:185 introduces Ramaḍān as 'the month in which the Qur'an was sent down.' As the only month named in the Qur'an, Ramaḍān is not merely a 'month of fasting' but the 'month of the Qur'an' — fasting is that relationship's embodiment."
+        "descEn": "Bakara 2:185 introduces Ramaḍān as 'the month in which the Qur'an was sent down.' As the only month named in the Qur'an, Ramaḍān is not merely a 'month of fasting' but the 'month of the Qur'an': fasting is that relationship's embodiment."
       },
       {
         "titleTr": "Sınır: beyaz iplik ↔ karanlık",
@@ -116,7 +120,7 @@
         {
           "layer": "Farz oruç",
           "descTr": "İbadet olarak oruç — Kur'ânî ana kullanım. Bakara 2:183-187 tam farz orucun mimarisini bu kökle kurar.",
-          "descEn": "Fasting as worship — the Qur'an's primary usage. Bakara 2:183-187 builds the architecture of prescribed fasting around this root.",
+          "descEn": "Fasting as worship: the Qur'an's primary usage. Bakara 2:183-187 builds the architecture of prescribed fasting around this root.",
           "kaynak": "Râzî, Bakara 2:183 tefsiri"
         },
         {
@@ -128,7 +132,7 @@
         {
           "layer": "Kefaret orucu",
           "descTr": "İhlâl edilen bir sınırı onarmak için tutulan oruç — kazâ katli (Nisa 4:92), zıhâr (Mücâdele 58:4), yemin bozma (Mâide 5:89), ihram avlanma (Mâide 5:95), hac temettu' (Bakara 2:196). Savm burada 'terbiye' değil, 'onarım' işlevindedir.",
-          "descEn": "Fasting undertaken to repair a breached limit — accidental killing (Al-Nisāʾ 4:92), ẓihār (Al-Mujādala 58:4), broken oath (Al-Māʾida 5:89), hunting in iḥrām (Al-Māʾida 5:95), tamattuʿ ḥajj (Al-Baqara 2:196). Here ṣawm functions as reparation rather than discipline.",
+          "descEn": "Fasting undertaken to repair a breached limit: accidental killing (Al-Nisāʾ 4:92), ẓihār (Al-Mujādala 58:4), broken oath (Al-Māʾida 5:89), hunting in iḥrām (Al-Māʾida 5:95), tamattuʿ ḥajj (Al-Baqara 2:196). Here ṣawm functions as reparation rather than discipline.",
           "kaynak": "Kurtubî, Nisa 4:92 ve Mücâdele 58:4 tefsirleri"
         },
         {
@@ -163,19 +167,19 @@
         {
           "layer": "Kur'ân'ın indirildiği ay",
           "descTr": "Bakara 2:185 Ramazanı 'Kur'ân'ın indirildiği ay' (elleẕî unzile fîhi'l-Kur'ân) olarak tanımlar. Ayın Kur'ânî kimliği önce Kur'ân, sonra oruçtur — sıra ayette bu şekildedir.",
-          "descEn": "Bakara 2:185 defines Ramaḍān as 'the month in which the Qur'an was sent down.' The month's Qur'anic identity is first Qur'an and then fasting — that is the verse's own order.",
+          "descEn": "Bakara 2:185 defines Ramaḍān as 'the month in which the Qur'an was sent down.' The month's Qur'anic identity is first Qur'an and then fasting: that is the verse's own order.",
           "kaynak": "Râzî, Bakara 2:185 tefsiri"
         },
         {
           "layer": "Kök anlamı: yakıcı sıcaklık",
           "descTr": "Kök r-m-ḍ lugatta 'yakıcı sıcaklık, kızgın kum' anlamındadır. Klasik lugatçılar ismin bu köke bağlanmasını, ayın çölde ilk isimlendirildiği dönemin ısı koşullarıyla ve orucun 'içeriyi yakması'yla (günahları arıtması) tefsir eder — ikinci okuma mecazîdir.",
-          "descEn": "The root r-m-ḍ lexically denotes scorching heat and burning sand. Classical lexicographers link the name to the season of its first naming, and metaphorically to fasting's 'inner burning' (purification of sins) — the second reading being figurative.",
+          "descEn": "The root r-m-ḍ lexically denotes scorching heat and burning sand. Classical lexicographers link the name to the season of its first naming, and metaphorically to fasting's 'inner burning' (purification of sins): the second reading being figurative.",
           "kaynak": "Kurtubî, Bakara 2:185 tefsiri (isim açılımı); Elmalılı, Bakara 2:185"
         },
         {
           "layer": "Kadr Gecesi'nin ayı",
           "descTr": "Kadr 97:1 'Biz onu Kadr Gecesi'nde indirdik' der; Bakara 2:185 'Ramazan Kur'ân'ın indirildiği aydır' der. İki ayetin birleşimiyle klasik tefsir Kadr Gecesi'ni Ramazan içinde konumlar — bu, ayın 'zaman ağırlığının' Kur'ânî tesbitidir.",
-          "descEn": "Al-Qadr 97:1 says 'We sent it down on the Night of Decree'; Baqara 2:185 says 'Ramaḍān is the month in which the Qur'an was sent down.' Classical exegesis, joining the two, locates Laylat al-Qadr within Ramaḍān — the Qur'anic anchoring of the month's temporal weight.",
+          "descEn": "Al-Qadr 97:1 says 'We sent it down on the Night of Decree'; Baqara 2:185 says 'Ramaḍān is the month in which the Qur'an was sent down.' Classical exegesis, joining the two, locates Laylat al-Qadr within Ramaḍān: the Qur'anic anchoring of the month's temporal weight.",
           "kaynak": "Râzî, Kadr 97:1 ve Bakara 2:185 tefsirleri (birleştirmeli okuma)"
         }
       ]
@@ -205,7 +209,7 @@
         {
           "layer": "Orucu açma",
           "descTr": "Aynı kök hem 'iftar' (orucu açma) hem 'fıtrat' (asıl yaratılış) hem 'fâtır' (yaratıcı, ilk yaran) anlamlarını taşır. Ortak öz: 'kapalı olanı yarma, aslî halin ortaya çıkması'. İftar bu köke göre 'orucun kapağının açılması'dır — bedenin fıtrî haline dönmesi.",
-          "descEn": "The same root carries 'ifṭār' (breaking fast), 'fiṭra' (original disposition), and 'fāṭir' (the Originator, first splitter). Common core: opening what is closed, the coming-forth of the original state. Ifṭār by this root is the 'opening of the fast's seal' — the body's return to its natural state.",
+          "descEn": "The same root carries 'ifṭār' (breaking fast), 'fiṭra' (original disposition), and 'fāṭir' (the Originator, first splitter). Common core: opening what is closed, the coming-forth of the original state. Ifṭār by this root is the 'opening of the fast's seal': the body's return to its natural state.",
           "kaynak": "Elmalılı, Bakara 2:187 tefsiri; Kurtubî aynı ayet"
         }
       ]
@@ -235,7 +239,7 @@
         {
           "layer": "Kur'ânî sınırın adı",
           "descTr": "Bakara 2:187 'beyaz iplik siyah iplikten seçilinceye kadar yiyin için, sonra orucu geceye kadar tamamlayın' der. Bu 'sonra' kelimesi (ẖumme) klasik tefsirde imsâkın Kur'ânî anıdır — kelimenin kendisi geçmese de sınırın yeri açık.",
-          "descEn": "Bakara 2:187 says 'eat and drink until the white thread becomes distinct from the black thread of dawn, then complete the fast until night.' The word 'then' (thumma) is, in classical exegesis, the Qur'anic moment of imsāk — the word itself does not appear, but the border's place is set.",
+          "descEn": "Bakara 2:187 says 'eat and drink until the white thread becomes distinct from the black thread of dawn, then complete the fast until night.' The word 'then' (thumma) is, in classical exegesis, the Qur'anic moment of imsāk: the word itself does not appear, but the border's place is set.",
           "kaynak": "Râzî, Bakara 2:187 tefsiri (beyaz iplik metaforu ve 'ẖumme' zamanı)"
         },
         {
@@ -272,13 +276,13 @@
         {
           "layer": "Mescidde durma",
           "descTr": "Bakara 2:187 orucun cinsel eş boyutunu tanımladıktan hemen sonra 'mescitte itikâf halinde iken eşlerinize yaklaşmayın' der. İtikâf oruç ayının içine bir 'iç oda' gibi yerleşir — orucun yoğunluğunun yoğunlaştırıldığı zaman-mekân dilimi.",
-          "descEn": "Bakara 2:187, right after defining the marital dimension of the fast, adds 'do not approach your wives while you are in iʿtikāf in the mosques.' Iʿtikāf sits inside the month like an inner chamber — a time-space where the fast's intensity is concentrated.",
+          "descEn": "Bakara 2:187, right after defining the marital dimension of the fast, adds 'do not approach your wives while you are in iʿtikāf in the mosques.' Iʿtikāf sits inside the month like an inner chamber: a time-space where the fast's intensity is concentrated.",
           "kaynak": "Râzî, Bakara 2:187 tefsiri (itikâf çerçevesi)"
         },
         {
           "layer": "Kök: kilitlenme",
           "descTr": "Kök ʿ-k-f 'bir şeye kilitlenmek, ayrılmadan durmak' demektir. Klasik lugatta bir kimse bir işe 'kendini vakfettiğinde' 'akefe aleyh' denir. İtikâf bu köke göre mescide ve Allah'a 'kendini vakfetmek'tir — sadece durma değil, adanma.",
-          "descEn": "The root ʿ-k-f denotes 'locking onto something, staying without turning away.' In classical lexicography, 'akafa ʿalayh' is said of one who devotes himself to a task. Iʿtikāf by this root is 'devoting oneself' to the mosque and to Allah — not mere staying but consecration.",
+          "descEn": "The root ʿ-k-f denotes 'locking onto something, staying without turning away.' In classical lexicography, 'akafa ʿalayh' is said of one who devotes himself to a task. Iʿtikāf by this root is 'devoting oneself' to the mosque and to Allah: not mere staying but consecration.",
           "kaynak": "Kurtubî, Bakara 2:187 tefsiri (kök açılımı)"
         }
       ]
@@ -308,7 +312,7 @@
         {
           "layer": "Başka günlerde tutma",
           "descTr": "Bakara 2:184 hasta ve yolcunun 'başka günlerden sayısı' (fe-ʿiddetun min eyyâmin uḫar) tamamlayacağını söyler. Kazâ Kur'ân'da 'başka günlere ertelenmiş oruç' olarak tanımlanır — bir ceza değil, farzın zaman kaymasıdır.",
-          "descEn": "Bakara 2:184 says the sick and the traveler shall complete 'a number of other days' (fa-ʿiddatun min ayyāmin ukhar). Qaḍāʾ in the Qur'an is defined as fasting shifted to other days — not a penalty but a temporal displacement of the prescription.",
+          "descEn": "Bakara 2:184 says the sick and the traveler shall complete 'a number of other days' (fa-ʿiddatun min ayyāmin ukhar). Qaḍāʾ in the Qur'an is defined as fasting shifted to other days: not a penalty but a temporal displacement of the prescription.",
           "kaynak": "Kurtubî, Bakara 2:184 tefsiri"
         }
       ]
@@ -337,7 +341,7 @@
         {
           "layer": "Örtme, onarım",
           "descTr": "Kök k-f-r 'örtmek' demektir. Kefâret ihlâlin 'üstünü örten' onarımdır. Oruç kefâreti — Nisa 4:92 (kazâ katli), Mücâdele 58:4 (zıhâr), Mâide 5:89 (yemin), Mâide 5:95 (ihram avlanma) — sınırın delindiği yerlerde savmı bir 'kapatıcı' olarak yerleştirir.",
-          "descEn": "The root k-f-r means 'to cover.' Kaffāra is the covering-repair of a breach. Fasting-kaffāra — Nisāʾ 4:92, Mujādala 58:4, Māʾida 5:89, Māʾida 5:95 — places ṣawm as a 'sealer' at the sites where the limit was broken.",
+          "descEn": "The root k-f-r means 'to cover.' Kaffāra is the covering-repair of a breach. Fasting-kaffāra: Nisāʾ 4:92, Mujādala 58:4, Māʾida 5:89, Māʾida 5:95: places ṣawm as a 'sealer' at the sites where the limit was broken.",
           "kaynak": "Kurtubî, Mücâdele 58:4 tefsiri; Râzî, Nisa 4:92 tefsiri"
         }
       ]
@@ -398,7 +402,7 @@
         {
           "layer": "Farzın içinden gelen hafiflik",
           "descTr": "Bakara 2:184 hasta ve yolcuya kazâ ruhsatını verir; ayet 'Allah size kolaylık ister, zorluk istemez' (2:185) diye devam eder. Klasik tefsir ruhsatın bir 'sonradan gelen esneme' değil, farzın kendi bünyesine yerleşik olduğunu vurgular — Kur'ân sertliği baştan hafifletir.",
-          "descEn": "Bakara 2:184 grants the concession of qaḍāʾ to the sick and the traveler; the verse continues 'Allah desires ease for you, not hardship' (2:185). Classical exegesis stresses that the concession is not a 'later softening' but embedded in the prescription itself — the Qur'an eases severity from the start.",
+          "descEn": "Bakara 2:184 grants the concession of qaḍāʾ to the sick and the traveler; the verse continues 'Allah desires ease for you, not hardship' (2:185). Classical exegesis stresses that the concession is not a 'later softening' but embedded in the prescription itself: the Qur'an eases severity from the start.",
           "kaynak": "Râzî, Bakara 2:185 tefsiri (yusr/usr karşıtlığı)"
         }
       ]
@@ -427,7 +431,7 @@
         {
           "layer": "Yoksula yemek",
           "descTr": "Bakara 2:184 oruca güç yetiremeyene 'bir yoksulun doyurulması kadar fidye' ile karşılık verir. Klasik tefsir bu ayette iki okumaya değinir: (1) sağlam kişiler için başlangıçta bir seçenekti, 2:185 bunu farza dönüştürdü; (2) yaşlı, kronik hasta gibi 'sürekli güç yetiremeyenler' için ruhsat olarak sabit kaldı. İkinci okuma baskındır.",
-          "descEn": "Bakara 2:184 offers those who can barely bear the fast the alternative of 'feeding a poor person as ransom.' Classical exegesis discusses two readings: (1) initially a choice for the healthy, made obligatory by 2:185; (2) a lasting concession for those who chronically cannot bear it — the elderly, the chronically ill. The second reading dominates.",
+          "descEn": "Bakara 2:184 offers those who can barely bear the fast the alternative of 'feeding a poor person as ransom.' Classical exegesis discusses two readings: (1) initially a choice for the healthy, made obligatory by 2:185; (2) a lasting concession for those who chronically cannot bear it: the elderly, the chronically ill. The second reading dominates.",
           "kaynak": "Kurtubî, Bakara 2:184 tefsiri (fidye iki okuması); Râzî aynı ayet"
         }
       ]
@@ -456,7 +460,7 @@
         {
           "layer": "Konuşmama adağı",
           "descTr": "Meryem 19:26'da Hz. Meryem'e söylenir: 'Rahmân için bir savm adadım; bugün hiç kimseyle konuşmayacağım.' Klasik tefsir bu ayeti savm kelimesinin Kur'ânî anlam genişliğinin en açık delili olarak okur — kelime yalnızca yemek-içmekten değil, dilden de kesilmeyi içerir.",
-          "descEn": "Maryam 19:26 tells Mary: 'I have vowed a ṣawm to the Most Merciful; today I shall not speak to any human.' Classical exegesis reads this verse as the clearest Qur'anic evidence for the semantic breadth of ṣawm — the word covers abstention not only from food and drink but also from the tongue.",
+          "descEn": "Maryam 19:26 tells Mary: 'I have vowed a ṣawm to the Most Merciful; today I shall not speak to any human.' Classical exegesis reads this verse as the clearest Qur'anic evidence for the semantic breadth of ṣawm: the word covers abstention not only from food and drink but also from the tongue.",
           "kaynak": "Kurtubî, Meryem 19:26 tefsiri; Elmalılı, Meryem 19:26 tefsiri (savm'ın Kur'ânî iki yönü)"
         }
       ]
@@ -487,7 +491,7 @@
         {
           "layer": "Orucun iç omurgası",
           "descTr": "Bakara 2:153 'sabır ve namaz ile yardım isteyin' der. Klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur — açlık, susuzluk, arzudan kesilme sabrın kendisidir. Elmalılı bu bağlamı orucu sabrın uygulamalı okulu olarak niteler cümlesiyle özetler.",
-          "descEn": "Baqara 2:153 says 'seek help through patience and prayer.' Classical exegesis reads fasting as 'the most concrete bodily form of ṣabr' — hunger, thirst, abstention from appetite are ṣabr itself. Elmalılı sums this up: 'fasting is the practical school of patience.'",
+          "descEn": "Baqara 2:153 says 'seek help through patience and prayer.' Classical exegesis reads fasting as 'the most concrete bodily form of ṣabr': hunger, thirst, abstention from appetite are ṣabr itself. Elmalılı sums this up: 'fasting is the practical school of patience.'",
           "kaynak": "Elmalılı, Bakara 2:153 tefsiri; Îzutsu, Ethico-Religious Concepts (ṣabr semantik alanı)"
         }
       ]
@@ -583,11 +587,13 @@
     "rituelBaglam": [
       {
         "ref": "Bakara 2:187",
-        "sceneTr": "İtikâf Bakara 2:187'nin son cümlelerinde adıyla anılır: 'Mescitlerde itikâf halinde iken onlara yaklaşmayın.' Klasik tefsir bu cümlenin ayetin tam sonundaki 'Bunlar Allah'ın sınırlarıdır' ifadesine yaslandığını gösterir — itikâf sınırların en dar çizildiği zaman-mekân dilimidir. Râzî itikâfın Ramazan ayının son on gününde yoğunlaştırılmasının Kur'ânî değil sünnetle sabit olduğunu, fakat itikâfın Kur'ânî çerçevesinin Bakara 2:187'de yerleşik olduğunu belirtir."
+        "sceneTr": "İtikâf Bakara 2:187'nin son cümlelerinde adıyla anılır: 'Mescitlerde itikâf halinde iken onlara yaklaşmayın.' Klasik tefsir bu cümlenin ayetin tam sonundaki 'Bunlar Allah'ın sınırlarıdır' ifadesine yaslandığını gösterir — itikâf sınırların en dar çizildiği zaman-mekân dilimidir. Râzî itikâfın Ramazan ayının son on gününde yoğunlaştırılmasının Kur'ânî değil sünnetle sabit olduğunu, fakat itikâfın Kur'ânî çerçevesinin Bakara 2:187'de yerleşik olduğunu belirtir.",
+        "sceneEn": "Iʿtikāf is named in the closing sentences of Al-Baqara 2:187: 'Do not approach them while you are in iʿtikāf in the mosques.' Classical exegesis shows that this sentence leans on the expression at the very end of the verse, 'These are the limits of Allah': iʿtikāf is the time-space in which the limits are drawn most tightly. Rāzī notes that concentrating iʿtikāf in the last ten days of Ramaḍān is established by sunnah, not by the Qur'an, yet the Qur'anic frame of iʿtikāf is embedded in Al-Baqara 2:187."
       },
       {
         "ref": "Bakara 2:187",
-        "sceneTr": "Aynı ayet 'beyaz iplik ↔ siyah iplik' metaforuyla imsâk-iftar eksenini kurar. Klasik tefsir metaforun uzun tarihini nakleder: bir sahabî ayet ilk indiğinde metaforu birebir anlayıp yastığının altına iki iplik koyar, sonra Peygamber s.a.v. metaforun 'gecenin karanlığı ile gündüzün beyazlığı arasındaki ayrım' olduğunu açıklar. Kurtubî bu inceliğin 'Kur'ân bir metafor kullanır, metaforun doğru okuması ise açıklamayla sabittir' pedagojik ilkenin en açık örneği olduğunu belirtir."
+        "sceneTr": "Aynı ayet 'beyaz iplik ↔ siyah iplik' metaforuyla imsâk-iftar eksenini kurar. Klasik tefsir metaforun uzun tarihini nakleder: bir sahabî ayet ilk indiğinde metaforu birebir anlayıp yastığının altına iki iplik koyar, sonra Peygamber s.a.v. metaforun 'gecenin karanlığı ile gündüzün beyazlığı arasındaki ayrım' olduğunu açıklar. Kurtubî bu inceliğin 'Kur'ân bir metafor kullanır, metaforun doğru okuması ise açıklamayla sabittir' pedagojik ilkenin en açık örneği olduğunu belirtir.",
+        "sceneEn": "The same verse establishes the imsāk-ifṭār axis with the metaphor of the 'white thread ↔ black thread.' Classical exegesis relates the long history of this metaphor: when the verse was first revealed, a Companion took the metaphor literally and placed two threads under his pillow, and then the Prophet (peace be upon him) explained that the metaphor is 'the distinction between the darkness of night and the whiteness of day.' Qurṭubī notes that this subtlety is the clearest example of the pedagogical principle that 'the Qur'an uses a metaphor, while the correct reading of the metaphor is fixed by explanation.'"
       }
     ]
   },
@@ -595,7 +601,7 @@
   "vakitMekan": {
     "vakitEkseni": {
       "titleTr": "Vakit Ekseni — İmsâk'tan İftar'a",
-      "titleEn": "The Time Axis — From Imsāk to Ifṭār",
+      "titleEn": "The Time Axis: From Imsāk to Ifṭār",
       "introTr": "Kur'ân oruç için iki eksende zaman çizer: yıllık eksende Ramazan (Bakara 2:185), günlük eksende fecrin ipliğinden gecenin karanlığına (Bakara 2:187). Bu bölüm bu iki eksenin Kur'ânî kelimelerini açar.",
       "introEn": "The Qur'an draws time for fasting on two axes: annually, Ramaḍān (Baqara 2:185); daily, from the thread of dawn to the darkness of night (Baqara 2:187). This section unpacks the Qur'anic vocabulary of both axes.",
       "anaAyet": {
@@ -608,7 +614,7 @@
         {
           "kelime": "الْفَجْر (fecr)",
           "anlamTr": "'Yarılma, yarılma çizgisi' — fecr kökü bir şeyin yarılması, ortaya çıkması anlamındadır. Bakara 2:187'de 'fecrin beyaz ipliği' ile fecr-i sâdık kastedilir: doğu ufkunda yatay olarak yayılan beyaz çizgi. Klasik lugat fecr-i kâzib (yalancı fecir, dikey ışık) ile fecr-i sâdık (doğru fecir, yatay çizgi) ayrımı yapar; imsâk vakti ikincisiyle başlar. Elmalılı bu ayrımın Kur'ânî fecr'in doğru anlaşılması için temel olduğunu vurgular.",
-          "anlamEn": "'Splitting, the line of splitting' — the root fajr denotes a thing being split open. In Baqara 2:187 the 'white thread of dawn' refers to fajr al-ṣādiq: the white line spreading horizontally along the eastern horizon. Classical lexicography distinguishes fajr al-kādhib (false dawn, a vertical shaft) from fajr al-ṣādiq (true dawn, a horizontal line); the imsāk begins with the latter.",
+          "anlamEn": "'Splitting, the line of splitting': the root fajr denotes a thing being split open. In Baqara 2:187 the 'white thread of dawn' refers to fajr al-ṣādiq: the white line spreading horizontally along the eastern horizon. Classical lexicography distinguishes fajr al-kādhib (false dawn, a vertical shaft) from fajr al-ṣādiq (true dawn, a horizontal line); the imsāk begins with the latter.",
           "kaynak": "Elmalılı, Bakara 2:187 tefsiri; Kurtubî aynı ayet"
         },
         {
@@ -620,19 +626,19 @@
         {
           "kelime": "اللَّيْل (leyl)",
           "anlamTr": "'Gece' — Bakara 2:187 'sonra orucu geceye kadar tamamlayın' der. Klasik tefsir 'gece'nin başlangıcının güneşin batışı olduğunda ittifak eder — bu Kur'ânî iftar zamanının çerçevesidir. Kurtubî 'gece' ifadesinin astronomik bir hesap değil, gözle ölçülebilir bir olay olduğunu vurgular; iftar bakışın verdiği anda başlar.",
-          "anlamEn": "'Night' — Baqara 2:187 says 'then complete the fast until night.' Classical exegesis is unanimous that the onset of night begins at sunset — this is the Qur'anic frame for ifṭār. Qurṭubī stresses that 'night' here is not an astronomical calculation but a visually measurable event; ifṭār begins at the moment the eye can perceive it.",
+          "anlamEn": "'Night': Baqara 2:187 says 'then complete the fast until night.' Classical exegesis is unanimous that the onset of night begins at sunset: this is the Qur'anic frame for ifṭār. Qurṭubī stresses that 'night' here is not an astronomical calculation but a visually measurable event; ifṭār begins at the moment the eye can perceive it.",
           "kaynak": "Kurtubî, Bakara 2:187 tefsiri"
         },
         {
           "kelime": "شَهْرُ رَمَضَان (şehr-i Ramazan)",
           "anlamTr": "'Ramazan ayı' — Bakara 2:185 bu ismi 'Kur'ân'ın indirildiği ay' tanımıyla açar. Klasik tefsir Ramazan'ın Kur'ân'da isimle anılan tek ay olduğunu vurgular; bu tekliğin kendisi ayın Kur'ânî ağırlığının bir işaretidir. Kök r-m-ḍ 'yakıcı sıcaklık' anlamındadır; isim ay adı olarak sabitlenmiştir.",
-          "anlamEn": "'The month of Ramaḍān' — Baqara 2:185 opens with this name and the definition 'the month in which the Qur'an was sent down.' Classical exegesis stresses that Ramaḍān is the only month named in the Qur'an; this uniqueness itself is a sign of the month's Qur'anic weight.",
+          "anlamEn": "'The month of Ramaḍān': Baqara 2:185 opens with this name and the definition 'the month in which the Qur'an was sent down.' Classical exegesis stresses that Ramaḍān is the only month named in the Qur'an; this uniqueness itself is a sign of the month's Qur'anic weight.",
           "kaynak": "Râzî, Bakara 2:185 tefsiri; Elmalılı, Bakara 2:185"
         },
         {
           "kelime": "أَيَّامٍ مَعْدُودَات (eyyâmen ma'dûdât)",
           "anlamTr": "'Sayılı günler' — Bakara 2:184'ün oruç için ilk çerçeve ifadesi. Klasik tefsir bu ifadenin iki katmanlı olduğuna dikkat çeker: (1) sayının azlığına, yani sertliğin sınırlanmış olduğuna; (2) günlerin belirli bir zaman kesitini oluşturduğuna. Râzî 'ma'dûdât'ın çoğul sıfat kullanımıyla 'sayının bilinebilir olmasının' vurgulandığını, orucun 'sonu belli olmayan bir çile' değil 'çerçevelenmiş bir disiplin' olarak tanımlandığını belirtir.",
-          "anlamEn": "'Numbered days' — the first framing phrase for the fast in Baqara 2:184. Classical exegesis notes two layers: (1) the smallness of the number, i.e., the limitedness of the severity; (2) the days constitute a defined temporal segment. Rāzī notes the plural adjective 'maʿdūdāt' emphasizes the knowability of the count; fasting is defined not as 'boundless hardship' but as 'framed discipline.'",
+          "anlamEn": "'Numbered days': the first framing phrase for the fast in Baqara 2:184. Classical exegesis notes two layers: (1) the smallness of the number, i.e., the limitedness of the severity; (2) the days constitute a defined temporal segment. Rāzī notes the plural adjective 'maʿdūdāt' emphasizes the knowability of the count; fasting is defined not as 'boundless hardship' but as 'framed discipline.'",
           "kaynak": "Râzî, Bakara 2:184 tefsiri"
         }
       ],
@@ -643,6 +649,7 @@
   "kiraatBoyutu": null,
   "rakamsalMimari": {
     "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
+    "titleEn": "The Qur'an Sets the Principle, the Sunnah Details It",
     "framingTr": "Bu bölüm 'Kur'ân eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'ân orucun amacını (takva), zaman çerçevesini (Ramazan; fecir–gece), ruhsatını (hasta/yolcu; fidye) ve dua bağını (Bakara 2:186) açıkça çizer; sünnet-i mütevâtire iftar zamanının uygulama biçimini, suhûr âdâbını, itikâfın son on güne yoğunlaştırılmasını ve Ramazan gecelerinin ibadet düzenini tafsil eder. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
     "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an explicitly draws fasting's purpose (taqwā), temporal frame (Ramaḍān; dawn to night), concessions (sick/traveler; fidya), and its bond with supplication (Baqara 2:186). Mutawātir sunnah details the practical form of ifṭār timing, the etiquette of suḥūr, the concentration of iʿtikāf in the last ten days, and the devotional pattern of Ramaḍān nights. They complete each other as an inseparable whole.",
     "kuraniSide": {
@@ -713,13 +720,14 @@
     {
       "prophet": "Musa",
       "ref": "A'râf 7:142",
-      "sceneTr": "'Musa ile otuz gece için sözleştik ve buna on gece daha ekledik; böylece Rabbinin belirlediği vakit tam kırk gece olarak tamamlandı.' Klasik tefsir bu kırk geceyi bir 'oruç ve inziva' dönemi olarak okur: Musa Tur'a çıkar, Rabbinin sözünü almadan önce bir dilimlik zamanı bedenini terbiye ederek geçirir. Kırk sayısı sonraki peygamberlerin (Meryem'in doğum sonrası, İsa'nın çölde) inziva sürelerinde de tekrarlanır."
+      "sceneTr": "'Musa ile otuz gece için sözleştik ve buna on gece daha ekledik; böylece Rabbinin belirlediği vakit tam kırk gece olarak tamamlandı.' Klasik tefsir bu kırk geceyi bir 'oruç ve inziva' dönemi olarak okur: Musa Tur'a çıkar, Rabbinin sözünü almadan önce bir dilimlik zamanı bedenini terbiye ederek geçirir. Kırk sayısı sonraki peygamberlerin (Meryem'in doğum sonrası, İsa'nın çölde) inziva sürelerinde de tekrarlanır.",
+      "sceneEn": "'And We appointed for Moses thirty nights and completed them with ten more, so the term set by his Lord was completed as forty nights.' Classical exegesis reads these forty nights as a period of 'fasting and seclusion': Moses ascends the Mount and, before receiving his Lord's word, spends a span of time disciplining his body. The number forty recurs in the seclusion periods of later prophets (Mary after childbirth, Jesus in the wilderness)."
     },
     {
       "prophet": "Zekeriyya",
       "ref": "Meryem 19:10 / Âl-i İmrân 3:41",
       "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen 'insanlarla üç gün konuşmama' hali (Meryem 19:10, Âl-i İmrân 3:41). Klasik tefsir bu olayı savm/oruç olarak değil, mucizevî bir dil bağlanması (âyet) olarak yorumlar; ancak Meryem 19:26'daki 'savm-i sükût' ile Kur'ân'ın sessizlik-adama motifi arasında düşünülebilecek semantik bir bağ vardır.",
-      "sceneEn": "The sign granted to Zechariah upon the announcement of Yahya — 'you shall not speak to people for three days' (Maryam 19:10, Āl ʿImrān 3:41). Classical exegesis reads this as miraculous tongue-tying (an āya), not as ṣawm; a semantic tie to the 'ṣawm of silence' in Maryam 19:26 may be considered, but classical support for calling it fasting is not established.",
+      "sceneEn": "The sign granted to Zechariah upon the announcement of Yahya: 'you shall not speak to people for three days' (Maryam 19:10, Āl ʿImrān 3:41). Classical exegesis reads this as miraculous tongue-tying (an āya), not as ṣawm; a semantic tie to the 'ṣawm of silence' in Maryam 19:26 may be considered, but classical support for calling it fasting is not established.",
       "claimType": "semantic_inference",
       "confidence": "medium",
       "auditGuardTr": "Klasik tefsir (İbn Abbâs, Katâde, Mücâhid rivayetleri) bunu savm olarak değil, mucize olarak nakleder."
@@ -727,76 +735,93 @@
     {
       "prophet": "Meryem",
       "ref": "Meryem 19:26",
-      "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmekten değil, konuşmaktan bir kesilmedir. Meryem 19:26 savm kelimesinin en geniş Kur'ânî anlamını taşır ve orucun 'dilin de terbiyesi' olabildiğini gösterir."
+      "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmekten değil, konuşmaktan bir kesilmedir. Meryem 19:26 savm kelimesinin en geniş Kur'ânî anlamını taşır ve orucun 'dilin de terbiyesi' olabildiğini gösterir.",
+      "sceneEn": "As Mary comes before the people after giving birth to Jesus, she is told to say: 'I have vowed a ṣawm to the Most Merciful, so today I shall not speak to any human.' This Qur'anic 'ṣawm' is an abstention not from food and drink but from speech. Maryam 19:26 carries the widest Qur'anic meaning of the word ṣawm and shows that fasting can also be 'a discipline of the tongue.'"
     },
     {
       "prophet": "Muhammed s.a.v. (Ramazan)",
       "ref": "Bakara 2:183-187",
-      "sceneTr": "Peygamber s.a.v.'e ve ümmetine farz kılınan Ramazan orucunun tam Kur'ânî çerçevesi Bakara 2:183-187'de verilir: farz (183), sayılı günler ve ruhsat (184), Ramazan ve Kur'ân bağı (185), 'ben yakınım' (186), gündüz–gece sınırı ve itikâf (187). Bu beş ayet sûrenin oruç için ayırdığı tek yer olmasına rağmen ibadetin tüm ana omurgasını içerir."
+      "sceneTr": "Peygamber s.a.v.'e ve ümmetine farz kılınan Ramazan orucunun tam Kur'ânî çerçevesi Bakara 2:183-187'de verilir: farz (183), sayılı günler ve ruhsat (184), Ramazan ve Kur'ân bağı (185), 'ben yakınım' (186), gündüz–gece sınırı ve itikâf (187). Bu beş ayet sûrenin oruç için ayırdığı tek yer olmasına rağmen ibadetin tüm ana omurgasını içerir.",
+      "sceneEn": "The full Qur'anic frame of the Ramaḍān fast prescribed for the Prophet (peace be upon him) and his community is given in Al-Baqara 2:183-187: the obligation (183), the numbered days and the concession (184), the bond between Ramaḍān and the Qur'an (185), 'I am near' (186), the day-night limit and iʿtikāf (187). Although these five verses are the only place the surah devotes to fasting, they contain the entire main spine of the act of worship."
     },
     {
       "prophet": "Önceki ümmetler",
       "ref": "Bakara 2:183",
-      "sceneTr": "'Sizden öncekilere farz kılındığı gibi oruç size de farz kılındı.' Klasik tefsir bu ifadenin orucun sadece bu ümmete has olmadığını, semavî geleneğin süregelen bir pratiği olduğunu vurguladığını belirtir. Râzî önceki ümmetlerin oruç biçimlerinin ayrıntısını Kur'ân'ın vermediğini, tafsilin İsrâiliyyat rivayetlerinde bulunduğunu, bu nedenle 'ayrıntıya girmeden ilkenin süreklilikte olduğunu görmek yeterli' olduğunu söyler."
+      "sceneTr": "'Sizden öncekilere farz kılındığı gibi oruç size de farz kılındı.' Klasik tefsir bu ifadenin orucun sadece bu ümmete has olmadığını, semavî geleneğin süregelen bir pratiği olduğunu vurguladığını belirtir. Râzî önceki ümmetlerin oruç biçimlerinin ayrıntısını Kur'ân'ın vermediğini, tafsilin İsrâiliyyat rivayetlerinde bulunduğunu, bu nedenle 'ayrıntıya girmeden ilkenin süreklilikte olduğunu görmek yeterli' olduğunu söyler.",
+      "sceneEn": "'Fasting is prescribed for you as it was prescribed for those before you.' Classical exegesis notes that this expression emphasizes that fasting is not particular to this community but a continuing practice of the revealed tradition. Rāzī says that the Qur'an does not give the details of the fasting forms of earlier communities: those details are found in Isrāʾīliyyāt reports: and that therefore 'it is enough to see that the principle lies in continuity, without going into the details.'"
     }
   ],
   "icBoyut": [
     {
       "titleTr": "Takva — Orucun Kur'ânî Amacı",
+      "titleEn": "Taqwā: the Qur'anic Purpose of Fasting",
       "refs": [
         "Bakara 2:183"
       ],
-      "descTr": "Kur'ân orucu farz kılan ayetin sonuna bir tek kelime koyar: 'leallekum tettekûn' — takva sahibi olasınız. Klasik tefsir bu kelimenin orucu diğer bedensel disiplinlerden ayırdığını vurgular. Aç kalmak amacın kendisi değildir; amaç kişinin arzu ile Yaratıcı'nın çizdiği sınır arasında kalmayı öğrenmesidir. Râzî takvayı 'nefsin sınırı görmesi ve o sınırda durabilmesi' olarak tanımlar; oruç bu görme ile durma pratiğinin bedensel okuludur. Elmalılı ekler: takva 'korkmak' değil, 'kendini korumaya almak'tır — orucun insana öğrettiği ilk şey de budur."
+      "descTr": "Kur'ân orucu farz kılan ayetin sonuna bir tek kelime koyar: 'leallekum tettekûn' — takva sahibi olasınız. Klasik tefsir bu kelimenin orucu diğer bedensel disiplinlerden ayırdığını vurgular. Aç kalmak amacın kendisi değildir; amaç kişinin arzu ile Yaratıcı'nın çizdiği sınır arasında kalmayı öğrenmesidir. Râzî takvayı 'nefsin sınırı görmesi ve o sınırda durabilmesi' olarak tanımlar; oruç bu görme ile durma pratiğinin bedensel okuludur. Elmalılı ekler: takva 'korkmak' değil, 'kendini korumaya almak'tır — orucun insana öğrettiği ilk şey de budur.",
+      "descEn": "The Qur'an places a single word at the end of the verse that prescribes fasting: 'la'allakum tattaqūn': that you may attain taqwā. Classical exegesis stresses that this word distinguishes fasting from other bodily disciplines. Going hungry is not the goal in itself; the goal is that a person learn to remain between appetite and the limit drawn by the Creator. Rāzī defines taqwā as 'the self's seeing of the limit and its ability to halt at that limit'; fasting is the bodily school of this practice of seeing and halting. Elmalılı adds: taqwā is not 'to fear' but 'to take oneself under protection': and this is the first thing fasting teaches a person."
     },
     {
       "titleTr": "Sabır — Bedende Somutlaşan",
+      "titleEn": "Ṣabr: Made Concrete in the Body",
       "refs": [
         "Bakara 2:45",
         "Bakara 2:153"
       ],
-      "descTr": "Kur'ân sabır ve namazı iki yerde yan yana getirir (2:45 ve 2:153); klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur. Açlık sabrın soyut bir kavram olmaktan çıkıp midede, dilde, damakta gerçek bir tutuş halini almasıdır. Elmalılı orucu sabrın uygulamalı okulu olarak niteler der. Îzutsu Kur'ân'daki ṣabr semantik alanının 'yerinde kalma, yerinden ayrılmama' özünü çizerken tam da bu bedensel duruşu betimler."
+      "descTr": "Kur'ân sabır ve namazı iki yerde yan yana getirir (2:45 ve 2:153); klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur. Açlık sabrın soyut bir kavram olmaktan çıkıp midede, dilde, damakta gerçek bir tutuş halini almasıdır. Elmalılı orucu sabrın uygulamalı okulu olarak niteler der. Îzutsu Kur'ân'daki ṣabr semantik alanının 'yerinde kalma, yerinden ayrılmama' özünü çizerken tam da bu bedensel duruşu betimler.",
+      "descEn": "The Qur'an sets ṣabr and prayer side by side in two places (2:45 and 2:153); classical exegesis reads fasting as 'the most concrete form of patience in the body.' Hunger is the moment when patience ceases to be an abstract concept and becomes a real holding in the stomach, on the tongue, on the palate. Elmalılı describes fasting as the applied school of patience. Îzutsu, in tracing the core of the ṣabr semantic field in the Qur'an as 'remaining in place, not departing from one's position,' describes precisely this bodily stance."
     },
     {
       "titleTr": "'Ben Yakınım' — Duanın Ayı",
+      "titleEn": "'I Am Near': the Month of Supplication",
       "refs": [
         "Bakara 2:186"
       ],
-      "descTr": "Bakara 2:183-187 arasındaki oruç ayetleri kümesinin tam ortasında 2:186 durur: 'Kullarım sana benden sorduklarında ben yakınım. Bana dua edenin duasına icabet ederim.' Klasik tefsir yerleşimin manidar olduğunu vurgular. Râzî 'oruç ayetleri arasında bu ayetin gelmesi, orucun iç ödülünün ne olduğunu gösterir — Allah'ın yakınlığı' der. Oruç Kur'ân'da bir 'çile' değil, bir 'yakınlık pratiği'dir; duanın en özel karşılık bulduğu zaman kesitidir."
+      "descTr": "Bakara 2:183-187 arasındaki oruç ayetleri kümesinin tam ortasında 2:186 durur: 'Kullarım sana benden sorduklarında ben yakınım. Bana dua edenin duasına icabet ederim.' Klasik tefsir yerleşimin manidar olduğunu vurgular. Râzî 'oruç ayetleri arasında bu ayetin gelmesi, orucun iç ödülünün ne olduğunu gösterir — Allah'ın yakınlığı' der. Oruç Kur'ân'da bir 'çile' değil, bir 'yakınlık pratiği'dir; duanın en özel karşılık bulduğu zaman kesitidir.",
+      "descEn": "At the very center of the cluster of fasting verses in Al-Baqara 2:183-187 stands 2:186: 'When My servants ask you about Me, I am near. I answer the call of the caller when he calls upon Me.' Classical exegesis stresses that this placement is meaningful. Rāzī says, 'the coming of this verse among the fasting verses shows what the inner reward of fasting is: the nearness of Allah.' In the Qur'an, fasting is not an 'ordeal' but a 'practice of nearness'; it is the span of time in which supplication finds its most special response."
     },
     {
       "titleTr": "Empati — Mahrumu Bedende Tanımak",
+      "titleEn": "Empathy: Knowing the Deprived in One's Body",
       "refs": [
         "Bakara 2:184"
       ],
-      "descTr": "Bakara 2:184 oruca güç yetiremeyene fidye seçeneğini verirken bunun 'bir yoksulun doyurulması kadar' olduğunu belirtir. Klasik tefsir bu tercihin manidar olduğunu vurgular: orucun bedensel öğretisiyle fidyenin sosyal öğretisi aynı ayette buluşur. Aç kalan mide mahrumun midesini bilir hâle gelir; fidye bu bilinme halinin kutsallaştırılmasıdır. Kurtubî bu ilişkiye 'sâim ile miskin arasındaki gizli kardeşlik' der."
+      "descTr": "Bakara 2:184 oruca güç yetiremeyene fidye seçeneğini verirken bunun 'bir yoksulun doyurulması kadar' olduğunu belirtir. Klasik tefsir bu tercihin manidar olduğunu vurgular: orucun bedensel öğretisiyle fidyenin sosyal öğretisi aynı ayette buluşur. Aç kalan mide mahrumun midesini bilir hâle gelir; fidye bu bilinme halinin kutsallaştırılmasıdır. Kurtubî bu ilişkiye 'sâim ile miskin arasındaki gizli kardeşlik' der.",
+      "descEn": "When Al-Baqara 2:184 grants the fidya option to one who cannot bear the fast, it specifies that this is 'the feeding of a poor person.' Classical exegesis stresses that this choice is meaningful: the bodily teaching of fasting and the social teaching of the fidya meet in the same verse. The stomach that goes hungry comes to know the stomach of the deprived; the fidya is the sanctification of this state of knowing. Qurṭubī calls this relationship 'the hidden brotherhood between the fasting one (ṣāʾim) and the destitute (miskīn).'"
     },
     {
       "titleTr": "Kur'ân'ın Ayı — Kitapla İç İçe",
+      "titleEn": "The Month of the Qur'an: Interwoven with the Book",
       "refs": [
         "Bakara 2:185"
       ],
-      "descTr": "Bakara 2:185 Ramazan'ı önce 'Kur'ân'ın indirildiği ay' olarak tanımlar, sonra oruç emrini verir. Sıra manidardır: ay önce Kur'ân'ın, sonra orucun ayıdır. Klasik tefsir Ramazan'ın Kur'ân'da isimle anılan tek ay olduğunu ve bu tekliğin ayın Kur'ânî kimliğinin özeti olduğunu belirtir. Elmalılı orucu Ramazan'ın kalbi olarak, Kur'ân'ı da bu ayın nefesi olarak konumlandırır der. Ay ile Kitap Kur'ân'ın kendi dilinde iç içe geçer."
+      "descTr": "Bakara 2:185 Ramazan'ı önce 'Kur'ân'ın indirildiği ay' olarak tanımlar, sonra oruç emrini verir. Sıra manidardır: ay önce Kur'ân'ın, sonra orucun ayıdır. Klasik tefsir Ramazan'ın Kur'ân'da isimle anılan tek ay olduğunu ve bu tekliğin ayın Kur'ânî kimliğinin özeti olduğunu belirtir. Elmalılı orucu Ramazan'ın kalbi olarak, Kur'ân'ı da bu ayın nefesi olarak konumlandırır der. Ay ile Kitap Kur'ân'ın kendi dilinde iç içe geçer.",
+      "descEn": "Al-Baqara 2:185 first defines Ramaḍān as 'the month in which the Qur'an was sent down,' and then gives the command to fast. The order is meaningful: the month is first the Qur'an's month, then the fast's. Classical exegesis notes that Ramaḍān is the only month mentioned by name in the Qur'an, and that this uniqueness is the summary of the month's Qur'anic identity. Elmalılı positions fasting as the heart of Ramaḍān and the Qur'an as the breath of this month. The month and the Book are interwoven in the Qur'an's own language."
     },
     {
       "titleTr": "Meryem'in Savm-i Sükût'u — Dilin de Orucu",
+      "titleEn": "Mary's Fast of Silence: the Fast of the Tongue Too",
       "refs": [
         "Meryem 19:26"
       ],
-      "descTr": "Meryem 19:26'da Hz. Meryem'e söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmek orucundan tamamen farklı bir orucu tarif eder: konuşmadan kesilme. Klasik tefsir bu ayetten iki dersi çıkarır. Birincisi: savm kelimesi tek bir uygulamaya sıkıştırılamaz; Kur'ân'ın kendi semantik alanı geniştir. İkincisi: Ramazan orucunun 'sadece midenin' orucu olmadığı anlaşılır — dilin, kulağın, gözün de kendine göre bir imsâki vardır. Klasik ahlâk literatürü metinleri bu ayetten hareketle 'organların orucu' kavramını sistemleştirmiştir."
+      "descTr": "Meryem 19:26'da Hz. Meryem'e söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmek orucundan tamamen farklı bir orucu tarif eder: konuşmadan kesilme. Klasik tefsir bu ayetten iki dersi çıkarır. Birincisi: savm kelimesi tek bir uygulamaya sıkıştırılamaz; Kur'ân'ın kendi semantik alanı geniştir. İkincisi: Ramazan orucunun 'sadece midenin' orucu olmadığı anlaşılır — dilin, kulağın, gözün de kendine göre bir imsâki vardır. Klasik ahlâk literatürü metinleri bu ayetten hareketle 'organların orucu' kavramını sistemleştirmiştir.",
+      "descEn": "In Maryam 19:26, Mary is told to say: 'I have vowed a ṣawm to the Most Merciful, so today I shall not speak to any human.' This Qur'anic 'ṣawm' describes a fast entirely different from the fast of food and drink: abstention from speech. Classical exegesis draws two lessons from this verse. First: the word ṣawm cannot be confined to a single practice; the Qur'an's own semantic field is broad. Second: it becomes clear that the Ramaḍān fast is not a fast of 'the stomach alone': the tongue, the ear, and the eye each have their own imsāk. Drawing on this verse, classical ethical literature systematized the concept of 'the fasting of the organs.'"
     },
     {
       "titleTr": "Sınır — 'Bunlar Allah'ın Sınırlarıdır'",
+      "titleEn": "The Limit: 'These Are the Limits of Allah'",
       "refs": [
         "Bakara 2:187"
       ],
-      "descTr": "Bakara 2:187 orucun gündüz–gece, cinsî ve itikâfî sınırlarını çizdikten sonra bir cümleyle kapanır: 'Bunlar Allah'ın sınırlarıdır; onlara yaklaşmayın.' Aynı kavram (ḥudūd Allāh) Mücâdele 58:4'te zıhâr kefareti bağlamında da tekrarlanır. Klasik tefsir bu ifadenin orucun Kur'ânî karakterini özetlediğini belirtir: oruç bir 'ne kadar sıkabilirim' pratiği değil, çizilmiş bir alanın içinde yaşanan tanınmış bir sınır disiplinidir. Sınır kavramı orucu hem sertlikten hem de gevşeklikten korur."
+      "descTr": "Bakara 2:187 orucun gündüz–gece, cinsî ve itikâfî sınırlarını çizdikten sonra bir cümleyle kapanır: 'Bunlar Allah'ın sınırlarıdır; onlara yaklaşmayın.' Aynı kavram (ḥudūd Allāh) Mücâdele 58:4'te zıhâr kefareti bağlamında da tekrarlanır. Klasik tefsir bu ifadenin orucun Kur'ânî karakterini özetlediğini belirtir: oruç bir 'ne kadar sıkabilirim' pratiği değil, çizilmiş bir alanın içinde yaşanan tanınmış bir sınır disiplinidir. Sınır kavramı orucu hem sertlikten hem de gevşeklikten korur.",
+      "descEn": "After drawing the day-night, marital, and iʿtikāf limits of the fast, Al-Baqara 2:187 closes with a single sentence: 'These are the limits of Allah, so do not approach them.' The same concept (ḥudūd Allāh) recurs in Al-Mujādala 58:4 in the context of the ẓihār expiation. Classical exegesis notes that this expression summarizes the Qur'anic character of fasting: the fast is not a practice of 'how much can I push myself' but a recognized discipline of limits lived within a drawn field. The concept of the limit protects fasting from both harshness and laxity."
     }
   ],
   "insanEtkisi": [
     {
       "id": "fizyolojik-denge",
       "titleTr": "Fizyolojik Denge — Bakışın Sınırı",
-      "titleEn": "Physiological Balance — The Boundary of the Gaze",
+      "titleEn": "Physiological Balance: The Boundary of the Gaze",
       "refs": [
         "Bakara 2:187"
       ],
@@ -814,7 +839,7 @@
     {
       "id": "sosyal-empati",
       "titleTr": "Sosyal Empati — Mideden Doğan Merhamet",
-      "titleEn": "Social Empathy — Mercy Born of the Stomach",
+      "titleEn": "Social Empathy: Mercy Born of the Stomach",
       "refs": [
         "Bakara 2:184"
       ],
@@ -824,7 +849,7 @@
         "enShort": "For those who can only bear it with difficulty, there is a ransom of feeding a poor person."
       },
       "descTr": "Bakara 2:184'ün fidye çözümü rastgele değildir. Ayet 'bir yoksulun doyurulması' der; klasik tefsir bu ölçünün seçilmesinin tesadüf olmadığını, orucun bedensel öğretisiyle sosyal öğretisinin aynı ayette buluştuğunu vurgular. Aç kalan mide yoksulun midesini içeriden bilir; fidye bu 'içeriden bilme' halinin kutsallaştırılmasıdır. Elmalılı bu ilişkiyi orucun sınıfsal empatiyi bedende deneyimlettiğini vurgular cümlesiyle özetler.",
-      "descEn": "Baqara 2:184's fidya solution is not incidental. The verse specifies 'feeding a poor person'; classical exegesis stresses that the choice of measure is not accidental — fasting's bodily lesson and its social lesson meet in the same verse. The hungry stomach comes to know the poor's stomach from within; fidya is the consecration of that inner knowing.",
+      "descEn": "Baqara 2:184's fidya solution is not incidental. The verse specifies 'feeding a poor person'; classical exegesis stresses that the choice of measure is not accidental: fasting's bodily lesson and its social lesson meet in the same verse. The hungry stomach comes to know the poor's stomach from within; fidya is the consecration of that inner knowing.",
       "modernIzlerTr": "Sosyoloji ve empati araştırmaları 'bedensel ortaklık ile empati' arasındaki ilişkiyi inceler; bu sayfa Kur'ânî bir 'içeriden bilme' formülünün sosyoloji tarafından sonradan keşfedildiğini iddia etmez. Kur'ânî çerçeve pratiği koyar; sosyoloji bu pratiğin gözlemlenebilir etkilerini ayrı bir dilde inceler.",
       "modernIzlerEn": "Studies of empathy and embodied cognition explore the link between shared bodily states and empathic response; this page does not claim sociology later 'discovered' a Qur'anic formula.",
       "kaynak": "Elmalılı, Bakara 2:184 tefsiri (fidye ile empati bağı); Kurtubî aynı ayet"
@@ -832,7 +857,7 @@
     {
       "id": "ihlas-gorunmez-ibadet",
       "titleTr": "İhlâs — Görünmez İbadet",
-      "titleEn": "Ikhlāṣ — The Invisible Worship",
+      "titleEn": "Ikhlāṣ: The Invisible Worship",
       "refs": [
         "Bakara 2:183"
       ],
@@ -842,7 +867,7 @@
         "enShort": "Fasting is prescribed for you as it was prescribed for those before you, that you may attain taqwā."
       },
       "descTr": "Oruç kılınmış namaz, verilmiş zekât, edilmiş hac gibi 'gözle görülür' bir ibadet değildir. Kişi aç mı, susamış mı, yoksa gizlice bir şey yedi mi — bu yalnızca kendisi ve Allah arasındadır. Klasik tefsir orucun bu 'görünmez' karakterinin ihlâs için Kur'ânî bir eğitim olduğunu vurgular. Râzî 'oruç insanla Rabbi arasında en gizli sözleşmedir' der. Bakara 2:183'ün 'takva' amacı ile orucun görünmezliği birbirini besler: takva zaten 'gizli olanı doğru yaşama' halidir.",
-      "descEn": "Fasting, unlike prayer, zakāt, or ḥajj, is not a 'visibly performed' worship. Whether one is hungry, thirsty, or secretly ate — this is only between one and Allah. Classical exegesis stresses that fasting's invisible character is a Qur'anic training in ikhlāṣ. Rāzī: 'fasting is the most concealed contract between the servant and the Lord.' The taqwā-aim of Baqara 2:183 and fasting's invisibility feed each other: taqwā is already the 'right living of what is hidden.'",
+      "descEn": "Fasting, unlike prayer, zakāt, or ḥajj, is not a 'visibly performed' worship. Whether one is hungry, thirsty, or secretly ate: this is only between one and Allah. Classical exegesis stresses that fasting's invisible character is a Qur'anic training in ikhlāṣ. Rāzī: 'fasting is the most concealed contract between the servant and the Lord.' The taqwā-aim of Baqara 2:183 and fasting's invisibility feed each other: taqwā is already the 'right living of what is hidden.'",
       "modernIzlerTr": "İhlâs kavramı klasik tasavvuf metinlerinde uzun uzun işlenmiş bir alandır; oruç bu kavramın en somut pratiği olarak öne çıkar. Modern psikolojinin 'iç motivasyon' (intrinsic motivation) kavramıyla yüzeysel bir benzerlik kurulabilir ancak bu sayfa bu iki dili özdeşleştirmez.",
       "modernIzlerEn": "Ikhlāṣ is extensively treated in classical Sufi literature; fasting stands as its most concrete practice. A surface analogy with modern psychology's 'intrinsic motivation' can be drawn, but this page does not equate the two.",
       "kaynak": "Râzî, Bakara 2:183 tefsiri (görünmezlik ↔ ihlâs); Elmalılı aynı ayet"
@@ -850,7 +875,7 @@
     {
       "id": "nefis-terbiyesi",
       "titleTr": "Nefis Terbiyesi — Arzunun Sınırında Durmak",
-      "titleEn": "Discipline of the Nafs — Standing at the Limit of Desire",
+      "titleEn": "Discipline of the Nafs: Standing at the Limit of Desire",
       "refs": [
         "Bakara 2:187"
       ],
@@ -860,7 +885,7 @@
         "enShort": "These are the limits of Allah, so do not approach them."
       },
       "descTr": "Bakara 2:187 orucun cinsî, gündüz–gece ve itikâfî sınırlarını çizdikten sonra dikkat çekici bir uyarıyla kapanır: 'Bunlar Allah'ın sınırlarıdır; onlara yaklaşmayın.' 'Aşmayın' değil, 'yaklaşmayın'. Klasik tefsir bu inceliği önemli görür: kelime seçimi nefsin sınıra 'sürtünmesinin' bile bir tehlike olduğunu bildirir. Râzî orucun nefis terbiyesindeki asıl işlevini burada bulur — bedene 'sınırı hisset' değil, 'sınırdan uzağa yerleş' talimi. Elmalılı bunu 'orucun disiplini nefsin sabrının nerede kırılabileceğini önceden görme ilmidir' cümlesiyle özetler.",
-      "descEn": "Baqara 2:187, after drawing the marital, day-night, and iʿtikāf limits of the fast, closes with a striking warning: 'These are the limits of Allah, do not approach them.' Not 'do not cross' — 'do not approach.' Classical exegesis finds this word choice significant: the phrasing declares that even the nafs's 'grazing' of the limit is a danger. Rāzī locates fasting's real function for the nafs here: not 'feel the limit' but 'settle at a distance from it.'",
+      "descEn": "Baqara 2:187, after drawing the marital, day-night, and iʿtikāf limits of the fast, closes with a striking warning: 'These are the limits of Allah, do not approach them.' Not 'do not cross': 'do not approach.' Classical exegesis finds this word choice significant: the phrasing declares that even the nafs's 'grazing' of the limit is a danger. Rāzī locates fasting's real function for the nafs here: not 'feel the limit' but 'settle at a distance from it.'",
       "modernIzlerTr": "Klasik ahlâk literatürü metinleri 'orucun nefis mertebeleri üzerindeki etkisi' konusunda geniş bir literatür üretmiştir. Modern psikoloji ise 'öz-düzenleme' (self-regulation) araştırmalarında benzer bedensel disiplinlerin etkilerini inceler; bu iki dilin örtüşme noktaları olsa da bu sayfa özdeşleştirmez.",
       "modernIzlerEn": "Classical Sufi literature has produced a rich corpus on fasting's effect on the nafs's stages. Modern psychology's studies of self-regulation examine analogous bodily disciplines; overlaps exist, but the page keeps the languages distinct.",
       "kaynak": "Râzî, Bakara 2:187 tefsiri ('yaklaşmayın' inceliği); Elmalılı aynı ayet"
@@ -868,7 +893,7 @@
     {
       "id": "takvim-yillik-ritim",
       "titleTr": "Yıllık Takvim — Kur'ân'ın Ayına Yerleşmek",
-      "titleEn": "Annual Calendar — Settling into the Qur'an's Month",
+      "titleEn": "Annual Calendar: Settling into the Qur'an's Month",
       "refs": [
         "Bakara 2:185"
       ],
@@ -878,7 +903,7 @@
         "enShort": "So whoever among you witnesses the month, let him fast it."
       },
       "descTr": "Bakara 2:185 orucun yıllık takvim yapısını tek bir ayete yerleştirir: 'Kim bu aya şahit olursa oruç tutsun.' Klasik tefsir 'aya şahit olma' ifadesinin manidar olduğunu vurgular: hilalin gözle görülmesi, ayın astronomik bir hesap değil, bir 'tanıklık olayı' olarak Kur'ân'da tanımlanmasıdır. Ay her yıl aynı zaman diliminde döner ve müminin yıllık ritmini içeriden dokur. Elmalılı 'oruç Kur'ân'ın müminin yılına attığı düğümdür' der — her yıl aynı düğüm, aynı Kitap, aynı sınırlar.",
-      "descEn": "Baqara 2:185 sets fasting's annual calendar in a single verse: 'Whoever among you witnesses the month, let him fast it.' Classical exegesis stresses the phrase 'witnessing the month' — the sighting of the crescent, defined in the Qur'an as an act of 'witnessing' rather than astronomical calculation. The month returns each year in the same span and weaves the believer's yearly rhythm from within.",
+      "descEn": "Baqara 2:185 sets fasting's annual calendar in a single verse: 'Whoever among you witnesses the month, let him fast it.' Classical exegesis stresses the phrase 'witnessing the month': the sighting of the crescent, defined in the Qur'an as an act of 'witnessing' rather than astronomical calculation. The month returns each year in the same span and weaves the believer's yearly rhythm from within.",
       "modernIzlerTr": "Modern astronomik hesap ay başlangıçları için hilal-görme dışında bir yol da sunar; klasik dört mezhep bu iki yönteme (rüyet ↔ hesap) farklı ağırlıklar verir. Kur'ânî çerçeve 'aya şahit olma' ifadesiyle rüyeti (görme) esas alır; fıkhî tafsil bu çerçevenin uygulama detaylarını yerleştirir.",
       "modernIzlerEn": "Modern astronomy offers calculation-based month-beginnings alongside crescent-sighting; the four classical schools weigh sighting and calculation differently. The Qur'anic frame 'witnessing the month' foregrounds sighting; fiqhī detailing settles the practical variations.",
       "kaynak": "Elmalılı, Bakara 2:185 tefsiri (yıllık ritm okuması); Kurtubî aynı ayet"
@@ -899,7 +924,7 @@
       "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
       "period": "1214-1273 (Kurtuba)",
       "noteTr": "Bakara 2:187'deki 'beyaz iplik — siyah iplik' metaforunun tarihsel açılımı (sahabî anekdotu dahil), itikâf çerçevesi ve 'ḥudūd Allāh' kavramının fıkhî okuması. Meryem 19:26'da savm'ın 'sessizlik' anlamı için birincil referans.",
-      "noteEn": "Historical unfolding of the 'white thread — black thread' metaphor in Baqara 2:187 (including the Companion anecdote), the iʿtikāf frame, and the juridical reading of the 'ḥudūd Allāh' concept. Primary reference for the meaning of ṣawm as 'silence' in Maryam 19:26."
+      "noteEn": "Historical unfolding of the 'white thread: black thread' metaphor in Baqara 2:187 (including the Companion anecdote), the iʿtikāf frame, and the juridical reading of the 'ḥudūd Allāh' concept. Primary reference for the meaning of ṣawm as 'silence' in Maryam 19:26."
     },
     {
       "author": "Elmalılı Hamdi Yazır",

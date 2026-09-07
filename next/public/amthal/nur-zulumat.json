@@ -2,10 +2,14 @@
   "stats": {
     "nurCount": 43,
     "nurForm": "HER ZAMAN tekil",
+    "nurFormEn": "ALWAYS singular",
     "zulumatCount": 23,
     "zulumatForm": "HER ZAMAN çoğul",
+    "zulumatFormEn": "ALWAYS plural",
     "theologicalPrinciple": "Hak yol TEK (nûr=tekil), bâtıl yollar ÇOK (zulumât=çoğul)",
-    "linguisticLink": "Zulumât (karanlıklar) ve Zulm (zulüm) aynı kökten: ظ-ل-م"
+    "theologicalPrincipleEn": "The true path is ONE (nūr = singular); the false paths are MANY (ẓulumāt = plural)",
+    "linguisticLink": "Zulumât (karanlıklar) ve Zulm (zulüm) aynı kökten: ظ-ل-م",
+    "linguisticLinkEn": "Ẓulumāt (darknesses) and ẓulm (wrongdoing) share the same root: ظ-ل-م"
   },
   "ayatAnNur": {
     "ref": "24:35",
@@ -14,73 +18,93 @@
       {
         "id": "niche",
         "labelTr": "Niş (Mişkât)",
+        "labelEn": "Niche (Mishkāt)",
         "labelAr": "مِشْكَاة",
-        "symbolises": "Mü'minin göğsü/kaburga kafesi — kemer şeklinde, nuru saklayan, odaklayan"
+        "symbolises": "Mü'minin göğsü/kaburga kafesi — kemer şeklinde, nuru saklayan, odaklayan",
+        "symbolisesEn": "The believer's chest / rib cage: arch-shaped, holding and focusing the light."
       },
       {
         "id": "glass",
         "labelTr": "Cam Fanus (Zücâce)",
+        "labelEn": "Glass Lamp (Zujāja)",
         "labelAr": "زُجَاجَة",
-        "symbolises": "Kalbin saflığı — inci gibi parlak, ışığı geçirir"
+        "symbolises": "Kalbin saflığı — inci gibi parlak, ışığı geçirir",
+        "symbolisesEn": "The purity of the heart: bright as a pearl, letting the light through."
       },
       {
         "id": "lamp",
         "labelTr": "Kandil (Misbâh)",
+        "labelEn": "Lamp (Miṣbāḥ)",
         "labelAr": "مِصْبَاح",
-        "symbolises": "Allah'ın kalbe yerleştirdiği fıtrî bir iyilik, bir 'iç ışık' — çoğu müfessirin kabul ettiği görüş"
+        "symbolises": "Allah'ın kalbe yerleştirdiği fıtrî bir iyilik, bir 'iç ışık' — çoğu müfessirin kabul ettiği görüş",
+        "symbolisesEn": "An innate goodness Allah placed in the heart, an 'inner light': the view most exegetes accept."
       },
       {
         "id": "tree",
         "labelTr": "Zeytin Ağacı",
+        "labelEn": "Olive Tree",
         "labelAr": "شَجَرَةٍ مُّبَارَكَةٍ زَيْتُونَةٍ",
-        "symbolises": "Ruhun madde ötesi, coğrafyadan bağımsız kökenine işaret eder; ayrıca en kaliteli zeytinyağının sabahtan akşama güneş alan merkezi bir konumdaki ağaçlardan çıktığına dair gerçekçi bir gözlem de taşır"
+        "symbolises": "Ruhun madde ötesi, coğrafyadan bağımsız kökenine işaret eder; ayrıca en kaliteli zeytinyağının sabahtan akşama güneş alan merkezi bir konumdaki ağaçlardan çıktığına dair gerçekçi bir gözlem de taşır",
+        "symbolisesEn": "It points to the soul's origin beyond matter, independent of any geography; it also carries a realistic observation that the finest olive oil comes from trees in a central position receiving sun from morning to evening."
       },
       {
         "id": "oil",
         "labelTr": "Yağ",
+        "labelEn": "Oil",
         "labelAr": "زَيْتُهَا",
-        "symbolises": "İnsan ruhu — maddi evrenin dışındaki bir bahçeden kaynaklanır; öylesine saftır ki ateş değmeden de neredeyse kendiliğinden parlar"
+        "symbolises": "İnsan ruhu — maddi evrenin dışındaki bir bahçeden kaynaklanır; öylesine saftır ki ateş değmeden de neredeyse kendiliğinden parlar",
+        "symbolisesEn": "The human soul: it springs from a garden beyond the material universe; so pure that it almost glows on its own, untouched by fire."
       },
       {
         "id": "nurunAlaNur",
         "labelTr": "Nûr üstüne Nûr",
+        "labelEn": "Light upon Light",
         "labelAr": "نُّورٌ عَلَىٰ نُورٍ",
-        "symbolises": "Vahiy + fıtrat = kat kat aydınlık"
+        "symbolises": "Vahiy + fıtrat = kat kat aydınlık",
+        "symbolisesEn": "Revelation + fitra = light upon light."
       }
     ]
   },
   "keyVerses": [
     {
       "ref": "2:257",
-      "descTr": "Allah mü'minlerin velisidir — onları karanlıklardan nûra çıkarır"
+      "descTr": "Allah mü'minlerin velisidir — onları karanlıklardan nûra çıkarır",
+      "descEn": "Allah is the protector of the believers: He brings them out of darkness into light"
     },
     {
       "ref": "6:1",
-      "descTr": "Hamd Allah'a — karanlıkları ve nûru yaratan"
+      "descTr": "Hamd Allah'a — karanlıkları ve nûru yaratan",
+      "descEn": "Praise be to Allah: who created the darknesses and the light"
     },
     {
       "ref": "14:1",
-      "descTr": "İnsanları karanlıklardan nûra çıkarman için"
+      "descTr": "İnsanları karanlıklardan nûra çıkarman için",
+      "descEn": "That you may bring mankind out of darkness into light"
     },
     {
       "ref": "5:15",
-      "descTr": "Size bir nûr ve açık bir Kitap geldi"
+      "descTr": "Size bir nûr ve açık bir Kitap geldi",
+      "descEn": "A light and a clear Book has come to you"
     },
     {
       "ref": "24:35",
-      "descTr": "Allah göklerin ve yerin nûrudur"
+      "descTr": "Allah göklerin ve yerin nûrudur",
+      "descEn": "Allah is the light of the heavens and the earth"
     },
     {
       "ref": "24:40",
-      "descTr": "Derin bir denizdeki karanlıklar gibi"
+      "descTr": "Derin bir denizdeki karanlıklar gibi",
+      "descEn": "Like the darknesses in a deep sea"
     },
     {
       "ref": "33:43",
-      "descTr": "Sizi karanlıklardan aydınlığa çıkaran O'dur"
+      "descTr": "Sizi karanlıklardan aydınlığa çıkaran O'dur",
+      "descEn": "It is He who brings you out of darkness into light"
     },
     {
       "ref": "57:9",
-      "descTr": "Sizi karanlıklardan nûra çıkarmak için"
+      "descTr": "Sizi karanlıklardan nûra çıkarmak için",
+      "descEn": "To bring you out of darkness into light"
     }
   ]
 }

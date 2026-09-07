@@ -3,42 +3,57 @@
     {
       "id": "ibn-qayyim",
       "nameTr": "İbn Kayyım el-Cevziyye",
+      "nameEn": "Ibn Qayyim al-Jawziyya",
       "deathH": 751,
       "deathM": 1350,
       "workTr": "el-Emsâl fi'l-Kur'âni'l-Kerîm (İ'lâmü'l-Muvakkı'în'den derlenmiş bir bölüm)",
-      "viewTr": "Meseller salt benzetme değil, gerçeğin insan zihninin kavrayabileceği formdaki tezahürüdür — ilahi bir delil (burhan). Bu görüşünü, kıyası (analojik akıl yürütmeyi) savunduğu İ'lâmü'l-Muvakkı'în'deki bir bölümde işler; 'nefis benzerlerden tam bir ünsiyet duyar, yabancılıktan ürker' der."
+      "workEn": "al-Amthāl fī al-Qur'ān al-Karīm (a section compiled from I'lām al-Muwaqqi'īn)",
+      "viewTr": "Meseller salt benzetme değil, gerçeğin insan zihninin kavrayabileceği formdaki tezahürüdür — ilahi bir delil (burhan). Bu görüşünü, kıyası (analojik akıl yürütmeyi) savunduğu İ'lâmü'l-Muvakkı'în'deki bir bölümde işler; 'nefis benzerlerden tam bir ünsiyet duyar, yabancılıktan ürker' der.",
+      "viewEn": "Parables are not mere comparison but the manifestation of reality in a form the human mind can grasp: a divine proof (burhān). He develops this view in a section of I'lām al-Muwaqqi'īn where he defends analogical reasoning (qiyās); he says, 'the soul feels complete familiarity with likenesses and recoils from what is alien.'"
     },
     {
       "id": "ghazali",
       "nameTr": "İmam Gazzâlî",
+      "nameEn": "Imam al-Ghazālī",
       "deathH": 505,
       "deathM": 1111,
       "workTr": "Mişkâtü'l-Envâr",
-      "viewTr": "Nûr 24:40'taki derin deniz meselini çok katmanlı okumaya elverişli bulur; bu çerçevede mesel derin okyanus = dünya, birinci dalga = nefsin arzuları, ikinci dalga = öfke ve kibir, bulut = inatçı cehalet şeklinde yorumlanabilir."
+      "workEn": "Mishkāt al-Anwār",
+      "viewTr": "Nûr 24:40'taki derin deniz meselini çok katmanlı okumaya elverişli bulur; bu çerçevede mesel derin okyanus = dünya, birinci dalga = nefsin arzuları, ikinci dalga = öfke ve kibir, bulut = inatçı cehalet şeklinde yorumlanabilir.",
+      "viewEn": "He finds the deep-sea parable in al-Nūr 24:40 well suited to a multi-layered reading; within this framework the parable can be interpreted as: the deep ocean = the world, the first wave = the desires of the self, the second wave = anger and arrogance, the cloud = obstinate ignorance."
     },
     {
       "id": "suyuti",
       "nameTr": "es-Süyûtî",
+      "nameEn": "al-Suyūṭī",
       "deathH": 911,
       "deathM": 1505,
       "workTr": "el-İtkân fî Ulûmi'l-Kur'ân",
-      "viewTr": "Meselleri Kur'an ilimlerinin müstakil bir dalı sayar; kendi ifadesiyle ikiye ayırır: zâhir/musarrah (mesel lafzı açıkça geçen) ve kâmin (mesel lafzı geçmeyen, gizli). Türkçe kaynaklarda yaygın olan 'sarîh-kâmin-mürsel' üçlü tasnifi ise Süyûtî'ye değil, modern âlim Mennâ' el-Kattân'a aittir."
+      "workEn": "al-Itqān fī 'Ulūm al-Qur'ān",
+      "viewTr": "Meselleri Kur'an ilimlerinin müstakil bir dalı sayar; kendi ifadesiyle ikiye ayırır: zâhir/musarrah (mesel lafzı açıkça geçen) ve kâmin (mesel lafzı geçmeyen, gizli). Türkçe kaynaklarda yaygın olan 'sarîh-kâmin-mürsel' üçlü tasnifi ise Süyûtî'ye değil, modern âlim Mennâ' el-Kattân'a aittir.",
+      "viewEn": "He counts parables as an independent branch of the Quranic sciences; in his own words he divides them into two: ẓāhir/muṣarraḥ (in which the term 'parable' appears explicitly) and kāmin (hidden, in which the term does not appear). The threefold classification 'ṣarīḥ-kāmin-mursal' that is common in Turkish sources belongs not to al-Suyūṭī but to the modern scholar Mannā' al-Qaṭṭān."
     },
     {
       "id": "shinqiti",
       "nameTr": "eş-Şinkîtî",
+      "nameEn": "al-Shinqīṭī",
       "deathH": 1393,
       "deathM": 1973,
       "workTr": "Edvâu'l-Beyân",
-      "viewTr": "Mesellerin amacını 'soyut olanı somutlaştırma' ve 'gayb'ı şehâdet'le köprüleme' fikrine yakın biçimde ele aldığı söylenebilir."
+      "workEn": "Aḍwā' al-Bayān",
+      "viewTr": "Mesellerin amacını 'soyut olanı somutlaştırma' ve 'gayb'ı şehâdet'le köprüleme' fikrine yakın biçimde ele aldığı söylenebilir.",
+      "viewEn": "It can be said that he treats the purpose of parables in a manner close to the idea of 'making the abstract concrete' and 'bridging the unseen (ghayb) with the witnessed (shahāda).'"
     },
     {
       "id": "nak-randhawa",
       "nameTr": "Nouman Ali Khan · Sharif Randhawa",
+      "nameEn": "Nouman Ali Khan · Sharif Randhawa",
       "deathH": null,
       "deathM": null,
       "workTr": "Divine Speech: Kur'an'ı Edebiyat Olarak Keşfetmek",
-      "viewTr": "Kur'an'ın meselleri süsleyici değil, kasıtlı bir edebi mimaridir — nûr âyetinin her katmanı (niş, cam, yağ, zeytin ağacı), Ra'd 13:17'nin ikiz benzetmesi (sel köpüğü/maden cürufu) ve Hadîd 57:20'nin beş evresi gibi, her imge kendi bağlamında özenle seçilmiştir."
+      "workEn": "Divine Speech: Exploring the Qur'an as Literature",
+      "viewTr": "Kur'an'ın meselleri süsleyici değil, kasıtlı bir edebi mimaridir — nûr âyetinin her katmanı (niş, cam, yağ, zeytin ağacı), Ra'd 13:17'nin ikiz benzetmesi (sel köpüğü/maden cürufu) ve Hadîd 57:20'nin beş evresi gibi, her imge kendi bağlamında özenle seçilmiştir.",
+      "viewEn": "The Quran's parables are not ornamental but a deliberate literary architecture: like each layer of the light verse (niche, glass, oil, olive tree), the twin comparison of al-Ra'd 13:17 (flood foam / metal dross), and the five stages of al-Ḥadīd 57:20, every image is carefully chosen within its own context."
     }
   ]
 }
