@@ -4502,6 +4502,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </span>
                   </div>
                 ))}
+                {/* Tecvid Rehberi'ne bağlam-içi giriş — kullanıcı rengi merak
+                    ettiği an öğretici bir tık ötede (2026-09-07). */}
+                <button
+                  type="button"
+                  onClick={() => router.push(`/${language}/arac/tecvid-rehberi`)}
+                  title={language === 'tr' ? 'Tecvid kurallarını öğren' : 'Learn the tajweed rules'}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '5px', flexShrink: 0,
+                    padding: '3px 12px', borderRadius: RADIUS.pill, cursor: 'pointer',
+                    background: dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.12)',
+                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.35)' : 'rgba(212,165,116,0.35)'}`,
+                    color: gold, fontSize: '0.74rem', fontWeight: 600, whiteSpace: 'nowrap',
+                    fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                  }}
+                >
+                  {language === 'tr' ? 'Kurallar ne? Öğren →' : 'What are these? Learn →'}
+                </button>
               </div>
             )}
           </div>

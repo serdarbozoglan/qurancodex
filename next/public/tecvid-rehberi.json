@@ -1,0 +1,1259 @@
+{
+  "version": 1,
+  "hero": {
+    "ar": "الرَّحۡمَٰنِ الرَّحِيمِ",
+    "verse": "1:3",
+    "reciter": "Alafasy",
+    "audio": "/tecvid-audio/alafasy-001003-0-1.mp3"
+  },
+  "families": [
+    {
+      "tr": "Nûn-i sâkin ve tenvin",
+      "desc": "Sâkin bir nûn ya da tenvinin sonraki harfle karşılaşmasının dört yolu.",
+      "glyph": "ن",
+      "color": "#22d3ee",
+      "rules": [
+        {
+          "tr": "İzhâr",
+          "ar": "إظهار",
+          "short": "Açık okunuş",
+          "def": "Nûn-i sâkin veya tenvinden sonra altı boğaz harfinden biri gelirse, nûn değişmeden açıkça okunur.",
+          "key": "ء ه ع ح غ خ",
+          "color": "#d4a574",
+          "examples": [
+            {
+              "text": "أَنۡعَمۡتَ",
+              "verse": "1:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001007-2-3.mp3"
+            },
+            {
+              "text": "وَانۡحَرۡ",
+              "verse": "108:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-108002-2-3.mp3"
+            },
+            {
+              "text": "غَاسِقٍ إِذَا",
+              "verse": "113:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-113003-2-4.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İdgâm-ı meal-gunne",
+          "ar": "إدغام",
+          "short": "Gunneli katma",
+          "def": "ي ن م و harflerinden biri gelince nûn sonraki harfe katılır ve iki hareke gunne (geniz sesi) tutulur.",
+          "key": "ي ن م و",
+          "color": "#4ade80",
+          "examples": [
+            {
+              "text": "فَمَن يَعۡمَلۡ",
+              "verse": "99:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-099007-0-2.mp3"
+            },
+            {
+              "text": "مَالٗا وَعَدَّدَهُۥ",
+              "verse": "104:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-104002-2-4.mp3"
+            },
+            {
+              "text": "هُدٗى مِّن",
+              "verse": "2:5",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002005-2-4.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İdgâm-ı bilâ-gunne",
+          "ar": "إدغام",
+          "short": "Gunnesiz katma",
+          "def": "ل veya ر gelince nûn düşer ve sonraki harfe gunnesiz olarak tam katılır.",
+          "key": "ل ر",
+          "color": "#60a5fa",
+          "examples": [
+            {
+              "text": "مِّن رَّبِّهِمۡۖ",
+              "verse": "2:5",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002005-3-5.mp3"
+            },
+            {
+              "text": "يَكُن لَّهُۥ",
+              "verse": "112:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112004-1-3.mp3"
+            },
+            {
+              "text": "عِيشَةٖ رَّاضِيَةٖ",
+              "verse": "101:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-101007-2-4.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İklâb",
+          "ar": "إقلاب",
+          "short": "Mîme çevirme",
+          "def": "ب gelince nûn/tenvin gizli bir mîme çevrilir ve iki hareke gunne ile okunur.",
+          "key": "ب",
+          "color": "#f472b6",
+          "examples": [
+            {
+              "text": "مِنۢ بَعۡدِ",
+              "verse": "2:27",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002027-4-6.mp3"
+            },
+            {
+              "text": "لَيُنۢبَذَنَّ",
+              "verse": "104:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-104004-1-2.mp3"
+            },
+            {
+              "text": "لَنَسۡفَعَۢا بِالنَّاصِيَةِ",
+              "verse": "96:15",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-096015-4-6.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İhfâ",
+          "ar": "إخفاء",
+          "short": "Gizleme",
+          "def": "Kalan on beş harften biri gelince nûn, gunne tutularak ne tam açık ne tam katılmış, yarı gizli okunur.",
+          "key": "ت ث ج د ذ ز س ش ص ض ط ظ ف ق ك",
+          "color": "#22d3ee",
+          "examples": [
+            {
+              "text": "مِن شَرِّ",
+              "verse": "113:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-113002-0-2.mp3"
+            },
+            {
+              "text": "مِّن جُوعٖ",
+              "verse": "106:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-106004-2-4.mp3"
+            },
+            {
+              "text": "مِن تَحۡتِهَا",
+              "verse": "2:25",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002025-9-11.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Mîm-i sâkin",
+      "desc": "Sükûn taşıyan mîmin üç hâli.",
+      "glyph": "م",
+      "color": "#38bdf8",
+      "rules": [
+        {
+          "tr": "İhfâ-i şefevî",
+          "ar": "إخفاء شفوي",
+          "short": "Dudak ihfâsı",
+          "def": "Sâkin mîmden sonra ب gelirse, dudaklar hafifçe kapatılarak iki hareke gunne ile gizlenir.",
+          "key": "ب",
+          "color": "#38bdf8",
+          "examples": [
+            {
+              "text": "تَرۡمِيهِم بِحِجَارَةٖ",
+              "verse": "105:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-105004-0-2.mp3"
+            },
+            {
+              "text": "هُم بِمُؤۡمِنِينَ",
+              "verse": "2:8",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002008-9-11.mp3"
+            },
+            {
+              "text": "رَبَّهُم بِالۡغَيۡبِ",
+              "verse": "67:12",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-067012-3-5.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İdgâm-ı şefevî",
+          "ar": "إدغام شفوي",
+          "short": "İki mîmin birleşmesi",
+          "def": "Sâkin mîmden sonra harekeli mîm gelirse, şeddeli tek mîm gibi gunne ile okunur.",
+          "key": "م",
+          "color": "#4ade80",
+          "examples": [
+            {
+              "text": "لَكُم مَّا",
+              "verse": "2:29",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002029-3-5.mp3"
+            },
+            {
+              "text": "وَءَامَنَهُم مِّنۡ",
+              "verse": "106:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-106004-4-6.mp3"
+            },
+            {
+              "text": "عَلَيۡهِم مُّؤۡصَدَةٞ",
+              "verse": "104:8",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-104008-1-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İzhâr-ı şefevî",
+          "ar": "إظهار شفوي",
+          "short": "Açık mîm",
+          "def": "ب ve م dışındaki harflerden önce sâkin mîm dudak kapanmadan açıkça okunur; özellikle و ve ف'de dikkat.",
+          "key": "All letters except م ب",
+          "color": "#d4a574",
+          "examples": [
+            {
+              "text": "أَلَمۡ تَرَ",
+              "verse": "105:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-105001-0-2.mp3"
+            },
+            {
+              "text": "لَمۡ يَلِدۡ",
+              "verse": "112:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112003-0-2.mp3"
+            },
+            {
+              "text": "كَيۡدَهُمۡ فِي",
+              "verse": "105:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-105002-2-4.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Gunne",
+      "desc": "Nûn ve mîmin geniz sesi.",
+      "glyph": "نّ",
+      "color": "#4ade80",
+      "rules": [
+        {
+          "tr": "Şeddeli nûn",
+          "ar": "نّ",
+          "short": "Nûn gunnesi",
+          "def": "Şeddeli nûn (نّ) iki hareke boyunca tam geniz sesiyle okunur.",
+          "key": "نّ",
+          "color": "#4ade80",
+          "examples": [
+            {
+              "text": "إِنَّآ",
+              "verse": "108:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-108001-0-1.mp3"
+            },
+            {
+              "text": "النَّاسِ",
+              "verse": "114:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-114001-3-4.mp3"
+            },
+            {
+              "text": "النَّبَإِ",
+              "verse": "78:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-078002-1-2.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Şeddeli mîm",
+          "ar": "مّ",
+          "short": "Mîm gunnesi",
+          "def": "Şeddeli mîm (مّ) iki hareke boyunca dudaklar kapalı, geniz sesiyle okunur.",
+          "key": "مّ",
+          "color": "#4ade80",
+          "examples": [
+            {
+              "text": "ثُمَّ",
+              "verse": "102:8",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-102008-0-1.mp3"
+            },
+            {
+              "text": "فَأُمُّهُۥ",
+              "verse": "101:9",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-101009-0-1.mp3"
+            },
+            {
+              "text": "عَمَّ",
+              "verse": "78:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-078001-0-1.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Med · uzatma",
+      "desc": "Tabii ve fer'î uzatmalar; ölçüler öğrenilen rivayete göredir.",
+      "glyph": "آ",
+      "color": "#c084fc",
+      "rules": [
+        {
+          "tr": "Medd-i tabiî",
+          "ar": "مد طبيعي",
+          "short": "Tabii · 2 hareke",
+          "def": "Med harfinden (ا و ي) sonra hemze/sükûn yoksa, ses tabiatı gereği 2 hareke (1 elif) uzatılır.",
+          "key": "ا و ي",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "مَٰلِكِ",
+              "verse": "1:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001004-0-1.mp3"
+            },
+            {
+              "text": "أَعُوذُ",
+              "verse": "114:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-114001-1-2.mp3"
+            },
+            {
+              "text": "عَٰبِدُونَ",
+              "verse": "109:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-109003-2-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i muttasıl",
+          "ar": "مد متصل",
+          "short": "Bitişik · 4–5",
+          "def": "Med harfi ile hemze aynı kelimede ise, yaygın Hafs rivayetinde 4–5 hareke uzatılır (vâcip).",
+          "key": "Madd + ء in one word",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "جَآءَ",
+              "verse": "110:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-110001-1-2.mp3"
+            },
+            {
+              "text": "وَالسَّمَآءِ",
+              "verse": "86:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-086001-0-1.mp3"
+            },
+            {
+              "text": "مَآءٗ",
+              "verse": "2:22",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002022-10-11.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i munfasıl",
+          "ar": "مد منفصل",
+          "short": "Ayrı · 4–5",
+          "def": "Med harfi bir kelimenin sonunda, hemze sonraki kelimenin başında ise 4–5 hareke uzatılır.",
+          "key": "Madd at word end + ء",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "إِنَّآ أَعۡطَيۡنَٰكَ",
+              "verse": "108:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-108001-0-2.mp3"
+            },
+            {
+              "text": "لَآ أَعۡبُدُ",
+              "verse": "109:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-109002-0-2.mp3"
+            },
+            {
+              "text": "إِنَّآ أَنزَلۡنَٰهُ",
+              "verse": "97:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-097001-0-2.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i bedel",
+          "ar": "مد بدل",
+          "short": "Hemze önce · 2",
+          "def": "Hemzeden sonra med harfi gelirse, Hafs'ta genelde 2 hareke okunur.",
+          "key": "ء + madd",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "ءَامَنُواْ",
+              "verse": "103:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-103003-2-3.mp3"
+            },
+            {
+              "text": "وَءَامَنَهُم",
+              "verse": "106:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-106004-4-5.mp3"
+            },
+            {
+              "text": "وَءَاتَى",
+              "verse": "2:177",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002177-18-19.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i ârız",
+          "ar": "مد عارض",
+          "short": "Durakta · 2/4/6",
+          "def": "Kelime sonunda med varken durulursa, son harf sâkinleşir ve med 2, 4 ya da 6 hareke uzatılabilir.",
+          "key": "Temporary final sukun",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "الۡعَٰلَمِينَ",
+              "verse": "1:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001002-3-4.mp3"
+            },
+            {
+              "text": "الرَّحِيمِ",
+              "verse": "1:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001003-1-2.mp3"
+            },
+            {
+              "text": "الدِّينِ",
+              "verse": "1:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001004-2-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i lîn",
+          "ar": "مد لين",
+          "short": "Yumuşak · durakta",
+          "def": "Üstünlü harften sonra sâkin و/ي gelir ve durulursa, yumuşak bir uzatma yapılır (2/4/6).",
+          "key": "َ وْ / َ يْ",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "قُرَيۡشٍ",
+              "verse": "106:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-106001-1-2.mp3"
+            },
+            {
+              "text": "وَالصَّيۡفِ",
+              "verse": "106:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-106002-3-4.mp3"
+            },
+            {
+              "text": "خَوۡفِۭ",
+              "verse": "106:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-106004-6-7.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i lâzım (kelimî)",
+          "ar": "مد لازم كلمي",
+          "short": "Kelimede sükûn · 6",
+          "def": "Med harfinden sonra kelimede aslî sükûn/şedde varsa 6 hareke uzatılır; ağır formda idgâm olur.",
+          "key": "Heavy or light",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "الضَّآلِّينَ",
+              "verse": "1:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001007-8-9.mp3"
+            },
+            {
+              "text": "الطَّآمَّةُ",
+              "verse": "79:34",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-079034-2-3.mp3"
+            },
+            {
+              "text": "الصَّآخَّةُ",
+              "verse": "80:33",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-080033-2-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i lâzım (harfî)",
+          "ar": "مد لازم حرفي",
+          "short": "Hurûf-i mukattaa · 6",
+          "def": "Sûre başı harflerindeki (ن ق ص ع س ل ك م) med + aslî sükûn 6 hareke okunur; ع'de 4 hareke seçeneği vardır.",
+          "key": "ن ق ص ع س ل ك م",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "الٓمٓ",
+              "verse": "2:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002001-0-1.mp3"
+            },
+            {
+              "text": "الٓمٓ",
+              "verse": "3:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-003001-0-1.mp3"
+            },
+            {
+              "text": "كٓهيعٓصٓ",
+              "verse": "19:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-019001-0-1.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i ıvaz",
+          "ar": "مد عوض",
+          "short": "Fethateynde vakf · 2",
+          "def": "İki üstünle biten kelimede durulursa, tenvin 2 harekelik elife dönüşür (tâ-i merbûta hariç).",
+          "key": "ً → ا at a stop",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "أَفۡوَاجٗا",
+              "verse": "110:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-110002-6-7.mp3"
+            },
+            {
+              "text": "تَوَّابَۢا",
+              "verse": "110:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-110003-6-7.mp3"
+            },
+            {
+              "text": "ضَبۡحٗا",
+              "verse": "100:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-100001-1-2.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Sıla-i suğrâ",
+          "ar": "صلة صغرى",
+          "short": "Zamir he · 2",
+          "def": "İki harekeli harf arasındaki müfred müzekker zamir he'si, hemze gelmezse 2 hareke uzatılır.",
+          "key": "ـهُ / ـهِ",
+          "color": "#f2d9a8",
+          "examples": [
+            {
+              "text": "إِنَّهُۥ كَانَ",
+              "verse": "110:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-110003-4-6.mp3"
+            },
+            {
+              "text": "لِرَبِّهِۦ لَكَنُودٞ",
+              "verse": "100:6",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-100006-2-4.mp3"
+            },
+            {
+              "text": "بِهِۦ بَصِيرٗا",
+              "verse": "84:15",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-084015-4-6.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Sıla-i kübrâ",
+          "ar": "صلة كبرى",
+          "short": "Zamir he + hemze",
+          "def": "Zamir he'sinden sonra hemze gelirse, medd-i munfasıl ölçüsünde uzatılır.",
+          "key": "ـهُ / ـهِ + ء",
+          "color": "#f2d9a8",
+          "examples": [
+            {
+              "text": "مَالَهُۥٓ أَخۡلَدَهُۥ",
+              "verse": "104:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-104003-2-4.mp3"
+            },
+            {
+              "text": "يَرَهُۥٓ أَحَدٌ",
+              "verse": "90:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-090007-3-5.mp3"
+            },
+            {
+              "text": "عِندَهُۥٓ إِلَّا",
+              "verse": "2:255",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002255-23-25.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Medd-i fark",
+          "ar": "مد فرق",
+          "short": "Soruyu ayırma · 6",
+          "def": "Soru hemzesini haber cümlesinden ayırmak için baştaki med 6 hareke uzatılır.",
+          "key": "آلذَّكَرَيْنِ",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "ءَآلذَّكَرَيۡنِ",
+              "verse": "6:143",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-006143-9-10.mp3"
+            },
+            {
+              "text": "ءَآلذَّكَرَيۡنِ",
+              "verse": "6:144",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-006144-7-8.mp3"
+            },
+            {
+              "text": "اللَّهُ",
+              "verse": "10:59",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-010059-4-5.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Kalkale",
+      "desc": "Beş harfin sükûnlu hâlinde kısa sıçraması.",
+      "glyph": "ق",
+      "color": "#f87171",
+      "rules": [
+        {
+          "tr": "Kalkale-i suğrâ",
+          "ar": "قلقلة صغرى",
+          "short": "Hafif sıçrama",
+          "def": "ق ط ب ج د harfleri kelime içinde aslî sükûnla gelince hafifçe sıçratılır; sıçrama sesli harfe dönüşmez.",
+          "key": "ق ط ب ج د",
+          "color": "#f87171",
+          "examples": [
+            {
+              "text": "يَجۡعَلۡ",
+              "verse": "105:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-105002-1-2.mp3"
+            },
+            {
+              "text": "الۡأَبۡتَرُ",
+              "verse": "108:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-108003-3-4.mp3"
+            },
+            {
+              "text": "فَوَسَطۡنَ",
+              "verse": "100:5",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-100005-0-1.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Kalkale-i kübrâ",
+          "ar": "قلقلة كبرى",
+          "short": "Durakta güçlü",
+          "def": "Kelime sonundaki kalkale harfinde durulursa, belirgin ve kuvvetli bir sıçrama yapılır.",
+          "key": "ق ط ب ج د",
+          "color": "#f87171",
+          "examples": [
+            {
+              "text": "أَحَدٌ",
+              "verse": "112:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112001-3-4.mp3"
+            },
+            {
+              "text": "الصَّمَدُ",
+              "verse": "112:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112002-1-2.mp3"
+            },
+            {
+              "text": "الۡفَلَقِ",
+              "verse": "113:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Kalın & ince",
+      "desc": "Harflerin, râ'nın ve lâmın dolgun ya da ince okunuşu.",
+      "glyph": "ر",
+      "color": "#E67E22",
+      "rules": [
+        {
+          "tr": "Tefhîm",
+          "ar": "تفخيم",
+          "short": "Kalınlaştırma",
+          "def": "İstiʿlâ harfleri (خ ص ض غ ط ق ظ) dolgun/kalın okunur; derecesi harekeye göre değişir.",
+          "key": "خ ص ض غ ط ق ظ",
+          "color": "#E67E22",
+          "examples": [
+            {
+              "text": "قُلۡ",
+              "verse": "112:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112001-0-1.mp3"
+            },
+            {
+              "text": "صِرَٰطَ",
+              "verse": "1:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001007-0-1.mp3"
+            },
+            {
+              "text": "الۡفَلَقِ",
+              "verse": "113:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Terkîk",
+          "ar": "ترقيق",
+          "short": "İnceltme",
+          "def": "Çoğu harf ince okunur; elif öncesine uyar, râ ve lafzatullah lâmı bağlama göre değişir.",
+          "key": "Most other letters",
+          "color": "#c4b5fd",
+          "examples": [
+            {
+              "text": "بِسۡمِ",
+              "verse": "1:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001001-0-1.mp3"
+            },
+            {
+              "text": "إِلَٰهِ",
+              "verse": "114:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-114003-0-1.mp3"
+            },
+            {
+              "text": "يَوۡمِ",
+              "verse": "1:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001004-1-2.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Râ'nın hükümleri",
+          "ar": "أحكام الراء",
+          "short": "Kalın / ince",
+          "def": "Râ üstün/ötrede kalın, esrede ince okunur; sâkin râ öncesindeki harekeye bağlıdır.",
+          "key": "ر",
+          "color": "#E67E22",
+          "examples": [
+            {
+              "text": "الرَّحۡمَٰنِ",
+              "verse": "1:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001003-0-1.mp3"
+            },
+            {
+              "text": "وَالۡفَجۡرِ",
+              "verse": "89:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-089001-0-1.mp3"
+            },
+            {
+              "text": "رِّزۡقٗا",
+              "verse": "2:25",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002025-17-18.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Lafzatullah",
+          "ar": "لام الجلالة",
+          "short": "Lâm-ı celâle",
+          "def": "'Allah' lafzının lâmı, önceki harf üstün/ötre ise kalın, esre ise ince okunur.",
+          "key": "اللّٰه",
+          "color": "#d4a574",
+          "examples": [
+            {
+              "text": "بِسۡمِ اللَّهِ",
+              "verse": "1:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001001-0-2.mp3"
+            },
+            {
+              "text": "هُوَ اللَّهُ",
+              "verse": "112:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112001-1-3.mp3"
+            },
+            {
+              "text": "نَصۡرُ اللَّهِ",
+              "verse": "110:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-110001-2-4.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Harflerin birleşmesi",
+      "desc": "Belirlilik takısı, idgâm türleri ve ulama hemzesi.",
+      "glyph": "ل",
+      "color": "#60a5fa",
+      "rules": [
+        {
+          "tr": "Lâm-ı şemsiyye",
+          "ar": "لام شمسية",
+          "short": "Şemsî lâm",
+          "def": "Belirlilik takısının lâmı, on dört şems harfinden birine idgâm edilir; o harf şeddeli okunur.",
+          "key": "ت ث د ذ ر ز س ش ص ض ط ظ ل ن",
+          "color": "#3498DB",
+          "examples": [
+            {
+              "text": "الرَّحۡمَٰنِ",
+              "verse": "1:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001003-0-1.mp3"
+            },
+            {
+              "text": "النَّاسِ",
+              "verse": "114:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-114001-3-4.mp3"
+            },
+            {
+              "text": "وَالسَّمَآءِ",
+              "verse": "86:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-086001-0-1.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Lâm-ı kameriyye",
+          "ar": "لام قمرية",
+          "short": "Kamerî lâm",
+          "def": "Belirlilik takısının lâmı, kamer harflerinden önce açıkça okunur.",
+          "key": "ء ب ج ح خ ع غ ف ق ك م ه و ي",
+          "color": "#60a5fa",
+          "examples": [
+            {
+              "text": "الۡحَمۡدُ",
+              "verse": "1:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001002-0-1.mp3"
+            },
+            {
+              "text": "الۡفَلَقِ",
+              "verse": "113:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
+            },
+            {
+              "text": "الۡكَوۡثَرَ",
+              "verse": "108:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-108001-2-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İdgâm-ı misleyn",
+          "ar": "متماثلين",
+          "short": "Aynı harfler",
+          "def": "Aynı iki harften ilki sâkin, ikincisi harekeli ise, genelde şeddeli tek harf gibi okunur.",
+          "key": "Same articulation and quality",
+          "color": "#4ade80",
+          "examples": [
+            {
+              "text": "رَبِحَت تِّجَٰرَتُهُمۡ",
+              "verse": "2:16",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002016-6-8.mp3"
+            },
+            {
+              "text": "يُدۡرِككُّمُ",
+              "verse": "4:78",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-004078-2-3.mp3"
+            },
+            {
+              "text": "يُسۡرِف فِّي",
+              "verse": "17:33",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-017033-16-18.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İdgâm-ı mütecâniseyn",
+          "ar": "متجانسين",
+          "short": "Mahreç ortak",
+          "def": "Mahreçleri bir, sıfatları farklı harfler muayyen birleşimlerde birbirine katılır.",
+          "key": "For example ت + د",
+          "color": "#38bdf8",
+          "examples": [
+            {
+              "text": "أَثۡقَلَت دَّعَوَا",
+              "verse": "7:189",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-007189-19-21.mp3"
+            },
+            {
+              "text": "قَد تَّبَيَّنَ",
+              "verse": "2:256",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-002256-4-6.mp3"
+            },
+            {
+              "text": "أُجِيبَت دَّعۡوَتُكُمَا",
+              "verse": "10:89",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-010089-2-4.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İdgâm-ı mütekâribeyn",
+          "ar": "متقاربين",
+          "short": "Mahreç yakın",
+          "def": "Mahreçleri birbirine yakın harfler belirli birleşimlerde katılır; her yakın çift katılmaz.",
+          "key": "For example ل + ر",
+          "color": "#60a5fa",
+          "examples": [
+            {
+              "text": "وَقُل رَّبِّ",
+              "verse": "17:24",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-017024-6-8.mp3"
+            },
+            {
+              "text": "قُل رَّبِّيٓ",
+              "verse": "18:22",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-018022-14-16.mp3"
+            },
+            {
+              "text": "نَخۡلُقكُّم",
+              "verse": "77:20",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-077020-1-2.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Hemze-i vasl",
+          "ar": "همزة الوصل",
+          "short": "Ulama hemzesi",
+          "def": "Kelimeye başlarken okunur, önceki kelimeden bağlanınca düşer; başlangıç harekesi kelimeye göre değişir.",
+          "key": "ٱ",
+          "color": "#A78BFA",
+          "examples": [
+            {
+              "text": "اهۡدِنَا",
+              "verse": "1:6",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001006-0-1.mp3"
+            },
+            {
+              "text": "اقۡرَأۡ",
+              "verse": "96:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-096001-0-1.mp3"
+            },
+            {
+              "text": "ادۡخُلُوهَا",
+              "verse": "15:46",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-015046-0-1.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Vakf & vasl",
+      "desc": "Mananın korunarak durulması ve başlanması.",
+      "glyph": "ۘ",
+      "color": "#A78BFA",
+      "rules": [
+        {
+          "tr": "Vakf ve ibtidâ",
+          "ar": "وقف وابتداء",
+          "short": "Duruş ve başlama",
+          "def": "Mana bozulmadan durulup başlanır; secâvend işaretleri yol gösterir (م zorunlu, ج câiz…).",
+          "key": "م ج لا ۖ ۗ ۛ",
+          "color": "#f87171",
+          "examples": [
+            {
+              "text": "الۡعَٰلَمِينَ",
+              "verse": "1:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001002-3-4.mp3"
+            },
+            {
+              "text": "الرَّحِيمِ",
+              "verse": "1:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001003-1-2.mp3"
+            },
+            {
+              "text": "الدِّينِ",
+              "verse": "1:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001004-2-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Kelime sonunda vakf",
+          "ar": "الوقف",
+          "short": "Sükûn · tâ · tenvin",
+          "def": "Vakıfta son hareke düşer; tâ-i merbûta sâkin he olur, fethateyn genelde uzun elife döner.",
+          "key": "ة → هْ",
+          "color": "#E67E22",
+          "examples": [
+            {
+              "text": "الۡقَارِعَةُ",
+              "verse": "101:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-101001-0-1.mp3"
+            },
+            {
+              "text": "لُّمَزَةٍ",
+              "verse": "104:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-104001-3-4.mp3"
+            },
+            {
+              "text": "تَوَّابَۢا",
+              "verse": "110:3",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-110003-6-7.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Sekte",
+          "ar": "سكت",
+          "short": "Nefessiz duruş",
+          "def": "Hafs rivayetinde nefes almadan yapılan kısa duruş (18:1–2, 36:52, 75:27, 83:14).",
+          "key": "عِوَجًا ۜ قَيِّمًا",
+          "color": "#A78BFA",
+          "examples": [
+            {
+              "text": "مَنۡۜ رَاقٖ",
+              "verse": "75:27",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-075027-1-3.mp3"
+            },
+            {
+              "text": "بَلۡۜ رَانَ",
+              "verse": "83:14",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-083014-1-3.mp3"
+            },
+            {
+              "text": "مَّرۡقَدِنَاۜۗ هَٰذَا",
+              "verse": "36:52",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-036052-5-7.mp3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tr": "Mahreç & sıfatlar",
+      "desc": "Her tecvid kuralının altındaki temeller.",
+      "glyph": "ع",
+      "color": "#d4a574",
+      "rules": [
+        {
+          "tr": "Mahreçler",
+          "ar": "مخارج الحروف",
+          "short": "Çıkış yerleri",
+          "def": "Harfler ağız boşluğu, boğaz, dil, dudaklar ve geniz olmak üzere beş bölgede on yedi noktadan çıkar.",
+          "key": "Throat · tongue · lips",
+          "color": "#d4a574",
+          "examples": [
+            {
+              "text": "أَنۡعَمۡتَ",
+              "verse": "1:7",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001007-2-3.mp3"
+            },
+            {
+              "text": "قُلۡ",
+              "verse": "112:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112001-0-1.mp3"
+            },
+            {
+              "text": "الۡحَمۡدُ",
+              "verse": "1:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-001002-0-1.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Sıfâtü'l-hurûf",
+          "ar": "صفات الحروف",
+          "short": "Harf sıfatları",
+          "def": "Hems/cehr, şiddet/rihvet gibi harf nitelikleri; her harf abartısız kendi sıfatıyla okunur.",
+          "key": "Hams · jahr · shiddah · rikhwah",
+          "color": "#c084fc",
+          "examples": [
+            {
+              "text": "الصَّمَدُ",
+              "verse": "112:2",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-112002-1-2.mp3"
+            },
+            {
+              "text": "الۡفَلَقِ",
+              "verse": "113:1",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
+            },
+            {
+              "text": "الۡوَسۡوَاسِ",
+              "verse": "114:4",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-114004-2-3.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İmâle",
+          "ar": "إمالة",
+          "short": "Sese meyil",
+          "def": "Hafs'ta 11:41'deki 'mecrâhâ' kelimesinde fetha ve elif, kesra ve yâ'ya doğru meylettirilir.",
+          "key": "مَجْرَاهَا",
+          "color": "#A78BFA",
+          "examples": [
+            {
+              "text": "مَجۡرٜىٰهَا",
+              "verse": "11:41",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-011041-5-6.mp3"
+            },
+            {
+              "text": "مَجۡرٜىٰهَا",
+              "verse": "11:41",
+              "reciter": "Husary",
+              "audio": "/tecvid-audio/husary-011041-5-6.mp3"
+            },
+            {
+              "text": "مَجۡرٜىٰهَا",
+              "verse": "11:41",
+              "reciter": "Minshawy",
+              "audio": "/tecvid-audio/minshawy-011041-5-6.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "İşmâm",
+          "ar": "إشمام",
+          "short": "Dudak işareti",
+          "def": "12:11 'te'menna'da dudaklar, gizli ötreyi göstermek için hafifçe yumulur; sesle öğrenilmez.",
+          "key": "تَأْمَنَّا",
+          "color": "#F472B6",
+          "examples": [
+            {
+              "text": "تَأۡمَ۬نَّا",
+              "verse": "12:11",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-012011-5-6.mp3"
+            },
+            {
+              "text": "تَأۡمَ۬نَّا",
+              "verse": "12:11",
+              "reciter": "Husary",
+              "audio": "/tecvid-audio/husary-012011-5-6.mp3"
+            },
+            {
+              "text": "تَأۡمَ۬نَّا",
+              "verse": "12:11",
+              "reciter": "Minshawy",
+              "audio": "/tecvid-audio/minshawy-012011-5-6.mp3"
+            }
+          ]
+        },
+        {
+          "tr": "Teshîl",
+          "ar": "تسهيل",
+          "short": "Hemze kolaylaştırma",
+          "def": "41:44'te ikinci hemze, tam hemze ile elif arası kolaylaştırılarak okunur (silme değildir).",
+          "key": "ءَأَعْجَمِيّ",
+          "color": "#22d3ee",
+          "examples": [
+            {
+              "text": "ءَا۬عۡجَمِيّٞ",
+              "verse": "41:44",
+              "reciter": "Alafasy",
+              "audio": "/tecvid-audio/alafasy-041044-8-9.mp3"
+            },
+            {
+              "text": "ءَا۬عۡجَمِيّٞ",
+              "verse": "41:44",
+              "reciter": "Husary",
+              "audio": "/tecvid-audio/husary-041044-8-9.mp3"
+            },
+            {
+              "text": "ءَا۬عۡجَمِيّٞ",
+              "verse": "41:44",
+              "reciter": "Minshawy",
+              "audio": "/tecvid-audio/minshawy-041044-8-9.mp3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

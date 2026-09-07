@@ -596,6 +596,21 @@ export const CATEGORY = {
 // Sırayla dağıtım gerektiğinde (kategori listesi renklendirme) bu diziyi kullan.
 export const CATEGORY_SCALE = Object.values(CATEGORY);
 
+// ─── TECVİD (Tajweed) renkleri — okuma modu tecvid motoruyla AYNI palet ──────
+// ReadingMode.jsx `applyTajweed` gece-modu renklerinin token karşılığı. Tecvid
+// Rehberi (/arac/tecvid-rehberi) ve okuma modundaki tecvid efsanesi bu tek
+// kaynaktan beslenmeli (§13.25 ham-hex denetimi de bu sayede geçer).
+export const TAJWEED = {
+  gunne:   '#4ade80',  // Gunne / idgâm-ı misleyn (geniz sesi)
+  kalkale: '#f87171',  // Kalkale (sıçrama)
+  med:     '#c084fc',  // Med (uzatma)
+  idgam:   '#60a5fa',  // İdgâm-ı bilâ-gunne (katma)
+  iklab:   '#f472b6',  // İklâb (nûn → mîm)
+  ihfa:    '#22d3ee',  // İhfâ (gizleme)
+  ihfasef: '#38bdf8',  // İhfâ-i şefevî (dudak ihfâsı)
+  sila:    '#f2d9a8',  // Sıla / zamir he
+};
+
 // ─── v2.0 Gradyanlar — TEK KAYNAK ───────────────────────────────────────────
 // Dekoratif gradyanlar. Metin gradyanları yalnız BÜYÜK, dekoratif sayı/başlıkta
 // (background-clip:text) kullanılır; erişilebilir DÜZ fallback rengi her zaman
