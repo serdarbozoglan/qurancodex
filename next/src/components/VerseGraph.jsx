@@ -2519,6 +2519,38 @@ function FullGraph({ verses, onBack, language, onClose }) {
     }
   }, []);
 
+  // İlk girişte tilâveti (Alak 1-5) otomatik başlat. Tarayıcılar kullanıcı
+  // jesti olmadan sesli autoplay'i engelleyebilir; o durumda ilk etkileşimde
+  // (tık/dokunuş/tuş) tek seferlik başlatırız. Yalnızca bir kez denenir.
+  // Kullanıcı mute butonuna basarsa autostart iptal olur (buton kontrolü esas).
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    let done = false;
+    const remove = () => {
+      window.removeEventListener('pointerdown', onGesture, true);
+      window.removeEventListener('keydown', onGesture, true);
+      window.removeEventListener('touchstart', onGesture, true);
+    };
+    const onGesture = (e) => {
+      if (done) return;
+      done = true;
+      // Kullanıcı doğrudan tilâvet butonuna bastıysa: bırak buton yönetsin.
+      if (e && e.target && e.target.closest && e.target.closest('[data-audio-toggle]')) { remove(); return; }
+      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+      remove();
+    };
+    // 1) Doğrudan dene (medya-etkileşim geçmişi olan tarayıcılar izin verebilir).
+    audio.play().then(() => { done = true; setPlaying(true); }).catch(() => {
+      if (done) return;
+      // 2) Engellendi → ilk kullanıcı jestinde başlat.
+      window.addEventListener('pointerdown', onGesture, true);
+      window.addEventListener('keydown', onGesture, true);
+      window.addEventListener('touchstart', onGesture, true);
+    });
+    return remove;
+  }, []);
+
   // filterSurah değişince selected/focused'ı temizle ve kamerayı node verilerinden hesapla
   useEffect(() => {
     setSelected(null);
@@ -3152,6 +3184,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
 
         {/* Mute / unmute tilawat */}
         <button
+          data-audio-toggle
           onClick={toggleAudio}
           title={playing ? (language === 'tr' ? 'Tilâveti durdur' : 'Stop recitation') : (language === 'tr' ? 'Tilâveti dinle' : 'Play recitation')}
           aria-label={playing ? (language === 'tr' ? 'Tilâveti durdur' : 'Stop recitation') : (language === 'tr' ? 'Tilâveti dinle (Alak 1-5)' : 'Play recitation (Alaq 1-5)')}
