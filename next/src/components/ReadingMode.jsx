@@ -3740,7 +3740,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     display: 'flex', alignItems: 'center', gap: '8px',
                     // Button-level opacity image'ı da yutar (CSS inherits). Bu
                     // yüzden text'e opacity manuel veriyoruz, button transparan.
-                    color: dayMode ? '#8a5f12' : gold,
+                    color: dayMode ? '#6f4a1c' : gold,
                     fontFamily: "'Playfair Display', serif",
                     fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.11em',
                     whiteSpace: 'nowrap', flexShrink: 0,
@@ -3751,7 +3751,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   onMouseLeave={e => {
                     const span = e.currentTarget.querySelector('span');
-                    if (span) span.style.opacity = dayMode ? '1' : '0.72';
+                    if (span) span.style.opacity = dayMode ? '1' : '0.8';
                   }}
                 >
                   {/* Q+star mark — dayMode'da dark-ink (cream üstü), nightMode'da
@@ -3767,7 +3767,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   />
                   <span
                     style={{
-                      opacity: dayMode ? 1 : 0.72,
+                      opacity: dayMode ? 1 : 0.8,
                       transition: `opacity ${TRANSITION.fast}`,
                     }}
                   >
