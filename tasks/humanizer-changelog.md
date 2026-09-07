@@ -7629,3 +7629,21 @@ Psikoloji bölümünde meta-analiz için "doğrular / confirms" → "bulur / fin
 
 - §4 satır 110 ("asıl soru / asıl mesele", §27): kalan dört TR örneği (anlam-yaratilis-senteni + kaynak-yuzey bridge'leri, rahmetin-grameri-4 + yaratilis-hikayesi-1-giris paragrafları) YAZARIN sesi. Humanizer'ın kendi "yazarın sesini eşle/koru" kuralı ve §13.29 (Felsufi'ye sadakat) gereği KORUNDU — EN "değil, makine-artefaktı" kelimeleri aksine, "asıl soru/mesele" yazarın doğal Türkçe retoriğidir. Isimlendirme.jsx (UI katmanı) zaten düzeltilmişti.
 - §7 satır 171 ("N · N · N" katalog formatı): §9 kararıyla zaten uygulanmış. Doğrulandı: toolCatalog desc'lerde ve page.js DESC'lerde `·` yok; format yalnız kart kicker'larında (kabul edilen kart bağlamı).
+
+---
+
+## Hardening (ChatGPT incelemesi) — WowFacts C08/C09 · 2026-09-07
+
+Bu iki değişiklik önce **içerik doğruluğu** düzeltmesidir (kaynaktan doğrulandı), humanizer'dan da geçirildi.
+
+### C08 — Fâtiha'daki ilâhî isimler
+ÖNCE: "Fatiha'da 'Allah' Lafzı Geçmez / Kur'an'ın açılış sûresinde 'Allah' lafzı hiç geçmez…"
+SONRA: "Fâtiha'da Beş İlâhî İsim / … lafza-i celâl 'Allah', Besmele'de ve el-hamdü lillâh'ta geçer; yanında Rabb, Rahmân, Rahîm, Mâlik…"
+Gerekçe: İddia yanlıştı — verse-graph-bgem3.json'da Fâtiha 1:1 ve 1:2 lafza-i celâli içeriyor.
+
+### C09 — Rahmân/Rahîm frekansı
+ÖNCE: "Allah'tan Sonra En Çok Geçen Esma: Er-Rahman (~57)"
+SONRA: "Rahmân ve Rahîm: Merhametin İki İsmi / Rahîm ~116, Rahmân ~57…"
+Gerekçe: Quranic Arabic Corpus (kök ر ح م): rahmân 57, rahîm 116. "En çok" iddiası yanlıştı; #1 iddiası kaldırıldı (tüm 99 isim doğrulanmadı).
+
+Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, kaynak belirtili, uydurma yok.
