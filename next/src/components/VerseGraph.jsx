@@ -2521,33 +2521,33 @@ function FullGraph({ verses, onBack, language, onClose }) {
 
   // İlk girişte tilâveti (Alak 1-5) otomatik başlat. Tarayıcılar kullanıcı
   // jesti olmadan sesli autoplay'i engelleyebilir; o durumda ilk etkileşimde
-  // (tık/dokunuş/tuş) tek seferlik başlatırız. Yalnızca bir kez denenir.
-  // Kullanıcı mute butonuna basarsa autostart iptal olur (buton kontrolü esas).
+  // (tık/dokunuş/tuş) tek seferlik başlatırız. Guard `useRef` olduğu için
+  // StrictMode çift-mount'ta da tek sefer çalışır; daima CANLI audioRef.current
+  // kullanılır (kapatılmış eski öğe değil). Mute butonuna basılırsa autostart
+  // iptal (buton kontrolü esas).
+  const autoStartedRef = useRef(false);
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    let done = false;
     const remove = () => {
       window.removeEventListener('pointerdown', onGesture, true);
       window.removeEventListener('keydown', onGesture, true);
       window.removeEventListener('touchstart', onGesture, true);
     };
-    const onGesture = (e) => {
-      if (done) return;
-      done = true;
-      // Kullanıcı doğrudan tilâvet butonuna bastıysa: bırak buton yönetsin.
-      if (e && e.target && e.target.closest && e.target.closest('[data-audio-toggle]')) { remove(); return; }
-      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-      remove();
+    const tryPlay = () => {
+      const audio = audioRef.current;
+      if (!audio || autoStartedRef.current) return;
+      audio.play().then(() => { autoStartedRef.current = true; setPlaying(true); remove(); }).catch(() => {});
     };
-    // 1) Doğrudan dene (medya-etkileşim geçmişi olan tarayıcılar izin verebilir).
-    audio.play().then(() => { done = true; setPlaying(true); }).catch(() => {
-      if (done) return;
-      // 2) Engellendi → ilk kullanıcı jestinde başlat.
-      window.addEventListener('pointerdown', onGesture, true);
-      window.addEventListener('keydown', onGesture, true);
-      window.addEventListener('touchstart', onGesture, true);
-    });
+    const onGesture = (e) => {
+      if (autoStartedRef.current) { remove(); return; }
+      // Kullanıcı doğrudan tilâvet butonuna bastıysa: bırak buton yönetsin.
+      if (e && e.target && e.target.closest && e.target.closest('[data-audio-toggle]')) { autoStartedRef.current = true; remove(); return; }
+      tryPlay();
+    };
+    tryPlay(); // 1) doğrudan dene (izin varsa hemen çalar)
+    // 2) engellenirse ilk jestte başlat
+    window.addEventListener('pointerdown', onGesture, true);
+    window.addEventListener('keydown', onGesture, true);
+    window.addEventListener('touchstart', onGesture, true);
     return remove;
   }, []);
 
