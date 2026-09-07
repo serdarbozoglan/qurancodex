@@ -68,10 +68,9 @@
   - Yapılacak: İtikadî koruma inancı / standart rasm / bölgesel rasm / kıraat / erken elyazması varyantlarını ayrı sun.
   - Katılım: ✅ tam · Durum: onaylı
 
-- [ ] **C11 · ه ve ح "nazal"; tecvid = ses sembolizmi karışması** — `/tr/arac/ses-mimarisi`
-  - Nazal olan م/ن. ه gırtlaksı, ح boğazsıl. "109 ve 112 peş peşe" iddiası da kaldırılmalı.
-  - Yapılacak: Fonetik sınıflandırmayı uzman kontrolünden geçir; nazali m/n ile düzelt; mecazı sesbilim bulgusu gibi sunma.
-  - Katılım: ✅ tam · Durum: fonetik hata
+- [x] **C11 · ه ve ح "nazal"; 109/112 komşuluk** — `/tr/arac/ses-mimarisi` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Yapıldı: `SoundExtensions.jsx` "nazal ه"→"soluklu ه"/"breathy"; 109↔112 "peş peşe/adjacent" kaldırıldı (aralarında 110-111). `SoundArchitecture.jsx`'te ح,ن,م,ل grubu "nazal ve akıcı" → doğru sınıflandırma (ن,م nazal; ل akıcı; ح boğazsıl); "Nazal ح،ن،م" → "Yumuşak". TR+EN.
+  - Katılım: ✅ tam · Durum: **düzeltildi**
 
 - [x] **C13 · "7. yy = 16 vezin" sınırlaması** — `/tr/arac/ritim` ✅ **DÜZELTİLDİ (2026-09-07)**
   - Yapıldı: `RhythmExtensions.jsx` detayına anakronizm notu ("bu sistematik tasnif Kur'ân'ın inişinden sonra olgunlaştı") + **secî (kafiyeli, ritmik nesir)** yakınlığı eklendi; "hiçbirine uymaz" → "ne klasik şiire ne de alışılmış düzyazıya indirgenir". Kimlik korundu (§13.24).
@@ -101,10 +100,10 @@
   - Gerçek sayı 34 (word-groups.json meta.totalGroups=34). UI "34" doğruydu; hatalı olan meta.
   - Yapıldı: `furuk/page.js` DESC_TR/EN "50'den fazla / more than 50" → "34". Katılım: ✅ doğru
 
-- [ ] **C05 · Fâtiha "yedi ayet" halkası** — `/tr`
-  - Besmele hariç 1:2–1:7 = altı ayet; son ayet ikiye bölünüp yedi konum kuruluyor.
-  - Yapılacak: "Yedi ayet" yerine "yedi metin birimi/konum"; her düğümü ayet/cümlecik olarak düzelt.
-  - Katılım: 🟡 sayım geleneğine bağlı; etiketle
+- [x] **C05 · Fâtiha "yedi ayet" halkası** — `/tr` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Component zaten dikkatliydi (subtitle "altı ayetin ayna simetrisi, Besmele hariç"; merkez 1:5 doğru; detaylı ℹ notu). Tek eksik: 1:7'nin ikiye bölündüğü.
+  - Yapıldı: ℹ notuna "Son âyet (1:7) iki cümleciğe ayrılır; B' ve A' aynı âyetin iki yarısıdır (yedi konum, altı âyet)" eklendi. TR+EN.
+  - Katılım: 🟡→✅ · Durum: **düzeltildi**
 
 - [ ] **C06 · "Modern psikolojiyi öngörmez" (üst) vs "14 asır önce eş" (alt)** — `/tr/atlas/insan-psikolojisi`
   - Yapılacak: Yorum eşleştirmesi ile klinik/tarihsel eşdeğerlik ayrımını tüm sekmelerde koru. · Katılım: ✅

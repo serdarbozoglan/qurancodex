@@ -67,8 +67,8 @@ const SURAS = [
     verseRef: '19:13',
     harshLetters: ['د', 'ت', 'ق'],
     softLetters: ['و', 'ح', 'ن', 'م', 'ل'],
-    descTr: 'ح، ن، م، ل: nazal ve akıcı sesler rahmetin yumuşaklığını taşır; kapanış "takıyyâ" da bu yumuşaklıkla uyum içinde.',
-    descEn: 'ح، ن، م، ل: nasal and liquid consonants carry the tenderness of mercy; even the closing "taqiyyā" flows in that same softness.',
+    descTr: 'ح، ن، م، ل: yumuşak, akıcı ve nazal sesler (ن، م nazal, ل akıcı, ح yumuşak boğaz sesi) rahmetin yumuşaklığını taşır; kapanış "takıyyâ" da bu yumuşaklıkla uyum içinde.',
+    descEn: 'ح، ن، م، ل: soft, flowing consonants (ن، م nasal, ل liquid, ح a soft pharyngeal) carry the tenderness of mercy; even the closing "taqiyyā" flows in that same softness.',
     audioKey: '019013',
   },
   {
@@ -1482,8 +1482,8 @@ export default function SoundArchitecture() {
               href: `/${language}/oku/19`,
               titleTr: 'Meryem Sûresi (19)',
               titleEn: 'Sura Maryam (19)',
-              descTr: 'Nazal ح، ن، م rahmet seslerinin uzun anlatımdaki örgüsü.',
-              descEn: 'The weave of nasal ح، ن، م mercy-sounds across the long narrative.',
+              descTr: 'Yumuşak ح، ن، م rahmet seslerinin uzun anlatımdaki örgüsü.',
+              descEn: 'The weave of the soft ح، ن، م mercy-sounds across the long narrative.',
             },
           ].map((tt, i) => (
             <motion.div
