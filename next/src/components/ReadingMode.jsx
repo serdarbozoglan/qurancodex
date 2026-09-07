@@ -4506,7 +4506,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     ettiği an öğretici bir tık ötede (2026-09-07). */}
                 <button
                   type="button"
-                  onClick={() => router.push(`/${language}/arac/tecvid-rehberi`)}
+                  onClick={() => window.open(`/${language}/oku/tecvid`, '_blank', 'noopener')}
                   title={language === 'tr' ? 'Tecvid kurallarını öğren' : 'Learn the tajweed rules'}
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '5px', flexShrink: 0,
@@ -5593,6 +5593,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {language === 'tr' ? 'Tecvid Renkleri' : 'Tajweed Colors'}
             </span>
             {renderSwitch(showTajweed)}
+          </button>
+
+          {/* Tecvid Rehberi girişi — okuma modülünün içi (2026-09-07 kullanıcı:
+              araçlarda değil, okuma sayfasında). Renkler kapalıyken de görünür;
+              renk şeridindeki "Öğren →" ile aynı sayfaya (/oku/tecvid) götürür. */}
+          <button
+            type="button"
+            onClick={() => router.push(`/${language}/oku/tecvid`)}
+            title={language === 'tr' ? 'Tecvid kurallarını renkli örnek ve sesle öğren' : 'Learn the tajweed rules with colored examples and audio'}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              padding: '6px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
+              border: 'none', background: 'transparent', color: gold,
+              fontSize: '0.76rem', fontWeight: 600, marginTop: '-2px',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontFamily: "'KFGQPC', serif", opacity: 0.9 }}>تج</span>
+              {language === 'tr' ? 'Tecvid kurallarını öğren' : 'Learn the tajweed rules'}
+            </span>
+            <span aria-hidden="true">→</span>
           </button>
 
           {/* Sayfa Çerçevesi ve İtalic Meal toggle'ları kaldırıldı (2026-09-07):

@@ -75,7 +75,13 @@ export default function Navbar() {
     if (segs.length === 0) return false;
     const noLocale = (segs[0] === 'tr' || segs[0] === 'en') ? segs.slice(1) : segs;
     if (noLocale.length === 0) return false;
-    return noLocale[0] === 'oku';
+    if (noLocale[0] !== 'oku') return false;
+    // Yalnız GERÇEK okuyucu (tam ekran chrome) Navbar'ı gizler: /oku (index) ve
+    // /oku/<sûre numarası>. /oku/tecvid gibi alt sayfalar normal sayfadır ve
+    // Navbar'ı KORUR (2026-09-07: aksi halde navTop fantom boşluğu + içerik
+    // sızması + eksik site navigasyonu oluşuyordu).
+    if (noLocale.length === 1) return true;
+    return /^\d+$/.test(noLocale[1]);
   })();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
