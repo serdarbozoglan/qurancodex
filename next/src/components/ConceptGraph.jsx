@@ -20,6 +20,13 @@ let _conceptsCache = null;
 let _groupsCache = null;
 let _conceptVerseMapCache = null; // precomputed concept→verseId sets
 
+// Ekran okuyucu / klavye için görünmez metin-alternatifi stili (§16.12).
+// SVG grafiği aria-hidden; veriye erişimin metin yolu bu liste.
+const SR_ONLY = {
+  position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px',
+  overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0,
+};
+
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function normalizeTr(str) {
@@ -778,6 +785,49 @@ export default function ConceptGraph({ onClose, restore = null }) {
           KENDİ İÇİNDE kayıyor, sayfa şişmiyor. */}
       {view === 'graph' && !buildingGraph && !loadingData && graphRef.current && (
         <div className="fd-row" style={{ flexShrink: 0, display: 'flex', height: `calc(100vh - ${subHeaderTop + 56}px)`, overflow: 'hidden' }}>
+
+          {/* Ekran okuyucu metin-alternatifi — SVG aria-hidden; veri buradan
+              erişilir. Tamamen mevcut düğüm/kenar verisinden türetilir. */}
+          {(() => {
+            const nodes = graphRef.current.nodes;
+            const edges = graphRef.current.edges;
+            const central = nodes[0];
+            if (!central) return null;
+            const cName = language === 'tr' ? central.concept.tr : central.concept.en;
+            const sharedWith = (idx) => {
+              const e = edges.find(ed => !ed.isSecondary && ((ed.source === 0 && ed.target === idx) || (ed.target === 0 && ed.source === idx)));
+              return e ? e.shared : null;
+            };
+            return (
+              <div style={SR_ONLY}>
+                <h3>{language === 'tr' ? `${cName} kavramının bağlantı ağı` : `Connection network for the concept ${cName}`}</h3>
+                <p>{language === 'tr'
+                  ? `Merkezde ${cName} (${central.verseCount} âyet). En çok bağlantılı ${nodes.length - 1} kavram:`
+                  : `${cName} at the center (${central.verseCount} verses). The ${nodes.length - 1} most connected concepts:`}</p>
+                <ol>
+                  {nodes.slice(1).map((n, i) => {
+                    const nm = language === 'tr' ? n.concept.tr : n.concept.en;
+                    const sh = sharedWith(i + 1);
+                    const label = language === 'tr'
+                      ? `${nm}: ${n.verseCount} âyet${sh != null ? `, ${cName} ile ${sh} ortak âyet` : ''}.`
+                      : `${nm}: ${n.verseCount} verses${sh != null ? `, ${sh} shared with ${cName}` : ''}.`;
+                    return (
+                      <li key={n.id}>
+                        {/* Klavye erişimi: Enter/Space kavramı sabitler, âyet paneli açılır */}
+                        <button
+                          type="button"
+                          onClick={() => { setPinnedId(pinnedId === n.id ? null : n.id); setVersePageSize(15); }}
+                          onFocus={() => setHoveredId(n.id)}
+                          onBlur={() => setHoveredId(null)}
+                          style={{ background: 'none', border: 0, padding: 0, margin: 0, font: 'inherit', color: 'inherit', textAlign: 'left', cursor: 'pointer' }}
+                        >{label}</button>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            );
+          })()}
 
           {/* SVG Graph */}
           <div

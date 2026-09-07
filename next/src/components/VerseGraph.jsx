@@ -27,6 +27,13 @@ const SLATE = {
   subtle:   '#2d3748',  // subtle text — footer domain, faint labels
 };
 
+// Ekran okuyucu için görünmez metin-alternatifi stili (§16.12). 3B/SVG grafik
+// görseldir; küme yapısının metin özeti bu blokla erişilir.
+const SR_ONLY = {
+  position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px',
+  overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0,
+};
+
 // ─── Strip footnotes from Suat Yıldırım translation ──────────────────────────
 // Removes {KM, Tesniye 4,35; İşaya 43,10-11} style cross-reference notes.
 function cleanTr(str) {
@@ -1255,6 +1262,25 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
   return (
     <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
+      {/* Ekran okuyucu metin-alternatifi — grafik görsel. Tamamen mevcut
+          veriden: âyet sayısı + iki görünüm modu + klasik sûre grupları. */}
+      <div style={SR_ONLY}>
+        <h2>{language === 'tr' ? 'Sûre Haritası' : 'Surah Map'}</h2>
+        <p>{language === 'tr'
+          ? `Kur'an'ın ${verses.length} âyeti iki şekilde konumlandırılabilir: "Anlam Kümeleri" (âyetlerin anlamsal benzerliğine göre) ve "İlmî Gruplar" (İslam ilmi geleneğine göre sûre öbekleri). Klasik gruplar:`
+          : `The Quran's ${verses.length} verses can be positioned two ways: "Semantic Clusters" (by semantic similarity of verses) and "Traditional Groups" (surah groupings from Islamic scholarship). The classical groups:`}</p>
+        <ul>
+          {CLASSICAL_GROUPS.map(g => (
+            <li key={g.id}>{language === 'tr'
+              ? `${g.tr}: ${g.surahs.length} sûre.`
+              : `${g.en}: ${g.surahs.length} surah${g.surahs.length === 1 ? '' : 's'}.`}</li>
+          ))}
+        </ul>
+        <p>{language === 'tr'
+          ? 'Sûreleri aramak, seçmek ve âyet detayına gitmek için üstteki arama kutusu ve sûre listesi klavyeyle kullanılabilir.'
+          : 'Use the search box and surah list above (keyboard-operable) to find, select, and open verse details.'}</p>
+      </div>
+
       {/* Header */}
       <div ref={headerRef} style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
@@ -2161,6 +2187,17 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 
   return (
     <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
+      {/* Ekran okuyucu metin-alternatifi — 3B görünüm görsel. Soldaki sûre
+          bilgi paneli ve âyet listesi klavyeyle kullanılabilir. */}
+      <div style={SR_ONLY}>
+        <h2>{language === 'tr'
+          ? `Sûre ${selected?.surah ?? surah} — âyet grafiği (3B)`
+          : `Surah ${selected?.surah ?? surah} — verse graph (3D)`}</h2>
+        <p>{language === 'tr'
+          ? 'Bu sûrenin âyetleri üç boyutlu bir ağda gösterilir. Soldaki sûre bilgi paneli ve âyet listesi klavyeyle kullanılabilir; bir âyet seçince metni ve meali açılır.'
+          : 'This surah\'s verses are shown in a 3D network. The surah info panel and verse list on the left are keyboard-operable; selecting a verse opens its text and translation.'}</p>
+      </div>
+
       {/* Sûre info panel — left side; follows selected verse's surah when cross-surah */}
       <SurahInfoPanel
         surah={selected?.surah ?? surah} language={language} graphData={graphData} showName={true}
@@ -2720,6 +2757,25 @@ function FullGraph({ verses, onBack, language, onClose }) {
 
   return (
     <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
+      {/* Ekran okuyucu metin-alternatifi — 3B grafik görsel. Mevcut veriden:
+          âyet sayısı + iki görünüm modu + klasik sûre grupları. */}
+      <div style={SR_ONLY}>
+        <h2>{language === 'tr' ? 'Âyet Grafiği (3B)' : 'Verse Graph (3D)'}</h2>
+        <p>{language === 'tr'
+          ? `Kur'an'ın ${verses.length} âyeti anlamsal benzerliklerine göre üç boyutlu bir ağda konumlandırılmıştır. Sûreler, İslam ilmi geleneğindeki klasik öbeklere ayrılabilir:`
+          : `The Quran's ${verses.length} verses are positioned in a 3D network by semantic similarity. Surahs group into classical clusters from Islamic scholarship:`}</p>
+        <ul>
+          {CLASSICAL_GROUPS.map(g => (
+            <li key={g.id}>{language === 'tr'
+              ? `${g.tr}: ${g.surahs.length} sûre.`
+              : `${g.en}: ${g.surahs.length} surah${g.surahs.length === 1 ? '' : 's'}.`}</li>
+          ))}
+        </ul>
+        <p>{language === 'tr'
+          ? 'Âyet aramak, sûre seçmek ve âyet metnine ulaşmak için üstteki arama kutusu ve yan paneller klavyeyle kullanılabilir.'
+          : 'Use the search box and side panels above (keyboard-operable) to search verses, select surahs, and read verse text.'}</p>
+      </div>
+
       {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
       {(filterSurah || selected) && (
         <SurahInfoPanel
