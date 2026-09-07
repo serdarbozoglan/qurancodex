@@ -29,10 +29,13 @@ export default function ToolHeader({
   chip,                  // opsiyonel — JSX (örn: <span>49 fact</span>)
   language,
   hideHomeLink = false,  // opsiyonel — bazı sayfalarda home link istenmeyebilir
+  homeHref,              // opsiyonel — geri bağlantı hedefi (varsayılan: anasayfa)
+  homeLabelTr,           // opsiyonel — geri bağlantı etiketi override (TR)
+  homeLabelEn,           // opsiyonel — geri bağlantı etiketi override (EN)
 }) {
   // Navbar yüksekliği sabit değil — ölç. Bkz. useNavbarOffset.
   const navTop = useNavbarOffset(0, 62);
-  const homePath = `/${language || 'tr'}`;
+  const homePath = homeHref || `/${language || 'tr'}`;
   return (
     <div
       style={{
@@ -140,7 +143,7 @@ export default function ToolHeader({
           >
             <span style={{ fontSize: '0.85rem', lineHeight: 1 }}>←</span>
             <span className="hidden sm:inline">
-              {language === 'en' ? 'Home' : 'Anasayfa'}
+              {language === 'en' ? (homeLabelEn || 'Home') : (homeLabelTr || 'Anasayfa')}
             </span>
           </Link>
         )}

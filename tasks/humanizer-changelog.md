@@ -7629,3 +7629,47 @@ Psikoloji bölümünde meta-analiz için "doğrular / confirms" → "bulur / fin
 
 - §4 satır 110 ("asıl soru / asıl mesele", §27): kalan dört TR örneği (anlam-yaratilis-senteni + kaynak-yuzey bridge'leri, rahmetin-grameri-4 + yaratilis-hikayesi-1-giris paragrafları) YAZARIN sesi. Humanizer'ın kendi "yazarın sesini eşle/koru" kuralı ve §13.29 (Felsufi'ye sadakat) gereği KORUNDU — EN "değil, makine-artefaktı" kelimeleri aksine, "asıl soru/mesele" yazarın doğal Türkçe retoriğidir. Isimlendirme.jsx (UI katmanı) zaten düzeltilmişti.
 - §7 satır 171 ("N · N · N" katalog formatı): §9 kararıyla zaten uygulanmış. Doğrulandı: toolCatalog desc'lerde ve page.js DESC'lerde `·` yok; format yalnız kart kicker'larında (kabul edilen kart bağlamı).
+
+---
+
+## Hardening (ChatGPT incelemesi) — WowFacts C08/C09 · 2026-09-07
+
+Bu iki değişiklik önce **içerik doğruluğu** düzeltmesidir (kaynaktan doğrulandı), humanizer'dan da geçirildi.
+
+### C08 — Fâtiha'daki ilâhî isimler
+ÖNCE: "Fatiha'da 'Allah' Lafzı Geçmez / Kur'an'ın açılış sûresinde 'Allah' lafzı hiç geçmez…"
+SONRA: "Fâtiha'da Beş İlâhî İsim / … lafza-i celâl 'Allah', Besmele'de ve el-hamdü lillâh'ta geçer; yanında Rabb, Rahmân, Rahîm, Mâlik…"
+Gerekçe: İddia yanlıştı — verse-graph-bgem3.json'da Fâtiha 1:1 ve 1:2 lafza-i celâli içeriyor.
+
+### C09 — Rahmân/Rahîm frekansı
+ÖNCE: "Allah'tan Sonra En Çok Geçen Esma: Er-Rahman (~57)"
+SONRA: "Rahmân ve Rahîm: Merhametin İki İsmi / Rahîm ~116, Rahmân ~57…"
+Gerekçe: Quranic Arabic Corpus (kök ر ح م): rahmân 57, rahîm 116. "En çok" iddiası yanlıştı; #1 iddiası kaldırıldı (tüm 99 isim doğrulanmadı).
+
+Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, kaynak belirtili, uydurma yok.
+
+---
+
+## Hardening (ChatGPT incelemesi) — C03 wind-family + C16 depresyon notu · 2026-09-07
+
+### C03 — rîh/riyâh (word-groups.json wind-family)
+ÖNCE: "Tekil 'rîh' azap, çoğul 'riyâh' rahmet getirir." + rîh "neredeyse her zaman azap", riyâh "her zaman rahmet".
+SONRA: "…çoğunlukla azap / çoğunlukla rahmet bağlamında geçer." + rîh notuna "İstisna: Yûnus 10:22 'rîhin tayyibetin' (hoş rüzgâr)"; riyâh "çoğunlukla".
+Gerekçe: Mutlak genelleme yanlıştı (Yûnus 10:22 karşı örnek). Klasik kaynak (es-Süyûtî el-İtkân) korundu; eğilim olarak sunuldu. Em-dash temizlendi.
+
+### C16 — ruhun-termostati (tefekkür, yazar metni korundu)
+EKLENEN (criticalNote, yazarın paragrafına dokunulmadı): "Buradaki 'yalıtım kaybı' bir tefekkür metaforudur; klinik bir tanının yerini tutmaz. Klinik depresyon çok etkenlidir (biyolojik, psikolojik, sosyal)… manevî pratikler tıbbî tedavinin yerine geçmez… ruh sağlığı uzmanına başvurmaktır."
+Gerekçe: §13.29 (Felsufi'ye sadıklık) + güvenlik. Site disclaimer sistemi (criticalNote) kullanıldı.
+
+Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, zorlama üçlü yok (biyo-psiko-sosyal = WHO modeli), uydurma yok.
+
+---
+
+## Hardening (ChatGPT incelemesi) — C06/C17/C20/C21 · 2026-09-07
+
+- **C06** (insan-psikolojisi): "14 asır önce eş" / "14 centuries earlier" → "örtüşür" / "parallels" (§13.24: eş/confirms değil örtüşür). Predictive-miracle çerçevesi kaldırıldı.
+- **C17** (sonsuzlugun-merdiveni, tefekkür): Schubert 2005 "Nörobilim/hipokampüs" → davranışsal bulgu (güç↔yukarı). Web+PubMed doğrulandı.
+- **C20** (insan-yolculugu): "Kur'ân 10 aşamalı yolculuk anlatır… hiçbiri atlanmadan geçilmez" → "âyetlerden derlenen olgunlaşma çerçevesi… zorunlu/atlanamaz basamak olarak görülmemelidir". "X değil Y" yerine rehber ifade.
+- **C21** (neden-sonuc): principleTr/En'e "ahlâkî ibret ≠ doğal olayların fiziksel/mekanik sebebi; karıştırılmamalıdır" eklendi; satırdaki em-dash'lar temizlendi.
+
+Humanizer: em/en-dash yok, "değil—ama" rehber ifadeye çevrildi, satış sıfatı yok, uydurma yok.

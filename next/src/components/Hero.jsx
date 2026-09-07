@@ -12,6 +12,12 @@ import dynamic from 'next/dynamic';
 // v2.0 — canlı âyet halkası. Canvas SSR'da anlamsız + hydration riski → ssr:false.
 const HeroRing = dynamic(() => import('./HeroRing'), { ssr: false });
 
+// 18 sn tanıtım filmi — modal yalnız tıklanınca mount olur (video lazy, LCP'ye
+// maliyet yok). Kaynak + poster dile göre; dil değişince ilgili sürüm oynar.
+const IntroVideoModal = dynamic(() => import('./IntroVideoModal'), { ssr: false });
+const INTRO_VIDEO = { tr: '/intro/intro-tr.mp4', en: '/intro/intro-en.mp4' };
+const INTRO_POSTER = { tr: '/intro/poster-tr.jpg', en: '/intro/poster-en.jpg' };
+
 export default function Hero() {
   const { t, language } = useLanguage();
   // 2026-08-31 — SSR-güvenli hareket tercihi (§16.6 kalıbı, isMobile ile aynı).
@@ -22,6 +28,12 @@ export default function Hero() {
   // 'reduce' ile 1 uyuşmazlık, 'no-preference' ile 0). İlk render sunucuyla
   // eşitlenir, tercih mount'tan sonra devreye girer.
   const reduced = useReducedMotionSafe();
+
+  // Tanıtım filmi modalı (Sahne 2'deki butonla açılır). Video kaynağı dile göre;
+  // İngilizce henüz yoksa buton o dilde gizlenir (introSrc undefined).
+  const [introOpen, setIntroOpen] = useState(false);
+  const introSrc = INTRO_VIDEO[language];
+  const introPoster = INTRO_POSTER[language];
 
   // SSR-safe mobile detection (§16.6) — initial false, hydrate post-mount.
   // Particle count is throttled on mobile for battery + scroll smoothness (W21-P7).
@@ -696,10 +708,14 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Single CTA — "Kur'an'ı Oku" lives in the Navbar, so the Hero
-            keeps only the primary discovery action. */}
+        {/* Birincil + ikincil eylem. Masaüstü: yan yana, aynı yükseklik, 16px
+            boşluk. Sol "İlk Kapıyı Aç" (altın dolgu), sağ "Tanıtımı izle"
+            (belirgin altın çerçeve + hafif altın zemin + daire içinde oynat
+            ikonu) — ana eylemle birlikte fark edilir. Mobilde alt alta ve
+            aynı genişlikte (items-stretch). */}
         <motion.div
-          className="flex items-center justify-center"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center"
+          style={{ gap: '16px' }}
           initial={{ opacity: 0, y: 10 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -711,8 +727,8 @@ export default function Hero() {
             }
             className="btn-primary-gold font-body font-semibold text-sm uppercase cursor-pointer"
             style={{
-              padding: 'clamp(13px, 1.5vw, 15px) clamp(44px, 7vw, 68px)',
-              letterSpacing: '0.18em',
+              padding: 'clamp(13px, 1.5vw, 15px) clamp(30px, 5vw, 48px)',
+              letterSpacing: '0.16em',
               boxShadow: `0 0 28px 4px ${COLORS.btnGoldGlow15}`,
               transition: 'all 200ms ease',
             }}
@@ -721,9 +737,51 @@ export default function Hero() {
           >
             {t('hero.cta')}
           </motion.button>
+
+          {introSrc && (
+            <motion.button
+              onClick={() => setIntroOpen(true)}
+              className="font-body cursor-pointer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+                padding: 'clamp(13px, 1.5vw, 15px) clamp(24px, 4vw, 36px)',
+                background: `${COLORS.gold}14`,
+                border: `1.5px solid ${COLORS.gold}`,
+                borderRadius: '999px',
+                color: COLORS.offWhite,
+                fontSize: '0.8rem', fontWeight: 600,
+                letterSpacing: '0.1em', textTransform: 'uppercase',
+                transition: 'all 200ms ease',
+              }}
+              whileHover={reduced ? undefined : { scale: 1.04, background: `${COLORS.gold}22` }}
+              whileTap={reduced ? undefined : { scale: 0.97 }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  width: '22px', height: '22px', borderRadius: '50%',
+                  border: `1px solid ${COLORS.gold}`, color: COLORS.gold, flexShrink: 0,
+                }}
+              >
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              {language === 'tr' ? 'Tanıtımı izle · 18 sn' : 'Watch the intro · 18s'}
+            </motion.button>
+          )}
         </motion.div>
         </div>
       </div>
+
+      {introOpen && introSrc && (
+        <IntroVideoModal
+          src={introSrc}
+          poster={introPoster}
+          onClose={() => setIntroOpen(false)}
+        />
+      )}
     </section>
   );
 }

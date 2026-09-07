@@ -402,8 +402,8 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px', maxWidth: 680 }}>
         {language === 'tr'
-          ? "Hz. Peygamber'den (s.a.v.) bugüne kesintisiz aktarılan 10 kanonik okuyuş. Her imam, bir sahabîden aldığı kıraati kendi şehrine taşıdı. İmam düğümlerine tıklayarak kart detayına ulaşabilirsiniz."
-          : "10 canonical readings transmitted without interruption from the Prophet ﷺ. Each imam carried a recitation from a Companion to his own city. Click an imam node to highlight their card."}
+          ? "Hz. Peygamber'den (s.a.v.) bugüne kesintisiz aktarılan 10 kanonik okuyuş. Her imam, senedi sahâbeye kadar uzanan kıraatini kendi şehrine taşıdı; bu okuyuşları râvileri (Hafs, Verş gibi) sonraki nesillere aktardı. İmam düğümlerine tıklayarak kart detayına ulaşabilirsiniz."
+          : "10 canonical readings transmitted without interruption from the Prophet ﷺ. Each imam carried to his own city a recitation whose chain reaches back to the Companions; their transmitters (such as Ḥafs and Warsh) then passed these readings to later generations. Click an imam node to highlight their card."}
       </p>
 
       {setActiveTab && (

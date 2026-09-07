@@ -4,7 +4,7 @@ import JsonLd from '@/components/JsonLd';
 import PageHeading from '@/components/PageHeading';
 import TecvidRehberiRoute from './TecvidRehberiRoute';
 
-const PATH = '/arac/tecvid-rehberi';
+const PATH = '/oku/tecvid';
 const TITLE_TR = 'Tecvid Rehberi';
 const TITLE_EN = 'Tajweed Guide';
 const DESC_TR = "Kur'ân okuma kuralları renklerle ve gerçek kārî sesiyle: nûn-i sâkin, med, kalkale, mîm-i sâkin, râ hükümleri ve vakf.";
