@@ -12,6 +12,12 @@ import dynamic from 'next/dynamic';
 // v2.0 — canlı âyet halkası. Canvas SSR'da anlamsız + hydration riski → ssr:false.
 const HeroRing = dynamic(() => import('./HeroRing'), { ssr: false });
 
+// 18 sn tanıtım filmi — modal yalnız tıklanınca mount olur (video lazy, LCP'ye
+// maliyet yok). Kaynak + poster dile göre; dil değişince ilgili sürüm oynar.
+const IntroVideoModal = dynamic(() => import('./IntroVideoModal'), { ssr: false });
+const INTRO_VIDEO = { tr: '/intro/intro-tr.mp4', en: '/intro/intro-en.mp4' };
+const INTRO_POSTER = { tr: '/intro/poster-tr.jpg', en: '/intro/poster-en.jpg' };
+
 export default function Hero() {
   const { t, language } = useLanguage();
   // 2026-08-31 — SSR-güvenli hareket tercihi (§16.6 kalıbı, isMobile ile aynı).
@@ -22,6 +28,12 @@ export default function Hero() {
   // 'reduce' ile 1 uyuşmazlık, 'no-preference' ile 0). İlk render sunucuyla
   // eşitlenir, tercih mount'tan sonra devreye girer.
   const reduced = useReducedMotionSafe();
+
+  // Tanıtım filmi modalı (Sahne 2'deki butonla açılır). Video kaynağı dile göre;
+  // İngilizce henüz yoksa buton o dilde gizlenir (introSrc undefined).
+  const [introOpen, setIntroOpen] = useState(false);
+  const introSrc = INTRO_VIDEO[language];
+  const introPoster = INTRO_POSTER[language];
 
   // SSR-safe mobile detection (§16.6) — initial false, hydrate post-mount.
   // Particle count is throttled on mobile for battery + scroll smoothness (W21-P7).
@@ -722,8 +734,50 @@ export default function Hero() {
             {t('hero.cta')}
           </motion.button>
         </motion.div>
+
+        {/* İkincil aksiyon — 18 sn tanıtım filmi. Zorunlu değil, atlanabilir;
+            video ancak tıklanınca yüklenir. Birincil "İlk Kapıyı Aç" ile
+            yarışmaması için sessiz, ikincil pill. */}
+        {introSrc && (
+          <motion.div
+            className="flex items-center justify-center"
+            style={{ marginTop: '18px' }}
+            initial={{ opacity: 0 }}
+            whileInView={reduced ? undefined : { opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 1.15 }}
+          >
+            <button
+              onClick={() => setIntroOpen(true)}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '9px',
+                minHeight: '40px', padding: '9px 20px',
+                background: 'transparent',
+                border: `1px solid ${COLORS.gold}40`,
+                borderRadius: '999px',
+                color: COLORS.offWhite,
+                fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: 600,
+                letterSpacing: '0.04em', cursor: 'pointer',
+                transition: 'all 200ms ease',
+              }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill={COLORS.gold} aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              {language === 'tr' ? 'Tanıtımı izle · 18 sn' : 'Watch the intro · 18s'}
+            </button>
+          </motion.div>
+        )}
         </div>
       </div>
+
+      {introOpen && introSrc && (
+        <IntroVideoModal
+          src={introSrc}
+          poster={introPoster}
+          onClose={() => setIntroOpen(false)}
+        />
+      )}
     </section>
   );
 }
