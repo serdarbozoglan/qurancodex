@@ -7653,7 +7653,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontStyle: mealItalic ? 'italic' : 'normal',
                                 flex: 1,
                               }}>
-                                <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
+                                <span style={{ opacity: mealLoading ? 0.4 : 1, transition: 'opacity 0.2s ease' }} dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
                               </p>
                             )}
                           </div>
@@ -10006,7 +10006,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           lineHeight: isMobile ? 1.55 : 1.75,
                           fontStyle: mealItalic ? 'italic' : 'normal',
                         }}>
-                          <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
+                          <span style={{ opacity: mealLoading ? 0.4 : 1, transition: 'opacity 0.2s ease' }} dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
                         </p>
                       )}
                     </div>

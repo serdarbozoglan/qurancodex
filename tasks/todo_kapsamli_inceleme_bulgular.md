@@ -148,8 +148,9 @@
   - **Kaynak-tarafı flag'ler DÜZELTİLDİ:** Lokman "peygamber"→"hakîm zât" (zekat+hub, çoğunluk görüşü); "mütehallif"→"müstahlef" (Hadîd 57:7); yanlış "Rum 30:39" quote atfı→"Bakara 2:276" (o ibare 2:276'nın; 30:39'un kendi içeriği korundu).
   - Katılım: ✅ · Durum: **düzeltildi** (kalan: `Tr`-eksiz Türkçe alanlar başka dosyalarda varsa ayrı denetim)
 
-- [ ] **UX03 · Meal seçiminde eski + yeni metin bir arada** — `/tr/oku/1`
-  - Yapılacak: Yeni çeviri yüklenene kadar açık yükleme durumu göster. · Katılım: ✅ · Durum: yükleme UX bug'ı
+- [x] **UX03 · Meal seçiminde eski + yeni metin bir arada** — `/tr/oku/1` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Kök: yazar değişince cache boş → getTranslation varsayılan `verse.turkish`e düşüyor (yeni yazarın metni değil), picker yeni ismi gösteriyor.
+  - Yapıldı: Meal sütunu span'lerine `opacity: mealLoading ? 0.4 : 1` (0.2s geçiş) — yükleme sırasında bayat/varsayılan metin dim olur, güncellendiğinde netleşir. İki view modu (kitap + kırık meal). · Katılım: ✅
 
 - [ ] **UX01 · Hero çoğu atmosfer/animasyon** — `/tr`
   - Yapılacak: Altın-lacivert kimliği koru; ilk ekrana "Oku / Bir örüntü keşfet / Konu ara" kısa girişleri ekle.
