@@ -708,10 +708,14 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Single CTA — "Kur'an'ı Oku" lives in the Navbar, so the Hero
-            keeps only the primary discovery action. */}
+        {/* Birincil + ikincil eylem. Masaüstü: yan yana, aynı yükseklik, 16px
+            boşluk. Sol "İlk Kapıyı Aç" (altın dolgu), sağ "Tanıtımı izle"
+            (belirgin altın çerçeve + hafif altın zemin + daire içinde oynat
+            ikonu) — ana eylemle birlikte fark edilir. Mobilde alt alta ve
+            aynı genişlikte (items-stretch). */}
         <motion.div
-          className="flex items-center justify-center"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center"
+          style={{ gap: '16px' }}
           initial={{ opacity: 0, y: 10 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -723,8 +727,8 @@ export default function Hero() {
             }
             className="btn-primary-gold font-body font-semibold text-sm uppercase cursor-pointer"
             style={{
-              padding: 'clamp(13px, 1.5vw, 15px) clamp(44px, 7vw, 68px)',
-              letterSpacing: '0.18em',
+              padding: 'clamp(13px, 1.5vw, 15px) clamp(30px, 5vw, 48px)',
+              letterSpacing: '0.16em',
               boxShadow: `0 0 28px 4px ${COLORS.btnGoldGlow15}`,
               transition: 'all 200ms ease',
             }}
@@ -733,41 +737,41 @@ export default function Hero() {
           >
             {t('hero.cta')}
           </motion.button>
-        </motion.div>
 
-        {/* İkincil aksiyon — 18 sn tanıtım filmi. Zorunlu değil, atlanabilir;
-            video ancak tıklanınca yüklenir. Birincil "İlk Kapıyı Aç" ile
-            yarışmaması için sessiz, ikincil pill. */}
-        {introSrc && (
-          <motion.div
-            className="flex items-center justify-center"
-            style={{ marginTop: '18px' }}
-            initial={{ opacity: 0 }}
-            whileInView={reduced ? undefined : { opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 1.15 }}
-          >
-            <button
+          {introSrc && (
+            <motion.button
               onClick={() => setIntroOpen(true)}
+              className="font-body cursor-pointer"
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: '9px',
-                minHeight: '40px', padding: '9px 20px',
-                background: 'transparent',
-                border: `1px solid ${COLORS.gold}40`,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+                padding: 'clamp(13px, 1.5vw, 15px) clamp(24px, 4vw, 36px)',
+                background: `${COLORS.gold}14`,
+                border: `1.5px solid ${COLORS.gold}`,
                 borderRadius: '999px',
                 color: COLORS.offWhite,
-                fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: 600,
-                letterSpacing: '0.04em', cursor: 'pointer',
+                fontSize: '0.8rem', fontWeight: 600,
+                letterSpacing: '0.1em', textTransform: 'uppercase',
                 transition: 'all 200ms ease',
               }}
+              whileHover={reduced ? undefined : { scale: 1.04, background: `${COLORS.gold}22` }}
+              whileTap={reduced ? undefined : { scale: 0.97 }}
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill={COLORS.gold} aria-hidden="true">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+              <span
+                aria-hidden="true"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  width: '22px', height: '22px', borderRadius: '50%',
+                  border: `1px solid ${COLORS.gold}`, color: COLORS.gold, flexShrink: 0,
+                }}
+              >
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
               {language === 'tr' ? 'Tanıtımı izle · 18 sn' : 'Watch the intro · 18s'}
-            </button>
-          </motion.div>
-        )}
+            </motion.button>
+          )}
+        </motion.div>
         </div>
       </div>
 
