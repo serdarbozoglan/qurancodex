@@ -145,7 +145,7 @@
   - Yapıldı: Doğa Atlası 22 hayvan adı; amthal (parables 73 isim+özet, imagery 50, paired 36, scholars 15, nur-zulumat 14, animals 18, meta 6); ibadetler 8 dosya (hac/hub/kurban/namaz/oruç/tövbe/zekat/zikir — ~460 alan). Toplam ~660+ EN alanı, sadık çeviri, standart İslamî terminoloji.
   - **Konvansiyon-dışı alanlar da yapıldı** (senin isteğin): `symbolism`, `symbolises`, `principleLabel`, nur-zulumat `stats`, keyVerses `descTr` — data'ya `...En` eklendi + `MeselAtlasi.jsx`'te 7 render sitesine `language==='tr'` kontrolü.
   - Humanizer: tüm yeni EN alanlarında em-dash (~536) temizlendi; başka AI kalıbı yok.
-  - **Kaynak-tarafı flag'ler** (agent tespiti, ayrı gözden geçir): Lokman "peygamber" ifadesi (zekat, hub); zekat `icBoyut[6]` "mütehallif" TR yazım hatası; zekat 30:39↔2:276 atıf imprecision. Bunlar TR içerik/atıf, çeviri hatası değil.
+  - **Kaynak-tarafı flag'ler DÜZELTİLDİ:** Lokman "peygamber"→"hakîm zât" (zekat+hub, çoğunluk görüşü); "mütehallif"→"müstahlef" (Hadîd 57:7); yanlış "Rum 30:39" quote atfı→"Bakara 2:276" (o ibare 2:276'nın; 30:39'un kendi içeriği korundu).
   - Katılım: ✅ · Durum: **düzeltildi** (kalan: `Tr`-eksiz Türkçe alanlar başka dosyalarda varsa ayrı denetim)
 
 - [ ] **UX03 · Meal seçiminde eski + yeni metin bir arada** — `/tr/oku/1`

@@ -69,8 +69,8 @@
       ],
       "claimType": "quran_semantic",
       "confidence": "high",
-      "framingTr": "Rum 30:39 açıkça der: 'Allah ribâyı mahveder, sadakaları artırır' — iki eksen aynı ayette karşı karşıya konur.",
-      "framingEn": "Al-Rūm 30:39 says explicitly: 'Allah destroys ribā and grows charities': the two axes are set face to face in the same verse."
+      "framingTr": "Bakara 2:276 açıkça der: 'Allah ribâyı mahveder, sadakaları artırır'; iki eksen aynı ayette karşı karşıya konur.",
+      "framingEn": "Al-Baqara 2:276 says explicitly: 'Allah destroys ribā and grows charities': the two axes are set face to face in the same verse."
     }
   ],
   "genelBakis": {
@@ -92,8 +92,8 @@
       {
         "titleTr": "Riba'nın karşı ekseni",
         "titleEn": "The counter-axis to ribā",
-        "descTr": "Rum 30:39 açıkça: 'Allah ribâyı mahveder, sadakaları artırır'. Bakara 2:275-279 riba ile zekâtı aynı akış içinde ele alır: biri yükseldikçe diğeri azalır. Kur'ân'da iki eksen aynı ekonomik alanın karşı kutuplarıdır.",
-        "descEn": "Rūm 30:39 explicitly: 'Allah destroys ribā and grows charities.' Baqara 2:275-279 treats ribā and zakāt within a single arc: as one rises, the other falls. In the Qur'an the two are opposing poles of the same economic field."
+        "descTr": "Bakara 2:276 açıkça: 'Allah ribâyı mahveder, sadakaları artırır'. Bakara 2:275-279 riba ile zekâtı aynı akış içinde ele alır: biri yükseldikçe diğeri azalır. Kur'ân'da iki eksen aynı ekonomik alanın karşı kutuplarıdır.",
+        "descEn": "Al-Baqara 2:276 explicitly: 'Allah destroys ribā and grows charities.' Baqara 2:275-279 treats ribā and zakāt within a single arc: as one rises, the other falls. In the Qur'an the two are opposing poles of the same economic field."
       },
       {
         "titleTr": "Kanz'a karşı uyarı",
@@ -872,8 +872,8 @@
     {
       "prophet": "Lokman",
       "ref": "Lokman 31:19",
-      "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et' — orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm peygamberinde de temsil edilir.",
-      "sceneEn": "Among Luqmān's counsels to his son: 'Be moderate in your walk': keep to the middle way, do not fall into excess. The 'balance between extravagance and miserliness' surrounding zakāt is represented in this wise prophet of the Qur'an as well.",
+      "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et': orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm zâtında da temsil edilir.",
+      "sceneEn": "Among Luqmān's counsels to his son: 'Be moderate in your walk': keep to the middle way, do not fall into excess. The 'balance between extravagance and miserliness' surrounding zakāt is represented in this wise sage of the Qur'an as well.",
       "claimType": "quran_semantic",
       "confidence": "medium"
     },
@@ -976,7 +976,7 @@
         "Hadîd 57:7",
         "Nur 24:33"
       ],
-      "descTr": "'Allah'a ve resulüne iman edin ve sizi üzerinde mütehallif kıldığı şeylerden infak edin' (Hadîd 57:7). Klasik tefsir bu ayetteki 'mütehallif' (halifelik / vekalet) kelimesinin, insanı mülkün 'sahibi' değil 'emanetçisi' olarak konumlandırdığını belirtir. Nur 24:33'te de 'Allah'ın size verdiği maldan onlara verin' formülü aynı mülkiyet teolojisini kurar. Zekât, bu emanet bilincinin fiilî ifadesidir.",
+      "descTr": "'Allah'a ve resulüne iman edin ve sizi üzerinde müstahlef kıldığı şeylerden infak edin' (Hadîd 57:7). Klasik tefsir bu ayetteki 'müstahlef' (halifelik / vekalet) kelimesinin, insanı mülkün 'sahibi' değil 'emanetçisi' olarak konumlandırdığını belirtir. Nur 24:33'te de 'Allah'ın size verdiği maldan onlara verin' formülü aynı mülkiyet teolojisini kurar. Zekât, bu emanet bilincinin fiilî ifadesidir.",
       "descEn": "'Believe in Allah and His Messenger, and spend from that over which He has made you trustees (mustakhlafīn)' (Al-Ḥadīd 57:7). Classical exegesis notes that the word denoting vicegerency / trusteeship in this verse positions the human not as the 'owner' of property but as its 'trustee.' In Al-Nūr 24:33 as well, the formula 'give them from the wealth of Allah which He has given you' establishes the same theology of ownership. Zakāt is the practical expression of this consciousness of trust.",
       "claimType": "quran_semantic",
       "confidence": "high"
