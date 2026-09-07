@@ -37,7 +37,7 @@
   Ayet metni · meal · rivayet/klasik görüş · veri analizi · yazar tefekkürü = ayrı görsel etiketler. "Saygıdeğer yorum ≠ zorunlu sözlük anlamı/deneysel bulgu." (C19/C22 bunun küçük örnekleriydi.)
 - [ ] **B3 · Ortak sayım kuralları + "sayıya tıkla → liste"** — 🟢 M
   Hafs sürümü, besmele dahil/hariç, kelime bölme, lemma/kök/yüzey, tekrar sayımı, doğrudan/dolaylı atıf tek yerde tanımlı. Her sayıya tıklayınca sayılan ayet listesi açılsın. (C01/C07/C09'un kök-önlemi.)
-- [ ] **B4 · Yayın kapısı (CI) — sayım + eş-güncelleme testleri** — 🟢 M **(regresyon önler)**
+- [x] **B4 · Yayın kapısı (CI) — sayım + eş-güncelleme testleri** — ✅ **YAPILDI (2026-09-07)** 🟢
   114 sûre toplamı, ayet sınırları, seri toplamları, çeviri alan kapsamı, katalog↔sitemap eşliği otomatik kontrol. Dinî dil/tecvid + bilim/psikoloji içerik uzman gözden geçirme. (C01/C07/C12/C18 bu kapı olsa yakalanırdı.)
 
 ## C) Menü & İçerik Mimarisi
