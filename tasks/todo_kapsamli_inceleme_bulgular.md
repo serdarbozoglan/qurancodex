@@ -58,10 +58,10 @@
 
 ### İlmî / olgusal
 
-- [ ] **C04 · Hafs/Verş/Kalun/Duri "kıraat imamı" karışması** — `/tr/atlas/kiraat`
-  - Bunlar **râvi**, imam değil (Âsım→Hafs, Nâfi→Verş+Kalun, Ebû Amr→Dûrî).
-  - Yapılacak: İmam → râvi → tarîk ağını ayrı düzeylerde göster; "herkes sahabiden almış" izlenimini kaldır.
-  - Katılım: ✅ tam (önemli) · Durum: kesin taksonomi hatası
+- [x] **C04 · Hafs/Verş/Kalun/Duri "kıraat imamı" karışması** — `/tr/atlas/kiraat` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Atlasın ağacı zaten doğruydu (imam→râvi); hata meta + giriş metnindeydi.
+  - Yapıldı: `page.js` DESC "On kanonik kıraat (Hafs, Verş…)" → "…ve râvileri (Âsım'dan Hafs…)"; giriş "her imam bir sahabîden aldı" → "senedi sahâbeye uzanan…; râvileri (Hafs, Verş) sonraki nesillere aktardı". TR+EN.
+  - Katılım: ✅ tam · Durum: **düzeltildi**
 
 - [ ] **C10 · "Bütün nüshalarda sıfır rasm varyasyonu"** — `/tr/arac/koruma-zinciri`
   - San'a alt-metni (Sadeghi & Bergmann 2010) tam da varyant gösteriyor; kendi kaynağıyla çelişiyor.
@@ -73,10 +73,9 @@
   - Yapılacak: Fonetik sınıflandırmayı uzman kontrolünden geçir; nazali m/n ile düzelt; mecazı sesbilim bulgusu gibi sunma.
   - Katılım: ✅ tam · Durum: fonetik hata
 
-- [ ] **C13 · "7. yy = 16 vezin" sınırlaması** — `/tr/arac/ritim`
-  - Aruzun 16 bahri Halîl b. Ahmed (8. yy) ile sistemleşti; seci eksik. Anakronizm.
-  - Yapılacak: Özeti ayrıntıya uydur; 16 vezni dönemin resmî tasnifi gibi sunma.
-  - Katılım: ✅ tam · Durum: onaylı
+- [x] **C13 · "7. yy = 16 vezin" sınırlaması** — `/tr/arac/ritim` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Yapıldı: `RhythmExtensions.jsx` detayına anakronizm notu ("bu sistematik tasnif Kur'ân'ın inişinden sonra olgunlaştı") + **secî (kafiyeli, ritmik nesir)** yakınlığı eklendi; "hiçbirine uymaz" → "ne klasik şiire ne de alışılmış düzyazıya indirgenir". Kimlik korundu (§13.24).
+  - Katılım: ✅ tam · Durum: **düzeltildi**
 
 - [ ] **C15 · Fâtiha merkez ayeti "iyyâke na'budu" (4.)** — `/tr/arac/kurani-tani`
   - Hafs'ta bu 1:5; 7 ayetin ortası (4.) = 1:4 "mâliki yevmi'd-dîn".

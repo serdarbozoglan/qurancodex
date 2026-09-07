@@ -116,8 +116,8 @@ export default function RhythmExtensions({ language, isMobile }) {
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 24px', maxWidth: '760px',
           }}>{tr
-            ? "Klasik Arap şiiri on altı aruz vezninden birine bağlıdır; on beşini el-Halîl b. Ahmed (ö. 791) sistemleştirdi, on altıncısını (Mütedârik) öğrencisi el-Ahfeş ekledi. Kur'ân bu vezinlerin hiçbirine uymaz; ne şiir ne düzyazı olan bir yapıya sahiptir."
-            : "Classical Arabic poetry is bound to one of the sixteen ʿarūḍ metres; fifteen were systematised by al-Khalīl ibn Aḥmad (d. 791), the sixteenth (al-Mutadārik) added by his student al-Akhfash. The Qur'an conforms to none of them; its structure is neither verse nor prose."}
+            ? "Klasik Arap şiiri on altı aruz vezninden birine bağlıdır; on beşini el-Halîl b. Ahmed (ö. 791) sistemleştirdi, on altıncısını (Mütedârik) öğrencisi el-Ahfeş ekledi. Bu sistematik tasnif Kur'ân'ın inişinden sonra olgunlaştı. Kur'ân bu vezinlerin hiçbirine bağlı değildir; dönemin secî (kafiyeli, ritmik nesir) geleneğiyle yakınlıkları olsa da ne klasik şiire ne de alışılmış düzyazıya indirgenir."
+            : "Classical Arabic poetry is bound to one of the sixteen ʿarūḍ metres; fifteen were systematised by al-Khalīl ibn Aḥmad (d. 791), the sixteenth (al-Mutadārik) added by his student al-Akhfash. This systematic classification took shape after the Qur'an was revealed. The Qur'an is bound by none of these metres; while it shares affinities with the period's sajʿ (rhymed, rhythmic prose), it reduces neither to classical poetry nor to ordinary prose."}
           </p>
 
           <div style={{
