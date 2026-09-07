@@ -135,12 +135,12 @@
   - Yapılacak: Anlamlı ilk veri + açıklama + bağlantıları SSR/SSG ile sun; grafikle birlikte erişilebilir veri listesi.
   - Katılım: ✅ (`ssr-audit.md` ile örtüşür) · Durum: kısmi/koşullu
 
-- [ ] **SEO02 · Sitemap eksik (Fâtiha Atlası + ek araçlar)** — site haritası
-  - Yapılacak: Tek route/katalog kaynağından iki dilde sitemap; yayın sonrası link-kapsam testi. · Katılım: ✅ 🔎
+- [x] **SEO02 · Sitemap eksik (Fâtiha Atlası + ek araçlar)** — site haritası ✅ **DÜZELTİLDİ (2026-09-07)**
+  - 8 katalog route'u eksikti (/atlas/fatiha, /atlas/insan-yolculugu, 6 araç). Yapıldı: sitemap.js artık TOOL_CATALOG'dan besleniyor (tek kaynak); eksikler otomatik ekleniyor. 460→476 URL. · Katılım: ✅
 
-- [ ] **SEO03 · www / çıplak host canonical çelişkisi** — site geneli
-  - HTTP www'a yönlüyor; canonical + sitemap çıplak host tercih ediyor.
-  - Yapılacak: Tercih edilen hostu tekleştir; redirect + canonical + sitemap + iç bağlantılar aynı 200 URL'de. · Katılım: ✅
+- [~] **SEO03 · www / çıplak host canonical çelişkisi** — site geneli ⚠️ **KOD APEX-TUTARLI; VERCEL AYARI GEREKLİ**
+  - Kod tümüyle apex (`qurancodex.com`): sitemap BASE, robots host+sitemap, seo canonical/og hepsi apex. next.config'teki www redirect'i kuran.com API proxy'si (qurancodex değil).
+  - Kalan: Canlıdaki www yönlendirmesi **Vercel domain ayarı** → Vercel'de **www→apex (qurancodex.com)** redirect'i seçilmeli (kodun apex canonical'ıyla eşleşsin). Kod tarafı hazır; kod-içi redirect eklemedim (Vercel apex→www ise loop riski). · Katılım: ✅ (kod) + Vercel flag
 
 - [ ] **UX02 · İngilizce sayfalarda Türkçe artık metin** — İngilizce atlaslar
   - Mesel Atlası motifleri, Tabiat Atlası hayvan adları, İbadetler kaynak açıklamaları.

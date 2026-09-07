@@ -9,6 +9,7 @@
 
 import { statSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { TOOL_CATALOG } from '@/data/toolCatalog';
 
 const BASE = 'https://qurancodex.com';
 const LOCALES = ['tr', 'en'];
@@ -150,7 +151,14 @@ function collectTefekkurRoutes() {
 export default function sitemap() {
   const entries = [];
   const TEFEKKUR_ROUTES = collectTefekkurRoutes();
-  const allRoutes = [...ROUTES, ...SURAH_ROUTES, ...TEFEKKUR_ROUTES];
+  // Katalog kaynağından (TOOL_CATALOG) türetilen route'lar — ROUTES'te elle
+  // olmayan her araç/atlas burada otomatik eklenir (tek kaynak; drift önlenir).
+  const existingPaths = new Set(ROUTES.map((r) => r.path));
+  const CATALOG_ROUTES = TOOL_CATALOG
+    .map((t) => t.route)
+    .filter((r) => r && !existingPaths.has(r))
+    .map((routePath) => ({ path: routePath, priority: 0.8, freq: 'monthly' }));
+  const allRoutes = [...ROUTES, ...CATALOG_ROUTES, ...SURAH_ROUTES, ...TEFEKKUR_ROUTES];
   // mtime resolution route bazında — locale farkı yok (her iki locale aynı page.js).
   const mtimeCache = new Map();
   for (const locale of LOCALES) {
