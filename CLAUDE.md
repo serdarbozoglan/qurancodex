@@ -817,9 +817,14 @@ Bu yapı çift scrollbar üretir. **Sadece birinde** `overflow: auto` olmalı.
 return (
   <div style={{
     background: COLORS.cosmicBlack,
-    minHeight: 'calc(100vh - 62px)',
+    // ⚠ Navbar yüksekliği SABİT DEĞİL (dile/genişliğe/scroll'a göre 62–110px,
+    // §13.13/§13.31). Sabit '62px' hardcode ETME — navbar >62 olduğunda
+    // ToolHeader'ı aşağı iter ve altındaki başlık/çip satırını kırpar
+    // (§13.31 Mekanizma 2). `useNavbarOffset` navbarın gerçek altını ölçüp
+    // `--qc-nav-h` CSS değişkenine yazar; outer wrapper bunu kullanır.
+    minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
     display: 'flex', flexDirection: 'column',
-    paddingTop: '62px', // Navbar yüksekliği
+    paddingTop: 'var(--qc-nav-h, 84px)', // ← 62px DEĞİL; ölçülen navbar yüksekliği
   }}>
     <ToolHeader
       icon={<svg /* gold stroke SVG */ />}
@@ -851,6 +856,7 @@ return (
 - ❌ **YASAK:** Custom header'da × close button (`CLOSE_BTN`) — route navigation yeterli (`onClose` prop opsiyonel; sadece Escape key handler için tutulabilir).
 - ❌ **YASAK:** Custom header inline (`<div style={{padding: '0 20px', height: '54px', ...}}>` + title + close) — `<ToolHeader />` kullan.
 - ❌ **YASAK:** `body+html` scroll lock — full-page route'larda gerekmez (window scroll doğal akışta).
+- ❌ **YASAK:** Outer wrapper'da SABİT navbar offset (`paddingTop: '62px'`, `minHeight: 'calc(100vh - 62px)'`, veya 64/96 gibi tahminler) — navbar yüksekliği değişkendir, sabit değer ToolHeader'ı örtüp başlık/çip satırını kırpar (§13.31 Mek. 2). **`var(--qc-nav-h, 84px)` kullan** (`useNavbarOffset` yazar). Regresyonu `scripts/audit-counts.mjs` (pre-push kapısı) yakalar.
 
 #### Refactor Referansları
 

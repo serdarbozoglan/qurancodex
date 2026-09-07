@@ -63,6 +63,14 @@ export default function useNavbarOffset(extra = 24, min = FALLBACK) {
     const measure = () => {
       const nav = document.querySelector('nav[aria-label="Main navigation"]');
       const b = nav ? Math.round(nav.getBoundingClientRect().bottom) : 0;
+      // Navbarın gerçek alt kenarını global bir CSS değişkenine yaz. Tool
+      // sayfası outer wrapper'ları `paddingTop`/`minHeight`'te bunu kullanır
+      // (`var(--qc-nav-h, 84px)`) — böylece hardcoded 62/64/96 tahminlerinin
+      // navbar >62 olduğunda ToolHeader'ı örtüp başlık/çip satırını kırpması
+      // (§13.31 Mekanizma 2) tek ölçüm noktasından çözülür.
+      if (b > 0 && typeof document !== 'undefined') {
+        document.documentElement.style.setProperty('--qc-nav-h', `${b}px`);
+      }
       // Taban artık yalnız navbar hiç bulunamazsa (ölçüm imkansız) devreye
       // girer — gerçek bir ölçüm geldiğinde ona güvenilir, yukarı ÇEKİLMEZ.
       setOffset(b > 0 ? b + extra : initial);

@@ -14,8 +14,11 @@
   Başlık+ayet+meal+açıklama+2. başlık asıl aracı aşağı itiyor (§13.18 hero 9 elemanlı). Poetik girişi katlanabilir yap, aracı üste al. §17 yol haritasıyla uyumlu.
 - [ ] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M
   Başta 3 açıklayıcı örnek, ileri detayda tam tablo/grafik. "30 sn'de: neye bakıyorum / ne tıklamalıyım / ne öğreneceğim" testi.
-- [ ] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **(en yüksek a11y değeri)**
-  Ayet/kavram/diyalog/zaman ağlarında renk+konuma ek: açıklama listesi, seçili öğe detayı, klavye navigasyonu. Görsel zenginlik erişilebilir içeriğin alternatifi olmamalı. (SEO01 + E-a11y ile örtüşür.)
+- [~] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **(başlandı — pattern kuruldu)**
+  Ayet/kavram/diyalog/zaman ağlarında renk+konuma ek: açıklama listesi, seçili öğe detayı, klavye navigasyonu.
+  - ✅ **RevelationTimeline (/graf/zaman):** görünür + erişilebilir **"Liste" görünüm modu** (semantik `<table>`, nüzul sırası·sûre·ayet·dönem·mushaf) + tüm modlarda ekran-okuyucu `SR_ONLY <ol>` metin-alternatifi. (SR_ONLY pattern diğer graflara taşınacak.)
+  - ⬜ Kalan graflar: ConceptGraph, DiyalogAgi, VerseGraph, WordHeatmap (klavye + metin-alternatifi).
+  - **BONUS (bu turda):** sistemik "başlık/çip truncate" (§13.31 Mek. 2) çözüldü — `useNavbarOffset` → `--qc-nav-h` CSS değişkeni; 38 dosyada hardcoded `62px` → `var(--qc-nav-h, 84px)`; regresyon `audit-counts.mjs` push kapısında. CLAUDE.md §13.17 güncellendi.
 - [ ] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M
   Sürekli italik meal için düz-yazı seçeneği, punto/satır aralığı/rahat tema kolay erişilir. Kelime/meal/tefsir/ezber/tahta/yer-imi'ni birincil/ikincil düzenle.
 - [ ] **A5 · Mobilde en zor ekranları test et** — 🟢 M

@@ -725,7 +725,7 @@ export default function WordHeatmap({ onClose }) {
       </div>
     )}
 
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - var(--qc-nav-h, 84px))', paddingTop: 'var(--qc-nav-h, 84px)', display: 'flex', flexDirection: 'column' }}>
 
       {/* Floating tooltip */}
       {tooltip && (

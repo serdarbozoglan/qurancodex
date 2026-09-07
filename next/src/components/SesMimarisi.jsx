@@ -26,8 +26,8 @@ export default function SesMimarisi({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       <ToolHeader
         icon={

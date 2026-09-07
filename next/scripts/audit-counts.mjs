@@ -119,5 +119,30 @@ try {
     `meta ${metaNum} ≠ totalGroups ${total}`);
 } catch (e) { check('Furuk sayımı', false, e.message); }
 
+// 8) Navbar offset hardcode yok — §13.31 Mekanizma 2 (başlık/çip truncate regresyonu)
+//    Tool sayfası outer wrapper'ları navbar offset'ini SABİT sayıyla (62/64/96)
+//    değil `var(--qc-nav-h, 84px)` ile almalı; navbar yüksekliği dile/genişliğe
+//    göre değişir ve sabit tahmin ToolHeader'ı örtüp içeriği kırpar.
+try {
+  const walk = (dir, acc = []) => {
+    for (const e of readdirSync(path.join(ROOT, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walk(rel, acc);
+      else if (/\.(jsx?|tsx?)$/.test(e.name)) acc.push(rel);
+    }
+    return acc;
+  };
+  const offenders = [];
+  for (const f of [...walk('src/components'), ...walk('src/app')]) {
+    const s = read(f);
+    if (/paddingTop:\s*'62px'/.test(s) || /calc\(100vh - 62px\)/.test(s)) {
+      offenders.push(f.split('/').pop());
+    }
+  }
+  check('Navbar offset hardcode yok (§13.31 truncate önlemi)',
+    offenders.length === 0,
+    `sabit 62px kullanan: ${offenders.join(', ')} — 'var(--qc-nav-h, 84px)' kullan`);
+} catch (e) { check('Navbar offset denetimi', false, e.message); }
+
 console.log(`\n${fails.length === 0 ? '✓ Tüm sayım denetimleri geçti' : `✗ ${fails.length} denetim BAŞARISIZ: ${fails.join(', ')}`}\n`);
 if (process.argv.includes('--ci') && fails.length) process.exit(1);

@@ -1745,9 +1745,9 @@ export default function SebebiNuzul({ onClose }) {
     return (
       <div ref={trapRef} style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}>
         <ToolHeader
           icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>}
@@ -1772,7 +1772,7 @@ export default function SebebiNuzul({ onClose }) {
   }
 
   if (!data) return (
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - var(--qc-nav-h, 84px))', paddingTop: 'var(--qc-nav-h, 84px)' }}>
       {RELATED_CTA}
     </div>
   );
@@ -1782,9 +1782,9 @@ export default function SebebiNuzul({ onClose }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}
     >
       <ToolHeader

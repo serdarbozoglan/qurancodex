@@ -139,9 +139,9 @@ export default function ElestirelCerceve() {
     return (
       <div style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}>
         {TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 420 }}>
@@ -166,8 +166,8 @@ export default function ElestirelCerceve() {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       {TOOL_HEADER}
       <style>{PAGE_CSS}</style>

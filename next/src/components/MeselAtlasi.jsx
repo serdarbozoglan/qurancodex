@@ -1481,10 +1481,10 @@ export default function MeselAtlasi({ onClose, backRef }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
         fontFamily: FONTS.body,
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}
     >
       {MESEL_TOOL_HEADER}
@@ -1501,10 +1501,10 @@ export default function MeselAtlasi({ onClose, backRef }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
         fontFamily: FONTS.body,
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}
     >
       {MESEL_TOOL_HEADER}

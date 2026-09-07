@@ -43,7 +43,7 @@ const FILTERS = [
 
 export default function IlkSonKelimeler({ onClose, backRef }) {
   const { language } = useLanguage();
-  // paddingTop:'62px' hardcode idi — bu sayfada da diğerleri gibi gerçek
+  // paddingTop: 'var(--qc-nav-h, 84px)' hardcode idi — bu sayfada da diğerleri gibi gerçek
   // navbar yüksekliği 62'den farklı olabiliyor, ToolHeader'ın (dinamik
   // ölçülen) altındaki arama kutusu 20px kadar üste taşıp örtüşüyordu
   // (§13.31 Mekanizma 2, kullanıcı bildirdi).
