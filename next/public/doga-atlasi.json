@@ -4,6 +4,7 @@
       "id": "deve",
       "arabic": "الْإِبِل",
       "nameTr": "Deve",
+      "nameEn": "Camel",
       "arabicAlt": "الْإِبِل / النَّاقَة",
       "frequency": "~10 kez",
       "contexts": [
@@ -20,6 +21,7 @@
       "id": "ari",
       "arabic": "النَّحْل",
       "nameTr": "Arı",
+      "nameEn": "Bee",
       "frequency": "2 kez",
       "contexts": [
         "delil",
@@ -44,6 +46,7 @@
       "id": "karinca",
       "arabic": "النَّمْل",
       "nameTr": "Karınca",
+      "nameEn": "Ant",
       "frequency": "4 kez",
       "contexts": [
         "kissa",
@@ -59,6 +62,7 @@
       "id": "fil",
       "arabic": "الْفِيل",
       "nameTr": "Fil",
+      "nameEn": "Elephant",
       "frequency": "1 kez",
       "contexts": [
         "kissa",
@@ -74,6 +78,7 @@
       "id": "inek",
       "arabic": "الْبَقَرَة",
       "nameTr": "İnek / Sığır",
+      "nameEn": "Cow / Cattle",
       "frequency": "8 kez",
       "contexts": [
         "kissa",
@@ -89,6 +94,7 @@
       "id": "kopek",
       "arabic": "الْكَلْب",
       "nameTr": "Köpek",
+      "nameEn": "Dog",
       "frequency": "5 kez",
       "contexts": [
         "kissa"
@@ -103,6 +109,7 @@
       "id": "domuz",
       "arabic": "الْخِنْزِير",
       "nameTr": "Domuz",
+      "nameEn": "Swine",
       "frequency": "5 kez",
       "contexts": [
         "haram-helal"
@@ -117,6 +124,7 @@
       "id": "maymun",
       "arabic": "الْقِرَدَة",
       "nameTr": "Maymun",
+      "nameEn": "Ape",
       "frequency": "3 kez",
       "contexts": [
         "kissa"
@@ -131,6 +139,7 @@
       "id": "esek",
       "arabic": "الْحِمَار",
       "nameTr": "Eşek",
+      "nameEn": "Donkey",
       "frequency": "5 kez",
       "contexts": [
         "delil",
@@ -146,6 +155,7 @@
       "id": "kurt",
       "arabic": "الذِّئْب",
       "nameTr": "Kurt",
+      "nameEn": "Wolf",
       "frequency": "3 kez",
       "contexts": [
         "kissa"
@@ -160,6 +170,7 @@
       "id": "karga",
       "arabic": "الْغُرَاب",
       "nameTr": "Karga",
+      "nameEn": "Crow",
       "frequency": "1 kez",
       "contexts": [
         "kissa"
@@ -174,6 +185,7 @@
       "id": "hudhud",
       "arabic": "الْهُدْهُد",
       "nameTr": "Hüdhüd (İbibik)",
+      "nameEn": "Hoopoe",
       "frequency": "2 kez",
       "contexts": [
         "kissa"
@@ -188,6 +200,7 @@
       "id": "balik",
       "arabic": "الْحُوت",
       "nameTr": "Balık / Balina",
+      "nameEn": "Fish / Whale",
       "frequency": "4 kez",
       "contexts": [
         "kissa"
@@ -202,6 +215,7 @@
       "id": "orumcek",
       "arabic": "الْعَنْكَبُوت",
       "nameTr": "Örümcek",
+      "nameEn": "Spider",
       "frequency": "2 kez",
       "contexts": [
         "mecaz",
@@ -217,6 +231,7 @@
       "id": "sinek",
       "arabic": "الذُّبَاب",
       "nameTr": "Sinek",
+      "nameEn": "Fly",
       "frequency": "2 kez",
       "contexts": [
         "delil"
@@ -231,6 +246,7 @@
       "id": "sivrisinek",
       "arabic": "الْبَعُوضَة",
       "nameTr": "Sivrisinek",
+      "nameEn": "Mosquito",
       "frequency": "1 kez",
       "contexts": [
         "delil",
@@ -256,6 +272,7 @@
       "id": "aslan",
       "arabic": "الْأَسَد",
       "nameTr": "Aslan",
+      "nameEn": "Lion",
       "frequency": "2 kez",
       "contexts": [
         "mecaz"
@@ -270,6 +287,7 @@
       "id": "at",
       "arabic": "الْخَيْل",
       "nameTr": "At",
+      "nameEn": "Horse",
       "frequency": "5 kez",
       "contexts": [
         "delil",
@@ -285,6 +303,7 @@
       "id": "koyun",
       "arabic": "الْغَنَم",
       "nameTr": "Koyun / Keçi",
+      "nameEn": "Sheep / Goat",
       "frequency": "6 kez",
       "contexts": [
         "haram-helal",
@@ -300,6 +319,7 @@
       "id": "yilan",
       "arabic": "الثَّعْبَان",
       "nameTr": "Yılan",
+      "nameEn": "Snake",
       "frequency": "4 kez",
       "contexts": [
         "kissa"
@@ -314,6 +334,7 @@
       "id": "agac-kurdu",
       "arabic": "الدُّودَة",
       "nameTr": "Ağaç Kurdu",
+      "nameEn": "Woodworm",
       "frequency": "1 kez",
       "contexts": [
         "kissa"
@@ -329,6 +350,7 @@
       "id": "kus-genel",
       "arabic": "الطَّيْرَ",
       "nameTr": "Kuş (genel)",
+      "nameEn": "Bird (general)",
       "frequency": "22 kez",
       "contexts": [
         "delil",
