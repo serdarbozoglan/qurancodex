@@ -7596,3 +7596,36 @@ Psikoloji bölümünde meta-analiz için "doğrular / confirms" → "bulur / fin
 - ÖNCE: `"description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement change brain frequency. fMRI studies show that during repetitive religious practice, amygdala activity decreases and prefrontal cortex activity increases.",`
   SONRA: `"description": "The Quran writes one single prescription for hearts: the remembrance of Allah. Repetitive, rhythmic sound and movement change brain activity. Newberg and colleagues' SPECT case series on intense Islamic prayer (Journal of Physiology-Paris, 2015) reports reduced blood flow in frontal and parietal regions; Hölzel and colleagues' eight-week mindfulness study (Social Cognitive and Affective Neuroscience, 2010) reports reduced amygdala gray-matter density. Both are observations that align with religious practice, not proof.",`
 
+
+## 20. EN gövde AI-kelime avı — crucial / underscore / fundamentally (2026-09-06)
+
+`Todo_humanizer.md` §4 madde `[~]` (satır 111) kapatıldı. Bu dört ifade TR karşılığında yokken EN'de belirmişti; yani makine-çeviri katmanının artefaktı, yazarın tercihi değil. EN her dosyada TR'ye sadık kalınarak sadeleştirildi (humanizer §1/§7: "crucial", "underscore (verb)", "fundamentally"). Yazarın TR sesi değişmedi.
+
+### `next/public/tefekkur/lehv.json`
+
+- TR (referans, değişmedi): `... Önemli not: لَهْو mutlak kötü değildir ...`
+- ÖNCE: `... misdirection of human attention and time. A crucial qualifier: لَهْو is not absolutely evil: it is only that which keeps one from what matters.`
+  SONRA: `... misdirection of human attention and time. One important note: لَهْو is not absolutely evil: it is only that which keeps one from what matters.`
+
+### `next/public/tefekkur/enerji-krizi.json`
+
+- TR (referans, değişmedi): `... ve önemli olan şu: bu enerjiler spesifik, sonlu ve aktarılamazdır ...`
+- ÖNCE: `The human runs on multiple energy forms, and the crucial point is this: these energies are specific, finite, and non-transferable.`
+  SONRA: `The human runs on multiple energy forms, and the important thing is this: these energies are specific, finite, and non-transferable.`
+
+### `next/public/tefekkur/terminoloji-3-fizikalizm.json`
+
+- TR (referans, değişmedi): `... ölçüm problemi de gözlemcinin bu temel rolünü vurgular ...`
+- ÖNCE: `The measurement problem in quantum mechanics underscores this fundamental role: through the act of measurement the observer determines the state of the system. This forces us to admit the observer as a distinct and fundamental existent: ...`
+  SONRA: `The measurement problem in quantum mechanics points to this basic role too: through the act of measurement the observer determines the state of the system. This forces us to admit the observer as a distinct and fundamental existent: ...`
+
+### `next/public/tefekkur/vicdan-evrensel-tercuman.json`
+
+- TR (referans, değişmedi): `İnsan idrakinin işleyişi temelde böyledir.`
+- ÖNCE: `This is fundamentally how human comprehension works.`
+  SONRA: `This is basically how human comprehension works.`
+
+### Kapatılan iki karar maddesi (kod değişikliği yok)
+
+- §4 satır 110 ("asıl soru / asıl mesele", §27): kalan dört TR örneği (anlam-yaratilis-senteni + kaynak-yuzey bridge'leri, rahmetin-grameri-4 + yaratilis-hikayesi-1-giris paragrafları) YAZARIN sesi. Humanizer'ın kendi "yazarın sesini eşle/koru" kuralı ve §13.29 (Felsufi'ye sadakat) gereği KORUNDU — EN "değil, makine-artefaktı" kelimeleri aksine, "asıl soru/mesele" yazarın doğal Türkçe retoriğidir. Isimlendirme.jsx (UI katmanı) zaten düzeltilmişti.
+- §7 satır 171 ("N · N · N" katalog formatı): §9 kararıyla zaten uygulanmış. Doğrulandı: toolCatalog desc'lerde ve page.js DESC'lerde `·` yok; format yalnız kart kicker'larında (kabul edilen kart bağlamı).
