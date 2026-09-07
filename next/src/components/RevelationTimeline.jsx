@@ -56,6 +56,48 @@ const SR_ONLY = {
   overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0,
 };
 
+// İpucu ikonu — native `title` yerine ANINDA açılan özel tooltip.
+// Native title tarayıcıda ~1sn gecikir ("hover'da hemen çıkmıyor"); bu bileşen
+// hover'da gecikmesiz açılır, ayrıca klavye (focus) ve dokunma (tıkla) ile de
+// çalışır. `glyph` görünen işaret (ⓘ / ▲3), `text` tooltip içeriği.
+function HintIcon({ glyph, text, ariaLabel, color, fontSize }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span style={{ position: 'relative', display: 'inline-flex' }}>
+      <button
+        type="button"
+        aria-label={ariaLabel}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        onClick={(e) => { e.stopPropagation(); setOpen((v) => !v); }}
+        style={{
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          background: 'none', border: 'none', padding: 0, margin: 0,
+          color: color || SEMANTIC.textFaint, fontSize: fontSize || '0.65rem',
+          lineHeight: 1, cursor: 'help', font: 'inherit',
+        }}
+      >{glyph}</button>
+      {open && (
+        <span
+          role="tooltip"
+          style={{
+            position: 'absolute', bottom: 'calc(100% + 6px)', left: '50%',
+            transform: 'translateX(-50%)', width: 'min(230px, 60vw)',
+            padding: '8px 10px', background: 'rgba(8,10,26,0.98)',
+            border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.chip,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.5)', color: COLORS.silver,
+            fontSize: '0.7rem', lineHeight: 1.55, fontFamily: FONTS.body,
+            fontWeight: 400, textAlign: 'left', whiteSpace: 'normal',
+            pointerEvents: 'none', zIndex: 50,
+          }}
+        >{text}</span>
+      )}
+    </span>
+  );
+}
+
 export default function RevelationTimeline({ onClose }) {
   const { language } = useLanguage();
   const [orderData] = useState(revelationOrderDataStatic.order);
@@ -294,17 +336,21 @@ export default function RevelationTimeline({ onClose }) {
                             fontSize: '0.68rem', fontWeight: 700, padding: '1px 6px', borderRadius: '3px',
                           }}>#{s.rank}</span>
                           {isFatiha && (
-                            <span
-                              title={language === 'tr'
+                            <HintIcon
+                              glyph="ⓘ"
+                              ariaLabel={language === 'tr' ? 'Nüzul sırası hakkında not' : 'Note on revelation order'}
+                              text={language === 'tr'
                                 ? 'Fâtiha\'nın nüzul sırası tartışmalıdır. İlk inen sûre (1. sıra) olduğunu söyleyenler olduğu gibi, 5. sırada indiğini aktaran rivayetler de mevcuttur.'
                                 : "Al-Fatiha's revelation order is debated. Some accounts say it was the very first surah revealed; others place it 5th in the revelation sequence."}
-                              style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
-                            >ⓘ</span>
+                            />
                           )}
                         </div>
                         {diffFromMushaf !== 0 && (
-                          <span
-                            title={
+                          <HintIcon
+                            glyph={diffFromMushaf > 0 ? `▲${diffFromMushaf}` : `▼${Math.abs(diffFromMushaf)}`}
+                            fontSize="0.62rem"
+                            ariaLabel={language === 'tr' ? 'Mushaf ile nüzul sırası farkı' : 'Mushaf vs revelation order difference'}
+                            text={
                               diffFromMushaf > 0
                                 ? (language === 'tr'
                                     ? `Mushaf sırası nüzul sırasından ${diffFromMushaf} pozisyon geridedir`
@@ -313,10 +359,7 @@ export default function RevelationTimeline({ onClose }) {
                                     ? `Mushaf sırası nüzul sırasından ${Math.abs(diffFromMushaf)} pozisyon öndedir`
                                     : `Placed ${Math.abs(diffFromMushaf)} positions earlier in the mushaf than revealed`)
                             }
-                            style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', cursor: 'help' }}
-                          >
-                            {diffFromMushaf > 0 ? `▲${diffFromMushaf}` : `▼${Math.abs(diffFromMushaf)}`}
-                          </span>
+                          />
                         )}
                       </div>
                       <div style={{ color: COLORS.goldWarm, fontSize: '0.8rem', fontWeight: 600, lineHeight: 1.2, marginBottom: '3px' }}>{name}</div>
