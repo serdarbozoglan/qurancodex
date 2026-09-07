@@ -15,10 +15,10 @@ import useNavbarOffset from './useNavbarOffset';
 import { COLORS, FONTS, SEMANTIC, TAJWEED, RADIUS, TRANSITION, BREAKPOINT_MOBILE } from '../tokens';
 import tecvidData from '../../public/tecvid-rehberi.json';
 
-// Okuma modu fontu (ShaykhHamdullah) — otantik Uthmâni tecvid işaretlerini
-// (izhâr sükûnu, iklâb küçük mîmi ۢ, asar) render eder. KFGQPC bunları
-// gösteremiyor. Örnekler build'de cleanArabic + waqf-strip ile normalize edildi.
-const QFONT = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
+// Sitenin display Kur'an fontu (KFGQPC, §13.15) — atlas/araç sayfalarının
+// hepsinde kullanılan "bizim font". Örnekler site verisinden (Türk imlâsı) +
+// cleanArabicForDisplay ile alındığından KFGQPC'de tofu'suz render olur.
+const QFONT = FONTS.quran;
 
 const LEGEND = [
   ['Gunne', TAJWEED.gunne], ['Kalkale', TAJWEED.kalkale], ['Med', TAJWEED.med],
