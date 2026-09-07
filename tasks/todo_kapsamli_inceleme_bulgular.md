@@ -28,10 +28,9 @@
   - Yapıldı: `surah-connections.json:649` TR + EN "78 kez/78 times" → "31". (Kalan iş: ortak veri kaynağından üretim + test — opsiyonel sağlamlaştırma.)
   - Katılım: ✅ tam · Durum: **kesin hata → düzeltildi**
 
-- [ ] **C03 · rîh (azap) / riyâh (rahmet) mutlak genellemesi** — `/tr/atlas/furuk`
-  - Yûnus 10:22 "rîhin tayyibetin" karşı örnek. Matar için Nisâ 4:102 kontrol.
-  - Yapılacak: "Bağlam eğilimi" olarak sun; istisnaları + sayım yöntemini örüntünün yanında göster.
-  - Katılım: ✅ tam · Durum: onaylı
+- [x] **C03 · rîh (azap) / riyâh (rahmet) mutlak genellemesi** — `/tr/atlas/furuk` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Yapıldı: `word-groups.json` wind-family principle "azap/rahmet getirir" → "çoğunlukla ... bağlamında geçer"; rîh notuna Yûnus 10:22 "rîhin tayyibetin" istisnası eklendi; riyâh "her zaman"→"çoğunlukla". Kaynak es-Süyûtî el-İtkân korundu. Em-dash temizlendi.
+  - Katılım: ✅ tam · Durum: **düzeltildi**
 
 - [x] **C07 · Nüzul Kronolojisi ayet sayıları** — `/tr/graf/zaman` ✅ **DÜZELTİLDİ (2026-09-07)**
   - Kök sebep: `RevelationTimeline.jsx` `AYAH_COUNTS` dizisi **120 eleman (114 olmalı)** — hizalama bozuktu, ~sûre 78'den sonrası kaymıştı.
@@ -48,10 +47,10 @@
   - Yapıldı: Fact "Rahmân ve Rahîm: Merhametin İki İsmi" olarak yeniden yazıldı; doğrulanmış karşılaştırma (116 vs 57), #1 iddiası YOK (tüm 99 isim doğrulanmadığı için Alîm vb. daha sık olabilir), kaynak Quranic Arabic Corpus. Sayaç 57→116. Humanizer'dan geçti.
   - Katılım: ✅ (düzeltilmiş stans) · Durum: **düzeltildi**
 
-- [ ] **C16 · Depresyon = "yalıtım kaybı"** — `/tr/tefekkur/ruhun-termostati`
-  - Klinik tabloyu tek manevî/iradî mekanizmaya indirgiyor.
-  - Yapılacak: Metafor ile klinik tanımı ayır; çok etkenli açıklama + uygun destek bilgisi ekle.
-  - Katılım: ✅ tam (sorumluluk) · Durum: onaylı
+- [x] **C16 · Depresyon = "yalıtım kaybı"** — `/tr/tefekkur/ruhun-termostati` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Yaklaşım (§13.29 gereği): yazarın (Felsufi) metnine dokunulmadı; sitenin editoryal katmanı olan **criticalNote** eklendi.
+  - Yapıldı: Depresyon bölümü sonuna criticalNote — "metafor ≠ klinik tanı; depresyon çok etkenli (biyo-psiko-sosyal); manevî pratikler tıbbî tedavinin yerine geçmez; uzmana başvur." TR+EN, humanizer'lı.
+  - Katılım: ✅ tam (sorumluluk) · Durum: **düzeltildi (criticalNote ile)**
 
 ---
 

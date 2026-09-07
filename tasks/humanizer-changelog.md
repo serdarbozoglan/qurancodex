@@ -7647,3 +7647,18 @@ SONRA: "Rahmân ve Rahîm: Merhametin İki İsmi / Rahîm ~116, Rahmân ~57…"
 Gerekçe: Quranic Arabic Corpus (kök ر ح م): rahmân 57, rahîm 116. "En çok" iddiası yanlıştı; #1 iddiası kaldırıldı (tüm 99 isim doğrulanmadı).
 
 Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, kaynak belirtili, uydurma yok.
+
+---
+
+## Hardening (ChatGPT incelemesi) — C03 wind-family + C16 depresyon notu · 2026-09-07
+
+### C03 — rîh/riyâh (word-groups.json wind-family)
+ÖNCE: "Tekil 'rîh' azap, çoğul 'riyâh' rahmet getirir." + rîh "neredeyse her zaman azap", riyâh "her zaman rahmet".
+SONRA: "…çoğunlukla azap / çoğunlukla rahmet bağlamında geçer." + rîh notuna "İstisna: Yûnus 10:22 'rîhin tayyibetin' (hoş rüzgâr)"; riyâh "çoğunlukla".
+Gerekçe: Mutlak genelleme yanlıştı (Yûnus 10:22 karşı örnek). Klasik kaynak (es-Süyûtî el-İtkân) korundu; eğilim olarak sunuldu. Em-dash temizlendi.
+
+### C16 — ruhun-termostati (tefekkür, yazar metni korundu)
+EKLENEN (criticalNote, yazarın paragrafına dokunulmadı): "Buradaki 'yalıtım kaybı' bir tefekkür metaforudur; klinik bir tanının yerini tutmaz. Klinik depresyon çok etkenlidir (biyolojik, psikolojik, sosyal)… manevî pratikler tıbbî tedavinin yerine geçmez… ruh sağlığı uzmanına başvurmaktır."
+Gerekçe: §13.29 (Felsufi'ye sadıklık) + güvenlik. Site disclaimer sistemi (criticalNote) kullanıldı.
+
+Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, zorlama üçlü yok (biyo-psiko-sosyal = WHO modeli), uydurma yok.
