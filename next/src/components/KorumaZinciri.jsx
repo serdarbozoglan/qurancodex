@@ -123,8 +123,8 @@ export default function KorumaZinciri({ onClose }) {
           lineHeight: 1.7, maxWidth: '760px', margin: '18px auto 0',
         }}>
           {tr
-            ? <>Sıfır varyasyon, tek konsonantal iskelettedir (<span style={{ color: COLORS.gold }}>rasm</span>): 1.400 yıldır her nüsha, her bölge, her nesil aynı metni taşır. <span style={{ color: COLORS.gold }}>Mütevâtir kıraat</span> farklılıkları ise bu korumanın ayrı ve belgeli sözlü katmanıdır; çelişkisi değil, kanıtı.</>
-            : <>Zero variation lies in the single consonantal skeleton (<span style={{ color: COLORS.gold }}>rasm</span>): for 1,400 years every copy, region and generation carries the same text. The <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> differences are a separate, fully-documented oral layer of that preservation; its evidence, not its contradiction.</>}
+            ? <>Sıfır varyasyon, tek konsonantal iskelettedir (<span style={{ color: COLORS.gold }}>rasm</span>): standart Osmanî mushaf 1.400 yıldır nüshadan nüshaya ve nesilden nesle aynı iskeleti taşır. <span style={{ color: COLORS.gold }}>Mütevâtir kıraat</span> farklılıkları ise bu korumanın ayrı ve belgeli sözlü katmanıdır; çelişkisi değil, kanıtı.</>
+            : <>Zero variation lies in the single consonantal skeleton (<span style={{ color: COLORS.gold }}>rasm</span>): the standard Uthmanic mushaf has carried the same consonantal skeleton across copies and generations for 1,400 years. The <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> differences are a separate, fully-documented oral layer of that preservation; its evidence, not its contradiction.</>}
         </p>
       </div>
 

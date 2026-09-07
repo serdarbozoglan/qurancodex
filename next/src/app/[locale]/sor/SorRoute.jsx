@@ -848,7 +848,7 @@ function LoadingState({ language }) {
         opacity: 0.78,
         letterSpacing: '0.06em',
       }}>
-        {tr ? 'Sistem yorum katmaz, yalnızca yönlendirir.' : 'The system adds no commentary; it only guides.'}
+        {tr ? 'Sistem fetvâ vermez; ilgili âyet, yazı ve araçlara yönlendirir.' : 'The system issues no rulings; it guides you to relevant verses, essays and tools.'}
       </p>
     </div>
   );

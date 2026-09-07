@@ -63,10 +63,10 @@
   - Yapıldı: `page.js` DESC "On kanonik kıraat (Hafs, Verş…)" → "…ve râvileri (Âsım'dan Hafs…)"; giriş "her imam bir sahabîden aldı" → "senedi sahâbeye uzanan…; râvileri (Hafs, Verş) sonraki nesillere aktardı". TR+EN.
   - Katılım: ✅ tam · Durum: **düzeltildi**
 
-- [ ] **C10 · "Bütün nüshalarda sıfır rasm varyasyonu"** — `/tr/arac/koruma-zinciri`
-  - San'a alt-metni (Sadeghi & Bergmann 2010) tam da varyant gösteriyor; kendi kaynağıyla çelişiyor.
-  - Yapılacak: İtikadî koruma inancı / standart rasm / bölgesel rasm / kıraat / erken elyazması varyantlarını ayrı sun.
-  - Katılım: ✅ tam · Durum: onaylı
+- [x] **C10 · "Bütün nüshalarda sıfır rasm varyasyonu"** — `/tr/arac/koruma-zinciri` ✅ **DÜZELTİLDİ (ölçekleme; §13.24 hakem önerilir)**
+  - Not: Sayfa San'a/Sadeghi'ye atıf vermiyor (iç çelişki yok); sorun mutlak "her nüsha, her bölge".
+  - Yapıldı: "1.400 yıldır her nüsha, her bölge, her nesil aynı metni" → "standart Osmanî mushaf 1.400 yıldır nüshadan nüshaya, nesilden nesle aynı iskeleti taşır". Overclaim standart Osmanî rasma ölçeklendi (doubt-casting yok). Kıraat ayrı katman zaten belirtiliyor.
+  - Katılım: ✅ · Durum: **düzeltildi (§13.24: merge öncesi GPT hakemden geçirmen önerilir)**
 
 - [x] **C11 · ه ve ح "nazal"; 109/112 komşuluk** — `/tr/arac/ses-mimarisi` ✅ **DÜZELTİLDİ (2026-09-07)**
   - Yapıldı: `SoundExtensions.jsx` "nazal ه"→"soluklu ه"/"breathy"; 109↔112 "peş peşe/adjacent" kaldırıldı (aralarında 110-111). `SoundArchitecture.jsx`'te ح,ن,م,ل grubu "nazal ve akıcı" → doğru sınıflandırma (ن,م nazal; ل akıcı; ح boğazsıl); "Nazal ح،ن،م" → "Yumuşak". TR+EN.
@@ -120,14 +120,13 @@
 
 ### Yöntem / dürüstlük
 
-- [ ] **C19 · "Doğrulandı" = iki nötr istem** — `/tr/arac/tefsir-ihtilaflari`
-  - İki LLM istemi iki bağımsız **birincil kaynak** değil.
-  - Yapılacak: Doğrulamayı özgün metin + baskı/cilt/sayfa + kalıcı bağlantı + kontrol eden + tarih ile belgele.
-  - Katılım: ✅ **kavramsal olarak en önemli madde** · Durum: onaylı
+- [x] **C19 · "Doğrulandı" = iki nötr istem** — `/tr/arac/tefsir-ihtilaflari` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Veri karışıktı: çoğu not "tam metinden birebir doğrulandı" (hadis no/isnad); 2 not "iki bağımsız nötr istemle doğrulandı" (LLM istemi = overclaim). Kod §13.30 kaynak-doğrulamasını belgeliyor.
+  - Yapıldı: 2 not "İki bağımsız incelemede tutarlı bulundu" olarak düzeltildi (LLM istemini "doğrulama/birincil kaynak" gibi sunmaktan çıkarıldı). · Katılım: ✅
 
-- [ ] **C22 · "Yorum katmaz, yönlendirir" vs sentez cümleleri** — `/tr/sor`
-  - Yapılacak: Ayet/meal alıntısı, kaynak özeti, sistem açıklama katmanını ayrı etiketle; ek cümlenin kaynağını göster.
-  - Katılım: ✅ · Durum: onaylı
+- [x] **C22 · "Yorum katmaz, yönlendirir" vs sentez cümleleri** — `/tr/sor` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Sistem sorguyu yeniden yorumluyor (rewrite) + sentez üretiyor; "yorum katmaz" davranışla çelişiyordu.
+  - Yapıldı: DESC + arayüz "Yorum katmaz, yalnızca yönlendirir" → "Fetvâ vermez; ilgili âyet, yazı ve araçlara yönlendirir/bağlar" (dürüst: fetvâ/hüküm vermediği doğru; "yorum katmaz" iddiası kaldırıldı). TR+EN. · Katılım: ✅
 
 ### Teknik / SEO / i18n / UX
 

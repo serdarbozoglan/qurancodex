@@ -7673,3 +7673,13 @@ Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, zorlama ü�
 - **C21** (neden-sonuc): principleTr/En'e "ahlâkî ibret ≠ doğal olayların fiziksel/mekanik sebebi; karıştırılmamalıdır" eklendi; satırdaki em-dash'lar temizlendi.
 
 Humanizer: em/en-dash yok, "değil—ama" rehber ifadeye çevrildi, satış sıfatı yok, uydurma yok.
+
+---
+
+## Hardening (ChatGPT incelemesi) — C10/C19/C22 · 2026-09-07
+
+- **C10** (koruma-zinciri): "1.400 yıldır her nüsha, her bölge, her nesil aynı metni" → "standart Osmanî mushaf 1.400 yıldır nüshadan nüshaya ve nesilden nesle aynı iskeleti taşır". Overclaim standart Osmanî rasma ölçeklendi (doubt yok). §13.24: merge öncesi hakem önerilir.
+- **C19** (tefsir-ihtilaflari): 2 not "İki bağımsız nötr istemle doğrulandı" → "İki bağımsız incelemede tutarlı bulundu" (LLM istemini birincil-kaynak doğrulaması gibi sunma kaldırıldı).
+- **C22** (/sor): "Yorum katmaz, yalnızca yönlendirir" → "Fetvâ vermez; ilgili âyet, yazı ve araçlara yönlendirir/bağlar" (davranışla hizalandı: rewrite+sentez var, ama fetvâ/hüküm yok). TR+EN.
+
+Humanizer: em/en-dash yok, satış sıfatı yok, uydurma yok.
