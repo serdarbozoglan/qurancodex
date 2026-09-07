@@ -14,11 +14,15 @@
   Başlık+ayet+meal+açıklama+2. başlık asıl aracı aşağı itiyor (§13.18 hero 9 elemanlı). Poetik girişi katlanabilir yap, aracı üste al. §17 yol haritasıyla uyumlu.
 - [ ] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M
   Başta 3 açıklayıcı örnek, ileri detayda tam tablo/grafik. "30 sn'de: neye bakıyorum / ne tıklamalıyım / ne öğreneceğim" testi.
-- [~] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **(başlandı — pattern kuruldu)**
-  Ayet/kavram/diyalog/zaman ağlarında renk+konuma ek: açıklama listesi, seçili öğe detayı, klavye navigasyonu.
-  - ✅ **RevelationTimeline (/graf/zaman):** görünür + erişilebilir **"Liste" görünüm modu** (semantik `<table>`, nüzul sırası·sûre·ayet·dönem·mushaf) + tüm modlarda ekran-okuyucu `SR_ONLY <ol>` metin-alternatifi. (SR_ONLY pattern diğer graflara taşınacak.)
-  - ⬜ Kalan graflar: ConceptGraph, DiyalogAgi, VerseGraph, WordHeatmap (klavye + metin-alternatifi).
-  - **BONUS (bu turda):** sistemik "başlık/çip truncate" (§13.31 Mek. 2) çözüldü — `useNavbarOffset` → `--qc-nav-h` CSS değişkeni; 38 dosyada hardcoded `62px` → `var(--qc-nav-h, 84px)`; regresyon `audit-counts.mjs` push kapısında. CLAUDE.md §13.17 güncellendi.
+- [x] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **✅ TAMAMLANDI**
+  Ayet/kavram/diyalog/zaman ağlarında renk+konuma ek: metin-alternatifi + klavye navigasyonu. Tüm içerik mevcut veriden türetildi (uydurma yok), tarayıcıda TR+EN doğrulandı.
+  - ✅ **RevelationTimeline (/graf/zaman):** görünür + erişilebilir **"Liste" görünüm modu** (semantik `<table>`) + tüm modlarda `SR_ONLY <ol>` metin-alternatifi. Ayrıca kart ipuçları (ⓘ / mushaf-fark) native `title` yerine anında açılan `HintIcon` (hover+focus+tık).
+  - ✅ **ConceptGraph (/graf/kavram):** sr-only bağlantı listesi; öğeler `<button>` — Enter kavramı sabitler, âyet paneli açılır.
+  - ✅ **DiyalogAgi (/graf/diyalog):** sr-only konuşmacı + diyalog-ekseni listesi; butonlar ekseni Diyaloglar sekmesinde açar.
+  - ✅ **WordHeatmap (/graf/kelime-isi):** sr-only özet (hücreler zaten aria-label'lı klavye butonları).
+  - ✅ **VerseGraph (/graf/ayet):** ClusterView + FullGraph (3B, masaüstü varsayılanı) + VerseView sr-only açıklama; 11 klasik sûre grubu + iki görünüm modu.
+  - ➕ **Tilâvet autostart:** /graf/ayet İkra (Alak 1-5) tilâveti ilk kullanıcı jestinde otomatik başlar (tarayıcı sesli-autoplay engelini jest-yedeğiyle aşar; buton kontrolü korunur).
+  - **BONUS (önceki turda):** sistemik "başlık/çip truncate" (§13.31 Mek. 2) çözüldü — `useNavbarOffset` → `--qc-nav-h` CSS değişkeni; 38 dosyada hardcoded `62px` → `var(--qc-nav-h, 84px)`; regresyon `audit-counts.mjs` push kapısında. CLAUDE.md §13.17 güncellendi.
 - [ ] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M
   Sürekli italik meal için düz-yazı seçeneği, punto/satır aralığı/rahat tema kolay erişilir. Kelime/meal/tefsir/ezber/tahta/yer-imi'ni birincil/ikincil düzenle.
 - [ ] **A5 · Mobilde en zor ekranları test et** — 🟢 M
@@ -61,8 +65,10 @@
 
 - [ ] **E1 · Performansı gerçek ölçümle yönet** — 🟢 M
   Ağır grafik/ses modülleri lazy; aynı Kur'an verisi tekrar inmesin; LCP/INP/CLS saha+lab ayrı takip. (§8/§13.26 kısmen; saha ölçümü yok.)
-- [ ] **E2 · Görev-bazlı klavye erişilebilirlik denetimi** — 🟢 M
-  Yalnız klavyeyle: sûre aç, ayet seç, filtre, grafik detayı, sesi durdur, geri dön. "Ana içeriğe geç" korunur; modal odak yönetimi + görünür odak. (A3 ile örtüşür.)
+- [~] **E2 · Görev-bazlı klavye erişilebilirlik denetimi** — 🟢 M **(grafikler A3'te kapsandı)**
+  Yalnız klavyeyle: sûre aç, ayet seç, filtre, grafik detayı, sesi durdur, geri dön. "Ana içeriğe geç" korunur; modal odak yönetimi + görünür odak.
+  - ✅ Grafik detayı/metin-alternatifi + klavye: A3'te dört graf için yapıldı; tilâvet butonu zaten klavye-erişilebilir.
+  - ⬜ Kalan: tam görev-bazlı denetim (filtre/modal odak/görünür odak) diğer araç sayfalarında.
 - [x] **E3 · Host tutarlılığı** — ⚪ (SEO03) Kod apex-tutarlı; Vercel www→apex ayarı bekliyor.
 - [x] **E4 · Katalog/sitemap tek kaynak** — ⚪ (SEO02) Yapıldı — sitemap TOOL_CATALOG'dan besleniyor.
 - [x] **E5 · Anlamlı ilk HTML (SSR)** — 🔵 (SEO01) Büyük/mimari; §16.12 kısmen. Ayrı faz.
