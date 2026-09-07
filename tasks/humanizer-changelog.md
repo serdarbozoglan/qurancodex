@@ -7662,3 +7662,14 @@ EKLENEN (criticalNote, yazarın paragrafına dokunulmadı): "Buradaki 'yalıtım
 Gerekçe: §13.29 (Felsufi'ye sadıklık) + güvenlik. Site disclaimer sistemi (criticalNote) kullanıldı.
 
 Humanizer: em/en-dash yok, "değil—ama" yok, satış sıfatı yok, zorlama üçlü yok (biyo-psiko-sosyal = WHO modeli), uydurma yok.
+
+---
+
+## Hardening (ChatGPT incelemesi) — C06/C17/C20/C21 · 2026-09-07
+
+- **C06** (insan-psikolojisi): "14 asır önce eş" / "14 centuries earlier" → "örtüşür" / "parallels" (§13.24: eş/confirms değil örtüşür). Predictive-miracle çerçevesi kaldırıldı.
+- **C17** (sonsuzlugun-merdiveni, tefekkür): Schubert 2005 "Nörobilim/hipokampüs" → davranışsal bulgu (güç↔yukarı). Web+PubMed doğrulandı.
+- **C20** (insan-yolculugu): "Kur'ân 10 aşamalı yolculuk anlatır… hiçbiri atlanmadan geçilmez" → "âyetlerden derlenen olgunlaşma çerçevesi… zorunlu/atlanamaz basamak olarak görülmemelidir". "X değil Y" yerine rehber ifade.
+- **C21** (neden-sonuc): principleTr/En'e "ahlâkî ibret ≠ doğal olayların fiziksel/mekanik sebebi; karıştırılmamalıdır" eklendi; satırdaki em-dash'lar temizlendi.
+
+Humanizer: em/en-dash yok, "değil—ama" rehber ifadeye çevrildi, satış sıfatı yok, uydurma yok.

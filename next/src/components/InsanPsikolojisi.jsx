@@ -424,8 +424,8 @@ function YusufIyilesmeArc({ tr, isMobile }) {
           color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.65,
           maxWidth: '680px', margin: '0 auto', fontFamily: FONTS.body,
         }}>{tr
-          ? "Yûsuf sûresi (12) travma-iyileşme paradigmasının Kur'ânî prototipidir. Kayıp→kuyu→köle→ithâm→hapis→af arc'ı, modern trauma-informed care'in 'safety → integration → restoration' üçlüsüne 14 asır önce eş."
-          : "Sūrat Yūsuf (12) is the Qur'ānic prototype of the trauma-healing paradigm. The loss → well → enslavement → accusation → prison → forgiveness arc parallels modern trauma-informed care's 'safety → integration → restoration' triad 14 centuries earlier."}</p>
+          ? "Yûsuf sûresi (12) travma-iyileşme paradigmasının Kur'ânî prototipidir. Kayıp→kuyu→köle→ithâm→hapis→af arc'ı, modern trauma-informed care'in 'safety → integration → restoration' üçlüsüyle örtüşür."
+          : "Sūrat Yūsuf (12) is the Qur'ānic prototype of the trauma-healing paradigm. The loss → well → enslavement → accusation → prison → forgiveness arc parallels modern trauma-informed care's 'safety → integration → restoration' triad."}</p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '780px', margin: '0 auto' }}>
         {stages.map((s, i) => (

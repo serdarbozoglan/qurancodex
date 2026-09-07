@@ -86,13 +86,12 @@
   - Yapıldı: Gövde (block[4]) + tldr'deki "hipokampüs/Nörobilim" iddiaları çıkarıldı; Schubert'in gerçek bulgusuyla (güç↔yukarı, dikey konum güç yargısını etkiler) değiştirildi. Künye zaten doğruydu. Yazarın embodied-cognition noktası korundu. TR+EN.
   - Katılım: ✅ tam · Durum: **düzeltildi (yanlış atıf giderildi)**
 
-- [ ] **C20 · 10 aşamalı "zorunlu, atlanamaz sıra"** — `/tr/atlas/insan-yolculugu`
-  - Yapılacak: Bunun ayetlerden derlenen manevî olgunlaşma **modeli** olduğunu belirt; ayet lafzı ile yazar tasnifini ayır.
-  - Katılım: ✅ tam · Durum: onaylı
+- [x] **C20 · 10 aşamalı "zorunlu, atlanamaz sıra"** — `/tr/atlas/insan-yolculugu` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Yapıldı: intro "Kur'ân 10 aşamalı yolculuk anlatır… hiçbiri atlanmadan geçilmez" → "âyetlerden derlenen olgunlaşma çerçevesi… herkes için zorunlu/atlanamaz basamak olarak görülmemelidir". Model olarak etiketlendi. TR+EN. · Katılım: ✅
 
-- [ ] **C21 · Ahlâk ↔ deprem/kıtlık/zafer istisnasız nedensellik** — `/tr/arac/neden-sonuc`
-  - Yapılacak: Ayet bağlamı + yorum sınırı belirt; doğal olayların bilimsel nedenselliği ile ahlâkî ibreti ayır.
-  - Katılım: ✅ tam · Durum: onaylı
+- [x] **C21 · Ahlâk ↔ deprem/kıtlık/zafer istisnasız nedensellik** — `/tr/arac/neden-sonuc` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Component zaten kısmen dikkatliydi ("rastgele değil, yapısal örüntü"). Eksik: ibret ≠ fiziksel nedensellik.
+  - Yapıldı: principleTr/En'e "âyet bağlamındaki ahlâkî ibret ve ilâhî örüntü (sünnetullah) okuması; doğal olayların fiziksel/mekanik sebepleriyle karıştırılmamalıdır" eklendi. Em-dash temizlendi. · Katılım: ✅
 
 ### Sayfa içi tutarsızlık / veri sayacı (🔎 kodda doğrulanacak)
 
@@ -105,8 +104,8 @@
   - Yapıldı: ℹ notuna "Son âyet (1:7) iki cümleciğe ayrılır; B' ve A' aynı âyetin iki yarısıdır (yedi konum, altı âyet)" eklendi. TR+EN.
   - Katılım: 🟡→✅ · Durum: **düzeltildi**
 
-- [ ] **C06 · "Modern psikolojiyi öngörmez" (üst) vs "14 asır önce eş" (alt)** — `/tr/atlas/insan-psikolojisi`
-  - Yapılacak: Yorum eşleştirmesi ile klinik/tarihsel eşdeğerlik ayrımını tüm sekmelerde koru. · Katılım: ✅
+- [x] **C06 · "Modern psikolojiyi öngörmez" vs "14 asır önce eş"** — `/tr/atlas/insan-psikolojisi` ✅ **DÜZELTİLDİ (2026-09-07)**
+  - Yapıldı: Yûsuf/trauma-informed care satırındaki "14 asır önce eş / 14 centuries earlier" → "örtüşür / parallels" (§13.24 dil kuralı). Predictive-miracle çerçevesi kalktı; sayfanın hedged "modern okuma" tonuyla tutarlı. · Katılım: ✅
 
 - [x] **C12 · Katalog 64 araç vs ana sayfa 65** — `/tr/arac/tum-araclar` ✅ **ÇÖZÜLMÜŞ (2026-09-07)**
   - `TOOL_CATALOG`=65 (benzersiz route), ToolsBrowser onu render ediyor, InventoryStrip=65 (WIP'te düzeltilmiş). Hardcoded 64 yok.
