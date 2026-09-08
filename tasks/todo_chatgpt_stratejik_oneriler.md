@@ -34,10 +34,10 @@
   Playwright 360/390px denetimi: en zor ekranlarda (114-sütun ısı haritası, çok-sekmeli ibadet, mushaf, uzun başlıklar, 3B graf, kavim haritası) **yatay taşma YOK** — düzen zaten sağlam.
   - ✅ **Dokunma hedefi:** ToolHeader "Anasayfaya dön" pill'i 36×24px → **40×40** (site-geneli, ~65 araç).
   - ⬜ Kalan (küçük/tekil): WowFacts yer-imi ikonu 26×26, okuma-ekranı ayet rozetleri 27×27 (yoğun bağlam; opsiyonel).
-- [ ] **A6 · Uzun-okuma tipografisi (tefekkür)** — 🟡 S (kısmen var, §13.29)
-  Body ~18-20px, rahat satır aralığı, kontrollü satır uzunluğu. Uzun italik özetleri kısalt. *Not: yazarın metnini ezme (§13.29); tldr katmanını kullan.*
-- [ ] **A7 · İçindekiler (TOC) güçlendir** — 🟡 S (kısmen var: DesktopSidebarTOC, ChapterProgress)
-  Aktif bölüm, okuma ilerlemesi, başa dön, kaldığın yere devam; kaynakçaya sona kaydırmadan eriş.
+- [x] **A6 · Uzun-okuma tipografisi (tefekkür)** — 🟡 S **✅ TAMAMLANDI**
+  Makale gövde puntosu 1.08rem(~17px) → **1.15rem(~18px)**; satır aralığı 1.85 + max-width 760px ile kontrollü satır uzunluğu. Hero/meta kasıtlı küçük; yazarın metni ezilmedi (§13.29).
+- [x] **A7 · İçindekiler (TOC) güçlendir** — 🟡 S **✅ TAMAMLANDI**
+  Aktif bölüm (IntersectionObserver), ilerleme çubuğu, başa dön zaten vardı. Eklenen: **"kaldığın yere devam"** — okuma konumu makale bazında hatırlanır (pagehide/unmount/visibilitychange'de kaydet), dönüşte "Kaldığın yerden devam et" pill'i (tıkla→kay, manuel kaydırmada gizlen, sonda temizlen). Bonus: ilerleme çubuğu offset'i `var(--qc-nav-h)` (§13.31). TR+EN doğrulandı.
 - [x] **A8 · Sekme/kart davranışını ortaklaştır + paylaşılabilir durum** — 🟡 M **✅ TAMAMLANDI**
   Yeni `useTabParam` kancası aktif sekmeyi URL'e bağlar (`?tab=N` veya `?tab=<key>`): paylaşılabilir + geri düğmesi öngörülebilir. `window.location`+`history.replaceState` (useSearchParams DEĞİL → statik-prerender Suspense hatası yok, SSR/build-güvenli).
   - **24 sekmeli araç**: 18 index + 6 string-key (+ ibadetler/pillar zaten ?tab= slug).
