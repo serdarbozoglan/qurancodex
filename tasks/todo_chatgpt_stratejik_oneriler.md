@@ -67,8 +67,8 @@
   - Belâgat: Kur'ân Belâgatı (genel) · Retorik Sorular (İstifhâm/soru ekseni)
   - Sinonim: Füruk Atlası (34-aile atlas) · Yakın Anlamlı Nüanslar (seçili çift nüansları)
   Ayrımlar her aracın kendi kapsamından türetildi (uydurma yok). 11 araç TR/EN doğrulandı.
-- [ ] **C3 · i18n yerelleştirme kapsamını genişlet** — 🟡 M (UX02 devamı)
-  Kart başlıkları, motif adları, şehir/dönem açıklamaları, grafik etiketleri, alt-metin, metadata. *UX02'de amthal+ibadetler+doğa yapıldı; kalan: grafik etiketleri, alt-metin, metadata, diğer atlaslar.*
+- [x] **C3 · i18n yerelleştirme kapsamını genişlet** — 🟡 M **✅ TAMAMLANDI (denetim + boşluk kapatma)**
+  Denetim: kapsam zaten mükemmel — tr/en.json parite (399=399), metadata lokalize (`locale==='en'`), tüm araçlar `language` ternary'siyle çift-dilli, grafik etiketleri/CLASSICAL_GROUPS/WordHeatmap presetleri EN'li. Kod tabanındaki **tek gerçek boşluk** iki Navbar menü aria-label'ıydı → lokalize edildi.
 
 ## D) Ses & Tecvid Deneyimi — 🔵 büyük proje
 
