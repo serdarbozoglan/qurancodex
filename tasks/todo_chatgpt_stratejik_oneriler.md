@@ -77,8 +77,8 @@
 
 ## E) Teknik / Performans / Erişilebilirlik
 
-- [ ] **E1 · Performansı gerçek ölçümle yönet** — 🟢 M
-  Ağır grafik/ses modülleri lazy; aynı Kur'an verisi tekrar inmesin; LCP/INP/CLS saha+lab ayrı takip. (§8/§13.26 kısmen; saha ölçümü yok.)
+- [x] **E1 · Performansı gerçek ölçümle yönet** — 🟢 M **✅ TAMAMLANDI (saha ölçümü etkinleştirildi)**
+  Yeni `WebVitals` (Next `useReportWebVitals`, ek bağımlılık yok): LCP/INP/CLS/FCP/TTFB her ziyarette ölçülür — dev'de eşik dereceli konsol, üretimde `NEXT_PUBLIC_VITALS_ENDPOINT` ayarlıysa `sendBeacon` ile sahaya. Root layout'ta. Böylece lab (Lighthouse) yanında **saha** verisi toplanabilir. Not: 3D graf lazy-load'u ForceGraph3D ref forwarding'i bozacağı için atlandı; meal verisi zaten `mealCache` ile tekrar inmiyor (Hero de ağır modülleri `next/dynamic` ile lazy). Production build temiz.
 - [~] **E2 · Görev-bazlı klavye erişilebilirlik denetimi** — 🟢 M **(grafikler A3'te kapsandı)**
   Yalnız klavyeyle: sûre aç, ayet seç, filtre, grafik detayı, sesi durdur, geri dön. "Ana içeriğe geç" korunur; modal odak yönetimi + görünür odak.
   - ✅ Grafik detayı/metin-alternatifi + klavye: A3'te dört graf için yapıldı; tilâvet butonu zaten klavye-erişilebilir.
