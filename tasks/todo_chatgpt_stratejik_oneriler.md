@@ -60,8 +60,13 @@
 
 - [ ] **C1 · Amaç-bazlı giriş: Oku / Öğren / Araştır / Tefekkür** — 🔵 L (nav restructure)
   Her amaca birincil giriş + net "sonraki adım". Mevcut "Tüm Araçlar" araması korunur.
-- [ ] **C2 · Örtüşen araçların sınırlarını açıkla** — 🟡 S/M
-  Belâgat↔Retorik, Furûk↔Yakın Anlamlı, İnsan Tanımı/Psikoloji/Nefs/Yolculuk, Kıyamet↔Ahiret sayfalarının kapsamı net anlatılsın; aynı veri kopyalanmasın, ortak veri üzerinde farklı bakış.
+- [x] **C2 · Örtüşen araçların sınırlarını açıkla** — 🟡 S/M **✅ TAMAMLANDI**
+  Yeni `ToolScopeNote` (hero altı, varışta yönlendirir; CrossToolCTA sayfa-dibi ile tamamlayıcı): "Bu sayfa neye odaklanır + komşu araçların ayırıcı farkı". 4 küme, **11 araç**:
+  - İnsan: Tanım · Psikoloji · Nefs Mertebeleri · Yolculuk
+  - Ahiret: Ahiret Yolculuğu (tüm yolculuk) · Kıyâmet (başlangıç sahneleri) · Cennet & Cehennem (varış)
+  - Belâgat: Kur'ân Belâgatı (genel) · Retorik Sorular (İstifhâm/soru ekseni)
+  - Sinonim: Füruk Atlası (34-aile atlas) · Yakın Anlamlı Nüanslar (seçili çift nüansları)
+  Ayrımlar her aracın kendi kapsamından türetildi (uydurma yok). 11 araç TR/EN doğrulandı.
 - [ ] **C3 · i18n yerelleştirme kapsamını genişlet** — 🟡 M (UX02 devamı)
   Kart başlıkları, motif adları, şehir/dönem açıklamaları, grafik etiketleri, alt-metin, metadata. *UX02'de amthal+ibadetler+doğa yapıldı; kalan: grafik etiketleri, alt-metin, metadata, diğer atlaslar.*
 
