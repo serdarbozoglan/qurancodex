@@ -12,6 +12,7 @@ import {
   RADIUS,
   TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -309,6 +310,7 @@ export default function MunafikProfili({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
+        <CollapsibleHero id="munafik" language={language} labelTr="Münafık Profili" labelEn="Profile of the Hypocrite">
         <div className="mq-box" style={{
           '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(231,76,60,0.06) 0%, transparent 100%)',
@@ -561,6 +563,7 @@ export default function MunafikProfili({ onClose }) {
           </div>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── TAB BAR (UPPERCASE site-wide pattern) ──────────────────────── */}
         <div className="mq-box" id="munafik-tab-bar" style={{

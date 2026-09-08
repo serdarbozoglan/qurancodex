@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -208,6 +209,7 @@ export default function QuranCommands({ onClose }) {
       />
 
       {/* Header — Cinematic Hero (Bismillah + Nahl 16:90 anchor + framing + filigree) */}
+      <CollapsibleHero id="buyruklar" language={language} labelTr="Kur'an'ın Emirleri" labelEn="Quran Commands">
       <div className="mq-box" style={{ '--pt-d': "60px", '--pt-m': "56px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)', textAlign: 'center' }}>
         {/* Bismillah */}
         <div className="mq-box"
@@ -357,6 +359,7 @@ export default function QuranCommands({ onClose }) {
           ℹ {L.curatedNote} {L.disclaimer}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Mobile category chips */}
       {isMobile && (

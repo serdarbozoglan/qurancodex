@@ -9,6 +9,7 @@
 import { useEffect, useState } from 'react';
 import HumanDefinition from '../sections/HumanDefinition';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
@@ -60,6 +61,7 @@ export default function InsanTanimi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="insan-tanimi" language={language} labelTr="Kur'an'da İnsan — Sizi Nasıl Görüyor?" labelEn="Humanity in the Quran — How Does It See You?">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
@@ -123,6 +125,7 @@ export default function InsanTanimi({ onClose }) {
           {tr ? "Nefs · fıtrat · halife · imtihan · hilkat" : "Nafs · fiṭra · khalīfa · trial · creation"}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Sticky Tab Bar §13.19 */}
       <div className="mq-box" id="insan-tab-bar" style={{

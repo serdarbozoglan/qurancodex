@@ -7,6 +7,7 @@ import {
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS, SEMANTIC,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -2697,6 +2698,8 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ════ CINEMATIC HERO — Premium Template (Bismillah + Fâtır 35:27 +
             framing whisper + dramatic title + stat strip) ══════════════════ */}
+        <CollapsibleHero id="renkler" language={language}
+          labelTr="Kur'an'da Renkler" labelEn="Colors in the Quran">
         <div className="mq-box" style={{
           '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`,
@@ -2867,6 +2870,7 @@ export default function KuranRenkleri({ onClose }) {
           </div>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── Fâtır 35:27 Feature Card ── */}
         <div className="mq-box" style={{ '--mt-d': "0", '--mt-m': "0", '--mr-d': "32px", '--mr-m': "16px", '--mb-d': "20px", '--mb-m': "16px", '--ml-d': "32px", '--ml-m': "16px", '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px", background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg }}>

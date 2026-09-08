@@ -9,6 +9,7 @@ import {
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
@@ -1509,7 +1510,10 @@ export default function MeselAtlasi({ onClose, backRef }) {
     >
       {MESEL_TOOL_HEADER}
 
-      <Hero language={language} isMobile={isMobile} />
+      <CollapsibleHero id="mesel" language={language}
+        labelTr="Mesel Atlası" labelEn="Atlas of Quranic Parables">
+        <Hero language={language} isMobile={isMobile} />
+      </CollapsibleHero>
 
       {/* Tab bar — sağ kenarda sabit bir solma (fade) katmanı, sekmeler taşınca
           "daha fazla sekme var, kaydır" ipucu verir; scrollbarWidth:'none'

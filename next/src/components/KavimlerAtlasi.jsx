@@ -7,6 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -419,7 +420,9 @@ export default function KavimlerAtlasi({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
 
         {/* Hero */}
-        <HeroSection meta={data.meta} language={language} isMobile={isMobile} />
+        <CollapsibleHero id="kavim" language={language} labelTr="Kavimler Atlası" labelEn="Atlas of Quranic Peoples">
+          <HeroSection meta={data.meta} language={language} isMobile={isMobile} />
+        </CollapsibleHero>
 
         {/* ── TAB BAR — Hero'dan SONRA (Yeminler/Renkler pattern parity).
             User feedback: tutarsızlık vardı (Kavim'de top, diğerlerinde mid).

@@ -6,6 +6,7 @@ import { useQuranNav } from '@/hooks/useQuranNav';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -1345,6 +1346,8 @@ export default function Melekler({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* Hero — Premium Cinematic (Bismillah + Fâtır 35:1 + framing whisper + filigree + title) */}
+        <CollapsibleHero id="melekler" language={language}
+          labelTr="Kur'an'da Melekler" labelEn="Angels in the Quran">
         <div className="mq-box" style={{
           '--pt-d': "52px", '--pt-m': "36px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
           textAlign: 'center',
@@ -1494,6 +1497,7 @@ export default function Melekler({ onClose }) {
           </div>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── Tab bar — sticky top:110 (Navbar 62 + ToolHeader 48) ── */}
         <div className="mq-box" id="melekler-tab-bar" style={{

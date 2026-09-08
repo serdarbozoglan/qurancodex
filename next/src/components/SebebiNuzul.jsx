@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -1797,6 +1798,7 @@ export default function SebebiNuzul({ onClose }) {
       />
 
       {/* ── HERO (Cinematic) ───────────────────────────────────────── */}
+      <CollapsibleHero id="sebebi-nuzul" language={language} labelTr="Sebeb-i Nüzûl" labelEn="Occasions of Revelation">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -1828,6 +1830,7 @@ export default function SebebiNuzul({ onClose }) {
           {language === 'tr' ? 'Klasik kural: "Lâ yûsenu illâ bi-nass." Yalnız sahih rivayetle bilinir.' : 'Classical rule: "lā yūsenu illā bi-naṣṣ." Known only through authentic transmission.'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Tab bar — UPPERCASE site-wide pattern */}
       <div id="sebebi-tab-bar" style={{

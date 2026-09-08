@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react';
 import LivingPreservation from '../sections/LivingPreservation';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
@@ -46,6 +47,8 @@ export default function KorumaZinciri({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="koruma-zinciri" language={language}
+        labelTr="Yaşayan Koruma — Rasm, Hâfız ve İsnâd" labelEn="Living Preservation — Rasm, Ḥuffāẓ and Isnād">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -127,6 +130,7 @@ export default function KorumaZinciri({ onClose }) {
             : <>The Qur'anic text has been transmitted with exceptional stability at the level of the Uthmānic <span style={{ color: COLORS.gold }}>rasm</span> across generations; the <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> are a distinct, well-documented oral layer tied to this written core: not a contradiction, but part of its preservation.</>}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Anasayfa LivingPreservation section AYNEN — memory no-downgrade */}
       <LivingPreservation />

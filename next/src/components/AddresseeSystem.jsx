@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
@@ -140,6 +141,8 @@ export default function AddresseeSystem({ onClose }) {
       {ADDR_TOOL_HEADER}
 
       {/* ── HERO (Cinematic) ────────────────────────────────────────────────── */}
+      <CollapsibleHero id="muhataplar" language={language}
+        labelTr="Muhataplar Sistemi" labelEn="Quranic Addressee System">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -173,6 +176,7 @@ export default function AddresseeSystem({ onClose }) {
           {language === 'tr' ? 'Tek bir Kitap, çoklu seslenen, farklı muhataplar.' : 'One Book, multiple voices, distinct addressees.'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* ── CHIP ROW — yalnızca mobil ───────────────────────────────────────────
           Masaüstünde sayılı sidebar navigasyonu üstleniyor; çip sırası da

@@ -8,6 +8,7 @@ import {
   BREAKPOINT_MOBILE, RADIUS,
   VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -145,6 +146,8 @@ export default function KuranRetorigi({ onClose }) {
       />
 
       {/* ── HERO (Cinematic) — Yûsuf 12:111 ─────────────────────── */}
+      <CollapsibleHero id="retorik" language={language}
+        labelTr="Kur'an Belâgatı" labelEn="Quranic Rhetoric">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -176,6 +179,7 @@ export default function KuranRetorigi({ onClose }) {
           {tr ? 'Tezat denge kurar, istiare yoğunlaştırır, iltifât canlandırır.' : 'Antithesis balances, metaphor condenses, iltifāt enlivens.'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* ── TAB BAR (sticky, §13.19 pattern — full hygiene guards) ────────── */}
       <div id="retorik-tab-bar" style={{

@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import ImpossibleRhythm from '../sections/ImpossibleRhythm';
 import RhythmExtensions from './RhythmExtensions';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
@@ -45,6 +46,7 @@ export default function Ritim({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="ritim" language={language} labelTr="İmkânsız Ritim" labelEn="Impossible Rhythm">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -122,6 +124,7 @@ export default function Ritim({ onClose }) {
           {tr ? 'Edebiyat tarihinde kendi kategorisini yaratan dil' : 'A language that created its own category in literary history'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Anasayfa ImpossibleRhythm section AYNEN */}
       <ImpossibleRhythm />

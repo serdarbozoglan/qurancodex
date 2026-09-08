@@ -10,6 +10,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import QuranRhetoric from '../sections/QuranRhetoric';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -135,6 +136,7 @@ export default function RetorikSorular({ onClose }) {
     }}>
       {TOOL_HEADER}
       <div ref={bodyRef} style={{ flex: 1 }}>
+        <CollapsibleHero id="retorik-sorular" language={language} labelTr="Kur'an'ın Belağatı" labelEn="Belāġa of the Qur'an">
         <div className="mq-box" style={{
           '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -218,6 +220,7 @@ export default function RetorikSorular({ onClose }) {
             }}>{tr ? '6 belâgat ailesi · 27+ âyet örneği · klasik + modern okuma' : '6 rhetorical families · 27+ verse examples · classical + modern reading'}</p>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* FAMILY SELECTOR */}
         <div className="mq-box" id="belagat-tab-bar" style={{

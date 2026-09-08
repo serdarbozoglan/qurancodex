@@ -6,6 +6,7 @@ import useNavbarOffset from './useNavbarOffset';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from './icons';
@@ -1601,6 +1602,8 @@ export default function ZamanBoyutlari({ onClose }) {
       />
 
       {/* ── HERO (Cinematic) ──────────────────────────────────────────────── */}
+      <CollapsibleHero id="zaman-boyutlari" language={language}
+        labelTr="Zaman Boyutları" labelEn="Dimensions of Time">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "48px", '--pl-m': "20px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -1731,6 +1734,7 @@ export default function ZamanBoyutlari({ onClose }) {
             : 'Clock-time flows linearly; revealed time is layered, and its quality outweighs its quantity.'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Tab bar — §13.19 sticky pattern (Dalga 2.3 fix) */}
       <div className="mq-box" id="zaman-tab-bar" style={{

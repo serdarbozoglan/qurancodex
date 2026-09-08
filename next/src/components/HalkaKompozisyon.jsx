@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import HiddenArchitecture from '../sections/HiddenArchitecture';
 import RingExtensions from './RingExtensions';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -42,6 +43,7 @@ export default function HalkaKompozisyon({ onClose }) {
         onClose={onClose}
       />
 
+      <CollapsibleHero id="halka-kompozisyon" language={language} labelTr="Yapısal Mimari — Halka Kompozisyon" labelEn="Hidden Architecture — Ring Composition">
       {/* Cinematic Hero */}
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
@@ -112,6 +114,7 @@ export default function HalkaKompozisyon({ onClose }) {
           {tr ? "Fâtiha · Âyetel Kürsî · ayna simetrisi" : "al-Fātiḥa · Āyat al-Kursī · mirror symmetry"}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Anasayfa HiddenArchitecture section AYNEN */}
       <HiddenArchitecture />

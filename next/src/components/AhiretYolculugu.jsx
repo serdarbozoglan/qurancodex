@@ -23,6 +23,7 @@ import { COLORS, FONTS } from '../tokens';
 import { surahName } from '../lib/surahNames';
 import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
 import useNavbarOffset from './useNavbarOffset';
@@ -305,6 +306,8 @@ export default function AhiretYolculugu({ onClose }) {
       />
 
       {/* ── Cinematic Hero (§13.18) ─────────────────────────────────────── */}
+      <CollapsibleHero id="ahiret-yolculugu" language={language}
+        labelTr={data.meta.titleTr} labelEn={data.meta.titleEn}>
       <Hero
         meta={data.meta}
         firstStage={data.stages[0]}
@@ -312,6 +315,7 @@ export default function AhiretYolculugu({ onClose }) {
         tr={tr}
         reducedMotion={reducedMotion}
       />
+      </CollapsibleHero>
 
       {/* ── Body: timeline + sticky index rail ──────────────────────────── */}
       <div className="mq-box" style={{

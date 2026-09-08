@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ScientificSigns from '../sections/ScientificSigns';
@@ -1592,6 +1593,8 @@ export default function DogaAtlasi({ onClose }) {
         style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
       >
         {/* Hero */}
+        <CollapsibleHero id="doga" language={language}
+          labelTr="Tabiat Atlası" labelEn="Atlas of Nature">
         <HeroSection
           isMobile={isMobile}
           language={language}
@@ -1606,6 +1609,7 @@ export default function DogaAtlasi({ onClose }) {
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
+        </CollapsibleHero>
 
         {/* Tab bar — sticky, UPPERCASE pattern (site-wide consistency) */}
         <div className="mq-box" id="kevni-tab-bar" style={{

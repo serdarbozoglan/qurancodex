@@ -16,6 +16,7 @@ import MukattaaReading from '../sections/MukattaaReading';
 import MukattaaViews from '../sections/MukattaaViews';
 import MukattaaEvidence from '../sections/MukattaaEvidence';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -57,6 +58,8 @@ export default function Mukattaa({ onClose }) {
       />
 
       {/* Cinematic Hero — sadece tool sayfası bağlamı için, içerik AYNEN aşağıda */}
+      <CollapsibleHero id="mukattaa" language={language}
+        labelTr="Huruf-i Mukattaâ" labelEn="Mukattaʿāt">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -146,6 +149,7 @@ export default function Mukattaa({ onClose }) {
           {tr ? '14 harf · 29 sûre · 4 aile · 1 ortak imza' : '14 letters · 29 suras · 4 families · 1 shared signature'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* ── SIRA (4 Eylül 2026) ────────────────────────────────────────
           Okuyucu bu sayfaya TEK bir soruyla geliyor: "bu harfler nedir?"

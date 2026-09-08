@@ -10,6 +10,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
@@ -179,6 +180,8 @@ export default function TarihselKanitlar({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
+        <CollapsibleHero id="tarihsel-kanitlar" language={language}
+          labelTr="Tarihsel İzler" labelEn="Historical Traces">
         <div className="mq-box" style={{
           '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -314,6 +317,7 @@ export default function TarihselKanitlar({ onClose }) {
             </div>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── TAB BAR ────────────────────────────────────────────────────── */}
         <div className="mq-box" id="tarihsel-tab-bar" style={{

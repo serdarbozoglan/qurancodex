@@ -10,6 +10,7 @@
 import { useEffect, useState } from 'react';
 import QuranDua from '../sections/QuranDua';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -67,6 +68,8 @@ export default function DuaDili({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="dua-dili" language={language}
+        labelTr="Dua Dili — Yakarışın Gramatik Kalıbı" labelEn="Language of Prayer — The Grammar of Supplication">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
@@ -132,6 +135,7 @@ export default function DuaDili({ onClose }) {
           {tr ? "10 peygamber profili · Nidâ + Hâcet + Gerekçe + İsim · Cevap örüntüsü" : "10 prophetic profiles · Vocative + Petition + Reasoning + Names · Response pattern"}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Sticky Tab Bar */}
       <div className="mq-box" id="dua-dili-tab-bar" style={{

@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -1241,6 +1242,8 @@ export default function WowFacts({ onClose }) {
         />
 
         {/* ── HERO (Cinematic) — Nisâ 4:82 ────────────────────────── */}
+        <CollapsibleHero id="kurani-tani" language={language}
+          labelTr="Kur'an'ı Tanı" labelEn="Meet the Quran">
         <section style={{
           padding: '40px 24px 32px',
           textAlign: 'center',
@@ -1264,6 +1267,7 @@ export default function WowFacts({ onClose }) {
           </p>
           <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto' }} />
         </section>
+        </CollapsibleHero>
 
         {/* Search + Category filters — hero ile aynı 760 container, ortalanmış */}
         <section style={{

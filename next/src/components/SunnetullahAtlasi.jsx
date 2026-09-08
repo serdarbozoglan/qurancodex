@@ -14,6 +14,7 @@ import {
   TEXT, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -325,6 +326,8 @@ export default function SunnetullahAtlasi({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
+        <CollapsibleHero id="sunnetullah" language={language}
+          labelTr="Sünnetullah Atlası" labelEn="Atlas of Divine Patterns">
         <div className="mq-box" style={{
           '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "48px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -541,6 +544,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           )}
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── TAB BAR ───────────────────────────────────────────────────── */}
         <div className="mq-box" id="sunnetullah-tab-bar" style={{

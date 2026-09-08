@@ -11,6 +11,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -88,6 +89,8 @@ export default function YakinAnlamliNuanslar({ onClose }) {
       {data && (
         <>
           {/* ─── Hero — §13.18 Premium ─────────────────────────────── */}
+          <CollapsibleHero id="yakin-anlamli-nuanslar" language={language}
+            labelTr="Yakın Anlamlı Nüanslar" labelEn="Near-Synonymous Nuances">
           <div className="mq-box" style={{
             '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
             background: `linear-gradient(180deg, ${COLORS.goldAlpha06} 0%, transparent 100%)`,
@@ -184,6 +187,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
               <span>{isEn ? 'CLASSICAL + IZUTSU' : 'KLASİK + İZUTSU'}</span>
             </div>
           </div>
+          </CollapsibleHero>
 
           {/* ─── Sticky chip strip (§13.19) — hem mobile hem desktop ─── */}
           <div className="mq-box" id="yn-set-bar" style={{

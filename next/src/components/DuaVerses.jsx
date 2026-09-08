@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import { PlayIcon, PauseIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SurahLink from './SurahLink';
 import useNavbarOffset from './useNavbarOffset';
@@ -394,6 +395,7 @@ export default function DuaVerses({ onClose }) {
         language={language}
       />
 
+      <CollapsibleHero id="dualar" language={language} labelTr="Dua Ayetleri" labelEn="Quranic Supplications">
       {/* ── HERO (Cinematic) — Bakara 2:186 ─────────────────────── */}
       <div style={{
         padding: '32px 20px 24px',
@@ -423,6 +425,7 @@ export default function DuaVerses({ onClose }) {
           {language === 'tr' ? "Peygamber duâları, hâcet duâları, sığınma sözleri." : "Prophetic supplications, need-driven prayers, words of refuge."}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Search + filter bar — fixed, does not scroll */}
       <div style={{
