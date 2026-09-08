@@ -15,8 +15,10 @@
   - Pilot: Fâtiha Atlası. Yayım: **40 hero-first araç/atlas** sayfası.
   - Atlanan (kasıtlı): IblisSatan (parçalı hero), EsmaFrekans (flagship istisna §13.17/§17.2), IlkSonKelimeler (zaten tool-first).
   - Doğrulama: 40 rota × TR/EN = **80/80** (HTTP 200 + katlama butonu render + runtime hata yok); denetimler yeşil.
-- [ ] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M
-  Başta 3 açıklayıcı örnek, ileri detayda tam tablo/grafik. "30 sn'de: neye bakıyorum / ne tıklamalıyım / ne öğreneceğim" testi.
+- [~] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M **(pilot yapıldı)**
+  Başta birkaç örnek, tam tablo "Tümünü göster" ardında. "30 sn'de: ne görüyorsun / ne tıklarsın / ne öğrenirsin" yönlendirmesi.
+  - ✅ **Pilot: Füruk Atlası Panorama** — 30-sn yönlendirme şeridi + kategori başına önce 3 kart, gerisi "Tümünü göster (N)". TR+EN doğrulandı.
+  - ⬜ Yayım (içerik-hassas — her araç için **doğru** yönlendirme metni gerekir, A1 gibi mekanik değil): diğer yoğun-tablo araçları (MunasebatAtlasi, YakinAnlamliNuanslar, TefsirIhtilaflari vb.). Not: WordHeatmap'te preset örnekleri zaten var.
 - [x] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **✅ TAMAMLANDI**
   Ayet/kavram/diyalog/zaman ağlarında renk+konuma ek: metin-alternatifi + klavye navigasyonu. Tüm içerik mevcut veriden türetildi (uydurma yok), tarayıcıda TR+EN doğrulandı.
   - ✅ **RevelationTimeline (/graf/zaman):** görünür + erişilebilir **"Liste" görünüm modu** (semantik `<table>`) + tüm modlarda `SR_ONLY <ol>` metin-alternatifi. Ayrıca kart ipuçları (ⓘ / mushaf-fark) native `title` yerine anında açılan `HintIcon` (hover+focus+tık).
