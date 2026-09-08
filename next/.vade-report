@@ -1,0 +1,44 @@
+Implemented Vercel Web Analytics for QuranCodex
+
+Successfully installed and configured Vercel Web Analytics following the latest official documentation from https://vercel.com/docs/analytics/quickstart.
+
+## Changes Made:
+
+### 1. Installed Package
+- Added `@vercel/analytics` package using npm
+- Package version installed: 2.0.0 (latest as of installation)
+- Updated package.json and package-lock.json accordingly
+
+### 2. Modified Files
+- **src/app/_shell.jsx**: Added Analytics component integration
+  - Imported `Analytics` from `@vercel/analytics/next`
+  - Added `<Analytics />` component at the end of the `<body>` tag
+  - This placement ensures analytics tracks all pages since _shell.jsx is the shared root component used by both locale-based and admin layouts
+
+## Implementation Details:
+
+The project uses Next.js App Router with a unique architecture:
+- Two root layouts: `[locale]/layout.js` (for tr/en) and `admin/layout.js`
+- Both layouts use a shared `_shell.jsx` component that renders `<html>` and `<body>` tags
+- By adding Analytics to _shell.jsx, it's automatically included across all routes
+
+The implementation follows the official Next.js App Router instructions:
+- Used the Next.js-specific import: `@vercel/analytics/next`
+- Placed component inside `<body>` tag as recommended
+- No additional configuration required - Analytics will work automatically on Vercel deployments
+
+## Testing:
+
+✅ Build verification: `npm run build` completed successfully
+✅ Linting check: No new linting errors introduced in modified file
+✅ The Analytics component is properly imported and rendered
+✅ Lock files (package-lock.json) updated correctly
+
+## Next Steps:
+
+To activate analytics:
+1. Deploy the application to Vercel
+2. Enable Web Analytics in the Vercel project dashboard (Analytics tab)
+3. Analytics data will start appearing after deployment and user visits
+
+The implementation is complete and ready for deployment.
