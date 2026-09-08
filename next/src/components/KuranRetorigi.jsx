@@ -8,6 +8,7 @@ import {
   BREAKPOINT_MOBILE, RADIUS,
   VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import useTabParam from '../hooks/useTabParam';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
@@ -181,6 +182,15 @@ export default function KuranRetorigi({ onClose }) {
         </p>
       </div>
       </CollapsibleHero>
+
+      <ToolScopeNote
+        language={language}
+        thisTr="Kur'ân belâgatının geneli — tezad, istiare, iltifât ve diğer sanatlar."
+        thisEn="The general balāgha of the Qur'an — antithesis, metaphor, iltifāt and other devices."
+        neighbors={[
+          { href: `/${language}/arac/retorik-sorular`, labelTr: 'Retorik Sorular', labelEn: 'Rhetorical Questions', noteTr: 'belâgatın soru/İstifhâm ekseni', noteEn: 'the questioning / istifhām axis of rhetoric' },
+        ]}
+      />
 
       {/* ── TAB BAR (sticky, §13.19 pattern — full hygiene guards) ────────── */}
       <div id="retorik-tab-bar" style={{

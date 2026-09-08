@@ -23,6 +23,7 @@ import { COLORS, FONTS } from '../tokens';
 import { surahName } from '../lib/surahNames';
 import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
@@ -316,6 +317,16 @@ export default function AhiretYolculugu({ onClose }) {
         reducedMotion={reducedMotion}
       />
       </CollapsibleHero>
+
+      <ToolScopeNote
+        language={language}
+        thisTr="Ölümden ebediyete uzanan ahiret yolculuğunun tümü — aşama aşama."
+        thisEn="The entire journey of the afterlife, from death to eternity — stage by stage."
+        neighbors={[
+          { href: `/${language}/arac/kiyamet`, labelTr: 'Kıyâmet Sahneleri', labelEn: 'Doomsday Scenes', noteTr: 'yolculuğun başlangıcı: kıyamet sahneleri', noteEn: "the journey's beginning: doomsday scenes" },
+          { href: `/${language}/arac/cennet-cehennem`, labelTr: 'Cennet & Cehennem', labelEn: 'Paradise & Hell', noteTr: 'iki nihai varış noktası', noteEn: 'the two final destinations' },
+        ]}
+      />
 
       {/* ── Body: timeline + sticky index rail ──────────────────────────── */}
       <div className="mq-box" style={{

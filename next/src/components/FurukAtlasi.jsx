@@ -6,6 +6,7 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import {
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -272,6 +273,15 @@ export default function FurukAtlasi({ onClose }) {
         <CollapsibleHero id="furuk" language={language} labelTr="Füruk Atlası" labelEn="Atlas of Semantic Distinctions">
           <Hero language={language} isMobile={isMobile} />
         </CollapsibleHero>
+
+        <ToolScopeNote
+          language={language}
+          thisTr="Klasik fürûk geleneği — 34 kelime ailesinde eş anlamlıların ince farkı (atlas)."
+          thisEn="The classical furūq tradition — fine distinctions among near-synonyms across 34 word families (atlas)."
+          neighbors={[
+            { href: `/${language}/arac/yakin-anlamli-nuanslar`, labelTr: 'Yakın Anlamlı Nüanslar', labelEn: 'Near-Synonym Nuances', noteTr: 'seçili kelime çiftlerinin ayırıcı yükleri', noteEn: 'the distinguishing loads of selected word pairs' },
+          ]}
+        />
 
         {/* ── MANIFESTO STRIP ─────────────────────────────────────────────── */}
         <div className="mq-box" style={{

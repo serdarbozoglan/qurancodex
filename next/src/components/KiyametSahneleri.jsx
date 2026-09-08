@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -647,6 +648,16 @@ export default function KiyametSahneleri({ onClose }) {
           </div>
         </div>
         </CollapsibleHero>
+
+        <ToolScopeNote
+          language={language}
+          thisTr="Kıyametin 7 fazlı sahnesi — sûr, haşr, mîzân."
+          thisEn="The 7 phases of Doomsday — the trumpet, the gathering, the scales."
+          neighbors={[
+            { href: `/${language}/arac/ahiret-yolculugu`, labelTr: 'Ahiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
+            { href: `/${language}/arac/cennet-cehennem`, labelTr: 'Cennet & Cehennem', labelEn: 'Paradise & Hell', noteTr: 'nihai varış: cennet ve cehennem', noteEn: 'the final destinations: paradise and hell' },
+          ]}
+        />
 
         {/* ── Kıyamet İsimleri ── */}
         <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>

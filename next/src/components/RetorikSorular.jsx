@@ -10,6 +10,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import QuranRhetoric from '../sections/QuranRhetoric';
@@ -221,6 +222,15 @@ export default function RetorikSorular({ onClose }) {
           </div>
         </div>
         </CollapsibleHero>
+
+        <ToolScopeNote
+          language={language}
+          thisTr="Belâgatın soru ekseni — İstifhâm ağırlıklı, 6 belâgat ailesiyle."
+          thisEn="The questioning axis of rhetoric — centered on istifhām, with 6 balāgha families."
+          neighbors={[
+            { href: `/${language}/arac/retorik`, labelTr: "Kur'ân Belâgatı", labelEn: 'Quranic Rhetoric', noteTr: 'belâgatın geneli: tezad, istiare, iltifât', noteEn: 'general balāgha: antithesis, metaphor, iltifāt' },
+          ]}
+        />
 
         {/* FAMILY SELECTOR */}
         <div className="mq-box" id="belagat-tab-bar" style={{

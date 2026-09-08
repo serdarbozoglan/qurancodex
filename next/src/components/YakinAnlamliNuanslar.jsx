@@ -11,6 +11,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -188,6 +189,15 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             </div>
           </div>
           </CollapsibleHero>
+
+          <ToolScopeNote
+            language={language}
+            thisTr="Eş anlamlı gibi görünen kelimelerin ayırıcı anlam yükleri — seçili nüanslar."
+            thisEn="The distinguishing semantic loads of seemingly synonymous words — selected nuances."
+            neighbors={[
+              { href: `/${language}/atlas/furuk`, labelTr: 'Füruk Atlası', labelEn: 'Furūq Atlas', noteTr: '34 kelime ailesinde klasik fürûk atlası', noteEn: 'the classical furūq atlas of 34 word families' },
+            ]}
+          />
 
           {/* ─── Sticky chip strip (§13.19) — hem mobile hem desktop ─── */}
           <div className="mq-box" id="yn-set-bar" style={{

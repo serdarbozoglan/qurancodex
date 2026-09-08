@@ -7,6 +7,7 @@ import { routeForToolEvent } from '../lib/toolRoutes';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -375,6 +376,16 @@ export default function CennetCehennem({ onClose }) {
             </p>
           </div>
           </CollapsibleHero>
+
+          <ToolScopeNote
+            language={language}
+            thisTr="Yolculuğun iki nihai varış noktası — 9 cennet, 7 cehennem, A'râf."
+            thisEn="The journey's two final destinations — 9 levels of paradise, 7 of hell, al-Aʿrāf."
+            neighbors={[
+              { href: `/${language}/arac/kiyamet`, labelTr: 'Kıyâmet Sahneleri', labelEn: 'Doomsday Scenes', noteTr: 'yolculuğun başlangıcı, kıyamet sahneleri', noteEn: "the journey's beginning: doomsday scenes" },
+              { href: `/${language}/arac/ahiret-yolculugu`, labelTr: 'Ahiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
+            ]}
+          />
 
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
