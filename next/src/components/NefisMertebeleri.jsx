@@ -13,6 +13,7 @@ import {
   BREAKPOINT_TABLET,
   RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
@@ -371,6 +372,17 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
         </div>
         </CollapsibleHero>
+
+        <ToolScopeNote
+          language={language}
+          thisTr="Nefsin ahlâkî-manevî 7 mertebesi — emmâreden kâmileye."
+          thisEn="The 7 moral-spiritual stations of the self — from ammāra to kāmila."
+          neighbors={[
+            { href: `/${language}/atlas/insan-tanimi`, labelTr: "Kur'an'da İnsan", labelEn: 'The Human in the Quran', noteTr: 'insanın tanımı (kavram/vasıf)', noteEn: 'definition of the human (concepts/attributes)' },
+            { href: `/${language}/atlas/insan-psikolojisi`, labelTr: 'İnsan Psikolojisi', labelEn: 'Human Psychology', noteTr: 'iç dünya: kalp, korku, savunma', noteEn: 'inner world: heart, fear, defense' },
+            { href: `/${language}/atlas/insan-yolculugu`, labelTr: 'İnsan Yolculuğu', labelEn: 'The Human Journey', noteTr: 'fıtrattan Cemâlullah\'a hayat yolu', noteEn: 'life\'s path from fiṭra to Jamāl Allāh' },
+          ]}
+        />
 
         {/* ───────────────── STICKY TAB BAR (Dalga 2.2) ───────────────── */}
         <div className="mq-box" id="nefs-tab-bar" style={{
