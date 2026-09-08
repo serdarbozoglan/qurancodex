@@ -59,8 +59,13 @@
 
 ## C) Menü & İçerik Mimarisi
 
-- [ ] **C1 · Amaç-bazlı giriş: Oku / Öğren / Araştır / Tefekkür** — 🔵 L (nav restructure)
+- [ ] **C1 · Amaç-bazlı giriş: Oku / Öğren / Araştır / Tefekkür** — 🔵 L (nav restructure) **★ ÖNERİLEN SONRAKİ BÜYÜK İŞ (veri sonrası)**
   Her amaca birincil giriş + net "sonraki adım". Mevcut "Tüm Araçlar" araması korunur.
+  - **Somut tasarım:** Ana sayfada hero altına **4 "kapı"** (araç ismi değil, niyet): 📖 Oku / 🧭 Öğren / 🔬 Araştır / 🌙 Tefekkür. Her kapı = ikon + "ne yapacaksın" + 2-3 seçili örnek giriş + "→ sonraki adım". Kapı → o niyete filtreli iniş (veya filtrelenmiş "Tüm Araçlar").
+  - **Niyet eşlemesi (65 düz araç → 4 kova):** Oku→`/oku`,Fâtiha (mushaf/meal/ezber/karaoke) · Öğren→atlaslar (kissa, ibadetler, insan-*, kavim, doga, mesel) · Araştır→graflar (graf/ayet, kavram, kelime-isi, zaman, diyalog) + furuk/munasebat/retorik · Tefekkür→`/tefekkur`.
+  - **Gerektirir:** `toolCatalog`'a `intent` alanı (65 aracı etiketle — katalog tek kaynak, SEO02) + 4-kapı bileşeni (A1/C2 gibi paylaşılan, düşük risk) + isteğe bağlı filtreli Tüm Araçlar.
+  - **ÖN KOŞUL (kritik):** körlemesine yapma. Önce **saha analitiği 2-3 hafta** (aşağıya bak) → hangi araçlar hiç açılmıyor gör. Veri ya kapıların keşfi açacağını ya da **65 aracın fazla** olup bazılarının birleştirilmesi/emekliye ayrılması gerektiğini gösterir (azaltma > ekleme olabilir). C1'i veriyle kur.
+  - **NOT:** E1'in web-vitals'ı yalnız *performans* ölçer (LCP/INP/CLS), *ziyaret sayısı/hangi sayfa* DEĞİL. C1 için gereken sayfa-popülerliği verisi ayrı bir analitik ürünü ister (Vercel Web Analytics önerilir — cookieless, hazır dashboard).
 - [x] **C2 · Örtüşen araçların sınırlarını açıkla** — 🟡 S/M **✅ TAMAMLANDI**
   Yeni `ToolScopeNote` (hero altı, varışta yönlendirir; CrossToolCTA sayfa-dibi ile tamamlayıcı): "Bu sayfa neye odaklanır + komşu araçların ayırıcı farkı". 4 küme, **11 araç**:
   - İnsan: Tanım · Psikoloji · Nefs Mertebeleri · Yolculuk
