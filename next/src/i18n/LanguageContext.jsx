@@ -59,6 +59,26 @@ export function LanguageProvider({ children, initialLocale }) {
     document.documentElement.lang = language;
   }, [language]);
 
+  // Dil değişiminde scroll konumunu geri yükle. toggleLanguage konumu
+  // sessionStorage'a yazar; burada (pathname değişince) yüksekliğin geri
+  // gelmesini bekleyip tam oraya kaydırırız. Böylece async-içerikli sayfalar
+  // da (ibadetler/tefekkür-index/kavram) başa zıplamaz. Yalnız dil-değişimi
+  // tetikler (bayrak yalnız toggleLanguage tarafından yazılır).
+  useEffect(() => {
+    let raw = null;
+    try { raw = sessionStorage.getItem('qc_lang_scroll'); if (raw != null) sessionStorage.removeItem('qc_lang_scroll'); } catch { /* yut */ }
+    const y = parseInt(raw ?? '', 10);
+    if (Number.isNaN(y) || y <= 0) return;
+    let tries = 0;
+    const restore = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max >= y - 4 || tries > 60) { window.scrollTo(0, Math.min(y, Math.max(0, max))); return; }
+      tries += 1;
+      requestAnimationFrame(restore);
+    };
+    requestAnimationFrame(restore);
+  }, [pathname]);
+
   const t = useCallback((key) => {
     const keys = key.split('.');
     // EN istendi ama henüz yüklenmediyse TR'ye fallback (UX: boş key yerine TR metin)
@@ -83,7 +103,11 @@ export function LanguageProvider({ children, initialLocale }) {
       const qs = typeof window !== 'undefined' ? window.location.search : '';
       // scroll: false — dil değişimi AYNI sayfada kalır; varsayılan davranış
       // scroll'u en üste sıfırlıyordu ("başa zıplama" bug'ı). Kullanıcı okuduğu
-      // yerde kalsın, yalnız dil değişsin.
+      // yerde kalsın, yalnız dil değişsin. Ayrıca konumu sessionStorage'a yaz:
+      // içeriği async yükleyen sayfalarda (ibadetler/tefekkür-index/kavram) dil
+      // değişince yükseklik anlık çöküyor ve tarayıcı 0'a kırpıyor; aşağıdaki
+      // restore effect yükseklik geri gelince konumu tekrar kurar (istisnasız).
+      try { sessionStorage.setItem('qc_lang_scroll', String(window.scrollY)); } catch { /* private mode */ }
       router.push(qs ? `${swapped}${qs}` : swapped, { scroll: false });
     } else {
       setLanguage(next);
