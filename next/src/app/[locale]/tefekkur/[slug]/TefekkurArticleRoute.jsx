@@ -48,6 +48,22 @@ export default function TefekkurArticleRoute({ article }) {
   // Reading progress bar — local, scoped to article
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null);
+  // A7: "kaldığın yere devam" — okuma konumunu makale bazında hatırla.
+  const [resumeY, setResumeY] = useState(null);
+  const scrollKey = `qc_tefekkur_scroll_${article.slug}`;
+  const lastSaveRef = useRef(0);
+
+  // A7: okuma konumunu kaydet. Sona ulaşınca (pct>96) temizle; yalnız anlamlı
+  // bir konumda (>400px) yaz — mount'ta scrollY=0 iken kayıtlı değeri EZMEZ.
+  const saveScroll = () => {
+    try {
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+      if (pct > 96) localStorage.removeItem(scrollKey);
+      else if (window.scrollY > 400) localStorage.setItem(scrollKey, String(Math.round(window.scrollY)));
+    } catch { /* private mode */ }
+  };
 
   useEffect(() => {
     let raf = null;
@@ -68,13 +84,43 @@ export default function TefekkurArticleRoute({ article }) {
         }
         setActiveSection(current);
 
+        // Periyodik kaydet (~1sn throttle).
+        const now = Date.now();
+        if (now - lastSaveRef.current > 1000) { lastSaveRef.current = now; saveScroll(); }
+
         raf = null;
       });
     };
+    // Ayrılırken kesin kaydet — resume için en güvenilir sinyal.
+    const onLeave = () => saveScroll();
+    const onVis = () => { if (document.visibilityState === 'hidden') saveScroll(); };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('pagehide', onLeave);
+    document.addEventListener('visibilitychange', onVis);
     onScroll();
-    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
-  }, [toc]);
+    return () => {
+      saveScroll(); // unmount (SPA navigasyonu) = ayrılış
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('pagehide', onLeave);
+      document.removeEventListener('visibilitychange', onVis);
+      if (raf) cancelAnimationFrame(raf);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toc, scrollKey]);
+
+  // A7: mount'ta kayıtlı konum varsa (ve kullanıcı henüz tepedeyken) "devam et"
+  // istemini göster. Tıklamayla oraya kayar; kullanıcı kendi kaydırırsa gizlenir.
+  useEffect(() => {
+    let saved = 0;
+    try { saved = parseInt(localStorage.getItem(scrollKey) || '0', 10); } catch { /* yut */ }
+    if (!(saved > 600 && window.scrollY < 200)) return;
+    setResumeY(saved);
+    // Kullanıcı kendi kaydırmaya başlarsa istemi gizle (bayat pill kalmasın).
+    const startY = window.scrollY;
+    const onManual = () => { if (Math.abs(window.scrollY - startY) > 300) setResumeY(null); };
+    window.addEventListener('scroll', onManual, { passive: true });
+    return () => window.removeEventListener('scroll', onManual);
+  }, [scrollKey]);
 
   return (
     <div style={{
@@ -84,9 +130,10 @@ export default function TefekkurArticleRoute({ article }) {
       paddingTop: 'var(--qc-nav-h, 84px)',
       position: 'relative',
     }}>
-      {/* Reading progress bar — fixed at top of viewport below navbar */}
+      {/* Reading progress bar — fixed at top of viewport below navbar.
+          Offset navbar yüksekliğine bağlı (§13.31): sabit 62 yerine --qc-nav-h. */}
       <div style={{
-        position: 'fixed', top: '62px', left: 0, right: 0, height: '2px',
+        position: 'fixed', top: 'var(--qc-nav-h, 84px)', left: 0, right: 0, height: '2px',
         background: 'rgba(255,255,255,0.04)', zIndex: 49,
         pointerEvents: 'none',
       }}>
@@ -98,6 +145,34 @@ export default function TefekkurArticleRoute({ article }) {
           transition: 'width 0.1s linear',
         }} />
       </div>
+
+      {/* A7: "Kaldığın yerden devam et" — kayıtlı okuma konumu varsa. */}
+      {resumeY != null && (
+        <button
+          type="button"
+          onClick={() => { window.scrollTo({ top: resumeY, behavior: 'smooth' }); setResumeY(null); }}
+          style={{
+            position: 'fixed', bottom: '22px', left: '50%', transform: 'translateX(-50%)',
+            zIndex: 60, display: 'inline-flex', alignItems: 'center', gap: '8px',
+            padding: '10px 18px', borderRadius: '999px',
+            background: 'rgba(8,10,26,0.96)', backdropFilter: 'blur(12px)',
+            border: `1px solid ${accent}66`, color: COLORS.gold,
+            fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: 600,
+            cursor: 'pointer', boxShadow: '0 8px 28px rgba(0,0,0,0.5)',
+          }}
+        >
+          <span aria-hidden="true">↓</span>
+          {language === 'en' ? 'Continue where you left off' : 'Kaldığın yerden devam et'}
+          <span
+            role="button"
+            tabIndex={0}
+            aria-label={language === 'en' ? 'Dismiss' : 'Kapat'}
+            onClick={(e) => { e.stopPropagation(); setResumeY(null); }}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); setResumeY(null); } }}
+            style={{ marginLeft: '4px', color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1, cursor: 'pointer' }}
+          >×</span>
+        </button>
+      )}
 
       <ToolHeader
         icon={
