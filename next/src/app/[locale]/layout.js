@@ -19,6 +19,7 @@ import Navbar from '@/components/Navbar';
 import InAppNavMarker from '@/components/InAppNavMarker';
 import ScrollProgress from '@/components/ScrollProgress';
 import WebVitals from '@/components/WebVitals';
+import { Analytics } from '@vercel/analytics/next';
 import BugReportFab from '@/components/BugReportFab';
 
 const SUPPORTED_LOCALES = ['tr', 'en'];
@@ -53,6 +54,7 @@ export default async function LocaleLayout({ children, params }) {
         <>
           <InAppNavMarker />
           <WebVitals />
+          <Analytics />
           <ScrollProgress />
           <Navbar />
           {/* tabIndex={-1} ŞART — 2026-08-13 ölçümü:
