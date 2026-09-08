@@ -7,6 +7,7 @@ import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useTabParam from '../hooks/useTabParam';
 import ScientificSigns from '../sections/ScientificSigns';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -1515,7 +1516,7 @@ export default function DogaAtlasi({ onClose }) {
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
   const [data]       = useState(dogaDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);
 

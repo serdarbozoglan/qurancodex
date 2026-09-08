@@ -15,6 +15,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import data from '../../public/dua-dili.json';
 
@@ -41,7 +42,7 @@ export default function DuaDili({ onClose }) {
   const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState('prophets');
+  const [activeTab, setActiveTab] = useTabParam(TABS.map(t => t.id), { defaultKey: 'prophets' });
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 640);

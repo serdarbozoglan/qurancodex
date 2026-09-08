@@ -27,7 +27,9 @@ function Paragraph({ tr: trText, en: enText, language, isFirst }) {
         return (
           <p key={i} style={{
             margin: '0 0 20px',
-            fontSize: '1.08rem',
+            // A6 (ChatGPT): uzun-okuma gövdesi ~18px olsun (eski 1.08rem≈17px);
+            // satır aralığı 1.85 + max-width 760px (rota) ile rahat okuma.
+            fontSize: '1.15rem',
             color: COLORS.offWhite,
             fontFamily: FONTS.body,
             lineHeight: 1.85,

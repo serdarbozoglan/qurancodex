@@ -7,6 +7,7 @@ import {
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS, SEMANTIC,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import useTabParam from '../hooks/useTabParam';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -2624,7 +2625,7 @@ export default function KuranRenkleri({ onClose }) {
   const tr = language === 'tr';
 
   const [data, setData]               = useState(null);
-  const [activeTab, setActiveTab]     = useState(TABS.RENKLER);
+  const [activeTab, setActiveTab]     = useTabParam(Object.values(TABS), { defaultKey: TABS.RENKLER });
   const [activeFilter, setActiveFilter] = useState('tumu');
   const [isMobile, setIsMobile]       = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [expandedVerse, setExpandedVerse] = useState(null);

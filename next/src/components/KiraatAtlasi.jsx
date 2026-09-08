@@ -13,6 +13,7 @@ import CrossToolCTA from './CrossToolCTA';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — client-side fetch yerine static import: SSR'da içerik
 // boştu ("Yükleniyor…" iskeleti), JS başarısız olursa sayfa hiç dolmuyordu.
 // AhiretYolculugu.jsx'teki 2026-07-15 audit fix'iyle aynı desen.
@@ -1527,7 +1528,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data] = useState(kiraatDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const tabHistoryRef = useRef([]);
   const onRegisterBackHandlerRef = useRef(onRegisterBackHandler);
   onRegisterBackHandlerRef.current = onRegisterBackHandler;

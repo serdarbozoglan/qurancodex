@@ -8,6 +8,7 @@ import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -1295,7 +1296,7 @@ export default function Melekler({ onClose }) {
   const { language } = useLanguage();
   const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [data, setData] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);

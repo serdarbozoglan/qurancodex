@@ -10,6 +10,7 @@ import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import yeminlerDataStatic from '../../public/yeminler.json';
@@ -50,7 +51,7 @@ export default function KuranYeminleri({ onClose }) {
   const { language } = useLanguage();
   const navTop = useNavbarOffset(0, 62);
   const [data] = useState(yeminlerDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [activeCategoryId, setActiveCategoryId] = useState(yeminlerDataStatic.categories[0]?.id ?? null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [expandedAccordion, setExpandedAccordion] = useState(null);

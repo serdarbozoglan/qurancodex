@@ -13,12 +13,14 @@
 // otomatik okunmuyor (Hero sunucu bileşeni, derleme zamanında sabitleniyor).
 // ────────────────────────────────────────────────────────────────────────────
 
+import Link from 'next/link';
 import { COLORS, FONTS, SEMANTIC, GRADIENTS } from '../tokens';
 
+// B3 (ChatGPT) "sayıya tıkla → liste": her sayı, saydığı içeriğin listesine gider.
 const STATS = [
-  { n: '65', labelTr: 'Araç', labelEn: 'Tools' },
-  { n: '53', labelTr: 'Tefekkür Yazısı', labelEn: 'Reflection Essays' },
-  { n: '6.236', labelTr: 'Âyet', labelEn: 'Verses' },
+  { n: '65', labelTr: 'Araç', labelEn: 'Tools', href: 'arac/tum-araclar' },
+  { n: '53', labelTr: 'Tefekkür Yazısı', labelEn: 'Reflection Essays', href: 'tefekkur' },
+  { n: '6.236', labelTr: 'Âyet', labelEn: 'Verses', href: 'graf/ayet' },
 ];
 
 export default function InventoryStrip({ locale = 'tr' }) {
@@ -37,13 +39,19 @@ export default function InventoryStrip({ locale = 'tr' }) {
       }}
     >
       {STATS.map((s, i) => (
-        <div
+        <Link
           key={s.labelEn}
+          href={`/${locale}/${s.href}`}
+          aria-label={tr ? `${s.n} ${s.labelTr} — listeye git` : `${s.n} ${s.labelEn} — view the list`}
+          className="inventory-stat"
           style={{
-            padding: '0 clamp(20px, 5vw, 34px)',
+            padding: '4px clamp(20px, 5vw, 34px)',
             textAlign: 'center',
             position: 'relative',
+            textDecoration: 'none',
+            borderRadius: '8px',
             borderLeft: i > 0 ? `1px solid ${SEMANTIC.textFaint}33` : 'none',
+            transition: 'transform 0.15s ease, background 0.15s ease',
           }}
         >
           {/* v2.0 — düz hardal-altın yerine sıcak altın gradyan (§13.25 md.7:
@@ -94,7 +102,7 @@ export default function InventoryStrip({ locale = 'tr' }) {
             />
             {tr ? s.labelTr : s.labelEn}
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

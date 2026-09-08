@@ -12,6 +12,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import speakersDataStatic from '../../public/diyalog-speakers.json';
@@ -166,7 +167,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   const navTop = useNavbarOffset(0, 62);
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [axisFilter, setAxisFilter] = useState(null);       // { speakerId, addresseeId }
   const [temporalFilter, setTemporalFilter] = useState('all'); // 'ezel'|'dunya'|'ahiret'|'all'
   const _localBackRef = useRef(null); // mirrors onRegisterBackHandler for ESC key use

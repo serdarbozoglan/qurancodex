@@ -7,11 +7,13 @@ import { routeForToolEvent } from '../lib/toolRoutes';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import cennetCehennemDataStatic from '../../public/cennet-cehennem.json';
@@ -165,7 +167,7 @@ export default function CennetCehennem({ onClose }) {
   const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data]           = useState(cennetCehennemDataStatic);
-  const [activeTab, setActiveTab] = useState('isimler');
+  const [activeTab, setActiveTab] = useTabParam(TABS.map(t => t.id), { defaultKey: 'isimler' });
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
 
@@ -374,6 +376,16 @@ export default function CennetCehennem({ onClose }) {
             </p>
           </div>
           </CollapsibleHero>
+
+          <ToolScopeNote
+            language={language}
+            thisTr="Yolculuğun iki nihai varış noktası — 9 cennet, 7 cehennem, A'râf."
+            thisEn="The journey's two final destinations — 9 levels of paradise, 7 of hell, al-Aʿrāf."
+            neighbors={[
+              { href: `/${language}/arac/kiyamet`, labelTr: 'Kıyâmet Sahneleri', labelEn: 'Doomsday Scenes', noteTr: 'yolculuğun başlangıcı, kıyamet sahneleri', noteEn: "the journey's beginning: doomsday scenes" },
+              { href: `/${language}/arac/ahiret-yolculugu`, labelTr: 'Ahiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
+            ]}
+          />
 
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />

@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useTabParam from '../hooks/useTabParam';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
@@ -329,7 +330,7 @@ function InfoTip({ textTr, textEn, language }) {
 export default function KavimlerAtlasi({ onClose }) {
   const { language } = useLanguage();
   const [data] = useState(kavimlerDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS_TR.length);
   const [filter, setFilter] = useState('tumu');
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const [highlightArch, setHighlightArch] = useState(null);

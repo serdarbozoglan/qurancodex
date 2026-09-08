@@ -10,6 +10,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
@@ -892,7 +893,7 @@ export default function MunasebatAtlasi({ onClose }) {
   // erişemez/erişmemelidir, ikisi de `false` ile eşleşmeli — gerçek değer
   // yalnızca mount sonrası effect içinde okunur (bkz. CLAUDE.md §16.6).
   const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [data] = useState(munasebatDataStatic);
   const [typeFilter, setTypeFilter] = useState(null);
   const [strengthFilter, setStrengthFilter] = useState(null);

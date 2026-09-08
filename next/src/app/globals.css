@@ -274,6 +274,21 @@ body::after {
   -webkit-text-fill-color: transparent;
 }
 
+/* ---- B3: InventoryStrip sayıları tıklanabilir (sayıya tıkla → liste) ----
+   Server bileşeni olduğu için hover/focus CSS ile. Tıklanabilirliği belli et:
+   hover'da hafif kalkma + altın zemin; klavye için görünür odak. */
+.inventory-stat:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--color-gold) 7%, transparent);
+}
+.inventory-stat:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .inventory-stat:hover { transform: none; }
+}
+
 /* ---- v2.0 Hover fiziği ----
    Kart/panel/CTA'ya tek tutarlı "kalkma + parlama" hareketi. Tüm siteye
    yayıldığında aynı dokunuş hissini verir. Reduced-motion'da devre dışı. */

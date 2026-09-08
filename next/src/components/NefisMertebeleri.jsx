@@ -13,8 +13,10 @@ import {
   BREAKPOINT_TABLET,
   RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -65,7 +67,7 @@ export default function NefisMertebeleri({ onClose }) {
   const trapRef = useFocusTrap(true);
   const [data] = useState(nefisDataStatic);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
-  const [activeTab, setActiveTab] = useState('journey');  // Dalga 2.2 tab state
+  const [activeTab, setActiveTab] = useTabParam(['journey', 'matrix', 'keyverses', 'frameworks'], { defaultKey: 'journey' });  // Dalga 2.2 tab state
   const bodyRef = useRef(null);
   // Navbar yüksekliği sabit değil — ölç (bkz. ToolHeader.jsx / useNavbarOffset.js,
   // CLAUDE.md §13.31 Mekanizma 2). Tab bar bu değeri +48 (ToolHeader yüksekliği)
@@ -370,6 +372,17 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
         </div>
         </CollapsibleHero>
+
+        <ToolScopeNote
+          language={language}
+          thisTr="Nefsin ahlâkî-manevî 7 mertebesi — emmâreden kâmileye."
+          thisEn="The 7 moral-spiritual stations of the self — from ammāra to kāmila."
+          neighbors={[
+            { href: `/${language}/atlas/insan-tanimi`, labelTr: "Kur'an'da İnsan", labelEn: 'The Human in the Quran', noteTr: 'insanın tanımı (kavram/vasıf)', noteEn: 'definition of the human (concepts/attributes)' },
+            { href: `/${language}/atlas/insan-psikolojisi`, labelTr: 'İnsan Psikolojisi', labelEn: 'Human Psychology', noteTr: 'iç dünya: kalp, korku, savunma', noteEn: 'inner world: heart, fear, defense' },
+            { href: `/${language}/atlas/insan-yolculugu`, labelTr: 'İnsan Yolculuğu', labelEn: 'The Human Journey', noteTr: 'fıtrattan Cemâlullah\'a hayat yolu', noteEn: 'life\'s path from fiṭra to Jamāl Allāh' },
+          ]}
+        />
 
         {/* ───────────────── STICKY TAB BAR (Dalga 2.2) ───────────────── */}
         <div className="mq-box" id="nefs-tab-bar" style={{

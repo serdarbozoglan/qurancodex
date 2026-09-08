@@ -1952,7 +1952,7 @@ export default function Navbar() {
               width: '44px',
               height: '44px',
             }}
-            aria-label="Toggle menu"
+            aria-label={language === 'tr' ? 'Menüyü aç/kapat' : 'Toggle menu'}
             aria-expanded={mobileOpen}
           >
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -2065,7 +2065,7 @@ export default function Navbar() {
               color: '#e8e6e3',
               cursor: 'pointer',
             }}
-            aria-label="Menüyü kapat"
+            aria-label={language === 'tr' ? 'Menüyü kapat' : 'Close menu'}
           >
             <CloseIcon size={18} strokeWidth={2.5} />
           </button>

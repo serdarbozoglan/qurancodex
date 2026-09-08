@@ -115,8 +115,15 @@ export default function ToolHeader({
             style={{
               display: 'inline-flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '5px',
-              padding: '4px 10px',
+              // A5 (ChatGPT): dokunma hedefi. Eski 4px/10px dolgu 36×24px pill
+              // veriyordu (mobilde ok-tek karakter ~24px yükseklik). 40px min
+              // yükseklik + mobilde ~40px genişlik ile rahat dokunma; 48px
+              // ToolHeader çubuğuna sığar.
+              padding: '8px 12px',
+              minHeight: '40px',
+              minWidth: '40px',
               borderRadius: '999px',
               border: `1px solid ${COLORS.gold}33`,
               color: `${COLORS.gold}bb`,
@@ -129,6 +136,7 @@ export default function ToolHeader({
               flexShrink: 0,
               transition: 'all 0.15s',
               whiteSpace: 'nowrap',
+              boxSizing: 'border-box',
             }}
             onMouseEnter={e => {
               e.currentTarget.style.background = `${COLORS.gold}12`;

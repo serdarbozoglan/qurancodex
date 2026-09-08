@@ -11,6 +11,7 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -203,6 +204,17 @@ export default function InsanYolculugu({ onClose }) {
             </div>
           </div>
           </CollapsibleHero>
+
+          <ToolScopeNote
+            language={language}
+            thisTr="Fıtrattan Cemâlullah'a hayatın 10 aşaması — kavramların hayattaki karşılığı."
+            thisEn="Life's 10 stages from fiṭra to Jamāl Allāh — the concepts embodied in life."
+            neighbors={[
+              { href: `/${language}/atlas/insan-tanimi`, labelTr: "Kur'an'da İnsan", labelEn: 'The Human in the Quran', noteTr: 'insanın tanımı (kavram/vasıf)', noteEn: 'definition of the human (concepts/attributes)' },
+              { href: `/${language}/atlas/insan-psikolojisi`, labelTr: 'İnsan Psikolojisi', labelEn: 'Human Psychology', noteTr: 'iç dünya: kalp, korku, savunma', noteEn: 'inner world: heart, fear, defense' },
+              { href: `/${language}/atlas/nefs-mertebeleri`, labelTr: 'Nefs Mertebeleri', labelEn: 'Stations of the Self', noteTr: 'nefsin 7 ahlâkî basamağı', noteEn: 'the 7 moral stations of the self' },
+            ]}
+          />
 
           {/* ─── Mobile: Stage chip strip (§13.19 sticky) ──────────── */}
           {isMobile && (

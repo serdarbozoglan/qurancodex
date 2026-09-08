@@ -3,6 +3,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
@@ -425,7 +426,7 @@ export default function ZamanBoyutlari({ onClose }) {
   const { language } = useLanguage();
   const navTop = useNavbarOffset(0, 62);
   const { openOverlay } = useQuranNav();
-  const [activeTab, setActiveTab]         = useState('olcek');
+  const [activeTab, setActiveTab]         = useTabParam(TABS.map(t => t.id), { defaultKey: 'olcek' });
   const [expandedRow,   setExpandedRow]   = useState(null);
   const [expandedCard,  setExpandedCard]  = useState(null);
   const [sourcesOpen, setSourcesOpen]     = useState(true);

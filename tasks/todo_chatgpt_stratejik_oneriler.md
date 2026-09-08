@@ -15,8 +15,10 @@
   - Pilot: Fâtiha Atlası. Yayım: **40 hero-first araç/atlas** sayfası.
   - Atlanan (kasıtlı): IblisSatan (parçalı hero), EsmaFrekans (flagship istisna §13.17/§17.2), IlkSonKelimeler (zaten tool-first).
   - Doğrulama: 40 rota × TR/EN = **80/80** (HTTP 200 + katlama butonu render + runtime hata yok); denetimler yeşil.
-- [ ] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M
-  Başta 3 açıklayıcı örnek, ileri detayda tam tablo/grafik. "30 sn'de: neye bakıyorum / ne tıklamalıyım / ne öğreneceğim" testi.
+- [~] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M **(pilot yapıldı)**
+  Başta birkaç örnek, tam tablo "Tümünü göster" ardında. "30 sn'de: ne görüyorsun / ne tıklarsın / ne öğrenirsin" yönlendirmesi.
+  - ✅ **Pilot: Füruk Atlası Panorama** — 30-sn yönlendirme şeridi + kategori başına önce 3 kart, gerisi "Tümünü göster (N)". TR+EN doğrulandı.
+  - ⬜ Yayım (içerik-hassas — her araç için **doğru** yönlendirme metni gerekir, A1 gibi mekanik değil): diğer yoğun-tablo araçları (MunasebatAtlasi, YakinAnlamliNuanslar, TefsirIhtilaflari vb.). Not: WordHeatmap'te preset örnekleri zaten var.
 - [x] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **✅ TAMAMLANDI**
   Ayet/kavram/diyalog/zaman ağlarında renk+konuma ek: metin-alternatifi + klavye navigasyonu. Tüm içerik mevcut veriden türetildi (uydurma yok), tarayıcıda TR+EN doğrulandı.
   - ✅ **RevelationTimeline (/graf/zaman):** görünür + erişilebilir **"Liste" görünüm modu** (semantik `<table>`) + tüm modlarda `SR_ONLY <ol>` metin-alternatifi. Ayrıca kart ipuçları (ⓘ / mushaf-fark) native `title` yerine anında açılan `HintIcon` (hover+focus+tık).
@@ -26,16 +28,20 @@
   - ✅ **VerseGraph (/graf/ayet):** ClusterView + FullGraph (3B, masaüstü varsayılanı) + VerseView sr-only açıklama; 11 klasik sûre grubu + iki görünüm modu.
   - ➕ **Tilâvet autostart:** /graf/ayet İkra (Alak 1-5) tilâveti ilk kullanıcı jestinde otomatik başlar (tarayıcı sesli-autoplay engelini jest-yedeğiyle aşar; buton kontrolü korunur).
   - **BONUS (önceki turda):** sistemik "başlık/çip truncate" (§13.31 Mek. 2) çözüldü — `useNavbarOffset` → `--qc-nav-h` CSS değişkeni; 38 dosyada hardcoded `62px` → `var(--qc-nav-h, 84px)`; regresyon `audit-counts.mjs` push kapısında. CLAUDE.md §13.17 güncellendi.
-- [ ] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M
-  Sürekli italik meal için düz-yazı seçeneği, punto/satır aralığı/rahat tema kolay erişilir. Kelime/meal/tefsir/ezber/tahta/yer-imi'ni birincil/ikincil düzenle.
-- [ ] **A5 · Mobilde en zor ekranları test et** — 🟢 M
-  114 sütun ısı haritası, çok sekmeli ibadet, 2 sütun mushaf, uzun başlıklar. 360/390px tek sütun, yatay kaydırma açıklaması, odak görünürlüğü, 44px dokunma. (§13.31 truncated ailesiyle bağlantılı.)
-- [ ] **A6 · Uzun-okuma tipografisi (tefekkür)** — 🟡 S (kısmen var, §13.29)
-  Body ~18-20px, rahat satır aralığı, kontrollü satır uzunluğu. Uzun italik özetleri kısalt. *Not: yazarın metnini ezme (§13.29); tldr katmanını kullan.*
-- [ ] **A7 · İçindekiler (TOC) güçlendir** — 🟡 S (kısmen var: DesktopSidebarTOC, ChapterProgress)
-  Aktif bölüm, okuma ilerlemesi, başa dön, kaldığın yere devam; kaynakçaya sona kaydırmadan eriş.
-- [ ] **A8 · Sekme/kart davranışını ortaklaştır + paylaşılabilir durum** — 🟡 M
-  Aktif sekme belirgin, seçili durum URL'de (paylaşılabilir), geri düğmesi öngörülebilir; kaynak/nüans düğmeleri her sayfada aynı yer/ad.
+- [x] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M **✅ ZATEN YAPILMIŞ (2026-09-07)**
+  Doğrulandı ([ReadingMode.jsx:1436](next/src/components/ReadingMode.jsx#L1436)): meal artık **her zaman düz-yazı** (italic toggle kaldırıldı — "uzun Türkçe meal düz dizgide daha okunur"). Meal Yazı Boyutu + Arapça Yazı Boyutu kontrolleri (reset dahil), gündüz/gece teması mevcut. Ayar paneli **kasıtlı sadeleştirilmiş** → satır-aralığı slider'ı bu kararla çelişeceği için eklenmedi. A4'ün özü karşılanıyor.
+- [~] **A5 · Mobilde en zor ekranları test et** — 🟢 M **(denetlendi + site-geneli fix)**
+  Playwright 360/390px denetimi: en zor ekranlarda (114-sütun ısı haritası, çok-sekmeli ibadet, mushaf, uzun başlıklar, 3B graf, kavim haritası) **yatay taşma YOK** — düzen zaten sağlam.
+  - ✅ **Dokunma hedefi:** ToolHeader "Anasayfaya dön" pill'i 36×24px → **40×40** (site-geneli, ~65 araç).
+  - ⬜ Kalan (küçük/tekil): WowFacts yer-imi ikonu 26×26, okuma-ekranı ayet rozetleri 27×27 (yoğun bağlam; opsiyonel).
+- [x] **A6 · Uzun-okuma tipografisi (tefekkür)** — 🟡 S **✅ TAMAMLANDI**
+  Makale gövde puntosu 1.08rem(~17px) → **1.15rem(~18px)**; satır aralığı 1.85 + max-width 760px ile kontrollü satır uzunluğu. Hero/meta kasıtlı küçük; yazarın metni ezilmedi (§13.29).
+- [x] **A7 · İçindekiler (TOC) güçlendir** — 🟡 S **✅ TAMAMLANDI**
+  Aktif bölüm (IntersectionObserver), ilerleme çubuğu, başa dön zaten vardı. Eklenen: **"kaldığın yere devam"** — okuma konumu makale bazında hatırlanır (pagehide/unmount/visibilitychange'de kaydet), dönüşte "Kaldığın yerden devam et" pill'i (tıkla→kay, manuel kaydırmada gizlen, sonda temizlen). Bonus: ilerleme çubuğu offset'i `var(--qc-nav-h)` (§13.31). TR+EN doğrulandı.
+- [x] **A8 · Sekme/kart davranışını ortaklaştır + paylaşılabilir durum** — 🟡 M **✅ TAMAMLANDI**
+  Yeni `useTabParam` kancası aktif sekmeyi URL'e bağlar (`?tab=N` veya `?tab=<key>`): paylaşılabilir + geri düğmesi öngörülebilir. `window.location`+`history.replaceState` (useSearchParams DEĞİL → statik-prerender Suspense hatası yok, SSR/build-güvenli).
+  - **24 sekmeli araç**: 18 index + 6 string-key (+ ibadetler/pillar zaten ?tab= slug).
+  - Doğrulama: production build temiz, runtime + URL-sync doğrulandı.
 - [x] **A0 · Ana sayfa 3 somut giriş** — ⚪ (UX01) — video butonu + §17 ile kısmen; ayrıca "Oku/Konu ara/Keşfet" girişleri değerlendirilebilir.
 - [x] **A9 · Kontrastı ölçerek iyileştir** — ⚪ Zaten var (§13.26 `audit-contrast.mjs` + baseline; §4 scriptureText/accentPrimary token ayrımı).
 
@@ -45,7 +51,8 @@
   İddia → ayet/korpus → kullanılan meal → klasik kaynak → çağdaş yorum → istisna/sınır → kontrol eden → güncelleme tarihi. Kitap: baskı+sayfa; makale: DOI/kalıcı bağlantı. (Şu an dağınık; §13.30 kısmen.)
 - [ ] **B2 · Beş görünür bilgi türü etiketi** — 🟢 M/L
   Ayet metni · meal · rivayet/klasik görüş · veri analizi · yazar tefekkürü = ayrı görsel etiketler. "Saygıdeğer yorum ≠ zorunlu sözlük anlamı/deneysel bulgu." (C19/C22 bunun küçük örnekleriydi.)
-- [ ] **B3 · Ortak sayım kuralları + "sayıya tıkla → liste"** — 🟢 M
+- [~] **B3 · Ortak sayım kuralları + "sayıya tıkla → liste"** — 🟢 M **(büyük ölçüde var + slice eklendi)**
+  "Sayım kuralları" zaten `DataDictionary` ile sayım-yoğun araçlarda belgeleniyor. "Sayıya tıkla → liste": WordHeatmap'te (sûre→âyetler) + artık **ana sayfa InventoryStrip** (65 Araç→/arac/tum-araclar · 53 Tefekkür→/tefekkur · 6.236 Âyet→/graf/ayet). ⬜ Kalan: tam site-geneli tıkla→liste + tek kanonik sayım-kuralları referansı (ayrı faz).
   Hafs sürümü, besmele dahil/hariç, kelime bölme, lemma/kök/yüzey, tekrar sayımı, doğrudan/dolaylı atıf tek yerde tanımlı. Her sayıya tıklayınca sayılan ayet listesi açılsın. (C01/C07/C09'un kök-önlemi.)
 - [x] **B4 · Yayın kapısı (CI) — sayım + eş-güncelleme testleri** — ✅ **YAPILDI (2026-09-07)** 🟢
   114 sûre toplamı, ayet sınırları, seri toplamları, çeviri alan kapsamı, katalog↔sitemap eşliği otomatik kontrol. Dinî dil/tecvid + bilim/psikoloji içerik uzman gözden geçirme. (C01/C07/C12/C18 bu kapı olsa yakalanırdı.)
@@ -54,10 +61,15 @@
 
 - [ ] **C1 · Amaç-bazlı giriş: Oku / Öğren / Araştır / Tefekkür** — 🔵 L (nav restructure)
   Her amaca birincil giriş + net "sonraki adım". Mevcut "Tüm Araçlar" araması korunur.
-- [ ] **C2 · Örtüşen araçların sınırlarını açıkla** — 🟡 S/M
-  Belâgat↔Retorik, Furûk↔Yakın Anlamlı, İnsan Tanımı/Psikoloji/Nefs/Yolculuk, Kıyamet↔Ahiret sayfalarının kapsamı net anlatılsın; aynı veri kopyalanmasın, ortak veri üzerinde farklı bakış.
-- [ ] **C3 · i18n yerelleştirme kapsamını genişlet** — 🟡 M (UX02 devamı)
-  Kart başlıkları, motif adları, şehir/dönem açıklamaları, grafik etiketleri, alt-metin, metadata. *UX02'de amthal+ibadetler+doğa yapıldı; kalan: grafik etiketleri, alt-metin, metadata, diğer atlaslar.*
+- [x] **C2 · Örtüşen araçların sınırlarını açıkla** — 🟡 S/M **✅ TAMAMLANDI**
+  Yeni `ToolScopeNote` (hero altı, varışta yönlendirir; CrossToolCTA sayfa-dibi ile tamamlayıcı): "Bu sayfa neye odaklanır + komşu araçların ayırıcı farkı". 4 küme, **11 araç**:
+  - İnsan: Tanım · Psikoloji · Nefs Mertebeleri · Yolculuk
+  - Ahiret: Ahiret Yolculuğu (tüm yolculuk) · Kıyâmet (başlangıç sahneleri) · Cennet & Cehennem (varış)
+  - Belâgat: Kur'ân Belâgatı (genel) · Retorik Sorular (İstifhâm/soru ekseni)
+  - Sinonim: Füruk Atlası (34-aile atlas) · Yakın Anlamlı Nüanslar (seçili çift nüansları)
+  Ayrımlar her aracın kendi kapsamından türetildi (uydurma yok). 11 araç TR/EN doğrulandı.
+- [x] **C3 · i18n yerelleştirme kapsamını genişlet** — 🟡 M **✅ TAMAMLANDI (denetim + boşluk kapatma)**
+  Denetim: kapsam zaten mükemmel — tr/en.json parite (399=399), metadata lokalize (`locale==='en'`), tüm araçlar `language` ternary'siyle çift-dilli, grafik etiketleri/CLASSICAL_GROUPS/WordHeatmap presetleri EN'li. Kod tabanındaki **tek gerçek boşluk** iki Navbar menü aria-label'ıydı → lokalize edildi.
 
 ## D) Ses & Tecvid Deneyimi — 🔵 büyük proje
 
@@ -66,8 +78,8 @@
 
 ## E) Teknik / Performans / Erişilebilirlik
 
-- [ ] **E1 · Performansı gerçek ölçümle yönet** — 🟢 M
-  Ağır grafik/ses modülleri lazy; aynı Kur'an verisi tekrar inmesin; LCP/INP/CLS saha+lab ayrı takip. (§8/§13.26 kısmen; saha ölçümü yok.)
+- [x] **E1 · Performansı gerçek ölçümle yönet** — 🟢 M **✅ TAMAMLANDI (saha ölçümü etkinleştirildi)**
+  Yeni `WebVitals` (Next `useReportWebVitals`, ek bağımlılık yok): LCP/INP/CLS/FCP/TTFB her ziyarette ölçülür — dev'de eşik dereceli konsol, üretimde `NEXT_PUBLIC_VITALS_ENDPOINT` ayarlıysa `sendBeacon` ile sahaya. Root layout'ta. Böylece lab (Lighthouse) yanında **saha** verisi toplanabilir. Not: 3D graf lazy-load'u ForceGraph3D ref forwarding'i bozacağı için atlandı; meal verisi zaten `mealCache` ile tekrar inmiyor (Hero de ağır modülleri `next/dynamic` ile lazy). Production build temiz.
 - [~] **E2 · Görev-bazlı klavye erişilebilirlik denetimi** — 🟢 M **(grafikler A3'te kapsandı)**
   Yalnız klavyeyle: sûre aç, ayet seç, filtre, grafik detayı, sesi durdur, geri dön. "Ana içeriğe geç" korunur; modal odak yönetimi + görünür odak.
   - ✅ Grafik detayı/metin-alternatifi + klavye: A3'te dört graf için yapıldı; tilâvet butonu zaten klavye-erişilebilir.

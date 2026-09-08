@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react';
 import PsychologySection from '../sections/PsychologySection';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -133,6 +134,17 @@ export default function InsanPsikolojisi({ onClose }) {
         </div>
       </div>
       </CollapsibleHero>
+
+      <ToolScopeNote
+        language={language}
+        thisTr="İç dünyanın işleyişi — kalp, korku, savunma ve iyileşme süreçleri."
+        thisEn="How the inner world works — heart, fear, defense, and healing."
+        neighbors={[
+          { href: `/${language}/atlas/insan-tanimi`, labelTr: "Kur'an'da İnsan", labelEn: 'The Human in the Quran', noteTr: 'insanın tanımı (kavram/vasıf)', noteEn: 'definition of the human (concepts/attributes)' },
+          { href: `/${language}/atlas/nefs-mertebeleri`, labelTr: 'Nefs Mertebeleri', labelEn: 'Stations of the Self', noteTr: 'nefsin 7 ahlâkî basamağı', noteEn: 'the 7 moral stations of the self' },
+          { href: `/${language}/atlas/insan-yolculugu`, labelTr: 'İnsan Yolculuğu', labelEn: 'The Human Journey', noteTr: 'fıtrattan Cemâlullah\'a hayat yolu', noteEn: 'life\'s path from fiṭra to Jamāl Allāh' },
+        ]}
+      />
 
       {/* Anasayfa PsychologySection section AYNEN */}
       <PsychologySection />

@@ -14,6 +14,7 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import tefsirDataStatic from '../../public/tefsir-ihtilaf.json';
@@ -264,7 +265,7 @@ export default function TefsirIhtilaflari() {
   const isMobile = useIsMobile();
   const [data] = useState(tefsirDataStatic);
   const [expandedId, setExpandedId] = useState(null);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(3);
 
   const TABS_TR = ['Yöntem', 'Vakalar', 'Müfessirler'];
   const TABS_EN = ['Method', 'Cases', 'Exegetes'];

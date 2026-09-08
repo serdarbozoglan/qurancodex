@@ -6,10 +6,12 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import {
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
@@ -174,7 +176,7 @@ export default function FurukAtlasi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [data] = useState(wordGroupsDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [selectedGroupId, setSelectedGroupId] = useState(wordGroupsDataStatic.groups?.length ? wordGroupsDataStatic.groups[0].id : null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);
@@ -271,6 +273,15 @@ export default function FurukAtlasi({ onClose }) {
         <CollapsibleHero id="furuk" language={language} labelTr="Füruk Atlası" labelEn="Atlas of Semantic Distinctions">
           <Hero language={language} isMobile={isMobile} />
         </CollapsibleHero>
+
+        <ToolScopeNote
+          language={language}
+          thisTr="Klasik fürûk geleneği — 34 kelime ailesinde eş anlamlıların ince farkı (atlas)."
+          thisEn="The classical furūq tradition — fine distinctions among near-synonyms across 34 word families (atlas)."
+          neighbors={[
+            { href: `/${language}/arac/yakin-anlamli-nuanslar`, labelTr: 'Yakın Anlamlı Nüanslar', labelEn: 'Near-Synonym Nuances', noteTr: 'seçili kelime çiftlerinin ayırıcı yükleri', noteEn: 'the distinguishing loads of selected word pairs' },
+          ]}
+        />
 
         {/* ── MANIFESTO STRIP ─────────────────────────────────────────────── */}
         <div className="mq-box" style={{
@@ -418,6 +429,11 @@ export default function FurukAtlasi({ onClose }) {
 // ── Tab 0: Panorama ──────────────────────────────────────────────────────────
 function TabPanorama({ data, language, isMobile, onSelectGroup }) {
   const tr = language === 'tr';
+  // A2 (ChatGPT): keşif↔araştırma yoğunluğunu ayır. Genel bakış 34 aileyi
+  // birden döküyordu; her kategoride önce PREVIEW kadar örnek göster, gerisi
+  // "Tümünü göster" ardında. İçerik birebir; yalnızca kademeli açılım.
+  const PREVIEW = 3;
+  const [expandedCats, setExpandedCats] = useState({});
   const groupedByCategory = useMemo(() => {
     const map = {};
     for (const cat of data.categories) map[cat.id] = { meta: cat, groups: [] };
@@ -429,6 +445,40 @@ function TabPanorama({ data, language, isMobile, onSelectGroup }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+      {/* A2 · 30-saniye yönlendirme — ne görüyorsun / ne tıkla / ne öğrenirsin */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+        gap: 10,
+      }}>
+        {[
+          { n: '1', tTr: 'Ne görüyorsun', bTr: 'Yakın anlamlı Kur\'an kelime aileleri, kategoriye göre gruplu.', tEn: 'What you see', bEn: 'Families of near-synonym Quranic words, grouped by category.' },
+          { n: '2', tTr: 'Ne tıklarsın', bTr: 'Bir aileye tıkla; kelimeleri, geçtiği yerleri ve bağlam renklerini aç.', tEn: 'What to click', bEn: 'Click a family to open its words, occurrences and context colors.' },
+          { n: '3', tTr: 'Ne öğrenirsin', bTr: 'Eş sanılan kelimeler arası ince anlam farkını (fürûk) ve baskın bağlamı.', tEn: 'What you learn', bEn: 'The fine distinction (furūq) between seemingly synonymous words, and dominant context.' },
+        ].map(item => (
+          <div key={item.n} style={{
+            display: 'flex', gap: 10, alignItems: 'flex-start',
+            padding: '12px 14px', background: 'rgba(255,255,255,0.025)',
+            border: '1px solid rgba(255,255,255,0.06)', borderRadius: 10,
+          }}>
+            <span style={{
+              flexShrink: 0, width: 22, height: 22, borderRadius: RADIUS.full,
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              background: COLORS.goldAlpha15, color: COLORS.gold,
+              fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
+            }}>{item.n}</span>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 3, letterSpacing: '0.04em' }}>
+                {tr ? item.tTr : item.tEn}
+              </div>
+              <div style={{ color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.55, fontFamily: FONTS.body }}>
+                {tr ? item.bTr : item.bEn}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Color legend — what the dots mean */}
       <div style={{
         display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap',
@@ -472,8 +522,31 @@ function TabPanorama({ data, language, isMobile, onSelectGroup }) {
             gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))',
             gap: 14,
           }}>
-            {groups.map(g => <GroupCard key={g.id} group={g} language={language} onClick={() => onSelectGroup(g.id)} />)}
+            {(expandedCats[meta.id] ? groups : groups.slice(0, PREVIEW)).map(g => (
+              <GroupCard key={g.id} group={g} language={language} onClick={() => onSelectGroup(g.id)} />
+            ))}
           </div>
+          {groups.length > PREVIEW && (
+            <button
+              type="button"
+              onClick={() => setExpandedCats(s => ({ ...s, [meta.id]: !s[meta.id] }))}
+              aria-expanded={!!expandedCats[meta.id]}
+              style={{
+                marginTop: 12, display: 'inline-flex', alignItems: 'center', gap: 6,
+                padding: '7px 14px', background: 'transparent',
+                border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.full,
+                color: `${COLORS.gold}cc`, fontFamily: FONTS.body, fontSize: '0.74rem',
+                fontWeight: 600, cursor: 'pointer', transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = `${COLORS.gold}66`; e.currentTarget.style.color = COLORS.gold; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha25; e.currentTarget.style.color = `${COLORS.gold}cc`; }}
+            >
+              {expandedCats[meta.id]
+                ? (tr ? 'Daha az göster' : 'Show less')
+                : (tr ? `Tümünü göster (${groups.length})` : `Show all (${groups.length})`)}
+              <span aria-hidden="true" style={{ fontSize: '0.8rem' }}>{expandedCats[meta.id] ? '▴' : '▾'}</span>
+            </button>
+          )}
         </div>
       ))}
     </div>

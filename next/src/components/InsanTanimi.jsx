@@ -9,10 +9,12 @@
 import { useEffect, useState } from 'react';
 import HumanDefinition from '../sections/HumanDefinition';
 import ToolHeader from './ToolHeader';
+import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import extData from '../../public/insan-tanimi-ext.json';
@@ -33,7 +35,7 @@ export default function InsanTanimi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState('concepts');
+  const [activeTab, setActiveTab] = useTabParam(TABS.map(t => t.id), { defaultKey: 'concepts' });
   // Navbar yüksekliği sabit değil (§13.13/§13.31 Mekanizma 2) — ölçülür.
   const navTop = useNavbarOffset(0, 62);
 
@@ -126,6 +128,17 @@ export default function InsanTanimi({ onClose }) {
         </p>
       </div>
       </CollapsibleHero>
+
+      <ToolScopeNote
+        language={language}
+        thisTr="İnsanın Kur'ânî tanımı — beşer/insan/nâs kavramları, 7 vasıf ve 'insan denklemi'."
+        thisEn="The Quranic definition of the human — the concepts beşer/insān/nās, 7 attributes, and the 'human equation'."
+        neighbors={[
+          { href: `/${language}/atlas/insan-psikolojisi`, labelTr: 'İnsan Psikolojisi', labelEn: 'Human Psychology', noteTr: 'iç dünya: kalp, korku, savunma', noteEn: 'inner world: heart, fear, defense' },
+          { href: `/${language}/atlas/nefs-mertebeleri`, labelTr: 'Nefs Mertebeleri', labelEn: 'Stations of the Self', noteTr: 'nefsin 7 ahlâkî basamağı', noteEn: 'the 7 moral stations of the self' },
+          { href: `/${language}/atlas/insan-yolculugu`, labelTr: 'İnsan Yolculuğu', labelEn: 'The Human Journey', noteTr: 'fıtrattan Cemâlullah\'a hayat yolu', noteEn: 'life\'s path from fiṭra to Jamāl Allāh' },
+        ]}
+      />
 
       {/* Sticky Tab Bar §13.19 */}
       <div className="mq-box" id="insan-tab-bar" style={{

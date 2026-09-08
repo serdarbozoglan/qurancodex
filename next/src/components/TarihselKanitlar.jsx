@@ -14,6 +14,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import tarihselDataStatic from '../../public/tarihsel-kanitlar.json';
@@ -113,7 +114,7 @@ export default function TarihselKanitlar({ onClose }) {
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
   const [data] = useState(tarihselDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [expandedKanitId, setExpandedKanitId] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
