@@ -38,8 +38,10 @@
   Body ~18-20px, rahat satır aralığı, kontrollü satır uzunluğu. Uzun italik özetleri kısalt. *Not: yazarın metnini ezme (§13.29); tldr katmanını kullan.*
 - [ ] **A7 · İçindekiler (TOC) güçlendir** — 🟡 S (kısmen var: DesktopSidebarTOC, ChapterProgress)
   Aktif bölüm, okuma ilerlemesi, başa dön, kaldığın yere devam; kaynakçaya sona kaydırmadan eriş.
-- [ ] **A8 · Sekme/kart davranışını ortaklaştır + paylaşılabilir durum** — 🟡 M
-  Aktif sekme belirgin, seçili durum URL'de (paylaşılabilir), geri düğmesi öngörülebilir; kaynak/nüans düğmeleri her sayfada aynı yer/ad.
+- [x] **A8 · Sekme/kart davranışını ortaklaştır + paylaşılabilir durum** — 🟡 M **✅ TAMAMLANDI**
+  Yeni `useTabParam` kancası aktif sekmeyi URL'e bağlar (`?tab=N` veya `?tab=<key>`): paylaşılabilir + geri düğmesi öngörülebilir. `window.location`+`history.replaceState` (useSearchParams DEĞİL → statik-prerender Suspense hatası yok, SSR/build-güvenli).
+  - **24 sekmeli araç**: 18 index + 6 string-key (+ ibadetler/pillar zaten ?tab= slug).
+  - Doğrulama: production build temiz, runtime + URL-sync doğrulandı.
 - [x] **A0 · Ana sayfa 3 somut giriş** — ⚪ (UX01) — video butonu + §17 ile kısmen; ayrıca "Oku/Konu ara/Keşfet" girişleri değerlendirilebilir.
 - [x] **A9 · Kontrastı ölçerek iyileştir** — ⚪ Zaten var (§13.26 `audit-contrast.mjs` + baseline; §4 scriptureText/accentPrimary token ayrımı).
 
