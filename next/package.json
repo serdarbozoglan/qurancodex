@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.111.0",
-    "@next/third-parties": "^16.3.4",
     "@vercel/analytics": "^2.0.1",
     "@vercel/kv": "^3.0.0",
     "framer-motion": "^12.40.0",

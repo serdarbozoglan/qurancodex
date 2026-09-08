@@ -19,13 +19,7 @@
 
 import { Inter, Playfair_Display } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
-
-// GA4 Measurement ID — env'den; yoksa eski (Vite index.html'inde olan) kimlik.
-// Measurement ID gizli değildir (sayfa kaynağında görünür). Farklı bir property'ye
-// yönlendirmek için Vercel + .env.local'de NEXT_PUBLIC_GA_ID ayarla.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-G2J0VSCV0S';
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
@@ -141,7 +135,6 @@ export default function Shell({ lang = 'tr', children }) {
         />
         {children}
         <Analytics />
-        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
   );
