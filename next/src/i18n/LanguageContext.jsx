@@ -81,7 +81,10 @@ export function LanguageProvider({ children, initialLocale }) {
       const swapped = pathname.replace(/^\/(tr|en)/, `/${next}`);
       // window.location.search yalnızca client-side callback'te; SSR'a temas yok.
       const qs = typeof window !== 'undefined' ? window.location.search : '';
-      router.push(qs ? `${swapped}${qs}` : swapped);
+      // scroll: false — dil değişimi AYNI sayfada kalır; varsayılan davranış
+      // scroll'u en üste sıfırlıyordu ("başa zıplama" bug'ı). Kullanıcı okuduğu
+      // yerde kalsın, yalnız dil değişsin.
+      router.push(qs ? `${swapped}${qs}` : swapped, { scroll: false });
     } else {
       setLanguage(next);
     }
