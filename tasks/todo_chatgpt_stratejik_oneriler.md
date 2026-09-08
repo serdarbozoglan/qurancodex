@@ -26,8 +26,8 @@
   - ✅ **VerseGraph (/graf/ayet):** ClusterView + FullGraph (3B, masaüstü varsayılanı) + VerseView sr-only açıklama; 11 klasik sûre grubu + iki görünüm modu.
   - ➕ **Tilâvet autostart:** /graf/ayet İkra (Alak 1-5) tilâveti ilk kullanıcı jestinde otomatik başlar (tarayıcı sesli-autoplay engelini jest-yedeğiyle aşar; buton kontrolü korunur).
   - **BONUS (önceki turda):** sistemik "başlık/çip truncate" (§13.31 Mek. 2) çözüldü — `useNavbarOffset` → `--qc-nav-h` CSS değişkeni; 38 dosyada hardcoded `62px` → `var(--qc-nav-h, 84px)`; regresyon `audit-counts.mjs` push kapısında. CLAUDE.md §13.17 güncellendi.
-- [ ] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M
-  Sürekli italik meal için düz-yazı seçeneği, punto/satır aralığı/rahat tema kolay erişilir. Kelime/meal/tefsir/ezber/tahta/yer-imi'ni birincil/ikincil düzenle.
+- [x] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M **✅ ZATEN YAPILMIŞ (2026-09-07)**
+  Doğrulandı ([ReadingMode.jsx:1436](next/src/components/ReadingMode.jsx#L1436)): meal artık **her zaman düz-yazı** (italic toggle kaldırıldı — "uzun Türkçe meal düz dizgide daha okunur"). Meal Yazı Boyutu + Arapça Yazı Boyutu kontrolleri (reset dahil), gündüz/gece teması mevcut. Ayar paneli **kasıtlı sadeleştirilmiş** → satır-aralığı slider'ı bu kararla çelişeceği için eklenmedi. A4'ün özü karşılanıyor.
 - [ ] **A5 · Mobilde en zor ekranları test et** — 🟢 M
   114 sütun ısı haritası, çok sekmeli ibadet, 2 sütun mushaf, uzun başlıklar. 360/390px tek sütun, yatay kaydırma açıklaması, odak görünürlüğü, 44px dokunma. (§13.31 truncated ailesiyle bağlantılı.)
 - [ ] **A6 · Uzun-okuma tipografisi (tefekkür)** — 🟡 S (kısmen var, §13.29)
