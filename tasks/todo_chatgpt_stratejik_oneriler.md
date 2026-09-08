@@ -10,8 +10,11 @@
 
 ## A) Görsellik & Kullanım (9 öneri)
 
-- [ ] **A1 · Araç sayfası girişini kısalt** — 🟢 S/M
-  Başlık+ayet+meal+açıklama+2. başlık asıl aracı aşağı itiyor (§13.18 hero 9 elemanlı). Poetik girişi katlanabilir yap, aracı üste al. §17 yol haritasıyla uyumlu.
+- [x] **A1 · Araç sayfası girişini kısalt** — 🟢 S/M **✅ TAMAMLANDI**
+  §13.18 hero (9 elemanlı) asıl aracı aşağı itiyordu. Yeni `CollapsibleHero` sarmalayıcı: ilk ziyarette hero açık (§13.18 korunur), kullanıcı "Girişi gizle" derse kapanır + localStorage'da hatırlanır → dönüş ziyaretlerinde çipler+sekmeler+içerik üstte. İçerik birebir korunur.
+  - Pilot: Fâtiha Atlası. Yayım: **40 hero-first araç/atlas** sayfası.
+  - Atlanan (kasıtlı): IblisSatan (parçalı hero), EsmaFrekans (flagship istisna §13.17/§17.2), IlkSonKelimeler (zaten tool-first).
+  - Doğrulama: 40 rota × TR/EN = **80/80** (HTTP 200 + katlama butonu render + runtime hata yok); denetimler yeşil.
 - [ ] **A2 · Keşif ↔ araştırma yoğunluğunu ayır** — 🟢 M
   Başta 3 açıklayıcı örnek, ileri detayda tam tablo/grafik. "30 sn'de: neye bakıyorum / ne tıklamalıyım / ne öğreneceğim" testi.
 - [x] **A3 · Grafiklerin metin karşılığı + klavye erişimi** — 🟢 M/L **✅ TAMAMLANDI**
