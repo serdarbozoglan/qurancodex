@@ -28,8 +28,10 @@
   - **BONUS (önceki turda):** sistemik "başlık/çip truncate" (§13.31 Mek. 2) çözüldü — `useNavbarOffset` → `--qc-nav-h` CSS değişkeni; 38 dosyada hardcoded `62px` → `var(--qc-nav-h, 84px)`; regresyon `audit-counts.mjs` push kapısında. CLAUDE.md §13.17 güncellendi.
 - [x] **A4 · Okuma ekranı: düz-yazı meal seçeneği + tipografi** — 🟢 S/M **✅ ZATEN YAPILMIŞ (2026-09-07)**
   Doğrulandı ([ReadingMode.jsx:1436](next/src/components/ReadingMode.jsx#L1436)): meal artık **her zaman düz-yazı** (italic toggle kaldırıldı — "uzun Türkçe meal düz dizgide daha okunur"). Meal Yazı Boyutu + Arapça Yazı Boyutu kontrolleri (reset dahil), gündüz/gece teması mevcut. Ayar paneli **kasıtlı sadeleştirilmiş** → satır-aralığı slider'ı bu kararla çelişeceği için eklenmedi. A4'ün özü karşılanıyor.
-- [ ] **A5 · Mobilde en zor ekranları test et** — 🟢 M
-  114 sütun ısı haritası, çok sekmeli ibadet, 2 sütun mushaf, uzun başlıklar. 360/390px tek sütun, yatay kaydırma açıklaması, odak görünürlüğü, 44px dokunma. (§13.31 truncated ailesiyle bağlantılı.)
+- [~] **A5 · Mobilde en zor ekranları test et** — 🟢 M **(denetlendi + site-geneli fix)**
+  Playwright 360/390px denetimi: en zor ekranlarda (114-sütun ısı haritası, çok-sekmeli ibadet, mushaf, uzun başlıklar, 3B graf, kavim haritası) **yatay taşma YOK** — düzen zaten sağlam.
+  - ✅ **Dokunma hedefi:** ToolHeader "Anasayfaya dön" pill'i 36×24px → **40×40** (site-geneli, ~65 araç).
+  - ⬜ Kalan (küçük/tekil): WowFacts yer-imi ikonu 26×26, okuma-ekranı ayet rozetleri 27×27 (yoğun bağlam; opsiyonel).
 - [ ] **A6 · Uzun-okuma tipografisi (tefekkür)** — 🟡 S (kısmen var, §13.29)
   Body ~18-20px, rahat satır aralığı, kontrollü satır uzunluğu. Uzun italik özetleri kısalt. *Not: yazarın metnini ezme (§13.29); tldr katmanını kullan.*
 - [ ] **A7 · İçindekiler (TOC) güçlendir** — 🟡 S (kısmen var: DesktopSidebarTOC, ChapterProgress)
