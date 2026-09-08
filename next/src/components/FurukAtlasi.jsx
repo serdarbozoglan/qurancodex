@@ -10,6 +10,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
@@ -174,7 +175,7 @@ export default function FurukAtlasi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [data] = useState(wordGroupsDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [selectedGroupId, setSelectedGroupId] = useState(wordGroupsDataStatic.groups?.length ? wordGroupsDataStatic.groups[0].id : null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);

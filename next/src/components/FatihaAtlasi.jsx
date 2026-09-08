@@ -8,6 +8,7 @@ import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import fatihaDataStatic from '../../public/fatiha-atlasi.json';
@@ -603,7 +604,7 @@ export default function FatihaAtlasi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [data] = useState(fatihaDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS_TR.length); // A8: ?tab=N paylaşılabilir
   const [isMobile, setIsMobile] = useState(false);
   const navTop = useNavbarOffset(0, 62);
   const tabBarTop = navTop + 48;

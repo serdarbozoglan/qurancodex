@@ -20,6 +20,7 @@ import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import sunnetullahDataStatic from '../../public/sunnetullah-atlasi.json';
@@ -204,7 +205,7 @@ export default function SunnetullahAtlasi({ onClose }) {
   const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data] = useState(sunnetullahDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [activeCategoryId, setActiveCategoryId] = useState(sunnetullahDataStatic.thematicCategories?.[0]?.id ?? null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);

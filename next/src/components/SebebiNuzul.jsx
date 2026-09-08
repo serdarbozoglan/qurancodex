@@ -10,6 +10,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useTabParam from '../hooks/useTabParam';
 
 // Yerel verse-graph-bgem3.json — api.acikkuran.com canlı bağımlılığı yerine
 // (KissaAtlas.jsx/MeselAtlasi.jsx'teki aynı düzeltme, kullanıcı talimatı:
@@ -1696,7 +1697,7 @@ function TabZaman({ language, isMobile }) {
 export default function SebebiNuzul({ onClose }) {
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS.length);
   const [data] = useState(sebebINuzulDataStatic);
   const [loading] = useState(false);
   const contentRef = useRef(null);

@@ -12,6 +12,7 @@ import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -1353,7 +1354,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
   const toolHeaderTop = useNavbarOffset(0, 62);
   const tabBarTop = toolHeaderTop + 48;
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
-  const [activeTab, setActiveTab]       = useState(0);
+  const [activeTab, setActiveTab]       = useTabParam(TABS_TR.length);
   const [domainFilter, setDomainFilter] = useState(null);
   const [scrollToPairId, setScrollToPairId] = useState(null);
 

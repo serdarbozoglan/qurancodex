@@ -9,6 +9,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import kiyametDataStatic from '../../public/kiyamet-sahneleri.json';
@@ -466,7 +467,7 @@ export default function KiyametSahneleri({ onClose }) {
   const navTop = useNavbarOffset(0, 62);
   const { openOverlay } = useQuranNav();
   const [data] = useState(kiyametDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS_TR.length);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
 
   // Escape key handler

@@ -8,6 +8,7 @@ import {
   BREAKPOINT_MOBILE, RADIUS,
   VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import useTabParam from '../hooks/useTabParam';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -23,7 +24,7 @@ export default function KuranRetorigi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [data] = useState(retorikDataStatic);
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useTabParam(TABS_TR.length);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
 
