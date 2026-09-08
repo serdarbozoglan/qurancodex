@@ -13,6 +13,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import extData from '../../public/insan-tanimi-ext.json';
@@ -33,7 +34,7 @@ export default function InsanTanimi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState('concepts');
+  const [activeTab, setActiveTab] = useTabParam(TABS.map(t => t.id), { defaultKey: 'concepts' });
   // Navbar yüksekliği sabit değil (§13.13/§13.31 Mekanizma 2) — ölçülür.
   const navTop = useNavbarOffset(0, 62);
 

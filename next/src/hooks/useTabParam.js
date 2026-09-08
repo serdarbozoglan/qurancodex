@@ -16,44 +16,56 @@
 // replaceState geçmişe girdi eklemez → geri düğmesi aracı terk eder
 // (öngörülebilir); Next re-render/veri-getirme tetiklenmez.
 //
-// Drop-in: `const [activeTab, setActiveTab] = useState(0)` yerine
-//          `const [activeTab, setActiveTab] = useTabParam(TABS.length)`.
-// index tabanlı; fonksiyonel güncelleyici (setActiveTab(i => …)) de desteklenir.
+// İKİ MOD:
+//  · index modu: `useTabParam(TABS.length)` → [index, setIndex]  (?tab=2)
+//    Drop-in: `const [activeTab, setActiveTab] = useState(0)` yerine.
+//  · key modu:   `useTabParam(['a','b','c'], { defaultKey: 'a' })` → [key, setKey]
+//    Drop-in: `const [activeTab, setActiveTab] = useState('a')` yerine.  (?tab=b)
+// Fonksiyonel güncelleyici (setActiveTab(v => …)) her iki modda desteklenir.
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-export default function useTabParam(tabCount, { param = 'tab', defaultIndex = 0 } = {}) {
-  const [activeTab, setActiveTabState] = useState(defaultIndex); // SSR-güvenli
-  const activeRef = useRef(defaultIndex);
-  activeRef.current = activeTab;
+export default function useTabParam(tabsOrCount, { param = 'tab', defaultIndex = 0, defaultKey } = {}) {
+  const isKeyMode = Array.isArray(tabsOrCount);
+  const keys = isKeyMode ? tabsOrCount : null;
+  const count = isKeyMode ? tabsOrCount.length : tabsOrCount;
+  const def = isKeyMode ? (defaultKey ?? keys[0]) : defaultIndex;
+
+  const [active, setActiveState] = useState(def); // SSR-güvenli
+  const activeRef = useRef(def);
+  activeRef.current = active;
 
   const readUrl = useCallback(() => {
     try {
-      const n = parseInt(new URLSearchParams(window.location.search).get(param) ?? '', 10);
-      if (!Number.isNaN(n) && n >= 0 && n < tabCount) return n;
+      const raw = new URLSearchParams(window.location.search).get(param);
+      if (raw == null) return def;
+      if (isKeyMode) return keys.includes(raw) ? raw : def;
+      const n = parseInt(raw, 10);
+      if (!Number.isNaN(n) && n >= 0 && n < count) return n;
     } catch { /* window yok / erişilemez */ }
-    return defaultIndex;
-  }, [param, tabCount, defaultIndex]);
+    return def;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [param, count, def]);
 
   // Mount: URL'den oku (client-only). Geri/ileri: popstate ile izle.
   useEffect(() => {
     const next = readUrl();
-    if (next !== activeRef.current) setActiveTabState(next);
-    const onPop = () => setActiveTabState(readUrl());
+    if (next !== activeRef.current) setActiveState(next);
+    const onPop = () => setActiveState(readUrl());
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, [readUrl]);
 
-  const setActiveTab = useCallback((next) => {
-    const idx = typeof next === 'function' ? next(activeRef.current) : next;
-    setActiveTabState(idx);
+  const setActive = useCallback((next) => {
+    const val = typeof next === 'function' ? next(activeRef.current) : next;
+    setActiveState(val);
     try {
       const url = new URL(window.location.href);
-      if (idx === defaultIndex) url.searchParams.delete(param);
-      else url.searchParams.set(param, String(idx));
+      if (val === def) url.searchParams.delete(param);
+      else url.searchParams.set(param, String(val));
       window.history.replaceState(window.history.state, '', url);
     } catch { /* history erişilemez — state yine güncellendi */ }
-  }, [param, defaultIndex]);
+  }, [param, def]);
 
-  return [activeTab, setActiveTab];
+  return [active, setActive];
 }

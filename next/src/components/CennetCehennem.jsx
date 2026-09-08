@@ -12,6 +12,7 @@ import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import cennetCehennemDataStatic from '../../public/cennet-cehennem.json';
@@ -165,7 +166,7 @@ export default function CennetCehennem({ onClose }) {
   const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data]           = useState(cennetCehennemDataStatic);
-  const [activeTab, setActiveTab] = useState('isimler');
+  const [activeTab, setActiveTab] = useTabParam(TABS.map(t => t.id), { defaultKey: 'isimler' });
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
 
