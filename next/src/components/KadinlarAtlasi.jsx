@@ -181,9 +181,9 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         ref={trapRef}
         style={{
           background: COLORS.cosmicBlack,
-          minHeight: 'calc(100vh - 62px)',
+          minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
           display: 'flex', flexDirection: 'column',
-          paddingTop: '62px',
+          paddingTop: 'var(--qc-nav-h, 84px)',
         }}
       >
         {KADINLAR_TOOL_HEADER}
@@ -221,9 +221,9 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}
     >
       {KADINLAR_TOOL_HEADER}

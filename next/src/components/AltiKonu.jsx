@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react';
 import Highlights from '../sections/Highlights';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -102,6 +103,8 @@ export default function AltiKonu({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="alti-konu" language={language}
+        labelTr="Altı Konu, Altı Sır" labelEn="Six Topics, Six Secrets">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -171,6 +174,7 @@ export default function AltiKonu({ onClose }) {
           {tr ? "Prefrontal · parmak izi · modüler anlatı · ..." : "Prefrontal · fingerprint · modular narrative · ..."}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Anasayfa Highlights section AYNEN — memory no-downgrade guarantee */}
       <Highlights />

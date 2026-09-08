@@ -7,6 +7,7 @@ import { routeForToolEvent } from '../lib/toolRoutes';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -242,6 +243,8 @@ export default function CennetCehennem({ onClose }) {
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
 
           {/* ── HERO (Cinematic — Bismillah + Rahman 55:46 + framing + filigree) ─────── */}
+          <CollapsibleHero id="cennet-cehennem" language={language}
+            labelTr="Cennet & Cehennem" labelEn="Paradise & Hell">
           <div className="mq-box" style={{
             '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "0", '--pl-m': "0",
             textAlign: 'center',
@@ -370,6 +373,7 @@ export default function CennetCehennem({ onClose }) {
                 : '9 names for paradise · 7 for hell · between them, al-Aʿrāf.'}
             </p>
           </div>
+          </CollapsibleHero>
 
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />

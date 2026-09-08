@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import SoundArchitecture from '../sections/SoundArchitecture';
 import SoundExtensions from './SoundExtensions';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
@@ -26,8 +27,8 @@ export default function SesMimarisi({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       <ToolHeader
         icon={
@@ -42,6 +43,8 @@ export default function SesMimarisi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="ses-mimarisi" language={language}
+        labelTr="Ses Mimarisi — Sesin Anlamla Paralelliği" labelEn="Sound Architecture — Where Sound Parallels Meaning">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -111,6 +114,7 @@ export default function SesMimarisi({ onClose }) {
           {tr ? "Azap ↔ rahmet sesleri · amigdala ve korteks" : "Wrath ↔ mercy sounds · amygdala and cortex"}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Anasayfa SoundArchitecture section AYNEN */}
       <SoundArchitecture />

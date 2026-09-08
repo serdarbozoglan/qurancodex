@@ -7,6 +7,13 @@ import ToolHeader from './ToolHeader';
 import DataDictionary from './DataDictionary';
 import LoadingOverlay from './LoadingOverlay';
 
+// Ekran okuyucu için görünmez özet stili (§16.12). Hücreler zaten aria-label'lı
+// butonlar (klavye erişilebilir); bu özet ısı haritasının genel okumasını verir.
+const SR_ONLY = {
+  position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px',
+  overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0,
+};
+
 // Strip footnote refs and parenthetical translator additions
 function cleanTr(str) {
   if (!str) return '';
@@ -725,7 +732,7 @@ export default function WordHeatmap({ onClose }) {
       </div>
     )}
 
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - var(--qc-nav-h, 84px))', paddingTop: 'var(--qc-nav-h, 84px)', display: 'flex', flexDirection: 'column' }}>
 
       {/* Floating tooltip */}
       {tooltip && (
@@ -942,6 +949,20 @@ export default function WordHeatmap({ onClose }) {
           {/* Grid — always visible when data is loaded (baseline or search mode) */}
           {!loading && verses && !(searchTerm && totalOccurrences === 0) && (
             <>
+              {/* Ekran okuyucu özeti — ısı haritasının metin karşılığı.
+                  Hücreler zaten aria-label'lı butonlar; bu özet genel okuma. */}
+              <div style={SR_ONLY} role="status">
+                {searchTerm ? (
+                  language === 'tr'
+                    ? `"${searchTerm}" kelimesi Kur'an'da toplam ${totalOccurrences} kez, ${Object.keys(freqMap).length} sûrede geçiyor. En sık: ${topSurahs.map(([s, c]) => `${SURAH_NAMES_TR[+s - 1]} (${c})`).join(', ')}.`
+                    : `The word "${searchTerm}" occurs ${totalOccurrences} times across ${Object.keys(freqMap).length} surahs. Most frequent: ${topSurahs.map(([s, c]) => `${SURAH_NAMES_TR[+s - 1]} (${c})`).join(', ')}.`
+                ) : (
+                  language === 'tr'
+                    ? '114 sûrelik ısı haritası. Bir kelime aratın; her hücre bir sûredeki geçiş sayısını gösterir. Hücreler klavyeyle gezilebilir.'
+                    : 'Heatmap of all 114 surahs. Search for a word; each cell shows its count in one surah. Cells are keyboard-navigable.'
+                )}
+              </div>
+
               {/* Top surahs — only when searching */}
               {searchTerm && totalOccurrences > 0 && (
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', flexShrink: 0 }}>

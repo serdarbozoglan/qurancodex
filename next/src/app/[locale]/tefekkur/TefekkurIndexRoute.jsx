@@ -57,9 +57,9 @@ export default function TefekkurIndexRoute() {
     return (
       <div style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}>
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
@@ -75,9 +75,9 @@ export default function TefekkurIndexRoute() {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       <ToolHeader
         icon={

@@ -191,10 +191,10 @@ export default function HifzModu() {
     <div
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex',
         flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}
     >
       <ToolHeader

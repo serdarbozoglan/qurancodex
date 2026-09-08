@@ -970,8 +970,8 @@ export default function SurahComparator({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
       display: 'flex', flexDirection: 'column',
       fontFamily: "'Inter', sans-serif",
     }}>

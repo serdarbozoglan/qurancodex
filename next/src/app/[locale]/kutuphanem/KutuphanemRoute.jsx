@@ -111,8 +111,8 @@ export default function KutuphanemRoute() {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
       color: COLORS.offWhite,
     }}>
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 20px 80px' }}>

@@ -6,6 +6,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, CATEGORY_SCALE, CATEGORY,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
@@ -962,7 +963,9 @@ export default function MunasebatAtlasi({ onClose }) {
       paddingTop: `${navTop}px`,
     }}>
       <Header language={language} />
-      <Hero language={language} isMobile={isMobile} />
+      <CollapsibleHero id="munasebat" language={language} labelTr="Münasebât Atlası" labelEn="Atlas of Surah Coherence">
+        <Hero language={language} isMobile={isMobile} />
+      </CollapsibleHero>
       <TabBar language={language} isMobile={isMobile} activeTab={activeTab} setActiveTab={setActiveTab} navTop={navTop} />
 
       <div style={{

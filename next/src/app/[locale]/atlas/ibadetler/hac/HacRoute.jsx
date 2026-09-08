@@ -23,7 +23,7 @@ export default function HacRoute() {
   if (!pillarData) return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
     }}>
       <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>

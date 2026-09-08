@@ -6,6 +6,7 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import {
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
@@ -267,7 +268,9 @@ export default function FurukAtlasi({ onClose }) {
       {/* ── SCROLLABLE BODY ────────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1 }}>
 
-        <Hero language={language} isMobile={isMobile} />
+        <CollapsibleHero id="furuk" language={language} labelTr="Füruk Atlası" labelEn="Atlas of Semantic Distinctions">
+          <Hero language={language} isMobile={isMobile} />
+        </CollapsibleHero>
 
         {/* ── MANIFESTO STRIP ─────────────────────────────────────────────── */}
         <div className="mq-box" style={{

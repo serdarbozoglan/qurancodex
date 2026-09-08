@@ -13,6 +13,7 @@ import {
   BREAKPOINT_TABLET,
   RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -145,6 +146,7 @@ export default function NefisMertebeleri({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ─────────────────────────────── HERO ─────────────────────────────── */}
+        <CollapsibleHero id="nefs-mertebeleri" language={language} labelTr="Nefs Mertebeleri" labelEn="Stations of the Soul">
         <div className="mq-box" style={{
           '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "32px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(139,0,0,0.05) 0%, transparent 100%)',
@@ -367,6 +369,7 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ───────────────── STICKY TAB BAR (Dalga 2.2) ───────────────── */}
         <div className="mq-box" id="nefs-tab-bar" style={{

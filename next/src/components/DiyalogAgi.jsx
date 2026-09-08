@@ -23,6 +23,14 @@ import megaDataStatic from '../../public/diyalog-mega.json';
 // ── Temporal layer colors ────────────────────────────────────────────────────
 const TEMPORAL = { ezel: '#9b59b6', dunya: '#3498db', ahiret: '#f39c12' };
 
+// Ekran okuyucu / klavye için görünmez metin-alternatifi stili (§16.12).
+// SVG ağ grafiği aria-hidden; veriye erişimin metin/klavye yolu bu listedir.
+const SR_ONLY = {
+  position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px',
+  overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0,
+};
+const SR_BTN = { background: 'none', border: 0, padding: 0, margin: 0, font: 'inherit', color: 'inherit', textAlign: 'left', cursor: 'pointer' };
+
 // ── Tab definitions ──────────────────────────────────────────────────────────
 const TABS = [
   {
@@ -611,6 +619,55 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
               );
             })}
           </svg>
+
+          {/* Ekran okuyucu + klavye metin-alternatifi — SVG aria-hidden.
+              Tamamen mevcut konuşmacı/eksen verisinden türetilir; öğeler
+              klavyeyle çalışır (Enter o ekseni Diyaloglar sekmesinde açar). */}
+          <div style={SR_ONLY}>
+            <h3>{language === 'tr' ? 'Diyalog ağı — metin listesi' : 'Dialogue network — text list'}</h3>
+            <p>{language === 'tr'
+              ? `${orderedSpeakers.length} konuşmacı ve ${visibleAxes.length} diyalog ekseni.`
+              : `${orderedSpeakers.length} speakers and ${visibleAxes.length} dialogue axes.`}</p>
+            <h4>{language === 'tr' ? 'Konuşmacılar' : 'Speakers'}</h4>
+            <ul>
+              {orderedSpeakers.map(s => {
+                const nm = language === 'tr' ? s.nameTr : s.nameEn;
+                const pc = Array.isArray(s.dialoguePartners) ? s.dialoguePartners.length : 0;
+                return (
+                  <li key={s.id}>
+                    <button
+                      type="button"
+                      onClick={() => onAxisClick(s.id, null)}
+                      onFocus={() => setHoveredNode(s.id)}
+                      onBlur={() => setHoveredNode(null)}
+                      style={SR_BTN}
+                    >{language === 'tr' ? `${nm}: ${pc} muhatap` : `${nm}: ${pc} dialogue partners`}</button>
+                  </li>
+                );
+              })}
+            </ul>
+            <h4>{language === 'tr' ? 'Diyalog eksenleri' : 'Dialogue axes'}</h4>
+            <ul>
+              {visibleAxes.map(a => {
+                const spN = language === 'tr' ? a.speakerTr : a.speakerEn;
+                const adN = language === 'tr' ? a.addresseeTr : a.addresseeEn;
+                const themes = (language === 'tr' ? a.keyThemesTr : a.keyThemesEn) || [];
+                return (
+                  <li key={a.id}>
+                    <button
+                      type="button"
+                      onClick={() => onAxisClick(a.speakerId, a.addresseeId)}
+                      onFocus={() => setHoveredArc(a.id)}
+                      onBlur={() => setHoveredArc(null)}
+                      style={SR_BTN}
+                    >{language === 'tr'
+                      ? `${spN} → ${adN}: ${a.dialogueCount} diyalog${themes.length ? `, konular: ${themes.join(', ')}` : ''}.`
+                      : `${spN} → ${adN}: ${a.dialogueCount} dialogues${themes.length ? `, themes: ${themes.join(', ')}` : ''}.`}</button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
           {tooltip && (
             <div style={{

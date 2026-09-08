@@ -27,6 +27,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, SEMANTIC, BREAKPOINT_MOBILE } from '../tokens';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -139,9 +140,9 @@ export default function ElestirelCerceve() {
     return (
       <div style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: 'var(--qc-nav-h, 84px)',
       }}>
         {TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 420 }}>
@@ -166,12 +167,13 @@ export default function ElestirelCerceve() {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       {TOOL_HEADER}
       <style>{PAGE_CSS}</style>
 
+      <CollapsibleHero id="elestirel-cerceve" language={language} labelTr="Eleştirel Çerçeve" labelEn="Critical Frame">
       {/* ── Cinematic hero — §13.18 premium template ─────────────────────── */}
       <div className="ec-hero" style={{
         background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, transparent 100%)`,
@@ -235,6 +237,7 @@ export default function ElestirelCerceve() {
           margin: 0,
         }}>{tr ? meta.dramaTr : meta.dramaEn}</p>
       </div>
+      </CollapsibleHero>
 
       <div className="zf2-tool-hero-wrap" style={{ maxWidth: 1080, margin: '0 auto' }}>
 

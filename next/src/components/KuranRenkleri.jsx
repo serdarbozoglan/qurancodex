@@ -7,6 +7,7 @@ import {
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS, SEMANTIC,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -2679,9 +2680,9 @@ export default function KuranRenkleri({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       <ToolHeader
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill={COLORS.gold} /><circle cx="17.5" cy="10.5" r=".5" fill={COLORS.gold} /><circle cx="8.5" cy="7.5" r=".5" fill={COLORS.gold} /><circle cx="6.5" cy="12.5" r=".5" fill={COLORS.gold} /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.992 6.012 17.477 2 12 2z" /></svg>}
@@ -2697,6 +2698,8 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ════ CINEMATIC HERO — Premium Template (Bismillah + Fâtır 35:27 +
             framing whisper + dramatic title + stat strip) ══════════════════ */}
+        <CollapsibleHero id="renkler" language={language}
+          labelTr="Kur'an'da Renkler" labelEn="Colors in the Quran">
         <div className="mq-box" style={{
           '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`,
@@ -2867,6 +2870,7 @@ export default function KuranRenkleri({ onClose }) {
           </div>
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── Fâtır 35:27 Feature Card ── */}
         <div className="mq-box" style={{ '--mt-d': "0", '--mt-m': "0", '--mr-d': "32px", '--mr-m': "16px", '--mb-d': "20px", '--mb-m': "16px", '--ml-d': "32px", '--ml-m': "16px", '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px", background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg }}>

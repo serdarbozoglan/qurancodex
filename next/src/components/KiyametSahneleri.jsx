@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useNavbarOffset from './useNavbarOffset';
@@ -513,6 +514,7 @@ export default function KiyametSahneleri({ onClose }) {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* ── Hero (Cinematic — Bismillah + anchor + framing + filigree) ── */}
+        <CollapsibleHero id="kiyamet" language={language} labelTr="Kıyâmet Sahneleri" labelEn="Scenes of the Day of Judgment">
         <div className="mq-box" style={{ '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'center' }}>
           {/* Bismillah */}
           <div className="mq-box"
@@ -643,6 +645,7 @@ export default function KiyametSahneleri({ onClose }) {
             ))}
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ── Kıyamet İsimleri ── */}
         <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>

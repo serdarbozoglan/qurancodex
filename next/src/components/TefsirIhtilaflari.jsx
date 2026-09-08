@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -307,6 +308,8 @@ export default function TefsirIhtilaflari() {
           16 Ağustos 2026: bu sayfa tek başına breadcrumb+tab'tan gövdeye atlıyordu).
           Anchor: Âl-i İmrân 3:7 — muhkem/müteşabih ayeti, tefsir metodolojisi ve
           müfessirler arası yorum farkının klasik referans noktası. */}
+      <CollapsibleHero id="tefsir-ihtilaflari" language={language}
+        labelTr="Tefsir İhtilafları" labelEn="Exegetical Disagreements">
       <div className="mq-box" style={{
         textAlign: 'center', position: 'relative', overflow: 'hidden',
         '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "24px", '--pl-m': "16px",
@@ -353,6 +356,7 @@ export default function TefsirIhtilaflari() {
           </p>
         </div>
       </div>
+      </CollapsibleHero>
 
       <div style={{ position: 'relative', flexShrink: 0 }}>
         <div style={{

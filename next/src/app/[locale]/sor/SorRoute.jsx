@@ -36,7 +36,7 @@ export default function SorRoute() {
   // (asagidaki 44. satir notunun aynisi; navTop'u buraya tasimak sayfayi
   // bosaltiyor). Fallback zaten bos bir zemin, olculen degere ihtiyaci yok.
   return (
-    <Suspense fallback={<div style={{ minHeight: 'calc(100vh - 62px)', background: COLORS.cosmicBlack }} />}>
+    <Suspense fallback={<div style={{ minHeight: 'calc(100vh - var(--qc-nav-h, 84px))', background: COLORS.cosmicBlack }} />}>
       <SorInner />
     </Suspense>
   );

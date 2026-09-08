@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react';
 import ZeroRedundancy from '../sections/ZeroRedundancy';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -26,8 +27,8 @@ export default function TekrarAnatomi({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       <ToolHeader
         icon={
@@ -42,6 +43,8 @@ export default function TekrarAnatomi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
+      <CollapsibleHero id="tekrar-anatomi" language={language}
+        labelTr="Sıfır Gereksizlik — Tekrarın Anatomisi" labelEn="Zero Redundancy — The Anatomy of Repetition">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -111,6 +114,7 @@ export default function TekrarAnatomi({ onClose }) {
           {tr ? "Rahmân 31x · Mürselât 10x · Kamer 4x" : "ar-Raḥmān 31x · al-Mursalāt 10x · al-Qamar 4x"}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* Anasayfa ZeroRedundancy section AYNEN */}
       <ZeroRedundancy />

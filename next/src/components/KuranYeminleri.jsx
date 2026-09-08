@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -128,6 +129,8 @@ export default function KuranYeminleri({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ════ CINEMATIC HERO — Premium Template (İlk-Son + Renkler parity) */}
+        <CollapsibleHero id="yeminler" language={language}
+          labelTr="Kur'an'ın Yeminleri" labelEn="Oaths of the Quran">
         <div className="mq-box" style={{
           '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           background: 'linear-gradient(180deg, rgba(212,162,36,0.06) 0%, transparent 100%)',
@@ -336,6 +339,7 @@ export default function KuranYeminleri({ onClose }) {
           )}
           </div>
         </div>
+        </CollapsibleHero>
 
         {/* ════ VÂKIA 56:75-76 SPOTLIGHT — Premium Tier B ════════════════════
             Kur'an'ın KENDİ yeminini tefsir ettiği eşsiz ayet.

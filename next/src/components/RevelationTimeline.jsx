@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
+import { COLORS, RADIUS, TRANSITION, SEMANTIC, FONTS } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -49,6 +49,55 @@ const AYAH_COUNTS = [
   5,4,5,6,
 ];
 
+// Ekran okuyucu / klavye için görünmez metin-alternatifi stili (§16.12).
+// Grafik (özellikle bar görünümü) tamamen görsel; veriye erişimin metin yolu.
+const SR_ONLY = {
+  position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px',
+  overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', borderWidth: 0,
+};
+
+// İpucu ikonu — native `title` yerine ANINDA açılan özel tooltip.
+// Native title tarayıcıda ~1sn gecikir ("hover'da hemen çıkmıyor"); bu bileşen
+// hover'da gecikmesiz açılır, ayrıca klavye (focus) ve dokunma (tıkla) ile de
+// çalışır. `glyph` görünen işaret (ⓘ / ▲3), `text` tooltip içeriği.
+function HintIcon({ glyph, text, ariaLabel, color, fontSize }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span style={{ position: 'relative', display: 'inline-flex' }}>
+      <button
+        type="button"
+        aria-label={ariaLabel}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        onClick={(e) => { e.stopPropagation(); setOpen((v) => !v); }}
+        style={{
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          background: 'none', border: 'none', padding: 0, margin: 0,
+          color: color || SEMANTIC.textFaint, fontSize: fontSize || '0.65rem',
+          lineHeight: 1, cursor: 'help', font: 'inherit',
+        }}
+      >{glyph}</button>
+      {open && (
+        <span
+          role="tooltip"
+          style={{
+            position: 'absolute', bottom: 'calc(100% + 6px)', left: '50%',
+            transform: 'translateX(-50%)', width: 'min(230px, 60vw)',
+            padding: '8px 10px', background: 'rgba(8,10,26,0.98)',
+            border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.chip,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.5)', color: COLORS.silver,
+            fontSize: '0.7rem', lineHeight: 1.55, fontFamily: FONTS.body,
+            fontWeight: 400, textAlign: 'left', whiteSpace: 'normal',
+            pointerEvents: 'none', zIndex: 50,
+          }}
+        >{text}</span>
+      )}
+    </span>
+  );
+}
+
 export default function RevelationTimeline({ onClose }) {
   const { language } = useLanguage();
   const [orderData] = useState(revelationOrderDataStatic.order);
@@ -84,7 +133,7 @@ export default function RevelationTimeline({ onClose }) {
   }, [orderData]);
 
   return (
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - var(--qc-nav-h, 84px))', paddingTop: 'var(--qc-nav-h, 84px)', display: 'flex', flexDirection: 'column' }}>
       <ToolHeader
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>}
         titleTr="Nüzul Sırası Haritası"
@@ -112,7 +161,7 @@ export default function RevelationTimeline({ onClose }) {
           ))}
         </div>
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-          {[['grid', language === 'tr' ? 'Kart' : 'Card'], ['timeline', language === 'tr' ? 'Zaman Çizelgesi' : 'Timeline']].map(([m, label]) => (
+          {[['grid', language === 'tr' ? 'Kart' : 'Card'], ['timeline', language === 'tr' ? 'Zaman Çizelgesi' : 'Timeline'], ['liste', language === 'tr' ? 'Liste' : 'List']].map(([m, label]) => (
             <button key={m} onClick={() => setViewMode(m)} style={{
               background: viewMode === m ? COLORS.goldAlpha15 : 'transparent',
               border: `1px solid ${viewMode === m ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.1)'}`,
@@ -131,6 +180,28 @@ export default function RevelationTimeline({ onClose }) {
 
       {!loading && orderData && (
         <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', padding: '20px' }}>
+          {/* Grafiğin metin karşılığı (A3): ekran okuyucu ve klavye için tam
+              kronoloji listesi. Bar/kart görünümü tamamen görsel; bu liste
+              veriyi metin olarak sunar. Görsel olarak gizli (SR_ONLY). */}
+          <ol
+            style={viewMode === 'liste' ? { display: 'none' } : SR_ONLY}
+            aria-label={language === 'tr'
+              ? 'Sûrelerin nüzul (vahiy) sırası (tam metin listesi)'
+              : 'Surahs in revelation order (full text list)'}
+          >
+            {[...orderData].sort((a, b) => a.rank - b.rank).map(s => {
+              const nm = SURAH_NAMES_TR[s.surah - 1] || `${language === 'tr' ? 'Sûre' : 'Surah'} ${s.surah}`;
+              const ac = AYAH_COUNTS[s.surah - 1] ?? '?';
+              const per = s.period === 'mekki'
+                ? (language === 'tr' ? 'Mekkî' : 'Meccan')
+                : (language === 'tr' ? 'Medenî' : 'Medinan');
+              return (
+                <li key={s.surah}>
+                  {`${s.rank}. ${nm}: ${ac} ${language === 'tr' ? 'ayet' : 'verses'}, ${per} (${language === 'tr' ? 'mushaf sırası' : 'mushaf order'} ${s.surah}).`}
+                </li>
+              );
+            })}
+          </ol>
           {/* Reading key — tek, taranabilir okuma anahtarı (eski düz efsane +
               tekrarlayan açıklama paragrafı birleştirildi, 2026-07-24). */}
           <div style={{
@@ -188,6 +259,43 @@ export default function RevelationTimeline({ onClose }) {
             </div>
           </div>
 
+          {viewMode === 'liste' && (
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: FONTS.body, fontSize: '0.82rem' }}>
+                <caption style={SR_ONLY}>
+                  {language === 'tr' ? 'Sûrelerin nüzul (vahiy) sırası tablosu' : 'Table of surahs in revelation order'}
+                </caption>
+                <thead>
+                  <tr style={{ color: SEMANTIC.textFaint, borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'left' }}>
+                    <th scope="col" style={{ padding: '8px 10px', fontWeight: 600 }}>#</th>
+                    <th scope="col" style={{ padding: '8px 10px', fontWeight: 600 }}>{language === 'tr' ? 'Sûre' : 'Surah'}</th>
+                    <th scope="col" style={{ padding: '8px 10px', fontWeight: 600, textAlign: 'right' }}>{language === 'tr' ? 'Ayet' : 'Verses'}</th>
+                    <th scope="col" style={{ padding: '8px 10px', fontWeight: 600 }}>{language === 'tr' ? 'Dönem' : 'Period'}</th>
+                    <th scope="col" style={{ padding: '8px 10px', fontWeight: 600, textAlign: 'right' }}>{language === 'tr' ? 'Mushaf sırası' : 'Mushaf order'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...displayed].sort((a, b) => a.rank - b.rank).map(s => {
+                    const nm = SURAH_NAMES_TR[s.surah - 1] || `${s.surah}`;
+                    const ac = AYAH_COUNTS[s.surah - 1] ?? '?';
+                    const per = s.period === 'mekki'
+                      ? (language === 'tr' ? 'Mekkî' : 'Meccan')
+                      : (language === 'tr' ? 'Medenî' : 'Medinan');
+                    return (
+                      <tr key={s.surah} style={{ borderBottom: `1px solid ${COLORS.glassBg}` }}>
+                        <td style={{ padding: '7px 10px', color: gold, fontWeight: 600 }}>{s.rank}</td>
+                        <td style={{ padding: '7px 10px', color: SEMANTIC.textPrimary }}>{nm}</td>
+                        <td style={{ padding: '7px 10px', textAlign: 'right', color: SEMANTIC.textMuted }}>{ac}</td>
+                        <td style={{ padding: '7px 10px' }}><span style={{ color: periodColor(s.period) }}>{per}</span></td>
+                        <td style={{ padding: '7px 10px', textAlign: 'right', color: SEMANTIC.textMuted }}>{s.surah}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+
           {viewMode === 'grid' && (
             <>
               {/* Grid */}
@@ -228,17 +336,21 @@ export default function RevelationTimeline({ onClose }) {
                             fontSize: '0.68rem', fontWeight: 700, padding: '1px 6px', borderRadius: '3px',
                           }}>#{s.rank}</span>
                           {isFatiha && (
-                            <span
-                              title={language === 'tr'
+                            <HintIcon
+                              glyph="ⓘ"
+                              ariaLabel={language === 'tr' ? 'Nüzul sırası hakkında not' : 'Note on revelation order'}
+                              text={language === 'tr'
                                 ? 'Fâtiha\'nın nüzul sırası tartışmalıdır. İlk inen sûre (1. sıra) olduğunu söyleyenler olduğu gibi, 5. sırada indiğini aktaran rivayetler de mevcuttur.'
                                 : "Al-Fatiha's revelation order is debated. Some accounts say it was the very first surah revealed; others place it 5th in the revelation sequence."}
-                              style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
-                            >ⓘ</span>
+                            />
                           )}
                         </div>
                         {diffFromMushaf !== 0 && (
-                          <span
-                            title={
+                          <HintIcon
+                            glyph={diffFromMushaf > 0 ? `▲${diffFromMushaf}` : `▼${Math.abs(diffFromMushaf)}`}
+                            fontSize="0.62rem"
+                            ariaLabel={language === 'tr' ? 'Mushaf ile nüzul sırası farkı' : 'Mushaf vs revelation order difference'}
+                            text={
                               diffFromMushaf > 0
                                 ? (language === 'tr'
                                     ? `Mushaf sırası nüzul sırasından ${diffFromMushaf} pozisyon geridedir`
@@ -247,10 +359,7 @@ export default function RevelationTimeline({ onClose }) {
                                     ? `Mushaf sırası nüzul sırasından ${Math.abs(diffFromMushaf)} pozisyon öndedir`
                                     : `Placed ${Math.abs(diffFromMushaf)} positions earlier in the mushaf than revealed`)
                             }
-                            style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', cursor: 'help' }}
-                          >
-                            {diffFromMushaf > 0 ? `▲${diffFromMushaf}` : `▼${Math.abs(diffFromMushaf)}`}
-                          </span>
+                          />
                         )}
                       </div>
                       <div style={{ color: COLORS.goldWarm, fontSize: '0.8rem', fontWeight: 600, lineHeight: 1.2, marginBottom: '3px' }}>{name}</div>

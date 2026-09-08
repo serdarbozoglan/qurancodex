@@ -23,6 +23,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -107,6 +108,7 @@ export default function Isimlendirme({ onClose }) {
         onClose={onClose}
       />
 
+      <CollapsibleHero id="isimlendirme" language={language} labelTr="İsimlendirme Ekonomisi" labelEn="The Economy of Naming">
       {/* ── Kahraman ─────────────────────────────────────────────────── */}
       <div className="mq-box" style={{
         '--pt-d': '56px', '--pt-m': '40px', '--pr-d': '32px', '--pr-m': '16px',
@@ -160,6 +162,7 @@ export default function Isimlendirme({ onClose }) {
             : 'The answer is far shorter than assumed, and the brevity itself is a message'}
         </p>
       </div>
+      </CollapsibleHero>
 
       {/* ── Açılış tezi ──────────────────────────────────────────────── */}
       <Section pt={56} pb={56}>

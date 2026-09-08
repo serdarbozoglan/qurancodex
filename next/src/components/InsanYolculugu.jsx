@@ -11,6 +11,7 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
@@ -103,6 +104,7 @@ export default function InsanYolculugu({ onClose }) {
       {data && (
         <>
           {/* ─── Hero — §13.18 Premium ────────────────────────────── */}
+          <CollapsibleHero id="insan-yolculugu" language={language} labelTr="İnsan Yolculuğu" labelEn="The Human Journey">
           <div className="mq-box" style={{
             '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
             background: `linear-gradient(180deg, ${COLORS.goldAlpha06} 0%, transparent 100%)`,
@@ -200,6 +202,7 @@ export default function InsanYolculugu({ onClose }) {
               <span>{isEn ? 'FIṬRAT → JAMĀL ALLĀH' : 'FIṬRAT → CEMÂLULLAH'}</span>
             </div>
           </div>
+          </CollapsibleHero>
 
           {/* ─── Mobile: Stage chip strip (§13.19 sticky) ──────────── */}
           {isMobile && (

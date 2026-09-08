@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CollapsibleHero from './CollapsibleHero';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
 
@@ -17,10 +18,10 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
       display: 'flex',
       flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: 'var(--qc-nav-h, 84px)',
     }}>
       <ToolHeader
         titleTr={hubData.titleTr}
@@ -30,7 +31,9 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
         language={language}
       />
 
-      <HubHero hubData={hubData} language={language} isMobile={isMobile} />
+      <CollapsibleHero id="ibadetler" language={language} labelTr={hubData.titleTr} labelEn={hubData.titleEn}>
+        <HubHero hubData={hubData} language={language} isMobile={isMobile} />
+      </CollapsibleHero>
 
       <div className="mq-box" style={{
         maxWidth: '1200px', margin: '0 auto', width: '100%',
