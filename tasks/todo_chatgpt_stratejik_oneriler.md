@@ -51,7 +51,8 @@
   İddia → ayet/korpus → kullanılan meal → klasik kaynak → çağdaş yorum → istisna/sınır → kontrol eden → güncelleme tarihi. Kitap: baskı+sayfa; makale: DOI/kalıcı bağlantı. (Şu an dağınık; §13.30 kısmen.)
 - [ ] **B2 · Beş görünür bilgi türü etiketi** — 🟢 M/L
   Ayet metni · meal · rivayet/klasik görüş · veri analizi · yazar tefekkürü = ayrı görsel etiketler. "Saygıdeğer yorum ≠ zorunlu sözlük anlamı/deneysel bulgu." (C19/C22 bunun küçük örnekleriydi.)
-- [ ] **B3 · Ortak sayım kuralları + "sayıya tıkla → liste"** — 🟢 M
+- [~] **B3 · Ortak sayım kuralları + "sayıya tıkla → liste"** — 🟢 M **(büyük ölçüde var + slice eklendi)**
+  "Sayım kuralları" zaten `DataDictionary` ile sayım-yoğun araçlarda belgeleniyor. "Sayıya tıkla → liste": WordHeatmap'te (sûre→âyetler) + artık **ana sayfa InventoryStrip** (65 Araç→/arac/tum-araclar · 53 Tefekkür→/tefekkur · 6.236 Âyet→/graf/ayet). ⬜ Kalan: tam site-geneli tıkla→liste + tek kanonik sayım-kuralları referansı (ayrı faz).
   Hafs sürümü, besmele dahil/hariç, kelime bölme, lemma/kök/yüzey, tekrar sayımı, doğrudan/dolaylı atıf tek yerde tanımlı. Her sayıya tıklayınca sayılan ayet listesi açılsın. (C01/C07/C09'un kök-önlemi.)
 - [x] **B4 · Yayın kapısı (CI) — sayım + eş-güncelleme testleri** — ✅ **YAPILDI (2026-09-07)** 🟢
   114 sûre toplamı, ayet sınırları, seri toplamları, çeviri alan kapsamı, katalog↔sitemap eşliği otomatik kontrol. Dinî dil/tecvid + bilim/psikoloji içerik uzman gözden geçirme. (C01/C07/C12/C18 bu kapı olsa yakalanırdı.)
