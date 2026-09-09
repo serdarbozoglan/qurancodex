@@ -243,13 +243,23 @@ export async function POST(request) {
     // but preserve original for logging/UX.
     const effectiveQuery = guard.query;
 
-    const effectiveMode = degraded ? 'keyword' : mode;
+    let effectiveMode = degraded ? 'keyword' : mode;
 
-    // 1. Embed query (semantic mode only) — degraded modda embed de atlanır
+    // 1. Embed query (semantic mode only) — degraded modda embed de atlanır.
     let queryEmb = null;
+    let embedFailed = false;
     if (effectiveMode === 'semantic') {
       const t0 = Date.now();
-      queryEmb = await embedQuery(effectiveQuery);
+      try {
+        queryEmb = await embedQuery(effectiveQuery);
+      } catch (err) {
+        // Embedding sağlayıcısı (DeepInfra) başarısız — 402 (kredi/kart) veya
+        // kesinti. Ziyaretçiye ham hata gösterme: sessizce KEYWORD aramaya düş
+        // ve LLM adımını da atla (ikinci sağlayıcıya/maliyete bağımlı kalma).
+        console.warn('[concierge] embedQuery failed, keyword fallback:', err?.message);
+        embedFailed = true;
+        effectiveMode = 'keyword';
+      }
       timings.embed = Date.now() - t0;
     } else {
       timings.embed = 0;
@@ -294,8 +304,8 @@ export async function POST(request) {
     // doğrudan hydrate şemasına çevrilip döndürülür (LLM çağrısı yok).
     const t2 = Date.now();
     let parsed, usage = null;
-    if (degraded) {
-      parsed = buildDegradedResult(grouped, lang, budget.reason);
+    if (degraded || embedFailed) {
+      parsed = buildDegradedResult(grouped, lang, embedFailed ? 'embed_unavailable' : budget.reason);
       timings.claude = 0;
     } else {
       ({ parsed, usage } = await runConcierge({ query: effectiveQuery, grouped, lang }));
