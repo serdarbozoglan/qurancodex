@@ -701,13 +701,13 @@ function LoadingState({ language }) {
     ? [
         { text: 'Sorunun anlamı çözümleniyor', dur: 1400 },
         { text: 'Kur\'an ve içerik havuzu taranıyor', dur: 1600 },
-        { text: 'En yakın 12 aday seçildi', dur: 1200 },
+        { text: 'En uygun âyet ve içerikler bulunuyor', dur: 1200 },
         { text: 'Yanıt hazırlanıyor', dur: 3000 },
       ]
     : [
         { text: 'Analysing the meaning of your question', dur: 1400 },
         { text: 'Scanning Quran and content pool', dur: 1600 },
-        { text: 'Selecting the 12 closest candidates', dur: 1200 },
+        { text: 'Finding the most relevant verses and content', dur: 1200 },
         { text: 'Composing the response', dur: 3000 },
       ]), [tr]);
   const [idx, setIdx] = useState(0);
