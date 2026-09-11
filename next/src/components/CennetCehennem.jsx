@@ -11,6 +11,7 @@ import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+import LinkifyRefs from './LinkifyRefs';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
@@ -112,7 +113,7 @@ function VerseBlock({ ar, tr, en, kaynak, language, color }) {
         {language === 'tr' ? tr : en}
       </p>
       <p style={{ fontSize: '0.72rem', color: `${c}99`, fontWeight: 600, margin: 0, direction: 'ltr', textAlign: 'left' }}>
-        — {kaynak}
+        — <LinkifyRefs text={kaynak} />
       </p>
     </div>
   );
@@ -592,7 +593,7 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
 
       {/* Source */}
       <p style={{ fontSize: '0.72rem', color: `${color}EE`, margin: '0 0 8px', fontWeight: 500 }}>
-        {tr ? item.kaynak : item.kaynakEn}
+        <LinkifyRefs text={tr ? item.kaynak : item.kaynakEn} />
       </p>
 
       {/* Note */}
@@ -767,7 +768,7 @@ function TabCennet({ data, language, isMobile }) {
             </div>
             <p style={{ fontSize: '0.88rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? b.nameTr : b.nameEn}</p>
             <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 6px', lineHeight: 1.5 }}>{tr ? b.descTr : b.descEn}</p>
-            <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: 0 }}>{b.kaynak}</p>
+            <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: 0 }}><LinkifyRefs text={b.kaynak} /></p>
           </div>
         ))}
       </div>
@@ -786,7 +787,7 @@ function TabCennet({ data, language, isMobile }) {
             <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 8px' }}>{s.nameAr}</p>
             <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>{tr ? s.nameTr : s.nameEn}</p>
             <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? s.descTr : s.descEn}</p>
-            <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: '0 0 6px' }}>{s.kaynak}</p>
+            <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: '0 0 6px' }}><LinkifyRefs text={s.kaynak} /></p>
             {s.notTr && <InfoNote text={tr ? s.notTr : s.notEn} />}
           </div>
         ))}
@@ -810,7 +811,7 @@ function TabCennet({ data, language, isMobile }) {
               {tr ? f.valueTr : f.valueEn}
             </p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '6px', flexWrap: 'wrap' }}>
-              <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: 0 }}>{f.kaynak !== '—' ? f.kaynak : '—'}</p>
+              <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: 0 }}><LinkifyRefs text={f.kaynak !== '—' ? f.kaynak : '—'} /></p>
               {f.isHadis && <HadisBadge language={language} />}
             </div>
           </div>
@@ -855,7 +856,7 @@ function TabCennet({ data, language, isMobile }) {
             <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 8px' }}>{g.nameAr}</p>
             <p style={{ fontSize: '0.88rem', fontWeight: 700, color: g.color, margin: '0 0 6px' }}>{language === 'tr' ? g.nameTr : g.nameEn}</p>
             <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{language === 'tr' ? g.descTr : g.descEn}</p>
-            <p style={{ fontSize: '0.7rem', color: `${g.color}80`, fontWeight: 500, margin: 0 }}>{g.kaynak}</p>
+            <p style={{ fontSize: '0.7rem', color: `${g.color}80`, fontWeight: 500, margin: 0 }}><LinkifyRefs text={g.kaynak} /></p>
           </div>
         ))}
       </div>
@@ -936,7 +937,7 @@ function TabCehennem({ data, language, isMobile }) {
             )}
             {/* Source */}
             {item.kaynak !== '—' && (
-              <p style={{ fontSize: '0.68rem', color: `${CEHENNEM.accent}C7`, fontWeight: 600, margin: 0 }}>{item.kaynak}</p>
+              <p style={{ fontSize: '0.68rem', color: `${CEHENNEM.accent}C7`, fontWeight: 600, margin: 0 }}><LinkifyRefs text={item.kaynak} /></p>
             )}
           </div>
         ))}
@@ -960,7 +961,7 @@ function TabCehennem({ data, language, isMobile }) {
             </div>
             <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>{tr ? y.nameTr : y.nameEn}</p>
             <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? y.descTr : y.descEn}</p>
-            <p style={{ fontSize: '0.7rem', color: `${CEHENNEM.accent}80`, fontWeight: 500, margin: 0 }}>{y.kaynak}</p>
+            <p style={{ fontSize: '0.7rem', color: `${CEHENNEM.accent}80`, fontWeight: 500, margin: 0 }}><LinkifyRefs text={y.kaynak} /></p>
           </div>
         ))}
       </div>
