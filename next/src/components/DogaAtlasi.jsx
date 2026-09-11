@@ -147,8 +147,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Târık (Gece Geleni)', nameEn: 'Tariq (Night-Comer)',
     frequency: '1 kez (sûre adı)',
     sureRef: 'Târık 86:1-3',
-    noteTr: "Târık suresi (86:1-3): \"Andolsun göğe ve Târık'a! Târık'ın ne olduğunu sana bildiren nedir? O, delici yıldızdır\" (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Klasik tefsirde meteor, parlak yıldız ya da Süreyya yıldız kümesi olarak yorumlanır. Modern okumalarda (örn. Z. Naik) periyodik atımlı pulsarlara işaret olabileceği önerilir; pulsarlar ilk kez 1967'de keşfedildi ve periyodik radyo darbeleri verir.",
-    noteEn: "Surah At-Tariq (86:1-3): 'By the sky and the night-comer! What can make you know what the night-comer is? It is the piercing star' (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Classical tafsir: meteors, bright stars, or the Pleiades. In modern readings (e.g. Z. Naik), pulsars are proposed; pulsars were discovered in 1967 and emit periodic radio pulses.",
+    noteTr: "Târık suresi (86:1-3): \"Andolsun göğe ve Târık'a! Târık'ın ne olduğunu sana bildiren nedir? O, delici yıldızdır\" (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Klasik tefsirde 'delici yıldız' (en-necmü's-sâkıb) meteor, parlak yıldız ya da Süreyyâ yıldız kümesi olarak yorumlanır.",
+    noteEn: "Surah At-Tariq (86:1-3): 'By the sky and the night-comer! What can make you know what the night-comer is? It is the piercing star' (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Classical tafsir reads 'the piercing star' as a meteor, a bright star, or the Pleiades.",
     featured: true,
   },
   {

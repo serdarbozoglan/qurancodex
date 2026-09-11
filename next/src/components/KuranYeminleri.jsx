@@ -93,8 +93,8 @@ export default function KuranYeminleri({ onClose }) {
           icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
           titleTr="Kur'an'ın Yeminleri"
           titleEn="Oaths of the Quran"
-          subtitleTr="Aksâmü'l-Kur'an · 25+ yemin"
-          subtitleEn="Aqsam al-Quran · 25+ oaths"
+          subtitleTr="Aksâmü'l-Kur'an · 47 yemin"
+          subtitleEn="Aqsam al-Quran · 47 oaths"
           language={language}
         />
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -121,8 +121,8 @@ export default function KuranYeminleri({ onClose }) {
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
         titleTr="Kur'an'ın Yeminleri"
         titleEn="Oaths of the Quran"
-        subtitleTr="Aksâmü'l-Kur'an · 25+ yemin"
-        subtitleEn="Aqsam al-Quran · 25+ oaths"
+        subtitleTr="Aksâmü'l-Kur'an · 47 yemin"
+        subtitleEn="Aqsam al-Quran · 47 oaths"
         language={language}
       />
 

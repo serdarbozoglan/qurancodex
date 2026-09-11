@@ -1858,6 +1858,69 @@ render edilmeyen alanlar; katalog kartındaki "N · N · N" etiketi.
 üretim aşamasında önlenebilirdi. Sonradan temizlik 17 commit ve 241 dosya
 sürdü. Yeni içerik aynı borcu yeniden biriktirmemeli.
 
+### 13.35 Kaynak Allowlist + Nokta-Referans + Erişilebilir Link — ENFORCE ALWAYS (2026-09-10+)
+
+**§13.30 (atfı yazmadan önce doğrula) hâlâ geçerli; bu bölüm onun ÜSTÜNE üç
+kural daha koyar: hangi kaynak künye sayılır, künye ne kadar spesifik olmalı,
+ve kaynak nasıl erişilebilir kılınır.** Kullanıcı direktifi (2026-09-10):
+"tüm kaynakları çok net gösterelim, ezberden 'şurada geçiyor' değil; gerçekten
+çok güvenilir kaynak (Kur'an corpus vb.) referans alalım, rastgele bir siteden
+referans göstermeyelim; kaynakları link ile ulaşılabilir yapalım."
+
+#### Kural 1 — Kaynak Allowlist (neyin "kaynak" sayıldığı)
+
+Bir iddia yalnızca şu iki tipten birine dayandırılabilir:
+- **Birincil eserin kendisi** (âyet, hadis, klasik tefsir/eser) — adıyla ve
+  **nokta-referansıyla** (aşağıda Kural 2).
+- **Otoritesi tartışmasız, doğrulanabilir dijital karşılık:**
+
+| Alan | Allowlisted kaynak (link verilebilir) |
+|---|---|
+| Âyet metni/meal | `quran.com` · `tanzil.net` |
+| Dil/morfoloji/kök | `corpus.quran.com` · `corpus.coranicum.de` |
+| Hadis | `sunnah.com` (koleksiyon+numara) |
+| Klasik tefsir/eser | `altafsir.com` · `shamela.ws` · `archive.org` |
+| Akademik bilim/beşerî | **DOI** (peer-reviewed) |
+
+- ❌ **KÜNYE DEĞİL (link olarak da referans olarak da kullanılamaz):** rastgele
+  web sitesi, blog, forum, `wikishia`, `Wikipedia`, içerik-toplayıcı (aggregator),
+  YouTube, kişisel sayfa. Bunlar en fazla "okuyucu buradan başlayabilir" işaret
+  levhasıdır — **iddianın dayanağı olamaz**, ve bir iddianın TEK kaynağıysa iddia
+  ya birincil esere bağlanır ya yumuşatılır/çıkarılır.
+- ❌ **AI belleği künye değildir.** "Genel bilgime göre X eserinde geçer" bir
+  atıf gerekçesi olamaz (§13.30).
+
+#### Kural 2 — Nokta-Referans (pinpoint), bibliyografya değil
+
+Künye "hangi hadis / hangi cilt-sayfa / hangi âyet" sınamasını geçmeli:
+- Âyet → `Sûre Adı X:Y` (§13.32 çıplak numara yasağı).
+- Hadis → koleksiyon + kitap/numara (ör. "Buhârî, Îmân 37" — "Buhârî'de geçer" değil).
+- Tefsir/klasik eser → eser adı + (mümkünse) cilt/sûre-âyet konumu — yalnız
+  yazar-eser adı yetmez.
+- ❌ "Süyûtî kaydeder", "müfessirler söyler", "bir grup dilci" gibi loci'siz
+  ifade **kesin dille** yazılamaz; ya nokta-referans eklenir ya "geleneksel
+  olarak nisbet edilir" gibi ihtiyatlı dile çevrilir.
+- ❌ **Dayanaksız "Doğrulandı/Verified" rozeti YASAK.** Bir alıntının doğrulandığı
+  ancak nokta-referans (`refTr`/`refEn` dolu) gösterildiğinde iddia edilebilir;
+  loci boşsa rozet gösterilmez.
+
+#### Kural 3 — Erişilebilir Link + "kırık link yayına girmez"
+
+- Allowlisted bir kaynağa nokta-referans veriliyorsa, mümkünse **tıklanabilir
+  link** de verilir. Künye yapısı: `{ etiketTr, etiketEn, url }` (+ opsiyonel
+  `teyitli: true` yalnız içerik bizzat açılıp görüldüyse). Dış link `rel=
+  "noopener noreferrer" target="_blank"` + dış-link ikonu taşır.
+- ❌ **Kırık/tahmini link yayına giremez.** Bir URL yazmadan önce açılıp o
+  iddiaya karşılık geldiği görülür (§13.30 doğrulama disiplini linke de uygulanır).
+  Deterministik türetilebilen linkler (âyet→`quran.com/X/Y`, hadis→`sunnah.com`,
+  kök→`corpus.quran.com`) "Tier-1 otomatik-güvenli"dir; tefsir-kitabı linkleri
+  ("Tier-2") tek tek açılıp teyit edilmeden yazılamaz.
+
+#### Uygulama sırası (bu turda)
+Denetim envanteri: `tasks/kaynak-denetimi-envanteri.md` (Tier A doğruluk → Tier B
+rozet → Tier C kaynaksız → Tier D muğlak). Fabrikasyon yok: doğrulanamayan
+yumuşatılır/çıkarılır, uydurulmaz.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

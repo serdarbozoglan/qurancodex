@@ -126,28 +126,40 @@
               "quoteAr": "هادي من في السماوات والأرض، فهم بنوره إلى الحقّ يهتدون",
               "quoteTr": "Göklerde ve yerde olanların hidayet vericisi — O'nun nûruyla hakka ererler.",
               "confidence": "confirmed",
-              "noteTr": "Düpedüz hidâyet okuması; ontoloji yok."
+              "noteTr": "Düpedüz hidâyet okuması; ontoloji yok.",
+              "refTr": "Câmiu'l-beyân, Nûr 24:35",
+              "refEn": "Jāmiʿ al-bayān, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "ذو نور السماوات، وصاحب نور السماوات",
               "quoteTr": "Göklerin nûru sahibi, göklerin nûrunun sahibi.",
               "confidence": "confirmed",
-              "noteTr": "Muzâf hazfi yoluyla mecaz — Mu'tezilî tenzîh kaygısı hazfi zorunlu kılıyor."
+              "noteTr": "Muzâf hazfi yoluyla mecaz — Mu'tezilî tenzîh kaygısı hazfi zorunlu kılıyor.",
+              "refTr": "el-Keşşâf, Nûr 24:35",
+              "refEn": "al-Kashshāf, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             },
             {
               "scholarId": "razi",
               "quoteAr": "والأقرب هو القول الأول لأن قوله في آخر الآية: يهدي الله لنوره من يشاء يدل على أن المراد بالنور الهداية",
               "quoteTr": "En yakın olan birinci görüştür; çünkü ayetin sonundaki ‘Allah dilediğini nûruna hidayet eder’ ifadesi, nûrdan kastın hidayet olduğunu gösterir.",
               "confidence": "confirmed",
-              "noteTr": "Dört görüşü (münevvir/müdebbir/nâzım/hâdî) sıralar, hâdî'yi ayetin kendi kapanışıyla gerekçelendirerek seçer."
+              "noteTr": "Dört görüşü (münevvir/müdebbir/nâzım/hâdî) sıralar, hâdî'yi ayetin kendi kapanışıyla gerekçelendirerek seçer.",
+              "refTr": "Mefâtîhu'l-gayb, Nûr 24:35",
+              "refEn": "Mafātīḥ al-Ghayb, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             },
             {
               "scholarId": "ibn-asur",
               "quoteAr": "الإخبار عن الله تعالى بأنه نور إخبار بمعنى مجازي للنور لا محالة",
               "quoteTr": "Allah hakkında O'nun nûr olduğunu haber vermek, kaçınılmaz olarak mecazî bir anlamla nûru haber vermektir.",
               "confidence": "confirmed",
-              "noteTr": "İki bağımsız incelemede tutarlı bulundu. Mecaz zorunludur çünkü Allah cisim/cevher/araz değildir; ilişki sebebiyyettir — Allah, ‘nûr’ denen her şeyin var edicisidir."
+              "noteTr": "İki bağımsız incelemede tutarlı bulundu. Mecaz zorunludur çünkü Allah cisim/cevher/araz değildir; ilişki sebebiyyettir — Allah, ‘nûr’ denen her şeyin var edicisidir.",
+              "refTr": "et-Tahrîr ve't-tenvîr, Nûr 24:35",
+              "refEn": "al-Taḥrīr wa al-Tanwīr, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             }
           ]
         },
@@ -158,20 +170,29 @@
               "scholarId": "taberi",
               "quoteTr": "Übey b. Ka'b'ın şâz kıraatini (“O'na iman edenin nûrunun misali”) Rebî' b. Enes ← Ebü'l-Âliye ← Übey zinciriyle nakleder.",
               "confidence": "confirmed",
-              "noteTr": "İsnad zinciri tam metinden birebir doğrulandı: “حدثنا عبد الأعلى بن واصل... عن الربيع بن أنس، عن أبي العالية، عن أُبيّ بن كعب”."
+              "noteTr": "İsnad zinciri tam metinden birebir doğrulandı: “حدثنا عبد الأعلى بن واصل... عن الربيع بن أنس، عن أبي العالية، عن أُبيّ بن كعب”.",
+              "refTr": "Câmiu'l-beyân, Nûr 24:35",
+              "refEn": "Jāmiʿ al-bayān, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "وعن أبىّ بن كعب: مثل نور من آمن به",
               "quoteTr": "Übey b. Ka'b'dan: O'na iman edenin nûrunun misali.",
               "confidence": "confirmed",
-              "noteTr": "Aynı kıraati bağımsız olarak nakleder."
+              "noteTr": "Aynı kıraati bağımsız olarak nakleder.",
+              "refTr": "el-Keşşâf, Nûr 24:35",
+              "refEn": "al-Kashshāf, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             },
             {
               "scholarId": "ibn-kesir",
               "quoteTr": "Yakın bir varyantla aynı kıraati nakleder (“nûru men âmene billâh”), İbn Abbas/Saîd b. Cübeyr'e de atfen.",
               "confidence": "confirmed",
-              "noteTr": "Râzî de ~10 yorumdan biri olarak bu okumayı listeler."
+              "noteTr": "Râzî de ~10 yorumdan biri olarak bu okumayı listeler.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Nûr 24:35",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, An-Nur 24:35",
+              "refUrl": "https://quran.com/24/35"
             }
           ]
         }
@@ -190,27 +211,39 @@
               "scholarId": "taberi",
               "quoteTr": "“أو” burada “vâv” gibi işler; her iki teşbih de aynı münafıklar içindir — şiir şâhitleriyle (Tevbe b. el-Humeyyir, Cerîr, Mütemmim b. Nüveyre) destekler.",
               "confidence": "confirmed",
-              "noteTr": "Tabari 2:19'da bu soruyu açıkça sorup aynı şekilde cevaplıyor: “أهما مثلان للمنافقين أو أحدهما؟”"
+              "noteTr": "Tabari 2:19'da bu soruyu açıkça sorup aynı şekilde cevaplıyor: “أهما مثلان للمنافقين أو أحدهما؟”",
+              "refTr": "Câmiu'l-beyân, Bakara 2:17-20",
+              "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:17-20",
+              "refUrl": "https://quran.com/2/17"
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "أو في أصلها لتساوي شيئين فصاعداً في الشك، ثم اتُّسع فيها فاستعيرت للتساوي في غير الشك… وأن القصتين سواء في استقلال كل واحدة منهما بوجه التمثيل",
               "quoteTr": "“أو aslında iki şeyi şüphede eşitlemek içindir... İki kıssa, her birinin temsil yönüyle müstakil olması bakımından eşittir.”",
               "confidence": "confirmed",
-              "noteTr": "Taberî ile aynı tarafta: tek durum, iki bağımsız yeterli örnekleme."
+              "noteTr": "Taberî ile aynı tarafta: tek durum, iki bağımsız yeterli örnekleme.",
+              "refTr": "el-Keşşâf, Bakara 2:17-20",
+              "refEn": "al-Kashshāf, Al-Baqarah 2:17-20",
+              "refUrl": "https://quran.com/2/17"
             },
             {
               "scholarId": "ibn-kesir",
               "quoteAr": "وهذا مثل آخر ضربه الله تعالى لضربٍ آخر من المنافقين",
               "quoteTr": "Bu, Allah'ın münafıkların başka bir türü için verdiği başka bir meseldir.",
               "confidence": "confirmed",
-              "noteTr": "İki-alt-grup okumasını benimser — Taberî/Zemahşerî'nin tersi."
+              "noteTr": "İki-alt-grup okumasını benimser — Taberî/Zemahşerî'nin tersi.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Bakara 2:17-20",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Al-Baqarah 2:17-20",
+              "refUrl": "https://quran.com/2/17"
             },
             {
               "scholarId": "razi",
               "quoteTr": "“İkinci soru” olarak formüle eder: neden iki temsilden biri diğerine şüphe harfiyle atfedildi? Dört cevap sıralar (Zemahşerî'nin eşitlik okuması dahil, iki-grup okuması dahil) ve hiçbirini kesin benimsemez.",
               "confidence": "confirmed",
-              "noteTr": "Sayan konumdadır, savunan değil."
+              "noteTr": "Sayan konumdadır, savunan değil.",
+              "refTr": "Mefâtîhu'l-gayb, Bakara 2:17-20",
+              "refEn": "Mafātīḥ al-Ghayb, Al-Baqarah 2:17-20",
+              "refUrl": "https://quran.com/2/17"
             }
           ]
         },
@@ -222,7 +255,10 @@
               "quoteAr": "وأولى التأويلات بالآية ما قاله قتادة، والضحاك، وما رواه علي بن أبي طلحة عن ابن عباس",
               "quoteTr": "Ayete en uygun tevil, Katâde ve Dahhâk'ın söylediği ve Ali b. Ebî Talha'nın İbn Abbâs'tan naklettiğidir.",
               "confidence": "confirmed",
-              "noteTr": "Hiç iman etmediler kampını tercih eder — “nûr” yalnızca dünyevî bir sosyal fayda idi."
+              "noteTr": "Hiç iman etmediler kampını tercih eder — “nûr” yalnızca dünyevî bir sosyal fayda idi.",
+              "refTr": "Câmiu'l-beyân, Bakara 2:17-20",
+              "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:17-20",
+              "refUrl": "https://quran.com/2/17"
             }
           ]
         },
@@ -234,7 +270,10 @@
               "quoteAr": "ذكر النور أبلغ لأنّ الضوء فيه دلالة على الزيادة... والغرض إزالة النور عنهم رأساً وطمسه أصلا",
               "quoteTr": "Nûr'u zikretmek daha vurgulu; çünkü dav' fazlalık ifade eder... amaç nûru kökünden kaldırıp tamamen silmektir.",
               "confidence": "confirmed",
-              "noteTr": "İnce bir dilbilimsel gözlem — zayıf ışığı bile bırakmama."
+              "noteTr": "İnce bir dilbilimsel gözlem — zayıf ışığı bile bırakmama.",
+              "refTr": "el-Keşşâf, Bakara 2:17-20",
+              "refEn": "al-Kashshāf, Al-Baqarah 2:17-20",
+              "refUrl": "https://quran.com/2/17"
             }
           ]
         }
@@ -254,7 +293,10 @@
               "quoteAr": "أولى ذلك بالصواب وأشبهه بالحقّ، ما ذكرنا من قول ابن مسعود وابن عباس",
               "quoteTr": "Doğruya en yakın ve hakka en uygun olanı, İbn Mes'ûd ve İbn Abbâs'ın söylediğidir.",
               "confidence": "confirmed",
-              "noteTr": "Üç rakip rivayet arasından, bağlamsal yakınlık gerekçesiyle “münafıklar 2:17-20'ye itiraz etti” rivayetini tercih eder."
+              "noteTr": "Üç rakip rivayet arasından, bağlamsal yakınlık gerekçesiyle “münafıklar 2:17-20'ye itiraz etti” rivayetini tercih eder.",
+              "refTr": "Câmiu'l-beyân, Bakara 2:26",
+              "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:26",
+              "refUrl": "https://quran.com/2/26"
             }
           ]
         },
@@ -266,7 +308,10 @@
               "quoteAr": "فليس العِظَم والحقارة في المضروب به المثل إذاً إلا أمراً تستدعيه حال المتمثَّل له",
               "quoteTr": "Meselde kullanılan şeyin büyüklüğü ya da değersizliği, kendisine mesel verilenin durumunun gerektirdiği bir şeyden başkası değildir.",
               "confidence": "confirmed",
-              "noteTr": "Tüm emsâl savunusunun en ekonomik cümlesi — imgenin bayağılığı, konu edilenin (putların) bayağılığının fonksiyonudur."
+              "noteTr": "Tüm emsâl savunusunun en ekonomik cümlesi — imgenin bayağılığı, konu edilenin (putların) bayağılığının fonksiyonudur.",
+              "refTr": "el-Keşşâf, Bakara 2:26",
+              "refEn": "al-Kashshāf, Al-Baqarah 2:26",
+              "refUrl": "https://quran.com/2/26"
             }
           ]
         },
@@ -278,14 +323,20 @@
               "quoteAr": "وهذا قولٌ خلافُ تأويل أهل العلم الذين تُرْتَضى معرفتهم",
               "quoteTr": "Bu, marifetleri makbul sayılan ilim ehlinin tevilinin aksine bir sözdür.",
               "confidence": "confirmed",
-              "noteTr": "“Ondan büyük olan” okumasını savunur; “küçük” okumasını sert reddeder."
+              "noteTr": "“Ondan büyük olan” okumasını savunur; “küçük” okumasını sert reddeder.",
+              "refTr": "Câmiu'l-beyân, Bakara 2:26",
+              "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:26",
+              "refUrl": "https://quran.com/2/26"
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "فما تجاوزها وزاد عليها في المعنى الذي ضُربت فيه مثلاً، وهو القلّة والحقارة",
               "quoteTr": "Kendisi için mesel verilen manada — yani azlık ve hakirlikte — onu aşan.",
               "confidence": "confirmed",
-              "noteTr": "“Küçük/değersiz olan” okumasını önceliklendirir; “hacimce fazla” okumasını ikincil (“ve kīle”) sayar. Râzî de bu tarafı seçer."
+              "noteTr": "“Küçük/değersiz olan” okumasını önceliklendirir; “hacimce fazla” okumasını ikincil (“ve kīle”) sayar. Râzî de bu tarafı seçer.",
+              "refTr": "el-Keşşâf, Bakara 2:26",
+              "refEn": "al-Kashshāf, Al-Baqarah 2:26",
+              "refUrl": "https://quran.com/2/26"
             }
           ]
         }
@@ -303,18 +354,27 @@
             {
               "scholarId": "taberi",
               "quoteTr": "Bel'am b. Bâûrâ'ya (Mûsâ döneminden bir İsrailoğlu) atfını İbn Mes'ûd, İbn Abbâs, Mücâhid ve İkrime zincirleriyle nakleder.",
-              "confidence": "confirmed"
+              "confidence": "confirmed",
+              "refTr": "Câmiu'l-beyân, A'râf 7:175-176",
+              "refEn": "Jāmiʿ al-bayān, Al-A'raf 7:175-176",
+              "refUrl": "https://quran.com/7/175"
             },
             {
               "scholarId": "kurtubi",
               "quoteTr": "Ümeyye b. Ebi's-Salt'a atfını (Abdullah b. Amr, Zeyd b. Eslem) ve Ebû Âmir b. Sayfî “er-Râhib”'e atfını (Saîd b. el-Müseyyeb: “nezelet fî Ebî Âmir... fe-keferе bi'n-Nebî”) nakleder.",
-              "confidence": "confirmed"
+              "confidence": "confirmed",
+              "refTr": "el-Câmi' li-ahkâmi'l-Kur'ân, A'râf 7:175-176",
+              "refEn": "al-Jāmiʿ li-aḥkām al-Qurʾān, Al-A'raf 7:175-176",
+              "refUrl": "https://quran.com/7/175"
             },
             {
               "scholarId": "taberi",
               "quoteTr": "Kendi tercihinde hiçbirini isimlendirmez: “Sahih olan, Allah'ın dediğini demek ve tenzilin zahirini kabul etmektir” — meseleyi tip olarak okur, birey olarak değil.",
               "confidence": "confirmed",
-              "noteTr": "Genel-okuma tercihi tam metinden doğrulandı."
+              "noteTr": "Genel-okuma tercihi tam metinden doğrulandı.",
+              "refTr": "Câmiu'l-beyân, A'râf 7:175-176",
+              "refEn": "Jāmiʿ al-bayān, Al-A'raf 7:175-176",
+              "refUrl": "https://quran.com/7/175"
             }
           ]
         },
@@ -326,20 +386,29 @@
               "quoteAr": "كل شيء يلهث فإنما يلهث من إعياء أو عطش، إلا الكلب",
               "quoteTr": "Her şey yorgunluktan veya susuzluktan solur, köpek hariç.",
               "confidence": "confirmed",
-              "noteTr": "İbn Kuteybe'den nakil — köpek, dinlenmede de hastalıkta da solur; benzersiz bir yapısal özellik. (Not: “munkati'ul-fuâd” ifadesi kaynak metinde İbn Cüreyc'e aittir, bazı ikincil aktarımlarda İbn Abbâs'a yanlış atfedilir.)"
+              "noteTr": "İbn Kuteybe'den nakil — köpek, dinlenmede de hastalıkta da solur; benzersiz bir yapısal özellik. (Not: “munkati'ul-fuâd” ifadesi kaynak metinde İbn Cüreyc'e aittir, bazı ikincil aktarımlarda İbn Abbâs'a yanlış atfedilir.)",
+              "refTr": "el-Câmi' li-ahkâmi'l-Kur'ân, A'râf 7:175-176",
+              "refEn": "al-Jāmiʿ li-aḥkām al-Qurʾān, Al-A'raf 7:175-176",
+              "refUrl": "https://quran.com/7/175"
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "سائر الحيوان لا يكون منه اللهث إلا إذا هيج، والكلب يتصل لهثه في الحالتين جميعاً",
               "quoteTr": "Diğer hayvanlar ancak tahrik olunca solur; köpek ise iki halde de kesintisiz solur.",
               "confidence": "confirmed",
-              "noteTr": "Bu hâli “en aşağılık ve en zelil hâli” olarak niteler."
+              "noteTr": "Bu hâli “en aşağılık ve en zelil hâli” olarak niteler.",
+              "refTr": "el-Keşşâf, A'râf 7:175-176",
+              "refEn": "al-Kashshāf, Al-A'raf 7:175-176",
+              "refUrl": "https://quran.com/7/175"
             },
             {
               "scholarId": "razi",
               "quoteTr": "Üç ayrı vecih sıralar: (i) soluma fıtrîdir, ihtiyaçtan değil; (ii) süreklilik — hırs hiç kesilmez; (iii) değişmezlik — teşvik edilse de bırakılsa da aynı.",
               "confidence": "confirmed",
-              "noteTr": "Üçü de Mefâtîhu'l-gayb 7:176'da doğrulandı."
+              "noteTr": "Üçü de Mefâtîhu'l-gayb 7:176'da doğrulandı.",
+              "refTr": "Mefâtîhu'l-gayb, A'râf 7:175-176",
+              "refEn": "Mafātīḥ al-Ghayb, Al-A'raf 7:175-176",
+              "refUrl": "https://quran.com/7/175"
             }
           ]
         }
@@ -359,14 +428,20 @@
               "quoteAr": "شبهت في الاستقباح بها لأنها موصوفة عند مستحسنها بالقبح في غاية الأمر",
               "quoteTr": "Çirkinlikte onlara benzetildi; çünkü onları çirkin bulanların gözünde şeytanlar en uç noktada çirkin olarak nitelenir.",
               "confidence": "confirmed",
-              "noteTr": "“تشبيه تخييلي” (imgesel/tehayyülî teşbih) terimini kullanır — benzetme görmeye değil, yerleşik zihinsel imgeye dayanır."
+              "noteTr": "“تشبيه تخييلي” (imgesel/tehayyülî teşbih) terimini kullanır — benzetme görmeye değil, yerleşik zihinsel imgeye dayanır.",
+              "refTr": "el-Keşşâf, Sâffât 37:65",
+              "refEn": "al-Kashshāf, As-Saffat 37:65",
+              "refUrl": "https://quran.com/37/65"
             },
             {
               "scholarId": "razi",
               "quoteAr": "هذا من باب التشبيه لا بالمحسوس بل بالمتخيل... كأنه قيل: إن أقبح الأشياء في الوهم والخيال هو رؤوس الشياطين",
               "quoteTr": "Bu, mahsûsa değil mutehayyele (hayalde kurulmuş olana) teşbih babındandır... sanki denmiştir ki: vehim ve hayalde en çirkin şey şeytanların başlarıdır.",
               "confidence": "confirmed",
-              "noteTr": "Mefâtîhu'l-gayb'da Zemahşerî'yi doğrudan alıntılayıp onaylar: “قال صاحب الكشاف...”. İki bağımsız kaynağın birbirini teyit ettiği güçlü bir örnek."
+              "noteTr": "Mefâtîhu'l-gayb'da Zemahşerî'yi doğrudan alıntılayıp onaylar: “قال صاحب الكشاف...”. İki bağımsız kaynağın birbirini teyit ettiği güçlü bir örnek.",
+              "refTr": "Mefâtîhu'l-gayb, Sâffât 37:65",
+              "refEn": "Mafātīḥ al-Ghayb, As-Saffat 37:65",
+              "refUrl": "https://quran.com/37/65"
             }
           ]
         }
@@ -386,7 +461,10 @@
               "quoteAr": "أن نسجه فيه فائدة له، لولاه لما حصل وهو اصطيادها الذباب به",
               "quoteTr": "Onu örmesinde kendisi için bir fayda vardır; o olmasaydı sinekleri onunla avlayamazdı.",
               "confidence": "confirmed",
-              "noteTr": "Faydayı açıkça kabul eder. Çözüm kategoriktir: Kur'ân ağa “kötü ağ” değil, “en zayıf ev” diyor — ev barındırmalı, gölgelemeli, rüzgâr ve yağmurdan korumalı; ağ bunların hiçbirini yapmaz."
+              "noteTr": "Faydayı açıkça kabul eder. Çözüm kategoriktir: Kur'ân ağa “kötü ağ” değil, “en zayıf ev” diyor — ev barındırmalı, gölgelemeli, rüzgâr ve yağmurdan korumalı; ağ bunların hiçbirini yapmaz.",
+              "refTr": "Mefâtîhu'l-gayb, Ankebût 29:41",
+              "refEn": "Mafātīḥ al-Ghayb, Al-Ankabut 29:41",
+              "refUrl": "https://quran.com/29/41"
             }
           ]
         }
@@ -406,21 +484,30 @@
               "quoteAr": "أخبروني عن شجرة تشبه... المسلم لا يتحاتّ ورقها",
               "quoteTr": "Bana öyle bir ağacı haber verin ki... Müslüman'a benzer, yaprağı dökülmez.",
               "confidence": "confirmed",
-              "noteTr": "Sahîh-i Buhârî, hadis no. 4698 (Ubeyd b. İsmâîl ← Ebû Üsâme ← Ubeydullah ← Nâfi' ← İbn Ömer zinciriyle). İbn Ömer içinden hurma olduğunu anlar ama en genç olduğu için susar; kimse bulamayınca Peygamber “O hurmadır” buyurur."
+              "noteTr": "Sahîh-i Buhârî, hadis no. 4698 (Ubeyd b. İsmâîl ← Ebû Üsâme ← Ubeydullah ← Nâfi' ← İbn Ömer zinciriyle). İbn Ömer içinden hurma olduğunu anlar ama en genç olduğu için susar; kimse bulamayınca Peygamber “O hurmadır” buyurur.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, İbrâhîm 14:24-26",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Ibrahim 14:24-26",
+              "refUrl": "https://quran.com/14/24"
             },
             {
               "scholarId": "kurtubi",
               "quoteAr": "خَرَّجَهُ الدَّارَقُطْنِيُّ عَنِ ابْنِ عُمَرَ",
               "quoteTr": "Dârekutnî bunu İbn Ömer'den tahric etti.",
               "confidence": "confirmed",
-              "noteTr": "Peygamber'in önce 14:24'ü okuyup sonra sorduğu bir versiyon."
+              "noteTr": "Peygamber'in önce 14:24'ü okuyup sonra sorduğu bir versiyon.",
+              "refTr": "el-Câmi' li-ahkâmi'l-Kur'ân, İbrâhîm 14:24-26",
+              "refEn": "al-Jāmiʿ li-aḥkām al-Qurʾān, Ibrahim 14:24-26",
+              "refUrl": "https://quran.com/14/24"
             },
             {
               "scholarId": "ibn-asur",
               "quoteAr": "وفي جامع الترمذي عن أنس بن مالك... رسول الله ﷺ قال «مثل كلمة طيبة كشجرة طيبة... قال: هي النخلة»",
               "quoteTr": "Tirmizî'nin Câmi'inde Enes b. Mâlik'ten... Resûlullah ﷺ dedi: ‘Güzel söz güzel ağaç gibidir... O hurmadır.’",
               "confidence": "confirmed",
-              "noteTr": "Aynı hadisi doğrudan 14:24'ün lafzına bağlayan bir versiyon."
+              "noteTr": "Aynı hadisi doğrudan 14:24'ün lafzına bağlayan bir versiyon.",
+              "refTr": "et-Tahrîr ve't-tenvîr, İbrâhîm 14:24-26",
+              "refEn": "al-Taḥrīr wa al-Tanwīr, Ibrahim 14:24-26",
+              "refUrl": "https://quran.com/14/24"
             }
           ]
         },
@@ -431,7 +518,10 @@
               "scholarId": "ibn-kesir",
               "quoteTr": "Dört görüş bir arada aktarılır: şehâdet (İbn Abbâs, birincil), iman (Mücâhid), müminin kendisi (Atıyye el-Avfî, Rebî' b. Enes), salih söz+amel (Dahhâk, Saîd b. Cübeyr, İkrime, Katâde).",
               "confidence": "partial",
-              "noteTr": "Dört kamp da kaynaklarda gerçekten var; hangi âlimin tam olarak hangi kampa girdiği bazı yerlerde belirsiz — genel bir liste olarak sunuluyor, tek tek isim eşleştirmesi kesin değil."
+              "noteTr": "Dört kamp da kaynaklarda gerçekten var; hangi âlimin tam olarak hangi kampa girdiği bazı yerlerde belirsiz — genel bir liste olarak sunuluyor, tek tek isim eşleştirmesi kesin değil.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, İbrâhîm 14:24-26",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Ibrahim 14:24-26",
+              "refUrl": "https://quran.com/14/24"
             }
           ]
         },
@@ -443,7 +533,10 @@
               "quoteAr": "أحسبه رفعه",
               "quoteTr": "Sanırım onu merfû rivayet etti.",
               "confidence": "confirmed",
-              "noteTr": "Hanzal (ebûcehil karpuzu) okuması baskın; ama İbn Kesîr bu rivayetin merfû mu mevkuf mu olduğunu açıkça sorguluyor — “lem yerfa'hu ğayru Hammâd b. Seleme” diyerek tekilliğine dikkat çekiyor."
+              "noteTr": "Hanzal (ebûcehil karpuzu) okuması baskın; ama İbn Kesîr bu rivayetin merfû mu mevkuf mu olduğunu açıkça sorguluyor — “lem yerfa'hu ğayru Hammâd b. Seleme” diyerek tekilliğine dikkat çekiyor.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, İbrâhîm 14:24-26",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Ibrahim 14:24-26",
+              "refUrl": "https://quran.com/14/24"
             }
           ]
         }
@@ -463,14 +556,20 @@
               "quoteAr": "حدثنا إبراهيم بن موسى، حدثنا هشام -هو ابن يوسف- عن ابن جريج، عن ابن أبي مليكة، عن ابن عباس",
               "quoteTr": "İsnad: İbrâhîm b. Mûsâ ← Hişâm (İbn Yûsuf) ← İbn Cüreyc ← İbn Ebî Müleyke ← İbn Abbâs.",
               "confidence": "confirmed",
-              "noteTr": "Sahîh-i Buhârî, hadis no. 4538 (Kitâbü't-Tefsîr) — tam metinden doğrulandı."
+              "noteTr": "Sahîh-i Buhârî, hadis no. 4538 (Kitâbü't-Tefsîr) — tam metinden doğrulandı.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Bakara 2:266",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Al-Baqarah 2:266",
+              "refUrl": "https://quran.com/2/266"
             },
             {
               "scholarId": "ibn-kesir",
               "quoteAr": "ضُربت مثلاً لعمل",
               "quoteTr": "İbn Abbâs sadece şunu söyleyebiliyor: ‘Bir amel için mesel verilmiştir.’",
               "confidence": "confirmed",
-              "noteTr": "Ömer sıkıştırınca (“Ayyu amel?”) — asıl yorumu (“lerâculin ğaniyyin ya'melu bi-tâatillâh...” — zengin bir adam Allah'a itaatle amel eder, sonra şeytan gelir...) bizzat ÖMER verir, İbn Abbâs değil. Popüler anlatımlarda bu cümle rutin olarak İbn Abbâs'a mal ediliyor — bu bir düzeltmedir."
+              "noteTr": "Ömer sıkıştırınca (“Ayyu amel?”) — asıl yorumu (“lerâculin ğaniyyin ya'melu bi-tâatillâh...” — zengin bir adam Allah'a itaatle amel eder, sonra şeytan gelir...) bizzat ÖMER verir, İbn Abbâs değil. Popüler anlatımlarda bu cümle rutin olarak İbn Abbâs'a mal ediliyor — bu bir düzeltmedir.",
+              "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Bakara 2:266",
+              "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Al-Baqarah 2:266",
+              "refUrl": "https://quran.com/2/266"
             }
           ]
         }

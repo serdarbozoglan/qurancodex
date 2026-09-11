@@ -35,8 +35,10 @@ const SCHOLAR_COLORS = {
   'ibn-asur':   CATEGORY.red,
 };
 
-const CONFIDENCE_LABELS_TR = { confirmed: 'Doğrulandı', partial: 'Kısmen doğrulandı' };
-const CONFIDENCE_LABELS_EN = { confirmed: 'Verified', partial: 'Partially verified' };
+// Rozet artık "doğrulandı" (öz-sertifika) demez; alıntının hangi kaynakta
+// bulunduğunu söyler ve altındaki künye satırı o kaynağa link verir (§13.35).
+const CONFIDENCE_LABELS_TR = { confirmed: 'Kaynakta', partial: 'Kısmen naklen' };
+const CONFIDENCE_LABELS_EN = { confirmed: 'In source', partial: 'Partial' };
 
 // ── SURAH NAMES — ayet referansları "24:35" değil "Nûr 24:35" gösterir
 // (§13.32 site-wide kural; SebebiNuzul.jsx/KissaAtlas.jsx'teki kısa-ad
@@ -138,9 +140,15 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
           {pos.quoteTr}
         </p>
       )}
-      {pos.refTr && (
-        <p style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.75, margin: '0 0 6px' }}>
-          — {pos.refTr}
+      {(tr ? pos.refTr : pos.refEn) && (
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.85, margin: '0 0 6px' }}>
+          {pos.refUrl ? (
+            <a href={pos.refUrl} target="_blank" rel="noopener noreferrer"
+              style={{ color: COLORS.silver, textDecoration: 'none', borderBottom: `1px dotted ${COLORS.silver}66` }}>
+              {tr ? pos.refTr : pos.refEn}
+              <span aria-hidden="true" style={{ marginInlineStart: 4, opacity: 0.7 }}>↗</span>
+            </a>
+          ) : (tr ? pos.refTr : pos.refEn)}
         </p>
       )}
       {pos.noteTr && (
