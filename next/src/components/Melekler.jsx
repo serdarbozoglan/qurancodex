@@ -799,8 +799,8 @@ const ANALYSIS_CARDS = [
   {
     titleTr: "Melek mi cin mi? İblis örneği",
     titleEn: "Angel or jinn? The case of Iblis",
-    bodyTr: "İblis Kur'an'da 'meleklerden' biri olarak anılır (A'raf 7:11) ama başka bir ayette 'cin'dendi' denir (Kehf 18:50). Bu iki ayet arasındaki gerilim tefsir tarihinin en uzun tartışmalarından. Her iki yorum da Kur'an'dan desteklenebilir.",
-    bodyEn: "Iblis is grouped with the angels in Al-A'raf 7:11 but described as 'from the jinn' in Al-Kahf 18:50. This tension between two verses is one of the longest-running debates in tafsir history. Both interpretations can be supported from the Quran itself.",
+    bodyTr: "A'râf 7:11'de meleklere verilen secde emrinde İblis istisna tutulur ('...hepsi secde etti, İblis hariç'); bu, onu 'meleklerden' sayan yorumun dayanağıdır. Âyet İblis'e doğrudan 'melek' demez. Kehf 18:50 ise 'o cinlerdendi' der. İki âyet arasındaki bu gerilim tefsir tarihinin en uzun tartışmalarından biridir; her iki yorum da Kur'an'dan desteklenebilir.",
+    bodyEn: "In Al-A'raf 7:11 Iblis is the exception to the command of prostration given to the angels ('they all prostrated, except Iblis'); this is the basis for the reading that groups him with the angels, though the verse does not directly call him an angel. Al-Kahf 18:50 says he 'was of the jinn.' This tension between the two verses is one of the longest-running debates in tafsir history; both interpretations can be supported from the Quran itself.",
   },
   {
     titleTr: "Melekler cinsiyetsiz mi?",
