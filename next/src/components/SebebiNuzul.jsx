@@ -1665,6 +1665,14 @@ function TabZaman({ language, isMobile }) {
               </div>
             </div>
 
+            <div style={{ marginBottom: '16px', padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.chip, border: `1px solid ${COLORS.glassBorder}` }}>
+              <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.85, lineHeight: 1.6, margin: 0, fontFamily: FONTS.body }}>
+                {language === 'tr'
+                  ? 'Bu kronoloji klasik siyer ve tarih kaynaklarına (İbn İshâk / İbn Hişâm, Taberî) dayanır; olayların yıl ve sıralamasında kaynaklar arasında farklar bulunabilir.'
+                  : 'This chronology follows classical sīra and history sources (Ibn Isḥāq / Ibn Hishām, al-Ṭabarī); sources can differ on the dating and ordering of events.'}
+              </p>
+            </div>
+
             <TimelinePrevNext events={timeEvents} current={timeSelected} onSelect={setTimeSelected} language={language} />
           </motion.div>
         )}

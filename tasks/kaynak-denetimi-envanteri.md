@@ -100,7 +100,22 @@ Nokta-loci'ye çekilecek (Tier-1 otomatik-link, Tier-2 teyitli):
 - ✅ **TIER B tamam:** tefsir-ihtilaf 33 pozisyona `refTr/refEn/refUrl` (eser+âyet
   + quran.com linki) · rozet "Doğrulandı"→"Kaynakta" · künye satırı tıklanabilir ·
   3 alıntı spot-doğrulandı (Razi 24:35, Zemahşerî 2:26 ×2 — hepsi birebir).
-- ⏳ Push: bekliyor (§17.4 kullanıcı onayı; §13.24 bilimsel/doga hakem-notu).
+- ✅ **Tier A+B push edildi** (feat-mukattaa-sources dalına, main'e DEĞİL) — commit f69d3040.
+- ✅ **TIER C (belirgin overclaim'ler) tamam:**
+  · WowFacts: "Allah 2699×" corpus.quran.com kaynaklı · Meryem "34 ayette"→"34 kez (32 ayette)"
+    · Fâtiha "tek metin/only text" mutlak ifade yumuşatıldı (~2 milyar Müslüman çerçevesi)
+  · Kıraat "452 = 113×4 farklı okuma" uydurma artefakt → "113 sûre besmeleyle açılır" gerçeği
+  · ZamanBoyutları "İbn Kesîr/Râzî/Elmalılı icmâıdır" → "ortak kanaati" (icmâ yanlış kullanımı)
+  · ZamanBoyutları Gazâlî verbatim alıntı (doğrulanamadı) → "İhyâ vurgusuyla uyumlu okuyuş"
+  · KuranYeminleri Şafiî/Asr sözü ×2 → kaynak eklendi (Beyhakî, Şuabü'l-Îmân — teyitli)
+  · Münâfık küçük-şirk hadisi → râvi (Mahmûd b. Lebîd) + "hasen/sahih" derece nüansı
+  · ProphetAtlas taşlar → Hûd 11:83 "müsevveme" dayanağı + EN hedge
+  · SebebiNuzul timeline → "klasik siyer kaynağı (İbn İshâk/Hişâm, Taberî)" framing notu
+  · KissaAtlas Divine Speech: DEĞİŞMEDİ — zaten örnek (birincil akademik makale künyeleri var)
+  · Zaten hedge'li bırakılanlar: 124.000 peygamber ("rivayet edilir"), İbrahim "10+",
+    Kıraat "~%95" ("~"), MukattaaViews mutesabih ("nakledilir"+Kurtubî loci).
+- ⏳ Push (Tier C): build sonrası feature dalına.
+- ⏳ Push→main: §17.4 kullanıcı onayı + §13.24 bilimsel/doga hakem-notu bekliyor.
 
 ## Aksiyon planı (allowlist politikasıyla)
 1. ✅ **Tier A (doğruluk)** — tamam (yukarı).

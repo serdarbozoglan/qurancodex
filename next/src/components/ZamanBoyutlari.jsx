@@ -67,8 +67,8 @@ const TIMELINE_DATA = [
     ref: 'Kadr 97:3',
     noteTr: 'Bir gecelik ibadet 83 yıllık ibadetten değerli; zamanın kalitesi miktarından üstün.',
     noteEn: 'One night of worship outweighs 83 years; the quality of time exceeds its quantity.',
-    expandTr: "İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Bu gece zamanın niceliksel değil niteliksel aktığını gösterir; anlam yoğunluğu, saat sayısından bağımsızdır. (ℹ️ Tefsir görüşü)",
-    expandEn: "Imam Al-Ghazali: 'Good is measured by depth, not quantity.' This night shows time can flow qualitatively; density of meaning, independent of clock hours. (ℹ️ Exegetical view)",
+    expandTr: "Bu gece zamanın niceliksel değil niteliksel aktığını gösterir; anlam yoğunluğu saat sayısından bağımsızdır. Gazâlî'nin İhyâ'da ibadetin iç/niteliksel boyutuna yaptığı vurguyla uyumlu bir okuyuş. (ℹ️ Tefsir görüşü)",
+    expandEn: "This night shows time can flow qualitatively rather than quantitatively; density of meaning is independent of clock hours. A reading in line with al-Ghazali's emphasis in the Ihya on the inner, qualitative dimension of worship. (ℹ️ Exegetical view)",
     logValue: 0,
     color: '#c9a227',
   },
@@ -278,9 +278,9 @@ const ACCORDION_ITEMS = [
     titleTr: "Leyletu'l-Kadr'ın Matematiği",
     titleEn: "The Mathematics of Laylat al-Qadr",
     bodyTr:
-      "1.000 aydan hayırlı bir gece: sayısal bir üstünlük mü, niteliksel mi? İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Kur'an burada zamanın saat olarak değil, anlam yoğunluğu olarak akabileceğini ima eder.",
+      "1.000 aydan hayırlı bir gece: sayısal bir üstünlük mü, niteliksel mi? Değer niceliğe değil derinliğe bağlı okunabilir (Gazâlî'nin ibadetin iç boyutuna dair vurgusuyla uyumlu bir bakış): Kur'an burada zamanın saat olarak değil, anlam yoğunluğu olarak akabileceğini ima eder.",
     bodyEn:
-      "A night better than 1,000 months: numerical superiority or qualitative? Imam Al-Ghazali: 'Good is measured not by quantity, but by depth.' The Quran implies time can flow not as hours, but as density of meaning.",
+      "A night better than 1,000 months: numerical superiority or qualitative? Value can be read as bound to depth rather than quantity, in line with al-Ghazali's emphasis on the inner dimension of worship: the Quran implies time can flow not as hours, but as density of meaning.",
     arabic: 'لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ',
     mealTr: 'Kadir gecesi, bin aydan daha hayırlıdır.',
     mealEn: 'The Night of Power is better than a thousand months.',
@@ -936,8 +936,8 @@ export default function ZamanBoyutlari({ onClose }) {
               fontFamily: FONTS.body,
             }}>
               {language === 'tr'
-                ? "'Gün' (yevm) burada 24 saatlik zaman dilimi değil, kozmolojik bir evredir (marhale). Bu, İbn Kesîr, Râzî ve Elmalılı'nın icmâıdır. Modern kozmoloji ile bir arada okuma tefsir-i mecâzî sınıfına girer, bağlayıcı ilim değildir."
-                : "'Day' (yawm) here does not mean a 24-hour period but a cosmological phase (marḥala). This is the consensus of Ibn Kathīr, al-Rāzī, and Elmalılı. Reading these alongside modern cosmology is a metaphorical exegesis, not binding science."}
+                ? "'Gün' (yevm) burada 24 saatlik zaman dilimi değil, kozmolojik bir evredir (marhale). İbn Kesîr, Râzî ve Elmalılı gibi müfessirlerin ortak kanaati bu yöndedir. Modern kozmoloji ile bir arada okuma tefsir-i mecâzî sınıfına girer, bağlayıcı ilim değildir."
+                : "'Day' (yawm) here does not mean a 24-hour period but a cosmological phase (marḥala). Commentators such as Ibn Kathīr, al-Rāzī, and Elmalılı share this view. Reading these alongside modern cosmology is a metaphorical exegesis, not binding science."}
             </p>
           </div>
         </div>
