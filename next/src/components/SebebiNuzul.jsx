@@ -32,6 +32,7 @@ async function loadVerseGraphIndex() {
 
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
+import { quranComUrl, sunnahComUrl } from '../lib/surahNames';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import esbabinNuzulDataStatic from '../../public/esbabin-nuzul.json';
@@ -347,11 +348,17 @@ function OccasionCard({ occ, language, isMobile }) {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
           <span style={chipStyle(catMeta.color)}>{language === 'tr' ? catMeta.tr : catMeta.en}</span>
           <span style={chipStyle(periodMeta.color)}>{language === 'tr' ? periodMeta.tr : periodMeta.en}</span>
-          {(occ.verses || []).map((v, i) => (
-            <span key={i} style={goldChipStyle}>
-              {surahShortName(v.surah)} {v.surah}:{v.ayahStart}{v.ayahEnd && v.ayahEnd !== v.ayahStart ? `–${v.ayahEnd}` : ''}
-            </span>
-          ))}
+          {(occ.verses || []).map((v, i) => {
+            const vLabel = `${surahShortName(v.surah)} ${v.surah}:${v.ayahStart}${v.ayahEnd && v.ayahEnd !== v.ayahStart ? `–${v.ayahEnd}` : ''}`;
+            const vUrl = quranComUrl(v.surah, v.ayahStart);
+            return vUrl ? (
+              <a key={i} href={vUrl} target="_blank" rel="noopener noreferrer" style={{ ...goldChipStyle, textDecoration: 'none' }}>
+                {vLabel}<span aria-hidden="true" style={{ marginInlineStart: 3, opacity: 0.6, fontSize: '0.85em' }}>↗</span>
+              </a>
+            ) : (
+              <span key={i} style={goldChipStyle}>{vLabel}</span>
+            );
+          })}
         </div>
 
         {/* Key persons */}
@@ -402,6 +409,26 @@ function OccasionCard({ occ, language, isMobile }) {
         {occ.source && (
           <p style={{ margin: '0 0 10px', fontSize: '0.72rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Kaynak:' : 'Source:'} {occ.source}
+          </p>
+        )}
+
+        {/* Hadis loci — doğrulanmış sunnah.com linkleri (§13.35) */}
+        {occ.hadithRefs && occ.hadithRefs.length > 0 && (
+          <p style={{ margin: '0 0 10px', fontSize: '0.72rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
+            {language === 'tr' ? 'Hadis: ' : 'Hadith: '}
+            {occ.hadithRefs.map((h, i) => {
+              const hUrl = sunnahComUrl(h.collectionKey, h.number);
+              return (
+                <span key={i}>
+                  {i > 0 ? ' · ' : ''}
+                  {hUrl ? (
+                    <a href={hUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', borderBottom: `1px dotted ${COLORS.silver}66` }}>
+                      {h.label}<span aria-hidden="true" style={{ marginInlineStart: 3, opacity: 0.65 }}>↗</span>
+                    </a>
+                  ) : h.label}
+                </span>
+              );
+            })}
           </p>
         )}
 
@@ -1663,6 +1690,14 @@ function TabZaman({ language, isMobile }) {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div style={{ marginBottom: '16px', padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.chip, border: `1px solid ${COLORS.glassBorder}` }}>
+              <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.85, lineHeight: 1.6, margin: 0, fontFamily: FONTS.body }}>
+                {language === 'tr'
+                  ? 'Bu kronoloji klasik siyer ve tarih kaynaklarına (İbn İshâk / İbn Hişâm, Taberî) dayanır; olayların yıl ve sıralamasında kaynaklar arasında farklar bulunabilir.'
+                  : 'This chronology follows classical sīra and history sources (Ibn Isḥāq / Ibn Hishām, al-Ṭabarī); sources can differ on the dating and ordering of events.'}
+              </p>
             </div>
 
             <TimelinePrevNext events={timeEvents} current={timeSelected} onSelect={setTimeSelected} language={language} />

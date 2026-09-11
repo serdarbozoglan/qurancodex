@@ -100,12 +100,37 @@ Nokta-loci'ye çekilecek (Tier-1 otomatik-link, Tier-2 teyitli):
 - ✅ **TIER B tamam:** tefsir-ihtilaf 33 pozisyona `refTr/refEn/refUrl` (eser+âyet
   + quran.com linki) · rozet "Doğrulandı"→"Kaynakta" · künye satırı tıklanabilir ·
   3 alıntı spot-doğrulandı (Razi 24:35, Zemahşerî 2:26 ×2 — hepsi birebir).
-- ⏳ Push: bekliyor (§17.4 kullanıcı onayı; §13.24 bilimsel/doga hakem-notu).
+- ✅ **Tier A+B push edildi** (feat-mukattaa-sources dalına, main'e DEĞİL) — commit f69d3040.
+- ✅ **TIER C (belirgin overclaim'ler) tamam:**
+  · WowFacts: "Allah 2699×" corpus.quran.com kaynaklı · Meryem "34 ayette"→"34 kez (32 ayette)"
+    · Fâtiha "tek metin/only text" mutlak ifade yumuşatıldı (~2 milyar Müslüman çerçevesi)
+  · Kıraat "452 = 113×4 farklı okuma" uydurma artefakt → "113 sûre besmeleyle açılır" gerçeği
+  · ZamanBoyutları "İbn Kesîr/Râzî/Elmalılı icmâıdır" → "ortak kanaati" (icmâ yanlış kullanımı)
+  · ZamanBoyutları Gazâlî verbatim alıntı (doğrulanamadı) → "İhyâ vurgusuyla uyumlu okuyuş"
+  · KuranYeminleri Şafiî/Asr sözü ×2 → kaynak eklendi (Beyhakî, Şuabü'l-Îmân — teyitli)
+  · Münâfık küçük-şirk hadisi → râvi (Mahmûd b. Lebîd) + "hasen/sahih" derece nüansı
+  · ProphetAtlas taşlar → Hûd 11:83 "müsevveme" dayanağı + EN hedge
+  · SebebiNuzul timeline → "klasik siyer kaynağı (İbn İshâk/Hişâm, Taberî)" framing notu
+  · KissaAtlas Divine Speech: DEĞİŞMEDİ — zaten örnek (birincil akademik makale künyeleri var)
+  · Zaten hedge'li bırakılanlar: 124.000 peygamber ("rivayet edilir"), İbrahim "10+",
+    Kıraat "~%95" ("~"), MukattaaViews mutesabih ("nakledilir"+Kurtubî loci).
+- ⏳ Push (Tier C): build sonrası feature dalına.
+- ⏳ Push→main: §17.4 kullanıcı onayı + §13.24 bilimsel/doga hakem-notu bekliyor.
 
 ## Aksiyon planı (allowlist politikasıyla)
 1. ✅ **Tier A (doğruluk)** — tamam (yukarı).
 2. ✅ **Tier B** — tamam (yukarı).
-3. ⏳ **Tier C** — kaynak ekle (allowlist) veya yumuşat/çıkar.
+3. ✅ **Tier C** — tamam (yukarı).
+4. 🔄 **Tier D (deterministik linkler + sebeb-i-nuzul doğrulama)** — başladı:
+   - ✅ `surahNames.js`'e `quranComUrl` + `sunnahComUrl` helper (Tier-1 deterministik).
+   - ✅ **sebeb-i-nuzul.json 30 girdi doğrulandı** (3 paralel agent + bağımsız WebSearch
+     ile 9 numara çapraz-teyit): 17 girdiye doğrulanmış hadis loci + sunnah.com linki
+     eklendi (Buhârî 3/45/334/4141/4486/4577/4721/4747/4770/4791/4900/4922/4950/4833/7420,
+     Müslim 2770, Ebû Dâvûd 2214, Tirmizî 3331). 13 girdi tafsir-only (Vâhidî/Süyûtî) →
+     doğru şekilde LİNKSİZ. Da'îf + çift-kullanımlı Tirmizî 3049 (item 6&19) ATLANDI.
+   - ✅ SebebiNuzul.jsx: âyet çipleri → quran.com linki; kaynak → sunnah.com hadis linki.
+   - ⏳ Kalan Tier D: diğer bileşenlerdeki âyet/hadis refleri (aynı helper ile yayılabilir),
+     SourcesCitation panelleri, MukattaaViews âlim listeleri — süregelen, batch batch.
 4. **Tier D** — sistematik loci yükseltmesi: âyet→quran.com, hadis→sunnah.com,
    dil→corpus.quran.com, bilim→DOI (Tier-1 otomatik-güvenli link); tefsir
    kitapları→altafsir/shamela (Tier-2 teyitli link). Büyük/süregelen B1 işi.

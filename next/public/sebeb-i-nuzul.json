@@ -30,7 +30,19 @@
         "Âişe"
       ],
       "source": "Buhârî, Müslim, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4141",
+          "collectionKey": "bukhari",
+          "number": 4141
+        },
+        {
+          "label": "Müslim 2770",
+          "collectionKey": "muslim",
+          "number": 2770
+        }
+      ]
     },
     {
       "id": "qibla-change",
@@ -62,7 +74,14 @@
         "Yahudiler"
       ],
       "source": "Buhârî, Müslim, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4486",
+          "collectionKey": "bukhari",
+          "number": 4486
+        }
+      ]
     },
     {
       "id": "ruh-question",
@@ -92,7 +111,14 @@
         "gayb"
       ],
       "source": "Buhârî, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4721",
+          "collectionKey": "bukhari",
+          "number": 4721
+        }
+      ]
     },
     {
       "id": "zihar-case",
@@ -122,7 +148,14 @@
         "Havle"
       ],
       "source": "Vâhidî, Süyûtî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Ebû Dâvûd 2214",
+          "collectionKey": "abudawud",
+          "number": 2214
+        }
+      ]
     },
     {
       "id": "abese-incident",
@@ -153,7 +186,14 @@
         "sahabî"
       ],
       "source": "Tirmizî, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Tirmizî 3331",
+          "collectionKey": "tirmidhi",
+          "number": 3331
+        }
+      ]
     },
     {
       "id": "alcohol-prohibition",
@@ -213,7 +253,14 @@
         "nifak"
       ],
       "source": "Buhârî, Müslim, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4900",
+          "collectionKey": "bukhari",
+          "number": 4900
+        }
+      ]
     },
     {
       "id": "jews-of-medina-treaty",
@@ -273,7 +320,14 @@
         "evlilik-hukuku"
       ],
       "source": "Buhârî, Müslim",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4747",
+          "collectionKey": "bukhari",
+          "number": 4747
+        }
+      ]
     },
     {
       "id": "hijab-verse",
@@ -304,7 +358,14 @@
         "aile-mahremiyeti"
       ],
       "source": "Buhârî, Müslim",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4791",
+          "collectionKey": "bukhari",
+          "number": 4791
+        }
+      ]
     },
     {
       "id": "inheritance-verses",
@@ -333,7 +394,14 @@
         "aile-hukuku"
       ],
       "source": "Buhârî, Müslim",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4577",
+          "collectionKey": "bukhari",
+          "number": 4577
+        }
+      ]
     },
     {
       "id": "jizya-verse",
@@ -488,7 +556,14 @@
         "yolculuk"
       ],
       "source": "Buhârî, Müslim",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 334",
+          "collectionKey": "bukhari",
+          "number": 334
+        }
+      ]
     },
     {
       "id": "usury-prohibition",
@@ -641,7 +716,14 @@
         "Varaka"
       ],
       "source": "Buhârî, Müslim, İbn İshâk",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 3",
+          "collectionKey": "bukhari",
+          "number": 3
+        }
+      ]
     },
     {
       "id": "second-revelation-muddassir",
@@ -671,7 +753,14 @@
         "uyarı"
       ],
       "source": "Buhârî, Müslim",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4922",
+          "collectionKey": "bukhari",
+          "number": 4922
+        }
+      ]
     },
     {
       "id": "abu-lahab-condemnation",
@@ -702,7 +791,14 @@
         "amca"
       ],
       "source": "Buhârî, Müslim, Tirmizî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4770",
+          "collectionKey": "bukhari",
+          "number": 4770
+        }
+      ]
     },
     {
       "id": "kevser-abtar-response",
@@ -763,7 +859,14 @@
         "Ümmü-Cemil"
       ],
       "source": "Buhârî, Müslim, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4950",
+          "collectionKey": "bukhari",
+          "number": 4950
+        }
+      ]
     },
     {
       "id": "zaynab-jahsh-marriage",
@@ -794,7 +897,14 @@
         "câhiliye-tabusu"
       ],
       "source": "Buhârî, Müslim, Vâhidî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 7420",
+          "collectionKey": "bukhari",
+          "number": 7420
+        }
+      ]
     },
     {
       "id": "hudaybiyya-treaty-fath",
@@ -825,7 +935,14 @@
         "anlaşma"
       ],
       "source": "Buhârî, Müslim",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 4833",
+          "collectionKey": "bukhari",
+          "number": 4833
+        }
+      ]
     },
     {
       "id": "farewell-verse-maida-3",
@@ -855,7 +972,14 @@
         "Ömer"
       ],
       "source": "Buhârî, Müslim, Tirmizî",
-      "reliability": "sahih"
+      "reliability": "sahih",
+      "hadithRefs": [
+        {
+          "label": "Buhârî 45",
+          "collectionKey": "bukhari",
+          "number": 45
+        }
+      ]
     },
     {
       "id": "hilal-question-baqara-189",

@@ -550,16 +550,16 @@ function BesmeleCard({ language }) {
       {/* 452 stat + Tevbe note */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', background: 'rgba(0,0,0,0.2)', borderRadius: 8 }}>
         <div style={{ flexShrink: 0, textAlign: 'center' }}>
-          <div style={{ fontFamily: FONTS.body, fontSize: '1.5rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>452</div>
+          <div style={{ fontFamily: FONTS.body, fontSize: '1.5rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>113</div>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.65rem', color: COLORS.silver, marginTop: 2 }}>
-            {language === 'tr' ? 'kelime etkisi' : 'words affected'}
+            {language === 'tr' ? 'sûre besmeleyle açılır' : 'suras open with basmala'}
           </div>
         </div>
         <div style={{ width: 1, height: 36, background: COLORS.glassBorder, flexShrink: 0 }} />
         <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, lineHeight: 1.5 }}>
           {language === 'tr'
-            ? '113 sûrede besmele statüsü × 4 kelime = 452 konumda farklı okuma. Tevbe Sûresi\'nde hiçbir kıraatte besmele yoktur.'
-            : '113 suras × basmala status × 4 words = 452 positions. Surah At-Tawba has no Basmala in any reading.'}
+            ? '114 sûrenin 113\'ü besmeleyle açılır; yalnız Tevbe Sûresi\'nde hiçbir kıraatte besmele yoktur. Besmelenin ilgili sûrenin bir âyeti sayılıp sayılmayacağı kıraatlere ve mezheplere göre değişir.'
+            : '113 of the 114 suras open with the basmala; only Surah At-Tawba has none in any reading. Whether the basmala counts as a verse of the sura it precedes differs by reading and by school.'}
         </div>
       </div>
     </div>

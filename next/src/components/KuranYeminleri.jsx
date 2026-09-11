@@ -1711,8 +1711,8 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               objectEn: "Al-ʿAṣr: time (the afternoon? absolute duration? the age of the Messenger?)",
               answerTr: "\"İnsan gerçekten ziyandadır.\"",
               answerEn: "\"Humankind is truly in loss.\"",
-              relationTr: "İmam Şafiî'nin ünlü sözü: \"Bu sûreden başka inmeseydi yeterdi.\" Yemin objesi (akıp giden zaman) cevabı (insanın ziyanı) içinde taşır: zaman geçtikçe sermaye eksilir; ancak iman, amel, tavsiye-i hak ve sabır bu denklemi tersine çevirir. İbn Kayyim'in 'objesi cevabı kanıtlar' tezinin en saf örneği.",
-              relationEn: "Imam al-Shāfiʿī's famous line: 'Had only this sura been revealed, it would suffice.' The oath-object (flowing time) carries the answer (humankind's loss) within itself: as time passes, capital depletes; only iman, ʿamal, counsel to truth and patience reverse the equation. The purest example of Ibn Qayyim's 'the object proves the subject' thesis.",
+              relationTr: "İmam Şafiî'ye atfedilen ünlü söz (Beyhakî, Şuabü'l-Îmân): \"Bu sûreden başka inmeseydi yeterdi.\" Yemin objesi (akıp giden zaman) cevabı (insanın ziyanı) içinde taşır: zaman geçtikçe sermaye eksilir; ancak iman, amel, tavsiye-i hak ve sabır bu denklemi tersine çevirir. İbn Kayyim'in 'objesi cevabı kanıtlar' tezinin en saf örneği.",
+              relationEn: "The famous line attributed to Imam al-Shāfiʿī (al-Bayhaqi, Shuʿab al-Iman): 'Had only this sura been revealed, it would suffice.' The oath-object (flowing time) carries the answer (humankind's loss) within itself: as time passes, capital depletes; only iman, ʿamal, counsel to truth and patience reverse the equation. The purest example of Ibn Qayyim's 'the object proves the subject' thesis.",
             },
             {
               ar: "فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ · اِنَّهُ لَقُرْاٰنٌ كَرِيمٌ",
@@ -2415,8 +2415,8 @@ const YEMIN_CEVAP_DATA = [
     answerAr: 'اِنَّ الْاِنْسَانَ لَفِي خُسْرٍ اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ  وَتَوَاصَوْا بِالصَّبْرِ',
     answerTr: 'İnsan kesinlikle ziyandadır — iman edip salih amel işleyenler, birbirine hakkı ve sabrı tavsiye edenler hariç.',
     answerEn: 'Indeed, humanity is in loss — except those who believe, do righteous deeds, and counsel each other in truth and patience.',
-    insightTr: '3 ayetin tezi: zaman karşısında insanın yapısal hâli. Şâfiî: "Sadece bu sûre inseydi yeterdi" demiştir.',
-    insightEn: 'Three verses, one thesis: humanity\'s structural state against time. Al-Shafiʿi: "If only this sura were revealed, it would suffice."',
+    insightTr: '3 ayetin tezi: zaman karşısında insanın yapısal hâli. Şâfiî\'ye atfedilir (Beyhakî, Şuabü\'l-Îmân): "Sadece bu sûre inseydi yeterdi."',
+    insightEn: 'Three verses, one thesis: humanity\'s structural state against time. Attributed to al-Shafiʿi (al-Bayhaqi, Shuʿab al-Iman): "If only this sura were revealed, it would suffice."',
   },
   {
     id: 'buruc',

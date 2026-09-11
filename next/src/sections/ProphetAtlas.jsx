@@ -777,11 +777,11 @@ const PROPHETS_REF = [
     giftsTooltipsTr:{
       0: "Enbiyâ 21:71: Kur'an'da başka bir peygamberle birlikte hicret ettiği açıkça zikredilen nadir peygamberlerden. Ankebût 26'da Hz. İbrahim 'Ben Rabbime hicret ediyorum' derken Hz. Lût da onunla beraberdir.",
       4: "A'râf 7:83: 'Onu ve ailesini kurtardık; karısı hariç, o geride kalanlardan oldu.' Tahrîm 66:10'da ise Lût'un karısı ihanet örneği olarak anılır. Kur'an'da eşi helak olan tek peygamber.",
-      5: "Hûd 11:82: 'Sicîl' kelimesi Arapçada sert pişmiş kil anlamına gelir. Kur'an azabı bu somutlukta aktarır; her taşın belirli biri için işaretlendiği rivayet edilir.",
+      5: "Hûd 11:82: 'Sicîl' kelimesi Arapçada sert pişmiş kil anlamına gelir. Kur'an azabı bu somutlukta aktarır; taşlar 'Rabbin katında işaretli' (Hûd 11:83, müsevveme) diye nitelenir, klasik tefsir bunu her taşın belirli biri için ayrıldığı şeklinde yorumlar.",
     },
     giftsTooltipsEn:{
       4: "At-Tahrim 66:10: 'Allah presents as an example the wife of Noah and the wife of Lot. They were under two of Our righteous servants but betrayed them.' The Quran explicitly records this tragic separation.",
-      5: "Hud 11:82: 'Sijjil' means hard baked clay in Arabic. The Quran conveys the punishment with this level of physical detail; classical tafsir records that each stone was marked for a specific person.",
+      5: "Hud 11:82: 'Sijjil' means hard baked clay in Arabic. The Quran conveys the punishment with this physical concreteness; the stones are described as 'marked by your Lord' (Hud 11:83, musawwama), which classical tafsir interprets as each stone being designated for a specific person.",
     },
     duaAr:'رَبِّ نَجِّنِي وَأَهۡلِي مِمَّا يَعۡمَلُونَ',
     duaTr:'Rabbim! Beni ve ailemi onların yaptıklarından kurtar.',
