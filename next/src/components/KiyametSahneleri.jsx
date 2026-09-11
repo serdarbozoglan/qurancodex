@@ -9,6 +9,7 @@ import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+import LinkifyRefs from './LinkifyRefs';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -237,7 +238,7 @@ function VerseBlock({ ar, tr, en, verseRef, language, color }) {
       )}
       {verseRef && (
         <p style={{ fontSize: '0.78rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}>
-          — {verseRef}
+          — <LinkifyRefs text={verseRef} />
         </p>
       )}
     </div>
@@ -693,7 +694,7 @@ export default function KiyametSahneleri({ onClose }) {
                 <p style={{ fontSize: '0.72rem', color: COLORS.silver, margin: '0 0 4px', lineHeight: 1.4, fontFamily: FONTS.body }}>
                   {language === 'tr' ? isim.meaningTr : isim.meaningEn}
                 </p>
-                <p style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}>{isim.ref}</p>
+                <p style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}><LinkifyRefs text={isim.ref} /></p>
               </div>
             ))}
           </div>
@@ -1124,7 +1125,7 @@ function TabKozmikSahneler({ language, isMobile }) {
                   </span>
                   {item.isHapax && <HapaxBadge language={language} />}
                   <span style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
-                    {item.ref}
+                    <LinkifyRefs text={item.ref} />
                   </span>
                 </div>
                 <p style={{ fontSize: '0.82rem', color: COLORS.offWhite, margin: '2px 0 0', fontFamily: FONTS.body }}>
@@ -1197,7 +1198,7 @@ function TabKozmikSahneler({ language, isMobile }) {
                 {language === 'tr' ? w.meaningTr : w.meaningEn}
               </p>
               <p style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}>
-                {w.ref} · {w.note}
+                <LinkifyRefs text={w.ref} /> · {w.note}
               </p>
             </div>
           ))}
