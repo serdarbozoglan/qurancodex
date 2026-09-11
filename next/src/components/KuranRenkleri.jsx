@@ -3,6 +3,7 @@
 import { useState, useEffect, useId } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import {
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS, SEMANTIC,
 } from '../tokens';
@@ -481,7 +482,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                   <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.65 }}>
                     &quot;{tr ? v.trFull : v.enFull}&quot;
                   </p>
-                  <span style={{ fontSize: '0.72rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {v.ref}</span>
+                  <span style={{ fontSize: '0.72rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— <LinkifyRefs text={v.ref} /></span>
                 </div>
 
                 {/* Stage keyword breakdown */}

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useTabParam from '../hooks/useTabParam';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
@@ -1057,7 +1058,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
               )}
               {nation.verseRef && (
                 <p style={{ ...TEXT.verseRef, fontSize: '0.72rem' }}>
-                  — {language === 'en' ? (nation.verseRefEn || nation.verseRef) : nation.verseRef}
+                  — <LinkifyRefs text={language === 'en' ? (nation.verseRefEn || nation.verseRef) : nation.verseRef} />
                 </p>
               )}
             </div>
