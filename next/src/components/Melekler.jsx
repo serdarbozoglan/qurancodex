@@ -12,6 +12,7 @@ import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
+import LinkifyRefs from './LinkifyRefs';
 
 // ── Category mode-icons (24×24, line-art, currentColor) ──────────────────────
 // Each category gets a distinct minimal SVG that visualizes its function.
@@ -532,7 +533,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
               borderRadius: RADIUS.md, padding: '4px 10px',
             }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: GOLD, lineHeight: 1.6 }} lang="ar" dir="rtl">{n.arabic}</span>
-              <span style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint }}>{n.ref}</span>
+              <span style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint }}><LinkifyRefs text={n.ref} /></span>
               {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü; Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view; the Quran does not equate explicitly'} language={language} />}
             </span>
           ))}
@@ -933,7 +934,7 @@ function TabDilbilim({ data, language, isMobile }) {
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, direction: 'rtl', margin: '0 0 6px', lineHeight: 1.7 }} lang="ar" dir="rtl">{s.arabic}</p>
               <p style={{ fontSize: '0.78rem', color: COLORS.offWhite, margin: '0 0 4px', fontWeight: 600 }}>{tr ? s.meaningTr : s.meaningEn}</p>
-              <p style={{ fontSize: '0.68rem', color: `${GOLD}60`, margin: 0 }}>{s.ref}</p>
+              <p style={{ fontSize: '0.68rem', color: `${GOLD}60`, margin: 0 }}><LinkifyRefs text={s.ref} /></p>
               {s.isHapax && <div style={{ marginTop: '6px' }}><HapaxBadge language={language} /></div>}
             </div>
           ))}
@@ -952,7 +953,7 @@ function TabDilbilim({ data, language, isMobile }) {
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, direction: 'rtl', margin: 0 }} lang="ar" dir="rtl">{n.arabic}</p>
               <div>
                 <p style={{ fontSize: '0.75rem', color: COLORS.silver, margin: '0 0 3px' }}>{tr ? n.notTr : n.notEn}</p>
-                <p style={{ fontSize: '0.65rem', color: `${GOLD}60`, margin: 0 }}>{n.ref}</p>
+                <p style={{ fontSize: '0.65rem', color: `${GOLD}60`, margin: 0 }}><LinkifyRefs text={n.ref} /></p>
               </div>
               {n.isHapax && <HapaxBadge language={language} />}
             </div>
@@ -976,7 +977,7 @@ function TabDilbilim({ data, language, isMobile }) {
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#878E97' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar" dir="rtl">{n.arabic}</p>
               <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#8C919C' : COLORS.offWhite, margin: 0 }}>{n.nameTr}</p>
-              <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}>{n.ref}</p>
+              <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}><LinkifyRefs text={n.ref} /></p>
               {n.isHadisConnection && (
                 <span style={{ fontSize: '0.6rem', color: '#8C919C', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
                   {tr ? 'tefsir' : 'tafsir'}
