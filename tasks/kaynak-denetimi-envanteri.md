@@ -120,7 +120,17 @@ Nokta-loci'ye çekilecek (Tier-1 otomatik-link, Tier-2 teyitli):
 ## Aksiyon planı (allowlist politikasıyla)
 1. ✅ **Tier A (doğruluk)** — tamam (yukarı).
 2. ✅ **Tier B** — tamam (yukarı).
-3. ⏳ **Tier C** — kaynak ekle (allowlist) veya yumuşat/çıkar.
+3. ✅ **Tier C** — tamam (yukarı).
+4. 🔄 **Tier D (deterministik linkler + sebeb-i-nuzul doğrulama)** — başladı:
+   - ✅ `surahNames.js`'e `quranComUrl` + `sunnahComUrl` helper (Tier-1 deterministik).
+   - ✅ **sebeb-i-nuzul.json 30 girdi doğrulandı** (3 paralel agent + bağımsız WebSearch
+     ile 9 numara çapraz-teyit): 17 girdiye doğrulanmış hadis loci + sunnah.com linki
+     eklendi (Buhârî 3/45/334/4141/4486/4577/4721/4747/4770/4791/4900/4922/4950/4833/7420,
+     Müslim 2770, Ebû Dâvûd 2214, Tirmizî 3331). 13 girdi tafsir-only (Vâhidî/Süyûtî) →
+     doğru şekilde LİNKSİZ. Da'îf + çift-kullanımlı Tirmizî 3049 (item 6&19) ATLANDI.
+   - ✅ SebebiNuzul.jsx: âyet çipleri → quran.com linki; kaynak → sunnah.com hadis linki.
+   - ⏳ Kalan Tier D: diğer bileşenlerdeki âyet/hadis refleri (aynı helper ile yayılabilir),
+     SourcesCitation panelleri, MukattaaViews âlim listeleri — süregelen, batch batch.
 4. **Tier D** — sistematik loci yükseltmesi: âyet→quran.com, hadis→sunnah.com,
    dil→corpus.quran.com, bilim→DOI (Tier-1 otomatik-güvenli link); tefsir
    kitapları→altafsir/shamela (Tier-2 teyitli link). Büyük/süregelen B1 işi.

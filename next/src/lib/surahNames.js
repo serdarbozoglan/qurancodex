@@ -77,3 +77,24 @@ export const SURAH_NAME_ALIASES = {
 export function resolveSurahAlias(qNorm) {
   return SURAH_NAME_ALIASES[qNorm] || qNorm;
 }
+
+// ─── Deterministik dış kaynak linkleri (§13.35) ─────────────────────────────
+// quran.com âyet linki: her zaman çözülür, allowlisted (Tier-1). Fabrikasyon
+// riski yok — sûre+âyet doğrudan URL'ye eşlenir. Aralık verilirse ilk âyete
+// bağlanır. Geçersiz sûre numarasında null döner (link gösterilmez).
+export function quranComUrl(surah, ayah) {
+  const s = parseInt(surah, 10);
+  if (!s || s < 1 || s > 114) return null;
+  const a = parseInt(ayah, 10);
+  return a >= 1 ? `https://quran.com/${s}/${a}` : `https://quran.com/${s}`;
+}
+
+// sunnah.com hadis linki: koleksiyon anahtarı + numara verilmişse çözülür.
+// NUMARA DOĞRULANMADAN çağrılmaz — çağıran taraf numarayı teyit etmiş olmalı
+// (§13.30/§13.35 kırık link yasağı). collectionKey ör. 'bukhari','muslim',
+// 'tirmidhi'. Numara yoksa null döner.
+export function sunnahComUrl(collectionKey, number) {
+  const n = parseInt(number, 10);
+  if (!collectionKey || !n || n < 1) return null;
+  return `https://sunnah.com/${collectionKey}:${n}`;
+}
