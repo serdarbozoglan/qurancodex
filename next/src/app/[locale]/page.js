@@ -20,6 +20,7 @@ import ClusterWhisper from '@/sections/ClusterWhisper';
 import QuietParticles from '@/sections/QuietParticles';
 import FeaturedWrap from '@/sections/FeaturedWrap';
 import ToolsHighlight from '@/sections/ToolsHighlight';
+import AlanlarPortal from '@/sections/AlanlarPortal';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
 
 // 14 tanıtıcı kart (anlatı bölümleri → tool sayfasına yönlendiren portal)
@@ -201,6 +202,9 @@ export default async function Home({ params }) {
           }}
         />
       </div>
+
+      {/* ─── Alanına Göre Keşfet portalı (12 disiplin kapısı) ─── */}
+      <AlanlarPortal />
 
       {/* ─── İnteraktif Araçlar (anlatı sonrası teknik katman) ───
           NOT: ClusterHeader kaldırıldı — ToolsHighlight kendi zengin başlığı

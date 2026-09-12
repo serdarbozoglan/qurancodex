@@ -1574,3 +1574,11 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 @media (max-width: 640px) {
   .qc-meal-surah-card--dup { display: none; }
 }
+
+/* Alanına Göre Keşfet — anasayfa portal chip hover (§ yüksek görsellik) */
+.alanlar-portal-chip { transition: border-color .15s ease, background .15s ease, transform .15s ease; }
+.alanlar-portal-chip:hover { border-color: rgba(212,165,116,0.55); background: rgba(212,165,116,0.08); transform: translateY(-1px); }
+
+/* Alanına Göre Keşfet — hub disiplin kartı hover (yüksek görsellik) */
+.alan-card { transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+.alan-card:hover { border-color: rgba(212,165,116,0.5); background: rgba(212,165,116,0.055); transform: translateY(-2px); }

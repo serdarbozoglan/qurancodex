@@ -1342,6 +1342,26 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
+          {/* Alanına Göre Keşfet — top-level direct link (hub /alanlar).
+              Dropdown yok; §13.13 navbar kırılganlığı için tek link (hub 12 alanı
+              zaten listeler). Esmâ-i Hüsnâ/Fâtiha ile aynı stil. */}
+          <button
+            onClick={() => { router.push(`/${language}/alanlar`); setExploreOpen(false); setToolsOpen(false); setTefekkurOpen(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '5px',
+              padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
+              background: pathname.includes('/alanlar') ? 'rgba(255,255,255,0.06)' : 'transparent',
+              color: pathname.includes('/alanlar') ? '#d4a574' : '#d4d8e0',
+              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif",
+              fontWeight: pathname.includes('/alanlar') ? 700 : 600,
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
+            }}
+            onMouseEnter={e => { if (!pathname.includes('/alanlar')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseLeave={e => { if (!pathname.includes('/alanlar')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
+          >
+            {language === 'tr' ? 'Alanlar' : 'Fields'}
+          </button>
+
           {/* Esmâ-i Hüsnâ — flagship sayfa, top-level direct link.
               Dropdown yok (tek route /arac/esma-frekans). Aktif state ile
               vurgu — Tefekkür linki ile aynı stil. */}
@@ -2293,6 +2313,35 @@ export default function Navbar() {
                     </span>
                     <span style={ITEM_DESC}>
                       {language === 'tr' ? 'Kaydettiğin ayet, tefsir, atlas item\'ları' : "Your saved verses, tafsirs, atlas items"}
+                    </span>
+                  </span>
+                  <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
+                </button>
+
+                <button
+                  onClick={() => { router.push(`/${language}/alanlar`); setMobileOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    width: '100%', padding: '12px 14px',
+                    background: 'rgba(212,165,116,0.07)',
+                    border: '1px solid rgba(212,165,116,0.32)',
+                    borderRadius: '10px',
+                    cursor: 'pointer', textAlign: 'left',
+                    WebkitTapHighlightColor: 'transparent',
+                  }}
+                >
+                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                    </svg>
+                  </span>
+                  <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                      {language === 'tr' ? 'Alanlar' : 'Fields'}
+                    </span>
+                    <span style={ITEM_DESC}>
+                      {language === 'tr' ? 'Alanına göre keşfet · 12 disiplin kapısı' : 'Explore by field · 12 discipline gateways'}
                     </span>
                   </span>
                   <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
