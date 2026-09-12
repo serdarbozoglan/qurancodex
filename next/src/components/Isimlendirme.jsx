@@ -27,6 +27,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import useNavbarOffset from './useNavbarOffset';
 import data from '../../public/isimlendirme.json';
@@ -493,7 +494,7 @@ export default function Isimlendirme({ onClose }) {
                   '--fs-d': '0.66rem', '--fs-m': '0.62rem',
                   color: COLORS.textFaint, fontFamily: FONTS.body,
                   letterSpacing: '0.1em', marginTop: '6px',
-                }}>{v.ref}</div>
+                }}><LinkifyRefs text={v.ref} /></div>
               </div>
             ))}
           </div>
