@@ -3,6 +3,7 @@
 // src/components/MeselAtlasi.jsx
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { useQuranNav } from '../hooks/useQuranNav';
 import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC, CATEGORY } from '../tokens';
@@ -517,7 +518,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                   </span>
                   <span style={{ color: COLORS.silver, opacity: 0.4, fontSize: '0.7rem' }}>·</span>
                   <span style={{ color: COLORS.silver, opacity: 0.75, fontSize: '0.7rem', fontFamily: FONTS.body }}>
-                    {surahRef(`${p.surah}:${p.ayah}`)}
+                    <LinkifyRefs text={surahRef(`${p.surah}:${p.ayah}`)} />
                   </span>
                 </div>
 
@@ -660,7 +661,7 @@ function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language,
             background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
             color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
           }}>
-            {refLabel}
+            <LinkifyRefs text={refLabel} />
           </span>
           <button
             onClick={() => handleSideExpand(pairId, side, sideData.ref)}
@@ -913,7 +914,7 @@ function TabNurZulumat({ data, language, isMobile }) {
                       padding: '2px 8px', borderRadius: '99px',
                       background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
                       color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, flexShrink: 0,
-                    }}>{surahRef(v.ref)}</span>
+                    }}><LinkifyRefs text={surahRef(v.ref)} /></span>
                     <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>{language === 'tr' ? v.descTr : (v.descEn ?? v.descTr)}</span>
                   </div>
                   <span style={{
@@ -1050,7 +1051,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
                   background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                   color: COLORS.silver, fontSize: '0.7rem', fontFamily: FONTS.body,
                 }}>
-                  {surahRef(a.ref)}
+                  <LinkifyRefs text={surahRef(a.ref)} />
                 </span>
               </div>
               {/* Divider */}
@@ -1170,7 +1171,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
               {/* Example */}
               <div style={{ background: COLORS.goldAlpha15, borderRadius: '6px', padding: '10px 12px', borderLeft: `2px solid ${COLORS.goldAlpha45}` }}>
                 <div style={{ color: COLORS.gold, fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '4px' }}>
-                  {language === 'tr' ? 'Örnek' : 'Example'} · {surahRef(t.exampleRef)}
+                  {language === 'tr' ? 'Örnek' : 'Example'} · <LinkifyRefs text={surahRef(t.exampleRef)} />
                 </div>
                 <div style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.5 }}>
                   {t.exampleTr}
@@ -1203,7 +1204,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
                   background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
                   color: COLORS.silver, fontSize: '0.68rem', fontFamily: FONTS.body, whiteSpace: 'nowrap',
                 }}>
-                  {surahRef(mv.ref)}
+                  <LinkifyRefs text={surahRef(mv.ref)} />
                 </span>
               </div>
               {/* Arabic phrase */}

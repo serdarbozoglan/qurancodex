@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
@@ -454,7 +455,7 @@ function OrnekCard({ ornek, index, color, isOpen, onToggle, language, isMobile }
         <span style={{
           fontSize: '0.8rem', fontWeight: 700, color,
           fontFamily: FONTS.body, letterSpacing: '0.04em',
-        }}>{ornek.verseRef}</span>
+        }}><LinkifyRefs text={ornek.verseRef} /></span>
       </div>
       <div style={{
         padding: '12px 14px', background: 'rgba(212,165,116,0.05)',

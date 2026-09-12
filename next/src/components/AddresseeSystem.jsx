@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
@@ -497,7 +498,7 @@ function VerseCard({ verse, accent, language }) {
           color: SEMANTIC.textFaint, fontSize: '0.72rem',
           fontFamily: FONTS.body,
         }}>
-          {verse.surah} {verse.ref}
+          {verse.surah} <LinkifyRefs text={verse.ref} />
         </span>
         {verse.topic && (
           <>

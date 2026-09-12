@@ -18,6 +18,7 @@ import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
@@ -397,7 +398,7 @@ function SetDetail({ nset, isEn, isMobile }) {
                 <p style={{ fontSize: '0.82rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.65 }}>
                   {isEn ? t.verse.english : t.verse.turkish}
                 </p>
-                <p style={{ ...TEXT.verseRef, margin: '6px 0 0' }}>— {t.verse.verseRef}</p>
+                <p style={{ ...TEXT.verseRef, margin: '6px 0 0' }}>— <LinkifyRefs text={t.verse.verseRef} /></p>
               </div>
             )}
 

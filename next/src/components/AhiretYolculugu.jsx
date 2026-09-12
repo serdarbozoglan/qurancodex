@@ -22,6 +22,7 @@ import { useRouter } from 'next/navigation';
 import { COLORS, FONTS } from '../tokens';
 import { surahName } from '../lib/surahNames';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import ToolHeader from './ToolHeader';
 import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
@@ -580,7 +581,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 40px',
-          }}>— {anchorRef}</motion.p>
+          }}>— <LinkifyRefs text={anchorRef} /></motion.p>
 
         {/* Framing whisper */}
         <motion.p
