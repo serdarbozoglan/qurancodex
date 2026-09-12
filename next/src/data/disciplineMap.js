@@ -8,10 +8,23 @@
 // gpt-6-astra düzeltmeleri uygulandı: Muhataplar→Liderlik (zayıf) kaldırıldı;
 // Münâfık/İblis→Psikoloji ikincil; Kurban→İktisat düşürüldü; Fürûk→Hukuk
 // (genel kavram aracı) kaldırıldı; Zaman Boyutları fizik/kozmolojiye zorlanmadı.
+//
+// KALİBRASYON turu (2026-09-12): Liderlik ve Adalet kapıları tek/iki araca
+// düşüyordu; içeriğin gerçek kapsamına göre GENUINE bağlar eklendi. gpt-6-astra
+// eşlemeleri onayladı; rasyonel ifadesini ("yasa", "=") ihtiyatlı dile çekmesini
+// istedi (bu satırlar ekranda görünmez, yalnız gezinme metadatası). Astra dili:
+//   Liderlik ← Kıssa (Yûsuf/Süleyman/Tâlût/Dâvud'un idare bağlamları) ·
+//     Buyruklar (yönetim/yetki bağlamında emir-itaat) · Neden→Sonuç
+//     (yönetici/iktidar bağlamındaki kibir ve sonuçları) · Sünnetullah
+//     (yönetim ve toplumların akıbetiyle ilgili örüntüler).
+//   Adalet ← Kavim (kavim anlatılarında zulüm, sorumluluk ve ilahî karşılık) ·
+//     Sünnetullah (zulüm ve toplumsal akıbet ilişkisi).
+// "Muhataplar→Liderlik" gibi astra'nın zayıf bulup kaldırdığı bağlar RE-ADD
+// EDİLMEDİ. Etiket = gezinme metadatası, âyet anlamına delil DEĞİL.
 
 export const DISCIPLINE_MAP = {
-  '/atlas/kissa':             ['tarih-medeniyet', 'sosyoloji-toplum'],
-  '/atlas/kavim':             ['sosyoloji-toplum', 'tarih-medeniyet'],
+  '/atlas/kissa':             ['tarih-medeniyet', 'sosyoloji-toplum', 'liderlik-yonetim'],
+  '/atlas/kavim':             ['sosyoloji-toplum', 'tarih-medeniyet', 'adalet-hukuk'],
   '/atlas/doga':              ['tabiat-afak'],
   '/atlas/insan-psikolojisi': ['psikoloji-nefs'],
   '/atlas/insan-tanimi':      ['psikoloji-nefs', 'iman-itikad'],
@@ -22,7 +35,7 @@ export const DISCIPLINE_MAP = {
   '/atlas/munasebat':         ['kuran-ilimleri', 'dil-belagat'],
   '/atlas/nefs-mertebeleri':  ['psikoloji-nefs'],
   '/atlas/peygamber':         ['tarih-medeniyet', 'liderlik-yonetim'],
-  '/atlas/sunnetullah':       ['sosyoloji-toplum'],
+  '/atlas/sunnetullah':       ['sosyoloji-toplum', 'liderlik-yonetim', 'adalet-hukuk'],
   '/atlas/ibadetler':         ['maneviyat-ibadet'],
   '/atlas/ibadetler/namaz':   ['maneviyat-ibadet'],
   '/atlas/ibadetler/oruc':    ['maneviyat-ibadet', 'ahlak-karakter'],
@@ -52,7 +65,7 @@ export const DISCIPLINE_MAP = {
   '/arac/ritim':              ['dil-belagat'],
   '/arac/halka-kompozisyon':  ['dil-belagat'],
   '/arac/ilk-son-kelimeler':  ['dil-belagat'],
-  '/arac/buyruklar':          ['ahlak-karakter', 'adalet-hukuk'],
+  '/arac/buyruklar':          ['ahlak-karakter', 'adalet-hukuk', 'liderlik-yonetim'],
   '/arac/sebebi-nuzul':       ['kuran-ilimleri', 'tarih-medeniyet'],
   '/arac/muhataplar':         ['dil-belagat', 'sosyoloji-toplum'],
   '/arac/kurani-tani':        ['iman-itikad'],
@@ -64,7 +77,7 @@ export const DISCIPLINE_MAP = {
   '/arac/tarihsel-kanitlar':  ['tarih-medeniyet'],
   '/arac/zaman-boyutlari':    ['iman-itikad'],
   '/arac/yeminler':           ['dil-belagat'],
-  '/arac/neden-sonuc':        ['ahlak-karakter', 'sosyoloji-toplum'],
+  '/arac/neden-sonuc':        ['ahlak-karakter', 'sosyoloji-toplum', 'liderlik-yonetim'],
   '/arac/kitap-kavrami':      ['kuran-ilimleri', 'iman-itikad'],
   '/arac/elestirel-cerceve':  ['iman-itikad', 'adalet-hukuk'],
   '/arac/isimlendirme':       ['dil-belagat'],

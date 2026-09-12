@@ -1582,3 +1582,16 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 /* Alanına Göre Keşfet — hub disiplin kartı hover (yüksek görsellik) */
 .alan-card { transition: border-color .16s ease, background .16s ease, transform .16s ease; }
 .alan-card:hover { border-color: rgba(212,165,116,0.5); background: rgba(212,165,116,0.055); transform: translateY(-2px); }
+
+/* Alanına Göre Keşfet — detay sayfası (flagship kalibrasyon 2026-09-12) */
+.alan-detay-nav-item { transition: color .15s ease, border-color .15s ease, background .15s ease, transform .15s ease; }
+.alan-detay-nav-item:hover { color: #d4a574; border-color: rgba(212,165,116,0.5); background: rgba(212,165,116,0.08); transform: translateY(-1px); }
+.alan-detay-tool { transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+.alan-detay-tool:hover { border-color: rgba(212,165,116,0.5); background: rgba(212,165,116,0.06); transform: translateY(-2px); }
+.alan-detay-src { transition: border-color .16s ease, background .16s ease; }
+.alan-detay-src:hover { border-color: rgba(212,165,116,0.34); background: rgba(212,165,116,0.05); }
+.alan-detay-theme { scroll-margin-top: 96px; }
+@media (prefers-reduced-motion: reduce) {
+  .alan-detay-nav-item, .alan-detay-tool, .alan-detay-src { transition: none; }
+  .alan-detay-nav-item:hover, .alan-detay-tool:hover { transform: none; }
+}
