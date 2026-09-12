@@ -71,6 +71,10 @@ export function surahName(surahNumber, locale) {
 // Kullanıcı isteği 2026-08-02: "Kadir" yazınca Kadr bulunsun.
 export const SURAH_NAME_ALIASES = {
   kadir: 'kadr',
+  // "Et-Tevbe" sûresi halk arasında "Tövbe" (repentance) yazılır; normalize
+  // sonrası "tovbe"/"tobe" → kanonik "tevbe". (Kullanıcı isteği 2026-09-12.)
+  tovbe: 'tevbe',
+  tobe: 'tevbe',
 };
 
 /** Normalize edilmiş sorguyu resmî ada çevirir; eşleşme yoksa aynen döner. */
