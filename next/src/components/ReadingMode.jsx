@@ -1774,7 +1774,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     //    "yâ-sîn" normalize sonrası "ya-sin" → "yasin")
     // Hem TR/EN canonical adlar hem kullanıcı input'u ikiside normalize edilir
     // ki "yasin" ile "Yâ-Sîn" match olsun. (User: 2026-06-22)
-    const stripArticle = (s) => s.replace(/^(el|al)[-\s]?/i, '');
+    // Güneş-harfi asimilasyonu: "Et-Tevbe", "En-Nahl", "Er-Ra'd", "Es-Secde",
+    // "Ez-Zümer", "Ed-Duhân" gibi adlarda article "El-" değil "Et-/En-/Er-/Es-/
+    // Ez-/Ed-"tir. Bu yüzden kullanıcı "tevbe" yazınca "et-tevbe" ile eşleşmiyordu.
+    // Asimile artikeller için AYRAÇ zorunlu (kanonik adlar hep tireli); böylece
+    // "enfal"/"asr" gibi çıplak adlar yanlışlıkla soyulmaz. el-/al- ayraçsız da.
+    const stripArticle = (s) => s
+      .replace(/^(e[ltsrnzd]|a[ltsrnzd]|ash)[-\s]/i, '')
+      .replace(/^(el|al)[-\s]?/i, '');
     const stripDashes  = (s) => s.replace(/[-\s']/g, '');
     const tryName = (candidate) => {
       const nQ = normalizeText(candidate);
