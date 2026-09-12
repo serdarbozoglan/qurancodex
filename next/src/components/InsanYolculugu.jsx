@@ -18,6 +18,7 @@ import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
@@ -421,7 +422,7 @@ export default function InsanYolculugu({ onClose }) {
                 <p style={{ fontSize: '0.9rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.7 }}>
                   {isEn ? data.closingVerse.verseEn : data.closingVerse.verseTr}
                 </p>
-                <p style={{ ...TEXT.verseRef, margin: '10px 0 0' }}>— {data.closingVerse.verseRef}</p>
+                <p style={{ ...TEXT.verseRef, margin: '10px 0 0' }}>— <LinkifyRefs text={data.closingVerse.verseRef} /></p>
               </div>
             </section>
           )}
@@ -524,7 +525,7 @@ function StageDetail({ stage, isEn, isMobile }) {
           <p style={{ fontSize: '0.9rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.7, margin: '0 0 8px' }}>
             {isEn ? stage.anchor.english : stage.anchor.turkish}
           </p>
-          <p style={{ ...TEXT.verseRef, margin: 0 }}>— {stage.anchor.verseRef}</p>
+          <p style={{ ...TEXT.verseRef, margin: 0 }}>— <LinkifyRefs text={stage.anchor.verseRef} /></p>
         </div>
       )}
 
@@ -558,7 +559,7 @@ function StageDetail({ stage, isEn, isMobile }) {
                   <p style={{ fontSize: '0.85rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.65 }}>
                     {isEn ? v.english : v.turkish}
                   </p>
-                  <p style={{ ...TEXT.verseRef, margin: '6px 0 0' }}>— {v.verseRef}</p>
+                  <p style={{ ...TEXT.verseRef, margin: '6px 0 0' }}>— <LinkifyRefs text={v.verseRef} /></p>
                 </div>
               ))}
             </div>

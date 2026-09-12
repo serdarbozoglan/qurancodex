@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS, FONTS,
@@ -371,7 +372,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
         {tr ? v.tr : v.en}
       </p>
       <p style={{ ...TEXT.verseRef, margin: 0 }}>
-        — {v.ref}
+        — <LinkifyRefs text={v.ref} />
       </p>
     </div>
   );
@@ -608,7 +609,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                   </p>
                   <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 2px', fontWeight: 600 }}>
                     {tr ? u.conceptTr : u.conceptEn}
-                    <span style={{ color: `${activeSpecial.color}90`, fontWeight: 400, marginLeft: 8 }}>— {u.ref}</span>
+                    <span style={{ color: `${activeSpecial.color}90`, fontWeight: 400, marginLeft: 8 }}>— <LinkifyRefs text={u.ref} /></span>
                   </p>
                   <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, margin: 0, fontStyle: 'italic' }}>
                     {tr ? u.answerTr : u.answerEn}
@@ -730,7 +731,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
                   {tr ? ex.tr : ex.en}
                 </p>
-                <p style={{ color: `${activeSpecial.color}80`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0 }}>— {ex.ref}</p>
+                <p style={{ color: `${activeSpecial.color}80`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0 }}>— <LinkifyRefs text={ex.ref} /></p>
               </div>
             ))}
           </>
@@ -763,7 +764,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
                   {tr ? ex.tr : ex.en}
                 </p>
-                <p style={{ color: `${activeSpecial.color}80`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0 }}>— {ex.ref}</p>
+                <p style={{ color: `${activeSpecial.color}80`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0 }}>— <LinkifyRefs text={ex.ref} /></p>
               </div>
             ))}
           </>

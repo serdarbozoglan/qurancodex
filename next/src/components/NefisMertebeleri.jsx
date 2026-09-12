@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -1253,7 +1254,7 @@ function VerseBlock({ verse, accent, isMobile, language }) {
           margin: 0,
           letterSpacing: '0.02em',
         }}>
-          — {verse.verseRef}
+          — <LinkifyRefs text={verse.verseRef} />
         </p>
         {canPlay && (
           <button

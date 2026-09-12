@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import useFocusTrap from '../hooks/useFocusTrap';
 import {
   COLORS, FONTS,
@@ -535,7 +536,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
             fontFamily: FONTS.body, fontWeight: 600,
             letterSpacing: '0.08em', margin: 0,
           }}>
-            — {v10Ref}
+            — <LinkifyRefs text={v10Ref} />
           </p>
         </div>
 
@@ -571,7 +572,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
           fontFamily: FONTS.body, fontWeight: 600,
           letterSpacing: '0.08em', margin: '0 0 24px',
         }}>
-          — {anchorRef}
+          — <LinkifyRefs text={anchorRef} />
         </p>
 
         <div style={{
@@ -595,7 +596,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
             fontFamily: FONTS.body, fontWeight: 600,
             letterSpacing: '0.08em', margin: 0,
           }}>
-            — {v12Ref}
+            — <LinkifyRefs text={v12Ref} />
           </p>
         </div>
       </div>
@@ -771,7 +772,7 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
                 color: COLORS.gold, fontWeight: 600, letterSpacing: '0.05em',
                 opacity: 0.85,
               }}>
-                — {keyVerseRef}
+                — <LinkifyRefs text={keyVerseRef} />
               </p>
             )}
           </div>
@@ -1257,7 +1258,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
                 color: COLORS.gold, fontWeight: 600, letterSpacing: '0.06em',
                 opacity: 0.9,
               }}>
-                — {keyVerseRef}
+                — <LinkifyRefs text={keyVerseRef} />
               </p>
             )}
           </div>

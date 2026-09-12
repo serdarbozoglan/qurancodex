@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS,
@@ -1145,7 +1146,7 @@ function VerseCard({ verse, language }) {
         opacity: 1,
         margin: 0,
       }}>
-        — {verse.verseRef}
+        — <LinkifyRefs text={verse.verseRef} />
       </p>
     </div>
   );

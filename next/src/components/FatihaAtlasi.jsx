@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, GLASS_CARD, RADIUS, CATEGORY_SCALE, BREAKPOINT_MOBILE } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
@@ -250,7 +251,7 @@ function NodeRow({ n, accent, tr, isMobile }) {
       <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.2rem', '--fs-m': '1.05rem', color: accent, margin: 0, lineHeight: 1.7, flexShrink: 0 }}>{cleanArabic(n.ar)}</p>
       <div style={{ flex: 1, minWidth: 0, textAlign: isMobile ? 'right' : 'left' }}>
         <p className="mq-fs" style={{ color: COLORS.offWhite, '--fs-d': '0.8rem', '--fs-m': '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: 0 }}>{tr ? n.labelTr : n.labelEn}</p>
-        <p style={{ color: COLORS.silver, fontSize: '0.66rem', fontFamily: FONTS.body, opacity: 0.65, margin: 0 }}>{n.ref}</p>
+        <p style={{ color: COLORS.silver, fontSize: '0.66rem', fontFamily: FONTS.body, opacity: 0.65, margin: 0 }}><LinkifyRefs text={n.ref} /></p>
       </div>
     </div>
   );
@@ -420,7 +421,7 @@ function TabWordChoice({ data, language, isMobile }) {
               <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.15rem', fontWeight: 700, margin: 0 }}>
                 {tr ? g.titleTr : g.titleEn}
               </h3>
-              <span style={{ color: accent, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700 }}>{g.ref}</span>
+              <span style={{ color: accent, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700 }}><LinkifyRefs text={g.ref} /></span>
             </div>
             <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.5rem', '--fs-m': '1.3rem', color: accent, margin: '8px 0 18px', lineHeight: 2 }}>{cleanArabic(g.ar)}</p>
             {g.perspectives.map((p, i) => <PerspectiveCard key={i} p={p} accent={accent} language={language} isMobile={isMobile} />)}
@@ -433,7 +434,7 @@ function TabWordChoice({ data, language, isMobile }) {
                   <div key={ei} style={{ padding: '10px 14px', background: `${accent}0A`, border: `1px solid ${accent}25`, borderRadius: 8 }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap', marginBottom: 4 }}>
                       <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body, fontWeight: 700 }}>{tr ? ex.labelTr : ex.labelEn}</span>
-                      {ex.ref && <span style={{ color: accent, fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 600 }}>{ex.ref}</span>}
+                      {ex.ref && <span style={{ color: accent, fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 600 }}><LinkifyRefs text={ex.ref} /></span>}
                     </div>
                     <p style={{ color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.65, fontFamily: FONTS.body, margin: 0 }}>{tr ? ex.noteTr : ex.noteEn}</p>
                   </div>

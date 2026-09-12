@@ -4,6 +4,7 @@ import { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -1141,7 +1142,7 @@ export default function KissaAtlas({ onClose }) {
                   <p style={{ color: COLORS.silver, fontSize: '0.86rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
                     {language === 'tr' ? step.verseTr : step.verseEn}
                   </p>
-                  <p style={{ color: `${prophet.color}90`, fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 10px' }}>— {step.ref}</p>
+                  <p style={{ color: `${prophet.color}90`, fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 10px' }}>— <LinkifyRefs text={step.ref} /></p>
                   <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.7, fontFamily: FONTS.body, margin: 0 }}>
                     {language === 'tr' ? step.explanationTr : step.explanationEn}
                   </p>
@@ -1160,7 +1161,7 @@ export default function KissaAtlas({ onClose }) {
                   <p style={{ color: COLORS.silver, fontSize: '0.86rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
                     {language === 'tr' ? c.verseTr : c.verseEn}
                   </p>
-                  <p style={{ color: `${prophet.color}90`, fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 10px' }}>— {c.ref}</p>
+                  <p style={{ color: `${prophet.color}90`, fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 10px' }}>— <LinkifyRefs text={c.ref} /></p>
                   <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.7, fontFamily: FONTS.body, margin: 0 }}>
                     {language === 'tr' ? c.explanationTr : c.explanationEn}
                   </p>

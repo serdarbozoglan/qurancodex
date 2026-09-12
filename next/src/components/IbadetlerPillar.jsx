@@ -14,6 +14,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import LinkifyRefs from './LinkifyRefs';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
 import useNavbarOffset from './useNavbarOffset';
@@ -254,7 +255,7 @@ function PillarHero({ pillarData, language, isMobile }) {
         fontSize: '0.72rem',
         marginBottom: '28px',
       }}>
-        — {language === 'tr' ? anchor.refTr : anchor.refEn}
+        — <LinkifyRefs text={language === 'tr' ? anchor.refTr : anchor.refEn} />
       </p>
 
       {/* Filigree divider */}
@@ -802,7 +803,7 @@ function VerseCard({ ayah, language, isMobile }) {
         textTransform: 'uppercase',
         marginBottom: noteText ? '14px' : 0,
       }}>
-        — {ayah.ref}
+        — <LinkifyRefs text={ayah.ref} />
       </div>
       {noteText && (
         <div style={{
@@ -980,7 +981,7 @@ function TabPeygamberler({ data, language, isMobile }) {
                   borderRadius: '10px',
                   color: COLORS.gold, fontSize: '0.66rem',
                   fontWeight: 600, letterSpacing: '0.08em',
-                }}>{p.ref}</span>
+                }}><LinkifyRefs text={p.ref} /></span>
                 {p.claimType && <ClaimTypeBadge claimType={p.claimType} confidence={p.confidence} language={language} />}
               </div>
               <div style={{ color: COLORS.offWhite, fontSize: '0.93rem', lineHeight: 1.75 }}>

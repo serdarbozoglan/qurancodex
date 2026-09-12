@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
@@ -847,7 +848,7 @@ function OathCard({ item, accent, language, compact = false }) {
           </span>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', flexShrink: 0 }}>
             <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body, paddingTop: '2px' }}>
-              {item.ref}
+              <LinkifyRefs text={item.ref} />
             </span>
             {/* #199 (2026-07-16) — Bookmark this oath */}
             <BookmarkButton
@@ -1735,7 +1736,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               <div className="mq-box" style={{ '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "16px" }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', marginBottom: '14px', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.7rem', fontWeight: 700, color: COLORS.gold, opacity: 0.85, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
-                    {String(i + 1).padStart(2, '0')} · {ex.ref}
+                    {String(i + 1).padStart(2, '0')} · <LinkifyRefs text={ex.ref} />
                   </span>
                 </div>
                 <p dir="rtl" lang="ar" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.4rem', '--fs-m': '1.2rem', color: COLORS.gold, lineHeight: 2.0, margin: '0 0 18px', textAlign: 'right', textShadow: `0 0 14px ${COLORS.gold}1a` }}>
@@ -1897,7 +1898,7 @@ function TabTahaddi({ language, isMobile }) {
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                   <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: accent, fontWeight: 700, opacity: 0.85 }}>
-                    {v.ref}
+                    <LinkifyRefs text={v.ref} />
                   </div>
                   <div style={{ fontFamily: FONTS.display, fontSize: '1rem', color: COLORS.offWhite, fontWeight: 600 }}>
                     {tr ? v.scopeTr : v.scopeEn}

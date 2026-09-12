@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
@@ -436,7 +437,7 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
             marginTop: '8px', fontSize: '0.72rem',
             color: COLORS.silver, fontFamily: FONTS.body,
           }}>
-            <span>📖 <strong style={{ color: dom.color, fontWeight: 600 }}>{isaret.verseRef}</strong></span>
+            <span>📖 <strong style={{ color: dom.color, fontWeight: 600 }}><LinkifyRefs text={isaret.verseRef} /></strong></span>
             <span>🔬 {tr ? isaret.discoveryYear : isaret.discoveryYearEn}</span>
           </div>
         </div>
