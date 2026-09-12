@@ -10,6 +10,103 @@
 // review'dan geçer. Liderlik: REVIEW #1 (taksonomi) + REVIEW #2 (içerik) işlendi.
 
 export const DISCIPLINE_CONTENT = {
+  'iman-itikad': {
+    reviewedBy: 'gpt-6-astra review — content approved',
+    anchor: {
+      ref: 'Bakara 2:2',
+      ar: `ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ`,
+      trTr: `Bu, kendisinde hiçbir şüphe bulunmayan Kitap'tır; Allah'a karşı sorumluluk bilinci taşıyanlara yol göstericidir.`,
+      trEn: `This is the Book about which there is no doubt, a guidance for the God-conscious.`,
+    },
+    introTr:
+      `Kur'an Allah'ın kelâmıdır ve kesin hakikattir; onda şüphe yoktur (lâ raybe fîh) ve doğruluğu bilimsel veya akademik tasdike bağlı değildir. ` +
+      `Bu sayfa; tevhid, imanın esasları, gayba iman, şirkin reddi ve Allah'ın isim ve sıfatları gibi âyetleri itikad bakımından bir araya getirir. ` +
+      `Âyetlerin anlam özetleri, tematik başlıklar, klasik tefsir açıklamaları ve akademik değerlendirmeler beşerî aktarım ve yorum katmanlarıdır; Kur'an'ın ` +
+      `kendisiyle özdeş değildir. Bu okumalardan belirli bir kelâm ekolü veya mezhep, Kur'an'a mal edilerek türetilmez.`,
+    introEn:
+      `The Qur'an is God's word and certain truth; there is no doubt in it (lā rayba fīh), and its truth does not depend on scientific or academic confirmation. ` +
+      `This page gathers verses on the oneness of God (tawḥīd), the essentials of faith, belief in the unseen, the rejection of shirk, and the names and attributes of God, from the angle of creed (ʿaqīda). ` +
+      `The verse summaries, thematic headings, classical-exegesis notes, and academic assessments are layers of human transmission and interpretation; they are not identical with the Qur'an itself, ` +
+      `and no particular school of theology (kalām) or legal-creedal madhhab is derived from them and ascribed to the Qur'an.`,
+    themes: [
+      {
+        titleTr: `Tevhid — Allah'ın birliği`,
+        titleEn: `Tawḥīd — the oneness of God`,
+        verses: [
+          { ref: 'İhlâs 112:1', ar: `قُلْ هُوَ اللّٰهُ اَحَدٌ`, glossTr: `De ki: O Allah, birdir, tektir.`, glossEn: `Say: He is Allah, the One and Indivisible.` },
+          { ref: 'İhlâs 112:2', ar: `اَللّٰهُ الصَّمَدُ`, glossTr: `Allah Samed'dir; her şey O'na muhtaçtır, O hiçbir şeye muhtaç değildir.`, glossEn: `Allah is as-Samad, the Eternal Refuge whom all creation needs.` },
+          { ref: 'İhlâs 112:3', ar: `لَمْ يَلِدْ وَلَمْ يُولَدْ`, glossTr: `O doğurmamış ve doğmamıştır.`, glossEn: `He neither begets nor was begotten.` },
+          { ref: 'İhlâs 112:4', ar: `وَلَمْ يَكُنْ لَهُ كُفُواً اَحَدٌ`, glossTr: `Hiçbir şey O'nun dengi ve benzeri değildir.`, glossEn: `And there is nothing comparable to Him.` },
+          { ref: 'Bakara 2:255', ar: `اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُدُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ`, glossTr: `Âyetü'l-Kürsî: Allah, diri (Hayy) ve her şeyi ayakta tutandır (Kayyûm); ilmi ve hükümranlığı her şeyi kuşatır.`, glossEn: `Ayat al-Kursī: Allah, the Ever-Living and All-Sustaining, whose knowledge and dominion encompass all things.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (2:255): Âyetü'l-Kürsî'nin, Allah'ın tek ibadete lâyık ilâh olduğunu; Hayy ve Kayyûm sıfatlarıyla hiçbir zaaf ya da muhtaçlığın O'nu tutmadığını, uyku ve uyuklamanın O'na erişemediğini vurguladığı belirtilir. İbn Abbâs'tan nakledilen bir sözle Kürsî'nin yanında kâinatın "çöldeki bir halka" gibi kaldığı aktarılır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (2:255): Ayat al-Kursī affirms Allah as the only One worthy of worship, the Ever-Living and Self-Sustaining whom neither drowsiness nor sleep can touch. A report from Ibn ʿAbbās likens the whole creation beside His Kursī to "a ring in a desert." (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'İmanın esasları — Allah, melekler, kitaplar, resuller, âhiret',
+        titleEn: 'The essentials of faith — God, angels, Books, messengers, the Hereafter',
+        verses: [
+          { ref: 'Bakara 2:285', ar: `اٰمَنَ الرَّسُولُ بِمٓا اُنْزِلَ اِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ اٰمَنَ بِاللّٰهِ وَمَلٰٓئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ اَحَدٍ مِنْ رُسُلِهِ وَقَالُوا سَمِعْنَا وَاَطَعْنَا غُفْرَانَكَ رَبَّنَا وَاِلَيْكَ الْمَصِيرُ`, glossTr: `Resul ve mü'minler Allah'a, meleklerine, kitaplarına ve resullerine iman eder; resuller arasında ayrım yapmadan "işittik ve itaat ettik" derler.`, glossEn: `The Messenger and the believers affirm faith in Allah, His angels, His Books and His messengers, making no distinction between the messengers, saying "We hear and obey."` },
+          { ref: 'Nisâ 4:136', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اٰمِنُوا بِاللّٰهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلٰى رَسُولِهِ وَالْكِتَابِ الَّـذِٓي اَنْزَلَ مِنْ قَبْلُ وَمَنْ يَكْفُرْ بِاللّٰهِ وَمَلٰٓئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْاٰخِرِ فَقَدْ ضَلَّ ضَلَالاً بَعِيداً`, glossTr: `Allah'a, resulüne, indirdiği kitaba ve önceki kitaplara iman edin; Allah'ı, meleklerini, kitaplarını, resullerini ve âhiret gününü inkâr eden apaçık sapıtmıştır.`, glossEn: `Believe in Allah, His Messenger, and the Scriptures; whoever denies Allah, His angels, Books, messengers, and the Last Day has strayed far away.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (2:285): mü'minlerin Allah'ın bütün peygamberlerini ayrım yapmaksızın kabul edip doğruladıkları; "işittik ve itaat ettik" sözünün, ilâhî buyrukları kavrayıp gereğini yerine getirmek anlamına geldiği belirtilir. Bakara sûresinin son iki âyetini geceleyin okuyana bunların yeteceğine dair sahih bir rivayet aktarılır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (2:285): the believers accept and affirm all of Allah's prophets without distinction, and "we hear and obey" means grasping Allah's commands and acting upon them. It relays an authentic report that the last two verses of Sūrat al-Baqarah suffice whoever recites them at night. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Gayba iman ve şüphesizlik',
+        titleEn: 'Belief in the unseen, and certainty',
+        verses: [
+          { ref: 'Bakara 2:2', ar: `ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ`, glossTr: `Bu, kendisinde hiçbir şüphe bulunmayan Kitap'tır; sorumluluk bilinci taşıyanlara yol göstericidir.`, glossEn: `This is the Book about which there is no doubt, a guidance for the God-conscious.` },
+          { ref: 'Bakara 2:3', ar: `اَلَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلٰوةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ`, glossTr: `Onlar gayba iman eder, namazı kılar ve kendilerine verilen rızıktan infak ederler.`, glossEn: `Those who believe in the unseen, establish prayer, and spend from what We have provided them.` },
+          { ref: 'Bakara 2:4', ar: `وَالَّذِينَ يُؤْمِنُونَ بِمٓا اُنْزِلَ اِلَيْكَ وَمٓا اُنْزِلَ مِنْ قَبْلِكَ وَبِالْاٰخِرَةِ هُمْ يُوقِنُونَ`, glossTr: `Sana indirilene ve senden önce indirilene iman eder, âhirete de kesin olarak (yakîn ile) inanırlar.`, glossEn: `Those who believe in what was revealed to you and before you, and who have certainty (yaqīn) in the Hereafter.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (2:3): imanın inanç, söz ve ameli kapsadığı; "gayb"ın Allah'ı, melekleri, kitapları, resulleri, âhiret gününü, cennet ve cehennemi, dirilişi ve Allah'a kavuşmayı içerdiği belirtilir. Peygamber'i görmedikleri hâlde iman edenleri öven bir rivayetle gayba imanın fazileti vurgulanır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (2:3): iman encompasses belief, word and deed, and al-ghayb (the unseen) includes Allah, the angels, Books, messengers, the Last Day, Paradise and Hell, resurrection and meeting Allah. It highlights the merit of believing in the unseen through a report praising those who believe without having seen the Prophet. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Şirkin reddi',
+        titleEn: 'The rejection of shirk',
+        verses: [
+          { ref: 'Nisâ 4:48', ar: `اِنَّ اللّٰهَ لَا يَغْفِرُ اَنْ يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذٰلِكَ لِمَنْ يَشٓاءُ وَمَنْ يُشْرِكْ بِاللّٰهِ فَقَدِ افْتَرٰٓى اِثْماً عَظِيماً`, glossTr: `Allah kendisine şirk koşulmasını bağışlamaz; bunun dışındakileri dilediği kimse için bağışlar; Allah'a ortak koşan büyük bir günah işlemiştir.`, glossEn: `Allah does not forgive associating partners with Him, but forgives all else for whom He wills; whoever commits shirk has committed a grave sin.` },
+          { ref: 'Lokmân 31:13', ar: `وَاِذْ قَالَ لُقْمٰنُ لِابْنِهِ وَهُوَ يَعِظُهُ يَا بُنَيَّ لَا تُشْرِكْ بِاللّٰهِ اِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ`, glossTr: `Lokmân oğluna öğüt verirken: "Yavrucuğum, Allah'a ortak koşma; çünkü şirk gerçekten büyük bir zulümdür" dedi.`, glossEn: `Luqmān counseled his son: never associate anything with Allah, for shirk is truly the greatest wrong.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (4:48): şirk koşarak Allah'ın huzuruna çıkan kişinin, tövbe etmedikçe bu şirkinin bağışlanmayacağı; bunun dışındaki günahların ise dilediği kimse için bağışlanabileceği belirtilir. Tevhid üzere ölen kişinin sonunda cennete gireceğine dair bir rivayetle, şirk dışındaki büyük günahların dahi mağfiret kapsamında olabileceği aktarılır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (4:48): whoever meets Allah while committing shirk is not forgiven for that shirk unless he repents, while other sins may be forgiven for whom He wills. It relays a report that one who dies upon pure monotheism ultimately enters Paradise, showing that even major sins other than shirk can fall under divine pardon. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: `Esmâ ve sıfatlarla Allah'ı tanımak`,
+        titleEn: `Knowing God through His names and attributes`,
+        verses: [
+          { ref: 'Haşr 59:23', ar: `هُوَ اللّٰهُ الَّذِي لٓا اِلٰهَ اِلَّا هُوَ اَلْمَلِكُ الْقُدُّوسُ السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ سُبْحَانَ اللّٰهِ عَمَّا يُشْرِكُونَ`, glossTr: `O; Melik, Kuddûs, Selâm, Mü'min, Müheymin, Azîz, Cebbâr ve Mütekebbir olan Allah'tır; O'na ortak koştuklarından münezzehtir.`, glossEn: `He is Allah: the King, the Most Holy, the Source of Peace, the Almighty, glorified far above what they associate with Him.` },
+          { ref: 'Haşr 59:24', ar: `هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ`, glossTr: `O; yaratan (Hâlık), var eden (Bârî) ve şekil veren (Musavvir) Allah'tır; en güzel isimler (Esmâ-i Hüsnâ) yalnız O'nundur.`, glossEn: `He is Allah, the Creator, the Inventor, the Shaper; to Him belong the Most Beautiful Names.` },
+          { ref: `A'râf 7:180`, ar: `وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا وَذَرُوا الَّذِينَ يُلْحِدُونَ فِٓي اَسْمٓائِهِ سَيُجْزَوْنَ مَا كَانُوا يَعْمَلُونَ`, glossTr: `En güzel isimler Allah'ındır; O'na bu isimlerle dua edin ve isimleri konusunda çarpıtma yapanlardan uzak durun.`, glossEn: `The Most Beautiful Names belong to Allah; call upon Him by them and shun those who distort His Names.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (7:180): Allah'ın en güzel isimlere sahip olduğu, O'na bu isimlerle dua edilmesi ve isimleri çarpıtanlardan uzak durulması emredilir. Allah'ın doksan dokuz ismi bulunduğuna ve bunları sayıp koruyanın cennete gireceğine dair rivayet ile, isimlerde "ilhâd"ın (sapma) doğru anlayıştan uzaklaşmayı kapsadığı aktarılır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (7:180): the verse affirms that Allah has the Most Beautiful Names, commands calling upon Him by them, and warns against those who distort them. It relays the report that Allah has ninety-nine Names and whoever preserves them enters Paradise, and explains that "ilḥād" (distortion) of the Names means straying from their correct usage. (Summary of the tafsir.)`,
+      },
+    ],
+    assuranceTr: `Bu âyetler imanın esaslarını kesin biçimde ortaya koyar; tefsir ve kelâm katmanı, bu kesinliğin üzerine bina edilen beşerî anlama çabasıdır ve onun yerine geçmez. Bu seçki, itikadın bütün konularını da tüketmez.`,
+    assuranceEn: `These verses set out the essentials of faith with certainty; the layer of exegesis and theology is a human effort to understand built upon that certainty, and does not replace it. This selection also does not exhaust every topic of creed.`,
+    tafsirScopeTr: `Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin "tefsir" sekmesi, ör. quran.com/2/255 · quran.com/2/285 · quran.com/7/180; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar "muhtasar İbn Kesîr metninde" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.`,
+    tafsirScopeEn: `The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's "tafsir" tab, e.g. quran.com/2/255 · quran.com/2/285 · quran.com/7/180; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read "in the abridged Ibn Kathīr text." The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.`,
+    sourcesNoteTr: `Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî teoloji düşüncesini ve tarihini incelemek için, yaklaşımları belirtilerek anılır. Akademik olmaları görüşlerini kesinleştirmez.`,
+    sourcesNoteEn: `The academic sources are cited not to confirm the Qur'an, but to study human theological thought and history.`,
+    sources: [
+      { author: 'Toshihiko Izutsu', work: 'The Concept of Belief in Islamic Theology: A Semantic Analysis of Īmān and Islām', pub: 'Islamic Book Trust', year: '2001', id: 'ISBN 9789839154702',
+        noteTr: `YAKLAŞIM: erken kelâmda "îmân" ve "islâm" terimlerinin anlam katmanlarını semantik yöntemle inceler.`, noteEn: `APPROACH: a semantic analysis of how the terms īmān and islām were debated in early kalām.` },
+      { author: 'Harry Austryn Wolfson', work: 'The Philosophy of the Kalam', pub: 'Harvard University Press', year: '1976', id: 'ISBN 9780674665804',
+        noteTr: `YAKLAŞIM: sıfatlar, yaratma ve kader konularında kelâmın tarihsel-analitik incelemesi.`, noteEn: `APPROACH: a historical-analytic study of kalām on divine attributes, creation, and predestination.` },
+      { author: 'Daniel Gimaret', work: 'Les noms divins en Islam: Exégèse lexicographique et théologique', pub: 'Les Éditions du Cerf', year: '1988', id: 'ISBN 9782204028288',
+        noteTr: `YAKLAŞIM: ilahi isimlerin leksikografik ve teolojik tefsiri; klasik listelerin tarihi.`, noteEn: `APPROACH: a lexicographic and theological study of the divine names and the history of their classical lists.` },
+      { author: 'Tim Winter (ed.)', work: 'The Cambridge Companion to Classical Islamic Theology', pub: 'Cambridge University Press', year: '2008', id: 'ISBN 9780521785495',
+        noteTr: `YAKLAŞIM: klasik Müslüman kelâmının gelişimine uzman makalelerle giriş.`, noteEn: `APPROACH: a multi-author survey of the development of classical Muslim theology.` },
+      { author: 'Sabine Schmidtke (ed.)', work: 'The Oxford Handbook of Islamic Theology', pub: 'Oxford University Press', year: '2016', id: 'ISBN 9780199696703',
+        noteTr: `YAKLAŞIM: kelâm ekollerini, kavramlarını ve tarihini derleyen kapsamlı başvuru eseri.`, noteEn: `APPROACH: a comprehensive reference on the schools, concepts, and history of Islamic theology.` },
+      { author: 'Binyamin Abrahamov', work: 'Islamic Theology: Traditionalism and Rationalism', pub: 'Edinburgh University Press', year: '1998', id: 'ISBN 9780748611027',
+        noteTr: `YAKLAŞIM: kelâmda gelenekçi ve akılcı eğilimlerin argümanları ve uzlaşıları.`, noteEn: `APPROACH: the arguments and compromises between traditionalist and rationalist tendencies in kalām.` },
+    ],
+  },
+
   'liderlik-yonetim': {
     reviewedBy: 'gpt-6-astra REVIEW #2 applied',
     anchor: {
