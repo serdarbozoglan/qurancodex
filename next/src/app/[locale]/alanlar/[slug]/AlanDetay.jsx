@@ -6,6 +6,7 @@ import { COLORS, FONTS, SEMANTIC, RADIUS } from '@/tokens';
 import ToolHeader from '@/components/ToolHeader';
 import useNavbarOffset from '@/components/useNavbarOffset';
 import LinkifyRefs from '@/components/LinkifyRefs';
+import HeroGeometricBackground from '@/components/HeroGeometricBackground';
 import { DISCIPLINE_BY_ID } from '@/data/disciplines';
 import { routesForDiscipline } from '@/data/disciplineMap';
 import { DISCIPLINE_CONTENT } from '@/data/disciplineContent';
@@ -44,8 +45,9 @@ export default function AlanDetay({ slug }) {
       />
 
       {/* ── Sinematik hero ────────────────────────────────────────────── */}
-      <div style={{ background: `linear-gradient(180deg, ${COLORS.gold}12 0%, transparent 100%)`, borderBottom: `1px solid ${COLORS.gold}1a`, padding: 'clamp(34px, 6vw, 52px) 20px clamp(30px, 5vw, 42px)', textAlign: 'center' }}>
-        <div style={{ maxWidth: 720, margin: '0 auto' }}>
+      <div style={{ position: 'relative', overflow: 'hidden', background: `linear-gradient(180deg, ${COLORS.gold}12 0%, transparent 100%)`, borderBottom: `1px solid ${COLORS.gold}1a`, padding: 'clamp(34px, 6vw, 52px) 20px clamp(30px, 5vw, 42px)', textAlign: 'center' }}>
+        <HeroGeometricBackground patternOpacity={0.06} />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 720, margin: '0 auto' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 62, height: 62, borderRadius: '50%', background: `${COLORS.gold}12`, border: `1px solid ${COLORS.gold}38`, color: COLORS.gold, marginBottom: 18 }}>
             {disciplineIcon(slug, 30)}
           </div>
@@ -100,9 +102,20 @@ export default function AlanDetay({ slug }) {
         {/* ── B — kaynaklı çapa içeriği ──────────────────────────────── */}
         {content && (
           <section style={{ margin: '0 0 40px' }}>
-            <p style={{ fontFamily: FONTS.body, color: SEMANTIC.textPrimary, fontSize: '1rem', lineHeight: 1.85, margin: '0 0 30px' }}>
+            <p style={{ fontFamily: FONTS.body, color: SEMANTIC.textPrimary, fontSize: '1rem', lineHeight: 1.85, margin: '0 0 20px' }}>
               {tr ? content.introTr : content.introEn}
             </p>
+
+            {/* İlkeler bir bakışta */}
+            {(content.themes || []).length > 0 && (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, margin: '0 0 30px' }}>
+                {content.themes.map((th, i) => (
+                  <span key={i} style={{ fontFamily: FONTS.body, fontSize: '0.74rem', fontWeight: 600, color: COLORS.gold, background: `${COLORS.gold}12`, border: `1px solid ${COLORS.gold}2e`, borderRadius: RADIUS.pill, padding: '5px 13px' }}>
+                    {tr ? th.titleTr : th.titleEn}
+                  </span>
+                ))}
+              </div>
+            )}
 
             {(content.themes || []).map((th, i) => (
               <div key={i} style={{ position: 'relative', margin: '0 0 18px', padding: '20px 22px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.gold}22`, borderRadius: RADIUS.lg, overflow: 'hidden' }}>
@@ -113,12 +126,17 @@ export default function AlanDetay({ slug }) {
                   {tr ? th.titleTr : th.titleEn}
                 </h3>
                 {(th.verses || []).map((v, j) => (
-                  <div key={j} style={{ margin: '0 0 11px', paddingLeft: 14, borderLeft: `2px solid ${COLORS.gold}40` }}>
-                    <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', fontWeight: 700, color: COLORS.gold, letterSpacing: '0.04em', margin: '0 0 3px' }}>
-                      <LinkifyRefs text={v.ref} />
-                    </div>
-                    <div style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: SEMANTIC.textMuted, lineHeight: 1.65 }}>
+                  <div key={j} style={{ margin: '0 0 12px', padding: '13px 15px', background: 'rgba(0,0,0,0.18)', borderRadius: RADIUS.md, borderRight: `2px solid ${COLORS.gold}55` }}>
+                    {v.ar && (
+                      <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: 'clamp(1.12rem, 2.9vw, 1.4rem)', lineHeight: 1.95, textAlign: 'right', margin: '0 0 9px' }}>
+                        {v.ar}
+                      </p>
+                    )}
+                    <div style={{ fontFamily: FONTS.body, fontSize: '0.86rem', color: SEMANTIC.textMuted, lineHeight: 1.6, fontStyle: 'italic', margin: '0 0 6px' }}>
                       {tr ? v.glossTr : v.glossEn}
+                    </div>
+                    <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 700, color: COLORS.gold, letterSpacing: '0.04em' }}>
+                      <LinkifyRefs text={v.ref} />
                     </div>
                   </div>
                 ))}
