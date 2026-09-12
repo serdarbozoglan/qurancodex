@@ -930,7 +930,7 @@ const AYET_KURSI = {
   playRange: { surah: 2, from: 255, to: 255 },
   intro: 'Allah\'ın zatını uyuklamayan, tüm evreni ayakta tutan bir güç olarak tanımlayan en meşhur ayet.',
   introEn: 'The most famous verse describing God as the unsleeping, ever-sustaining power who holds all existence.',
-  arabic: 'اللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّومُ  لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ  لَّهُۥ مَا فِى السَّمَٰوَٰتِ وَمَا فِى الْأَرْضِ  مَن ذَا الَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِ   يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ  وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِ ٓ إِلَّا بِمَا شَآءَ  وَسِعَ كُرْسِيُّهُ السَّمَٰوَٰتِ وَالْأَرْضَ  وَلَا يَـُٔودُهُۥ حِفْظُهُمَا  وَهُوَ الْعَلِىُّ الْعَظِيمُ',
+  arabic: 'اللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ الْحَىُّ الْقَيُّومُ  لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ  لَّهُ مَا فِى السَّمَٰوَٰتِ وَمَا فِى الْأَرْضِ  مَن ذَا الَّذِى يَشْفَعُ عِندَهُٓ إِلَّا بِإِذْنِهِ   يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ  وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِ ٓ إِلَّا بِمَا شَآءَ  وَسِعَ كُرْسِيُّهُ السَّمَٰوَٰتِ وَالْأَرْضَ  وَلَا يَـُٔودُهُ حِفْظُهُمَا  وَهُوَ الْعَلِىُّ الْعَظِيمُ',
   mealTr: "Allah, O'ndan başka tanrı yoktur; O, Hayy'dır, Kayyûm'dur. Kendisine ne uyku gelir ne de uyuklama. Göklerde ve yerdekilerin hepsi O'nundur. İzni olmadan O'nun katında kim şefaat edebilir? O, kullarının yaptıklarını ve yapacaklarını bilir. (O'na hiçbir şey gizli kalmaz.) O'nun bildirdiklerinin dışında insanlar O'nun ilminden hiçbir şeyi tam olarak bilemezler. O'nun kürsüsü gökleri ve yeri içine alır, onları koruyup gözetmek kendisine zor gelmez. O, yücedir, büyüktür.",
   mealEn: "Allah — there is no deity except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursī extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
   highlighted: [
@@ -950,7 +950,7 @@ const HASR_VERSE = {
   playRange: { surah: 59, from: 22, to: 24 },
   intro: "Kur'an'da ilahî isimlerin en yoğun kümelendiği beyan: 14 isim peş peşe.",
   introEn: "The densest gathering of divine names in the Quran: 14 names in succession.",
-  arabic: 'هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ  عَٰلِمُ الْغَيْبِ وَالشَّهَٰدَةِ  هُوَ الرَّحْمَٰنُ الرَّحِيمُ  هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ الْمَلِكُ الْقُدُّوسُ السَّلَٰمُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ  سُبْحَٰنَ اللَّهِ عَمَّا يُشْرِكُونَ  هُوَ اللَّهُ الْخَٰلِقُ الْبَارِئُ الْمُصَوِّرُ  لَهُ الْأَسْمَآءُ الْحُسْنَىٰ  يُسَبِّحُ لَهُۥ مَا فِى السَّمَٰوَٰتِ وَالْأَرْضِ  وَهُوَ الْعَزِيزُ الْحَكِيمُ',
+  arabic: 'هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ  عَٰلِمُ الْغَيْبِ وَالشَّهَٰدَةِ  هُوَ الرَّحْمَٰنُ الرَّحِيمُ  هُوَ اللَّهُ الَّذِى لَآ إِلَٰهَ إِلَّا هُوَ الْمَلِكُ الْقُدُّوسُ السَّلَٰمُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ  سُبْحَٰنَ اللَّهِ عَمَّا يُشْرِكُونَ  هُوَ اللَّهُ الْخَٰلِقُ الْبَارِئُ الْمُصَوِّرُ  لَهُ الْأَسْمَآءُ الْحُسْنَىٰ  يُسَبِّحُ لَهُ مَا فِى السَّمَٰوَٰتِ وَالْأَرْضِ  وَهُوَ الْعَزِيزُ الْحَكِيمُ',
   mealTr: "(22) O, öyle Allah'tır ki, O'ndan başka tanrı yoktur. Görülmeyeni ve görüleni bilendir. O, esirgeyendir, bağışlayandır. (23) O, öyle Allah'tır ki, kendisinden başka hiçbir tanrı yoktur. O, mülkün sahibidir, eksiklikten münezzehtir, selamet verendir, emniyete kavuşturandır, gözetip koruyandır, üstündür, istediğini zorla yaptırandır, büyüklükte eşi olmayandır. Allah, müşriklerin ortak koştukları şeylerden münezzehtir. (24) O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
   mealEn: "(22) He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful. (23) He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him. (24) He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise.",
   highlighted: [
@@ -979,7 +979,7 @@ const IHLAS_VERSE = {
   playRange: { surah: 112, from: 1, to: 4 },
   intro: "Mutlak teklik: olumsuz tanımla benzersizlik (Ehad, Samed, 'kimseden doğmamış, kimseyi doğurmamış').",
   introEn: "Absolute oneness: singularity through negative description (al-Aḥad, aṣ-Ṣamad, 'neither begotten nor begetting').",
-  arabic: 'قُلْ هُوَ اللَّهُ أَحَدٌ  اللَّهُ الصَّمَدُ  لَمْ يَلِدْ وَلَمْ يُولَدْ  وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ',
+  arabic: 'قُلْ هُوَ اللَّهُ أَحَدٌ  اللَّهُ الصَّمَدُ  لَمْ يَلِدْ وَلَمْ يُولَدْ  وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ',
   mealTr: "(1) De ki: O, Allah birdir. (2) Allah sameddir. (3) O, doğurmamış ve doğmamıştır. (4) Onun hiçbir dengi yoktur.",
   mealEn: "(1) Say: He is Allah, the One. (2) Allah, the Eternal Refuge. (3) He neither begets nor is born. (4) Nor is there to Him any equivalent.",
   highlighted: [
@@ -3696,7 +3696,7 @@ function ClosingReflection({ tr, language }) {
               textShadow: `0 0 22px ${COLORS.gold}22`,
             }}
           >
-            وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+            وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ  أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
           </p>
           <p style={{
             color: COLORS.offWhite,

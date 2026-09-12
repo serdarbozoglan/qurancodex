@@ -324,7 +324,7 @@ export default function ImpossibleRhythm() {
               {language === 'tr' ? 'Aşağıdaki ayetleri inceleyin' : 'Examine the verses below'}
             </p>
             <p lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: COLORS.offWhite }}>
-              وَالضُّحَىٰ ﴿١﴾ وَاللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾
+              وَالضُّحَىٰ ١ وَاللَّيْلِ إِذَا سَجَىٰ ٢ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ٣
             </p>
             {/* Play button centered, then reference below */}
             <div className="flex justify-center mt-4 mb-2">

@@ -127,7 +127,7 @@ export default function InsanYolculugu({ onClose }) {
               lineHeight: 2.1,
               margin: '0 auto 12px', maxWidth: '780px',
             }}>
-              يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِع۪ٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً
+              يٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً
             </p>
             <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
