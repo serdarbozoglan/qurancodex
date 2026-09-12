@@ -81,11 +81,8 @@ export default function AlanDetay({ slug }) {
           </h1>
 
           {content?.anchor && (
-            <div style={{ position: 'relative', maxWidth: 660, margin: '24px auto 4px', padding: 'clamp(20px, 4vw, 30px) clamp(18px, 4vw, 34px)', background: `linear-gradient(180deg, ${COLORS.gold}12, ${COLORS.gold}05)`, border: `1px solid ${COLORS.gold}33`, borderRadius: RADIUS.lg, boxShadow: `0 0 60px ${COLORS.gold}0f inset` }}>
-              <div style={{ position: 'absolute', top: -10, left: '50%', transform: 'translateX(-50%)', background: COLORS.cosmicBlack, padding: '0 12px' }}>
-                <LayerTag tone="scripture">{tr ? 'Çapa Âyet' : 'Anchor Verse'}</LayerTag>
-              </div>
-              <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: 'clamp(1.4rem, 3.7vw, 1.95rem)', lineHeight: 2.05, margin: '6px 0 14px', textShadow: `0 0 30px ${COLORS.gold}1f` }}>
+            <div style={{ position: 'relative', maxWidth: 660, margin: '24px auto 4px', padding: 'clamp(22px, 4vw, 32px) clamp(18px, 4vw, 34px)', background: `linear-gradient(180deg, ${COLORS.gold}12, ${COLORS.gold}05)`, border: `1px solid ${COLORS.gold}33`, borderRadius: RADIUS.lg, boxShadow: `0 0 60px ${COLORS.gold}0f inset` }}>
+              <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: 'clamp(1.4rem, 3.7vw, 1.95rem)', lineHeight: 2.05, margin: '0 0 14px', textShadow: `0 0 30px ${COLORS.gold}1f` }}>
                 {cleanArabicForDisplay(content.anchor.ar)}
               </p>
               <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, fontSize: 'clamp(0.96rem, 1.7vw, 1.06rem)', lineHeight: 1.6, margin: '0 0 8px' }}>
@@ -285,25 +282,32 @@ export default function AlanDetay({ slug }) {
                 ? `Bu kapıdan ${tools.length} araca ulaşılır; her biri sitenin ilgili derin sayfasına açılır.`
                 : `${tools.length} tools open from this gateway; each leads to the site's related in-depth page.`}
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(244px, 1fr))', gap: 12 }}>
-              {tools.map((t) => (
-                <Link
-                  key={t.route}
-                  href={`/${language}${t.route}`}
-                  className="alan-detay-tool"
-                  style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none', background: 'rgba(255,255,255,0.025)', border: `1px solid ${COLORS.gold}1f`, borderRadius: RADIUS.md, padding: '15px 16px' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '0.98rem', fontWeight: 600, lineHeight: 1.25 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(256px, 1fr))', gap: 14 }}>
+              {tools.map((t) => {
+                const kind = t.route.startsWith('/atlas/') ? 'Atlas' : t.route.startsWith('/graf/') ? (tr ? 'Graf' : 'Graph') : (tr ? 'Araç' : 'Tool');
+                return (
+                  <Link
+                    key={t.route}
+                    href={`/${language}${t.route}`}
+                    className="alan-detay-tool"
+                    style={{ position: 'relative', display: 'flex', flexDirection: 'column', textDecoration: 'none', background: `linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012))`, border: `1px solid ${COLORS.gold}22`, borderRadius: RADIUS.lg, padding: '16px 18px 16px 20px', overflow: 'hidden' }}
+                  >
+                    <span aria-hidden="true" className="alan-detay-tool__rail" style={{ position: 'absolute', insetInlineStart: 0, top: 0, bottom: 0, width: 3, background: `linear-gradient(180deg, ${COLORS.gold}, ${COLORS.gold}44)` }} />
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 10 }}>
+                      <span style={{ fontFamily: FONTS.body, fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.82, background: `${COLORS.gold}12`, border: `1px solid ${COLORS.gold}2e`, borderRadius: RADIUS.pill, padding: '3px 9px' }}>
+                        {kind}
+                      </span>
+                      <span aria-hidden="true" className="alan-detay-tool__arrow" style={{ color: COLORS.gold, opacity: 0.75, fontSize: '1rem', flexShrink: 0 }}>→</span>
+                    </div>
+                    <span className="alan-detay-tool__title" style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.04rem', fontWeight: 600, lineHeight: 1.25, marginBottom: 6 }}>
                       {tr ? t.titleTr : t.titleEn}
                     </span>
-                    <span aria-hidden="true" style={{ color: COLORS.gold, opacity: 0.7, fontSize: '0.9rem', marginInlineStart: 'auto', flexShrink: 0 }}>→</span>
-                  </div>
-                  <div style={{ fontFamily: FONTS.body, color: SEMANTIC.textMuted, fontSize: '0.79rem', lineHeight: 1.5, marginTop: 6 }}>
-                    {tr ? t.descTr : t.descEn}
-                  </div>
-                </Link>
-              ))}
+                    <span style={{ fontFamily: FONTS.body, color: SEMANTIC.textMuted, fontSize: '0.8rem', lineHeight: 1.55 }}>
+                      {tr ? t.descTr : t.descEn}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

@@ -1588,6 +1588,12 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 .alan-detay-nav-item:hover { color: #d4a574; border-color: rgba(212,165,116,0.5); background: rgba(212,165,116,0.08); transform: translateY(-1px); }
 .alan-detay-tool { transition: border-color .16s ease, background .16s ease, transform .16s ease; }
 .alan-detay-tool:hover { border-color: rgba(212,165,116,0.5); background: rgba(212,165,116,0.06); transform: translateY(-2px); }
+.alan-detay-tool__arrow, .alan-detay-tool__title, .alan-detay-tool__rail { transition: transform .16s ease, color .16s ease, opacity .16s ease; }
+.alan-detay-tool__rail { opacity: .5; }
+.alan-detay-tool:hover .alan-detay-tool__rail { opacity: 1; }
+.alan-detay-tool:hover .alan-detay-tool__arrow { transform: translateX(4px); opacity: 1; }
+.alan-detay-tool:hover .alan-detay-tool__title { color: #d4a574; }
+@media (prefers-reduced-motion: reduce) { .alan-detay-tool__arrow, .alan-detay-tool__title, .alan-detay-tool__rail { transition: none; } .alan-detay-tool:hover .alan-detay-tool__arrow { transform: none; } }
 .alan-detay-src { transition: border-color .16s ease, background .16s ease; }
 .alan-detay-src:hover { border-color: rgba(212,165,116,0.34); background: rgba(212,165,116,0.05); }
 .alan-detay-theme { scroll-margin-top: 96px; }
