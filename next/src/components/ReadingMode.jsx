@@ -1751,8 +1751,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Surah match: number (1-114), TR name, EN name, AR name (normalized).
   const parseReference = (raw) => {
     if (!raw) return null;
-    // Try numeric form first: "2:3" or "2 3" or "2/3"
-    const numMatch = raw.trim().match(/^(\d{1,3})\s*[:\s\/\.]\s*(\d{1,3})$/);
+    // Try numeric form first: "2:3", "2 3", "2/3", "2.3", "2-3"
+    const numMatch = raw.trim().match(/^(\d{1,3})\s*[:\s\/.\-]\s*(\d{1,3})$/);
     if (numMatch) {
       const surah = parseInt(numMatch[1], 10);
       const ayah = parseInt(numMatch[2], 10);
@@ -1784,32 +1784,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       .replace(/^(el|al)[-\s]?/i, '');
     const stripDashes  = (s) => s.replace(/[-\s']/g, '');
     const tryName = (candidate) => {
-      const nQ = normalizeText(candidate);
+      // resolveSurahAlias: yaygın alt yazımlar (ör. "tövbe"→"tovbe"→"tevbe",
+      // "kadir"→"kadr") kanonik ada çevrilir.
+      const nQ = resolveSurahAlias(normalizeText(candidate));
       if (nQ.length < 2) return null;
-      const nQs = stripArticle(nQ);
-      const nQd = stripDashes(nQ);
-      const nQsd = stripDashes(stripArticle(nQ));
-      for (let i = 0; i < SURAH_NAMES_TR.length; i++) {
+      const userForms = [nQ, stripArticle(nQ), stripDashes(nQ), stripDashes(stripArticle(nQ))];
+      const candsFor = (i) => {
         const trN = normalizeText(SURAH_NAMES_TR[i]);
         const enN = normalizeText(SURAH_NAMES_EN[i] || '');
-        const trStripped = stripArticle(trN);
-        const enStripped = stripArticle(enN);
-        const trDashes = stripDashes(trN);
-        const enDashes = stripDashes(enN);
-        const trDashesStripped = stripDashes(trStripped);
-        const enDashesStripped = stripDashes(enStripped);
-        // 8 canonical form × 4 user-input form = max 32 karşılaştırma
-        const candidates = [
-          trN, trStripped, trDashes, trDashesStripped,
-          enN, enStripped, enDashes, enDashesStripped,
-        ];
-        const userForms = [nQ, nQs, nQd, nQsd];
-        for (const c of candidates) {
-          for (const u of userForms) {
-            if (c === u || c.startsWith(u)) return i + 1;
-          }
-        }
-      }
+        const trS = stripArticle(trN), enS = stripArticle(enN);
+        return [trN, trS, stripDashes(trN), stripDashes(trS),
+                enN, enS, stripDashes(enN), stripDashes(enS)];
+      };
+      // PASS 1 — TAM eşleşme index'ten bağımsız kazanır: kısa adlar ("saf"→Saf 61,
+      // "nas"→Nâs 114, "mumin"→Mü'min 40) daha uzun bir adın prefix-çakışmasına
+      // (Sâffât/Nasr/Mü'minûn) yenilmez.
+      for (let i = 0; i < SURAH_NAMES_TR.length; i++)
+        for (const c of candsFor(i)) for (const u of userForms) if (c === u) return i + 1;
+      // PASS 2 — prefix (kısmi yazım), en düşük index.
+      for (let i = 0; i < SURAH_NAMES_TR.length; i++)
+        for (const c of candsFor(i)) for (const u of userForms) if (c.startsWith(u)) return i + 1;
       return null;
     };
 
