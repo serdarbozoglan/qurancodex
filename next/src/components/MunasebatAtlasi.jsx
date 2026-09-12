@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, CATEGORY_SCALE, CATEGORY,
 } from '../tokens';
@@ -424,7 +425,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
                   fontFamily: FONTS.body,
                 }}
               >
-                <span>— {formatVerseRef(a.ref, language)}</span>
+                <span>— <LinkifyRefs text={formatVerseRef(a.ref, language)} /></span>
                 <span style={{ color: COLORS.silver, fontStyle: 'italic' }}>
                   {language === 'tr' ? a.roleTr : a.roleEn}
                 </span>

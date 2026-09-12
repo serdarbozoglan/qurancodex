@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import { COLORS, FONTS, RADIUS, STATUS } from '../tokens';
+import LinkifyRefs from './LinkifyRefs';
 
 // ── Islâhî'nin sûre çiftleri teorisi — 6 ilişki tipi ──
 // Kaynak: Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 221,
@@ -412,7 +413,7 @@ export default function RingExtensions({ language, isMobile }) {
             <ol style={{ margin: 0, paddingLeft: '18px', color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.9, listStyle: 'none' }}>
               {LAST_TEN.map((s, i) => (
                 <li key={i} style={{ marginBottom: '8px' }}>
-                  <span style={{ color: COLORS.gold, fontWeight: 700 }}>{s.ref}</span> — {tr ? s.tr : s.en}
+                  <span style={{ color: COLORS.gold, fontWeight: 700 }}><LinkifyRefs text={s.ref} /></span> — {tr ? s.tr : s.en}
                 </li>
               ))}
             </ol>

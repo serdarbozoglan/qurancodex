@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
@@ -1431,7 +1432,7 @@ function FormulaBox({ formula, language, isMobile }) {
         textAlign: 'center', margin: '0 0 22px', opacity: 0.78,
         fontFamily: FONTS.body,
       }}>
-        — {formula.sourceRef}
+        — <LinkifyRefs text={formula.sourceRef} />
       </p>
 
       {/* 4-part breakdown */}

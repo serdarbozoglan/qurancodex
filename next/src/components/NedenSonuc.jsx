@@ -10,6 +10,7 @@ import { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -713,7 +714,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                         onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; }}
                         onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}18`; }}
                       >
-                        {formatVerseRef(v, tr)}
+                        <LinkifyRefs text={formatVerseRef(v, tr)} />
                       </Link>
                     ))}
                   </div>

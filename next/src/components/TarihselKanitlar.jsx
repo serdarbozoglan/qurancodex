@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
@@ -545,7 +546,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
             marginTop: '8px', fontSize: '0.72rem',
             color: COLORS.silver, fontFamily: FONTS.body,
           }}>
-            <span>📖 <strong style={{ color: cat.color, fontWeight: 600 }}>{kanit.verseRef}</strong></span>
+            <span>📖 <strong style={{ color: cat.color, fontWeight: 600 }}><LinkifyRefs text={kanit.verseRef} /></strong></span>
             <span>🗓 {tr ? kanit.dateSpanTr : kanit.dateSpanEn}</span>
             <span>🔍 {tr ? kanit.discoveryYear : kanit.discoveryYearEn}</span>
           </div>
