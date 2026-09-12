@@ -47,7 +47,7 @@ export const DISCIPLINE_CONTENT = {
         titleEn: 'The essentials of faith — God, angels, Books, messengers, the Hereafter',
         verses: [
           { ref: 'Bakara 2:285', ar: `اٰمَنَ الرَّسُولُ بِمٓا اُنْزِلَ اِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ اٰمَنَ بِاللّٰهِ وَمَلٰٓئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ اَحَدٍ مِنْ رُسُلِهِ وَقَالُوا سَمِعْنَا وَاَطَعْنَا غُفْرَانَكَ رَبَّنَا وَاِلَيْكَ الْمَصِيرُ`, glossTr: `Resul ve mü'minler Allah'a, meleklerine, kitaplarına ve resullerine iman eder; resuller arasında ayrım yapmadan "işittik ve itaat ettik" derler.`, glossEn: `The Messenger and the believers affirm faith in Allah, His angels, His Books and His messengers, making no distinction between the messengers, saying "We hear and obey."` },
-          { ref: 'Nisâ 4:136', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اٰمِنُوا بِاللّٰهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلٰى رَسُولِهِ وَالْكِتَابِ الَّـذِٓي اَنْزَلَ مِنْ قَبْلُ وَمَنْ يَكْفُرْ بِاللّٰهِ وَمَلٰٓئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْاٰخِرِ فَقَدْ ضَلَّ ضَلَالاً بَعِيداً`, glossTr: `Allah'a, resulüne, indirdiği kitaba ve önceki kitaplara iman edin; Allah'ı, meleklerini, kitaplarını, resullerini ve âhiret gününü inkâr eden apaçık sapıtmıştır.`, glossEn: `Believe in Allah, His Messenger, and the Scriptures; whoever denies Allah, His angels, Books, messengers, and the Last Day has strayed far away.` },
+          { ref: 'Nisâ 4:136', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اٰمِنُوا بِاللّٰهِ وَرَسُولِهِ وَالْكِتَابِ الَّذِي نَزَّلَ عَلٰى رَسُولِهِ وَالْكِتَابِ الَّـذٓي اَنْزَلَ مِنْ قَبْلُ وَمَنْ يَكْفُرْ بِاللّٰهِ وَمَلٰٓئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْاٰخِرِ فَقَدْ ضَلَّ ضَلَالاً بَعِيداً`, glossTr: `Allah'a, resulüne, indirdiği kitaba ve önceki kitaplara iman edin; Allah'ı, meleklerini, kitaplarını, resullerini ve âhiret gününü inkâr eden apaçık sapıtmıştır.`, glossEn: `Believe in Allah, His Messenger, and the Scriptures; whoever denies Allah, His angels, Books, messengers, and the Last Day has strayed far away.` },
         ],
         tafsirTr: `Muhtasar İbn Kesîr metninde (2:285): mü'minlerin Allah'ın bütün peygamberlerini ayrım yapmaksızın kabul edip doğruladıkları; "işittik ve itaat ettik" sözünün, ilâhî buyrukları kavrayıp gereğini yerine getirmek anlamına geldiği belirtilir. Bakara sûresinin son iki âyetini geceleyin okuyana bunların yeteceğine dair sahih bir rivayet aktarılır. (Tefsir özeti.)`,
         tafsirEn: `The abridged Ibn Kathīr (2:285): the believers accept and affirm all of Allah's prophets without distinction, and "we hear and obey" means grasping Allah's commands and acting upon them. It relays an authentic report that the last two verses of Sūrat al-Baqarah suffice whoever recites them at night. (Summary of the tafsir.)`,
@@ -79,7 +79,7 @@ export const DISCIPLINE_CONTENT = {
         verses: [
           { ref: 'Haşr 59:23', ar: `هُوَ اللّٰهُ الَّذِي لٓا اِلٰهَ اِلَّا هُوَ اَلْمَلِكُ الْقُدُّوسُ السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ الْعَزِيزُ الْجَبَّارُ الْمُتَكَبِّرُ سُبْحَانَ اللّٰهِ عَمَّا يُشْرِكُونَ`, glossTr: `O; Melik, Kuddûs, Selâm, Mü'min, Müheymin, Azîz, Cebbâr ve Mütekebbir olan Allah'tır; O'na ortak koştuklarından münezzehtir.`, glossEn: `He is Allah: the King, the Most Holy, the Source of Peace, the Almighty, glorified far above what they associate with Him.` },
           { ref: 'Haşr 59:24', ar: `هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰى يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِ وَهُوَ الْعَزِيزُ الْحَكِيمُ`, glossTr: `O; yaratan (Hâlık), var eden (Bârî) ve şekil veren (Musavvir) Allah'tır; en güzel isimler (Esmâ-i Hüsnâ) yalnız O'nundur.`, glossEn: `He is Allah, the Creator, the Inventor, the Shaper; to Him belong the Most Beautiful Names.` },
-          { ref: `A'râf 7:180`, ar: `وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا وَذَرُوا الَّذِينَ يُلْحِدُونَ فِٓي اَسْمٓائِهِ سَيُجْزَوْنَ مَا كَانُوا يَعْمَلُونَ`, glossTr: `En güzel isimler Allah'ındır; O'na bu isimlerle dua edin ve isimleri konusunda çarpıtma yapanlardan uzak durun.`, glossEn: `The Most Beautiful Names belong to Allah; call upon Him by them and shun those who distort His Names.` },
+          { ref: `A'râf 7:180`, ar: `وَلِلّٰهِ الْاَسْمٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا وَذَرُوا الَّذِينَ يُلْحِدُونَ فٓي اَسْمٓائِهِ سَيُجْزَوْنَ مَا كَانُوا يَعْمَلُونَ`, glossTr: `En güzel isimler Allah'ındır; O'na bu isimlerle dua edin ve isimleri konusunda çarpıtma yapanlardan uzak durun.`, glossEn: `The Most Beautiful Names belong to Allah; call upon Him by them and shun those who distort His Names.` },
         ],
         tafsirTr: `Muhtasar İbn Kesîr metninde (7:180): Allah'ın en güzel isimlere sahip olduğu, O'na bu isimlerle dua edilmesi ve isimleri çarpıtanlardan uzak durulması emredilir. Allah'ın doksan dokuz ismi bulunduğuna ve bunları sayıp koruyanın cennete gireceğine dair rivayet ile, isimlerde "ilhâd"ın (sapma) doğru anlayıştan uzaklaşmayı kapsadığı aktarılır. (Tefsir özeti.)`,
         tafsirEn: `The abridged Ibn Kathīr (7:180): the verse affirms that Allah has the Most Beautiful Names, commands calling upon Him by them, and warns against those who distort them. It relays the report that Allah has ninety-nine Names and whoever preserves them enters Paradise, and explains that "ilḥād" (distortion) of the Names means straying from their correct usage. (Summary of the tafsir.)`,
@@ -104,6 +104,102 @@ export const DISCIPLINE_CONTENT = {
         noteTr: `YAKLAŞIM: kelâm ekollerini, kavramlarını ve tarihini derleyen kapsamlı başvuru eseri.`, noteEn: `APPROACH: a comprehensive reference on the schools, concepts, and history of Islamic theology.` },
       { author: 'Binyamin Abrahamov', work: 'Islamic Theology: Traditionalism and Rationalism', pub: 'Edinburgh University Press', year: '1998', id: 'ISBN 9780748611027',
         noteTr: `YAKLAŞIM: kelâmda gelenekçi ve akılcı eğilimlerin argümanları ve uzlaşıları.`, noteEn: `APPROACH: the arguments and compromises between traditionalist and rationalist tendencies in kalām.` },
+    ],
+  },
+
+  'psikoloji-nefs': {
+    reviewedBy: 'gpt-6-astra review — content approved',
+    anchor: {
+      ref: 'Yûsuf 12:53',
+      ar: `وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ`,
+      trTr: `Nefis, Rabbimin rahmet ettikleri dışında, sürekli kötülüğü emreder; şüphesiz Rabbim çok bağışlayan, çok merhamet edendir.`,
+      trEn: `The self indeed incites to evil, except those on whom my Lord has mercy; surely my Lord is Forgiving, Merciful.`,
+    },
+    introTr:
+      `Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik (özellikle modern psikoloji) onayına bağlı değildir. ` +
+      `Bu sayfa; nefis, kalp, korku ve hüzün, insanın zaafları ve tezkiye (arınma) gibi âyetleri insanın iç dünyası bakımından bir araya getirir. ` +
+      `"Nefs mertebeleri" gibi sınıflamalar tasavvufî ve beşerî bir yorum katmanıdır; âyetler bu hâlleri anar, sistematik sınıflama insan yorumudur. ` +
+      `Anlam özetleri, başlıklar, klasik tefsir ve akademik değerlendirmeler beşerî yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir ve modern bir psikoloji ekolü Kur'an'a mal edilmez.`,
+    introEn:
+      `The Qur'an is God's word and certain truth; its truth does not depend on scientific or academic (especially modern psychological) confirmation. ` +
+      `This page gathers verses on the self (nafs), the heart, fear and grief, human frailties, and purification (tazkiya), from the angle of the inner life of the human being. ` +
+      `Classifications such as the "stations of the self" are a Sufi and human layer of interpretation; the verses name these states, while the systematic scheme is a human reading. ` +
+      `The summaries, headings, classical exegesis, and academic assessments are layers of human interpretation; they are not identical with the Qur'an itself, and no modern school of psychology is ascribed to the Qur'an.`,
+    themes: [
+      {
+        titleTr: 'Nefis ve mertebeleri',
+        titleEn: 'The self and its states',
+        verses: [
+          { ref: 'Yûsuf 12:53', ar: `وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ`, glossTr: `Nefis, Rabbin rahmet ettikleri dışında, sürekli kötülüğü emreder/ona meyleder (nefs-i emmâre).`, glossEn: `The self constantly inclines toward evil, except those on whom the Lord has mercy (the inciting self).` },
+          { ref: 'Kıyâme 75:2', ar: `وَلٓا اُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ`, glossTr: `Allah, kendini kınayan, sürekli hesaba çeken nefse yemin eder (nefs-i levvâme).`, glossEn: `God swears by the self-reproaching soul that blames itself (the reproaching self).` },
+          { ref: 'Fecr 89:27-28', ar: `يٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ اِرْجِعٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً`, glossTr: `Ey huzura ermiş nefis! Razı olmuş ve razı olunmuş olarak Rabbine dön (nefs-i mutmainne).`, glossEn: `O tranquil, reassured soul! Return to your Lord, well-pleased and well-pleasing (the tranquil self).` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (12:53): bu söz, Azîz'in hanımının kral huzurunda Yûsuf'un (a.s.) doğruluğunu ve kendi kusurunu itiraf etmesi olarak açıklanır. İnsan nefsinin tabiatı gereği kötülüğe meylettiği, ancak Rabbin rahmetiyle bu meylden korunabileceği vurgulanır; bu itiraf, nefsi aklamak değil beşerî zaafı kabul etmektir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (12:53): these words are the ʿAzīz's wife confessing before the king, affirming Joseph's truthfulness and her own fault. The human self by nature inclines to evil and is protected from it only by the Lord's mercy; admitting this is humility, not self-exoneration. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Kalp — mühür, hastalık, itminan',
+        titleEn: 'The heart — sealing, disease, tranquility',
+        verses: [
+          { ref: 'Bakara 2:7', ar: `خَتَمَ اللّٰهُ عَلٰى قُلُوبِهِمْ وَعَلٰى سَمْعِهِمْ وَعَلٰٓى اَبْصَارِهِمْ غِشَاوَةٌ وَلَهُمْ عَذَابٌ عَظِيمٌ`, glossTr: `Allah onların kalplerini ve kulaklarını mühürlemiştir, gözlerinde perde vardır; büyük bir azap onları bekler.`, glossEn: `God has sealed their hearts and their hearing, and over their sight is a covering; a great punishment awaits them.` },
+          { ref: 'Bakara 2:10', ar: `فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللّٰهُ مَرَضاً وَلَهُمْ عَذَابٌ اَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ`, glossTr: `Kalplerinde hastalık vardır; Allah da onların hastalığını artırmıştır.`, glossEn: `In their hearts is a disease, and God has let their disease increase.` },
+          { ref: 'Ra’d 13:28', ar: `اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ اَلَا بِذِكْرِ اللّٰهِ تَطْمَئِنُّ الْقُلُوبُ`, glossTr: `Onlar iman edenlerdir; kalpleri ancak Allah'ı anmakla huzura, itminana kavuşur.`, glossEn: `Those who believe, whose hearts find rest in the remembrance of God; surely in the remembrance of God hearts find rest.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (13:28): kalplerin Allah'ı anmakla huzur bulduğu ve O zikredildiğinde sükûnete erdiği açıklanır. "Allah'ı anmakla kalpler mutmain olur" hükmü kapsayıcı bir hakikat olarak sunulur. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (13:28): hearts find comfort on the side of God and become tranquil when He is remembered; the principle "in the remembrance of God hearts find rest" is presented as an all-embracing truth. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Korku, hüzün ve teselli',
+        titleEn: 'Fear, grief, and consolation',
+        verses: [
+          { ref: 'Bakara 2:38', ar: `قُلْنَا اهْبِطُوا مِنْهَا جَمِيعاً فَاِمَّا يَأْتِيَنَّكُمْ مِنِّي هُدًى فَمَنْ تَبِعَ هُدَايَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ`, glossTr: `Kim benim hidâyetime uyarsa, onlara korku yoktur ve onlar üzülmeyecektir.`, glossEn: `Whoever follows My guidance will have no fear, nor will they grieve.` },
+          { ref: 'Tevbe 9:40', ar: `اِلَّا تَنْصُرُوهُ فَقَدْ نَصَرَهُ اللّٰهُ اِذْ اَخْرَجَهُ الَّذِينَ كَفَرُوا ثَانِيَ اثْنَيْنِ اِذْ هُمَا فِي الْغَارِ اِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ اِنَّ اللّٰهَ مَعَنَا فَاَنْزَلَ اللّٰهُ سَكِينَتَهُ عَلَيْهِ وَاَيَّدَهُ بِجُنُودٍ لَمْ تَرَوْهَا وَجَعَلَ كَلِمَةَ الَّذِينَ كَفَرُوا السُّفْلٰى وَكَلِمَةُ اللّٰهِ هِيَ الْعُلْيَا وَاللّٰهُ عَزِيزٌ حَكِيمٌ`, glossTr: `Peygamber, mağaradaki arkadaşına "Üzülme, şüphesiz Allah bizimledir" dedi; Allah da ona sekîneti (huzuru) indirdi.`, glossEn: `The Prophet told his companion in the cave, "Do not grieve; surely God is with us," and God sent down His tranquility (sakīna) upon him.` },
+          { ref: 'Âl-i İmrân 3:139', ar: `وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَاَنْتُمُ الْاَعْلَوْنَ اِنْ كُنْتُمْ مُؤْمِنِينَ`, glossTr: `Gevşemeyin ve üzülmeyin; eğer gerçek müminseniz üstün gelecek olan sizsiniz.`, glossEn: `Do not falter or grieve; you will prevail if you are true believers.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (9:40): bu âyet, Peygamber'in (s.a.v.) Medine'ye hicret sırasında mağarada Ebû Bekir'e "Üzülme, Allah bizimledir" diyerek onu teskin etmesi olarak açıklanır. Allah'ın üzerine sekîneti indirdiği, görünmez ordularla desteklediği ve sonunda kendi kelâmını üstün kıldığı belirtilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (9:40): this verse is the Prophet reassuring Abū Bakr in the cave during the migration to Medina with "Do not grieve, God is with us." God sent down His sakīna upon him, supported them with unseen forces, and made His word uppermost. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'İnsanın zaafları',
+        titleEn: 'Human frailties',
+        verses: [
+          { ref: 'Meâric 70:19', ar: `اِنَّ الْاِنْسَانَ خُلِقَ هَلُوعاً`, glossTr: `Gerçekten insan hırslı ve sabırsız (helû') bir yaratılışta yaratılmıştır.`, glossEn: `Indeed, humankind was created impatient and anxious (halūʿ).` },
+          { ref: 'İsrâ 17:11', ar: `وَيَدْعُ الْاِنْسَانُ بِالشَّرِّ دُعٓاءَهُ بِالْخَيْرِ وَكَانَ الْاِنْسَانُ عَجُولاً`, glossTr: `İnsan, hayrı ister gibi şerri de isteyecek kadar acelecidir; o pek aceleci yaratılmıştır.`, glossEn: `Humankind prays for evil as it prays for good; humankind is ever hasty.` },
+          { ref: 'Kehf 18:54', ar: `وَلَقَدْ صَرَّفْنَا فِي هٰذَا الْقُرْاٰنِ لِلنَّاسِ مِنْ كُلِّ مَثَلٍ وَكَانَ الْاِنْسَانُ اَكْثَرَ شَيْءٍ جَدَلاً`, glossTr: `İnsan, varlıklar içinde en çok tartışan, en mücadeleci olandır.`, glossEn: `Humankind is the most argumentative of all beings.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (70:19): insanın tabiatı gereği "helû'" (sabırsız, hırslı) yaratıldığı; devam eden âyetlerle (70:20-21) kötülük dokununca telaşlandığı, hayır dokununca cimrileştiği açıklanır. Namazı koruyup infak eden müminlerin bu hasletlerden istisna tutulduğu belirtilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (70:19): man is created "halūʿ" (impatient, greedy) by nature; with the following verses (70:20-21), he becomes fretful when evil touches him and withholding when good comes. The believers who guard prayer and give generously are the exception. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Tezkiye — nefsi arındırma',
+        titleEn: 'Tazkiya — purifying the self',
+        verses: [
+          { ref: 'Şems 91:7-10', ar: `وَنَفْسٍ وَمَا سَوّٰيهَا فَاَلْهَمَهَا فُجُورَهَا وَتَقْوٰيهَا قَدْ اَفْلَحَ مَنْ زَكّٰيهَا وَقَدْ خَابَ مَنْ دَسّٰيهَا`, glossTr: `Nefse fücûru (kötülüğü) ve takvâyı (sakınmayı) ilham eden Allah'a andolsun; nefsini arındıran kurtuluşa ermiş, kirletip örten ise hüsrana uğramıştır.`, glossEn: `By the soul and how He shaped it, inspiring it with its wickedness and its righteousness: whoever purifies it succeeds, and whoever corrupts it is ruined.` },
+          { ref: 'A’lâ 87:14', ar: `قَدْ اَفْلَحَ مَنْ تَزَكّٰى`, glossTr: `Arınan kimse gerçekten kurtuluşa ermiştir.`, glossEn: `Successful indeed is the one who purifies himself.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (91:9): Allah'ın nefse hem günahı hem de takvâyı tanıttığı, bu iki yolu açıkça gösterdiği açıklanır. Allah'a itaatle kendini arındıranın kurtulduğu, nefsini isyanla kirletip ihmal edenin ise hüsrana uğradığı belirtilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (91:9): God made the soul understand both transgression and righteousness, clarifying the two paths. Whoever purifies himself through obedience to God succeeds, while whoever corrupts and neglects his soul through disobedience fails. (Summary of the tafsir.)`,
+      },
+    ],
+    assuranceTr: `Bu âyetler insanın iç dünyasına dair kesin beyanlardır; nefs mertebeleri şeması ve psikolojik okumalar, bu kesinliğin üzerine bina edilen beşerî anlama çabalarıdır ve onun yerine geçmez. Buradan doğrudan bir tanı ya da terapi yöntemi türetilmez.`,
+    assuranceEn: `These verses are certain declarations about the inner life; the scheme of the stations of the self and psychological readings are human efforts to understand built upon that certainty, and do not replace it. No diagnostic or therapeutic method is derived directly from them.`,
+    tafsirScopeTr: `Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin "tefsir" sekmesi, ör. quran.com/12/53 · quran.com/13/28 · quran.com/70/19; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar "muhtasar İbn Kesîr metninde" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.`,
+    tafsirScopeEn: `The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's "tafsir" tab, e.g. quran.com/12/53 · quran.com/13/28 · quran.com/70/19; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read "in the abridged Ibn Kathīr text." The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.`,
+    sourcesNoteTr: `Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî psikoloji ve tasavvuf düşüncesini ve tarihini incelemek için, yaklaşımları belirtilerek anılır. Akademik olmaları görüşlerini kesinleştirmez.`,
+    sourcesNoteEn: `The academic sources are cited not to confirm the Qur'an, but to study human psychological and Sufi thought and history.`,
+    sources: [
+      { author: 'Malik Badri', work: 'Contemplation: An Islamic Psychospiritual Study', pub: 'IIIT', year: '2000', id: 'ISBN 9781565642676',
+        noteTr: `YAKLAŞIM: tefekkürü psikospiritüel bir süreç olarak kavramsallaştıran modern İslam psikolojisi çalışması.`, noteEn: `APPROACH: a work of modern Islamic psychology conceptualizing contemplation as a psycho-spiritual process.` },
+      { author: 'Malik Badri', work: 'The Dilemma of Muslim Psychologists', pub: 'MWH London', year: '1979', id: 'ISBN 9780906194058',
+        noteTr: `YAKLAŞIM: Müslüman psikologların Batı paradigmalarıyla ilişkisini sorgulayan tarihsel-eleştirel metin.`, noteEn: `APPROACH: a historical-critical text on Muslim psychologists' engagement with Western paradigms.` },
+      { author: 'Abdallah Rothman, Adrian Coyle', work: 'Toward a Framework for Islamic Psychology and Psychotherapy: An Islamic Model of the Soul', pub: 'Journal of Religion and Health 57', year: '2018', id: 'DOI 10.1007/s10943-018-0651-x',
+        noteTr: `YAKLAŞIM: nefs, ruh ve kalp kavramlarını çağdaş psikoterapi çerçevesine oturtan hakemli bir model önerisi.`, noteEn: `APPROACH: a peer-reviewed model mapping nafs, rūḥ, and qalb onto a contemporary psychotherapeutic framework.` },
+      { author: 'Abdallah Rothman', work: 'Developing a Model of Islamic Psychology and Psychotherapy', pub: 'Routledge', year: '2021', id: 'ISBN 9780367611507',
+        noteTr: `YAKLAŞIM: İslamî teolojik kavramlarla çağdaş psikolojinin entegrasyonunu ele alan akademik monografi.`, noteEn: `APPROACH: an academic monograph integrating Islamic theological concepts with contemporary psychology.` },
+      { author: 'Sara Sviri', work: 'Perspectives on Early Islamic Mysticism: The World of al-Ḥakīm al-Tirmidhī and his Contemporaries', pub: 'Routledge', year: '2020', id: 'ISBN 9780415302838',
+        noteTr: `YAKLAŞIM: erken tasavvufta nefis ile kalp arasındaki gerilimi kaynaklardan inceleyen filolojik-tarihsel çalışma.`, noteEn: `APPROACH: a philological-historical study of the tension between nafs and qalb in early Sufism.` },
+      { author: 'Ebû Hâmid el-Gazzâlî', work: 'Al-Ghazali on Disciplining the Soul & on Breaking the Two Desires (çev. T.J. Winter)', pub: 'The Islamic Texts Society', year: '1995', id: 'ISBN 9780946621439',
+        noteTr: `YAKLAŞIM: Gazzâlî'nin nefis terbiyesi (riyâzat) kuramının birincil klasik kaynağı, eleştirel akademik çeviriyle.`, noteEn: `APPROACH: a critically edited translation of Ghazālī's primary classical theory of disciplining the self (riyāḍat al-nafs).` },
     ],
   },
 
@@ -146,7 +242,7 @@ export const DISCIPLINE_CONTENT = {
         verses: [
           { ref: 'Nisâ 4:58', ar: 'اِنَّ اللّٰهَ يَأْمُرُكُمْ اَنْ تُؤَدُّوا الْاَمَانَاتِ اِلٰٓى اَهْلِهَا وَاِذَا حَكَمْتُمْ بَيْنَ النَّاسِ اَنْ تَحْكُمُوا بِالْعَدْلِ اِنَّ اللّٰهَ نِعِمَّا يَعِظُـكُمْ بِهِ اِنَّ اللّٰهَ كَانَ سَمِيعاً بَصِيراً', glossTr: 'Emanetleri ehline verme ve insanlar arasında adâletle hükmetme emri (emanet farklı türleri de kapsar).', glossEn: 'A command to render trusts to those entitled to them and to judge between people with justice (trust covers several kinds).' },
           { ref: 'Nahl 16:90', ar: 'اِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيتٓائِ ذِي الْقُرْبٰى وَيَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَالْبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ', glossTr: 'Allah adâleti ve ihsânı emreder (âyetin tam metninin anlam özetidir).', glossEn: 'God commands justice and excellence (this is a summary of the full verse\'s meaning).' },
-          { ref: 'Sâd 38:26', ar: 'يَا دَاوُ۫دُ اِنَّا جَعَلْنَاكَ خَلِيفَةً فِي الْاَرْضِ فَاحْكُمْ بَيْنَ النَّاسِ بِالْحَقِّ وَلَا تَتَّبِعِ الْهَوٰى فَيُضِلَّكَ عَنْ سَبِيلِ اللّٰهِ', glossTr: 'Davud\'a: yeryüzünde halîfe kılındığı, insanlar arasında hak ile hükmetmesi ve hevâya uymaması bildirilir.', glossEn: 'To David: he is made a successor on earth, to judge between people with truth and not follow desire.' },
+          { ref: 'Sâd 38:26', ar: 'يَا دَاوُدُ اِنَّا جَعَلْنَاكَ خَلِيفَةً فِي الْاَرْضِ فَاحْكُمْ بَيْنَ النَّاسِ بِالْحَقِّ وَلَا تَتَّبِعِ الْهَوٰى فَيُضِلَّكَ عَنْ سَبِيلِ اللّٰهِ', glossTr: 'Davud\'a: yeryüzünde halîfe kılındığı, insanlar arasında hak ile hükmetmesi ve hevâya uymaması bildirilir.', glossEn: 'To David: he is made a successor on earth, to judge between people with truth and not follow desire.' },
         ],
         tafsirTr: 'Muhtasar İbn Kesîr metninde (4:58): emanet, Allah\'a ve kullara karşı yerine getirilmesi gereken emanetleri kapsar; adâletle hüküm bilhassa yönetici/hâkimle ilgilidir (yalnız onlara ait değildir). (16:90) adâleti kıst ve itidal anlamında açıklar. (Tefsir özeti.)',
         tafsirEn: 'The abridged Ibn Kathīr (4:58): trust covers the trusts owed to God and to people; judging with justice especially concerns rulers/judges (though not only them). On 16:90 he explains justice in the sense of fairness and moderation. (Summary of the tafsir.)',
@@ -155,7 +251,7 @@ export const DISCIPLINE_CONTENT = {
         titleTr: 'İtaat ve sınırı — ulü\'l-emr',
         titleEn: 'Obedience and its limit — ulū al-amr',
         verses: [
-          { ref: 'Nisâ 4:59', ar: 'يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اَطِيعُوا اللّٰهَ وَاَطِيعُوا الرَّسُولَ وَاُو۬لِي الْاَمْرِ مِنْكُمْ فَاِنْ تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ اِلَى اللّٰهِ وَالرَّسُولِ', glossTr: 'Allah\'a, Resûl\'e ve yetki sahiplerine (ulü\'l-emr) itaat; anlaşmazlıkta Allah ve Resûl\'e başvurma emri.', glossEn: 'A command to obey God, the Messenger, and those in authority (ulū al-amr); and to refer disputes back to God and the Messenger.' },
+          { ref: 'Nisâ 4:59', ar: 'يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اَطِيعُوا اللّٰهَ وَاَطِيعُوا الرَّسُولَ وَاُولِي الْاَمْرِ مِنْكُمْ فَاِنْ تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ اِلَى اللّٰهِ وَالرَّسُولِ', glossTr: 'Allah\'a, Resûl\'e ve yetki sahiplerine (ulü\'l-emr) itaat; anlaşmazlıkta Allah ve Resûl\'e başvurma emri.', glossEn: 'A command to obey God, the Messenger, and those in authority (ulū al-amr); and to refer disputes back to God and the Messenger.' },
         ],
         tafsirTr: 'Muhtasar İbn Kesîr metninde hadislerle açıklanan itaat sınırı (4:59): itaat Allah\'a itaat sınırı içindedir; günah emredildiğinde "işitmek ve itaat" yoktur. Ulü\'l-emrin kimleri kapsadığı tefsir katmanında tartışılır.',
         tafsirEn: 'The limit of obedience as the abridged Ibn Kathīr explains through hadith (4:59): obedience is bounded by obedience to God; there is no "hearing and obeying" when sin is commanded. Who counts as ulū al-amr is debated at the level of exegesis.',
@@ -248,7 +344,7 @@ export const DISCIPLINE_CONTENT = {
         titleTr: 'Kısas ve bireysel sorumluluk',
         titleEn: 'Retribution and individual responsibility',
         verses: [
-          { ref: 'Bakara 2:179', ar: 'وَلَكُمْ فِي الْقِصَاصِ حَيٰوةٌ يٓا اُو۬لِي الْاَلْبَابِ لَعَلَّكُمْ تَتَّقُونَ',
+          { ref: 'Bakara 2:179', ar: 'وَلَكُمْ فِي الْقِصَاصِ حَيٰوةٌ يٓا اُولِي الْاَلْبَابِ لَعَلَّكُمْ تَتَّقُونَ',
             glossTr: 'Ey akıl sahipleri, kısasta sizin için hayat vardır; umulur ki sakınırsınız.', glossEn: 'In retribution (qiṣāṣ) there is life for you, O people of understanding, that you may be mindful.' },
           { ref: 'Fâtır 35:18', ar: 'وَلَا تَزِرُ وَازِرَةٌ وِزْرَ اُخْرٰى وَاِنْ تَدْعُ مُثْقَلَةٌ اِلٰى حِمْلِهَا لَا يُحْمَلْ مِنْهُ شَيْءٌ وَلَوْ كَانَ ذَا قُرْبٰى',
             glossTr: 'Hiçbir günahkâr başkasının günah yükünü taşımaz; yükü ağır olanın çağırdığı kimse, yakını da olsa, o yükten bir şey taşımaz.', glossEn: 'No bearer of burden bears another\'s burden; if one heavily laden calls for help, none of it will be carried, even by a relative.' },

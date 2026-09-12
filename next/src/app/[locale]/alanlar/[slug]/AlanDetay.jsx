@@ -7,6 +7,7 @@ import ToolHeader from '@/components/ToolHeader';
 import useNavbarOffset from '@/components/useNavbarOffset';
 import LinkifyRefs from '@/components/LinkifyRefs';
 import HeroGeometricBackground from '@/components/HeroGeometricBackground';
+import { cleanArabicForDisplay } from '@/lib/arabic';
 import { DISCIPLINE_BY_ID } from '@/data/disciplines';
 import { routesForDiscipline } from '@/data/disciplineMap';
 import { DISCIPLINE_CONTENT } from '@/data/disciplineContent';
@@ -85,7 +86,7 @@ export default function AlanDetay({ slug }) {
                 <LayerTag tone="scripture">{tr ? 'Çapa Âyet' : 'Anchor Verse'}</LayerTag>
               </div>
               <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: 'clamp(1.4rem, 3.7vw, 1.95rem)', lineHeight: 2.05, margin: '6px 0 14px', textShadow: `0 0 30px ${COLORS.gold}1f` }}>
-                {content.anchor.ar}
+                {cleanArabicForDisplay(content.anchor.ar)}
               </p>
               <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, fontSize: 'clamp(0.96rem, 1.7vw, 1.06rem)', lineHeight: 1.6, margin: '0 0 8px' }}>
                 {tr ? content.anchor.trTr : content.anchor.trEn}
@@ -199,7 +200,7 @@ export default function AlanDetay({ slug }) {
                     </div>
                     {v.ar && (
                       <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: 'clamp(1.15rem, 2.9vw, 1.42rem)', lineHeight: 1.95, textAlign: 'right', margin: '0 0 10px' }}>
-                        {v.ar}
+                        {cleanArabicForDisplay(v.ar)}
                       </p>
                     )}
                     <div style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: SEMANTIC.textMuted, lineHeight: 1.65, fontStyle: 'italic', margin: 0 }}>
