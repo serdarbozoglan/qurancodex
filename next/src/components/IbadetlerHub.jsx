@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import LinkifyRefs from './LinkifyRefs';
 import CollapsibleHero from './CollapsibleHero';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
@@ -210,7 +211,7 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
               color: COLORS.offWhite, fontSize: '0.88rem',
               fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.6,
             }}>&quot;{language === 'tr' ? abdCore.coreAyet.trShort : abdCore.coreAyet.enShort}&quot;</p>
-            <div style={{ ...TEXT.verseRef }}>— {abdCore.coreAyet.ref}</div>
+            <div style={{ ...TEXT.verseRef }}>— <LinkifyRefs text={abdCore.coreAyet.ref} /></div>
           </div>
         )}
 
@@ -926,7 +927,7 @@ function PeygamberIzleriSection({ data, language, isMobile, router }) {
                         <span style={{
                           color: COLORS.silver, fontSize: '0.7rem',
                           letterSpacing: '0.06em',
-                        }}>{r.ref}</span>
+                        }}><LinkifyRefs text={r.ref} /></span>
                       </div>
                       {r.sceneTr && (
                         <p style={{
