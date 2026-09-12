@@ -384,4 +384,111 @@ export const DISCIPLINE_CONTENT = {
         noteTr: 'YAKLAŞIM: Şerîatın ahlâkî-hukukî özünün çağdaş yeniden okunması.', noteEn: 'APPROACH: a contemporary rereading of the moral-legal core of sharīʿa.' },
     ],
   },
+
+  'iktisat-ticaret': {
+    reviewedBy: 'gpt-6-astra review — content approved',
+    sourcesLabelTr: 'Kaynaklar',
+    sourcesLabelEn: 'Sources',
+    anchor: {
+      ref: 'Nisâ 4:29',
+      ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَأْكُلٓوا اَمْوَالَكُمْ بَيْنَكُمْ بِالْبَاطِلِ اِلٓا اَنْ تَكُونَ تِجَارَةً عَنْ تَرَاضٍ مِنْكُمْ`,
+      trTr: `Mallarınızı aranızda haksız yolla yemeyin; ancak karşılıklı rızaya dayanan bir ticaret olması müstesna.`,
+      trEn: `Do not consume one another's wealth unlawfully, but only through trade by mutual consent.`,
+    },
+    introTr:
+      `Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya iktisadî onaya bağlı değildir. ` +
+      `Bu sayfa; helâl kazanç, faizin yasaklanması, ölçü ve tartıda dürüstlük, servetin dolaşımı, akit ve israf gibi âyetleri iktisat ve ticaret ahlâkı bakımından bir araya getirir. ` +
+      `Âyetlerin anlam özetleri, tematik başlıklar, klasik tefsir açıklamaları ve akademik değerlendirmeler beşerî aktarım ve yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir. ` +
+      `Bunlardan belirli bir modern iktisat sistemi (kapitalizm, sosyalizm) veya bir banka/kanun modeli doğrudan türetilerek Kur'an'a mal edilmez.`,
+    introEn:
+      `The Qur'an is God's word and certain truth; its truth does not depend on scientific or economic confirmation. ` +
+      `This page gathers verses on lawful earning, the prohibition of interest, honesty in weights and measures, the circulation of wealth, contracts, and wastefulness, from the angle of economic and commercial ethics. ` +
+      `The verse summaries, thematic headings, classical-exegesis notes, and academic assessments are layers of human transmission and interpretation; they are not identical with the Qur'an itself, ` +
+      `and no particular modern economic system (capitalism, socialism) or banking/legal model is derived from them and ascribed to the Qur'an.`,
+    themes: [
+      {
+        titleTr: 'Helâl kazanç ve bâtılın reddi',
+        titleEn: 'Lawful earning and the rejection of falsehood',
+        verses: [
+          { ref: 'Nisâ 4:29', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَأْكُلٓوا اَمْوَالَكُمْ بَيْنَكُمْ بِالْبَاطِلِ اِلٓا اَنْ تَكُونَ تِجَارَةً عَنْ تَرَاضٍ مِنْكُمْ وَلَا تَقْتُلٓوا اَنْفُسَكُمْ اِنَّ اللّٰهَ كَانَ بِكُمْ رَحِيماً`, glossTr: `Birbirinizin malını bâtıl/haksız yolla yemeyin; kazanç ancak karşılıklı rızaya dayanan ticaretle helâldir.`, glossEn: `Do not consume one another's wealth unlawfully; earning is lawful only through trade by mutual consent.` },
+          { ref: 'Bakara 2:188', ar: `وَلَا تَأْكُلٓوا اَمْوَالَكُمْ بَيْنَكُمْ بِالْبَاطِلِ وَتُدْلُوا بِهٓا اِلَى الْحُكَّامِ لِتَأْكُلُوا فَرِيقاً مِنْ اَمْوَالِ النَّاسِ بِالْاِثْمِ وَاَنْتُمْ تَعْلَمُونَ`, glossTr: `Mallarınızı aranızda haksızlıkla yemeyin; bile bile başkasının malının bir kısmını yemek için onu (rüşvet olarak) hâkimlere taşımayın.`, glossEn: `Do not consume each other's wealth unjustly, nor offer it as bribes to authorities to devour part of others' property knowingly.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (4:29): Allah'ın mü'minleri birbirlerinin malını faiz, kumar gibi meşru olmayan yollarla elde etmekten men ettiği; karşılıklı rızayla yapılan ticaretin ise meşru olduğu belirtilir. Metin bunu Peygamber'in "Alıcı ve satıcı ayrılmadıkça muhayyerdir" hadisiyle destekler: alıcı ile satıcı, aynı mecliste bulunup henüz fiziken ayrılmadıkları sürece akdi sürdürme veya bozma seçeneğine (meclis muhayyerliği / hıyârü'l-meclis) sahiptir. Böylece âyetteki "karşılıklı rıza" şartı yalnız akit anındaki bir onay olmaktan çıkıp, taraflar ayrılana dek süren fiilî bir cayma serbestliğiyle korunmuş olur. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (4:29): God forbids acquiring one another's wealth by unlawful means such as usury and gambling, while trade by mutual consent is lawful. It supports this with the Prophet's saying, "The buyer and seller retain the option as long as they have not parted": while still in the same session and not yet physically separated, each party keeps the option (khiyār al-majlis) to uphold or dissolve the contract. In this way the verse's condition of "mutual consent" is not merely an approval at the moment of contract, but a practical freedom to withdraw that lasts until the parties part. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Faizin (ribâ) yasaklanması',
+        titleEn: 'The prohibition of interest (ribā)',
+        verses: [
+          { ref: 'Bakara 2:275', ar: `اَلَّذِينَ يَأْكُلُونَ الرِّبٰوا لَا يَقُومُونَ اِلَّا كَمَا يَقُومُ الَّذِي يَتَخَبَّطُهُ الشَّيْطَانُ مِنَ الْمَسِّ ذٰلِكَ بِاَنَّهُمْ قَالٓوا اِنَّمَا الْبَيْعُ مِثْلُ الرِّبٰوا وَاَحَلَّ اللّٰهُ الْبَيْعَ وَحَرَّمَ الرِّبٰوا`, glossTr: `"Ticaret de faiz gibidir" derler; oysa Allah ticareti (alışverişi) helâl, faizi haram kılmıştır.`, glossEn: `They claim trade is like interest, yet God has permitted trade and forbidden interest.` },
+          { ref: 'Bakara 2:278-279', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَذَرُوا مَا بَـقِيَ مِنَ الرِّبٰٓوا اِنْ كُنْتُمْ مُؤْمِنِينَ فَاِنْ لَمْ تَفْعَلُوا فَأْذَنُوا بِحَرْبٍ مِنَ اللّٰهِ وَرَسُولِهِ وَاِنْ تُبْتُمْ فَلَكُمْ رُؤُسُ اَمْوَالِكُمْ لَا تَظْلِمُونَ وَلَا تُظْلَمُونَ`, glossTr: `Kalan faiz alacaklarından vazgeçin; vazgeçmezseniz Allah ve Resûlü ile savaşı göze alın; tevbe ederseniz ana sermayeniz sizindir (ne haksızlık edersiniz ne haksızlığa uğrarsınız).`, glossEn: `Relinquish remaining interest; if not, be warned of war from God and His Messenger; upon repentance you keep your principal, neither wronging nor being wronged.` },
+          { ref: 'Rûm 30:39', ar: `وَمٓا اٰتَيْتُمْ مِنْ رِباً لِيَرْبُوَا فٓي اَمْوَالِ النَّاسِ فَلَا يَرْبُوا عِنْدَ اللّٰهِ وَمٓا اٰتَيْتُمْ مِنْ زَكٰوةٍ تُرِيدُونَ وَجْهَ اللّٰهِ فَاُولٰٓئِكَ هُمُ الْمُضْعِفُونَ`, glossTr: `İnsanların malında artsın diye verdiğiniz faiz Allah katında artmaz; Allah'ın rızası için verdiğiniz zekât ise kat kat artar.`, glossEn: `What you lend at interest to grow at people's expense does not increase with God, but the zakāh you give seeking His pleasure is multiplied.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (2:275): faiz yiyenlerin kıyamet günü çarpılmış hâlde diriltileceği; "ticaret de faiz gibidir" iddiasının geçersiz olduğu, Allah'ın kullarının yararını bildiği için ticareti helâl, faizi haram kıldığı vurgulanır. Uyarı geldikten sonra faizi bırakanın geçmişinin bağışlandığı belirtilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (2:275): those who consume interest are raised as if deranged; the claim that trade equals interest is invalid, for God, knowing what benefits His servants, permitted trade and forbade interest. Whoever desists after the warning is forgiven for the past. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Ölçü ve tartıda dürüstlük',
+        titleEn: 'Honesty in weights and measures',
+        verses: [
+          { ref: 'Mutaffifîn 83:1-3', ar: `وَيْلٌ لِلْمُطَفِّفِينَ اَلَّذِينَ اِذَا ا‌كْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ وَاِذَا كَالُوهُمْ اَوْ وَزَنُوهُمْ يُخْسِرُونَ`, glossTr: `Ölçü-tartıda hile yapanlara yazıklar olsun; onlar insanlardan alırken tam ölçer, onlara verirken eksik ölçüp tartarlar.`, glossEn: `Woe to the defrauders, who take full measure when receiving from people but give less when they measure or weigh for them.` },
+          { ref: 'İsrâ 17:35', ar: `وَاَوْفُوا الْكَيْلَ اِذَا كِلْتُمْ وَزِنُوا بِالْقِسْطَاسِ الْمُسْتَقِيمِ ذٰلِكَ خَيْرٌ وَاَحْسَنُ تَأْوِيلاً`, glossTr: `Ölçtüğünüzde ölçüyü tam yapın, doğru teraziyle tartın; bu daha hayırlı ve sonuç bakımından daha güzeldir.`, glossEn: `Give full measure when you measure, and weigh with an even balance; that is fairer and better in outcome.` },
+          { ref: 'Hûd 11:85', ar: `وَيَا قَوْمِ اَوْفُوا الْمِكْيَالَ وَالْمِيزَانَ بِالْقِسْطِ وَلَا تَبْخَسُوا النَّاسَ اَشْيٓاءَهُمْ وَلَا تَعْثَوْا فِي الْاَرْضِ مُفْسِدِينَ`, glossTr: `(Şuayb:) Ölçü ve tartıyı adaletle tam yapın, insanların mallarını eksiltmeyin ve yeryüzünde bozgunculuk yapmayın.`, glossEn: `(Shuʿayb:) Give full measure and weight in justice, do not defraud people of their goods, and do not spread corruption in the land.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (83:1): "Ölçüde-tartıda hile yapanlara veyl" ifadesinin, alırken tam isteyip verirken eksik veren tüccarları kınadığı belirtilir. Allah'ın her muamelede tam ve âdil ölçüyü emrettiği; Medine halkının bu âyet indikten sonra bu konudaki hâllerini düzelttiği nakledilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (83:1): "Woe to the defrauders" condemns traders who demand full measure when receiving yet give short when delivering. God commands full and just measure in every dealing, and the people of Medina reformed on this after the verse was revealed. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Servetin dolaşımı — infak ve zekât',
+        titleEn: 'The circulation of wealth — spending and zakāh',
+        verses: [
+          { ref: 'Haşr 59:7', ar: `مٓا اَفٓاءَ اللّٰهُ عَلٰى رَسُولِهِ مِنْ اَهْلِ الْقُرٰى فَلِلّٰهِ وَلِلرَّسُولِ وَلِذِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينِ وَابْنِ السَّبِيلِ كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْاَغْنِيٓاءِ مِنْكُمْ`, glossTr: `(Fey' geliri) yakınlar, yetimler, yoksullar ve yolcular içindir; ta ki servet yalnız zenginleriniz arasında dönüp dolaşan bir güç olmasın.`, glossEn: `The fay' is for kin, orphans, the poor and travellers, so that wealth does not become a fortune circulating only among your rich.` },
+          { ref: 'Tevbe 9:34-35', ar: `وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنْفِقُونَهَا فِي سَبِيلِ اللّٰهِ فَبَشِّرْهُمْ بِعَذَابٍ اَلِيمٍ يَوْمَ يُحْمٰى عَلَيْهَا فِي نَارِ جَهَنَّمَ فَتُكْوٰى بِهَا جِبَاهُهُمْ وَجُنُوبُهُمْ وَظُهُورُهُمْ`, glossTr: `Altın ve gümüşü biriktirip (kenz edip) Allah yolunda infak etmeyenleri acı bir azapla müjdele; o gün bu hazineler cehennem ateşinde kızdırılıp alınları, yanları ve sırtları dağlanır.`, glossEn: `Those who hoard gold and silver and do not spend it in God's cause: give them tidings of a painful torment, the day their treasure is heated in Hellfire to brand their foreheads, sides and backs.` },
+          { ref: 'Bakara 2:261', ar: `مَثَلُ الَّذِينَ يُنْفِقُونَ اَمْوَالَهُمْ فِي سَبِيلِ اللّٰهِ كَمَثَلِ حَبَّةٍ اَنْبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنْبُلَةٍ مِائَةُ حَبَّةٍ وَاللّٰهُ يُضَاعِفُ لِمَنْ يَشٓاءُ`, glossTr: `Mallarını Allah yolunda infak edenlerin durumu, her başağında yüz tane olan yedi başak veren bir tohum gibidir; Allah dilediğine kat kat artırır.`, glossEn: `Spending in God's cause is like a grain producing seven ears, each with a hundred grains; God multiplies for whom He wills.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (59:7): bu âyetin, savaşsız elde edilen fey' gelirinin dağıtımını düzenlediği; bu usulün, servetin yalnız zenginler arasında dolaşan bir güce dönüşmemesi, yani zenginlerin kaynakları tekelleştirip yoksulları dışlamaması için konulduğu belirtilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (59:7): this verse regulates the distribution of fay', and the method is set so that wealth would not become a fortune circulating only among the rich, preventing the wealthy from monopolizing resources to the exclusion of the poor. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Akit, emanet ve borcun belgelenmesi',
+        titleEn: 'Contracts, trust, and documenting debt',
+        verses: [
+          { ref: 'Mâide 5:1', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اَوْفُوا بِالْعُقُودِ`, glossTr: `Ey iman edenler, akitlerinizi (sözleşme ve verdiğiniz sözleri) yerine getirin.`, glossEn: `O believers, fulfil your covenants and contracts.` },
+          { ref: 'Bakara 2:282', glossTr: `Belirli vadeli borç işlemlerini adaletle yazın; kâtip yazsın, borçlu haktan bir şey eksiltmeden yazdırsın, iki şahit tutulsun. Bu, Allah katında daha âdil ve şüpheyi gidermeye daha uygundur (peşin muamelede yazmasanız da olur). Kur'an'ın en uzun âyetidir.`, glossEn: `Record debts of a fixed term justly: let a scribe write it, the debtor dictate without diminishing the due, with two witnesses. This is more just before God and more apt to remove doubt (immediate cash dealings need no writing). It is the longest verse in the Qur'an.` },
+          { ref: 'Bakara 2:283', ar: `فَاِنْ اَمِنَ بَعْضُكُمْ بَعْضاً فَلْيُؤَدِّ الَّذِي اؤْتُمِنَ اَمَانَتَهُ وَلْيَتَّقِ اللّٰهَ رَبَّهُ وَلَا تَكْتُمُوا الشَّهَادَةَ`, glossTr: `Birbirinize güveniyorsanız, kendisine güvenilen emaneti (borcu) ödesin ve Rabbinden korksun; şahitliği de gizlemeyin.`, glossEn: `If you trust one another, let the trusted one discharge the trust and fear his Lord; and do not conceal testimony.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (2:282): belirli vadeli borçların, doğruluğu koruyup anlaşmazlığı önlemek için yazıyla belgelenmesinin emredildiği; vadeli işlemleri yazmanın "Allah katında daha âdil" olduğu, şahitlerin ayrıntıları hatırlamasına yardımcı olduğu ve ihtilafı önlediği belirtilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (2:282): believers are commanded to document fixed-term debts in writing to preserve accuracy and prevent disputes; writing deferred transactions is "more just with God," helping witnesses recall details and preventing later disagreement. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'İktisat ve kanaat — israfın reddi',
+        titleEn: 'Frugality and contentment — the rejection of waste',
+        verses: [
+          { ref: `A'râf 7:31`, ar: `يَا بَنٓي اٰدَمَ خُذُوا زِينَتَكُمْ عِنْدَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا اِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ`, glossTr: `Ey Âdemoğulları, yiyin, için ama israf etmeyin; şüphesiz Allah israf edenleri sevmez.`, glossEn: `O Children of Adam, eat and drink but do not waste; indeed God does not love the wasteful.` },
+          { ref: 'Furkân 25:67', ar: `وَالَّذِينَ اِذٓا اَنْفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذٰلِكَ قَوَاماً`, glossTr: `Onlar infak ederken ne israf ederler ne cimrilik; harcamaları bu ikisi arasında dengeli bir orta yoldur.`, glossEn: `When they spend, they are neither wasteful nor stingy, but keep a balanced middle course between the two.` },
+          { ref: 'İsrâ 17:26-27', ar: `وَاٰتِ ذَا الْقُرْبٰى حَقَّهُ وَالْمِسْكِينَ وَابْنَ السَّبِيلِ وَلَا تُبَذِّرْ تَبْذِيراً اِنَّ الْمُبَذِّرِينَ كَانٓوا اِخْوَانَ الشَّيَاطِينِ`, glossTr: `Yakınına, yoksula ve yolda kalmışa hakkını ver, malını saçıp savurma; çünkü savurganlar şeytanların kardeşleridir.`, glossEn: `Give kin, the poor and the stranded traveller their due, and do not squander wastefully, for the squanderers are brothers of the devils.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (7:31): âyetin ibadette güzel giyinmeyi emrettiği, yiyip içmeye izin verirken israfı yasakladığı; İbn Abbâs'tan "israf ve kibirden kaçınma" nakliyle ölçülülüğün vurgulandığı belirtilir. Bediüzzaman Said Nursi de İktisat Risalesi'nde (Lem'alar, 19. Lem'a) bu âyeti esas alarak iktisadı; israfın reddi, kanaat ve şükür ekseninde okur (modern tefsir/risale katmanı, beşerî yorum). (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (7:31): the verse commands dressing well for worship and permits eating and drinking while forbidding waste; citing Ibn ʿAbbās, it stresses moderation and avoiding extravagance and arrogance. Bediüzzaman Said Nursi, in his Treatise on Frugality (Lem'alar, 19th Flash), likewise reads this verse along the axis of rejecting waste, contentment, and gratitude (a modern Risale/tafsir layer, human interpretation). (Summary of the tafsir.)`,
+      },
+    ],
+    assuranceTr: `Bu âyetler iktisadî hayata dair kesin ahlâkî ölçüler koyar; bunlardan belirli bir modern iktisat modeli, banka sistemi veya kanun doğrudan türetilmez. Akademik ve tefsir katmanı, bu kesinliğin üzerine bina edilen beşerî anlama çabasıdır.`,
+    assuranceEn: `These verses set out firm moral measures for economic life; no particular modern economic model, banking system, or code is derived directly from them. The academic and exegetical layer is a human effort to understand built upon that certainty.`,
+    tafsirScopeTr: `Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin "tefsir" sekmesi, ör. quran.com/4/29 · quran.com/2/275 · quran.com/83/1; erişim: Eylül 2026); matbu baskı/çevirmen künyesi kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar "muhtasar İbn Kesîr metninde" biçiminde yazılmıştır. Ayrıca 6. temada Bediüzzaman Said Nursi'nin İktisat Risalesi'ne (Lem'alar, 19. Lem'a; çapa âyeti A'râf 7:31) modern tefsir/risale katmanı olarak işaret edilmiştir. Taberî, Zemahşerî, Râzî ve Kurtubî bu turda eklenmemiştir.`,
+    tafsirScopeEn: `The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's "tafsir" tab, e.g. quran.com/4/29 · quran.com/2/275 · quran.com/83/1; accessed September 2026); no volume/page is given and attributions read "in the abridged Ibn Kathīr text." Theme 6 also points to Bediüzzaman Said Nursi's Treatise on Frugality (Lem'alar, 19th Flash; anchor verse Q 7:31) as a modern Risale/tafsir layer. Al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added in this pass.`,
+    sourcesNoteTr: `Kaynaklar, bir birincil tefsir-risale (Bediüzzaman) ile akademik incelemeleri birlikte içerir; Kur'an'ı tasdik için değil, beşerî iktisat düşüncesini ve tarihini, farklı ve zaman zaman eleştirel yaklaşımları belirterek incelemek için anılır.`,
+    sourcesNoteEn: `The sources include one primary Risale/tafsir text (Bediüzzaman) alongside academic studies; they are cited not to confirm the Qur'an, but to study human economic thought and its history, noting differing and at times critical approaches.`,
+    sources: [
+      { author: 'Bediüzzaman Said Nursi', work: `İktisat Risalesi (Lem'alar, 19. Lem'a)`, pub: 'Yeni Asya Neşriyat', year: '', id: 'ISBN 9789755257556',
+        noteTr: `BİRİNCİL TEFSİR-RİSALE: A'râf 7:31'i esas alarak iktisadı israfın reddi, kanaat ve şükür olarak okuyan modern tefsir metni (akademik değil, beşerî yorum katmanı).`, noteEn: `PRIMARY RISALE/TAFSIR: a modern exegetical text reading frugality as the rejection of waste, contentment, and gratitude, anchored on Q 7:31 (not academic; a human interpretive layer).` },
+      { author: 'Sabri Orman', work: `Kur'an ve İktisat (Kredi ve Faiz Meselesine Makro-Sistemik Bir Yaklaşım)`, pub: 'İSAV / Ensar Neşriyat', year: '2001', id: 'Kur\'an ve Tefsir Araştırmaları II',
+        noteTr: `YAKLAŞIM: faiz yasağını (2:275) kardeşlik (49:10) ve vasat ümmet (2:143) ekseninde makro-sistemik ele alan TR akademik inceleme.`, noteEn: `APPROACH: a Turkish scholarly analysis linking the interest prohibition to brotherhood and the balanced-community ideal at the macro-systemic level.` },
+      { author: 'Charles Tripp', work: 'Islam and the Moral Economy: The Challenge of Capitalism', pub: 'Cambridge University Press', year: '2006', id: 'ISBN 9780521682442',
+        noteTr: `YAKLAŞIM: Müslüman düşünürlerin kapitalizm karşısında geliştirdiği "ahlâkî iktisat" söylemlerini haritalayan siyaset-bilimsel inceleme.`, noteEn: `APPROACH: a political-science survey mapping Muslim "moral economy" discourses responding to capitalism.` },
+      { author: 'Muhammad Nejatullah Siddiqi', work: 'Muslim Economic Thinking: A Survey of Contemporary Literature', pub: 'The Islamic Foundation', year: '1981', id: 'ISBN 9780860370819',
+        noteTr: `YAKLAŞIM: İslam iktisadı literatürünün klasik bibliyografik taraması; alanın kurucu isimlerinden birinin haritası.`, noteEn: `APPROACH: a classic bibliographic survey of Islamic-economics literature by a founding figure of the field.` },
+      { author: 'Abdullah Saeed', work: 'The Moral Context of the Prohibition of Riba in Islam Revisited', pub: 'American Journal of Islam and Society 12(4)', year: '1995', id: 'DOI 10.35632/ajis.v12i4.2368',
+        noteTr: `YAKLAŞIM: ribâ yasağının fıkhî yorumunun ahlâkî bağlamını yeniden okuyan, farklı yorumları tartışan hakemli makale.`, noteEn: `APPROACH: a peer-reviewed article revisiting the moral context of the riba prohibition and debating differing juristic interpretations.` },
+    ],
+  },
 };

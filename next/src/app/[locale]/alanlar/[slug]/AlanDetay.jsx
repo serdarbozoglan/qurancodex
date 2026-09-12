@@ -247,7 +247,7 @@ export default function AlanDetay({ slug }) {
             {/* ── Akademik kaynaklar — grid kart ──────────────────────────── */}
             {(content.sources || []).length > 0 && (
               <div style={{ marginTop: 8 }}>
-                <Eyebrow style={{ margin: '0 0 6px' }}>{tr ? 'Akademik Kaynaklar' : 'Academic Sources'}</Eyebrow>
+                <Eyebrow style={{ margin: '0 0 6px' }}>{tr ? (content.sourcesLabelTr || 'Akademik Kaynaklar') : (content.sourcesLabelEn || 'Academic Sources')}</Eyebrow>
                 {(tr ? content.sourcesNoteTr : content.sourcesNoteEn) && (
                   <p style={{ fontFamily: FONTS.body, fontSize: '0.79rem', color: SEMANTIC.textFaint, lineHeight: 1.6, margin: '0 0 16px', maxWidth: 640 }}>
                     {tr ? content.sourcesNoteTr : content.sourcesNoteEn}
@@ -259,7 +259,7 @@ export default function AlanDetay({ slug }) {
                       <span aria-hidden="true" style={{ position: 'absolute', left: 15, top: 15, fontFamily: FONTS.display, fontWeight: 800, fontSize: '0.9rem', color: COLORS.gold, opacity: 0.78 }}>{i + 1}</span>
                       <div style={{ fontFamily: FONTS.body, fontSize: '0.86rem', color: COLORS.offWhite, fontWeight: 600, lineHeight: 1.4 }}>{s.author}</div>
                       <div style={{ fontFamily: FONTS.display, fontStyle: 'italic', fontSize: '0.85rem', color: SEMANTIC.textMuted, lineHeight: 1.45, margin: '2px 0 4px' }}>{s.work}</div>
-                      <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: SEMANTIC.textFaint, letterSpacing: '0.02em' }}>{`${s.pub}, ${s.year} · ${s.id}`}</div>
+                      <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: SEMANTIC.textFaint, letterSpacing: '0.02em' }}>{[s.pub, s.year].filter(Boolean).join(', ') + (s.id ? ` · ${s.id}` : '')}</div>
                       {(tr ? s.noteTr : s.noteEn) && (
                         <p style={{ fontFamily: FONTS.body, fontSize: '0.77rem', color: SEMANTIC.textFaint, lineHeight: 1.55, margin: '8px 0 0' }}>
                           {tr ? s.noteTr : s.noteEn}

@@ -24,7 +24,7 @@
 
 export const DISCIPLINE_MAP = {
   '/atlas/kissa':             ['tarih-medeniyet', 'sosyoloji-toplum', 'liderlik-yonetim'],
-  '/atlas/kavim':             ['sosyoloji-toplum', 'tarih-medeniyet', 'adalet-hukuk'],
+  '/atlas/kavim':             ['sosyoloji-toplum', 'tarih-medeniyet', 'adalet-hukuk', 'iktisat-ticaret'],
   '/atlas/doga':              ['tabiat-afak'],
   '/atlas/insan-psikolojisi': ['psikoloji-nefs'],
   '/atlas/insan-tanimi':      ['psikoloji-nefs', 'iman-itikad'],
@@ -80,7 +80,7 @@ export const DISCIPLINE_MAP = {
   '/arac/neden-sonuc':        ['ahlak-karakter', 'sosyoloji-toplum', 'liderlik-yonetim'],
   '/arac/kitap-kavrami':      ['kuran-ilimleri', 'iman-itikad'],
   '/arac/elestirel-cerceve':  ['iman-itikad', 'adalet-hukuk'],
-  '/arac/isimlendirme':       ['dil-belagat'],
+  '/arac/isimlendirme':       ['dil-belagat', 'iktisat-ticaret'],
   '/arac/tefsir-ihtilaflari': ['kuran-ilimleri'],
   '/graf/kelime-isi':         ['dil-belagat'],
   '/graf/semantik':           ['dil-belagat'],
