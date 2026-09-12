@@ -52,6 +52,15 @@ function hasContent(pillarData, dataKey) {
   return String(val).trim().length > 0;
 }
 
+// ToolHeader alt-başlığı için eyebrow'u Title Case'e çevir. Site-geneli standart:
+// ToolHeader alt başlığı BÜYÜK HARF değil, cümle/başlık düzeni. Türkçe locale
+// (İ/I → i/ı doğru) ile "TAKVANIN OKULU" → "Takvanın Okulu".
+function toTitleCase(s, lang) {
+  if (!s) return s;
+  const loc = lang === 'tr' ? 'tr' : 'en';
+  return s.toLocaleLowerCase(loc).replace(/(^|[\s('"])(\S)/g, (m, a, b) => a + b.toLocaleUpperCase(loc));
+}
+
 export default function IbadetlerPillar({ pillarData, language, isMobile }) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -107,8 +116,8 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
       <ToolHeader
         titleTr={pillarData.titleTr}
         titleEn={pillarData.titleEn}
-        subtitleTr={pillarData.hero?.eyebrowTr}
-        subtitleEn={pillarData.hero?.eyebrowEn}
+        subtitleTr={toTitleCase(pillarData.hero?.eyebrowTr, 'tr')}
+        subtitleEn={toTitleCase(pillarData.hero?.eyebrowEn, 'en')}
         language={language}
       />
 
@@ -133,7 +142,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
         flexShrink: 0,
       }}>
         {visibleTabs.map(tab => (
-          <button className="mq-box"
+          <button
             key={tab.key}
             onClick={() => {
               setActiveTab(tab.key);
@@ -148,7 +157,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
                 }
               }, 50);
             }}
-            className="mq-fs" style={{
+            className="mq-box mq-fs" style={{
               '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
               '--fs-d': '0.78rem', '--fs-m': '0.72rem',
               letterSpacing: '0.14em',
