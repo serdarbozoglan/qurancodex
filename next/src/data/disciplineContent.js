@@ -12,6 +12,12 @@
 export const DISCIPLINE_CONTENT = {
   'liderlik-yonetim': {
     reviewedBy: 'gpt-6-astra REVIEW #2 applied',
+    anchor: {
+      ref: 'Nisâ 4:58',
+      ar: 'اِنَّ اللّٰهَ يَأْمُرُكُمْ اَنْ تُؤَدُّوا الْاَمَانَاتِ اِلٰٓى اَهْلِهَا وَاِذَا حَكَمْتُمْ بَيْنَ النَّاسِ اَنْ تَحْكُمُوا بِالْعَدْلِ اِنَّ اللّٰهَ نِعِمَّا يَعِظُـكُمْ بِهِ اِنَّ اللّٰهَ كَانَ سَمِيعاً بَصِيراً',
+      trTr: 'Allah size, emanetleri ehline vermenizi ve insanlar arasında adaletle hükmetmenizi emreder.',
+      trEn: 'Indeed, God commands you to render trusts to those entitled to them, and when you judge between people, to judge with justice.',
+    },
     introTr:
       'Kur\'an Allah\'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik onaya bağlı değildir. ' +
       'Bu sayfa; şûrâ, emanet, adâlet ve itaat gibi konulardaki âyetleri liderlik ve yönetim bakımından ele alır. ' +

@@ -9,6 +9,7 @@ import LinkifyRefs from '@/components/LinkifyRefs';
 import { DISCIPLINE_BY_ID } from '@/data/disciplines';
 import { routesForDiscipline } from '@/data/disciplineMap';
 import { DISCIPLINE_CONTENT } from '@/data/disciplineContent';
+import { disciplineIcon } from '@/data/disciplineIcons';
 import { TOOL_CATALOG } from '@/data/toolCatalog';
 
 const BY_ROUTE = Object.fromEntries(TOOL_CATALOG.map((t) => [t.route, t]));
@@ -42,18 +43,36 @@ export default function AlanDetay({ slug }) {
         homeHref={`/${language}/alanlar`}
       />
 
-      {/* ── Premium hero band ─────────────────────────────────────────── */}
-      <div style={{ background: `linear-gradient(180deg, ${COLORS.gold}0f 0%, transparent 100%)`, borderBottom: `1px solid ${COLORS.gold}1a`, padding: '40px 20px 34px', textAlign: 'center' }}>
+      {/* ── Sinematik hero ────────────────────────────────────────────── */}
+      <div style={{ background: `linear-gradient(180deg, ${COLORS.gold}12 0%, transparent 100%)`, borderBottom: `1px solid ${COLORS.gold}1a`, padding: 'clamp(34px, 6vw, 52px) 20px clamp(30px, 5vw, 42px)', textAlign: 'center' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
-          <Eyebrow style={{ margin: '0 0 14px' }}>{tr ? 'Alanına Göre Keşfet' : 'Explore by Field'}</Eyebrow>
-          <h1 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700, fontSize: 'clamp(1.7rem, 4.6vw, 2.5rem)', lineHeight: 1.15, margin: '0 0 16px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 62, height: 62, borderRadius: '50%', background: `${COLORS.gold}12`, border: `1px solid ${COLORS.gold}38`, color: COLORS.gold, marginBottom: 18 }}>
+            {disciplineIcon(slug, 30)}
+          </div>
+          <Eyebrow style={{ margin: '0 0 12px' }}>{tr ? 'Alanına Göre Keşfet' : 'Explore by Field'}</Eyebrow>
+          <h1 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700, fontSize: 'clamp(1.7rem, 4.6vw, 2.5rem)', lineHeight: 1.15, margin: '0 0 14px' }}>
             {tr ? d.titleTr : d.titleEn}
           </h1>
-          <p style={{ fontFamily: FONTS.body, color: SEMANTIC.textMuted, fontSize: '1rem', lineHeight: 1.7, margin: '0 auto', maxWidth: 620 }}>
+
+          {content?.anchor && (
+            <div style={{ maxWidth: 640, margin: '18px auto 4px' }}>
+              <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: 'clamp(1.35rem, 3.6vw, 1.85rem)', lineHeight: 2.05, margin: '0 0 12px' }}>
+                {content.anchor.ar}
+              </p>
+              <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, fontSize: '0.98rem', lineHeight: 1.6, margin: '0 0 6px' }}>
+                {tr ? content.anchor.trTr : content.anchor.trEn}
+              </p>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.66rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.7 }}>
+                — {content.anchor.ref}
+              </div>
+            </div>
+          )}
+
+          <p style={{ fontFamily: FONTS.body, color: SEMANTIC.textMuted, fontSize: '1rem', lineHeight: 1.7, margin: '18px auto 0', maxWidth: 620 }}>
             {tr ? d.blurbTr : d.blurbEn}
           </p>
           <div style={{ width: 110, height: 1, background: `linear-gradient(90deg, transparent, ${COLORS.gold}88, transparent)`, margin: '22px auto 0' }} />
-          <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver, opacity: 0.9, fontSize: '0.92rem', lineHeight: 1.6, margin: '18px auto 0', maxWidth: 640 }}>
+          <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver, opacity: 0.9, fontSize: '0.9rem', lineHeight: 1.6, margin: '16px auto 0', maxWidth: 640 }}>
             {tr
               ? 'Kur\'an kesin hakikattir; bu alan ona yöneliş için bir bakış açısıdır, hakemi değildir.'
               : 'The Qur\'an is certain truth; this field is a vantage point for turning to it, not its arbiter.'}
