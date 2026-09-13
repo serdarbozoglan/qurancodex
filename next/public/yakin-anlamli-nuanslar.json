@@ -1,7 +1,7 @@
 {
   "meta": {
-    "totalSets": 12,
-    "totalTerms": 37,
+    "totalSets": 14,
+    "totalTerms": 42,
     "titleTr": "Yakın Anlamlı Nüanslar",
     "titleEn": "Near-Synonymous Nuances",
     "generatedDate": "2026-07-21",
@@ -126,7 +126,7 @@
             "verseRef": "Kehf 18:110",
             "surah": 18,
             "ayah": 110,
-            "arabic": "قُلْ اِنَّـمَٓا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمَٓا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌ فَمَنْ كَانَ يَرْجُوا لِقَٓاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِٓ اَحَداً",
+            "arabic": "قُلْ اِنَّـمَا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمَا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌ فَمَنْ كَانَ يَرْجُوا لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ اَحَداً",
             "turkish": "De ki: Ben, yalnızca sizin gibi bir beşerim. (Şu var ki) bana, İlah'ınızın, sadece bir İlah olduğu vahyolunuyor. Artık her kim Rabbine kavuşmayı umuyorsa, iyi iş yapsın ve Rabbine ibadette hiçbir şeyi ortak koşmasın.",
             "english": "Say, \"I am only a man like you, to whom has been revealed that your god is one God. So whoever would hope for the meeting with his Lord - let him do righteous work and not associate in the worship of his Lord anyone"
           },
@@ -145,7 +145,7 @@
             "verseRef": "Nisâ 4:1",
             "surah": 4,
             "ayah": 1,
-            "arabic": "يَٓا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسَٓاءً وَاتَّقُوا اللّٰهَ الَّذِي تَسَٓاءَلُونَ بِهِ وَالْاَرْحَامَ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
+            "arabic": "يَا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسَاءً وَاتَّقُوا اللّٰهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْاَرْحَامَ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
             "turkish": "Ey insanlar! Sizi bir tek nefisten yaratan ve ondan da eşini yaratan ve ikisinden birçok erkekler ve kadınlar üretip yayan Rabbinizden sakının. Adını kullanarak birbirinizden dilekte bulunduğunuz Allah'tan ve akrabalık haklarına riayetsizlikten de sakının. Şüphesiz Allah sizin üzerinizde gözetleyicidir.",
             "english": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer"
           },
@@ -197,7 +197,7 @@
             "verseRef": "Bakara 2:269",
             "surah": 2,
             "ayah": 269,
-            "arabic": "يُؤْتِي الْحِكْمَةَ مَنْ يَشَٓاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً وَمَا يَذَّكَّرُ اِلَّٓا اُولُوا الْاَلْبَابِ",
+            "arabic": "يُؤْتِي الْحِكْمَةَ مَنْ يَشَاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً وَمَا يَذَّكَّرُ اِلَّا اُولُوا الْاَلْبَابِ",
             "turkish": "Allah hikmeti dilediğine verir. Kime hikmet verilirse, ona pek çok hayır verilmiş demektir. Ancak akıl sahipleri düşünüp ibret alırlar.",
             "english": "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good. And none will remember except those of understanding"
           },
@@ -249,7 +249,7 @@
             "verseRef": "Bakara 2:40",
             "surah": 2,
             "ayah": 40,
-            "arabic": "يَا بَنِٓي اِسْرَٓائِلَ اذْكُرُوا نِعْمَتِيَ الَّتِٓي اَنْعَمْتُ عَلَيْكُمْ وَاَوْفُوا بِعَهْدِٓي اُوفِ بِعَهْدِكُمْ وَاِيَّايَ فَارْهَبُونِ",
+            "arabic": "يَا بَنِٓي اِسْرَائِلَ اذْكُرُوا نِعْمَتِيَ الَّتِٓي اَنْعَمْتُ عَلَيْكُمْ وَاَوْفُوا بِعَهْدِٓي اُوفِ بِعَهْدِكُمْ وَاِيَّايَ فَارْهَبُونِ",
             "turkish": "Ey İsrailoğulları! Size verdiğim nimetlerimi hatırlayın, bana verdiğiniz sözü yerine getirin ki, ben de size vadettiklerimi vereyim. Yalnızca benden korkun.",
             "english": "O Children of Israel, remember My favor which I have bestowed upon you and fulfill My covenant [upon you] that I will fulfill your covenant [from Me], and be afraid of [only] Me"
           },
@@ -268,7 +268,7 @@
             "verseRef": "Fâtır 35:28",
             "surah": 35,
             "ayah": 28,
-            "arabic": "وَمِنَ النَّاسِ وَالدَّوَٓابِّ وَالْاَنْعَامِ مُخْتَلِفٌ اَلْوَانُهُ كَذٰلِكَ اِنَّمَا يَخْشَى اللّٰهَ مِنْ عِبَادِهِ الْعُلَمٰٓؤُا اِنَّ اللّٰهَ عَزِيزٌ غَفُورٌ",
+            "arabic": "وَمِنَ النَّاسِ وَالدَّوَابِّ وَالْاَنْعَامِ مُخْتَلِفٌ اَلْوَانُهُ كَذٰلِكَ اِنَّمَا يَخْشَى اللّٰهَ مِنْ عِبَادِهِ الْعُلَمٰٓؤُا اِنَّ اللّٰهَ عَزِيزٌ غَفُورٌ",
             "turkish": "İnsanlardan, hayvanlardan ve davarlardan da yine böyle türlü renkte olanlar var. Kulları içinden ancak alimler, Allah'tan (gereğince) korkar. Şüphesiz Allah, daima üstündür, çok bağışlayandır.",
             "english": "And among people and moving creatures and grazing livestock are various colors similarly. Only those fear Allah, from among His servants, who have knowledge. Indeed, Allah is Exalted in Might and Forgiving"
           },
@@ -320,7 +320,7 @@
             "verseRef": "Hûd 11:6",
             "surah": 11,
             "ayah": 6,
-            "arabic": "وَمَا مِنْ دَٓابَّةٍ فِي الْاَرْضِ اِلَّا عَلَى اللّٰهِ رِزْقُهَا وَيَعْلَمُ مُسْتَقَرَّهَا وَمُسْتَوْدَعَهَا كُلٌّ فِي كِتَابٍ مُبِينٍ",
+            "arabic": "وَمَا مِنْ دَابَّةٍ فِي الْاَرْضِ اِلَّا عَلَى اللّٰهِ رِزْقُهَا وَيَعْلَمُ مُسْتَقَرَّهَا وَمُسْتَوْدَعَهَا كُلٌّ فِي كِتَابٍ مُبِينٍ",
             "turkish": "Yeryüzünde yürüyen her canlının rızkı, yalnızca Allah'ın üzerinedir. Allah o canlının durduğu yeri ve sonunda bırakılacağı mekanı bilir. (Bunların) hepsi açık bir kitapta (levh-i mahfuz'da) dır.",
             "english": "And there is no creature on earth but that upon Allah is its provision, and He knows its place of dwelling and place of storage. All is in a clear register"
           },
@@ -339,7 +339,7 @@
             "verseRef": "A'râf 7:156",
             "surah": 7,
             "ayah": 156,
-            "arabic": "وَاكْتُبْ لَنَا فِي هٰذِهِ الدُّنْيَا حَسَنَةً وَفِي الْاٰخِرَةِ اِنَّا هُدْنَٓا اِلَيْكَ قَالَ عَذَابِٓي اُصِيبُ بِهِ مَنْ اَشَٓاءُ وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ فَسَاَكْتُبُهَا لِلَّذِينَ يَتَّقُونَ وَيُؤْتُونَ الزَّكٰوةَ وَالَّذِينَ هُمْ بِاٰيَاتِنَا يُؤْمِنُونَ",
+            "arabic": "وَاكْتُبْ لَنَا فِي هٰذِهِ الدُّنْيَا حَسَنَةً وَفِي الْاٰخِرَةِ اِنَّا هُدْنَا اِلَيْكَ قَالَ عَذَابِي اُصِيبُ بِهِ مَنْ اَشَاءُ وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ فَسَاَكْتُبُهَا لِلَّذِينَ يَتَّقُونَ وَيُؤْتُونَ الزَّكٰوةَ وَالَّذِينَ هُمْ بِاٰيَاتِنَا يُؤْمِنُونَ",
             "turkish": "Bize, bu dünyada da iyilik yaz ahirette de. Şüphesiz biz sana döndük.\" Allah buyurdu ki: Kimi dilersem onu azabıma uğratırım; rahmetim ise her şeyi kuşatır. Onu, sakınanlara, zekatı verenlere ve ayetlerimize inananlara yazacağım.",
             "english": "And decree for us in this world [that which is] good and [also] in the Hereafter; indeed, we have turned back to You.\" [Allah] said, \"My punishment - I afflict with it whom I will, but My mercy encompasses all things.\" So I will decree it [especially] for those who fear Me and give zakah and those who believe in Our verses"
           },
@@ -358,7 +358,7 @@
             "verseRef": "A'râf 7:96",
             "surah": 7,
             "ayah": 96,
-            "arabic": "وَلَوْ اَنَّ اَهْلَ الْقُرٰٓى اٰمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكَاتٍ مِنَ السَّمَٓاءِ وَالْاَرْضِ وَلٰكِنْ كَذَّبُوا فَاَخَذْنَاهُمْ بِمَا كَانُوا يَكْسِبُونَ",
+            "arabic": "وَلَوْ اَنَّ اَهْلَ الْقُرٰٓى اٰمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكَاتٍ مِنَ السَّمَاءِ وَالْاَرْضِ وَلٰكِنْ كَذَّبُوا فَاَخَذْنَاهُمْ بِمَا كَانُوا يَكْسِبُونَ",
             "turkish": "O (peygamberlerin gönderildiği) ülkelerin halkı inansalar ve (günahtan) sakınsalardı, elbette onların üstüne gökten ve yerden nice bereket kapıları açardık, fakat yalanladılar, biz de ettikleri yüzünden onları yakalayıverdik.",
             "english": "And if only the people of the cities had believed and feared Allah, We would have opened upon them blessings from the heaven and the earth; but they denied [the messengers], so We seized them for what they were earning"
           },
@@ -410,7 +410,7 @@
             "verseRef": "Bakara 2:256",
             "surah": 2,
             "ayah": 256,
-            "arabic": "لَٓا اِكْرَاهَ فِي الدِّينِ قَدْ تَبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَنْ يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِنْ بِاللّٰهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقٰى لَا انْفِصَامَ لَهَا وَاللّٰهُ سَمِيعٌ عَلِيمٌ",
+            "arabic": "لَا اِكْرَاهَ فِي الدِّينِ قَدْ تَبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَنْ يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِنْ بِاللّٰهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقٰى لَا انْفِصَامَ لَهَا وَاللّٰهُ سَمِيعٌ عَلِيمٌ",
             "turkish": "Dinde zorlama yoktur. Artık doğrulukla eğrilik birbirinden ayrılmıştır. O halde kim tağutu reddedip Allah'a inanırsa, kopmayan sağlam kulpa yapışmıştır. Allah işitir ve bilir.",
             "english": "There shall be no compulsion in [acceptance of] the religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing"
           },
@@ -429,7 +429,7 @@
             "verseRef": "Hûd 11:88",
             "surah": 11,
             "ayah": 88,
-            "arabic": "قَالَ يَا قَوْمِ اَرَاَيْتُمْ اِنْ كُنْتُ عَلٰى بَيِّنَةٍ مِنْ رَبِّي وَرَزَقَنِي مِنْهُ رِزْقاً حَسَناً وَمَٓا اُرِيدُ اَنْ اُخَالِفَكُمْ اِلٰى مَٓا اَنْهٰيكُمْ عَنْهُ اِنْ اُرِيدُ اِلَّا الْاِصْلَاحَ مَا اسْتَطَعْتُ وَمَا تَوْفِيقِٓي اِلَّا بِاللّٰهِ  عَلَيْهِ تَوَكَّلْتُ وَاِلَيْهِ اُنِيبُ",
+            "arabic": "قَالَ يَا قَوْمِ اَرَاَيْتُمْ اِنْ كُنْتُ عَلٰى بَيِّنَةٍ مِنْ رَبِّي وَرَزَقَنِي مِنْهُ رِزْقاً حَسَناً وَمَا اُرِيدُ اَنْ اُخَالِفَكُمْ اِلٰى مَا اَنْهٰيكُمْ عَنْهُ اِنْ اُرِيدُ اِلَّا الْاِصْلَاحَ مَا اسْتَطَعْتُ وَمَا تَوْفِيقِٓي اِلَّا بِاللّٰهِ  عَلَيْهِ تَوَكَّلْتُ وَاِلَيْهِ اُنِيبُ",
             "turkish": "Dedi ki: Ey kavmim! Eğer benim, Rabbim tarafından (verilmiş) apaçık bir delilim varsa ve O bana tarafından güzel bir rızık vermişse buna ne dersiniz? Size yasak ettiğim şeylerin aksini yaparak size aykırı davranmak istemiyorum. Ben sadece gücümün yettiği kadar ıslah etmek istiyorum. Fakat başarmam ancak Allah'ın yardımı iledir. Yalnız O'na dayandım ve yalnız O'na döneceğim.",
             "english": "He said, \"O my people, have you considered: if I am upon clear evidence from my Lord and He has provided me with a good provision from Him...? And I do not intend to differ from you in that which I have forbidden you; I only intend reform as much as I am able. And my success is not but through Allah. Upon him I have relied, and to Him I return"
           },
@@ -481,7 +481,7 @@
             "verseRef": "Nisâ 4:149",
             "surah": 4,
             "ayah": 149,
-            "arabic": "اِنْ تُبْدُوا خَيْراً اَوْ تُخْفُوهُ اَوْ تَعْفُوا عَنْ سُٓوءٍ فَاِنَّ اللّٰهَ كَانَ عَفُواًّ قَدِيراً",
+            "arabic": "اِنْ تُبْدُوا خَيْراً اَوْ تُخْفُوهُ اَوْ تَعْفُوا عَنْ سُوءٍ فَاِنَّ اللّٰهَ كَانَ عَفُواًّ قَدِيراً",
             "turkish": "Bir iyiliği açıklar yahut gizlerseniz veya bir kötülüğü (açıklamayıp) affederseniz, şüphesiz Allah da ziyadesiyle affedici ve kadirdir.",
             "english": "If [instead] you show [some] good or conceal it or pardon an offense - indeed, Allah is ever Pardoning and Competent"
           },
@@ -533,7 +533,7 @@
             "verseRef": "Bakara 2:153",
             "surah": 2,
             "ayah": 153,
-            "arabic": "يَٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ",
+            "arabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ",
             "turkish": "Ey iman edenler! Sabır ve namaz ile Allah'tan yardım isteyin. Çünkü Allah muhakkak sabredenlerle beraberdir.",
             "english": "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient"
           },
@@ -552,7 +552,7 @@
             "verseRef": "Yûsuf 12:18",
             "surah": 12,
             "ayah": 18,
-            "arabic": "وَجَٓاؤُ عَلٰى قَمِيصِهِ بِدَمٍ كَذِبٍ قَالَ بَلْ سَوَّلَتْ لَكُمْ اَنْفُسُكُمْ اَمْراً فَصَبْرٌ جَمِيلٌ وَاللّٰهُ الْمُسْتَعَانُ عَلٰى مَا تَصِفُونَ",
+            "arabic": "وَجَاؤُ عَلٰى قَمِيصِهِ بِدَمٍ كَذِبٍ قَالَ بَلْ سَوَّلَتْ لَكُمْ اَنْفُسُكُمْ اَمْراً فَصَبْرٌ جَمِيلٌ وَاللّٰهُ الْمُسْتَعَانُ عَلٰى مَا تَصِفُونَ",
             "turkish": "Gömleğinin üstünde sahte bir kan ile geldiler. (Yakub) dedi ki: Bilakis nefisleriniz size (kötü) bir işi güzel gösterdi. Artık (bana düşen) hakkıyla sabretmektir. Anlattığınız karşısında (bana) yardım edecek olan, ancak Allah'tır.",
             "english": "And they brought upon his shirt false blood. [Jacob] said, \"Rather, your souls have enticed you to something, so patience is most fitting. And Allah is the one sought for help against that which you describe"
           },
@@ -571,7 +571,7 @@
             "verseRef": "Âl-i İmrân 3:200",
             "surah": 3,
             "ayah": 200,
-            "arabic": "يَٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+            "arabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
             "turkish": "Ey iman edenler! Sabredin; (düşman karşısında) sebat göster",
             "english": "O you who have believed, persevere and endure and remain stationed and fear Allah that you may be successful"
           },
@@ -604,7 +604,7 @@
             "verseRef": "Hucurât 49:13",
             "surah": 49,
             "ayah": 13,
-            "arabic": "يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوباً وَقَـبَٓائِلَ لِتَعَارَفُوا اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰيكُمْ اِنَّ اللّٰهَ عَلِيمٌ خَبِيرٌ",
+            "arabic": "يَا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوباً وَقَـبَائِلَ لِتَعَارَفُوا اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰيكُمْ اِنَّ اللّٰهَ عَلِيمٌ خَبِيرٌ",
             "turkish": "Ey insanlar! Doğrusu biz sizi bir erkekle bir dişiden yarattık. Ve birbirinizle tanışmanız için sizi kavimlere ve kabilelere ayırdık. Muhakkak ki Allah yanında en değerli olanınız, O'ndan en çok korkanınızdır. Şüphesiz Allah bilendir, her şeyden haberdardır.",
             "english": "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another. Indeed, the most noble of you in the sight of Allah is the most righteous of you. Indeed, Allah is Knowing and Acquainted"
           },
@@ -623,7 +623,7 @@
             "verseRef": "Bakara 2:177",
             "surah": 2,
             "ayah": 177,
-            "arabic": "لَيْسَ الْبِرَّ اَنْ تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلٰكِنَّ الْبِرَّ مَنْ اٰمَنَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَالْمَلٰٓئِكَةِ وَالْكِتَابِ وَالنَّبِيِّنَ وَاٰتَى الْمَالَ عَلٰى حُبِّهِ ذَوِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّٓائِلِينَ وَفِي الرِّقَابِ وَاَقَامَ الصَّلٰوةَ وَاٰتَى الزَّكٰوةَ وَالْمُوفُونَ بِعَهْدِهِمْ اِذَا عَاهَدُوا وَالصَّابِرِينَ فِي الْبَأْسَٓاءِ وَالضَّرَّٓاءِ وَحِينَ الْبَأْسِ اُولٰٓئِكَ الَّذِينَ صَدَقُوا وَاُولٰٓئِكَ هُمُ الْمُتَّقُونَ",
+            "arabic": "لَيْسَ الْبِرَّ اَنْ تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلٰكِنَّ الْبِرَّ مَنْ اٰمَنَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَالْمَلٰٓئِكَةِ وَالْكِتَابِ وَالنَّبِيِّنَ وَاٰتَى الْمَالَ عَلٰى حُبِّهِ ذَوِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ وَاَقَامَ الصَّلٰوةَ وَاٰتَى الزَّكٰوةَ وَالْمُوفُونَ بِعَهْدِهِمْ اِذَا عَاهَدُوا وَالصَّابِرِينَ فِي الْبَأْسَاءِ وَالضَّرَّاءِ وَحِينَ الْبَأْسِ اُولٰٓئِكَ الَّذِينَ صَدَقُوا وَاُولٰٓئِكَ هُمُ الْمُتَّقُونَ",
             "turkish": "İyilik, yüzlerinizi doğu ve batı tarafına çevirmeniz değildir. Asıl iyilik, o kimsenin yaptığıdır ki, Allah'a, ahiret gününe, meleklere, kitaplara, peygamberlere inanır. (Allah'ın rızasını gözeterek) yakınlara, yetimlere, yoksullara, yolda kalmışlara, dilenenlere ve kölelere sevdiği maldan harcar, namaz kılar, zekat verir. Antlaşma yaptığı zaman sözlerini yerine getirir. Sıkıntı, hastalık ve savaş zamanlarında sabreder. İşte doğru olanlar, bu vasıfları taşıyanlardır. Müttakiler ancak onlardır!",
             "english": "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is [in] one who believes in Allah, the Last Day, the angels, the Book, and the prophets and gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask [for help], and for freeing slaves; [and who] establishes prayer and gives zakah; [those who] fulfill their promise when they promise; and [those who] are patient in poverty and hardship and during battle. Those are the ones who have been true, and it is those who are the righteous"
           },
@@ -642,7 +642,7 @@
             "verseRef": "Nahl 16:90",
             "surah": 16,
             "ayah": 90,
-            "arabic": "اِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيتَٓائِ ذِي الْقُرْبٰى وَيَنْهٰى عَنِ الْفَحْشَٓاءِ وَالْمُنْكَرِ وَالْبَغْيِ  يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ",
+            "arabic": "اِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيتَائِ ذِي الْقُرْبٰى وَيَنْهٰى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ وَالْبَغْيِ  يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ",
             "turkish": "Muhakkak ki Allah, adaleti, iyiliği, akrabaya yardım etmeyi emreder, çirkin işleri, fenalık ve azgınlığı da yasaklar. O, düşünüp tutasınız diye size öğüt veriyor.",
             "english": "Indeed, Allah orders justice and good conduct and giving to relatives and forbids immorality and bad conduct and oppression. He admonishes you that perhaps you will be reminded"
           },
@@ -694,7 +694,7 @@
             "verseRef": "Duhân 44:47",
             "surah": 44,
             "ayah": 47,
-            "arabic": "خُذُوهُ فَاعْتِلُوهُ اِلٰى سَوَٓاءِ الْجَحِيمِ",
+            "arabic": "خُذُوهُ فَاعْتِلُوهُ اِلٰى سَوَاءِ الْجَحِيمِ",
             "turkish": "(Allah zebanilere emreder): Tutun onu! Cehennemin ortasına sürükleyin!",
             "english": "[It will be commanded], \"Seize him and drag him into the midst of the Hellfire"
           },
@@ -782,9 +782,9 @@
           "meaningEn": "The lowest standing within a society: where a person is placed, and how they are seen by others.",
           "verse": {
             "verseRef": "Bakara 2:61",
-            "ar": "وَضُرِبَتْ عَلَيْهِمُ الذِّلَّةُ وَالْمَسْكَنَةُ وَبَاؤُ بِغَضَبٍ مِنَ اللّٰهِ ذٰلِكَ بِاَنَّهُمْ كَانُوا يَكْفُرُونَ بِاٰيَاتِ اللّٰهِ وَيَقْتُلُونَ النَّبِيِّنَ بِغَيْرِ الْحَقِّ ذٰلِكَ بِمَا عَصَوْا وَكَانُوا يَعْتَدُون",
             "trTr": "Üzerlerine zillet ve meskenet damgası vuruldu ve Allah'ın gazabına uğradılar.",
-            "trEn": "Humiliation and misery were stamped upon them, and they drew upon themselves God's wrath."
+            "trEn": "Humiliation and misery were stamped upon them, and they drew upon themselves God's wrath.",
+            "arabic": "وَضُرِبَتْ عَلَيْهِمُ الذِّلَّةُ وَالْمَسْكَنَةُ وَبَاؤُ بِغَضَبٍ مِنَ اللّٰهِ ذٰلِكَ بِاَنَّهُمْ كَانُوا يَكْفُرُونَ بِاٰيَاتِ اللّٰهِ وَيَقْتُلُونَ النَّبِيِّنَ بِغَيْرِ الْحَقِّ ذٰلِكَ بِمَا عَصَوْا وَكَانُوا يَعْتَدُون"
           }
         },
         {
@@ -797,9 +797,9 @@
           "meaningEn": "A distress a person has no power to escape. Where dhilla marks the position, maskana marks being fixed in it.",
           "verse": {
             "verseRef": "Bakara 2:61",
-            "ar": "الْمَسْكَنَةُ",
             "trTr": "Meskenet: kişinin kendi eliyle değiştiremediği çaresizlik.",
-            "trEn": "Maskana: a helplessness a person cannot change by their own hand."
+            "trEn": "Maskana: a helplessness a person cannot change by their own hand.",
+            "arabic": "الْمَسْكَنَةُ"
           }
         },
         {
@@ -812,9 +812,9 @@
           "meaningEn": "Divine displeasure. The first two describe a condition among people; this third one describes standing before God.",
           "verse": {
             "verseRef": "Bakara 2:61",
-            "ar": "وَبَاؤُ بِغَضَبٍ مِنَ اللّٰهِ",
             "trTr": "Ve Allah'tan bir gazaba uğradılar.",
-            "trEn": "And they drew upon themselves a wrath from God."
+            "trEn": "And they drew upon themselves a wrath from God.",
+            "arabic": "وَبَاؤُ بِغَضَبٍ مِنَ اللّٰهِ"
           }
         }
       ],
@@ -841,9 +841,9 @@
           "meaningEn": "The perfect tense. Coming to know a thing happens once; the question is answered by the explanation that follows.",
           "verse": {
             "verseRef": "Kadr 97:1-2",
-            "ar": "اِنَّا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ وَمَا اَدْرٰيكَ مَا لَيْلَةُ الْقَدْرِ",
             "trTr": "Biz onu Kadir gecesinde indirdik. Kadir gecesinin ne olduğunu sana bildiren nedir?",
-            "trEn": "We sent it down on the Night of Decree. And what will make you know what the Night of Decree is?"
+            "trEn": "We sent it down on the Night of Decree. And what will make you know what the Night of Decree is?",
+            "arabic": "اِنَّا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ وَمَا اَدْرٰيكَ مَا لَيْلَةُ الْقَدْرِ"
           }
         },
         {
@@ -856,9 +856,9 @@
           "meaningEn": "The imperfect tense. It occurs in three places, and in all three the question is left unanswered: the Hour (Ahzâb 33:63, Şûrâ 42:17) and whether a person will be purified (Abese 80:3).",
           "verse": {
             "verseRef": "Ahzâb 33:63",
-            "ar": "يَسْـَٔلُكَ النَّاسُ عَنِ السَّاعَةِ قُلْ اِنَّمَا عِلْمُهَا عِنْدَ اللّٰهِ وَمَا يُدْرِيكَ لَعَلَّ السَّاعَةَ تَكُونُ قَرِيباً",
             "trTr": "İnsanlar sana kıyametin saatini sorarlar. De ki: onun bilgisi ancak Allah katındadır. Sana ne bildirir? Belki de o saat yakındır.",
-            "trEn": "People ask you about the Hour. Say: knowledge of it is only with God. And what will make you know? Perhaps the Hour is near."
+            "trEn": "People ask you about the Hour. Say: knowledge of it is only with God. And what will make you know? Perhaps the Hour is near.",
+            "arabic": "يَسْـَٔلُكَ النَّاسُ عَنِ السَّاعَةِ قُلْ اِنَّمَا عِلْمُهَا عِنْدَ اللّٰهِ وَمَا يُدْرِيكَ لَعَلَّ السَّاعَةَ تَكُونُ قَرِيباً"
           }
         }
       ],
@@ -866,6 +866,109 @@
       "nuanceEn": "The difference in tense is not a stylistic preference; it marks the limit of knowledge. In the perfect the question is answered; in the imperfect it is not, because these three matters are not ones a human being can know in advance.",
       "sourceTr": "Nouman Ali Khan · Sharif Randhawa, Divine Speech (2016), 2. bölüm \"Word Choice\", s. 36-39. Çağdaş edebî bir okumadır; klasik tefsirin yerine geçmez.",
       "sourceEn": "Nouman Ali Khan · Sharif Randhawa, Divine Speech (2016), ch. 2 \"Word Choice\", pp. 36-39. A contemporary literary reading; it does not replace classical exegesis."
+    },
+    {
+      "id": "sem-basar",
+      "category": "dil",
+      "titleTr": "Sem' · Basar — İşitmek ile Görmek",
+      "titleEn": "Samʿ · Baṣar — Hearing and Seeing",
+      "introTr": "İlâhî sıfat olarak Semî' ile Basîr birlikte anıldığında işitmek neredeyse her zaman önce gelir. Kitap bunu, vahyin muhatabına okunarak ulaşmasına bağlar. Sıralama insana dair kullanımlarda ve insanların kendi sözünde ayrı işler, aşağıda üçü ayrı ayrı gösterilmiştir.",
+      "introEn": "When Samīʿ and Baṣīr are named together as divine attributes, hearing almost always comes first. The book ties this to revelation reaching its audience as recitation. The ordering behaves differently where the two are said of a human being, and again where they are words the deniers themselves speak; the three are kept apart below.",
+      "terms": [
+        {
+          "termAr": "سَمِيع",
+          "termTr": "Semî' (işiten)",
+          "termEn": "Samīʿ (hearing)",
+          "rootTr": "س-م-ع (işitmek)",
+          "rootEn": "s-m-ʿ (to hear)",
+          "meaningTr": "Vahyin ulaştığı kanal işitmedir: insanlar dinlemeye çağrılır, mü'minler \"işittik ve itaat ettik\" der, Peygamber'in getirdiği alâmet bakılacak bir şey değil okunan bir sözdür. Kitap bu yüzden işitmenin iki duyudan daha ağır bir yük taşıdığını söyler. Aşağıdaki âyet ise ilâhî sıfat değil, insana verilen iki duyudur ve orada da işitme öndedir.",
+          "meaningEn": "Hearing is the channel revelation travels: people are called to listen, the believers answer that they hear and obey, and the sign the Prophet brings is a recited word rather than something to look at. The book therefore says hearing carries the heavier load of the two. The verse below is not a divine attribute but the two senses given to the human being, and there too hearing comes first.",
+          "verse": {
+            "verseRef": "İnsân 76:2",
+            "trTr": "Onu işitir ve görür kıldık.",
+            "trEn": "We made him hearing and seeing.",
+            "arabic": "اِنَّا خَلَقْنَا الْاِنْسَانَ مِنْ نُطْفَةٍ  اَمْشَاجٍ  نَبْتَلِيهِ فَجَعَلْنَاهُ سَمِيعاً بَصِيراً"
+          }
+        },
+        {
+          "termAr": "بَصِير",
+          "termTr": "Basîr (gören)",
+          "termEn": "Baṣīr (seeing)",
+          "rootTr": "ب-ص-ر (görmek)",
+          "rootEn": "b-ṣ-r (to see)",
+          "meaningTr": "Yazarlar iki yerde ters sıralamayı bağlamla ilişkilendirir. İlâhî sıfatta tek ters örnek Kehf 18:26'dır: orada Allah'ın görmesi işitmesinden önce anılır ve yazarlar bunu mağara ehlinin bulunduğu yerle ilişkilendirir. Bu bağ pasajın başka bir yerine (Kehf 18:17) dayanan bir çıkarımdır, âyette söylenmez. İkinci ters örnek olan Secde 32:12 ise ilâhî sıfat değil, inkâr edenlerin kendi sözüdür; yazarlar onu, inanmak için görmeyi şart koşanların istedikleri delili çok geç almasıyla ilişkilendirir.",
+          "meaningEn": "The authors relate two reversals to their contexts. The only reversal among the divine attributes is Kehf 18:26, where God's seeing is named before His hearing, and the authors relate this to where the sleepers lay. That connection is an inference drawn from another part of the passage (Kehf 18:17) and is not stated in the verse. The second reversal, Secde 32:12, is not a divine attribute at all but words the deniers speak, and the authors relate it to those who demanded sight before believing receiving their proof too late.",
+          "verse": {
+            "verseRef": "Secde 32:12",
+            "trTr": "Rabbimiz, gördük ve işittik; bizi geri döndür de sâlih amel işleyelim.",
+            "trEn": "Our Lord, we have seen and heard, so return us that we may do righteousness.",
+            "arabic": "وَلَوْ تَرٰٓى اِذِ الْمُجْرِمُونَ نَاكِسُوا رُؤُسِهِمْ عِنْدَ رَبِّهِمْ رَبَّـنَا اَبْصَرْنَا وَسَمِعْنَا فَارْجِعْنَا نَعْمَلْ صَـالِحاً اِنَّا مُوقِنُونَ"
+          }
+        }
+      ],
+      "nuanceTr": "İddianın kapsamı önemli: \"neredeyse her zaman\" kaydı ilâhî sıfat çifti içindir, iki kelimenin her geçişi için değil. Hûd 11:24 insan çiftini \"kör ve sağır olanlar ile gören ve işitenler\" diye sıralar, orada görme öndedir ve kitap bunu ele almaz. İşitmenin \"daha hayatî\" olduğu ise klasik kaynakların tartışıp bağlamadığı bir sıralamadır; burada yazarların vurgusu olarak durur, bir hüküm olarak değil.",
+      "nuanceEn": "The scope of the claim matters: \"almost always\" holds for the divine attribute pair, not for every occurrence of the two words. Hûd 11:24 lists the human pair as \"the blind and deaf, and the seeing and hearing\", with sight first, and the book does not address it. Whether hearing is \"more vital\" is a ranking classical sources discuss without settling; it stands here as the authors' emphasis, not as a ruling.",
+      "sourceTr": "Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), 3. bölüm \"Word Order\", s. 52-53. Çağdaş edebî bir okumadır; klasik tefsirin yerine geçmez.",
+      "sourceEn": "Nouman Ali Khan and Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), ch. 3 \"Word Order\", pp. 52-53. A contemporary literary reading; it does not replace classical exegesis."
+    },
+    {
+      "id": "nahnu-ene-huve",
+      "category": "dil",
+      "titleTr": "Nahnu · Ene · Hüve — İlâhî Kelâmda Üç Kip",
+      "titleEn": "Naḥnu · Anā · Huwa — Three Modes of the Divine Speaker",
+      "introTr": "Kur'ân kendi konuşanını üç ayrı kiple anar: azamet çoğulu, birinci tekil ve üçüncü şahıs. Şahıs değişimi meâllere de yansır (\"yarattık\", \"Ben yakınım\", \"O'dur\"); görünmeyen şey kelimeler değil, her kipin nerede toplandığıdır. Kitap bu dağılımı tarif eder.",
+      "introEn": "The Qur'an names its own speaker in three modes: the plural of majesty, the first person singular, and the third person. The change of person does carry into translation (\"We created\", \"I am near\", \"It is He\"); what is not visible is the words themselves but where each mode gathers. The book describes that distribution.",
+      "terms": [
+        {
+          "termAr": "نَحْنُ",
+          "termTr": "Nahnu (azamet çoğulu)",
+          "termEn": "Naḥnu (plural of majesty)",
+          "rootTr": "birinci çoğul zamir (kökten türemez)",
+          "rootEn": "first person plural pronoun (not root-derived)",
+          "meaningTr": "Olağan kiptir ve yaratma, vahiy ve ceza bahislerinde toplanır; tonu azamet ve rubûbiyettir.",
+          "meaningEn": "The usual mode, gathering around creation, revelation and retribution, where the tone is grandeur and providence.",
+          "verse": {
+            "verseRef": "Tâ-Hâ 20:55",
+            "trTr": "Sizi ondan yarattık, ona döndüreceğiz ve bir kere daha ondan çıkaracağız.",
+            "trEn": "From it We created you, and into it We will return you, and from it We will bring you out another time.",
+            "arabic": "مِنْهَا خَلَقْنَاكُمْ وَفِيهَا نُعِيدُكُمْ وَمِنْهَا نُخْرِجُكُمْ تَارَةً اُخْرٰى"
+          }
+        },
+        {
+          "termAr": "أَنَا",
+          "termTr": "Ene (birinci tekil)",
+          "termEn": "Anā (first person singular)",
+          "rootTr": "birinci tekil zamir",
+          "rootEn": "first person singular pronoun",
+          "meaningTr": "En seyrek kiptir ve tevhîdin kendisinin söz konusu olduğu yerlerde, aracısız doğrudan hitapta görünür: yaratılış anlatısı, hesap sahneleri, Hz. İbrâhîm ve Hz. Mûsâ ile ahid anları. Yakınlık bildiren pasajlarda da bu kip gelir; duaya cevap âyeti bunun örneğidir.",
+          "meaningEn": "The rarest mode, appearing where oneness itself is at stake and the address is direct and unmediated: the creation account, scenes of judgment, covenant moments with Abraham and Moses. It also appears in passages of nearness, such as the answer about prayer.",
+          "verse": {
+            "verseRef": "Bakara 2:186",
+            "trTr": "Kullarım sana Beni sorduğunda, Ben yakınım; bana dua edenin duasına icabet ederim.",
+            "trEn": "When My servants ask you about Me, I am near; I answer the call of the caller when he calls upon Me.",
+            "arabic": "وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ"
+          }
+        },
+        {
+          "termAr": "هُوَ",
+          "termTr": "Hüve (üçüncü şahıs)",
+          "termEn": "Huwa (third person)",
+          "rootTr": "üçüncü tekil zamir",
+          "rootEn": "third person singular pronoun",
+          "meaningTr": "Allah'ın birliğini kendi başına duran bir hakikat olarak bildirmenin amaçlandığı yerlerde gelir; muhatap bu ifadeyi Allah hakkında konuşurken olduğu gibi kullanabilir.",
+          "meaningEn": "Used where the aim is to state God's oneness as a fact standing on its own, in wording the audience can then re-use when speaking about God.",
+          "verse": {
+            "verseRef": "Bakara 2:29",
+            "trTr": "Yeryüzünde ne varsa hepsini sizin için yaratan O'dur.",
+            "trEn": "It is He who created for you all of that which is on the earth.",
+            "arabic": "هُوَ الَّذِي خَلَقَ لَكُمْ مَا فِي الْاَرْضِ جَمِيعاً ثُمَّ اسْتَوٰٓى اِلَى السَّمَاءِ فَسَوّٰيهُنَّ سَبْعَ سَمٰوَاتٍ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ"
+          }
+        }
+      ],
+      "nuanceTr": "Bu tasnif klasik değil çağdaştır: kitap onu Neal Robinson ile M.A.S. Abdel Haleem'e dayandırır ve dipnotlarında böyle künyeler. Azamet çoğulunun kendi klasik literatürü vardır ve tek tek yerler müfessirlerce farklı açıklanır; bu yüzden burada bir kural değil bir eğilim olarak durur. Kitabın Robinson'dan aktardığı bir iddia daha vardır (Allah'ı nesne alan emirlerin daima tekil geldiği); bu, metnin bütünü hakkında olumsuz bir iddiadır ve kitap onu bir sayıma dayandırmaz, bu yüzden burada doğrulanmış gibi tekrarlanmamıştır.",
+      "nuanceEn": "The taxonomy is contemporary rather than classical: the book credits it to Neal Robinson and M.A.S. Abdel Haleem in its footnotes. The plural of majesty has its own classical literature, and individual instances are explained differently by different commentators, so it stands here as a tendency rather than a rule. The book repeats one further claim from Robinson, that commands taking God as their object are always singular; that is a negative claim about the whole text which the book does not support with a count, so it is not restated here as verified.",
+      "sourceTr": "Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), 4. bölüm \"Grammatical Shifts\", s. 59-64. Çağdaş edebî bir okumadır; klasik tefsirin yerine geçmez.",
+      "sourceEn": "Nouman Ali Khan and Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), ch. 4 \"Grammatical Shifts\", pp. 59-64. A contemporary literary reading; it does not replace classical exegesis."
     }
   ],
   "sources": [

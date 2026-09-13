@@ -900,14 +900,32 @@
       "descEn": "The Quran frequently shifts person or mode of address mid-passage — from third person to first person, or singular to plural. Classical rhetoric treats this not as inconsistency but as artistry: Badr al-Dīn al-Zarkashī defines it as 'the change of speech from one mode to another, for the sake of freshness and variety for the listener, to renew his interest, and to keep his mind from boredom and frustration, through having the one mode continuously at his ear.' Classical Arab critics classed this technique under 'shajāʿat al-ʿarabiyya' (the boldness of the Arabic language).",
       "meaningTr": "Sözü bir hitap kipinden diğerine çevirmek",
       "meaningEn": "To turn speech from one mode of address to another",
-      "citationTr": "Bedreddin ez-Zerkeşî, el-Burhân fî Ulûmi'l-Kur'ân, c.3 (Kahire, 1958), s.314-315 — M.A.S. Abdel Haleem'in 'Grammatical Shift for Rhetorical Purposes: Iltifāt and Related Features in the Qurʾān' (BSOAS 55, 1992) makalesi üzerinden aktarılmıştır.",
-      "citationEn": "Badr al-Dīn al-Zarkashī, al-Burhān fī ʿUlūm al-Qurʾān, vol. 3 (Cairo, 1958), 314-315 — quoted via M.A.S. Abdel Haleem's 'Grammatical Shift for Rhetorical Purposes: Iltifāt and Related Features in the Qurʾān' (BSOAS 55, 1992).",
+      "citationTr": "Bedreddin ez-Zerkeşî, el-Burhân fî Ulûmi'l-Kur'ân, c.3 (Kahire, 1958), s.314-315 — M.A.S. Abdel Haleem'in 'Grammatical Shift for Rhetorical Purposes: Iltifāt and Related Features in the Qurʾān' (BSOAS 55, 1992) makalesi üzerinden aktarılmıştır. Buradaki örneklerin bir kısmı Divine Speech (2016), 4. bölüm \"Grammatical Shifts\", s. 57-70 üzerinden okunmuştur.",
+      "citationEn": "Badr al-Dīn al-Zarkashī, al-Burhān fī ʿUlūm al-Qurʾān, vol. 3 (Cairo, 1958), 314-315 — quoted via M.A.S. Abdel Haleem's 'Grammatical Shift for Rhetorical Purposes: Iltifāt and Related Features in the Qurʾān' (BSOAS 55, 1992). Several of the examples here were read through Divine Speech (2016), ch. 4 \"Grammatical Shifts\", pp. 57-70.",
       "examples": [
         {
           "ar": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
           "tr": "Kur'an'ın en tanınmış iltifât örneği: Fâtiha'nın ilk dört ayeti Allah'tan üçüncü şahısla söz eder (\"Rabbi'l-âlemîn\", \"Mâliki yevmiddîn\"), beşinci ayette hitap aniden doğrudan ikinci şahsa döner — \"Ancak Sana kulluk eder, ancak Senden yardım dileriz.\"",
           "en": "The Quran's best-known example of iltifāt: al-Fātiḥa's first four verses speak of Allah in the third person (\"Lord of the worlds\", \"Master of the Day of Judgment\"), then verse five suddenly turns to direct second-person address — \"You alone we worship, You alone we ask for help.\"",
           "ref": "Fâtiha 1:2-5"
+        },
+        {
+          "ar": "هُوَ الَّذِي يُسَيِّرُكُمْ فِي الْبَرِّ وَالْبَحْرِ حَتّٰٓى اِذَا كُنْتُمْ فِي الْفُلْكِ وَجَرَيْنَ بِهِمْ بِرِيحٍ طَيِّبَةٍ وَفَرِحُوا بِهَا جَاءَتْهَا رِيحٌ عَاصِفٌ وَجَاءَهُمُ الْمَوْجُ مِنْ كُلِّ مَكَانٍ وَظَنُّوا اَنَّهُمْ اُحِيطَ بِهِمْ دَعَوُا اللّٰهَ مُخْلِصِينَ لَهُ الدِّينَ لَئِنْ اَنْجَيْتَنَا مِنْ هٰذِهِ لَنَكُونَنَّ مِنَ الشَّاكِرِينَ",
+          "ref": "Yûnus 10:22-23 · Bakara 2:57",
+          "tr": "İkinci şahıstan üçüncü şahsa geçiş. Yûnus 10:22-23'te deniz yolcuları önce \"siz\"dir; üçüncü şahsa geçiş fırtınayla değil, \"gemiler onları götürürken\" ifadesiyle, hoş bir rüzgâr eşliğinde ve yolcular sevinç içindeyken başlar ve fırtına boyunca sürer; ancak karaya çıkıp yeniden haksızlığa döndüklerinde tekrar \"ey insanlar\" diye çağrılırlar. Bakara 2:57'de de nimetler İsrâiloğullarına \"siz\" diye sayılır, azar ise onlar hakkında \"onlar\" diye söylenir. Abdel Haleem'in okuması: \"Burada üçüncü şahsa geçiş başka bir boyut ekler ve deniz yolcularını gerçekten çaresiz, uzak, yönelmek zorunda hissettikleri Rablerinden başka yardım edecek kimseden kopmuş gösterir. […] Ancak yolcular karaya çıkıp güvenlik içinde 'haksızca taşkınlık etmeye' başladıklarında yeniden onlara hitap etmeye döndü.\" Geçişin başladığı yer metinde bellidir; çaresizlik açıklaması ise Abdel Haleem'in retorik yorumudur. Bir geçiş âyet sınırını aşar.",
+          "en": "A shift from the second to the third person. In Yûnus 10:22-23 the sea travellers are first \"you\"; the shift to the third person begins not with the storm but at \"and the ships carried them\", with a good wind and the travellers rejoicing, and it continues through the storm, and are addressed again as \"O people\" only after they reach safety and return to wrongdoing. Bakara 2:57 does the same: the favours are recounted to the Israelites as \"you\", the reproach is spoken about them as \"they\". Abdel Haleem's reading: \"Here, the shift to 3rd person adds another dimension, making the sea travellers seem truly helpless, far away, cut off from anyone to aid them except the Lord they feel they have to turn to. […] He shifted to addressing them again only when the travellers had landed and began, in safety, 'to rebel wrongfully'.\" Where the shift begins is marked in the text; the account of helplessness is Abdel Haleem's rhetorical reading. One shift falls across a verse boundary."
+        },
+        {
+          "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمَاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُوتُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
+          "ref": "Bakara 2:144 · Talâk 65:1 · İsrâ 17:63",
+          "tr": "Tekilden çoğula geçiş. Bakara 2:144'te \"yüzünü Mescid-i Harâm yönüne çevir\" tekildir, hemen ardından gelen \"nerede olursanız yüzlerinizi o yöne çevirin\" çoğuldur. Talâk 65:1 Peygamber'e hitapla açılır, sonra boşanma hükümlerini çoğulla sürdürür. İsrâ 17:63'te Allah şeytana tekille hitap eder, ceza ise çoğula geçer. Mustansir Mir'in okuması: \"Peygamber, Müslüman topluluğun temsilcisi olarak muhatap alınmaktadır ve emir yalnız ona değil bütün tâbilerine de şâmildir. Sayıdaki basit bir değişim, emrin uygulama kapsamını böylece genişletir.\" Bu edebî bir gözlemdir; Peygamber'e yönelik bir hitabın ümmeti bağlayıp bağlamadığı usûl-i fıkhın kendi tartışma alanıdır ve kip değişimi o meseleyi çözmez. Değişen kip değil şahıs ve sayıdır. Türkçe bu ayrımı yansıtabilir: Bakara 2:144'te \"yüzünü çevir\" ile \"yüzlerinizi çevirin\" farkı meâlde de görülür.",
+          "en": "A shift from singular to plural. In Bakara 2:144 \"turn your face toward the Sacred Mosque\" is singular, and the clause that follows, \"wherever you are, turn your faces toward it\", is plural. Talâk 65:1 opens by addressing the Prophet and then puts the divorce rulings in the plural. In İsrâ 17:63 God addresses Satan in the singular and then makes the recompense plural. Mustansir Mir's reading: \"that the prophet is being addressed as a representative of the Muslim community and that the injunction applies not only to him but to all of his followers as well. A simple shift of number thus widens the scope of application of the injunction.\" This is a literary observation. Whether an address to the Prophet binds the community is a question with its own literature in legal theory, and a shift of number does not settle it. What changes is person and number rather than tense. English \"you\" does not mark the difference, so there the shift is visible only in the Arabic."
+        },
+        {
+          "ar": "اَلَمْ تَرَ اَنَّ اللّٰهَ اَنْزَلَ مِنَ السَّمَاءِ مَاءً فَتُصْبِـحُ الْاَرْضُ مُخْضَرَّةً اِنَّ اللّٰهَ لَطِيفٌ خَبِيرٌ",
+          "ref": "Hac 22:63 · Hac 22:65 · Bakara 2:214",
+          "tr": "Kipte geçiş: tamamlanmış kipten sürmekte olan kipe. Gramer verisi şudur: Hac 22:63'te yağmurun indirilmesi mâzi, yerin yeşermesi muzâri kiptedir; Hac 22:65'te de yeryüzünün hizmete verilmesi mâzi, gemilerin akıp gitmesi muzâridir. Bu kip farkının süreklilik anlattığı ise yazarların okumasıdır; muzâri kip tek başına \"bugün hâlâ sürüyor\" demez ve 22:65 yeryüzünün insandan önce hazırlandığını söylemez. Bakara 2:214'te önceki toplulukların çektikleri tamamlanmış kiple, elçilerinin ve yanındakilerin söyledikleri ise sürmekte olan kiple gelir; Mustansir Mir'in okumasıyla: \"Sürmekte olan kipin buradaki kullanımı geçmiş çağları bugüne bağlar.\" Bakara 2:214 için bir kayıt gerekir: oradaki fiil \"hattâ\" edatından sonra gelen mansûb bir muzâridir ve sitenin kendi meâli dahil hemen bütün çeviriler onu geçmiş zamanla verir, yani bu geçiş yalnız Arapçada görülür. Dilciler \"hattâ\" ile kurulan bu yapıyı kendi başına bir kalıp sayar; kipin burada Mir'in tarif ettiği işi görüp görmediği bir yorumdur, gramer verisi değildir.",
+          "en": "A shift of tense, from the perfect to the imperfect. The grammatical datum: in Hac 22:63 the sending of rain is perfect and the greening of the earth imperfect; in Hac 22:65 the subjecting of the earth is perfect and the sailing of the ships imperfect. That this difference conveys continuity is the authors' reading. The imperfect alone does not establish that something still goes on today, and 22:65 does not say the earth was prepared before human beings existed. In Bakara 2:214 the trials of earlier communities stand in the perfect while what their messenger and those with him say moves to the imperfect; in Mustansir Mir's reading, \"The strategic use of the imperfect links up the past ages with the present.\" Bakara 2:214 needs one caveat: the verb there follows ḥattā and is an imperfect in the subjunctive, and nearly every translation, including this site's own verse data, renders it as a past, so the shift is visible only in the Arabic. Grammarians treat ḥattā plus the subjunctive as a construction in its own right, so whether the imperfect is doing the work Mir describes is an interpretation rather than a grammatical fact."
         }
       ]
     },
@@ -1077,8 +1095,73 @@
               "descEn": "The intensified form of \"ʿajīb\" (strange) — \"most peculiar/bizarre\"."
             }
           ]
+        },
+        {
+          "id": "ticaret-eglence",
+          "titleTr": "Ticaret ve Eğlence Sırası: Cuma 62:11",
+          "titleEn": "The Order of Trade and Diversion: Cuma 62:11",
+          "introTr": "Aynı âyette iki kelime iki kez geçer ve ikinci geçişte sıra ters döner: önce \"ticaret veya eğlence\", sonra \"eğlenceden ve ticaretten\". Kitap bu tersleşmeyi, ilk cümlenin belirli bir olayı aktarması, ikinci cümlenin ise genel bir ölçü koymasıyla açıklar.",
+          "introEn": "Two words occur twice in one verse and the order reverses the second time: first \"trade or diversion\", then \"diversion and trade\". The book explains the reversal by noting that the first clause reports a particular incident while the second states a general measure.",
+          "verses": [
+            {
+              "ar": "وَاِذَا رَاَوْا تِجَارَةً اَوْ لَهْواً انْفَضُّوا اِلَيْهَا وَتَرَكُوكَ قَائِماً قُلْ مَا عِنْدَ اللّٰهِ خَيْرٌ مِنَ اللَّهْوِ وَمِنَ التِّجَارَةِ وَاللّٰهُ خَيْرُ الرَّازِقِينَ",
+              "ref": "Cuma 62:11",
+              "tr": "\"Bir ticaret veya bir eğlence gördüklerinde seni ayakta bırakıp ona koştular. De ki: Allah katında olan, eğlenceden de ticaretten de hayırlıdır. […]\"",
+              "en": "\"And when they saw a transaction or a diversion, they rushed to it and left you standing. Say: what is with God is better than diversion and than transaction. […]\""
+            }
+          ],
+          "explanationTr": "Kitabın okuması şöyle: ilk cümlede insanları çeken asıl sebep ticarettir, eğlence ikincil bir çekimdir. İkinci cümle olayı geride bırakıp genel bir ölçü koyar ve orada eğlence öne geçer, çünkü eğlenceye ilgi çoğunlukta, ticaret ise azınlıktadır. Kitabın kendi ifadesiyle: \"Bu durumda eğlencenin ticaretten önce anılması daha uygundur, çünkü bağlam küllî bir ilkeyi ifade etmeye kaymıştır.\" Âyetin indiği ortama dair anlatı (Cuma hutbesi sırasında Medine'ye ulaşan ticaret kervanı) âyetin metninde yer almaz, sebeb-i nüzûl rivayetlerinden gelir ve ayrıntıda klasik kaynaklar ayrışır. Panayırların şenlikli olduğu ve eğlencenin bu yüzden ikincil bir çekim sayıldığı da yazarların ortamı yeniden kurgulaması olup âyette söylenmez.",
+          "explanationEn": "The book reads it this way: in the first clause the actual motive is trade, and the festive side is a secondary draw. The second clause leaves the incident behind and states a general measure, and there diversion comes first, since interest in diversion is shared by most people while only a minority trades. In the book's own words: \"The mention of entertainment before trade in this case is more suitable, given that the context has shifted to the statement of a universal principle.\" The account of the setting (a trade caravan reaching Medina during the Friday sermon) is not part of the verse; it comes from reports on the occasion of revelation, and classical sources differ on the detail. That such fairs were festive, and that diversion was therefore a secondary draw, is the authors' reconstruction of the setting and is not stated in the verse."
+        },
+        {
+          "id": "kalp-kulak-muhur",
+          "titleTr": "Kalp mi Kulak mı Önce Mühürlenir: Üç Yer",
+          "titleEn": "Heart or Hearing Sealed First: Three Places",
+          "introTr": "Mühürlenmenin hem kalbi hem kulağı birlikte andığı üç yer vardır. İkisinde kalp önce gelir (Bakara 2:7, Nahl 16:108), birinde kulak (Câsiye 45:23). Kitaba göre öne alınan, o pasajın konuştuğu şeydir.",
+          "introEn": "There are three places where the sealing names both the heart and the hearing. In two the heart comes first (Bakara 2:7, Nahl 16:108), in one the hearing does (Câsiye 45:23). The book holds that what is named first tracks what the passage has been speaking about.",
+          "verses": [
+            {
+              "ar": "خَتَمَ اللّٰهُ عَلٰى قُلُوبِهِمْ وَعَلٰى سَمْعِهِمْ وَعَلٰٓى اَبْصَارِهِمْ غِشَاوَةٌ وَلَهُمْ عَذَابٌ عَظِيمٌ",
+              "ref": "Bakara 2:7",
+              "tr": "\"Allah, onların kalplerini ve kulaklarını mühürlemiştir; gözlerinde de bir perde vardır ve onlar için büyük bir azap vardır.\"",
+              "en": "\"God has set a seal upon their hearts and upon their hearing, and over their vision is a veil, and for them is a great punishment.\""
+            },
+            {
+              "ar": "اَفَرَاَيْتَ مَنِ اتَّخَذَ اِلٰهَهُ هَوٰيهُ وَاَضَلَّهُ اللّٰهُ عَلٰى عِلْمٍ وَخَتَمَ عَلٰى سَمْعِهِ وَقَلْبِهِ وَجَعَلَ عَلٰى بَصَرِهِ غِشَاوَةً  فَمَنْ يَهْدِيهِ مِنْ بَعْدِ اللّٰهِ  اَفَلَا تَذَكَّرُونَ",
+              "ref": "Câsiye 45:23",
+              "tr": "\"[…] Allah onu bir bilgi üzere saptırmış, kulağını ve kalbini mühürlemiş, gözüne de bir perde çekmiştir. […]\"",
+              "en": "\"[…] God has sent him astray despite knowledge, and has set a seal upon his hearing and his heart and put over his vision a veil. […]\""
+            }
+          ],
+          "explanationTr": "Kitabın okuması: Bakara 2:7 ile Nahl 16:108'de çevredeki pasaj insanın içini konuşur (iman, şüphe, hastalıklı kalp, küfre açılmış göğüs), orada kalp öne geçer. Câsiye 45:23'te ise on beş âyet önce, 45:8'de, kendisine âyetler okunan ve sanki işitmemiş gibi direnen bir insan anlatılır; orada kulak öne geçer. Bu bağ, sûrenin akışına dair bir okumadır ve iki âyetin hiçbirinde söylenmez. Sayı da dikkatli okunmalı: üç yer, mühürlemenin kalp ile kulağı BİRLİKTE andığı yerlerdir; En'âm 6:46 benzer bir sahne kurar ama farklı bir yapı kullanır. Kitap bu açıklamayı bir kaynağa dayandırmaz, kendi okuması olarak sunar.",
+          "explanationEn": "The book's reading: in Bakara 2:7 and Nahl 16:108 the surrounding passage speaks of what is inside a person (belief, doubt, a diseased heart, a chest opened to disbelief), and there the heart comes first. In Câsiye 45:23, fifteen verses earlier at 45:8, the sura has described someone who hears the verses recited to him and then persists as if he had not heard them, and there the hearing comes first. That connection is a reading of how the sura flows and is stated in neither verse. The count needs care too: the three places are those where the sealing names heart and hearing together; En'âm 6:46 sets a similar scene but uses a different construction. The book offers this explanation without a source, as its own."
+        },
+        {
+          "id": "cuma-dort-isim",
+          "titleTr": "Dört İsim, Dört Görev: Cuma 62:1 ile 62:2",
+          "titleEn": "Four Names, Four Tasks: Cuma 62:1 and 62:2",
+          "introTr": "Sûrenin ilk âyeti dört ilâhî isimle kapanır (Melik, Kuddûs, Azîz, Hakîm); ikinci âyet peygamberin dört görevini sayar. Kitaba göre iki liste aynı sırayla birbirine karşılık gelir.",
+          "introEn": "The sura's first verse closes with four divine names (Malik, Quddūs, ʿAzīz, Ḥakīm) and the second lists four duties of the Messenger. The book holds that the two lists correspond in the same order.",
+          "verses": [
+            {
+              "ar": "يُسَبِّـحُ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ الْمَلِكِ الْقُدُّوسِ الْعَزِيزِ الْحَكِيمِ",
+              "ref": "Cuma 62:1",
+              "tr": "\"Göklerde ve yerde ne varsa, mülkün sahibi, mukaddes, azîz, hakîm olan Allah'ı tesbih eder.\"",
+              "en": "\"Whatever is in the heavens and whatever is on the earth exalts God, the Sovereign, the Pure, the Exalted in Might, the Wise.\""
+            },
+            {
+              "ar": "هُوَ الَّذِي بَعَثَ فِي الْاُمِّيِّنَ رَسُولاً مِنْهُمْ يَتْلُوا عَلَيْهِمْ اٰيَاتِهِ وَيُزَكِّيهِمْ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ وَاِنْ كَانُوا مِنْ قَبْلُ لَفِي ضَلَالٍ مُبِينٍ",
+              "ref": "Cuma 62:2",
+              "tr": "\"Ümmîlere, içlerinden, onlara âyetlerini okuyan, onları arındıran, onlara Kitabı ve hikmeti öğreten bir elçi gönderen O'dur. […]\"",
+              "en": "\"It is He who has sent among the unlettered a Messenger from themselves, reciting to them His verses, purifying them, and teaching them the Book and wisdom. […]\""
+            }
+          ],
+          "explanationTr": "Kitabın kurduğu eşleşme: mülkün sahibi olan bir hükümdar, haber ulaştırmak istediğinde alâmetlerini taşıyan bir elçi gönderir, bu elçinin âyetleri okumasına karşılık gelir; Kuddûs, Arapçada taşıdığı arılık anlamıyla, elçinin onları arındırmasına; Azîz, itaat edilen otorite yönüyle, Kitabı öğretmesine; Hakîm ise hikmeti öğretmesine. Üçüncü eşleşme en çok yoruma dayanandır ve kitabın kendisi bu ismin \"çeviride karşılanması güç olduğu için izah gerektirdiğini\" kabul eder. Klasik tefsir bu iki âyet arasında böyle dörde dört bir eşleme genel olarak kurmaz; sayfada pasajın tutarlılığına dair bir okuma olarak durur, iki âyetin anlamı olarak değil.",
+          "explanationEn": "The correspondence the book draws: a sovereign who wants a message delivered sends a messenger bearing his signs, which answers to the Messenger reciting the verses; the Pure answers to his purifying them; the Exalted in Might, in the sense of authority that is obeyed, answers to his teaching the Book; and the Wise answers to his teaching wisdom. The third pairing rests most heavily on interpretation, and the book itself concedes that this name \"requires some explanation, because it is difficult to capture in translation\". Classical exegesis does not generally set up such a four-to-four mapping between these two verses; it stands here as a reading of the passage's coherence, not as the meaning of the two verses."
         }
-      ]
+      ],
+      "citationTr": "Kelime sırası vakaları Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (Bayyinah Institute, 2016), 3. bölüm \"Word Order\", s. 47-56'dan alınmıştır. Çağdaş edebî bir okumadır; klasik tefsirin yerine geçmez ve burada bir âyetin anlamı olarak değil, pasajın tutarlılığına dair bir okuma olarak sunulur.",
+      "citationEn": "The word-order cases are drawn from Nouman Ali Khan and Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (Bayyinah Institute, 2016), ch. 3 \"Word Order\", pp. 47-56. This is a contemporary literary reading; it does not replace classical exegesis and is offered here as a reading of the passage's coherence rather than as the meaning of a verse."
     }
   ],
   "addresseeGroups": [

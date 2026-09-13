@@ -392,7 +392,9 @@ function SetDetail({ nset, isEn, isMobile }) {
             {t.verse && (
               <div style={{ ...VERSE_BLOCK, marginTop: '12px' }}>
                 <p dir="rtl" lang="ar" style={{ ...TEXT.verseArabic, margin: '0 0 8px' }}>
-                  {t.verse.arabic}
+                  {/* Veri tarihsel olarak iki alan adı taşıdı (arabic / ar).
+                      İkisi de okunur; aksi hâlde bir set Arapçasız render olur. */}
+                  {t.verse.arabic || t.verse.ar}
                 </p>
                 <p style={{ fontSize: '0.82rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.65 }}>
                   {isEn ? t.verse.english : t.verse.turkish}

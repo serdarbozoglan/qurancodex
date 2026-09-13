@@ -255,3 +255,47 @@ Bu bölümün hakem turu ve humanizer geçişi içeriği üreten turda yapıldı
   İblîs orada fiilin failidir. Metne uyan ifade daha dar: İblîs adı vesvese,
   kaydırma, vaat, süsleme türünden bir fiilin faili değildir.
 - İ'râb listesi hatalıydı (istisna ile mansub, "yâ İblîsu" damme üzere münâdâ).
+
+## 15. Divine Speech 3. ve 4. bölüm: sekiz kalem
+
+**9 bulgu**, hepsi uygulandı. İkisi benim kendi çelişkimdi.
+
+- **Kendi örneklerimin çürüttüğü iddia.** Nahnu/Ene/Hüve setinin girişinde
+  "meâllerde üçü de Allah ya da O olarak eşitlenir" yazmıştım; aynı setteki
+  kendi çevirilerim ("yarattık", "Ben yakınım", "O'dur") ayrımı zaten
+  koruyordu. Bu setin değeri çevirinin düzleştirmesi değil, her kipin nerede
+  toplandığının görünmemesidir; giriş ona göre yeniden yazıldı.
+- **Kapsam karışıklığı.** Sem'/Basar setinde iddiayı doğru biçimde ilâhî sıfat
+  çiftiyle sınırlandırmış, ama hemen ardından "iki yerde sıra tersine döner"
+  diyerek Secde 32:12'yi (inkâr edenlerin kendi sözü) ve İnsân 76:2'yi (insana
+  verilen iki duyu) aynı sayıma katmıştım. Üçü ayrı kapsam olarak ayrıldı.
+- **Olgu düzeltmesi.** Yûnus 10:22'de üçüncü şahsa geçiş fırtınayla başlamıyor;
+  "gemiler onları götürürken" ifadesinde, hoş bir rüzgâr eşliğinde ve yolcular
+  sevinç içindeyken başlıyor. Üstelik ben "geçişin nerede başladığı okuyucunun
+  pasajı bölmesine bağlı" diye fazladan bir ihtiyat koymuşum; hakem geçiş
+  noktasının metinde belli olduğunu gösterdi.
+- **Dilbilgisi hatası.** Tekil-çoğul geçişi için "Türkçede siz iki kipi
+  ayırmadığı için fark Arapçada görülür" yazmışım. Değişen kip değil şahıs ve
+  sayıdır, ve Türkçe bu ayrımı zaten yansıtıyor: "yüzünü çevir" ile
+  "yüzlerinizi çevirin" farkı meâlde de görülüyor.
+- **Gramer ile yorumun karışması.** Hac 22:63 ve 22:65 için muzâri kipin
+  "bugün hâlâ sürüyor" anlattığını doğrudan söylemişim; muzâri tek başına bunu
+  kanıtlamaz ve 22:65 yeryüzünün insandan önce hazırlandığını demez. Gramer
+  verisi ile yazarların okuması ayrıldı.
+- **İşaretsiz kesinti.** Tam Arapça metinlerin karşısında kısmî çeviriler
+  vardı; en kötüsü Cuma 62:11'de incelenen İKİNCİ sıranın ("eğlenceden de
+  ticaretten de") çeviride hiç görünmemesiydi, yani okuyucu vakanın konusunu
+  göremiyordu. Çeviriler tamamlandı, atlanan yerler […] ile gösterildi.
+- Ayrıca: âyette "ticaret ve eğlence" değil "ticaret VEYA eğlence" var;
+  "kimsenin bulamayacağı bir yer" âyet bilgisi gibi sunulmuştu, yazarların
+  ilişkilendirmesi olarak yazıldı; "Hz." kuralı (İbrâhîm, Mûsâ).
+
+**Yan bulgular (hakem turu dışında, uygularken çıktı):**
+- `YakinAnlamliNuanslar.jsx` yalnız `verse.arabic` okuyordu ama 10 terim
+  `verse.ar` kullanıyordu; bu oturumda eklenen iki Divine Speech setinin
+  **Arapçası hiç görünmüyormuş.** Veri tek alana çekildi, bileşen ikisini
+  birden okuyacak hâle getirildi.
+- Aynı dosyada eski kuralla üretilmiş **18 Arapça dize** idempotency testini
+  geçmiyordu (§13.14); hepsi yeniden temizlendi, dosyada artık sıfır.
+- Kelime sırası deseninin mevcut iki vakası da bu kitaptan geliyordu ama
+  kitabın adı sayfada hiç yazmıyordu ("Kitaba göre" deniyordu); künye eklendi.

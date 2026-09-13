@@ -66753,5 +66753,15 @@
     "hash": "dea6795a3e3c4f13",
     "embeddedAt": "2026-09-13T22:09:19.786Z",
     "type": "furuk-aile"
+  },
+  "yakin-anlamli:sem-basar": {
+    "hash": "b592bc9bb3005d06",
+    "embeddedAt": "2026-09-13T22:51:46.187Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:nahnu-ene-huve": {
+    "hash": "8ef6f182e9d25041",
+    "embeddedAt": "2026-09-13T22:51:46.187Z",
+    "type": "nuance-set"
   }
 }
