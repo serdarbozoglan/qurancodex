@@ -1601,3 +1601,38 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .alan-detay-nav-item, .alan-detay-tool, .alan-detay-src { transition: none; }
   .alan-detay-nav-item:hover, .alan-detay-tool:hover { transform: none; }
 }
+
+/* ─── Footer marka "nefes alan" glow (2026-09-13, kullanıcı isteği) ──────────
+   Sitenin en altında QURANCODEX markası yaşıyormuş / yanıp sönüyormuş gibi
+   yavaş bir altın hâle ile nefes alır. Q-mark arkasında radial glow pulse +
+   wordmark'ta hafif text-shadow pulse (senkron). prefers-reduced-motion: kapalı. */
+.qc-brand-mark { position: relative; display: inline-flex; }
+.qc-brand-mark::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: 172px;
+  height: 172px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,165,116,0.42) 0%, rgba(212,165,116,0.14) 42%, transparent 70%);
+  filter: blur(7px);
+  z-index: 0;
+  pointer-events: none;
+  animation: qc-brand-breathe 4600ms ease-in-out infinite;
+}
+.qc-brand-mark > * { position: relative; z-index: 1; }
+@keyframes qc-brand-breathe {
+  0%, 100% { opacity: 0.32; transform: translate(-50%, -50%) scale(0.9); }
+  50%      { opacity: 0.9;  transform: translate(-50%, -50%) scale(1.1); }
+}
+.qc-wordmark { animation: qc-wordmark-breathe 4600ms ease-in-out infinite; will-change: text-shadow; }
+@keyframes qc-wordmark-breathe {
+  0%, 100% { text-shadow: 0 0 8px rgba(212,165,116,0.12); }
+  50%      { text-shadow: 0 0 20px rgba(212,165,116,0.42), 0 0 40px rgba(212,165,116,0.14); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qc-brand-mark::before { animation: none; opacity: 0.5; }
+  .qc-wordmark { animation: none; text-shadow: 0 0 12px rgba(212,165,116,0.2); }
+}

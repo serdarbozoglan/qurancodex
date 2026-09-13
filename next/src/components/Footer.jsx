@@ -29,16 +29,22 @@ export default function Footer() {
             ve tagline'ı HTML text olarak yazınca tam CSS kontrolü + dil-aware
             + okunabilir kontrast (2026-07-12 fix). */}
         <div className="flex flex-col items-center gap-4 mb-12">
-          <img
-            src="/logo-mark.png"
-            alt=""
-            aria-hidden="true"
-            width="120"
-            height="120"
-            style={{ display: 'block', width: '120px', height: '120px' }}
-          />
+          {/* "Nefes alan" glow — Q-mark arkasında yavaş pulse eden altın hâle
+              (2026-09-13). Animasyon .qc-brand-mark::before'da; prefers-reduced-
+              motion'da durur. */}
+          <span className="qc-brand-mark">
+            <img
+              src="/logo-mark.png"
+              alt=""
+              aria-hidden="true"
+              width="120"
+              height="120"
+              style={{ display: 'block', width: '120px', height: '120px' }}
+            />
+          </span>
           <div className="flex flex-col items-center gap-2">
             <h3
+              className="qc-wordmark"
               style={{
                 fontFamily: FONTS.display,
                 fontWeight: 400,
