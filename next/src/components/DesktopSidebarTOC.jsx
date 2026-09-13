@@ -2,7 +2,7 @@
 
 // ─── DesktopSidebarTOC ─────────────────────────────────────────────────────────
 // Premium desktop scroll-story navigation. Sol kenarda vertical TOC; sadece
-// ≥1280px ekranlarda gösterilir (küçük ekranlarda MobileSectionChipNav devam
+// ≥1620px ekranlarda gösterilir (küçük ekranlarda MobileSectionChipNav devam
 // eder). Hero geçince fade-in; sticky position; IntersectionObserver ile
 // aktif chapter highlight.
 //
@@ -36,7 +36,14 @@ const CHAPTERS = [
   { id: 'conclusion',          labelTr: 'Sonuç',                labelEn: 'Conclusion'              },
 ];
 
-const SHOW_BREAKPOINT = 1280; // sadece desktop wide+
+// 2026-09-12 (overlap fix) — TOC `position:fixed; left:24px` ile ~200px'lik bir
+// gutter navigasyonudur. Homepage içerik kolonu her yerde maxWidth:1080 (AltiKonu,
+// AddresseeSystem vb.) ve ortalanmış. 1280px'te sol gutter = (1280-1080)/2 = 100px;
+// nav ~224px'e kadar uzanınca içeriğin ÜSTÜNE biniyordu (kullanıcı bildirdi:
+// "İNTERAKTİF ARAÇLAR", "Sonuç", "Tefekkür" bölümleri). Nav'ın çakışmaması için
+// EN nav (~201px) + gap için content-left ≥ ~225px, yani viewport ≥ 1152 + 2*234 = 1620px olmalı. Bu eşiğin altında
+// MobileSectionChipNav devreye girer (o da 1620'ye hizalandı) — boşluk kalmaz.
+const SHOW_BREAKPOINT = 1620; // gutter'ın nav'ı içerik üstüne bindirmeden barındırabildiği en düşük genişlik
 
 export default function DesktopSidebarTOC() {
   const { language } = useLanguage();
@@ -49,7 +56,7 @@ export default function DesktopSidebarTOC() {
   // (ölçüm sonuçlanmadan önce) kullanılır.
   const navTop = useNavbarOffset(0, 62);
 
-  // Viewport check — sadece ≥1280px göster
+  // Viewport check — sadece ≥1620px göster (gutter overlap fix)
   const [isWide, setIsWide] = useState(false);
   useEffect(() => {
     const check = () => setIsWide(window.innerWidth >= SHOW_BREAKPOINT);
