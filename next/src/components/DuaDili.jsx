@@ -61,8 +61,8 @@ export default function DuaDili({ onClose }) {
     }}>
       <ToolHeader
         icon={<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8M8 6l4-4 4 4M12 22V12M16 18l-4 4-4-4"/></svg>}
-        titleTr="Dua Dili — Yakarışın Grameri"
-        titleEn="Language of Prayer — The Grammar of Supplication"
+        titleTr="Dua Dili — Yakarışın Mimarisi"
+        titleEn="Language of Prayer — The Architecture of Supplication"
         subtitleTr="10 peygamber · Fâtiha · Bakara 2:186 · Rabbenâ zinciri"
         subtitleEn="10 prophets · al-Fātiḥa · al-Baqara 2:186 · Rabbanā chain"
         language={language}
@@ -71,7 +71,7 @@ export default function DuaDili({ onClose }) {
 
       {/* Cinematic Hero */}
       <CollapsibleHero id="dua-dili" language={language}
-        labelTr="Dua Dili — Yakarışın Grameri" labelEn="Language of Prayer — The Grammar of Supplication">
+        labelTr="Dua Dili — Yakarışın Mimarisi" labelEn="Language of Prayer — The Architecture of Supplication">
       <div className="mq-box" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
@@ -120,14 +120,14 @@ export default function DuaDili({ onClose }) {
           color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
-          {tr ? "YAKARIŞIN GRAMERİ · 4 KATMAN" : "GRAMMAR OF SUPPLICATION · 4 LAYERS"}
+          {tr ? "YAKARIŞIN MİMARİSİ · 4 KATMAN" : "ARCHITECTURE OF SUPPLICATION · 4 LAYERS"}
         </p>
         <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite,
           '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em', margin: '0 0 12px',
         }}>
-          {tr ? "Dua Dili — Yakarışın Grameri" : "Language of Prayer — The Grammar of Supplication"}
+          {tr ? "Dua Dili — Yakarışın Mimarisi" : "Language of Prayer — The Architecture of Supplication"}
         </h2>
         <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,

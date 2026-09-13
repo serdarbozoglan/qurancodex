@@ -5,8 +5,8 @@ import PageHeading from '@/components/PageHeading';
 import DuaDiliRoute from './DuaDiliRoute';
 
 const PATH = '/arac/dua-dili';
-const TITLE_TR = "Dua Dili — Yakarışın Grameri";
-const TITLE_EN = "Language of Prayer — The Grammar of Supplication";
+const TITLE_TR = "Dua Dili — Yakarışın Mimarisi";
+const TITLE_EN = "Language of Prayer — The Architecture of Supplication";
 const DESC_TR = "Kur'an'da dua dili: Fâtiha'nın gramatik kalıbı, Bakara 2:186'daki \"yakınım\" vaadi ve Mü'min 40:60'taki \"icabet ederim\" emri.";
 const DESC_EN = "The language of prayer in the Quran: the grammatical template of al-Fātiḥa, the \"I am near\" promise in al-Baqara 2:186 and the \"I respond\" command in al-Muʾmin 40:60.";
 export async function generateMetadata({ params }) {
