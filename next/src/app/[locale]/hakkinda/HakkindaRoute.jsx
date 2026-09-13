@@ -58,13 +58,13 @@ const SECTIONS = [
     titleEn: 'Sources and Method',
     listTr: [
       ["Kur'ân metni & kıraat", "Hafs an Âsım kıraati (Diyanet resmî mushaf standardı). Âyet numaralandırması ve sayımı Hafs sayımına göredir."],
-      ["Meâl (çeviri)", "Kullanıcı seçebilir: Diyanet İşleri, Elmalılı Hamdi Yazır, Suat Yıldırım, Yaşar Nuri Öztürk, Süleymaniye Vakfı, Edip Yüksel. Tek meâlin kelime seçimine bağlı kalmamak için çok-meâlli yaklaşım benimsenir."],
+      ["Meâl (çeviri)", "Kullanıcı seçebilir: Diyanet İşleri, Elmalılı Hamdi Yazır, Suat Yıldırım, Yaşar Nuri Öztürk, Süleymaniye Vakfı, Edip Yüksel. Tek meâlin kelime seçimine bağlı kalmamak için çok-meâlli yaklaşım benimsenir. Meâl, âyetin anlamına yaklaşmayı kolaylaştıran bir köprüdür; her meâl bir insan yorumudur ve hiçbiri Kur'ân'ın Arapça aslının tam karşılığı değildir. Esas olan orijinal metindir."],
       ["Tefsir", "Elmalılı Hamdi Yazır (Türkçe) ve İbn Kesîr (İngilizce) esas alınır; içerik notlarında Taberî, Zemahşerî, Râzî, Kurtubî gibi klasik kaynaklara atıf yapılır."],
       ["Arapça metin", "Standart Unicode + KFGQPC hattı; her metin gösterim öncesi encoding açısından normalize edilir (font uyumu için)."],
     ],
     listEn: [
       ["Qur'anic text & reading", "Ḥafṣ ʿan ʿĀṣim reading (the Diyanet official muṣḥaf standard). Verse numbering and counts follow the Ḥafṣ count."],
-      ["Translation (meal)", "Selectable by the user: Diyanet, Elmalılı Hamdi Yazır, Suat Yıldırım, Yaşar Nuri Öztürk, Süleymaniye Vakfı, Edip Yüksel. A multi-translation approach avoids over-reliance on a single rendering's word choices."],
+      ["Translation (meal)", "Selectable by the user: Diyanet, Elmalılı Hamdi Yazır, Suat Yıldırım, Yaşar Nuri Öztürk, Süleymaniye Vakfı, Edip Yüksel. A multi-translation approach avoids over-reliance on a single rendering's word choices. A translation is a bridge that helps you approach the meaning of a verse; every translation is a human interpretation, and none is a full equivalent of the original Arabic. The original text is what is authoritative."],
       ["Tafsir", "Elmalılı Hamdi Yazır (Turkish) and Ibn Kathīr (English) are the base; content notes cite classical sources such as al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī."],
       ["Arabic text", "Standard Unicode + KFGQPC typeface; every text is normalized for encoding before display (for font compatibility)."],
     ],

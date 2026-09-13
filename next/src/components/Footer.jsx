@@ -84,6 +84,65 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* ─── Meâl notu (2026-09-12) ───
+            Kullanıcı isteği: meâller beşerî yorumdur, hiçbiri Arapça aslın tam
+            karşılığı değildir — bunu genel bir bilgilendirme olarak siteye ekle.
+            "Uyarı" değil "bilgilendirme/çerçeve" tonu: ince altın çerçeve, kitap
+            ikonu, sıcak metin. §13.24 (meâl = beşerî yorum katmanı) ile uyumlu. */}
+        <div className="mb-12">
+          <div
+            className="max-w-2xl mx-auto"
+            style={{
+              display: 'flex',
+              gap: '14px',
+              alignItems: 'flex-start',
+              padding: '18px 22px',
+              background: `linear-gradient(180deg, ${COLORS.gold}0a 0%, rgba(255,255,255,0.015) 100%)`,
+              border: `1px solid ${COLORS.gold}26`,
+              borderRadius: '14px',
+            }}
+          >
+            <svg
+              aria-hidden="true"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              style={{ flexShrink: 0, marginTop: '3px', opacity: 0.75 }}
+            >
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z" stroke={COLORS.gold} strokeWidth="1.2" strokeLinejoin="round" />
+              <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v16h5.5a2.5 2.5 0 0 1 2.5 2.5V5.5Z" stroke={COLORS.gold} strokeWidth="1.2" strokeLinejoin="round" />
+            </svg>
+            <div>
+              <div
+                style={{
+                  fontFamily: FONTS.body,
+                  fontSize: '0.68rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: `${COLORS.gold}cc`,
+                  marginBottom: '6px',
+                }}
+              >
+                {t('footer.mealNoteTitle')}
+              </div>
+              <p
+                style={{
+                  margin: 0,
+                  color: COLORS.offWhiteAlpha78,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.84rem',
+                  lineHeight: 1.7,
+                  letterSpacing: '0.01em',
+                }}
+              >
+                {t('footer.mealNote')}
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* ═══ DESTEK CALLOUT — GEÇİCİ KALDIRILDI 2026-07-12 ═══
             Kullanıcı isteği: "hemen kaldıralım ama kodu comment out yap".
             i18n footer.support.* keyleri intact — reactivate için: bu bloğu
