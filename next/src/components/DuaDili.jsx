@@ -96,6 +96,7 @@ export default function DuaDili({ onClose }) {
           color: COLORS.gold,
           lineHeight: 2.1,
           margin: '0 0 12px',
+          textAlign: 'center',
         }}>
           وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ
         </p>
