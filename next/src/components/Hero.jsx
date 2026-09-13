@@ -250,7 +250,7 @@ export default function Hero() {
         <motion.p
           dir="rtl"
           lang="ar"
-          className="mq-fs" style={{
+          className="mq-fs qc-verse-breathe-soft" style={{
             fontFamily: FONTS.quran,
             '--fs-d': 'clamp(1.6rem, 3.4vw, 2.5rem)', '--fs-m': 'clamp(1.5rem, 6.6vw, 2.1rem)',
             color: COLORS.gold,
