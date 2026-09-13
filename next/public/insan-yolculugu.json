@@ -113,8 +113,8 @@
         "sourceEn": "Sözler · Addendum to the Twenty-Sixth Word",
         "quoteTr": "O tarîkler içinde, kāsır fehmimle Kur'an'dan istifade ettiğim acz ve fakr ve şefkat ve tefekkür tarîkıdır. […] Şu tarîk […] dört hatveden ibarettir.",
         "quoteEn": "Among those paths, the one I have derived from the Qur'an with my deficient understanding is the path of impotence, poverty, compassion and reflection. […] This path […] consists of four steps.",
-        "noteTr": "Dört adımın her biri bir âyete bağlanır (Necm 53:32, Haşr 59:19, Nisâ 4:79, Kasas 28:88). Bediüzzaman acz yolunu aşka göre daha selâmetli niteler ve sunduğu yolu dört hatveli kısa bir tarik olarak açıklar; tasavvufun on letâif ve yedi nefis basamaklarından da ayırır.",
-        "noteEn": "Each of the four steps is tied to a verse (Najm 53:32, Hashr 59:19, Nisa 4:79, Qasas 28:88). He calls the path of impotence safer than the path of love and presents his own way as a short path of four steps, distinguishing it from the ten subtleties and seven levels of the Sufi orders."
+        "noteTr": "Dört adımın her biri bir âyete bağlanır (Necm 53:32, Haşr 59:19, Nisâ 4:79, Kasas 28:88). Metinde iki ayrı ifade vardır: acz, aşka göre daha eslem bir tarik sayılır; dört hatveli yol ise hem daha kısa hem daha eslem diye nitelenir. Bediüzzaman bu yolu tasavvufun on letâif ve yedi nefis basamaklarından ayırır.",
+        "noteEn": "Each of the four steps is tied to a verse (Najm 53:32, Hashr 59:19, Nisa 4:79, Qasas 28:88). The text makes two separate statements: impotence is called a safer path than love, and the four step path itself is called both shorter and safer. He distinguishes this way from the ten subtleties and seven levels of the Sufi orders."
       }
     },
     {
@@ -311,7 +311,15 @@
       "obstacleTr": "İç dünyanın 'başka' dolulukları — kin, kıyas, hased. Bunlar 'huzûr' hâlini kesintiye uğratır; ihsanın en incelikli hastalığı 'başkasıyla karşılaştırarak var olmak'tır.",
       "obstacleEn": "Other 'occupations' of the inner world — resentment, comparison, envy. These interrupt the state of presence; iḥsān's subtlest illness is 'existing by comparison with another.'",
       "nextTr": "İhsan sükûnete varır → Kalb-i Selîm.",
-      "nextEn": "Iḥsān settles into stillness → the Sound Heart."
+      "nextEn": "Iḥsān settles into stillness → the Sound Heart.",
+      "risale": {
+        "sourceTr": "Lem'alar · Yirmi Birinci Lem'a (İhlâs Risalesi), İhlâsı Kazandıran Esbab, İkinci Sebep",
+        "sourceEn": "Lem'alar · Twenty-First Flash (on Sincerity), Causes That Bring About Sincerity, Second Cause",
+        "quoteTr": "Hâlık-ı Rahîm'in hazır nâzır olduğunu düşünüp, ondan başkasının teveccühünü aramayarak; huzurunda başkalarına bakmak, meded aramak o huzurun edebine muhalif olduğunu düşünmek ile o riyadan kurtulup ihlası kazanır.",
+        "quoteEn": "By thinking that the Compassionate Creator is present and witnessing, seeking no one else's regard, and considering that to look to others or seek help from them while in His presence is contrary to the courtesy owed that presence, he is saved from ostentation and gains sincerity.",
+        "noteTr": "Bu bahis ihlâsı kazandıran sebepler arasında yer alır; Cibrîl hadisindeki ihsan tanımına şerh olarak sunulmaz ve o hadis risalede geçmez. Buradaki bağ editoryaldır ve ortak paydası şudur: görüldüğünü bilerek davranmak. Metin ayrıca bunda “çok derecat, meratib” bulunduğunu söyler.",
+        "noteEn": "The passage stands among the causes that bring about sincerity; it is not offered as a commentary on the definition of ihsan in the hadith of Gabriel, and that hadith does not appear in the treatise. The link drawn here is editorial, resting on a shared point: acting in the awareness of being seen. The text also notes that this has many degrees and levels."
+      }
     },
     {
       "id": "kalb-i-selim",
