@@ -15,10 +15,18 @@
 
 import Link from 'next/link';
 import { COLORS, FONTS, SEMANTIC, GRADIENTS } from '../tokens';
+import { TOOL_CATALOG } from '../data/toolCatalog';
+
+// 2026-09-13 — araç sayısı artık TOOL_CATALOG.length'ten DİNAMİK okunuyor
+// (eskiden elle yazılı '65' idi ve katalog değişince elle güncellemek gerekiyordu).
+// TOOL_CATALOG statik bir dizi olduğundan derleme zamanında çözülür; ek maliyet yok.
+// tefekkür/âyet sayıları hâlâ elle: kaynakları (json _index / 12MB verse-graph)
+// hero bundle'ına almak istemiyoruz; nadiren değişirler.
+const TOOL_COUNT = TOOL_CATALOG.length;
 
 // B3 (ChatGPT) "sayıya tıkla → liste": her sayı, saydığı içeriğin listesine gider.
 const STATS = [
-  { n: '65', labelTr: 'Araç', labelEn: 'Tools', href: 'arac/tum-araclar' },
+  { n: String(TOOL_COUNT), labelTr: 'Araç', labelEn: 'Tools', href: 'arac/tum-araclar' },
   { n: '53', labelTr: 'Tefekkür Yazısı', labelEn: 'Reflection Essays', href: 'tefekkur' },
   { n: '6.236', labelTr: 'Âyet', labelEn: 'Verses', href: 'graf/ayet' },
 ];

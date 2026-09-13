@@ -84,62 +84,86 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* ─── Meâl notu (2026-09-12) ───
+        {/* ─── Meâl notu (2026-09-13, görsel güçlendirme) ───
             Kullanıcı isteği: meâller beşerî yorumdur, hiçbiri Arapça aslın tam
-            karşılığı değildir — bunu genel bir bilgilendirme olarak siteye ekle.
-            "Uyarı" değil "bilgilendirme/çerçeve" tonu: ince altın çerçeve, kitap
-            ikonu, sıcak metin. §13.24 (meâl = beşerî yorum katmanı) ile uyumlu. */}
+            karşılığı değildir. "Uyarı" değil "bilgilendirme/çerçeve" tonu.
+            v2: sol hizalı bilgi satırından, ortalanmış tasarımlı bir "levha"ya
+            yükseltildi — halkalı ikon rozeti + üst süsleme + altın eyebrow +
+            başlık altı hairline. §13.24 (meâl = beşerî yorum katmanı) ile uyumlu.
+            §13.26 kontrast: offWhiteAlpha78 (gövde), gold cc (eyebrow). */}
         <div className="mb-12">
           <div
-            className="max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto text-center"
             style={{
-              display: 'flex',
-              gap: '14px',
-              alignItems: 'flex-start',
-              padding: '18px 22px',
-              background: `linear-gradient(180deg, ${COLORS.gold}0a 0%, rgba(255,255,255,0.015) 100%)`,
-              border: `1px solid ${COLORS.gold}26`,
-              borderRadius: '14px',
+              position: 'relative',
+              padding: '30px clamp(24px, 5vw, 44px) 28px',
+              background:
+                `radial-gradient(120% 100% at 50% 0%, ${COLORS.gold}12 0%, transparent 65%), linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%)`,
+              border: `1px solid ${COLORS.gold}2e`,
+              borderRadius: '18px',
+              boxShadow: `inset 0 1px 0 ${COLORS.gold}1f`,
             }}
           >
-            <svg
+            {/* Üst kenarda ince altın hairline — levhayı "sayfa" gibi ambalajlar */}
+            <span
               aria-hidden="true"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              style={{ flexShrink: 0, marginTop: '3px', opacity: 0.75 }}
+              style={{
+                position: 'absolute', top: 0, left: '18%', right: '18%', height: '1px',
+                background: `linear-gradient(90deg, transparent, ${COLORS.gold}55, transparent)`,
+              }}
+            />
+            {/* Halkalı açık-kitap ikon rozeti */}
+            <div
+              aria-hidden="true"
+              style={{
+                width: '48px', height: '48px', margin: '0 auto 16px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: '50%',
+                background: `radial-gradient(circle at 50% 35%, ${COLORS.gold}26, ${COLORS.gold}0d)`,
+                border: `1px solid ${COLORS.gold}4d`,
+                boxShadow: `0 0 22px ${COLORS.gold}1f`,
+              }}
             >
-              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z" stroke={COLORS.gold} strokeWidth="1.2" strokeLinejoin="round" />
-              <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v16h5.5a2.5 2.5 0 0 1 2.5 2.5V5.5Z" stroke={COLORS.gold} strokeWidth="1.2" strokeLinejoin="round" />
-            </svg>
-            <div>
-              <div
-                style={{
-                  fontFamily: FONTS.body,
-                  fontSize: '0.68rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: `${COLORS.gold}cc`,
-                  marginBottom: '6px',
-                }}
-              >
-                {t('footer.mealNoteTitle')}
-              </div>
-              <p
-                style={{
-                  margin: 0,
-                  color: COLORS.offWhiteAlpha78,
-                  fontFamily: FONTS.body,
-                  fontSize: '0.84rem',
-                  lineHeight: 1.7,
-                  letterSpacing: '0.01em',
-                }}
-              >
-                {t('footer.mealNote')}
-              </p>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5.5C10.5 4.2 8.3 3.6 5.5 3.6c-.6 0-1 .4-1 1v12.4c0 .6.4 1 1 1 2.8 0 5 .6 6.5 1.9 1.5-1.3 3.7-1.9 6.5-1.9.6 0 1-.4 1-1V4.6c0-.6-.4-1-1-1-2.8 0-5 .6-6.5 1.9Z" stroke={COLORS.gold} strokeWidth="1.3" strokeLinejoin="round" />
+                <path d="M12 5.5v14.3" stroke={COLORS.gold} strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
+              </svg>
             </div>
+            <div
+              style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.24em',
+                textTransform: 'uppercase',
+                color: `${COLORS.gold}d9`,
+                marginBottom: '12px',
+              }}
+            >
+              {t('footer.mealNoteTitle')}
+            </div>
+            {/* başlık altı hairline */}
+            <span
+              aria-hidden="true"
+              style={{
+                display: 'block', width: '34px', height: '2px', margin: '0 auto 16px',
+                borderRadius: '2px',
+                background: `linear-gradient(90deg, transparent, ${COLORS.gold}88, transparent)`,
+              }}
+            />
+            <p
+              style={{
+                margin: '0 auto',
+                maxWidth: '52ch',
+                color: COLORS.offWhiteAlpha78,
+                fontFamily: FONTS.body,
+                fontSize: '0.92rem',
+                lineHeight: 1.75,
+                letterSpacing: '0.01em',
+              }}
+            >
+              {t('footer.mealNote')}
+            </p>
           </div>
         </div>
 
