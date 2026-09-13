@@ -228,6 +228,16 @@ function Hero({ language, isMobile }) {
 // ── Tab definitions ──────────────────────────────────────────────────────────
 const TABS_TR = ['Motif Alanları', 'Mesel Kataloğu', 'Çift Meseller', 'Nûr & Zulumât', 'Hayvan Atlası', 'Bilgi'];
 const TABS_EN = ['Motif Domains', 'Parable Catalogue', 'Paired Parables', 'Light & Darkness', 'Animal Atlas', 'Info'];
+// Sekme ikonları (§13.19 ikon kuralı) — stroke=currentColor, aktif renge uyar.
+const TAB_SVG = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round', width: 15, height: 15, viewBox: '0 0 24 24', 'aria-hidden': true };
+const TAB_ICONS = [
+  <svg key="0" {...TAB_SVG}><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>,
+  <svg key="1" {...TAB_SVG}><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>,
+  <svg key="2" {...TAB_SVG}><circle cx="9" cy="12" r="6" /><circle cx="15" cy="12" r="6" /></svg>,
+  <svg key="3" {...TAB_SVG}><circle cx="12" cy="12" r="9" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none" /></svg>,
+  <svg key="4" {...TAB_SVG}><ellipse cx="12" cy="15.5" rx="4" ry="3" /><circle cx="6.5" cy="10" r="1.5" /><circle cx="10.5" cy="7" r="1.5" /><circle cx="14.5" cy="7.5" r="1.5" /></svg>,
+  <svg key="5" {...TAB_SVG}><circle cx="12" cy="12" r="9" /><path d="M12 16v-4M12 8h.01" /></svg>,
+];
 
 // ── Chip / pill ──────────────────────────────────────────────────────────────
 function Chip({ label, color, active, onClick, small }) {
@@ -1542,9 +1552,11 @@ export default function MeselAtlasi({ onClose, backRef }) {
                 background: 'none', border: 'none', cursor: 'pointer',
                 borderBottom: 'none', position: 'relative',
                 whiteSpace: 'nowrap', transition: 'color 0.15s',
+                display: 'flex', alignItems: 'center', gap: '8px',
               }}
             >
-              {label}
+              <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{TAB_ICONS[i]}</span>
+              <span>{label}</span>
             {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
