@@ -959,7 +959,7 @@
       "work": "Tefsîru'l-Kur'âni'l-Azîm",
       "workEn": "Tafsīr al-Qurʾān al-ʿAẓīm",
       "century": "14. yüzyıl (ölm. 1373)",
-      "insightTr": "İbn Kesîr sünnetullah'ı öncelikle 'kısâsu'l-enbiyâ' (peygamber kıssaları) ekseninde okur: Nûh, Âd, Semûd, Lût, Sebe' — her biri aynı yasanın farklı sahnedeki tekrarıdır. Onun için Kur'ân bu kavimleri sadece 'geçmiş kayıt' olarak değil, 'gelecek için işaret' olarak anlatır. 'Kayrada dolaşın, öncekilerin sonuna bakın' (Nahl 16:36) bir tarih daveti değil, bir yasa okuma metodudur.",
+      "insightTr": "İbn Kesîr sünnetullah'ı öncelikle 'kısâsu'l-enbiyâ' (peygamber kıssaları) ekseninde okur: Hz. Nûh, Âd, Semûd, Hz. Lût, Sebe' — her biri aynı yasanın farklı sahnedeki tekrarıdır. Onun için Kur'ân bu kavimleri sadece 'geçmiş kayıt' olarak değil, 'gelecek için işaret' olarak anlatır. 'Kayrada dolaşın, öncekilerin sonuna bakın' (Nahl 16:36) bir tarih daveti değil, bir yasa okuma metodudur.",
       "insightEn": "Ibn Kathīr reads sunnatullāh primarily along the axis of qiṣaṣ al-anbiyāʾ (the prophet narratives): Nūḥ, ʿĀd, Thamūd, Lūṭ, Sabaʾ — each a repetition of the same law on a different stage. For him, the Qur'an narrates these peoples not merely as 'past record' but as 'sign for the future.' 'Travel through the land and see the end of those before you' (Q 16:36) is not an invitation to history but a method for reading the law.",
       "sourceTr": "İbn Kesîr, Tefsir, Nûh sûresi; A'râf 65-102 (Âd-Semûd-Şuayb); Kısasu'l-Enbiyâ.",
       "sourceEn": "Ibn Kathīr, *Tafsīr*, Sūrat Nūḥ; Q 7:65-102 (ʿĀd, Thamūd, Shuʿayb); *Qiṣaṣ al-Anbiyāʾ*.",
@@ -982,7 +982,7 @@
   "kavimPatterns": [
     {
       "id": "nuh-kavmi",
-      "titleTr": "Nûh Kavmi",
+      "titleTr": "Hz. Nûh Kavmi",
       "titleEn": "The People of Nūḥ",
       "prophetTr": "Hz. Nûh",
       "prophetEn": "Prophet Nūḥ",
@@ -1090,7 +1090,7 @@
     },
     {
       "id": "lut-kavmi",
-      "titleTr": "Lût Kavmi",
+      "titleTr": "Hz. Lût Kavmi",
       "titleEn": "The People of Lūṭ",
       "prophetTr": "Hz. Lût",
       "prophetEn": "Prophet Lūṭ",
@@ -1126,7 +1126,7 @@
     },
     {
       "id": "medyen-kavmi",
-      "titleTr": "Medyen Kavmi (Şuayb'ın Kavmi)",
+      "titleTr": "Medyen Kavmi (Hz. Şuayb'ın Kavmi)",
       "titleEn": "The People of Madyan (Shuʿayb's People)",
       "prophetTr": "Hz. Şuayb",
       "prophetEn": "Prophet Shuʿayb",
@@ -1202,7 +1202,7 @@
       "id": "sebe-kavmi",
       "titleTr": "Sebe' Kavmi (Ma'rib Barajı)",
       "titleEn": "The People of Sabaʾ (Marib Dam)",
-      "prophetTr": "Peygambersiz — Süleyman sonrası bereket toplumu",
+      "prophetTr": "Peygambersiz — Hz. Süleyman sonrası bereket toplumu",
       "prophetEn": "Without a prophet — a post-Solomonic society of blessing",
       "durationTr": "Yaklaşık MÖ 8. yy — MS 6. yy (Ma'rib Barajı'nın yıkılışı)",
       "durationEn": "Circa 8th c. BCE – 6th c. CE (collapse of the Marib Dam)",

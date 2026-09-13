@@ -15,7 +15,7 @@
   "hero": {
     "eyebrowTr": "İBRÂHÎM MİRASI · MEKÂNIN YOLCULUĞU",
     "eyebrowEn": "ABRAHAMIC HERITAGE · JOURNEY OF PLACE",
-    "subtitleTr": "İbrahim'in yükselttiği taş, bir ümmetin ortak yönü olur — bedenin bir mekâna doğru çekilmesi, kalbin bir sınıra doğru çekilmesidir.",
+    "subtitleTr": "Hz. İbrahim'in yükselttiği taş, bir ümmetin ortak yönü olur — bedenin bir mekâna doğru çekilmesi, kalbin bir sınıra doğru çekilmesidir.",
     "subtitleEn": "The stone Abraham raised becomes a common orientation for a whole community: the body drawn toward a place is the heart drawn toward a limit."
   },
   "claims": [
@@ -69,13 +69,13 @@
     }
   ],
   "genelBakis": {
-    "introTr": "Kur'ân haccı İbrahim'in mirası üzerine kurar: Beyt önce onun elleriyle yükseltilir (Bakara 2:127), sonra 'insanlar arasında hacca çağrı yap' emri onun diline verilir (Hac 22:27). Bakara 2:196 ibadetin niyet eksenini koyar — 'lillâh' (Allah için) tamamlanacak. Bakara 2:197 zaman çerçevesini (eşhur-i ma'lûmât) ve iç disiplini (refes yok, fusûk yok, cidâl yok) çizer. Bakara 2:158 Safâ ve Merve'yi 'Allah'ın şeâirinden' olarak kaydeder; sa'y ibadetin bir hafıza yürüyüşüdür. Hac 22:32-37 kurbanın Kur'ânî amacını açıkça belirler: 'Allah'a et de kan da ulaşmaz — sizden takva ulaşır.' Bakara 2:198-203 Arefe, Meş'ar-i Harâm ve Mina'nın adlarını Kur'ânî coğrafyaya yerleştirir. Âl-i İmrân 3:97 haccı 'gücü yetenler' için farz kılar. Bu ayetlerin birleşimi Kur'ân'da haccı bir bedensel yolculuk değil, İbrahim mirasının kolektif bir yeniden yaşanması olarak tarif eder.",
+    "introTr": "Kur'ân haccı Hz. İbrahim'in mirası üzerine kurar: Beyt önce onun elleriyle yükseltilir (Bakara 2:127), sonra 'insanlar arasında hacca çağrı yap' emri onun diline verilir (Hac 22:27). Bakara 2:196 ibadetin niyet eksenini koyar — 'lillâh' (Allah için) tamamlanacak. Bakara 2:197 zaman çerçevesini (eşhur-i ma'lûmât) ve iç disiplini (refes yok, fusûk yok, cidâl yok) çizer. Bakara 2:158 Safâ ve Merve'yi 'Allah'ın şeâirinden' olarak kaydeder; sa'y ibadetin bir hafıza yürüyüşüdür. Hac 22:32-37 kurbanın Kur'ânî amacını açıkça belirler: 'Allah'a et de kan da ulaşmaz — sizden takva ulaşır.' Bakara 2:198-203 Arefe, Meş'ar-i Harâm ve Mina'nın adlarını Kur'ânî coğrafyaya yerleştirir. Âl-i İmrân 3:97 haccı 'gücü yetenler' için farz kılar. Bu ayetlerin birleşimi Kur'ân'da haccı bir bedensel yolculuk değil, Hz. İbrahim mirasının kolektif bir yeniden yaşanması olarak tarif eder.",
     "introEn": "The Qur'an builds the ḥajj upon the heritage of Abraham: the House is first raised by his hands (Baqara 2:127), then the command 'call the people to ḥajj' is placed on his tongue (Ḥajj 22:27). Baqara 2:196 sets the axis of intent: 'lillāh,' completed for Allah. Baqara 2:197 draws the temporal frame (the known months) and the inner discipline (no rafath, no fusūq, no jidāl). Baqara 2:158 records Ṣafā and Marwa as 'among Allah's shaʿāʾir'; the saʿy is a memorial walk. Ḥajj 22:32-37 states the Qur'anic aim of sacrifice plainly: 'neither their flesh nor their blood reaches Allah: what reaches Him from you is taqwā.' Baqara 2:198-203 fixes the names of ʿArafa, al-Mashʿar al-Ḥarām, and Minā within Qur'anic geography. Āl ʿImrān 3:97 makes ḥajj obligatory for those who can. Together, these verses describe ḥajj not as a bodily journey but as the collective re-living of Abraham's heritage.",
     "keyPoints": [
       {
-        "titleTr": "İbrahim mirası olarak Beyt",
+        "titleTr": "Hz. İbrahim mirası olarak Beyt",
         "titleEn": "The House as Abrahamic heritage",
-        "descTr": "Kâbe Kur'ân'da 'insanlar için konulan ilk ev' (Âl-i İmrân 3:96) olarak tanımlanır ve İbrahim ile İsmail'in ellerinde yükseltilir (Bakara 2:127). Klasik tefsir haccın kimlik ekseninin bu kuruluş anına bağlı olduğunu vurgular — hac İbrahim'in dininin hafızasını taşır.",
+        "descTr": "Kâbe Kur'ân'da 'insanlar için konulan ilk ev' (Âl-i İmrân 3:96) olarak tanımlanır ve Hz. İbrahim ile Hz. İsmail'in ellerinde yükseltilir (Bakara 2:127). Klasik tefsir haccın kimlik ekseninin bu kuruluş anına bağlı olduğunu vurgular — hac Hz. İbrahim'in dininin hafızasını taşır.",
         "descEn": "The Kaʿba is defined as 'the first house set up for mankind' (Āl ʿImrān 3:96), raised by the hands of Abraham and Ishmael (Baqara 2:127). Classical exegesis stresses that ḥajj's axis of identity is anchored to this founding moment: ḥajj carries the memory of Abraham's religion."
       },
       {
@@ -130,8 +130,8 @@
           "kaynak": "Elmalılı, Bakara 2:196 tefsiri (kök açılımı); Kurtubî aynı ayet"
         },
         {
-          "layer": "İbrahim'in ilan ettiği çağrı",
-          "descTr": "Hac 22:27 İbrahim'e 'insanlar arasında hacca çağrı yap' emrini verir. Klasik tefsir bu ayetin haccın Kur'ânî orijinini İbrahim'e bağladığını vurgular — hac ismi Kur'ân'da doğrudan İbrahim'in dilinden yankılanan bir çağrının cevabıdır.",
+          "layer": "Hz. İbrahim'in ilan ettiği çağrı",
+          "descTr": "Hac 22:27 Hz. İbrahim'e 'insanlar arasında hacca çağrı yap' emrini verir. Klasik tefsir bu ayetin haccın Kur'ânî orijinini Hz. İbrahim'e bağladığını vurgular — hac ismi Kur'ân'da doğrudan Hz. İbrahim'in dilinden yankılanan bir çağrının cevabıdır.",
           "descEn": "Ḥajj 22:27 gives Abraham the command 'proclaim to the people the ḥajj.' Classical exegesis emphasizes that this verse anchors ḥajj's Qur'anic origin in Abraham: the name 'ḥajj' in the Qur'an is the answer to a call echoing directly from Abraham's tongue.",
           "kaynak": "Râzî, Hac 22:27 tefsiri"
         },
@@ -242,7 +242,7 @@
       "anlamKatmanlari": [
         {
           "layer": "Beyt'in etrafında dönme",
-          "descTr": "Kök ṭ-w-f 'bir şeyin etrafında dönmek' anlamındadır. Bakara 2:125 İbrahim ve İsmail'e 'Beyt'imi tâifler (dönenler), âkifler (kalanlar) ve rükû-sücûd edenler için temizleyin' der; ayet tavafın Kur'ânî çerçevesini İbrahim'in görevine bağlar. Hac 22:29 haccın nüsüklerinden birini 'Beyt-i Atîk'i tavaf' olarak koyar.",
+          "descTr": "Kök ṭ-w-f 'bir şeyin etrafında dönmek' anlamındadır. Bakara 2:125 Hz. İbrahim ve Hz. İsmail'e 'Beyt'imi tâifler (dönenler), âkifler (kalanlar) ve rükû-sücûd edenler için temizleyin' der; ayet tavafın Kur'ânî çerçevesini Hz. İbrahim'in görevine bağlar. Hac 22:29 haccın nüsüklerinden birini 'Beyt-i Atîk'i tavaf' olarak koyar.",
           "descEn": "The root ṭ-w-f denotes 'to circle around a thing.' Baqara 2:125 addresses Abraham and Ishmael: 'purify My House for those who circle it (ṭāʾifīn), those who stay (ʿākifīn), and those who bow and prostrate'; the verse binds ṭawāf's Qur'anic frame to Abraham's task. Ḥajj 22:29 places 'circling the Ancient House' as one of the rites.",
           "kaynak": "Kurtubî, Bakara 2:125 tefsiri (tâifler ifadesinin açılımı); Râzî, Hac 22:29"
         },
@@ -284,8 +284,8 @@
           "kaynak": "Kurtubî, Bakara 2:158 tefsiri; Râzî aynı ayet"
         },
         {
-          "layer": "Hâcer'in hafızası",
-          "descTr": "Klasik tefsir sa'y'ın Kur'ânî orijinini İbrahim'in eşi Hâcer'in oğlu İsmail için su ararken Safâ ile Merve arasında koşmasına bağlar. Bu hafıza doğrudan Kur'ân'da tafsil edilmez; rivayet İbrahim kıssasının kültürel arka planını taşır. Sa'y bu bakımdan 'bir peygamber anasının umudunun tekrarlanması'dır — ibadetin sosyal hafızası kadın figürüne dayanır.",
+          "layer": "Hz. Hâcer'in hafızası",
+          "descTr": "Klasik tefsir sa'y'ın Kur'ânî orijinini Hz. İbrahim'in eşi Hz. Hâcer'in oğlu Hz. İsmail için su ararken Safâ ile Merve arasında koşmasına bağlar. Bu hafıza doğrudan Kur'ân'da tafsil edilmez; rivayet Hz. İbrahim kıssasının kültürel arka planını taşır. Sa'y bu bakımdan 'bir peygamber anasının umudunun tekrarlanması'dır — ibadetin sosyal hafızası kadın figürüne dayanır.",
           "descEn": "Classical exegesis anchors the Qur'anic origin of the saʿy to Hagar's running between Ṣafā and Marwa in search of water for her son Ishmael. The memory is not detailed in the Qur'an itself; it carries the cultural background of Abraham's narrative. Saʿy, in this sense, is 'the repetition of a prophet-mother's hope': the worship's social memory rests on a woman's figure.",
           "kaynak": "Kurtubî, Bakara 2:158 tefsiri (Hâcer rivayeti); Elmalılı aynı ayet"
         }
@@ -320,7 +320,7 @@
         },
         {
           "layer": "Kök: bilme, tanışma",
-          "descTr": "Kök ʿ-r-f 'bilmek, tanımak' anlamındadır. Klasik lugatta Arefe adının bu köke bağlanmasının iki tefsiri vardır: (1) İbrahim'in Cibril'den nüsükleri 'bilerek öğrendiği' yer; (2) Âdem ile Havvâ'nın birbirini yeniden 'tanıdığı' yer. Her iki okuma da tefsir geleneğinde rivayet düzeyindedir; kesin dil-tarihsel kanıt zayıftır ancak semantik yankı (arefe ↔ bilme, tanıma) Kur'ânî bilgelik yerinin adıyla uyum gösterir.",
+          "descTr": "Kök ʿ-r-f 'bilmek, tanımak' anlamındadır. Klasik lugatta Arefe adının bu köke bağlanmasının iki tefsiri vardır: (1) Hz. İbrahim'in Cibril'den nüsükleri 'bilerek öğrendiği' yer; (2) Hz. Âdem ile Hz. Havvâ'nın birbirini yeniden 'tanıdığı' yer. Her iki okuma da tefsir geleneğinde rivayet düzeyindedir; kesin dil-tarihsel kanıt zayıftır ancak semantik yankı (arefe ↔ bilme, tanıma) Kur'ânî bilgelik yerinin adıyla uyum gösterir.",
           "descEn": "The root ʿ-r-f denotes 'to know, to recognize.' Classical lexicography offers two derivations for the name ʿArafa: (1) the place where Abraham 'came to know' the rites from Gabriel; (2) the place where Adam and Eve 'recognized' each other again. Both readings remain at the level of narration in the exegetical tradition; strict linguistic-historical evidence is thin, yet the semantic echo (ʿarafa ↔ knowing, recognizing) coheres with the naming of the Qur'anic place of wisdom.",
           "kaynak": "Kurtubî, Bakara 2:198 tefsiri (isim rivayetleri); Elmalılı aynı ayet"
         }
@@ -612,28 +612,28 @@
         "ar": "اِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعٓائِرِ اللّٰهِ فَمَنْ حَجَّ الْبَيْتَ اَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ اَنْ يَطَّوَّفَ بِهِمَا وَمَنْ تَطَوَّعَ خَيْراً فَاِنَّ اللّٰهَ شَاكِرٌ عَلِيمٌ",
         "tr": "Şüphesiz Safâ ile Merve Allah'ın (dininin) işaretlerindendir (şeâirullah). Kim Beyt'i hac veya umre ederse bu ikisi arasında dönmesinde (yattavvefe) bir günah yoktur. Kim gönülden bir hayır işlerse şüphesiz Allah şükrün karşılığını verendir, hakkıyla bilendir.",
         "en": "Indeed, Ṣafā and Marwa are among the signs of Allah (shaʿāʾir). So whoever makes ḥajj or ʿumra to the House — there is no blame upon him for going between them. And whoever volunteers good — Allah is Grateful, Knowing.",
-        "not": "Sa'y ibadetinin Kur'ânî temel ayeti. Safâ ve Merve iki tepe olarak Kur'ân'da 'Allah'ın şeâirinden' olarak isimlendirilir; şeâir kelimesinin ilk tefsir ekseni burada belirlenir. Klasik tefsir 'bir günah yoktur' ifadesinin nüzul sebebine değinir: bir kısım sahabî iki tepe arasındaki dönmede — cahiliyye bağlamı nedeniyle — bir çekince taşımaktaydı; ayet bunu ortadan kaldırdı ve sa'y Kur'ânî bir nüsük olarak sabitlendi. Kurtubî sa'yın Hâcer'in İsmail için su ararken bu iki tepe arasında koştuğunun hafızasını taşıdığını, ayetin ise nüsükün Kur'ânî çerçevesini kurduğunu vurgular. Elmalılı 'sa'y bir peygamber anasının umudunun tekrarıdır' der."
+        "not": "Sa'y ibadetinin Kur'ânî temel ayeti. Safâ ve Merve iki tepe olarak Kur'ân'da 'Allah'ın şeâirinden' olarak isimlendirilir; şeâir kelimesinin ilk tefsir ekseni burada belirlenir. Klasik tefsir 'bir günah yoktur' ifadesinin nüzul sebebine değinir: bir kısım sahabî iki tepe arasındaki dönmede — cahiliyye bağlamı nedeniyle — bir çekince taşımaktaydı; ayet bunu ortadan kaldırdı ve sa'y Kur'ânî bir nüsük olarak sabitlendi. Kurtubî sa'yın Hz. Hâcer'in Hz. İsmail için su ararken bu iki tepe arasında koştuğunun hafızasını taşıdığını, ayetin ise nüsükün Kur'ânî çerçevesini kurduğunu vurgular. Elmalılı 'sa'y bir peygamber anasının umudunun tekrarıdır' der."
       },
       {
         "ref": "Bakara 2:125",
         "ar": "وَاِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِلنَّاسِ وَاَمْناً وَاتَّخِذُوا مِنْ مَقَامِ اِبْرٰهِيمَ مُصَلًّى  وَعَهِدْنٓا اِلٰٓى اِبْرٰهِيمَ وَاِسْمٰعِيلَ اَنْ طَهِّرَا بَيْتِيَ لِلطّٓائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",
         "tr": "Hani Beyt'i insanlar için toplanma yeri ve emniyet mahalli kılmıştık. Siz de İbrahim'in makamından bir namaz yeri edinin. İbrahim ile İsmail'e 'Tavaf edenler (tâifîn), itikâfa girenler (âkifîn) ve rükû-sücûd edenler için evimi temizleyin' diye ahd etmiştik.",
         "en": "And when We made the House a place of gathering for people and (a place of) security; and take the standing-place of Abraham as a place of prayer. And We covenanted with Abraham and Ishmael: 'Purify My House for those who circle it, those who stay in retreat, and those who bow and prostrate.'",
-        "not": "Kâbe'nin Kur'ânî tanımının ilk ayeti. Üç Kur'ânî unsur: (1) Beyt insanlar için 'toplanma yeri (mesâbe) ve emniyet mahalli (emn)' olarak konulur — hac boyunca bir milyondan fazla insanın barındığı Beyt'in kültürel/hukukî statüsü ayette yerleşiktir; (2) 'İbrahim'in makamı' bir namaz yeri olarak koyulur — Kur'ânî bir mekân-taşı; (3) tavaf, itikâf ve namaz üç bâbı Beyt'in temiz tutulması emrinde toplanır. Râzî 'temiz tutulması' emrinin fiziksel temizliği ve şirkten arınmayı birlikte kapsadığını, İbrahim'in görevinin ikinci boyutunun Kâbe'yi 'putlardan arındırma' misyonu olduğunu vurgular."
+        "not": "Kâbe'nin Kur'ânî tanımının ilk ayeti. Üç Kur'ânî unsur: (1) Beyt insanlar için 'toplanma yeri (mesâbe) ve emniyet mahalli (emn)' olarak konulur — hac boyunca bir milyondan fazla insanın barındığı Beyt'in kültürel/hukukî statüsü ayette yerleşiktir; (2) 'İbrahim'in makamı' bir namaz yeri olarak koyulur — Kur'ânî bir mekân-taşı; (3) tavaf, itikâf ve namaz üç bâbı Beyt'in temiz tutulması emrinde toplanır. Râzî 'temiz tutulması' emrinin fiziksel temizliği ve şirkten arınmayı birlikte kapsadığını, Hz. İbrahim'in görevinin ikinci boyutunun Kâbe'yi 'putlardan arındırma' misyonu olduğunu vurgular."
       },
       {
         "ref": "Bakara 2:127",
         "ar": "وَاِذْ يَرْفَعُ اِبْرٰهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَاِسْمٰعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ",
         "tr": "Hani İbrahim ile İsmail Beyt'in temellerini yükseltiyor (ve şöyle diyorlardı): 'Rabbimiz, bizden kabul buyur. Şüphesiz sen Semî' (her şeyi işiten) ve Alîm (her şeyi bilen)sin.'",
         "en": "And when Abraham and Ishmael were raising the foundations of the House (they said): 'Our Lord, accept from us. Indeed, You are the Hearing, the Knowing.'",
-        "not": "Kâbe'nin İbrahimî kuruluş anı. Ayet iki peygamberin — baba ve oğul — birlikte Beyt'in temellerini yükseltişini betimler ve bir duayı çerçeveye alır: 'kabul buyur, bizden.' Klasik tefsir bu duanın ibadetin Kur'ânî iç ruhunu özetlediğini vurgular: iş bittiğinde 'yaptık' değil 'kabul et' denir. Râzî 'temellerin yükseltilmesi' ifadesinin İbrahim'den önce bir zemin temelinin bulunduğunu (Âdem dönemine bağlanan rivayet) ima ettiğini, İbrahim'in Beyt'i 'yeniden inşa' değil 'yükseltme' işini yaptığını klasik tefsirin belirlediğini gösterir. Bu tefsir tarihsel iddia olarak zayıf ancak semantik olarak ayetin fiiline (yerfaʿu — yükseltiyorlar) uygundur."
+        "not": "Kâbe'nin İbrahimî kuruluş anı. Ayet iki peygamberin — baba ve oğul — birlikte Beyt'in temellerini yükseltişini betimler ve bir duayı çerçeveye alır: 'kabul buyur, bizden.' Klasik tefsir bu duanın ibadetin Kur'ânî iç ruhunu özetlediğini vurgular: iş bittiğinde 'yaptık' değil 'kabul et' denir. Râzî 'temellerin yükseltilmesi' ifadesinin Hz. İbrahim'den önce bir zemin temelinin bulunduğunu (Hz. Âdem dönemine bağlanan rivayet) ima ettiğini, Hz. İbrahim'in Beyt'i 'yeniden inşa' değil 'yükseltme' işini yaptığını klasik tefsirin belirlediğini gösterir. Bu tefsir tarihsel iddia olarak zayıf ancak semantik olarak ayetin fiiline (yerfaʿu — yükseltiyorlar) uygundur."
       },
       {
         "ref": "Bakara 2:128",
         "ar": "رَبَّنَا وَاجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِنْ ذُرِّيَّتِنٓا اُمَّةً مُسْلِمَةً لَكَ وَاَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَا اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ",
         "tr": "'Rabbimiz, bizi sana teslim olanlardan (müslim) kıl; soyumuzdan da sana teslim olan bir ümmet çıkar. Bize menâsikimizi göster (erinâ menâsikenâ); bize tevbe nasip et. Şüphesiz sen Tevvâb ve Rahîm'sin.'",
         "en": "'Our Lord, make us submitters (muslim) to You, and from our descendants a community submitting to You; and show us our rites (arinā manāsikanā); and accept our repentance. Indeed, You are the Accepting of repentance, the Merciful.'",
-        "not": "Ayet 'menâsik' kelimesinin Kur'ân'daki ilk kullanımını taşır. İbrahim ve İsmail Beyt'i yükseltirken 'bize menâsikimizi göster' derler; klasik tefsir bu ifadenin haccın nüsüklerinin (tavaf, sa'y, vakfe, kurban) tanınmasının Kur'ânî orijininin İbrahim'in bu duasında olduğunu belirtir. Râzî bu dua ile Hac 22:27'nin 'insanlar arasında hacca çağrı yap' emrini birlikte okur — birinde nüsükün adı öğrenilir, diğerinde nüsüke çağrı ilan edilir."
+        "not": "Ayet 'menâsik' kelimesinin Kur'ân'daki ilk kullanımını taşır. Hz. İbrahim ve Hz. İsmail Beyt'i yükseltirken 'bize menâsikimizi göster' derler; klasik tefsir bu ifadenin haccın nüsüklerinin (tavaf, sa'y, vakfe, kurban) tanınmasının Kur'ânî orijininin Hz. İbrahim'in bu duasında olduğunu belirtir. Râzî bu dua ile Hac 22:27'nin 'insanlar arasında hacca çağrı yap' emrini birlikte okur — birinde nüsükün adı öğrenilir, diğerinde nüsüke çağrı ilan edilir."
       },
       {
         "ref": "Âl-i İmrân 3:96",
@@ -647,14 +647,14 @@
         "ar": "فِيهِ اٰيَاتٌ بَيِّنَاتٌ مَقَامُ اِبْرٰهِيمَ وَمَنْ دَخَلَهُ  كَانَ اٰمِناً وَلِلّٰهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ اِلَيْهِ سَبِيلاً وَمَنْ كَفَرَ فَاِنَّ اللّٰهَ غَنِيٌّ عَنِ الْعَالَمِينَ",
         "tr": "Orada apaçık işaretler ve İbrahim'in makamı vardır. Kim oraya girerse güvende olur. Yol bulabilenin (menistetâa ileyhi sebîlâ) Beyt'i haccetmesi Allah'ın insanlar üzerindeki hakkıdır. Kim inkâr ederse şüphesiz Allah âlemlere muhtaç değildir.",
         "en": "In it are clear signs and the standing-place of Abraham. Whoever enters it is safe. And ḥajj to the House is a right of Allah upon the people — for whoever is able to find a way. Whoever disbelieves, Allah is independent of the worlds.",
-        "not": "Haccın farziyet ayeti. Ayet dört unsuru toplar: (1) 'apaçık işaretler' — Beyt bölgesindeki Kur'ânî delalet noktaları (Zemzem, İbrahim'in makamı, tavaf çizgisi); (2) 'İbrahim'in makamı' — 2:125'in tekrarı; (3) 'kim girerse güvende olur' — Kâbe bölgesinin dokunulmazlığı (haram); (4) haccın 'yol bulabilene' farz olması. Klasik dört mezhep haccın farz-ı ayn olması ve gücü yetene ömürde bir kez farz olmasını bu ayetten istinbat eder. Kurtubî 'menistetâa ileyhi sebîlâ' (yol bulabilene) kaydının bedensel, mâlî ve yol güvenliği şartlarını kapsadığını klasik ittifak olarak nakleder. Râzî ayetin sonundaki 'kim inkâr ederse' ifadesinin 'kim haccın farz olduğunu inkâr ederse' değil, 'kim haccı terk ederse' anlamı taşıdığını belirtir — farzı ihmal etme küfür yakınlığında sunulur."
+        "not": "Haccın farziyet ayeti. Ayet dört unsuru toplar: (1) 'apaçık işaretler' — Beyt bölgesindeki Kur'ânî delalet noktaları (Zemzem, Hz. İbrahim'in makamı, tavaf çizgisi); (2) 'İbrahim'in makamı' — 2:125'in tekrarı; (3) 'kim girerse güvende olur' — Kâbe bölgesinin dokunulmazlığı (haram); (4) haccın 'yol bulabilene' farz olması. Klasik dört mezhep haccın farz-ı ayn olması ve gücü yetene ömürde bir kez farz olmasını bu ayetten istinbat eder. Kurtubî 'menistetâa ileyhi sebîlâ' (yol bulabilene) kaydının bedensel, mâlî ve yol güvenliği şartlarını kapsadığını klasik ittifak olarak nakleder. Râzî ayetin sonundaki 'kim inkâr ederse' ifadesinin 'kim haccın farz olduğunu inkâr ederse' değil, 'kim haccı terk ederse' anlamı taşıdığını belirtir — farzı ihmal etme küfür yakınlığında sunulur."
       },
       {
         "ref": "Hac 22:26",
         "ar": "وَاِذْ بَوَّأْنَا لِاِبْرٰهِيمَ مَكَانَ الْبَيْتِ اَنْ لَا تُشْرِكْ بِي شَيْـٔاً وَطَهِّرْ بَيْتِيَ لِلطّٓائِفِينَ وَالْقٓائِمِينَ وَالرُّكَّعِ السُّجُودِ",
         "tr": "Hani biz İbrahim'e Beyt'in yerini hazırlamış (ve şöyle demiştik): 'Bana hiçbir şeyi ortak koşma; Beyt'imi tavaf edenler, kıyamda duranlar, rükû ve sücûd edenler için temizle.'",
         "en": "And (mention) when We showed Abraham the place of the House (saying): 'Do not associate anything with Me; and purify My House for those who circle, those who stand, and those who bow and prostrate.'",
-        "not": "Kâbe'nin İbrahim'e Kur'ânî 'tanıtılış' ayeti. 'Bevveenâ' (yeri hazırladık) ifadesi klasik tefsirde iki okumaya sahiptir: (1) İbrahim'e Beyt'in yerini Cebrail göstermiştir; (2) sel ile örtülmüş eski Beyt kalıntıları İbrahim'e keşfettirilmiştir. İkinci rivayet zayıf, birincisi klasik tefsirin ittifakı. Râzî 'Bana hiçbir şeyi ortak koşma' emrinin haccın Kur'ânî esasının tevhid olduğunu ve nüsükün üç kategorisi (tavaf, kıyam, rükû-sücûd) burada zikredildiğini vurgular."
+        "not": "Kâbe'nin Hz. İbrahim'e Kur'ânî 'tanıtılış' ayeti. 'Bevveenâ' (yeri hazırladık) ifadesi klasik tefsirde iki okumaya sahiptir: (1) Hz. İbrahim'e Beyt'in yerini Cebrail göstermiştir; (2) sel ile örtülmüş eski Beyt kalıntıları Hz. İbrahim'e keşfettirilmiştir. İkinci rivayet zayıf, birincisi klasik tefsirin ittifakı. Râzî 'Bana hiçbir şeyi ortak koşma' emrinin haccın Kur'ânî esasının tevhid olduğunu ve nüsükün üç kategorisi (tavaf, kıyam, rükû-sücûd) burada zikredildiğini vurgular."
       },
       {
         "ref": "Hac 22:27",
@@ -716,12 +716,12 @@
     "rituelBaglam": [
       {
         "ref": "Hac 22:27",
-        "sceneTr": "Klasik tefsir haccın Kur'ânî orijinini iki sahneye bağlar. Birincisi Bakara 2:127: İbrahim ve İsmail Beyt'in temellerini yükseltir. İkincisi Hac 22:27: İbrahim'e 'insanlar arasında hacca çağrı yap' emri verilir. Râzî bu iki ayetin birlikte okunmasının haccın Kur'ânî iki katmanını gösterdiğini belirtir: (1) mekânın kuruluşu — taş yükseltilir; (2) çağrının yayılışı — ses yükseltilir. Klasik rivayet İbrahim'in bir tepeye çıkıp bu çağrıyı yaptığını nakleder; rivayet Kur'ân'da tafsil edilmez, ancak ayetin emri açıktır: hac ismen insanlara ilan edilir.",
+        "sceneTr": "Klasik tefsir haccın Kur'ânî orijinini iki sahneye bağlar. Birincisi Bakara 2:127: Hz. İbrahim ve Hz. İsmail Beyt'in temellerini yükseltir. İkincisi Hac 22:27: Hz. İbrahim'e 'insanlar arasında hacca çağrı yap' emri verilir. Râzî bu iki ayetin birlikte okunmasının haccın Kur'ânî iki katmanını gösterdiğini belirtir: (1) mekânın kuruluşu — taş yükseltilir; (2) çağrının yayılışı — ses yükseltilir. Klasik rivayet Hz. İbrahim'in bir tepeye çıkıp bu çağrıyı yaptığını nakleder; rivayet Kur'ân'da tafsil edilmez, ancak ayetin emri açıktır: hac ismen insanlara ilan edilir.",
         "sceneEn": "Classical exegesis anchors the Qur'anic origin of ḥajj to two scenes. The first is Baqara 2:127: Abraham and Ishmael raise the foundations of the House. The second is Ḥajj 22:27: Abraham is commanded to 'proclaim the ḥajj among the people.' Rāzī notes that reading these two verses together reveals the two Qur'anic layers of ḥajj: (1) the founding of the place: a stone is raised; (2) the spreading of the call: a voice is raised. Classical narration relates that Abraham climbed a hill and made this proclamation; the narration is not detailed in the Qur'an, but the verse's command is clear: ḥajj is proclaimed to the people by name."
       },
       {
         "ref": "Bakara 2:125 / Bakara 2:127",
-        "sceneTr": "Kâbe'nin Kur'ânî inşa hafızası iki ayette dokunur. Bakara 2:125 Beyt'i 'insanlar için toplanma yeri ve emniyet mahalli' olarak koyar ve tavaf, itikâf, namaz olan üç kullanım kategorisini İbrahim'in görevine bağlar. Bakara 2:127 ise inşa anını gösterir: 'temelleri yükseltiyor' ve 'kabul buyur' duası. Klasik tefsir Beyt'in Kur'ânî sunumunun tarihsel bir yapı tanıtımı değil, bir 'ibadet ekseninin insana açılışı' olduğunu vurgular. Ayet inşa fiiliyle biterken duayla açılır — ibadet baştan sona bir kabul isteme hâlidir.",
+        "sceneTr": "Kâbe'nin Kur'ânî inşa hafızası iki ayette dokunur. Bakara 2:125 Beyt'i 'insanlar için toplanma yeri ve emniyet mahalli' olarak koyar ve tavaf, itikâf, namaz olan üç kullanım kategorisini Hz. İbrahim'in görevine bağlar. Bakara 2:127 ise inşa anını gösterir: 'temelleri yükseltiyor' ve 'kabul buyur' duası. Klasik tefsir Beyt'in Kur'ânî sunumunun tarihsel bir yapı tanıtımı değil, bir 'ibadet ekseninin insana açılışı' olduğunu vurgular. Ayet inşa fiiliyle biterken duayla açılır — ibadet baştan sona bir kabul isteme hâlidir.",
         "sceneEn": "The Qur'anic memory of the Kaʿba's construction is touched in two verses. Baqara 2:125 sets the House as 'a place of gathering and of safety for mankind' and binds three categories of use: ṭawāf, iʿtikāf, and prayer: to Abraham's task. Baqara 2:127 then shows the moment of building: 'raising the foundations' and the prayer 'accept from us.' Classical exegesis stresses that the Qur'anic presentation of the House is not the introduction of a historical structure but 'the opening of an axis of worship to man.' The verse ends with the act of building yet opens with a prayer: worship is, from beginning to end, a state of asking to be accepted."
       }
     ]
@@ -858,7 +858,7 @@
         {
           "label": "Mikat yerleri",
           "value": "Beş mikat noktası",
-          "note": "İhrâmın giyileceği coğrafî sınırlar (Zülhuleyfe, Cuhfe, Karn, Yelemlem, Zât-ı Irk) Kur'ân'da isimle geçmez; Peygamber s.a.v. dört mikat noktasını (Zülhuleyfe, Cuhfe, Yelemlem, Karn) tayin etti; Zât-i Irk Doğu ehli için Ömer b. Hattâb'ın ictihadıyla eklenmiştir (Buhârî, Menâsik). Kur'ân ihram halini, sünnet mikat yerini tafsil eder."
+          "note": "İhrâmın giyileceği coğrafî sınırlar (Zülhuleyfe, Cuhfe, Karn, Yelemlem, Zât-ı Irk) Kur'ân'da isimle geçmez; Peygamber s.a.v. dört mikat noktasını (Zülhuleyfe, Cuhfe, Yelemlem, Karn) tayin etti; Zât-i Irk Doğu ehli için Hz. Ömer b. Hattâb'ın ictihadıyla eklenmiştir (Buhârî, Menâsik). Kur'ân ihram halini, sünnet mikat yerini tafsil eder."
         },
         {
           "label": "İhrâm türleri",
@@ -883,7 +883,7 @@
         {
           "label": "Remy — cemre taşları",
           "value": "Sünnet-i mütevâtire",
-          "note": "Mina'daki üç cemreye taş atma nüsükü Kur'ân'da doğrudan isimle geçmez; Peygamber s.a.v. dört mikat noktasını (Zülhuleyfe, Cuhfe, Yelemlem, Karn) tayin etti; Zât-i Irk Doğu ehli için Ömer b. Hattâb'ın ictihadıyla eklenmiştir (Buhârî, Menâsik). Kur'ânî 'sayılı günler' (2:203) çerçevesi bu nüsük için zamansal arka planı verir."
+          "note": "Mina'daki üç cemreye taş atma nüsükü Kur'ân'da doğrudan isimle geçmez; Peygamber s.a.v. dört mikat noktasını (Zülhuleyfe, Cuhfe, Yelemlem, Karn) tayin etti; Zât-i Irk Doğu ehli için Hz. Ömer b. Hattâb'ın ictihadıyla eklenmiştir (Buhârî, Menâsik). Kur'ânî 'sayılı günler' (2:203) çerçevesi bu nüsük için zamansal arka planı verir."
         }
       ]
     },
@@ -891,27 +891,27 @@
   },
   "peygamberVaryasyonlari": [
     {
-      "prophet": "İbrahim",
+      "prophet": "Hz. İbrahim",
       "ref": "Bakara 2:125-129 / Hac 22:26-27",
-      "sceneTr": "Haccın Kur'ânî orijini tümüyle İbrahim'e bağlıdır. İki ana sahne: (1) Bakara 2:125-127'de İbrahim ve oğlu İsmail Beyt'in temellerini yükseltir; 'Rabbimiz bizden kabul buyur' der ve 'menâsikimizi bize göster' duasıyla haccın nüsüklerinin isim olarak Kur'ân'a girişini sağlar. (2) Hac 22:26-27'de İbrahim'e Beyt'in yeri hazırlanır ve 'insanlar arasında hacca çağrı yap' emri verilir. Klasik tefsir bu iki sahnenin haccın Kur'ânî mimarisinin iki taşıyıcısı olduğunu vurgular: taş (Beyt) ve ses (çağrı). Elmalılı 'hac İbrahim'in Kur'ân'da uzatılan kolu, hac aylarında Beyt İbrahim'in namazgâhıdır' der.",
+      "sceneTr": "Haccın Kur'ânî orijini tümüyle Hz. İbrahim'e bağlıdır. İki ana sahne: (1) Bakara 2:125-127'de Hz. İbrahim ve oğlu Hz. İsmail Beyt'in temellerini yükseltir; 'Rabbimiz bizden kabul buyur' der ve 'menâsikimizi bize göster' duasıyla haccın nüsüklerinin isim olarak Kur'ân'a girişini sağlar. (2) Hac 22:26-27'de Hz. İbrahim'e Beyt'in yeri hazırlanır ve 'insanlar arasında hacca çağrı yap' emri verilir. Klasik tefsir bu iki sahnenin haccın Kur'ânî mimarisinin iki taşıyıcısı olduğunu vurgular: taş (Beyt) ve ses (çağrı). Elmalılı 'hac İbrahim'in Kur'ân'da uzatılan kolu, hac aylarında Beyt İbrahim'in namazgâhıdır' der.",
       "sceneEn": "The Qur'anic origin of ḥajj is bound entirely to Abraham. Two main scenes: (1) In Baqara 2:125-127 Abraham and his son Ishmael raise the foundations of the House; they say 'our Lord, accept from us' and, with the prayer 'show us our rites (manāsik),' bring the rites of ḥajj into the Qur'an by name. (2) In Ḥajj 22:26-27 the site of the House is prepared for Abraham and he is commanded to 'proclaim the ḥajj among the people.' Classical exegesis stresses that these two scenes are the two pillars of ḥajj's Qur'anic architecture: the stone (the House) and the voice (the call). Elmalılı says 'ḥajj is Abraham's arm extended into the Qur'an; in the months of ḥajj, the House is Abraham's place of prayer.'"
     },
     {
-      "prophet": "İsmail",
+      "prophet": "Hz. İsmail",
       "ref": "Bakara 2:127 / Bakara 2:158 (arka plan)",
-      "sceneTr": "İsmail Kur'ân'da babasıyla birlikte Beyt'in kurucusudur; Bakara 2:127'nin 'İbrahim ile İsmail Beyt'in temellerini yükseltiyor' cümlesi baba-oğul ortak inşayı gösterir. Bakara 2:158'in Safâ-Merve nüsükünün Kur'ânî arka planı — klasik tefsir naklinde — İsmail'in su ihtiyacı üzerine annesi Hâcer'in bu iki tepe arasında koşmasıdır. Bu hafıza Kur'ân'da doğrudan tafsil edilmez; klasik tefsir rivayet düzeyinde nakleder. Zemzem geleneği de İsmail'in çocukluk hikâyesine bağlıdır; ancak Zemzem ismi Kur'ân'da geçmez. Kur'ân İsmail'in Beyt kuruluşundaki payını isim vererek, sa'y ve Zemzem hafızasını ise tafsile bırakır.",
+      "sceneTr": "Hz. İsmail Kur'ân'da babasıyla birlikte Beyt'in kurucusudur; Bakara 2:127'nin 'İbrahim ile İsmail Beyt'in temellerini yükseltiyor' cümlesi baba-oğul ortak inşayı gösterir. Bakara 2:158'in Safâ-Merve nüsükünün Kur'ânî arka planı — klasik tefsir naklinde — Hz. İsmail'in su ihtiyacı üzerine annesi Hz. Hâcer'in bu iki tepe arasında koşmasıdır. Bu hafıza Kur'ân'da doğrudan tafsil edilmez; klasik tefsir rivayet düzeyinde nakleder. Zemzem geleneği de Hz. İsmail'in çocukluk hikâyesine bağlıdır; ancak Zemzem ismi Kur'ân'da geçmez. Kur'ân Hz. İsmail'in Beyt kuruluşundaki payını isim vererek, sa'y ve Zemzem hafızasını ise tafsile bırakır.",
       "sceneEn": "In the Qur'an Ishmael is, together with his father, a builder of the House; the sentence in Baqara 2:127, 'Abraham and Ishmael raising the foundations of the House,' shows the joint father-son construction. The Qur'anic background of the Ṣafā-Marwa rite in Baqara 2:158: in the narration of classical exegesis: is his mother Hagar's running between these two hills over Ishmael's need for water. This memory is not detailed directly in the Qur'an; classical exegesis relates it at the level of narration. The Zamzam tradition too is tied to Ishmael's childhood story; yet the name Zamzam does not appear in the Qur'an. The Qur'an names Ishmael's share in the founding of the House, while leaving the memory of the saʿy and Zamzam to the details."
     },
     {
-      "prophet": "Muhammed s.a.v. — Veda Haccı",
+      "prophet": "Hz. Muhammed s.a.v. — Veda Haccı",
       "ref": "Bakara 2:196-203 / Mâide 5:3 (bağlamı)",
       "sceneTr": "Peygamber s.a.v.'e ve ümmetine haccın Kur'ânî çerçevesi Bakara 2:196-203'te verilir. Klasik tefsir Bakara 2:196'nın haccın Kur'ânî anayasası olduğunu, 2:197'nin iç disiplinini, 2:198-203'ün ise nüsüklerin coğrafî ve zamansal sırasını (Arefe → Meş'ar-i Harâm → Mina) çizdiğini belirtir. Peygamber s.a.v.'in bir kez yerine getirdiği 'Veda Haccı' (Hicret'in 10. yılı) sünnetin hac uygulamasının Kur'ânî çerçevesini nasıl doldurduğunun canlı örneğidir. Mâide 5:3'ün 'bugün size dininizi ikmal ettim' cümlesi klasik tefsirin ittifakıyla Veda Haccı sırasında Arefe günü inmiştir — hac Kur'ân'ın ikmal ilanının verildiği zaman-mekânıdır.",
       "sceneEn": "The Qur'anic framework of ḥajj for the Prophet (peace be upon him) and his community is given in Baqara 2:196-203. Classical exegesis notes that Baqara 2:196 is the Qur'anic constitution of ḥajj, 2:197 its inner discipline, and 2:198-203 the geographical and temporal order of the rites (ʿArafa → al-Mashʿar al-Ḥarām → Minā). The 'Farewell Ḥajj' the Prophet performed once (year 10 of the Hijra) is the living example of how the sunnah fills in the Qur'anic framework of the ḥajj practice. By the consensus of classical exegesis, the sentence of Māʾida 5:3, 'today I have perfected your religion for you,' descended on the Day of ʿArafa during the Farewell Ḥajj: ḥajj is the time-space in which the Qur'an's declaration of completion was given."
     },
     {
-      "prophet": "Önceki peygamberler (İbrahim öncesi hafıza)",
+      "prophet": "Önceki peygamberler (Hz. İbrahim öncesi hafıza)",
       "ref": "Bakara 2:125 (arka plan) / Âl-i İmrân 3:96",
-      "sceneTr": "Kur'ân Kâbe'yi 'insanlar için konulan ilk ev' (evvele beytin, 3:96) olarak tanımlar. Klasik tefsir bu ifadenin İbrahim'den önce Beyt'in bir tarihsel var oluşuna işaret edip etmediğini tartışır. Bir okumaya göre Beyt Âdem döneminden kalma bir yapıdır ve İbrahim onu 'yeniden yükseltmiştir' (Bakara 2:127'nin 'yerfeʿu' fiili bu okumaya uygun düşer). Bu okuma Kur'ân'da tafsil edilmez; klasik tefsirin rivayet düzeyindeki bilgisidir. Râzî bu ayrıntının Kur'ânî bir hüküm taşımadığını, ilkenin ise açık olduğunu belirtir: Beyt insanlığın ilk ibadet ekseni olarak Kur'ân'da yerleşiktir.",
+      "sceneTr": "Kur'ân Kâbe'yi 'insanlar için konulan ilk ev' (evvele beytin, 3:96) olarak tanımlar. Klasik tefsir bu ifadenin Hz. İbrahim'den önce Beyt'in bir tarihsel var oluşuna işaret edip etmediğini tartışır. Bir okumaya göre Beyt Hz. Âdem döneminden kalma bir yapıdır ve Hz. İbrahim onu 'yeniden yükseltmiştir' (Bakara 2:127'nin 'yerfeʿu' fiili bu okumaya uygun düşer). Bu okuma Kur'ân'da tafsil edilmez; klasik tefsirin rivayet düzeyindeki bilgisidir. Râzî bu ayrıntının Kur'ânî bir hüküm taşımadığını, ilkenin ise açık olduğunu belirtir: Beyt insanlığın ilk ibadet ekseni olarak Kur'ân'da yerleşiktir.",
       "sceneEn": "The Qur'an defines the Kaʿba as 'the first house set up for mankind' (awwala baytin, 3:96). Classical exegesis debates whether this expression points to a historical existence of the House before Abraham. According to one reading, the House is a structure remaining from the time of Adam, and Abraham 'raised it again' (the verb 'yarfaʿu' in Baqara 2:127 suits this reading). This reading is not detailed in the Qur'an; it is knowledge of classical exegesis at the level of narration. Rāzī notes that this detail carries no Qur'anic ruling, while the principle is clear: the House is established in the Qur'an as humanity's first axis of worship."
     }
   ],
@@ -954,13 +954,13 @@
       "descEn": "The sentence of Ḥajj 22:32, 'Whoever magnifies the signs of Allah: that is from the taqwā of hearts,' is the second Qur'anic law-sentence of ḥajj's inner dimension. The shaʿāʾir: Ṣafā-Marwa, the House, ʿArafa, the offerings: are the places and rites the Qur'an calls 'signs.' Classical exegesis notes that this verse provides the Qur'anic safeguard that prevents ḥajj's rites from turning into idols: neither the place nor the rite is itself sacred; it is revered because it points to Allah. Rāzī stresses that the phrase 'the taqwā of hearts' is an 'inner filter': there can be no true reverence unless the sign passes through the sieve of the heart."
     },
     {
-      "titleTr": "İbrahim Mirası — Kolektif Hafıza",
+      "titleTr": "Hz. İbrahim Mirası — Kolektif Hafıza",
       "titleEn": "The Heritage of Abraham: Collective Memory",
       "refs": [
         "Bakara 2:127",
         "Hac 22:27"
       ],
-      "descTr": "Hac Kur'ân'da İbrahim'in Kur'ânî hafızasını taşır. Klasik tefsir hac boyunca yaşananların — taşın etrafında dönme, iki tepe arasında koşma, ayakların altında toz, kurbanın kanı — hepsinin bir peygamber ailesinin (İbrahim, Hâcer, İsmail) bedensel hafızasını tekrar ettiğini vurgular. Râzî 'hac bir peygamber ailesinin hikâyesinin insan bedeninde tekrarlanmasıdır' der. Bu tekrar Kur'ânî bir 'ibret' — geçmişi anmak değil, ondan doğrulmak. Elmalılı 'her hacı kısa bir süre İbrahim gibi durur, Hâcer gibi koşar, İsmail gibi teslim olur' der.",
+      "descTr": "Hac Kur'ân'da Hz. İbrahim'in Kur'ânî hafızasını taşır. Klasik tefsir hac boyunca yaşananların — taşın etrafında dönme, iki tepe arasında koşma, ayakların altında toz, kurbanın kanı — hepsinin bir peygamber ailesinin (Hz. İbrahim, Hz. Hâcer, Hz. İsmail) bedensel hafızasını tekrar ettiğini vurgular. Râzî 'hac bir peygamber ailesinin hikâyesinin insan bedeninde tekrarlanmasıdır' der. Bu tekrar Kur'ânî bir 'ibret' — geçmişi anmak değil, ondan doğrulmak. Elmalılı 'her hacı kısa bir süre İbrahim gibi durur, Hâcer gibi koşar, İsmail gibi teslim olur' der.",
       "descEn": "In the Qur'an, ḥajj carries the Qur'anic memory of Abraham. Classical exegesis stresses that all that is lived through ḥajj: circling the stone, running between two hills, the dust underfoot, the blood of the sacrifice: repeats the bodily memory of a prophet's family (Abraham, Hagar, Ishmael). Rāzī says 'ḥajj is the repetition of a prophet-family's story in the human body.' This repetition is a Qur'anic 'lesson' (ʿibra): not the remembering of the past but the rising up out of it. Elmalılı says 'every pilgrim, for a short while, stands like Abraham, runs like Hagar, submits like Ishmael.'"
     },
     {
@@ -1092,7 +1092,7 @@
       "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
       "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
       "period": "1214-1273 (Kurtuba)",
-      "noteTr": "Bakara 2:158'in Safâ-Merve nüsükü ve Hâcer rivayeti, Bakara 2:197'nin 'refes-fusûk-cidâl' üçlüsünün fıkhî tafsili, Bakara 2:198'in ticaretin meşruiyeti ve Arefe-Meş'ar-i Harâm yerleşimi, Hac 22:29'un 'Beyt-i Atîk' isminin iki okuması için birincil referans. Mâide 5:1 ve 5:95'in ihram bağlamı da bu sayfanın ihrâm okumasında merkezîdir.",
+      "noteTr": "Bakara 2:158'in Safâ-Merve nüsükü ve Hz. Hâcer rivayeti, Bakara 2:197'nin 'refes-fusûk-cidâl' üçlüsünün fıkhî tafsili, Bakara 2:198'in ticaretin meşruiyeti ve Arefe-Meş'ar-i Harâm yerleşimi, Hac 22:29'un 'Beyt-i Atîk' isminin iki okuması için birincil referans. Mâide 5:1 ve 5:95'in ihram bağlamı da bu sayfanın ihrâm okumasında merkezîdir.",
       "noteEn": "Primary reference for the Ṣafā-Marwa rite and the Hagar narration (Baqara 2:158), the fiqhī detailing of the rafath-fusūq-jidāl triad (Baqara 2:197), the licitness of trade and the placement of ʿArafa and al-Mashʿar al-Ḥarām (Baqara 2:198), and the two readings of the name 'al-Bayt al-ʿAtīq' (Ḥajj 22:29). The iḥrām contexts of Māʾida 5:1 and 5:95 are also central to this page's iḥrām reading."
     },
     {

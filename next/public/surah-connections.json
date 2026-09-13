@@ -877,7 +877,7 @@
     "naziatExample": {
       "titleTr": "Canlı Örnek: Nâziât Sûresi (79)",
       "titleEn": "A Worked Example: Sūrat an-Nāziʿāt (79)",
-      "introTr": "Bir eleştirmen bu sûrenin üç bölümünün (yemin · Mûsâ-Firavun kıssası · kıyamet sahnesi) birbirinden kopuk olduğunu iddia etmişti. Neal Robinson'ın analizini aktaran kitap, aralarındaki çıpaları gösterir:",
+      "introTr": "Bir eleştirmen bu sûrenin üç bölümünün (yemin · Hz. Mûsâ-Firavun kıssası · kıyamet sahnesi) birbirinden kopuk olduğunu iddia etmişti. Neal Robinson'ın analizini aktaran kitap, aralarındaki çıpaları gösterir:",
       "introEn": "One critic argued this surah's three parts (oath · the Moses-Pharaoh narrative · the Judgment scene) were disconnected fragments. Drawing on Neal Robinson's analysis, the book traces the anchors that bind them:",
       "anchors": [
         {
@@ -891,7 +891,7 @@
           "rootAr": "ر ع ي",
           "labelTr": "\"Otlatmak\" kökü — sadece Mûsâ'nın geçtiği sûrelerde",
           "labelEn": "The root \"to pasture\" — only in Moses-mentioning surahs",
-          "noteTr": "\"Otlak\" (mer'â) kelimesi, kıyamet sahnesindeki \"hayvanlarınızı\" ifadesini (79:33) Mûsâ-Firavun kıssasına bağlar. Kitabın vurguladığı çarpıcı nokta: \"otlatmak\" fiili Kur'an'da SADECE Mûsâ'nın anıldığı sûrelerde geçer (28, 38, 87, 79).",
+          "noteTr": "\"Otlak\" (mer'â) kelimesi, kıyamet sahnesindeki \"hayvanlarınızı\" ifadesini (79:33) Hz. Mûsâ-Firavun kıssasına bağlar. Kitabın vurguladığı çarpıcı nokta: \"otlatmak\" fiili Kur'an'da SADECE Hz. Mûsâ'nın anıldığı sûrelerde geçer (28, 38, 87, 79).",
           "noteEn": "The word \"pasturage\" (marʿā) in the Judgment scene (79:33) ties back to the Moses-Pharaoh narrative. The book highlights a striking detail: the verb \"to pasture\" occurs in the Quran ONLY in surahs that also mention Moses (28, 38, 87, 79)."
         }
       ],
@@ -924,7 +924,7 @@
           "range": "122-141",
           "titleTr": "Hz. İbrahim'in Mirası",
           "titleEn": "Abraham's Legacy",
-          "noteTr": "İbrahim sınanır; Kâbe'yi İsmail ile inşa eder; soyunun tevhide dönmesi için dua eder.",
+          "noteTr": "Hz. İbrahim sınanır; Kâbe'yi Hz. İsmail ile inşa eder; soyunun tevhide dönmesi için dua eder.",
           "noteEn": "Abraham is tested; he builds the Kaaba with Ishmael; he prays his descendants return to monotheism."
         },
         {
@@ -939,7 +939,7 @@
         {
           "label": "C'",
           "range": "153-177",
-          "titleTr": "İbrahim'in Mirasının Yeniden Kurulması",
+          "titleTr": "Hz. İbrahim'in Mirasının Yeniden Kurulması",
           "titleEn": "Restoring Abraham's Legacy",
           "noteTr": "Müslümanlar sınanacaktır; Mekke'ye yapılan hac talimatları; atalara/onların ilahlarına rakip koşmama uyarısı.",
           "noteEn": "Muslims will be tested; instructions on pilgrimage to Mecca; a warning against rivaling ancestors or their gods."
@@ -968,7 +968,7 @@
     "etiMotif": {
       "titleTr": "Seçilme, Talimat, Sınama Motifi",
       "titleEn": "The Motif of Election, Instruction, and Test",
-      "bodyTr": "Nevin Reda'nın tespit ettiği bir örüntüyü aktaran kitap, Bakara'nın farklı bölümlerinde üç unsurun (bir role Seçilme, bir Talimat, bir Sınama) tekrarlandığını, ama HER SEFERİNDE farklı bir sırada göründüğünü gösterir. Kitabın kendi katkısı: bu sıraların düzeni, İbrahim bölümünü merkeze alan ayna-simetrik bir örüntü oluşturur.",
+      "bodyTr": "Nevin Reda'nın tespit ettiği bir örüntüyü aktaran kitap, Bakara'nın farklı bölümlerinde üç unsurun (bir role Seçilme, bir Talimat, bir Sınama) tekrarlandığını, ama HER SEFERİNDE farklı bir sırada göründüğünü gösterir. Kitabın kendi katkısı: bu sıraların düzeni, Hz. İbrahim bölümünü merkeze alan ayna-simetrik bir örüntü oluşturur.",
       "bodyEn": "Drawing on a pattern identified by Nevin Reda, the book shows that three elements (an Election to a role, an Instruction, and a Test) recur across Baqara's sections — but in a DIFFERENT order each time. The book's own contribution: the sequence of these orders forms a mirror-symmetric pattern centered on the Abraham section.",
       "sequence": [
         {
@@ -1008,7 +1008,7 @@
           "code": "S-N-T"
         }
       ],
-      "noteTr": "Âdem ile yeni ümmetin sırası birebir aynıdır (Seçilme-Sınama-Talimat); tam ortada duran Hz. İbrahim ise kendine has bir sırayla tek başına öne çıkar. Yazarlar bu diziliş yorumunun Reda'nınkinden farklı olduğunu ayrıca belirtir.",
+      "noteTr": "Hz. Âdem ile yeni ümmetin sırası birebir aynıdır (Seçilme-Sınama-Talimat); tam ortada duran Hz. İbrahim ise kendine has bir sırayla tek başına öne çıkar. Yazarlar bu diziliş yorumunun Reda'nınkinden farklı olduğunu ayrıca belirtir.",
       "noteEn": "Adam and the new nation share the identical order (Election-Test-Instruction); Abraham, sitting at the very centre, stands out with a unique order of its own. The authors note their reading of this sequencing differs from Reda's.",
       "citation": "Nouman Ali Khan & Sharif Randhawa, İlahî Söz (2016), s. 211-212, Nevin Reda, Textual Integrity, s. 161-163, 165-166, 177-178."
     },

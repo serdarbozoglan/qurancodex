@@ -838,31 +838,31 @@
   },
   "peygamberVaryasyonlari": [
     {
-      "prophet": "İbrahim",
+      "prophet": "Hz. İbrahim",
       "ref": "Enbiyâ 21:73",
-      "sceneTr": "'Onları emrimizle doğru yolu gösteren imamlar kıldık; kendilerine hayırlar yapmayı, namaz kılmayı ve zekât vermeyi vahyettik.' İbrahim ve nesli için Kur'ân'ın açıkça anıldığı zekât ayeti. Namaz-zekât çiftinin peygamberler zincirinde ilk halkalarından biri.",
+      "sceneTr": "'Onları emrimizle doğru yolu gösteren imamlar kıldık; kendilerine hayırlar yapmayı, namaz kılmayı ve zekât vermeyi vahyettik.' Hz. İbrahim ve nesli için Kur'ân'ın açıkça anıldığı zekât ayeti. Namaz-zekât çiftinin peygamberler zincirinde ilk halkalarından biri.",
       "sceneEn": "'And We made them leaders (imāms) guiding by Our command, and We revealed to them the doing of good deeds, the establishment of prayer, and the giving of zakāt.' The zakāt verse in which the Qur'an explicitly mentions Abraham and his descendants. One of the first links of the prayer-zakāt pair in the chain of the prophets.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
-      "prophet": "İsmail",
+      "prophet": "Hz. İsmail",
       "ref": "Meryem 19:55",
-      "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında rızaya erişmişti.' Kur'ân İsmail peygamberi 'ehline zekât emreden' vasıflarıyla anar. Aile yönetimi ve zekât birbirine bağlanır.",
+      "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında rızaya erişmişti.' Kur'ân Hz. İsmail peygamberi 'ehline zekât emreden' vasıflarıyla anar. Aile yönetimi ve zekât birbirine bağlanır.",
       "sceneEn": "'He used to command his family to prayer and zakāt, and he was pleasing to his Lord.' The Qur'an mentions the prophet Ishmael with the attribute of 'commanding his household to zakāt.' Family stewardship and zakāt are bound together.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
-      "prophet": "İsa",
+      "prophet": "Hz. İsa",
       "ref": "Meryem 19:31",
-      "sceneTr": "Beşikte konuşan İsa'nın sözleri arasında: 'Yaşadığım sürece bana namazı ve zekâtı emretti.' Klasik tefsir bu ayeti, zekâtın Kur'ân'da peygamberlik zincirinin devamlı bir emri olarak sunulduğunun kesin delili olarak okur.",
+      "sceneTr": "Beşikte konuşan Hz. İsa'nın sözleri arasında: 'Yaşadığım sürece bana namazı ve zekâtı emretti.' Klasik tefsir bu ayeti, zekâtın Kur'ân'da peygamberlik zincirinin devamlı bir emri olarak sunulduğunun kesin delili olarak okur.",
       "sceneEn": "Among the words of Jesus speaking in the cradle: 'And He has enjoined upon me prayer and zakāt as long as I live.' Classical exegesis reads this verse as decisive evidence that in the Qur'an zakāt is presented as a continual command of the chain of prophethood.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
-      "prophet": "Musa (İsrailoğulları misakı)",
+      "prophet": "Hz. Musa (İsrailoğulları misakı)",
       "ref": "Bakara 2:83",
       "sceneTr": "'Hani biz İsrailoğullarından şöyle söz almıştık: Allah'tan başkasına kulluk etmeyeceksiniz, anne-babaya iyilikte bulunacaksınız... namazı kılacak ve zekâtı vereceksiniz.' İsrailoğullarına verilen misakta zekât açıkça anılır — Kur'ân zekâtı bir tek ümmete özgü kılmaz.",
       "sceneEn": "'And [recall] when We took a covenant from the Children of Israel: You shall worship none but Allah, and be good to parents... and you shall establish prayer and give zakāt.' Zakāt is explicitly mentioned in the covenant given to the Children of Israel: the Qur'an does not make zakāt particular to a single community.",
@@ -878,7 +878,7 @@
       "confidence": "medium"
     },
     {
-      "prophet": "Muhammed s.a.v. (Medine döneminde sistem)",
+      "prophet": "Hz. Muhammed s.a.v. (Medine döneminde sistem)",
       "ref": "Tevbe 9:103",
       "sceneTr": "'Onların mallarından bir sadaka al, onları temizle ve arındır.' Ayet peygambere doğrudan hitap eder; klasik tefsir bunu Medine döneminde zekât toplama sisteminin kurulduğu ana Kur'ânî emir olarak okur. Sekiz alacaklı kategorisi (Tevbe 9:60) da aynı sûrede tafsil edilir.",
       "sceneEn": "'Take from their wealth a charity, and purify and cleanse them.' The verse addresses the Prophet directly; classical exegesis reads this as the principal Qur'anic command by which the system of zakāt collection was established in the Medinan period. The eight categories of recipients (Al-Tawba 9:60) are also detailed in the same surah.",
@@ -886,7 +886,7 @@
       "confidence": "high"
     },
     {
-      "prophet": "Muhammed s.a.v. (Mekke döneminde temel)",
+      "prophet": "Hz. Muhammed s.a.v. (Mekke döneminde temel)",
       "ref": "Meâric 70:24-25",
       "sceneTr": "'Onların mallarında isteyen ve mahrum için bilinen bir hak vardır.' Mekkî bir ayet olan Meâric, klasik tefsire göre zekâtın 'hakk-ı ma'lûm' ilkesinin Mekke döneminde de yerleşmiş olduğunun işareti. Kur'ân'da zekâtın kökü hem Mekkî hem Medenî sûrelerde bulunur.",
       "sceneEn": "'And in their wealth is a known right for the beggar and the deprived.' Al-Maʿārij, a Meccan verse, is according to classical exegesis a sign that the principle of zakāt as a 'known due (ḥaqq maʿlūm)' was already established in the Meccan period. In the Qur'an, the root of zakāt is found in both Meccan and Medinan surahs.",

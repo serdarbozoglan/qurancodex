@@ -313,7 +313,7 @@
         },
         {
           "layer": "Namaz eş anlamlısı",
-          "descTr": "Meryem'e 'rükû edenlerle rükû et' emri (Âl-i İmrân 3:43) — 'namaz kıl' anlamında.",
+          "descTr": "Hz. Meryem'e 'rükû edenlerle rükû et' emri (Âl-i İmrân 3:43) — 'namaz kıl' anlamında.",
           "descEn": "The command to Mary to 'bow with those who bow' (Āl ʿImrān 3:43): synonymous with 'pray'.",
           "kaynak": "Râzî, Âl-i İmrân 3:43 tefsiri",
           "claimType": "tafsir_tradition",
@@ -711,15 +711,15 @@
   },
   "peygamberVaryasyonlari": [
     {
-      "prophet": "İbrahim",
+      "prophet": "Hz. İbrahim",
       "ref": "Bakara 2:128",
-      "sceneTr": "Beytullah'ın kuruluşunda İbrahim ve İsmail: 'Rabbimiz, ikimizi de sana teslim olanlardan kıl, soyumuzdan da sana teslim olmuş bir ümmet.' Namazın mekân merkezinin duası.",
+      "sceneTr": "Beytullah'ın kuruluşunda Hz. İbrahim ve Hz. İsmail: 'Rabbimiz, ikimizi de sana teslim olanlardan kıl, soyumuzdan da sana teslim olmuş bir ümmet.' Namazın mekân merkezinin duası.",
       "sceneEn": "Abraham and Ishmael at the founding of the House of Allah: 'Our Lord, make us both submitters to You, and from our offspring a community submitting to You.' The supplication of the spatial center of prayer.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
-      "prophet": "İbrahim (soyu için)",
+      "prophet": "Hz. İbrahim (soyu için)",
       "ref": "İbrahim 14:40",
       "sceneTr": "'Rabbim, beni namazı ikame edenlerden kıl, soyumdan da! Rabbimiz duamı kabul et.' Namazın nesillerdeki devamlılığı için dua.",
       "sceneEn": "'My Lord, make me an establisher of prayer, and from my offspring too! Our Lord, accept my supplication.' A supplication for the continuity of prayer across generations.",
@@ -727,7 +727,7 @@
       "confidence": "high"
     },
     {
-      "prophet": "İsmail",
+      "prophet": "Hz. İsmail",
       "ref": "Meryem 19:55",
       "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında beğenilmişti.' Aile hayatının merkezinde namaz.",
       "sceneEn": "'He used to enjoin prayer and zakat upon his family, and he was pleasing in the sight of his Lord.' Prayer at the center of family life.",
@@ -743,7 +743,7 @@
       "confidence": "high"
     },
     {
-      "prophet": "Zekeriya",
+      "prophet": "Hz. Zekeriya",
       "ref": "Âl-i İmrân 3:39",
       "sceneTr": "'Zekeriya mihrapta namaz kılarken melekler ona seslendi: Allah sana Yahyâ'yı müjdeler.' Yakarışın ve namaz'ın buluşma noktası.",
       "sceneEn": "'While Zechariah was praying in the sanctuary (miḥrāb), the angels called to him: Allah gives you glad tidings of John (Yaḥyā).' The meeting point of supplication and prayer.",
@@ -751,15 +751,15 @@
       "confidence": "high"
     },
     {
-      "prophet": "Musa",
+      "prophet": "Hz. Musa",
       "ref": "Tâhâ 20:14",
-      "sceneTr": "Vahyin ilk emri: 'Bana ibadet et ve beni anmak için namaz kıl.' Namaz'ın Musa peygamberliğinin başlangıç emirlerinden biri olduğu ayet.",
+      "sceneTr": "Vahyin ilk emri: 'Bana ibadet et ve beni anmak için namaz kıl.' Namaz'ın Hz. Musa peygamberliğinin başlangıç emirlerinden biri olduğu ayet.",
       "sceneEn": "The first command of the revelation: 'Worship Me and establish prayer for My remembrance.' The verse in which prayer is one of the opening commands of Moses' prophethood.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
     {
-      "prophet": "Meryem",
+      "prophet": "Hz. Meryem",
       "ref": "Âl-i İmrân 3:43",
       "sceneTr": "'Ey Meryem, Rabbine kunut'la dur, secde et ve rükû edenlerle rükû et.' Bir kadın peygamber muhatabına namaz emrinin en açık şekli.",
       "sceneEn": "'O Mary, stand in devout obedience (qunūt) to your Lord, prostrate, and bow with those who bow.' The clearest form of the command to pray addressed to a woman as a recipient of divine address.",
@@ -767,7 +767,7 @@
       "confidence": "high"
     },
     {
-      "prophet": "Muhammed s.a.v.",
+      "prophet": "Hz. Muhammed s.a.v.",
       "ref": "İsra 17:78-79",
       "sceneTr": "'Güneşin duluk'undan gecenin karanlığına kadar namaz kıl ve fecr Kur'ân'ını da. Muhakkak fecir Kur'ân'ı şahitlidir.' Peygamber'e verilen namaz vakit çerçevesinin en açık ayetleri.",
       "sceneEn": "'Establish prayer from the sun's decline until the darkness of night, and the recitation of dawn (qurʾān al-fajr). Indeed the recitation of dawn is witnessed.' The clearest verses of the prayer-time framework given to the Prophet.",

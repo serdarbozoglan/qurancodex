@@ -20,7 +20,7 @@
     },
     {
       "id": "musa-pharaoh",
-      "titleTr": "Mûsâ-Firavun Karşılaşması",
+      "titleTr": "Hz. Mûsâ-Firavun Karşılaşması",
       "titleEn": "Moses and Pharaoh: The Epic Confrontation",
       "totalSurahs": 10,
       "refs": ["7:103-137", "10:75-92", "17:101-103", "20:42-79", "23:45-48", "26:10-68", "28:36-42", "40:23-46", "44:17-33", "79:15-26"],
@@ -38,7 +38,7 @@
     },
     {
       "id": "ibrahim-debates",
-      "titleTr": "İbrâhîm'in Tartışmaları",
+      "titleTr": "Hz. İbrâhîm'in Tartışmaları",
       "titleEn": "Abraham's Debates",
       "totalSurahs": 6,
       "refs": ["2:258", "6:74-83", "19:41-48", "21:51-70", "26:69-89", "37:83-113"],
@@ -55,7 +55,7 @@
     },
     {
       "id": "yusuf-saga",
-      "titleTr": "Yûsuf Kıssasının Diyalogları",
+      "titleTr": "Hz. Yûsuf Kıssasının Diyalogları",
       "titleEn": "The Dialogues of Joseph's Story",
       "totalSurahs": 1,
       "refs": ["12:4-101"],

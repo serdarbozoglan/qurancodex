@@ -198,7 +198,7 @@
         "allah",
         "people-prophets"
       ],
-      "noteTr": "Hûd, Sâlih, Şuayb, Lût, Zekeriyyâ, Eyyûb, Dâvûd.",
+      "noteTr": "Hz. Hûd, Hz. Sâlih, Hz. Şuayb, Hz. Lût, Hz. Zekeriyyâ, Hz. Eyyûb, Hz. Dâvûd.",
       "noteEn": "Hud, Salih, Shu'ayb, Lot, Zechariah, Job, David."
     },
     {
@@ -215,7 +215,7 @@
         "haman",
         "magicians"
       ],
-      "noteTr": "Kur'an'ın en çok konuşan antagonisti. Mûsâ ile 10+ sûrede karşılaşır.",
+      "noteTr": "Kur'an'ın en çok konuşan antagonisti. Hz. Mûsâ ile 10+ sûrede karşılaşır.",
       "noteEn": "The Quran's most vocal antagonist. Confronts Moses in 10+ surahs."
     },
     {
@@ -330,7 +330,7 @@
       "dialoguePartners": [
         "ibrahim"
       ],
-      "noteTr": "Hz. İbrâhîm'in put yapan babası. İbrâhîm'in davetini reddeder.",
+      "noteTr": "Hz. İbrâhîm'in put yapan babası. Hz. İbrâhîm'in davetini reddeder.",
       "noteEn": "Abraham's idol-making father. Rejects Abraham's invitation to monotheism."
     },
     {
@@ -343,7 +343,7 @@
       "dialoguePartners": [
         "ibrahim"
       ],
-      "noteTr": "İbrâhîm ile meşhur akıl tartışmasını yapan hükümdar.",
+      "noteTr": "Hz. İbrâhîm ile meşhur akıl tartışmasını yapan hükümdar.",
       "noteEn": "The ruler who engaged Abraham in the famous rational debate about life and death."
     },
     {
@@ -356,20 +356,20 @@
       "dialoguePartners": [
         "isa"
       ],
-      "noteTr": "İsa'nın mucizelere şahit olan kavmi.",
+      "noteTr": "Hz. İsa'nın mucizelere şahit olan kavmi.",
       "noteEn": "The people who witnessed Jesus's miracles."
     },
     {
       "id": "brothers",
       "nameAr": "إخوة يوسف",
-      "nameTr": "Yûsuf'un Kardeşleri",
+      "nameTr": "Hz. Yûsuf'un Kardeşleri",
       "nameEn": "Joseph's Brothers",
       "type": "group",
       "color": "#d97706",
       "dialoguePartners": [
         "yusuf"
       ],
-      "noteTr": "Yûsuf'u kuyuya atan, sonra affedilen kardeşler.",
+      "noteTr": "Hz. Yûsuf'u kuyuya atan, sonra affedilen kardeşler.",
       "noteEn": "The brothers who threw Joseph in the well, later forgiven."
     },
     {
@@ -401,14 +401,14 @@
     {
       "id": "son-nuh",
       "nameAr": "ابن نوح",
-      "nameTr": "Nûh'un Oğlu",
+      "nameTr": "Hz. Nûh'un Oğlu",
       "nameEn": "Noah's Son",
       "type": "group",
       "color": "#64748b",
       "dialoguePartners": [
         "nuh"
       ],
-      "noteTr": "Gemiye binmeyi reddeden ve suda boğulan Nûh'un oğlu.",
+      "noteTr": "Gemiye binmeyi reddeden ve suda boğulan Hz. Nûh'un oğlu.",
       "noteEn": "Noah's son who refused to board the ark and drowned."
     },
     {
@@ -421,7 +421,7 @@
       "dialoguePartners": [
         "sulayman"
       ],
-      "noteTr": "Sebe'nin kraliçesi. Süleyman'ın mektubu üzerine İslam'a girdi.",
+      "noteTr": "Sebe'nin kraliçesi. Hz. Süleyman'ın mektubu üzerine İslam'a girdi.",
       "noteEn": "Queen of Sheba who converted upon receiving Solomon's letter."
     },
     {

@@ -152,7 +152,7 @@ export const DISCIPLINE_CONTENT = {
           { ref: 'Kıyâme 75:2', ar: `وَلٓا اُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ`, glossTr: `Allah, kendini kınayan, sürekli hesaba çeken nefse yemin eder (nefs-i levvâme).`, glossEn: `God swears by the self-reproaching soul that blames itself (the reproaching self).` },
           { ref: 'Fecr 89:27-28', ar: `يٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ اِرْجِعٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً`, glossTr: `Ey huzura ermiş nefis! Razı olmuş ve razı olunmuş olarak Rabbine dön (nefs-i mutmainne).`, glossEn: `O tranquil, reassured soul! Return to your Lord, well-pleased and well-pleasing (the tranquil self).` },
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (12:53): bu söz, Azîz'in hanımının kral huzurunda Yûsuf'un (a.s.) doğruluğunu ve kendi kusurunu itiraf etmesi olarak açıklanır. İnsan nefsinin tabiatı gereği kötülüğe meylettiği, ancak Rabbin rahmetiyle bu meylden korunabileceği vurgulanır; bu itiraf, nefsi aklamak değil beşerî zaafı kabul etmektir. (Tefsir özeti.)`,
+        tafsirTr: `Muhtasar İbn Kesîr metninde (12:53): bu söz, Azîz'in hanımının kral huzurunda Hz. Yûsuf'un (a.s.) doğruluğunu ve kendi kusurunu itiraf etmesi olarak açıklanır. İnsan nefsinin tabiatı gereği kötülüğe meylettiği, ancak Rabbin rahmetiyle bu meylden korunabileceği vurgulanır; bu itiraf, nefsi aklamak değil beşerî zaafı kabul etmektir. (Tefsir özeti.)`,
         tafsirEn: `The abridged Ibn Kathīr (12:53): these words are the ʿAzīz's wife confessing before the king, affirming Joseph's truthfulness and her own fault. The human self by nature inclines to evil and is protected from it only by the Lord's mercy; admitting this is humility, not self-exoneration. (Summary of the tafsir.)`,
         commentary: {
           sourceTr: `Bediüzzaman · Ene (Enâniyet) Risalesi (Sözler, 30. Söz)`,
@@ -313,7 +313,7 @@ export const DISCIPLINE_CONTENT = {
         tafsirEn: 'The limit of obedience as the abridged Ibn Kathīr explains through hadith (4:59): obedience is bounded by obedience to God; there is no "hearing and obeying" when sin is commanded. Who counts as ulū al-amr is debated at the level of exegesis.',
       },
       {
-        titleTr: 'Göreve ehliyet — Yûsuf ve Tâlût örnekleri',
+        titleTr: 'Göreve ehliyet — Hz. Yûsuf ve Tâlût örnekleri',
         titleEn: 'Fitness for office — the cases of Joseph and Ṭālūt',
         verses: [
           { ref: 'Yûsuf 12:55', ar: 'قَالَ اجْعَلْنِي عَلٰى خَزٓائِنِ الْاَرْضِ اِنِّي حَفِيظٌ عَلِيمٌ', glossTr: 'Yûsuf, ülkenin hazinelerinin idaresini ister; kendini iyi koruyan ve bilen (hafîz, alîm) olarak niteler.', glossEn: 'Joseph asks to administer the land\'s storehouses, describing himself as a capable guardian who knows (ḥafīẓ, ʿalīm).' },
