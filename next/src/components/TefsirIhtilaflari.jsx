@@ -334,7 +334,7 @@ export default function TefsirIhtilaflari() {
         }} />
         <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
           <div className="mq-fs" style={{
-            fontFamily: FONTS.bismillah, '--fs-d': '1.6rem', '--fs-m': '1.4rem',
+            fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold, opacity: 0.85, marginBottom: 22, direction: 'rtl',
             textShadow: `0 0 24px ${COLORS.gold}44`,
           }}>﷽</div>

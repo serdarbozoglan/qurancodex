@@ -530,7 +530,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mq-fs" style={{
             fontFamily: FONTS.bismillah,
-            '--fs-d': '1.8rem', '--fs-m': '1.5rem',
+            '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold,
             opacity: 0.85,
             marginBottom: 28,

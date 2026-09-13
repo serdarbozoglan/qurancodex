@@ -169,7 +169,7 @@ export default function Hero() {
             position: 'relative',
             display: 'inline-block',
             fontFamily: FONTS.bismillah,
-            '--fs-d': '2.6rem', '--fs-m': '1.8rem',
+            '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold,
             lineHeight: 1,
             // Sahne 1 flex-center: marginTop sadece Navbar visual compensation.

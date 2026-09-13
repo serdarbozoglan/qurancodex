@@ -367,7 +367,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             dir="rtl" lang="ar" aria-label="Bismillāh"
             className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
+              '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,

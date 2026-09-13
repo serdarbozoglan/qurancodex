@@ -667,7 +667,7 @@ function HeroSection({ meta, language, isMobile }) {
         aria-label="Bismillāh"
         className="mq-fs" style={{
           fontFamily: FONTS.bismillah,
-          '--fs-d': '2rem', '--fs-m': '1.6rem',
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,

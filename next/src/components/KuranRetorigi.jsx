@@ -161,7 +161,7 @@ export default function KuranRetorigi({ onClose }) {
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '1.95rem', '--fs-m': '1.5rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
         <p dir="rtl" lang="ar" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى
         </p>

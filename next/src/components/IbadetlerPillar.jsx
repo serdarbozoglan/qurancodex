@@ -222,16 +222,17 @@ function PillarHero({ pillarData, language, isMobile }) {
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
     }}>
-      {/* Bismillah ornament — boyut Dua Dili sayfasıyla eşitlendi (2026-09-13,
-          kullanıcı: ibadetlerdeki besmele Dua Dili'ndekinden küçüktü). Sabit
-          1.6rem yerine Dua Dili'nin responsive clamp'i. */}
-      <div style={{
+      {/* Bismillah ornament — STANDART besmele boyutu (2026-09-13): Dua Dili
+          referansı --fs-d 2.6rem / --fs-m 2.2rem (kullanıcı: hero besmeleleri
+          tutarsız boyuttaydı, standart olsun). */}
+      <div className="mq-fs" style={{
         fontFamily: FONTS.bismillah,
-        fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+        '--fs-d': '2.6rem', '--fs-m': '2.2rem',
         color: COLORS.gold,
         opacity: 0.82,
+        lineHeight: 1.2,
         marginBottom: '24px',
-      }}>﷽</div>
+      }} dir="rtl" lang="ar" aria-label="Bismillāh">﷽</div>
 
       {/* Anchor verse — Kur'ânî metin, KFGQPC, gold */}
       <div className="mq-fs" style={{

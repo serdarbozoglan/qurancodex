@@ -884,7 +884,8 @@ Bu pattern'a uygun sayfalar (örnek): İlk-Son Kelimeler, Münâfık Profili, S�
 
 **Tool sayfası Hero'su standart Premium Template'i takip eder.** Sırayla:
 
-1. **Bismillah ornament** — `﷽` Amiri Quran font, gold (#d4a574), opacity 0.82, centered
+1. **Bismillah ornament** — `﷽` Amiri Quran font (`FONTS.bismillah`), gold (#d4a574), opacity 0.82, centered, `lineHeight: 1.2`
+   - **STANDART BOYUT (2026-09-13, zorunlu):** `className="mq-fs"` + `'--fs-d': '2.6rem'`, `'--fs-m': '2.2rem'`. Referans: Dua Dili hero besmelesi. Tüm hero besmeleleri BU boyutta olmalı — sabit `fontSize` (1.6rem/1.85rem gibi) veya farklı `--fs-d` değerleri KULLANMA. Kullanıcı direktifi: hero besmeleleri tutarsız boyuttaydı (1.6–2.8rem arası), tek standarda çekildi. `dir="rtl" lang="ar" aria-label="Bismillāh"` ekle.
 2. **Anchor verse** — KFGQPC font, gold, lineHeight 2.1, **maksimum 1 ayet**, U+0650 standart Unicode (§13.15)
 3. **İtalik çeviri** — Playfair Display italic, off-white, max-w 660px
 4. **Reference label** — UPPERCASE, letterSpacing 0.16em, silver, opacity 0.65 (örn: "— Bakara 2:186")

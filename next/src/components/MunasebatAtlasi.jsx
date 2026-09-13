@@ -107,7 +107,7 @@ function Hero({ language, isMobile }) {
       <HeroGeometricBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div aria-hidden="true" className="mq-fs" style={{
-          fontFamily: FONTS.bismillah, '--fs-d': '2.3rem', '--fs-m': '1.9rem',
+          fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 

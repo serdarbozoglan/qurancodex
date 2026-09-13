@@ -217,7 +217,7 @@ export default function TarihselKanitlar({ onClose }) {
             {/* Bismillah */}
             <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
-              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
+              '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
               '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
