@@ -19,6 +19,7 @@ import BookmarkButton from './BookmarkButton';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import kitapKavramiDataStatic from '../../public/kitap-kavrami.json';
+import HeroGeometricBackground from './HeroGeometricBackground';
 
 export default function KitapKavrami() {
   const { language } = useLanguage();
@@ -93,7 +94,77 @@ export default function KitapKavrami() {
     }}>
       {TOOL_HEADER}
 
-      <div className="zf2-tool-hero-wrap" style={{ maxWidth: 1080, margin: '0 auto' }}>
+      {/* ─── Sinematik hero (§13.18) — 2026-09-13 görsel yükseltme ───
+          Kullanıcı: sayfa görsel olarak zayıftı. Çapa âyet Bakara 2:2, çünkü
+          Kur'ân'ın kendine verdiği iki ismi (el-Kitâb + Hüdâ) tek âyette taşır. */}
+      <div style={{
+        position: 'relative', overflow: 'hidden', textAlign: 'center',
+        padding: 'clamp(48px, 7vw, 88px) 24px clamp(36px, 5vw, 56px)',
+        borderBottom: `1px solid ${COLORS.gold}1f`,
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.08) 0%, transparent 100%)',
+      }}>
+        <HeroGeometricBackground />
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 900, margin: '0 auto' }}>
+          <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+            color: COLORS.gold, opacity: 0.85, lineHeight: 1.2, marginBottom: '26px',
+          }}>﷽</div>
+
+          <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
+            fontFamily: FONTS.quran, color: COLORS.gold,
+            '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
+            lineHeight: 2.1, margin: '0 0 16px',
+          }}>
+            ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ
+          </p>
+          <p className="mq-fs" style={{
+            fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
+            '--fs-d': '1.1rem', '--fs-m': '1rem', lineHeight: 1.6,
+            maxWidth: '640px', margin: '0 auto 8px', opacity: 0.95,
+          }}>
+            {tr
+              ? '"İşte bu Kitap; onda hiçbir şüphe yoktur; sakınanlar için bir yol göstericidir (hüdâ)."'
+              : '"This is the Book about which there is no doubt, a guidance (hudā) for the God-conscious."'}
+          </p>
+          <p style={{
+            fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+            fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+            margin: '0 0 30px',
+          }}>— {tr ? 'Bakara 2:2' : 'Al-Baqara 2:2'}</p>
+
+          <div style={{
+            fontSize: '0.7rem', letterSpacing: '0.3em', color: COLORS.gold,
+            textTransform: 'uppercase', fontWeight: 700, opacity: 0.75, marginBottom: '14px',
+            fontFamily: FONTS.body,
+          }}>{tr ? "KUR'ÂN KENDİNİ TANIMLAR" : 'THE QURAN NAMES ITSELF'}</div>
+          <h1 className="mq-fs" style={{
+            fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
+            '--fs-d': 'clamp(2.2rem, 4vw, 3rem)', '--fs-m': 'clamp(1.8rem, 7vw, 2.3rem)',
+            lineHeight: 1.15, margin: '0 0 14px', letterSpacing: '0.01em',
+          }}>{tr ? 'Kitap Kavramı' : 'Concept of the Book'}</h1>
+          <p className="mq-fs" style={{
+            fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
+            '--fs-d': 'clamp(1.05rem, 1.9vw, 1.22rem)', '--fs-m': '1rem',
+            margin: '0 auto', maxWidth: '680px', opacity: 0.92, lineHeight: 1.5,
+          }}>{tr ? 'Kur\'ân yalnızca "Kitap" değildir: kendine on ayrı isim verir, her isim ayrı bir okuma sözleşmesidir.' : 'The Quran is not merely "a Book": it gives itself ten distinct names, each a different covenant of reading.'}</p>
+
+          {/* Stat strip */}
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0', marginTop: '30px' }}>
+            {[
+              { n: String((data.items || []).length), l: tr ? 'İSİM' : 'NAMES' },
+              { n: String((data.items || []).length), l: tr ? 'İŞLEV' : 'FUNCTIONS' },
+              { n: '4', l: tr ? 'KLASİK KAYNAK' : 'CLASSICAL SOURCES' },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: '0 clamp(16px, 4vw, 30px)', borderLeft: i > 0 ? `1px solid ${COLORS.gold}26` : 'none', textAlign: 'center' }}>
+                <div style={{ fontFamily: FONTS.display, fontSize: '1.7rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>{s.n}</div>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: COLORS.silver, marginTop: '8px', opacity: 0.8 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="zf2-tool-hero-wrap" style={{ maxWidth: 1080, margin: '0 auto', paddingTop: 'clamp(32px, 5vw, 48px)' }}>
 
         {/* Framing paragraph */}
         <div className="zf2-tool-hero-card" style={{
