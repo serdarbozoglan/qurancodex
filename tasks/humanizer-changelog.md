@@ -7692,3 +7692,52 @@ C10 (koruma-zinciri) OpenAI API üzerinden GPT-5.2 hakemine sunuldu (§13.24). H
 ÖNCE: "Sıfır varyasyon, tek konsonantal iskelettedir (rasm): standart Osmanî mushaf 1.400 yıldır… aynı iskeleti taşır."
 SONRA: "Kur'an metni, Osmanî mushaf geleneğinde rasm düzeyinde olağanüstü bir istikrarla nesilden nesle aktarılmıştır; mütevâtir kıraat farklılıkları ise bu yazılı çekirdeğe bağlı, ayrıca belgelenmiş sözlü aktarım katmanıdır: çelişkisi değil, korumanın bir parçasıdır."
 Ayrıca "sıfır varyasyon ilkesi" → "istikrar ilkesi". Hakemin em-dash'ı ": " ile değiştirildi. TR+EN.
+
+## 21. Alanlar disiplin içeriği, Dua Dili ve Esmâ Risale bölümleri · 2026-09-13
+
+Bu turda üretilen yeni içerik (6 disiplin çapa sayfası, Dua Dili'ne eklenen peygamber duaları ve Risale-i Nur sekmesi, Esmâ-i Hüsnâ'ya eklenen Risale bölümü) §13.34 gereği humanizer denetiminden geçirildi. Âyet meâlleri ve doğrudan Risale alıntıları dokunulmadan bırakıldı (istisna kapsamı); yalnız bizim düzyazımız düzeltildi.
+
+### "X değil, Y" kalıbının yığılması (7 yer)
+
+Risale notlarında ve kaynak künyelerinde art arda yedi olumsuzlama-karşıtlık cümlesi birikmişti. Astra'nın istediği anlam korunarak olumlu anlatıma çevrildi.
+
+ÖNCE: "Duanın karşılıksız kalması diye bir şey yoktur; karşılığın ne olacağı hikmete bırakılmıştır."
+SONRA: "Her dua bir karşılık görür; karşılığın ne olacağını hikmet belirler."
+
+ÖNCE: "Dua yalnızca bir talep aracı değil, aynı zamanda kulluktur; dünyevî maksatlar ibadetin asıl gayesi değildir."
+SONRA: "Dua bir ibadettir; dünyevî maksatlar bu ibadetin vaktidir, gayesi değildir."
+
+ÖNCE: "Dua yalnız sözle değildir; hâl ve fiil de bir yakarış biçimidir."
+SONRA: "Sözle yapılan duanın yanında hâl ve fiille yapılan dua da vardır."
+
+ÖNCE: "Gecikme reddediş değildir; bu, sayfadaki cevap kalıplarının çerçevesiyle örtüşür."
+SONRA: "Belalar sürüyorsa dua ve ibadetin vakti devam eder; bundan duanın kabul edilmediği sonucu çıkarılmaz."
+(Bu son hâl astra'nın ikinci turundan geldi: ilk düzeltme alıntının söylemediği bir "sonradan mutlaka gerçekleşir" imasını taşıyordu.)
+
+ÖNCE: "Bediüzzaman Said Nursi duayı yalnız bir istek aracı olarak değil, kulluğun kendisi olarak ele alır."
+SONRA: "Bediüzzaman Said Nursi duayı bir ibadet olarak ele alır; dünyevî maksatları duanın vakti sayar, gayesi değil."
+
+Aynı düzeltme kaynak künyelerinin `noteTr/noteEn` alanlarında da uygulandı ("Duayı bir istek aracı değil kulluğun kendisi olarak tanımlar" → "Duayı kulluğun kendisi olarak tanımlar"), İngilizce karşılıklarıyla birlikte.
+
+### Edilgen çatı yığılması
+
+tabiat-afak sayfasına eklenen enfüs temasının tefsir notu dört edilgen yüklemi tek cümlede topluyordu.
+ÖNCE: "…zayıflığı hatırlatılır; …gücü yeteceği belirtilir. …verdiği kaydedilir; bu melekeler şükür ve kulluk ile ilişkilendirilir."
+SONRA: "…metin, insanın yaratıldığı başlangıcın zayıflığına dikkat çeker; yaratmayı ilk defa yapan, onu yeniden yapmaya da güç yetirir. … Metin bu melekeleri şükür ve kulluk ile ilişkilendirir."
+Etken çatı, üç cümle. EN karşılığı da aynı biçimde bölündü.
+
+### Satış sıfatı: "eşsiz / benzersiz"
+
+i'câz iki sayfada satış sıfatıyla karşılanmıştı; astra dil-belagat'ta bunu bulgu olarak verdi, kuran-ilimleri'nde tarama yakaladı.
+ÖNCE: "Kur'ân, kendi eşsizliğini bizzat ilân eder" · "Onun eşsiz belâgati ve i'câzı" · "Kur'an'ın i'câzını (benzersizliğini)" · "Bu benzersizliğin en açık ölçüsü olarak"
+SONRA: "Kur'ân, kendi benzerinin getirilemeyeceğini bizzat ilân eder" · "Onun belâgati ve i'câzı" · "Kur'an'ın i'câzını (bir benzerinin getirilememesini)" · "Bunun en açık ölçüsü olarak"
+
+### Beşerî tasnifin âyetin iddiası gibi sunulması
+
+ÖNCE: "Bu sayfa, Kur'ân'ın kendi metnindeki belâgat, fesâhat, îcâz, temsil ve mesel, ses ve ahenk ile nazım ve yapı iddialarını bir araya getirir."
+SONRA: "Bu sayfa, ilgili âyetleri belâgat, fesâhat, îcâz, temsil ve mesel, ses ve ahenk, nazım ve yapı başlıkları altında ele alır. Bu teknik tasnif, beşerî yorum katmanıdır."
+İngilizcede ayrıca terim karışıklığı düzeltildi: "concision (i'jaz)" → "concision (ījāz)"; benzerinin getirilememesi için "inimitability (iʿjāz)".
+
+### Taramada bulgu çıkmayanlar
+
+6 disiplin bloğunun tamamı satış sıfatı, belirsiz kaynak ("uzmanlar", "çalışmalar gösteriyor"), em-dash ve ok zinciri açısından tarandı; kalan tek grup render edilmeyen `reviewedBy` alanındaki tireydi (ekrana çıkmıyor, dokunulmadı).
