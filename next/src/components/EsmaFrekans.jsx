@@ -11,6 +11,7 @@ import SourcesCitation from './SourcesCitation';
 import KOK_HARITASI from '../../public/esma-kok-haritasi.json';
 import TANIM_VERISI from '../../public/esma-tanimlar.json';
 import EsmaTanimlari from './EsmaTanimlari';
+import HeroGeometricBackground from './HeroGeometricBackground';
 
 // ── Sabit veriler ────────────────────────────────────────────────────────────
 
@@ -232,7 +233,11 @@ function Hero({ tr }) {
       alignItems: 'center',
       padding: '40px 24px 60px',
       position: 'relative',
+      overflow: 'hidden',
     }}>
+      {/* Geometrik altıgen desen — Fâtiha hero'suyla aynı arka plan (2026-09-13,
+          kullanıcı isteği: Esmâ hero'sunda desen yoktu). */}
+      <HeroGeometricBackground />
       {/* Radial gradient backdrop — subtle gold glow center */}
       <div aria-hidden style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -250,16 +255,18 @@ function Hero({ tr }) {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 0.85, scale: 1 }}
           transition={{ duration: 1.4, ease: 'easeOut' }}
+          className="mq-fs"
           style={{
-            fontFamily: "'Amiri Quran', 'Amiri', serif",
-            fontSize: 'clamp(1.8rem, 3.8vw, 2.6rem)',
+            fontFamily: FONTS.bismillah,
+            '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold,
             marginBottom: '64px',
             textAlign: 'center',
-            lineHeight: 1,
+            lineHeight: 1.2,
           }}
           dir="rtl"
           lang="ar"
+          aria-label="Bismillāh"
         >
           ﷽
         </motion.div>
