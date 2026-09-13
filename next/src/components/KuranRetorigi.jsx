@@ -9,6 +9,7 @@ import {
   BREAKPOINT_MOBILE, RADIUS,
   VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import ToolScopeNote from './ToolScopeNote';
 import useTabParam from '../hooks/useTabParam';
 import CollapsibleHero from './CollapsibleHero';
@@ -226,7 +227,7 @@ export default function KuranRetorigi({ onClose }) {
               color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
               background: 'transparent',
               border: 'none',
-              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+              borderBottom: 'none', position: 'relative',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               transition: 'color 0.15s',
@@ -235,6 +236,7 @@ export default function KuranRetorigi({ onClose }) {
             }}
           >
             {tab}
+          {activeTab === i && <ToolTabGlow />}
           </button>
         ))}
       </div>

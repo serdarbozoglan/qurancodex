@@ -6,6 +6,7 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import {
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
@@ -357,13 +358,13 @@ export default function FurukAtlasi({ onClose }) {
                     display: 'flex', alignItems: 'center', gap: 8,
                     '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                     border: 'none',
-                    background: active ? COLORS.goldAlpha15 : 'transparent',
-                    borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                    background: active ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
+                    borderBottom: 'none', position: 'relative',
                     borderRadius: 0,
                     color: active ? COLORS.gold : COLORS.silver,
                     '--fs-d': '0.9rem', '--fs-m': '0.85rem',
                     fontFamily: FONTS.body,
-                    fontWeight: active ? 600 : 400,
+                    fontWeight: active ? 700 : 500,
                     cursor: 'pointer',
                     transition: `all ${TRANSITION.fast}`,
                     whiteSpace: 'nowrap',
@@ -373,6 +374,7 @@ export default function FurukAtlasi({ onClose }) {
                 >
                   <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{t.icon}</span>
                   <span className="qc-tab-label">{tr ? t.tr : t.en}</span>
+                {active && <ToolTabGlow />}
                 </button>
               );
             })}
@@ -673,7 +675,7 @@ function TabGroupDetail({ group, allGroups, categories, language, isMobile, onSe
                 border: `1px solid ${active ? COLORS.gold : `${chipAccent}30`}`,
                 background: active ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.02)',
                 color: active ? COLORS.gold : COLORS.silver,
-                fontSize: '0.78rem', fontWeight: active ? 600 : 400,
+                fontSize: '0.78rem', fontWeight: active ? 700 : 500,
                 fontFamily: FONTS.body, cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               }}
             >

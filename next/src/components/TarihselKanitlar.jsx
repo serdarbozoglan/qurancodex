@@ -11,6 +11,7 @@ import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -349,14 +350,15 @@ export default function TarihselKanitlar({ onClose }) {
                   fontWeight: isActive ? 700 : 500,
                   color: isActive ? COLORS.gold : COLORS.silver,
                   border: 'none',
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                  borderBottom: 'none', position: 'relative',
+                  background: isActive ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
                   cursor: 'pointer', whiteSpace: 'nowrap',
                   display: 'inline-flex', alignItems: 'center', gap: '6px',
                 }}
               >
                 <span style={{ opacity: isActive ? 1 : 0.6 }}>{t.icon}</span>
                 {tr ? t.tr : t.en}
+              {isActive && <ToolTabGlow />}
               </button>
             );
           })}
@@ -435,7 +437,7 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
                 background: isActive ? `${cat.color}22` : 'transparent',
                 color: isActive ? cat.color : COLORS.silver,
                 '--fs-d': '0.85rem', '--fs-m': '0.78rem',
-                fontWeight: isActive ? 600 : 400,
+                fontWeight: isActive ? 700 : 500,
                 fontFamily: FONTS.body,
                 cursor: 'pointer', transition: 'all 0.18s',
                 whiteSpace: 'nowrap',

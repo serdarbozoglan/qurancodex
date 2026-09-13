@@ -991,6 +991,29 @@ tab butonu `<button className="mq-box" ... className="mq-fs" style=...>` gibi İ
 `className="mq-box mq-fs"`.** Tarama: `grep -rn '<button className="mq-box"' src/`
 — eşi `className="mq-fs"` olan her buton birleştirilir.
 
+**PAYLAŞILAN MEKANİZMA — `components/ToolTabGlow.jsx` (2026-09-12):** seçili-tab
+formatı tek kaynaktan gelir; kopyalanan inline stiller yine birbirinden kaymasın
+diye. Kullanım (tab butonunda):
+```jsx
+import { toolTabStyle, ToolTabGlow } from './ToolTabGlow';
+// buton style: kendi mq-box padding var'ları + mq-fs font var'ları KALIR,
+// seçili-stil (renk/ağırlık/harf-aralığı/gradyan zemin/border) toolTabStyle'dan gelir:
+style={{ display:'flex', alignItems:'center', gap:'8px',
+         '--pr-d':'22px', /* ...padding+fs var'ları... */ ...toolTabStyle(active) }}
+// buton içinde, etiketten sonra, seçili göstergesi:
+{active && <ToolTabGlow />}
+```
+`toolTabStyle` padding ve font-size'ı BİLİNÇLİ vermez → her sayfa kendi `mq-box`/
+`mq-fs` responsive değişkenlerini kullanır (§14.2 JS-isMobile/CLS anti-pattern'inden
+kaçınılır). Düz `2px solid` alt-border KULLANILMAZ; seçili gösterge `<ToolTabGlow/>`
+(ışıltılı altın gradyan çizgi). 2026-09-12'de 18 araç bileşeni bu mekanizmaya
+taşındı; kalan birkaç bileşen (filtre-çipli farklı desen) tek tek uyarlanır.
+
+**İKON KURALI:** her tab butonu MÜMKÜNSE temaya uygun bir çizgi-ikon taşır
+(`stroke="currentColor"`, ~15-16px, `<span style={{display:'flex',flexShrink:0}}>`
+içinde, etiketten önce, `gap:8px`). Çoğu atlas/araç tab bar'ında ikon zaten var;
+ikonsuz olanlara eklenir. İkon aktif renge (currentColor) uyar, ayrı renk verilmez.
+
 **Sayfa sonunda 2-3 ilgili tool linkine yönlendiren CTA strip.** Reusable component: `next/src/components/CrossToolCTA.jsx`.
 
 ```jsx

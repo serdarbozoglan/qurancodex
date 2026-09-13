@@ -6,6 +6,7 @@ import { useQuranNav } from '@/hooks/useQuranNav';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
@@ -1527,8 +1528,8 @@ export default function Melekler({ onClose }) {
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none', borderRadius: '0',
-                background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                background: activeTab === i ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
+                borderBottom: 'none', position: 'relative',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
                 '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 letterSpacing: '0.14em',
@@ -1541,6 +1542,7 @@ export default function Melekler({ onClose }) {
             >
               <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
               <span className="qc-tab-label">{tr ? tab.labelTr : tab.labelEn}</span>
+            {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

@@ -14,6 +14,7 @@ import {
   BREAKPOINT_TABLET,
   RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
@@ -416,12 +417,13 @@ export default function NefisMertebeleri({ onClose }) {
                   fontWeight: active ? 700 : 500,
                   color: active ? COLORS.gold : COLORS.silver,
                   border: 'none',
-                  borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                  background: active ? COLORS.goldAlpha15 : 'transparent',
+                  borderBottom: 'none', position: 'relative',
+                  background: active ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
                   cursor: 'pointer', flexShrink: 0,
                   fontFamily: FONTS.body, whiteSpace: 'nowrap',
                 }}>
                 {language === 'tr' ? tab.labelTr : tab.labelEn}
+              {active && <ToolTabGlow />}
               </button>
             );
           })}

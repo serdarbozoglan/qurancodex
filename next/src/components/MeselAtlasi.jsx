@@ -10,6 +10,7 @@ import {
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
@@ -1539,11 +1540,12 @@ export default function MeselAtlasi({ onClose, backRef }) {
                 textTransform: 'uppercase', letterSpacing: '0.06em',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
                 background: 'none', border: 'none', cursor: 'pointer',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                borderBottom: 'none', position: 'relative',
                 whiteSpace: 'nowrap', transition: 'color 0.15s',
               }}
             >
               {label}
+            {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

@@ -14,6 +14,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import LinkifyRefs from './LinkifyRefs';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
@@ -167,8 +168,8 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
               // borderTop/Left/Right = none; borderBottom yalnızca active için gold underline.
               // Not: 'border: none' shorthand YASAK — React strict mode warning tetikler (§UX audit K-01, 2026-07-12).
               borderTop: 'none', borderLeft: 'none', borderRight: 'none',
-              borderBottom: activeTab === tab.key ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-              background: activeTab === tab.key ? COLORS.goldAlpha15 : 'transparent',
+              borderBottom: 'none', position: 'relative',
+              background: activeTab === tab.key ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               transition: `all ${TRANSITION.fast}`,
@@ -176,6 +177,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
             }}
           >
             {language === 'tr' ? tab.titleTr : tab.titleEn}
+          {activeTab === tab.key && <ToolTabGlow />}
           </button>
         ))}
       </div>

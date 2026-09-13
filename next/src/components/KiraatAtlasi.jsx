@@ -9,6 +9,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CrossToolCTA from './CrossToolCTA';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -622,7 +623,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
         {filters.map(f => (
           <button key={f} onClick={() => setActiveFilter(f)} style={{
             padding: '4px 12px', borderRadius: 99, cursor: 'pointer',
-            fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: activeFilter === f ? 600 : 400,
+            fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: activeFilter === f ? 700 : 500,
             background: activeFilter === f ? COLORS.goldAlpha15 : COLORS.glassBg,
             border: `1px solid ${activeFilter === f ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
             color: activeFilter === f ? COLORS.gold : COLORS.silver,
@@ -764,7 +765,7 @@ function TabHarita({ data, isMobile, language }) {
         ].map(opt => (
           <button key={opt.key} onClick={() => setMode(opt.key)} style={{
             padding: '6px 16px', borderRadius: 8, cursor: 'pointer',
-            fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: mode === opt.key ? 600 : 400,
+            fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: mode === opt.key ? 700 : 500,
             background: mode === opt.key ? COLORS.goldAlpha15 : COLORS.glassBg,
             border: `1px solid ${mode === opt.key ? COLORS.goldAlpha25 : COLORS.glassBorder}`,
             color: mode === opt.key ? COLORS.gold : COLORS.silver,
@@ -1658,13 +1659,13 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
                 '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                 border: 'none',
-                background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                background: activeTab === i ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
+                borderBottom: 'none', position: 'relative',
                 borderRadius: 0,
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
                 '--fs-d': '0.9rem', '--fs-m': '0.85rem',
                 fontFamily: FONTS.body,
-                fontWeight: activeTab === i ? 600 : 400,
+                fontWeight: activeTab === i ? 700 : 500,
                 textTransform: 'uppercase', letterSpacing: '0.06em',
                 cursor: 'pointer', transition: 'all 0.15s', whiteSpace: 'nowrap',
               }}
@@ -1673,6 +1674,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
             >
               <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
               <span className="qc-tab-label">{language === 'tr' ? tab.labelTr : tab.labelEn}</span>
+            {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

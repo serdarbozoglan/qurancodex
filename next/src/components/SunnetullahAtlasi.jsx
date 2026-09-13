@@ -15,6 +15,7 @@ import {
   TEXT, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import { toolTabStyle, ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -572,24 +573,12 @@ export default function SunnetullahAtlasi({ onClose }) {
                 key={i}
                 onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('sunnetullah-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
                 className="mq-box mq-fs" style={{
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
                   '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
-                  border: 'none',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                  borderRadius: '0',
-                  color: isActive ? COLORS.gold : COLORS.silver,
                   '--fs-d': '0.9rem', '--fs-m': '0.82rem',
-                  fontFamily: FONTS.body,
-                  fontWeight: isActive ? 600 : 400,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                  whiteSpace: 'nowrap',
+                  ...toolTabStyle(isActive),
                 }}
                 onMouseEnter={e => {
                   if (!isActive) {
@@ -606,6 +595,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               >
                 <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
                 <span>{language === 'tr' ? tab.tr : tab.en}</span>
+                {isActive && <ToolTabGlow />}
               </button>
             );
           })}

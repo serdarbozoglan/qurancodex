@@ -13,6 +13,7 @@ import {
   RADIUS,
   TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -603,8 +604,8 @@ export default function MunafikProfili({ onClose }) {
                   gap: '8px',
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                   border: 'none',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                  background: isActive ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
+                  borderBottom: 'none', position: 'relative',
                   borderRadius: 0,
                   color: isActive ? COLORS.gold : COLORS.silver,
                   '--fs-d': '0.78rem', '--fs-m': '0.72rem',
@@ -621,6 +622,7 @@ export default function MunafikProfili({ onClose }) {
               >
                 <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
                 <span>{language === 'tr' ? tab.tr : tab.en}</span>
+              {isActive && <ToolTabGlow />}
               </button>
             );
           })}
