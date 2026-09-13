@@ -194,7 +194,7 @@
     "at": "2026-08-31"
   },
   "mobile-full": {
-    "total": 780,
+    "total": 441,
     "perPage": {
       "/tr": 31,
       "/tr/arac/alti-konu": 11,
@@ -342,7 +342,6 @@
       "/en/oku": 0,
       "/en/sor": 1,
       "/en/tefekkur": 0
-    },
-    "at": "2026-08-31"
+    }
   }
 }

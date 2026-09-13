@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import ToolHero from './ToolHero';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -229,6 +230,23 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
     >
       {KADINLAR_TOOL_HEADER}
 
+      <ToolHero
+        language={language}
+        ar={"مَنْ عَمِلَ صَالِحاً مِنْ ذَكَرٍ اَوْ اُنْثٰى وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيٰوةً طَيِّبَةً وَلَنَجْزِيَنَّهُمْ اَجْرَهُمْ بِاَحْسَنِ مَا كَانُوا يَعْمَلُونَ"}
+        trTr="Erkek olsun kadın olsun, kim mü'min olarak sâlih bir amel işlerse, ona güzel bir hayat yaşatırız ve karşılığını yaptıklarının en güzeliyle veririz."
+        trEn="Whoever does righteous work, whether male or female, while being a believer, We will surely give them a good life and reward them according to the best of what they used to do."
+        refTr="Nahl 16:97"
+        refEn="al-Naḥl 16:97"
+        whisperTr="Âyet, imanla sâlih amel işleyen erkek ve kadını aynı ölçüyle anar; her ikisine güzel bir hayat ve karşılık vaat eder."
+        whisperEn="The verse names man and woman by the same measure when they act righteously in faith, and promises both a good life and its recompense."
+        eyebrowTr="KUR'AN'DA KADINLAR · METİNDEKİ ANLATILAR"
+        eyebrowEn="WOMEN IN THE QUR'AN · THE NARRATIVES IN THE TEXT"
+        titleTr="Kur'an'da Kadınlar"
+        titleEn="Women in the Qur'an"
+        subtitleTr="Meryem, Firavun'un eşi, Sebe melikesi ve diğerleri: metnin kendi anlattığı kadarıyla."
+        subtitleEn="Maryam, the wife of Pharaoh, the queen of Sheba and others, as far as the text itself tells."
+      />
+
       {/* ── SCROLLABLE BODY ────────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
@@ -439,7 +457,9 @@ function Hero({ meta, figureCount, language, isMobile }) {
   const v10En = "Allah sets forth an example for those who disbelieved: the wife of Noah and the wife of Lot. They were under two of Our righteous servants but betrayed them...";
   const v10Ref = "Tahrîm 66:10";
 
-  const anchorAr = "وَضَرَبَ اللّٰهُ مَثَلاً لِلَّذِينَ اٰمَنُوا امْرَاَتَ فِرْعَوْنَۢ اِذْ قَالَتْ رَبِّ ابْنِ لِي عِنْدَكَ بَيْتاً فِي الْجَنَّةِ";
+  // Arapça verse-graph'tan alınır; elle yazılan nüshada U+06E2 vardı ve
+  // KFGQPC'de tofu olarak render oluyordu (2026-09-13 ölçüm).
+  const anchorAr = "وَضَرَبَ اللّٰهُ مَثَلاً لِلَّذِينَ اٰمَنُوا امْرَاَتَ فِرْعَوْنَ اِذْ قَالَتْ رَبِّ ابْنِ لِي عِنْدَكَ بَيْتاً فِي الْجَنَّةِ وَنَجِّنِي مِنْ فِرْعَوْنَ وَعَمَلِهِ وَنَجِّنِي مِنَ الْقَوْمِ الظَّالِمِينَ";
   const anchorTr = "Allah, inananlara da Firavun'un karısını örnek gösterdi: \"Rabbim! Bana katında, cennette bir ev yap...\"";
   const anchorEn = "And Allah presents an example of those who believed: the wife of Pharaoh, when she said, \"My Lord, build for me near You a house in Paradise...\"";
   const anchorRef = "Tahrîm 66:11";

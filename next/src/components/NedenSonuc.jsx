@@ -7,6 +7,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { Fragment, useState, useEffect } from 'react';
+import ToolHero from './ToolHero';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -135,6 +136,25 @@ export default function NedenSonuc() {
     />
   );
 
+  const TOOL_HERO = (
+    <ToolHero
+      language={language}
+      ar={"وَمَا اَصَابَكُمْ مِنْ مُصِيبَةٍ فَبِمَا كَسَبَتْ اَيْدِيكُمْ وَيَعْفُوا عَنْ كَثِيرٍ"}
+      trTr="Başınıza gelen her musibet kendi ellerinizle işledikleriniz yüzündendir; Allah çoğunu da affeder."
+      trEn="Whatever affliction befalls you is because of what your own hands have earned, and He pardons much."
+      refTr="Şûrâ 42:30"
+      refEn="al-Shūrā 42:30"
+      whisperTr="Âyet, insan fiillerinin sonuçlarını ve Allah'ın çokça affettiğini hatırlatır; bu vurgu, her musibetzedeyi kendi acısından sorumlu tutmanın gerekçesi yapılamaz."
+      whisperEn="The verse recalls the consequences of human deeds and that God pardons much; this emphasis cannot be turned into a reason for holding every afflicted person responsible for their own suffering."
+      eyebrowTr="NEDEN → SONUÇ · ÂYETLERDEKİ ZİNCİRLER"
+      eyebrowEn="CAUSE → EFFECT · CHAINS IN THE VERSES"
+      titleTr="Neden → Sonuç Atlası"
+      titleEn="Cause → Effect Atlas"
+      subtitleTr="Ahlâkî ve kozmik zincirler, âyetlerin kurduğu sırayla."
+      subtitleEn="Ethical and cosmic chains, in the order the verses set them."
+    />
+  );
+
   const RELATED_CTA = (
     <div className="zf2-tool-cta-wrap" style={{ maxWidth: 1080, margin: '0 auto', width: '100%' }}>
       <CrossToolCTA
@@ -158,6 +178,7 @@ export default function NedenSonuc() {
         paddingTop: `${navTop}px`,
       }}>
         {TOOL_HEADER}
+      {TOOL_HERO}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
             {tr ? 'Yükleniyor…' : 'Loading…'}
@@ -182,6 +203,7 @@ export default function NedenSonuc() {
       paddingTop: `${navTop}px`,
     }}>
       {TOOL_HEADER}
+      {TOOL_HERO}
 
       <div className="zf2-tool-hero-wrap" style={{ maxWidth: 1080, margin: '0 auto' }}>
 
