@@ -1449,8 +1449,8 @@ export const DISCIPLINE_CONTENT = {
             "glossEn": "Allah brought you out of your mothers' wombs knowing nothing, and gave you hearing, sight and hearts, so that you may be thankful."
           }
         ],
-        "tafsirTr": "Muhtasar İbn Kesîr metninde (Târık 86:5): insana yaratıldığı başlangıcın zayıflığı hatırlatılır; yaratmayı ilk defa gerçekleştirmeye gücü yetenin onu yeniden gerçekleştirmeye de gücü yeteceği belirtilir. (Nahl 16:78): Allah insanları annelerinin karnından hiçbir şey bilmez hâlde çıkardığı, sonra sesleri tanısın diye işitme, görünenleri görsün diye görme ve yararlı ile zararlıyı ayırt etsin diye akıl anlamında kalp verdiği kaydedilir; bu melekeler şükür ve kulluk ile ilişkilendirilir.",
-        "tafsirEn": "In the abridged Ibn Kathir text (At-Tariq 86:5): the human being is alerted to the weakness of the origin from which he was created, and it is noted that whoever is able to begin the creation is able to repeat it. (An-Nahl 16:78): Allah brought people out of their mothers' wombs knowing nothing, then gave them hearing to recognize voices, sight to see visible things, and hearts meaning reason, so they may distinguish the harmful from the beneficial; these faculties are tied to thankfulness and to worship."
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Târık 86:5): metin, insanın yaratıldığı başlangıcın zayıflığına dikkat çeker; yaratmayı ilk defa yapan, onu yeniden yapmaya da güç yetirir. (Nahl 16:78): Allah insanı annesinin karnından hiçbir şey bilmez hâlde çıkarır; sonra sesleri tanısın diye işitme, görüneni görsün diye görme, yararlı ile zararlıyı ayırsın diye akıl anlamında kalp verir. Metin bu melekeleri şükür ve kulluk ile ilişkilendirir.",
+        "tafsirEn": "In the abridged Ibn Kathir text (At-Tariq 86:5): the text draws attention to the weakness of the origin from which the human being was created, and notes that the One who begins creation can also repeat it. (An-Nahl 16:78): Allah brings people out of their mothers' wombs knowing nothing, then gives them hearing to recognize voices, sight to see what is visible, and hearts, meaning reason, to tell the harmful from the beneficial. The text ties these faculties to thankfulness and worship."
       },
       {
         "titleTr": "Göklerin ve Yerin Yaratılışında Akıl Sahiplerine Deliller",
@@ -1700,12 +1700,12 @@ export const DISCIPLINE_CONTENT = {
         "commentary": {
           "sourceTr": "Bediüzzaman · Sözler, Yirmi Beşinci Söz (İ'câz-ı Kur'ân Risâlesi)",
           "sourceEn": "Bediüzzaman · The Words, Twenty-Fifth Word (Treatise on the Miraculousness of the Qur'an)",
-          "introTr": "Modern bir Risale okuması olarak Bediüzzaman, Yirmi Beşinci Söz'de Kur'an'ın i'câzını (benzersizliğini) ve metnin asırlar boyunca korunmuşluğunu bir arada ele alır. Aşağıdaki noktalar birincil metinden doğrulanmıştır.",
+          "introTr": "Modern bir Risale okuması olarak Bediüzzaman, Yirmi Beşinci Söz'de Kur'an'ın i'câzını (bir benzerinin getirilememesini) ve metnin asırlar boyunca korunmuşluğunu bir arada ele alır. Aşağıdaki noktalar birincil metinden doğrulanmıştır.",
           "introEn": "As a modern Risale reading, in the Twenty-Fifth Word Bediüzzaman treats together the Qur'an's i'jaz (inimitability) and the preservation of the text across the centuries. The points below are verified from the primary text.",
           "pointsTr": [
             "Kur'an'ın on üç asır boyunca yedi vecihle i'câzını koruduğunu ve kırka yakın i'câz türüyle bir mu'cize olduğunu ileri sürer.",
             "Kur'an'ın dâimâ gençliğini, sağlamlığını, zînet ve güzelliğini koruyup artırdığını, her çağa tazeliğini yitirmeden hitap ettiğini söyler.",
-            "Bu benzersizliğin en açık ölçüsü olarak, İsrâ 17:88'de dile getirilen ve asırlarca cevapsız kalan meydan okumayı gösterir: insanlar ve cinler bir araya gelse Kur'an'ın bir benzerini getiremezler."
+            "Bunun en açık ölçüsü olarak, İsrâ 17:88'de dile getirilen ve asırlarca cevapsız kalan meydan okumayı gösterir: insanlar ve cinler bir araya gelse Kur'an'ın bir benzerini getiremezler."
           ],
           "pointsEn": [
             "He argues that the Qur'an preserved its i'jaz in seven respects across thirteen centuries and is a miracle with nearly forty kinds of inimitability.",
