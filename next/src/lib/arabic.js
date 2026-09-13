@@ -148,7 +148,7 @@ export function cleanArabicForDisplay(str) {
   return str
     .replace(/۪/g, 'ِ')                              // Uthmani subscript kasra → standart kasra
     .replace(/ۡ/g, 'ْ')                              // Uthmani sukun → standart sukun
-    .replace(/[ً-ْ]ٓ/gu, 'ٓ')              // CLAUDE.md §13.14 maddah render fix
+    .replace(/([ً-ْ])ٓ/gu, '$1')          // §13.14: hareke+maddah bindirmesinde HAREKEYİ KORU, fazlalık maddahı at (eski kural harekeyi siliyordu — 2026-09-12 fix)
     .replace(/ٱ/g, 'ا')                              // alef wasla → düz alef (KFGQPC ص artifact'i)
     .replace(/ی/g, 'ي')                              // Farsi yeh → Arabic yeh
     .replace(/[ؐ-ؔؖؗ]/g, '')               // İslami kısaltma işaretleri
@@ -198,5 +198,5 @@ export function cleanArabicMinimal(str) {
     .replace(/۪/g, 'ِ')
     .replace(/ٱ/g, 'ا')
     .replace(/ی/g, 'ي')
-    .replace(/[ً-ْ]ٓ/gu, 'ٓ');
+    .replace(/([ً-ْ])ٓ/gu, '$1');
 }

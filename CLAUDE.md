@@ -517,15 +517,29 @@ görüntüsü** hatayı gösterdi. Sağ-kenar kapsama ölçütünü ve gözle ba
 
 ### 13.14 Arapça Maddah Rendering Fix
 
-KFGQPC fontunda `U+0653` (maddah above) karakterinden önce gelen hareke (U+064B–U+0652) render bozukluğuna yol açar.
+KFGQPC fontunda `U+0653` (maddah above) ile ondan HEMEN önce gelen hareke
+(U+064B–U+0652) aynı harfte üst üste binerek render bozukluğuna yol açar.
 
-**cleanArabic() fonksiyonuna eklenecek fix:**
+**⚠ 2026-09-12 DÜZELTME — HAREKEYİ KORU, MADDAHI AT (eski kural tersini yapıyordu):**
 
 ```js
-.replace(/[ً-ْ]ٓ/gu, 'ٓ')
+.replace(/([ً-ْ])ٓ/gu, '$1')   // hareke+maddah → sadece hareke (fazlalık maddah atılır)
 ```
 
-Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`src/utils/` veya Next.js'te `next/src/lib/`).
+**Neden değişti:** eski kural `.replace(/[ً-ْ]ٓ/gu, 'ٓ')` HAREKEYİ siliyordu; ör.
+`مُٓوا` (Bakara 2:223 "va'lemû", mim+damma+maddah) → `مٓوا` (harekesiz mim). Kullanıcı
+2026-09-12'de "maddah olan harflerde hareke stripleniyor, bu senin genel bug'in,
+sadece bu sayfaya özgü değil" diye bildirdi. Yeni kural harekeyi KORUR, yalnız
+hareke üzerine binen fazlalık maddahı atar; `جَٓاءَ` gibi ÜNSÜZ-üstü (harekesiz)
+maddahlar `([ً-ْ])` eşleşmediği için KORUNUR. `cleanArabicForDisplay` ve
+`cleanArabicMinimal` bu kuralı taşır (`cleanArabicForGraph`'ta maddah fix yok).
+
+**⚠ Depolanan veri:** eski kuralla build edilmiş JSON/veri (ibadetler `*.json`,
+`disciplineContent.js` vb.) harekeyi ZATEN silmiş halde saklar; fonksiyonu
+düzeltmek görünür etki yaratmaz — o veriyi verse-graph (hareke içerir) kaynağından
+YENİDEN ÜRETMEK gerekir (görsel doğrulama ile).
+
+Bu fix, tüm Arapça metin temizleme utility'lerinde mevcut olmalıdır (`next/src/lib/arabic.js`).
 
 ---
 
