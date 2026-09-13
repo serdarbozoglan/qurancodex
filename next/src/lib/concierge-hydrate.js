@@ -61,6 +61,9 @@ function buildUrl(item, lang = 'tr') {
       return item.route ? `${base}${item.route}` : `${base}/atlas/ibadetler`;
     case 'atlas-ahiret-yolculugu-stage':
       return `${base}/atlas/ahiret-yolculugu`;
+    case 'alan-disiplin':
+      // buildItem `route` üretir: /alanlar/<disiplin-id>
+      return item.route ? `${base}${item.route}` : `${base}/alanlar`;
     case 'insan-yolculugu-stage':
       return `${base}/atlas/insan-yolculugu`;
     case 'munasebat':

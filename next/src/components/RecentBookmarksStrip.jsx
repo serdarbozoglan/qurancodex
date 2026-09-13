@@ -21,6 +21,7 @@ const TYPE_LABELS = {
   'article':                        { tr: 'Makale',         en: 'Article',          icon: '✎' },
   'atlas-kissa-scene':              { tr: 'Kıssa',          en: 'Story',            icon: '★' },
   'atlas-ahiret-yolculugu-stage':   { tr: 'Ahiret',         en: 'Afterlife',        icon: '☾' },
+  'alan-disiplin':                  { tr: 'Alan',           en: 'Field',            icon: '◈' },
   'atlas-kavram':                   { tr: 'Kavram',         en: 'Concept',          icon: '✧' },
   'surah-summary':                  { tr: 'Sûre',           en: 'Sūrah',            icon: '§' },
   'pericope':                       { tr: 'Ayet Grubu',     en: 'Pericope',         icon: '¶' },

@@ -1678,6 +1678,7 @@ function AtlasCard({ atlas, delay, language }) {
     'atlas-kavram': tr ? 'Kavram' : 'Concept',
     'atlas-kissa-scene': tr ? 'Kıssa sahnesi' : 'Story scene',
     'atlas-ahiret-yolculugu-stage': tr ? 'Ahiret aşaması' : 'Afterlife stage',
+    'alan-disiplin': tr ? 'Alan sayfası' : 'Field page',
     'surah-summary': tr ? 'Sûre özet' : 'Sūra summary',
     'pericope': tr ? 'Pericope' : 'Pericope',
   }[atlas.type] || (tr ? 'Atlas' : 'Atlas');

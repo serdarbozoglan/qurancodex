@@ -205,6 +205,8 @@ function buildUserMessage(query, grouped, lang = 'tr') {
     'munasebat', 'sebeb-nuzul', 'dialogue', 'addressee',
     'nuance-set', 'neden-sonuc', 'kitap-kavrami', 'tefsir-ihtilaf',
     'sunnetullah-kanun', 'sunnetullah-kavim', 'sunnetullah-ulema',
+    // ── 2026-09-13: /alanlar disiplin çapa içerikleri
+    'alan-disiplin',
   ];
   const atlases = atlasTypes.flatMap(t => grouped[t] || []).sort((a, b) => b.score - a.score);
   if (atlases.length) {

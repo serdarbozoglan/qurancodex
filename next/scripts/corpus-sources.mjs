@@ -3,6 +3,7 @@
 // Yeni content type geldiğinde buraya entry eklenir → build-corpus.mjs
 // otomatik pickup eder.
 
+import { DISCIPLINES } from '../src/data/disciplines.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -1289,5 +1290,67 @@ export const CONTENT_SOURCES = [
 // ─── Tool Catalog (statik registry) ──────────────────────────────────────────
 // Site'deki 30+ tool sayfasının semantic profili. Concierge bunları öner ki
 // user "kavim" arayınca /atlas/kissa yerine /atlas/kavim önerilsin.
+// ─── Alanına Göre Keşfet — disiplin çapa içerikleri (2026-09-13) ─────────────
+// 12 disiplin sayfası (/alanlar/<id>) korpusa HİÇ girmemişti: içerik yayındaydı
+// ama /sor onları bulamıyordu (§13.22). Her disiplinden bir genel kalem + her
+// tema için ayrı bir kalem üretilir; tema kalemleri âyet meâllerini ve tefsir
+// özetini taşıdığı için asıl recall onlardan gelir.
+const DISCIPLINE_SOURCE = {
+  type: 'alan-disiplin',
+  module: 'src/data/disciplineContent.js',
+  extract: (mod) => {
+    const titles = new Map(DISCIPLINES.map((d) => [d.id, d]));
+    const out = [];
+    for (const [id, c] of Object.entries(mod.DISCIPLINE_CONTENT)) {
+      const meta = titles.get(id);
+      if (!meta) continue;
+      out.push({ kind: 'overview', id, meta, content: c });
+      (c.themes || []).forEach((theme, i) => {
+        out.push({ kind: 'theme', id, meta, content: c, theme, index: i });
+      });
+    }
+    return out;
+  },
+  buildItem: (row) => {
+    const { id, meta, content } = row;
+    const route = `/alanlar/${id}`;
+    if (row.kind === 'overview') {
+      const themeTitlesTr = (content.themes || []).map((t) => t.titleTr).join(' · ');
+      const themeTitlesEn = (content.themes || []).map((t) => t.titleEn).join(' · ');
+      return {
+        id: `alan:${id}`,
+        type: 'alan-disiplin',
+        subId: id,
+        route,
+        titleTr: meta.titleTr,
+        titleEn: meta.titleEn,
+        descTr: (meta.blurbTr || '').slice(0, 200),
+        descEn: (meta.blurbEn || '').slice(0, 200),
+        arabic: content.anchor?.ar || '',
+        searchTextTr: `${meta.titleTr}. ${meta.blurbTr || ''} ${content.introTr || ''} ${themeTitlesTr} ${content.assuranceTr || ''}`.slice(0, 5000),
+        searchTextEn: `${meta.titleEn}. ${meta.blurbEn || ''} ${content.introEn || ''} ${themeTitlesEn} ${content.assuranceEn || ''}`.slice(0, 5000),
+      };
+    }
+    const { theme, index } = row;
+    const versesTr = (theme.verses || []).map((v) => `${v.ref}: ${v.glossTr}`).join(' ');
+    const versesEn = (theme.verses || []).map((v) => `${v.ref}: ${v.glossEn}`).join(' ');
+    return {
+      id: `alan:${id}#${index}`,
+      type: 'alan-disiplin',
+      subId: id,
+      route,
+      titleTr: `${meta.titleTr} · ${theme.titleTr}`,
+      titleEn: `${meta.titleEn} · ${theme.titleEn}`,
+      descTr: (theme.verses?.[0]?.glossTr || '').slice(0, 200),
+      descEn: (theme.verses?.[0]?.glossEn || '').slice(0, 200),
+      arabic: theme.verses?.[0]?.ar || '',
+      searchTextTr: `${meta.titleTr}. ${theme.titleTr}. ${versesTr} ${theme.tafsirTr || ''} ${theme.commentary ? `${theme.commentary.sourceTr}. ${(theme.commentary.pointsTr || []).join(' ')}` : ''}`.slice(0, 5000),
+      searchTextEn: `${meta.titleEn}. ${theme.titleEn}. ${versesEn} ${theme.tafsirEn || ''} ${theme.commentary ? `${theme.commentary.sourceEn}. ${(theme.commentary.pointsEn || []).join(' ')}` : ''}`.slice(0, 5000),
+    };
+  },
+};
+
+CONTENT_SOURCES.push(DISCIPLINE_SOURCE);
+
 // TOOL_CATALOG artık src/data/toolCatalog.js'te — tarayıcı tarafıyla paylaşılıyor.
 export { TOOL_CATALOG } from '../src/data/toolCatalog.js';

@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { CONTENT_SOURCES, TOOL_CATALOG } from './corpus-sources.mjs';
@@ -48,6 +49,21 @@ function loadFileSource(source) {
   }
   const raw = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   const rawItems = source.extract ? source.extract(raw) : raw;
+  return (rawItems || []).map(source.buildItem).filter(Boolean);
+}
+
+// ── Module source: bir JS modülünden (JSON değil) içerik.
+// Disiplin "çapa" içerikleri `src/data/disciplineContent.js` içinde JS olarak
+// duruyor; tek kaynak orası olduğu için public/ altına JSON kopyası çıkarmak
+// yerine modül doğrudan import edilir (kopya = kaçınılmaz drift).
+async function loadModuleSource(source) {
+  const modPath = path.join(ROOT, source.module);
+  if (!fs.existsSync(modPath)) {
+    console.warn(`⚠  Skip ${source.type}: ${source.module} not found`);
+    return [];
+  }
+  const mod = await import(pathToFileURL(modPath).href);
+  const rawItems = source.extract ? source.extract(mod) : [];
   return (rawItems || []).map(source.buildItem).filter(Boolean);
 }
 
@@ -113,7 +129,9 @@ const corpus = [];
 const stats = {};
 
 for (const source of CONTENT_SOURCES) {
-  const items = source.file ? loadFileSource(source) : loadDirSource(source);
+  const items = source.module
+    ? await loadModuleSource(source)
+    : source.file ? loadFileSource(source) : loadDirSource(source);
   const withHash = items.map(item => ({ ...item, hash: itemHash(item) }));
   corpus.push(...withHash);
   stats[source.type] = withHash.length;

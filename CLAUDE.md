@@ -1236,6 +1236,54 @@ Prod'da `/tr/sor` üzerinden yeni içerikle ilgili bir query yaz — sonuçta g�
 
 **Kural ihlali sonucu:** Geçmişte esma-frekans veya doga atlas eklendiğinde bu pipeline atlanırsa `/sor` "esma nedir?" sorusuna klasik ayet sonuçları döner, tool sayfası link'i vermez. Kullanıcı deneyimi kaybı yaşanır. Bu kural 2026-07-15'te Ahiret Yolculuğu eklendikten sonra explicit yazıldı (kullanıcı hatırlatması).
 
+#### İçerik JSON DEĞİL, bir JS modülüyse: `module:` kaynağı (2026-09-13)
+
+`build-corpus.mjs` eskiden yalnız JSON okuyordu (`file:` / `dir:`). İçerik bir JS
+modülünde duruyorsa (ör. `src/data/disciplineContent.js`) `public/` altına JSON
+kopyası ÇIKARMA — kopya kaçınılmaz olarak asıl veriden sürüklenir (§13.25'in
+"tabloyu üretme, doğrula" gerekçesiyle aynı). Bunun yerine `module:` kaynağı
+kullanılır; yükleyici modülü dinamik `import` eder:
+
+```js
+{
+  type: 'alan-disiplin',
+  module: 'src/data/disciplineContent.js',   // ROOT'a göre yol
+  extract: (mod) => /* modül export'undan satır listesi */,
+  buildItem: (row) => ({ id, type, subId, route, titleTr/En, descTr/En, searchTextTr/En }),
+}
+```
+
+`route` alanını buildItem'da üret; hydrate katmanı onu `/${lang}${route}` ile
+kullanır.
+
+#### YENİ BİR KORPUS TİPİ 7 YERE BAĞLANIR — biri eksikse kalem ölü kalır
+
+Kaleme embedding üretmek YETMEZ; tip aşağıdaki katmanlardan birinde tanınmıyorsa
+arama katmanını geçse bile cevaba giremez (bu, 2026-09-01 turunda `elestirel`
+kalemlerinde birebir yaşandı: retrieval geçiyordu, prompt katmanında düşüyordu):
+
+| # | Dosya | Ne eklenir |
+|---|---|---|
+| 1 | `scripts/corpus-sources.mjs` | `CONTENT_SOURCES` kaydı (`file`/`dir`/`module`) |
+| 2 | `src/lib/concierge-search.js` | `LONG_TAIL_FLOORS` tabanı (uzun kuyruk tipi ise 0.55) |
+| 3 | `src/lib/concierge-search.js` | `perType` kotası (`'<tip>': 1`) |
+| 4 | `src/lib/concierge-claude.js` | `atlasTypes` listesi (prompt'a girmesi için) |
+| 5 | `src/lib/concierge-hydrate.js` | `buildUrl` case'i (rota üretimi) |
+| 6 | `src/app/api/concierge/route.js` | `DEGRADED_BUCKETS` (LLM devre dışıyken de görünsün) |
+| 7 | `SorRoute.jsx` · `KutuphanemRoute.jsx` · `RecentBookmarksStrip.jsx` | tip etiketi (TR/EN) ve ikon |
+
+**Doğrulama — embedding'den sonra uçtan uca sor:**
+```bash
+curl -s -X POST http://localhost:3000/api/concierge -H "Content-Type: application/json" \
+  -d '{"q":"<yeni içeriğe özgü bir soru>","lang":"tr"}' | grep -o '"<tip-prefix>:[^"]*"'
+```
+Sonuç boşsa kalem ölüdür: yukarıdaki yedi maddeyi tek tek kontrol et.
+
+**Neden yazıldı:** 2026-09-13'te 12 disiplin sayfasının (`/alanlar/*`) korpusta
+HİÇ kayıtlı olmadığı görüldü; sayfalar yayındaydı ama `/sor` onları bilmiyordu.
+Kayıt eklendikten sonra "toplumların yükselişi ve çöküşü" sorusu doğrudan
+`/tr/alanlar/sosyoloji-toplum` bağlantısını döndürdü.
+
 ---
 
 ### 13.23 Regresyon Prevention — PUSH ÖNCESİ MUTLAK VERIFY (2026-07-15+)
