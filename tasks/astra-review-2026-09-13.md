@@ -144,3 +144,44 @@ sırasında dikkat edilecek üç kalıp:
    Eksik künye hakemin en sık bulgusu oldu.
 3. **Editoryal bağı editoryal diye işaretle.** "Bu bağ editoryaldır" cümlesi,
    okuyucuyu da korur, sonraki turu da hızlandırır.
+
+## 12. Beş disiplin: kalan 19 tema (dil-belâgat, Kur'an ilimleri, maneviyat, tabiat, tarih)
+
+**9 bulgu**, hepsi uygulandı. Kapsam 38/62 → **57/62**.
+
+- **§13.32 İNGİLİZCEYE DE UZATILDI**: İngilizce alanlarda referanslar "Q 3:154"
+  biçimindeydi. Hakem bunun Türkçedeki çıplak numara kadar okunmaz olduğunu
+  söyledi; sitenin kendi İngilizce geleneği ölçüldü (28 adlı, 8 çıplak) ve adlı
+  biçim baskın çıktı. 42 alan yeni bloklarda, 11 alan eski bloklarda düzeltildi.
+- **Olgu hatası**: bütün hece harflerini taşıyan örnek Âl-i İmrân 3:154'ten
+  "bir cümle" değil, âyetin tamamıdır.
+- **Eksik künye üç yerde**: dil-belâgat'ta dördüncü madde Üçüncü Şule Birinci
+  Ziya'dan geliyordu; İhlâs Risalesi bloğu "ihlâsı kıran mâniler" bahsini de
+  kullanıyordu; Otuz Birinci Pencere künyesi pencerenin son hitabını kapsamıyordu.
+- **Yanlış genelleme iki yerde**: Ramazan Risalesi girişinde "aşağıdaki dört nükte
+  bu cihetlerin dördünü işler" deniyordu, oysa Altıncı Nükte beş cihet listesinde
+  olmayan nüzûl cihetini işler. Ve "Otuz Üç Pencere'de her pencerenin başına birer
+  kevnî âyet koyar" bütün pencereler hakkında doğrulanmamış bir iddiaydı;
+  başvurulan iki pencereye daraltıldı.
+- **MEVCUT İÇERİKTE bir sınır aşımı**: tarih-medeniyet'in Âl-i İmrân 3:137 tefsir
+  notu "sonunda zaferin inananlara, hüsranın inkârcılara ait olduğu yasayı
+  gösterir" diyordu. Bu, belirli bağlamdan zorunlu bir tarih yasasına geçiyor ve
+  aynı temanın kendi notuyla çelişiyordu; Uhud bağlamına ve ibret çağrısına
+  çekildi. (Aynı hata sınıfı bu sayfada ikinci kez yakalandı, bkz. §1.)
+- Kesinti gösterimi `[...]` → `[…]`.
+
+**Boş bırakma kararları onaylandı.** Beş tema bilinçli boş kaldı. Kırâât/yedi harf
+ve Sebe' için gerekçe artık tahmin değil ölçüm: külliyatın tamamı (15 eser,
+~12.000 sayfa) yerele indirilip tarandı. "tertîl", "yedi harf", "kıraat-ı seb'a",
+"kurrâ", "tecvid" → sıfır; Müzzemmil 73:4 ve Kıyâme 75:18 külliyatta hiç
+anılmıyor. Sebe' için "Arim", "Me'rib", "İrem", "iki bahçe" → sıfır.
+
+**Künye birleştirmesi.** Emirdağ Çiçeği üç sayfada üç ayrı yazımla anılıyordu
+(Sözler'de 25. Söz'ün sonunda, Şuâlar'da Meyve Risalesi'nin Onuncu Meselesi).
+Tek yazıma çekildi ve her notta diğer iki sayfaya çapraz atıf verildi; alıntılar
+farklı pasajlardan, mükerrer değil.
+
+**Divine Speech künyeleri PDF'ten yeniden doğrulandı.** Edrâ/Yüdrî seti "s. 36-38"
+diyordu, malzeme 39'a taşıyor; düzeltildi. Zillet seti (s. 33-34) ve Fâtiha
+Atlası'nın nokta-referansları (Bölüm 15, s. 260 ve s. 256) doğru çıktı; ikincisi
+PDF elimize geçmeden yazılmıştı ve yine de tutuyordu.

@@ -775,6 +775,19 @@ export default function WordHeatmap({ onClose }) {
         {/* Left: controls + grid */}
         <div className="mq-box" style={{ flex: 1, display: 'flex', flexDirection: 'column', '--pt-d': "14px", '--pt-m': "10px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "14px", '--pb-m': "10px", '--pl-d': "16px", '--pl-m': "12px", gap: '10px', overflow: 'hidden', minHeight: 0 }}>
 
+          {/* Kılavuz satırı — aramanın ne yaptığını okuyucunun dilinde söyler.
+              Aynı bilgi aşağıdaki künye bloğunda da var ama orası metodoloji
+              notu; okuyucu arama kutusuna bakarken onu okumuyor. */}
+          <p style={{
+            margin: 0, maxWidth: '680px', flexShrink: 0,
+            color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+            fontSize: '0.8rem', lineHeight: 1.6,
+          }}>
+            {language === 'tr'
+              ? "Türkçe yazman yeterli: arama kavramı Kur'ân'daki Arapça karşılığına çevirir, sayım da âyetin kendi lafzını ölçer. Arapça da yazabilirsin. Başlamak için aşağıdaki kelimelerden birine dokun."
+              : "English input is enough: the search resolves a concept to its Arabic form in the Qur'an, and the count measures the verse's own wording. Arabic input works too. Tap one of the words below to start."}
+          </p>
+
           {/* Search input — max-width to avoid spanning full ultra-wide panel */}
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0, maxWidth: '680px' }}>
             {(() => {
