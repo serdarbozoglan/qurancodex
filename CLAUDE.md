@@ -1285,6 +1285,24 @@ kullanılır; yükleyici modülü dinamik `import` eder:
 `route` alanını buildItem'da üret; hydrate katmanı onu `/${lang}${route}` ile
 kullanır.
 
+#### YENİ BİR ARAÇ SAYFASI MENÜDE GÖRÜNMEK İÇİN ÜÇ YERE KAYDEDİLİR
+
+Korpus kaydından ayrı bir konudur ve 2026-09-13'te atlandı: sayfa yayında,
+kataloğa kayıtlı, ama kullanıcı menüde bulamadı.
+
+| # | Dosya | Ne eklenir | Eksikse ne olur |
+|---|---|---|---|
+| 1 | `src/data/tools.jsx` | `{ id, event, titleTr/En, descTr/En, descLongTr/En, icon }` ilgili gruba (VIZ / ANALYSIS / RESEARCH) | Menüde hiç görünmez |
+| 2 | `src/lib/toolRoutes.js` | `TOOL_ROUTES` haritasına `event: '/arac/<slug>'` | **Menüde adı görünür ama tıklanmaz** (navbar `href`'i buradan alır) |
+| 3 | `src/data/toolCatalog.js` | `{ route, titleTr/En, descTr/En, keywords }` | `/arac/tum-araclar` ve sitemap'te yoktur; `audit-counts.mjs` C12 kırmızı yanar |
+
+Doğrulama, menüyü gerçekten açarak:
+```js
+// Araçlar düğmesine tıkla, sonra:
+[...document.querySelectorAll('a[href]')].filter(a => /<slug>/.test(a.getAttribute('href')))
+```
+Boş dönerse 2. madde eksiktir.
+
 #### YENİ BİR KORPUS TİPİ 7 YERE BAĞLANIR — biri eksikse kalem ölü kalır
 
 Kaleme embedding üretmek YETMEZ; tip aşağıdaki katmanlardan birinde tanınmıyorsa
