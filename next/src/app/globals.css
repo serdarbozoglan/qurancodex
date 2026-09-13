@@ -1656,11 +1656,14 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
    "yaşayan metin" bookend'i. Hero zaten hareketli (harf-reveal + besmele nefesi
    + radial glow) olduğu icin conclusion'dan DAHA YUMUŞAK; harf-reveal bittikten
    sonra (~2.6s) baslar. Conclusion ile ayni 5.2s tempo. */
-.qc-verse-breathe-soft { animation: qc-verse-breathe-soft 5200ms ease-in-out infinite; text-shadow: 0 0 16px rgba(212,165,116,0.22); will-change: text-shadow; }
+/* Gold metin üzerine gold text-shadow düşük kontrast kaldığı için nefes zor
+   algılanıyordu; bunun yerine brightness + drop-shadow filtresi: metnin kendisi
+   görünür biçimde parlayıp söner (çok daha belirgin "yaşayan ışık"). */
+.qc-verse-breathe-soft { animation: qc-verse-breathe-soft 4800ms ease-in-out infinite; will-change: filter; }
 @keyframes qc-verse-breathe-soft {
-  0%, 100% { text-shadow: 0 0 16px rgba(212,165,116,0.28); }
-  50%      { text-shadow: 0 0 38px rgba(212,165,116,1), 0 0 74px rgba(212,165,116,0.6), 0 0 128px rgba(212,165,116,0.3); }
+  0%, 100% { filter: brightness(0.9) drop-shadow(0 0 5px rgba(212,165,116,0.2)); }
+  50%      { filter: brightness(1.65) drop-shadow(0 0 26px rgba(212,165,116,0.85)) drop-shadow(0 0 52px rgba(212,165,116,0.4)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .qc-verse-breathe-soft { animation: none; text-shadow: 0 0 20px rgba(212,165,116,0.3); }
+  .qc-verse-breathe-soft { animation: none; filter: brightness(1.05) drop-shadow(0 0 14px rgba(212,165,116,0.3)); }
 }
