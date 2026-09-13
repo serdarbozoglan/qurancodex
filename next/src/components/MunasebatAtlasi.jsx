@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { toolTabStyle, ToolTabGlow } from './ToolTabGlow';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import {
@@ -70,12 +71,19 @@ const STRENGTH_COLOR = {
   structural: COLORS.silver,
 };
 
+// §13.19 — her sekme temaya uygun bir çizgi ikon taşır (stroke="currentColor",
+// aktif renge uyar; ayrı renk verilmez).
 const TABS = [
-  { id: 'connections', tr: 'Sûreler Arası Bağlar', en: 'Between Surahs' },
-  { id: 'types',       tr: 'Bağlantı Türleri', en: 'Connection Types' },
-  { id: 'groups',      tr: 'Harf Grupları',  en: 'Letter Groups' },
-  { id: 'intraSurah',  tr: 'Sûre İçi Tutarlılık', en: 'Within a Surah' },
-  { id: 'scholars',    tr: 'Âlim Kitaplığı', en: 'Scholars' },
+  { id: 'connections', tr: 'Sûreler Arası Bağlar', en: 'Between Surahs',
+    icon: <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> },
+  { id: 'types',       tr: 'Bağlantı Türleri', en: 'Connection Types',
+    icon: <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h6a3 3 0 0 1 3 3v6"/></svg> },
+  { id: 'groups',      tr: 'Harf Grupları',  en: 'Letter Groups',
+    icon: <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> },
+  { id: 'intraSurah',  tr: 'Sûre İçi Tutarlılık', en: 'Within a Surah',
+    icon: <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg> },
+  { id: 'scholars',    tr: 'Âlim Kitaplığı', en: 'Scholars',
+    icon: <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
 ];
 
 // ── Header ───────────────────────────────────────────────────────────────────
@@ -191,24 +199,23 @@ function TabBar({ language, isMobile, activeTab, setActiveTab, navTop }) {
           <button
             key={t.id}
             onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('munasebat-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-            style={{
-              textTransform: 'uppercase',
-              letterSpacing: '0.12em',
-              padding: '8px 14px',
-              borderRadius: RADIUS.md,
-              border: `1px solid ${active ? COLORS.goldAlpha45 : 'transparent'}`,
-              background: active ? COLORS.goldAlpha15 : 'transparent',
-              color: active ? COLORS.gold : COLORS.silver,
-              fontFamily: FONTS.body,
-              fontSize: '0.82rem',
-              fontWeight: active ? 600 : 500,
+            className="mq-box mq-fs" style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
+              '--fs-d': '0.9rem', '--fs-m': '0.82rem',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
-              transition: 'all 0.15s',
               flexShrink: 0,
+              ...toolTabStyle(active),
             }}
+            onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+            onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
           >
-            {language === 'tr' ? t.tr : t.en}
+            <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{t.icon}</span>
+            <span>{language === 'tr' ? t.tr : t.en}</span>
+            {active && <ToolTabGlow />}
           </button>
         );
       })}
