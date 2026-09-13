@@ -1420,6 +1420,23 @@ Bu istisna **yalnız `/tefekkur`** içindir; `bilimsel-isaretler`, `tarihsel-kan
 ve diğer tüm site içeriğinde §13.24 süreci aynen geçerlidir.
 
 #### Süreç — MUTLAK (tefekkür hariç, yukarı bak)
+
+> **KAPSAM GENİŞLEDİ (2026-09-13, kullanıcı direktifi):** hakem turu artık yalnız
+> "hassas" içerikle sınırlı değil. **Kullanıcıya görünen HER yeni veya değişen
+> metin** (bir tema, dua kartı, Risale alıntısı, kaynak künyesi, disiplin
+> eşlemesi, hatta mevcut bir cümlenin yeniden yazımı) commit'ten önce
+> **gpt-6-astra** hakeminden geçer ve işaretlenen her bulgu düzeltilir.
+> Kullanıcının sözleri: "her bitirdiğin konu için astra'dan görüş al" (2026-09-12),
+> "astradan görüş al mutlaka içerik değişince" (2026-09-13).
+>
+> İki uygulama notu, ikisi de ölçümle öğrenildi:
+> · **Astra'ya gerçek içeriği ver, katalog açıklamasını değil.** 2026-09-13'te iki
+>   taksonomi kararı, sayfaların asıl içeriği (bölüm başlıkları, sekmeler, geçen
+>   âyet referansları) gösterilince DEĞİŞTİ.
+> · **Astra'nın önerisini körlemesine uygulama, kaynaktan doğrula.** Aynı turda
+>   astra'nın önerdiği bir âyet (Zâriyât 51:21) sayfada zaten vardı; uygulansaydı
+>   mükerrer görünecekti. Hakem hatası değil, ona verilen önermenin hatasıydı.
+
 Bu tür hassas içerikte (yeni veya revizyon): **GPT-5.2 hakem incelemesi (klasik tefsir + akademik) ZORUNLUDUR**; mümkünse âlim geri bildirimiyle birlikte. **TR ve EN eş güncellenir ve ChatGPT her ikisini de onaylamadan ASLA push/merge edilmez** (kullanıcı direktifi 2026-07-26). Konular tek tek, sırayla ele alınır.
 
 #### Neden yazıldı
