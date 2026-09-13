@@ -373,7 +373,6 @@ export default function Hero() {
             maxWidth: isMobile ? '270px' : '560px',
             margin: isMobile ? '0 auto 12px' : '-14px auto 18px',
             // .55 → 3.02, AA'nın çok altı. Ölçülen eşik: silver .75.
-            opacity: 0.85,
           }}
           {...entrance(
             { opacity: 0 },

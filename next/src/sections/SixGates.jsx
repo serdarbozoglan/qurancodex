@@ -227,7 +227,6 @@ function Gate({ gate, isMobile, language }) {
           fontSize: '0.66rem',
           fontWeight: 700,
           letterSpacing: '0.22em',
-          opacity: 0.85,
         }}>
           {tr ? gate.eyebrowTr : gate.eyebrowEn}
         </span>

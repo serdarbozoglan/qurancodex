@@ -9,7 +9,7 @@
 // bu yüzden aşağıda kalıyor.
 //
 // İçerik: (1) harften hemen sonra Kitap/Kur'ân gelen 7 örnek — tehaddî
-// görüşünün karînesi; (2) yemin edatının gerçekten geldiği 3 sûre — kasem
+// görüşünün karînesi; (2) yemin edatının gerçekten geldiği sûreler — kasem
 // görüşünün karînesi; (3) ebced/modern numerolojinin bilerek ayrı tutulduğu
 // katman; (4) kapanış.
 //
@@ -19,7 +19,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 import data from '../../public/mukattaa.json';
 
 const { fasila, fasilaTaban } = data;
@@ -162,7 +162,7 @@ export default function MukattaaEvidence() {
           </div>
         </div>
 
-        {/* ── Kasem karînesi: yemin edatının GERÇEKTEN geldiği üç sûre ─── */}
+        {/* ── Kasem karînesi: yemin edatının GERÇEKTEN geldiği sûreler ─── */}
         <div style={{ marginTop: '30px' }}>
           <p className="mq-fs" style={{
             '--fs-d': '0.88rem', '--fs-m': '0.83rem',
@@ -170,8 +170,8 @@ export default function MukattaaEvidence() {
             margin: '0 0 14px', maxWidth: '78ch',
           }}>
             {tr
-              ? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, üç sûrede metnin kendisinde görünüyor. Tek harften sonra doğrudan bir yemin cümlesi geliyor; kalan 26 sûrede ise gelmiyor.'
-              : 'The same holds for the oath view: the claim is not general but visible in the text of three suras. A single letter is followed directly by an oath clause; in the remaining 26 it is not.'}
+              ? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, metnin kendisinde görünüyor. Sâd, Kâf ve Kalem\'de tek harften sonra AYNI âyette doğrudan bir yemin cümlesi geliyor; Yâsîn, Zuhruf ve Duhân\'da harfler kendi âyetinde durup yemin bir sonraki âyette geliyor. Kalan 23 sûrede yemin yok.'
+              : 'The same holds for the oath view: the claim is not general but visible in the text itself. In Ṣād, Qāf and al-Qalam a single letter is followed by an oath clause in the SAME verse; in Yā-Sīn, al-Zukhruf and al-Dukhān the letters close their own verse and the oath opens the next. In the remaining 23 there is no oath.'}
           </p>
           <div style={{
             display: 'grid',
@@ -348,6 +348,44 @@ export default function MukattaaEvidence() {
               ? 'Ebced hesabıyla yapılan yorumlar klasik kaynaklarda gerçekten tartışılmıştır; Taberî bu görüşün ileri sürüldüğünü kaydeder, fakat kendisi tercih etmez. Modern dönemde harf frekansları ve sayı örüntüleri üzerinden yapılan “şifre” iddiaları ise bundan farklı bir şeydir. Bir görüşün klasik tefsirde TARTIŞILMIŞ olması ile bir iddianın DOĞRULANMIŞ olması aynı şey değildir. Bu sayfa ikisini aynı seviyede sunmaz: yukarıdaki görüşler tefsir geleneğinin içinden gelir; sayısal iddialar ise ayrı ve henüz sınanmamış bir alandır. Sınanmaları için de yöntem şudur — sonuç önceden seçilip rakamlar ona uydurulmaz; hipotez önce kurulur, sonra 29 sûrenin tamamında test edilir.'
               : 'Interpretations via abjad numerology were genuinely discussed in the classical sources; al-Ṭabarī records that the view was advanced, though he does not adopt it. Modern “code” claims built on letter frequencies and numeric patterns are a different matter. That a view was DISCUSSED in classical exegesis is not the same as a claim being VERIFIED. This page does not present the two at one level: the views above come from within the exegetical tradition; numerical claims are a separate and as yet untested field. And the method for testing them is this — the conclusion is not chosen first and the numbers fitted to it; the hypothesis is set first, then tested across all 29 suras.'}
           </p>
+
+          {/* Bu panel şimdiye dek sitenin kendi editoryal sesine ve bir Taberî
+              notuna dayanıyordu. Aşağıdaki alıntı ona, tam da uzak durduğu
+              geleneğin İÇİNDEN ve harf sırlarıyla en çok anılan isimden bir
+              emsal veriyor. Alıntı cümlenin BAŞINDAN alınır: hakem, kesilen
+              kısmın aynı cümlenin i'câzı teyit eden başlangıcı olduğunu ve
+              atlanınca olumlu bağlamın görünmez kaldığını gösterdi. Devamı
+              (tansîf, harf yarılanması hesabı) bu sayfaya taşınmaz. */}
+          <div style={{
+            marginTop: '18px', paddingInlineStart: '14px',
+            borderInlineStart: `2px solid ${COLORS.gold}55`,
+          }}>
+            <p className="mq-fs" style={{
+              '--fs-d': '0.86rem', '--fs-m': '0.82rem',
+              color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.75,
+              margin: '0 0 8px', maxWidth: '80ch',
+            }}>
+              {tr
+                ? 'Bediüzzaman Said Nursî bu harflerin i\'câz taşıdığını kendisi de söyler ve onları "bir şifre-i İlâhiye" diye anar. Harf sırları üzerinde çalışanların mukattaattan çok şey çıkardığını da kaydeder. Buna rağmen o sırları burada açıklamaya girişmez ve gerekçesini kendisi verir: o alanda ehil olmaması ve bulgunun herkesin gözüyle görebileceği ölçüde ispat edilememesi.'
+                : 'Bediüzzaman Said Nursî himself holds that these letters carry inimitability, calling them a divine cipher, and he records that those who work on letter-secrets have drawn a great deal from the muqaṭṭaʿāt. He nonetheless does not undertake to expound those secrets here, and states his own reasons: he is not qualified in that field, and the findings cannot be demonstrated to the degree that everyone can see them.'}
+            </p>
+            <p className="mq-fs" style={{
+              '--fs-d': '0.9rem', '--fs-m': '0.85rem',
+              color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
+              lineHeight: 1.7, margin: '0 0 6px', maxWidth: '72ch',
+            }}>
+              &ldquo;İşte bir şifre-i İlahiye olan surelerin başlarındaki huruf, bunun gibi daha beş altı lem&rsquo;a-i i&rsquo;caziyeyi gösterdikleriyle beraber; ilm-i esrar-ı huruf ulemasıyla evliyanın muhakkikleri şu mukattaattan çok esrar istihraç etmişler […] Onların esrarına ehil olmadığımız hem umuma göz görecek derecede ispat edemediğimiz için o kapıyı açamayız.&rdquo;
+            </p>
+            <p className="mq-fs" style={{
+              '--fs-d': '0.68rem', '--fs-m': '0.64rem',
+              color: SEMANTIC.textFaint, fontFamily: FONTS.body,
+              letterSpacing: '0.1em', margin: 0,
+            }}>
+              {tr
+                ? 'Sözler, Yirmi Beşinci Söz, Birinci Şule, Birinci Şuâ, Üçüncü Nokta. Aynı paragrafta mukattaatın "gayet parlak bir mu\'cize" olduğu, o âlimlerin kendi çıkardıkları sırlara göre söylenir; Bediüzzaman bunu aktarır. Buradaki alıntı, harf sırları yöntemini geçersiz saymak için değil, bir ihtiyat emsali olarak veriliyor.'
+                : 'Sözler, Twenty-Fifth Word, First Şule, First Şuâ, Third Point. That the muqaṭṭaʿāt are a brilliant miracle is said in the same paragraph with reference to the secrets those scholars themselves drew out, and Bediüzzaman reports it. The quotation stands here as a precedent for restraint, not as grounds for treating the letter-secrets method as invalid.'}
+            </p>
+          </div>
         </div>
 
         {/* ── Teori karşılaştırma matrisi ─────────────────────────────── */}

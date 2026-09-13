@@ -299,3 +299,46 @@ Bu bölümün hakem turu ve humanizer geçişi içeriği üreten turda yapıldı
   geçmiyordu (§13.14); hepsi yeniden temizlendi, dosyada artık sıfır.
 - Kelime sırası deseninin mevcut iki vakası da bu kitaptan geliyordu ama
   kitabın adı sayfada hiç yazmıyordu ("Kitaba göre" deniyordu); künye eklendi.
+
+## 16. Hurûf-ı Mukattaa: olgu düzeltmesi ve Bediüzzaman alıntısı
+
+**4 bulgu**, hepsi uygulandı. Birincisi hem sayfanın hem araştırmanın hem de
+benim sayımımın yanlış olduğunu gösterdi.
+
+**Sayım üç kez yanlıştı.** Sayfa "yemin edatı yalnız ÜÇ sûrede harflerin
+ardından gelir (Sâd, Kâf, Kalem), kalan 26'sında gelmez" diyordu. Araştırma
+Yâsîn'i bulup dörde çıkardı. Hakem iki sûre daha gösterdi: **Zuhruf 43:1-2 ve
+Duhân 44:1-2**, ikisinde de حم ardından وَالْكِتَابِ الْمُبِينِ gelir. Verse-graph
+üzerinde 29 mukattaa sûresinin tamamı taranarak doğrulandı: **altı sûre**,
+üçünde harf ile yemin aynı âyette (38, 50, 68), üçünde sonraki âyette
+(36, 43, 44), kalan **23**.
+
+Üstelik sayfa kendi içinde çelişiyordu: Yâ-Sîn kartı zaten "hemen ardından
+Kur'an yemini" diyordu.
+
+**Bediüzzaman alıntısında üç çerçeve hatası, üçü de benim.**
+- *Atfın yönü.* "Mukattaat gayet parlak bir mu'cizedir" nitelemesini o
+  âlimlere ait bir aktarım sayıp Bediüzzaman'ı dışarıda bırakmıştım. Oysa aynı
+  cümlede harflerin "beş altı lem'a-i i'câziye" gösterdiğini **kendisi**
+  söylüyor. Giriş buna göre düzeltildi.
+- *Gerekçenin çarpıtılması.* "Bu kapıyı bilerek kapalı bırakır" diye yazmıştım;
+  bu, alıntıyı harf sırları yöntemini mahkûm etmenin dayanağı gibi gösteriyor.
+  Onun gerekçesi bu değil: kendini o alanda ehil görmemesi ve bulguyu herkesin
+  görebileceği açıklıkta ispat edememesi. "O sırları burada açıklamaya
+  girişmez" oldu ve notta alıntının bir **ihtiyat emsali** olarak durduğu,
+  yöntemi geçersiz saymak için kullanılmadığı yazıldı.
+- *Kesintinin sakladığı bağlam.* Alıntıyı "ilm-i esrar-ı huruf" cümlesinden
+  başlatmıştım; kesilen kısım aynı cümlenin i'câzı teyit eden başlangıcıydı
+  ("İşte bir şifre-i İlahiye olan surelerin başlarındaki huruf…"). Atlanınca
+  olumlu bağlam görünmez kalıyordu. Cümlenin başından alındı.
+
+**Divine Speech bu sayfaya hiçbir şey katmıyor.** Kitap mukattaatı hiç
+işlemiyor; iki bağımsız çıkarma üzerinde muqatta, disconnected letters,
+mysterious letters, alif lam mim, abbreviat taramaları sıfır sonuç verdi.
+Dürüst olumsuz sonuç olarak kayda geçti.
+
+**Gematria bilinçli olarak dışarıda bırakıldı:** İşârâtü'l-İ'câz'ın Birinci
+Mebhas'ındaki 28 harf yarılanması ve "beş yüz dört ihtimal" hesabı, 25. Söz'ün
+"iki yüz ihtimal" versiyonu, 1. Şuâ'nın hesab-ı cifrî ile kurulan Benî İsrâil
+rivayeti ve Rumûzât-ı Semâniye'nin tamamı. Sayfa bu katmanı zaten karantinada
+tutuyor; kaynak Bediüzzaman olunca kural gevşetilmedi.

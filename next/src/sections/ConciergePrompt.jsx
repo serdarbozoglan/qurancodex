@@ -170,7 +170,6 @@ export default function ConciergePrompt() {
           lineHeight: 1.55,
           margin: '0 auto 34px',
           maxWidth: '560px',
-          opacity: 0.85,
         }}>
           {tr
             ? 'Yaşadığın bir durumu ya da merak ettiğin bir kavramı yaz. Sistem 6.236 ayet ve içerik arasından sana en yakın olanları seçer.'
