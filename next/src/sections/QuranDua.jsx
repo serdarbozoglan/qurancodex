@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import { COLORS, CATEGORY, RADIUS, TRANSITION, BREAKPOINT_MOBILE, FONTS } from '../tokens';
+import { COLORS, CATEGORY, SEMANTIC, RADIUS, TRANSITION, BREAKPOINT_MOBILE, FONTS } from '../tokens';
 
 const PROPHET_PROFILES = [
   {
@@ -661,7 +661,7 @@ export default function QuranDua() {
                 </p>
               </div>
               <span style={{
-                color: p.emojiColor, fontSize: '0.72rem', fontWeight: 700,
+                color: SEMANTIC.textPrimary, fontSize: '0.72rem', fontWeight: 700,
                 fontFamily: "'Inter', sans-serif",
                 background: `${p.emojiColor}15`,
                 border: `1px solid ${p.emojiColor}35`,
@@ -697,7 +697,7 @@ export default function QuranDua() {
               {/* Aynı peygamberin Kur'an'daki diğer duaları (varsa) */}
               {p.extraDuas && (
                 <div>
-                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)', marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: SEMANTIC.textMuted, marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
                     {tr ? (p.extraLabelTr || "Kur'an'daki Diğer Duaları") : (p.extraLabelEn || 'Other Prayers in the Qur\'an')}
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -719,7 +719,7 @@ export default function QuranDua() {
                         <p style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.82rem', fontStyle: 'italic', fontFamily: "'Inter', sans-serif", lineHeight: 1.55, margin: '0 0 4px' }}>
                           {tr ? dua.trTr : dua.trEn}
                         </p>
-                        <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.66rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+                        <p style={{ color: SEMANTIC.textMuted, fontSize: '0.66rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", margin: 0 }}>
                           {tr ? dua.refTr : dua.refEn}
                         </p>
                       </div>
@@ -732,7 +732,7 @@ export default function QuranDua() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 {/* Temalar */}
                 <div>
-                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)', marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: SEMANTIC.textMuted, marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
                     {tr ? 'Dua Temaları' : 'Prayer Themes'}
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -760,7 +760,7 @@ export default function QuranDua() {
                     fontSize: '2.2rem', lineHeight: 1, color: p.emojiColor,
                     opacity: 0.25, fontWeight: 800, pointerEvents: 'none',
                   }}>&quot;</span>
-                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: p.emojiColor, marginBottom: '8px', fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.7, marginLeft: '20px' }}>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: SEMANTIC.textMuted, marginBottom: '8px', fontFamily: "'Inter', sans-serif", fontWeight: 700, marginLeft: '20px' }}>
                     {tr ? 'İçgörü' : 'Insight'}
                   </p>
                   <p style={{ color: 'rgba(232,230,227,0.72)', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", lineHeight: 1.65, fontStyle: 'italic', margin: 0 }}>
@@ -786,8 +786,8 @@ export default function QuranDua() {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{
                       fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                      color: p.emojiColor, marginBottom: '4px',
-                      fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.75,
+                      color: SEMANTIC.textMuted, marginBottom: '4px',
+                      fontFamily: "'Inter', sans-serif", fontWeight: 700,
                     }}>
                       {tr ? 'Cevab-ı Dua' : 'Response'}
                     </p>

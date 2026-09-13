@@ -9,6 +9,13 @@
 // Münâfık/İblis→Psikoloji ikincil; Kurban→İktisat düşürüldü; Fürûk→Hukuk
 // (genel kavram aracı) kaldırıldı; Zaman Boyutları fizik/kozmolojiye zorlanmadı.
 //
+// TABİAT turu (2026-09-13): tabiat-afak kapısı iki araca düşüyordu. gpt-6-astra
+// sekiz adayı tek tek değerlendirdi ve yalnız ikisini onayladı: Renkler (bitki,
+// dağ ve gökyüzü renklerini içeren âyet kümesi) ve Yeminler (yeminlerde geçen
+// tabiat varlıkları ve göksel olgular). Sünnetullah, Kıyâmet, İnsan Yolculuğu,
+// Ritim, Ses Mimarisi ve Zaman Boyutları "kapsam zorlaması" diye REDDEDİLDİ;
+// ızgarayı doldurmak için yeniden eklenmez.
+//
 // KALİBRASYON turu (2026-09-12): Liderlik ve Adalet kapıları tek/iki araca
 // düşüyordu; içeriğin gerçek kapsamına göre GENUINE bağlar eklendi. gpt-6-astra
 // eşlemeleri onayladı; rasyonel ifadesini ("yasa", "=") ihtiyatlı dile çekmesini
@@ -61,7 +68,7 @@ export const DISCIPLINE_MAP = {
   '/arac/koruma-zinciri':     ['tarih-medeniyet', 'kuran-ilimleri'],
   '/arac/retorik':            ['dil-belagat'],
   '/arac/retorik-sorular':    ['dil-belagat'],
-  '/arac/renkler':            ['dil-belagat'],
+  '/arac/renkler':            ['dil-belagat', 'tabiat-afak'],
   '/arac/ritim':              ['dil-belagat'],
   '/arac/halka-kompozisyon':  ['dil-belagat'],
   '/arac/ilk-son-kelimeler':  ['dil-belagat'],
@@ -76,7 +83,7 @@ export const DISCIPLINE_MAP = {
   '/arac/ses-mimarisi':       ['dil-belagat'],
   '/arac/tarihsel-kanitlar':  ['tarih-medeniyet'],
   '/arac/zaman-boyutlari':    ['iman-itikad'],
-  '/arac/yeminler':           ['dil-belagat'],
+  '/arac/yeminler':           ['dil-belagat', 'tabiat-afak'],
   '/arac/neden-sonuc':        ['ahlak-karakter', 'sosyoloji-toplum', 'liderlik-yonetim'],
   '/arac/kitap-kavrami':      ['kuran-ilimleri', 'iman-itikad'],
   '/arac/elestirel-cerceve':  ['iman-itikad', 'adalet-hukuk'],

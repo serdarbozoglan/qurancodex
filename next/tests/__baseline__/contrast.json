@@ -1,21 +1,21 @@
 {
  "sample": {
-  "total": 65,
+  "total": 45,
   "perPage": {
-   "/tr": 30,
-   "/en": 32,
+   "/tr": 13,
+   "/en": 14,
    "/tr/atlas/kissa": 0,
    "/tr/graf/zaman": 1,
-   "/tr/arac/dualar": 0,
-   "/tr/arac/sebebi-nuzul": 0,
-   "/tr/arac/ilk-son-kelimeler": 0,
-   "/tr/atlas/kavim": 0,
-   "/tr/graf/karsilastir": 1,
-   "/tr/arac/melekler": 0,
+   "/tr/arac/dualar": 2,
+   "/tr/arac/sebebi-nuzul": 2,
+   "/tr/arac/ilk-son-kelimeler": 1,
+   "/tr/atlas/kavim": 7,
+   "/tr/graf/karsilastir": 2,
+   "/tr/arac/melekler": 2,
    "/tr/oku": 0,
    "/tr/sor": 1
   },
-  "at": "2026-08-31"
+  "at": "2026-09-13"
  },
  "full": {
   "total": 759,
