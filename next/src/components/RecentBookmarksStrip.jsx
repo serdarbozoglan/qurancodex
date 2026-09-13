@@ -25,6 +25,8 @@ const TYPE_LABELS = {
   'dua-peygamber':                  { tr: 'Dua',            en: 'Prayer',           icon: '☾' },
   'risale-not':                     { tr: 'Risale',         en: 'Risale',           icon: '❖' },
   'dua-dili-katman':                { tr: 'Dua dili',       en: 'Prayer',           icon: '☾' },
+  'kuran-sayi':                     { tr: 'Sayılar',        en: 'Numbers',          icon: '#' },
+  'iblis-adlandirma':               { tr: 'İki isim',       en: 'Two names',        icon: '◐' },
   'atlas-kavram':                   { tr: 'Kavram',         en: 'Concept',          icon: '✧' },
   'surah-summary':                  { tr: 'Sûre',           en: 'Sūrah',            icon: '§' },
   'pericope':                       { tr: 'Ayet Grubu',     en: 'Pericope',         icon: '¶' },

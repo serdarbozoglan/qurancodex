@@ -67,6 +67,10 @@ function buildUrl(item, lang = 'tr') {
     case 'dua-peygamber':
     case 'dua-dili-katman':
       return `${base}/arac/dua-dili`;
+    case 'kuran-sayi':
+      return `${base}/arac/sayilar`;
+    case 'iblis-adlandirma':
+      return `${base}/arac/iblis-seytan`;
     case 'risale-not':
       // Dua Dili veya Esmâ-i Hüsnâ sayfası (buildItem route'u belirler)
       return item.route ? `${base}${item.route}` : `${base}/arac/dua-dili`;

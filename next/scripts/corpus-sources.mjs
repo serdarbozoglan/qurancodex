@@ -805,6 +805,50 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── İblis mi Şeytan mı (17 kalem) — §13.22 pipeline
+  // İki ismin nerede geçtiği: sayımlar makineyle, tefsir nakilleri künyeli.
+  // Concierge: "iblis ile seytan farki", "iblis kac kere geciyor", ...
+  {
+    type: 'iblis-adlandirma',
+    file: 'public/iblis-adlandirma.json',
+    extract: (data) => data.items || [],
+    buildItem: (it) => ({
+      id: `iblis-adlandirma:${it.id}`,
+      type: 'iblis-adlandirma',
+      subId: it.id,
+      route: '/arac/iblis-seytan',
+      titleTr: it.titleTr || '',
+      titleEn: it.titleEn || '',
+      descTr: (it.descTr || '').slice(0, 200),
+      descEn: (it.descEn || '').slice(0, 200),
+      searchTextTr: `İblis mi Şeytan mı: ${it.titleTr}. Tür: ${it.kindTr || ''}. ${it.descTr || ''} Âyet: ${it.verseRef || ''} ${it.verseTr || ''}`.slice(0, 5000),
+      searchTextEn: `Iblis or Shaytan: ${it.titleEn}. Kind: ${it.kindEn || ''}. ${it.descEn || ''} Verse: ${it.verseRefEn || ''} ${it.verseEn || ''}`.slice(0, 5000),
+    }),
+  },
+
+  // ─── Kur'an'da Sayılar (50 sayı / 70 âyet) — §13.22 pipeline
+  // Metinde GEÇEN sayılar ve neyin sayısı oldukları. Harf/kelime sayımına
+  // dayalı bir örüntü iddiası YOKTUR. Concierge: "kur'an'da kaç sema var",
+  // "üç yüz dokuz yıl", "elli bin yıl ne demek", "miras kesirleri", ...
+  {
+    type: 'kuran-sayi',
+    file: 'public/kuran-sayilar.json',
+    extract: (data) => (data.groups || []).flatMap(g =>
+      (g.items || []).map(it => ({ ...it, groupTr: g.titleTr, groupEn: g.titleEn }))),
+    buildItem: (it) => ({
+      id: `kuran-sayi:${it.id}`,
+      type: 'kuran-sayi',
+      subId: it.id,
+      route: '/arac/sayilar',
+      titleTr: `${it.number} — ${it.labelTr || ''}`,
+      titleEn: `${it.number} — ${it.labelEn || ''}`,
+      descTr: (it.noteTr || '').slice(0, 200),
+      descEn: (it.noteEn || '').slice(0, 200),
+      searchTextTr: `Kur'an'da sayı: ${it.number}. ${it.labelTr || ''}. Grup: ${it.groupTr || ''}. Âyet: ${it.verseRefTr || ''}. ${it.verseTr || ''} ${it.alsoTr || ''} ${it.noteTr || ''}`.slice(0, 5000),
+      searchTextEn: `Number in the Qur'an: ${it.number}. ${it.labelEn || ''}. Group: ${it.groupEn || ''}. Verse: ${it.verseRefEn || ''}. ${it.verseEn || ''} ${it.alsoEn || ''} ${it.noteEn || ''}`.slice(0, 5000),
+    }),
+  },
+
   // ─── Kitap Kavramı (10 self-descriptor) — 2026-07-19 §13.22 pipeline
   // Kur'ân'ın kendisi için kullandığı isim + sıfat inventer: el-Kitâb,
   // el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân,

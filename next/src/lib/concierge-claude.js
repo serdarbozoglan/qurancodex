@@ -207,6 +207,8 @@ function buildUserMessage(query, grouped, lang = 'tr') {
     'sunnetullah-kanun', 'sunnetullah-kavim', 'sunnetullah-ulema',
     // ── 2026-09-13: /alanlar disiplin çapa içerikleri + Dua Dili / Esmâ katmanları
     'alan-disiplin', 'dua-peygamber', 'risale-not', 'dua-dili-katman',
+    // ── 2026-09-13: Kur'an'da Sayılar
+    'kuran-sayi', 'iblis-adlandirma',
   ];
   const atlases = atlasTypes.flatMap(t => grouped[t] || []).sort((a, b) => b.score - a.score);
   if (atlases.length) {

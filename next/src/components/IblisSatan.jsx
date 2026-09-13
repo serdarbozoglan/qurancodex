@@ -19,6 +19,7 @@ import { OBSERVATIONS } from '../data/iblis-observations';
 // Widget'lar ayrı component dosyalarına ayrıldı (2026-07-11).
 import VesveseKanaliWidget from './iblis/VesveseKanaliWidget';
 import OnIkiHileWidget from './iblis/OnIkiHileWidget';
+import AdlandirmaBolumu from './iblis/AdlandirmaBolumu';
 
 const fadeUpItem = {
   hidden:  { opacity: 0, y: 20 },
@@ -908,6 +909,9 @@ export default function IblisSatan({ onClose }) {
 
       {/* ═══ 12 HİLE / VESVESE MEKANİZMASI WIDGET ═══ */}
       <OnIkiHileWidget language={language} isMobile={isMobile} />
+
+      {/* ═══ İKİ İSİM: İBLİS Mİ, ŞEYTAN MI ═══ */}
+      <AdlandirmaBolumu language={language} />
 
       {/* ─── Klasik Kaynaklar ─────────────────────────────── */}
       <SourcesCitation

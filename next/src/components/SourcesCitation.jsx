@@ -87,6 +87,29 @@ export default function SourcesCitation({ language, isMobile: _isMobile, sources
                       {tr ? (s.noteTr ?? s.note) : (s.noteEn ?? s.noteTr ?? s.note)}
                     </div>
                   )}
+                  {/* §13.35 Kural 3: nokta-referans verilen kaynak, mümkünse
+                      tıklanabilir olur. Alan opsiyoneldir; `url` taşımayan
+                      mevcut kullanımlarda hiçbir şey değişmez. */}
+                  {s.url && (
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '5px',
+                        marginTop: '8px',
+                        fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600,
+                        color: COLORS.gold, opacity: 0.85, textDecoration: 'none',
+                        borderBottom: `1px solid ${COLORS.gold}44`,
+                      }}
+                    >
+                      {tr ? 'Metne git' : 'Open the text'}
+                      <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+                      </svg>
+                    </a>
+                  )}
                 </>
               );
             })()}

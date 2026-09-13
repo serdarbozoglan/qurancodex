@@ -185,3 +185,73 @@ farklı pasajlardan, mükerrer değil.
 diyordu, malzeme 39'a taşıyor; düzeltildi. Zillet seti (s. 33-34) ve Fâtiha
 Atlası'nın nokta-referansları (Bölüm 15, s. 260 ve s. 256) doğru çıktı; ikincisi
 PDF elimize geçmeden yazılmıştı ve yine de tutuyordu.
+
+## 13. Yeni sayfa: Kur'an'da Sayılar
+
+**16 bulgu**, on üçü olduğu gibi, ikisi daha iyisiyle uygulandı; reddedilen yok.
+Sayfanın sınırı kullanıcı direktifiydi: 19 kerametine girilmez, harf veya kelime
+sayımından örüntü çıkarılmaz. Hakem bu sınırın ihlal edilmediğini doğruladı;
+bulgular başka yerlerden çıktı.
+
+**Olgu hataları (altı adet):**
+- Nûr 24:2 çevirisinde "guilty of sexual intercourse" zina kaydını düşürüyor ve
+  her cinsel ilişkiyi kapsıyordu; "unlawful" eklendi.
+- Bakara 2:196'da "kurban kesmeyen" isteyerek kesmeyeni de kapsıyordu; âyette
+  kurbanlık **bulamama** söz konusu, "bulamayan kimse" oldu.
+- Yûsuf 12:43 için "yedi dört kez geçer" deniyordu; üç kez geçiyor, kuru
+  başakların sayısı ayrıca verilmiyor.
+- Nisâ 4:11 alıntısında ana babanın altıda biri için "ölenin çocuğu varsa" şartı
+  kesilmiş, hüküm koşulsuz görünüyordu; Arapça verse-graph'tan yeniden dilimlenip
+  şart geri kondu.
+- Hâkka 69:32 notu "uzunluğun rakamla verildiği tek yer" diyordu; Necm 53:9 var.
+- yedi-kapi notu "sekiz bu sayfada Hâkka 69:17 dışında geçmez" diyerek sayfanın
+  kendisiyle çelişiyordu (Kasas 28:27 ve En'âm 6:143'te de sekiz var).
+
+**Kendi eksen kararım düzeltildi.** Ölçütü "tek ve kesin bir tam sayı" diye
+yazmıştım; hakem bunun tutarsız olduğunu gösterdi, çünkü ikil eki de kesin olarak
+iki bildirir. Ölçüt "âyetin lafzında verilen sayılar ve âyetin kendi açıkça
+söylediği toplamlar" oldu. Bu ölçütle 40 (A'râf 7:142), 10 (Bakara 2:196'nın
+"tam on"u) ve 8 (En'âm 6:143) eksende kalır; 309, 950 ve 700 kalmaz.
+
+**Aşırı genelleme üç yerde daraltıldı:** "klasik tefsir bu koyunları örtülü
+anlatım okur" (bütün geleneğe mal ediliyordu, oysa aynı sayfada İbn Kesîr ihtiyat
+kaydı var) → Taberî ile Kurtubî'nin aktardığı yorumlarla sınırlandı; iki yılın
+"bütün fıkhın tartışmasız üst sınırı" olduğu iddiası Kurtubî'den kaynaklandırıldı
+(Bakara 2:233 tefsirinde iki yılın **hatm olmadığını** söylüyor); mağara ehli için
+"hiçbirini onaylamaz" ifadesi yediyi destekleyen okumayı dışlıyordu.
+
+**Âyete hüküm yükleme.** Müddessir 74:31'den "sayıyı hesap konusu yapmaya karşı
+uyarı" çıkarılıyordu; âyet böyle genel bir yasak koymuyor. Sayısal örüntülere
+girmeme artık âyetin hükmü olarak değil **sayfanın editoryal tercihi** olarak
+yazılıyor.
+
+**İhtilaf tek okumaya indirilmiş iki yerde açıldı:** Kehf 18:25'e takvim
+dönüşümü gerektirmeyen üçüncü okuma (Taberî'nin kendi tercihi) eklendi; Hac
+22:47 "ihtilaflı" denip yalnız yaratılış günü görüşü veriliyordu, âhiret ve azap
+günü okumaları da kondu.
+
+**Künye tarafında hakem "ya baskıyı yaz ya doğrulanamadı de" dedi; doğrulandı.**
+Taberî (nşr. et-Türkî, Dâru Hecr), Kurtubî (nşr. el-Berdûnî-Atfîş, 2. bs. 1964),
+İbn Kesîr (nşr. es-Selâme, Dâru Tayyibe), Râzî (Dâru İhyâi't-Türâs) künyeleri
+eklendi ve on iki cilt-sayfa teyit edildi. Teyit edilemeyenlerdeki kayıt korundu.
+
+§13.34 borcu da kapatıldı: on iki "X değil, Y" kalıbı olumlu cümleye çevrildi,
+dokuz kesinti […] ile gösterildi.
+
+**Yan bulgu (§13.35 Kural 3 ihlali):** kaynakların `url` alanları veride vardı
+ama `SourcesCitation` bileşeni yalnız yazar/eser/dönem/not render ediyordu, yani
+56 kaynak linki ekranda hiç görünmüyordu. Bileşene opsiyonel link desteği eklendi;
+`url` taşımayan mevcut kullanımlarda hiçbir şey değişmiyor.
+
+## 14. Yeni bölüm: İblis mi, Şeytan mı
+
+Bu bölümün hakem turu ve humanizer geçişi içeriği üreten turda yapıldı:
+**8 bulgu**, hepsi düzeltildi. Öne çıkanlar, hepsi benim beklentimi düzeltiyor:
+- "fe-secedû illâ İblîs" ibaresi Hicr ve Sâd'da birebir böyle geçmiyor, iki âyete
+  bölünüyor.
+- "İsim çağrılır, etiket çağrılmaz" diye bir dilbilgisi kuralı uydurulmuştu.
+- **"İblîs adı sonraki insan tarihi için hiç kullanılmaz" iddiası yanlış:**
+  Sebe 34:20 onun beklentisinin insanlar hakkında doğru çıktığını bildirir ve
+  İblîs orada fiilin failidir. Metne uyan ifade daha dar: İblîs adı vesvese,
+  kaydırma, vaat, süsleme türünden bir fiilin faili değildir.
+- İ'râb listesi hatalıydı (istisna ile mansub, "yâ İblîsu" damme üzere münâdâ).

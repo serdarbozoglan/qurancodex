@@ -183,6 +183,7 @@ const LONG_TAIL_FLOORS = Object.fromEntries([
   'atlas-ahiret-yolculugu-stage', 'insan-yolculugu-stage', 'addressee',
   'nuance-set', 'neden-sonuc', 'kitap-kavrami', 'atlas-ibadet',
   'alan-disiplin', 'dua-peygamber', 'risale-not', 'dua-dili-katman',
+  'kuran-sayi', 'iblis-adlandirma',
 ].map(t => [t, LONG_TAIL_FLOOR]));
 
 // Bu iki tipin ölçülen en yüksek puanı 0.53 ve 0.50 — 0.55 tabanıyla hiçbir
@@ -245,6 +246,8 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
       'dua-peygamber': 1,
       'risale-not': 1,
       'dua-dili-katman': 1,
+      'kuran-sayi': 2,
+      'iblis-adlandirma': 1,
     },
     minScore: 0.35,
     minScoreByType: LONG_TAIL_FLOORS,

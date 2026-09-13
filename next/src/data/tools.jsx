@@ -218,6 +218,12 @@ const NedenSonucIcon = ({ size = 14 }) => (
   </svg>
 );
 
+const SayilarIcon = ({ size = 14 }) => (
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 4 7 20M17 4l-2 16M4 9h16M3.5 15h16" />
+  </svg>
+);
+
 // #211 (2026-07-19) — Kitap Kavramı: açık kitap (2 sayfa)
 const KitapKavramiIcon = ({ size = 14 }) => (
   <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -423,6 +429,17 @@ export const ANALYSIS_TOOLS = [
     descLongTr:  "Sabır yardımı, yardım zaferi getirir. Şükür nimeti artırır. Zulüm toplumsal helâke, mîzân göklerin ayakta durmasına bağlanır. Sünnetullah'ın somut zincirleri; her halka bir Kur'ân âyetine dayanır.",
     descLongEn:  "Patience brings help, and help brings victory. Gratitude increases blessing. Injustice leads to societal collapse; balance keeps the heavens standing. The concrete chains of sunnatullāh, every link anchored in Quranic verses.",
     icon:        NedenSonucIcon,
+  },
+  {
+    id:          'sayilar',
+    event:       'openKuranSayilar',
+    titleTr:     "Kur'an'da Sayılar",
+    titleEn:     "Numbers in the Qur'an",
+    descTr:      '50 sayı · 70 âyet · altı grup',
+    descEn:      '50 numbers · 70 verses · six groups',
+    descLongTr:  "Altı gün, yedi sema, on iki pınar, kırk gece, üç yüz dokuz yıl, bin yıl, elli bin yıl, yüz bin kişi. Metinde geçen sayılar ve her birinin neyin sayısı olduğu; miras kesirleri ve Kehf 18:25'in iki okuması görselleştirilmiş. Harf ya da kelime sayımından bir örüntü çıkarılmaz.",
+    descLongEn:  "Six days, seven heavens, twelve springs, forty nights, three hundred and nine years, a thousand years, fifty thousand years, a hundred thousand people. The numbers that occur in the text and what each is said of, with the inheritance fractions and the two readings of Q 18:25 visualised. No pattern is drawn from counting letters or words.",
+    icon:        SayilarIcon,
   },
   {
     id:          'munasebat',

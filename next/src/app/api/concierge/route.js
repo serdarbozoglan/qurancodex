@@ -33,7 +33,7 @@ const DEGRADED_BUCKETS = {
   tools: ['tool'],
   atlases: ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma',
     'atlas-dua', 'atlas-kavram', 'atlas-ahiret-yolculugu-stage', 'alan-disiplin',
-    'dua-peygamber', 'risale-not', 'dua-dili-katman'],
+    'dua-peygamber', 'risale-not', 'dua-dili-katman', 'kuran-sayi', 'iblis-adlandirma'],
 };
 
 function buildDegradedResult(grouped, lang, reason) {

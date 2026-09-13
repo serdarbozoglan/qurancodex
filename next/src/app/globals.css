@@ -1701,3 +1701,20 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .risale-card { transition: none; }
   .risale-card:hover { transform: none; }
 }
+
+/* Âyet kartı ızgarası (Kur'an'da Sayılar, İblis adlandırma bölümü).
+   Sütun sayısı saf CSS ile çözülür, JS state'ine bağlanmaz
+   (§14.2: isMobile düzen-kritik CSS'e bağlanamaz, CLS üretir).
+   Çocuklara min-width:0 ZORUNLU: ızgara hücresinin varsayılan min-width:auto
+   değeri, uzun Arapça satırların içerik genişliğine göre büyüyor ve iki sütun
+   sığacakken tek sütuna düşürüyordu. */
+.qc-verse-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+  align-items: start;
+}
+.qc-verse-grid > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

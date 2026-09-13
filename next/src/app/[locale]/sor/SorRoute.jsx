@@ -1682,6 +1682,8 @@ function AtlasCard({ atlas, delay, language }) {
     'dua-peygamber': tr ? 'Peygamber duası' : 'Prophetic prayer',
     'risale-not': tr ? 'Risale-i Nur notu' : 'Risale-i Nur note',
     'dua-dili-katman': tr ? 'Dua dili' : 'Language of prayer',
+    'kuran-sayi': tr ? 'Sayılar' : 'Numbers',
+    'iblis-adlandirma': tr ? 'İki isim' : 'Two names',
     'surah-summary': tr ? 'Sûre özet' : 'Sūra summary',
     'pericope': tr ? 'Pericope' : 'Pericope',
   }[atlas.type] || (tr ? 'Atlas' : 'Atlas');

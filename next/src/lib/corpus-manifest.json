@@ -66243,5 +66243,345 @@
     "hash": "72266d951704c91a",
     "embeddedAt": "2026-09-13T18:30:10.230Z",
     "type": "nuance-set"
+  },
+  "kuran-sayi:bir": {
+    "hash": "5db78313760affe6",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yedi-sema": {
+    "hash": "d53bffc736ff926d",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:alti-gun": {
+    "hash": "ecd138f2c7e4913f",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yedi-deniz": {
+    "hash": "0b136c7354eefc65",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:melek-kanatlari": {
+    "hash": "3773076cf3ad9d84",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:bin-yil": {
+    "hash": "2a06f691d948c3bc",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:elli-bin-yil": {
+    "hash": "f1cce748ed6f2b91",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:bin-eksi-elli": {
+    "hash": "f959deaf6cab1bf9",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:uc-yuz-dokuz": {
+    "hash": "3eb95f9c149c8a5f",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yuz-yil": {
+    "hash": "ea5cef5b23fcbc33",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:kirk-gece": {
+    "hash": "216a6651b8817cf4",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:otuz-arti-on": {
+    "hash": "117d3beb50a0f26e",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-iki-ay": {
+    "hash": "f1b34366c01bca5b",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:uc-gun-uc-gece": {
+    "hash": "ecbca9714ebea2b4",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:otuz-ay-kirk-yil": {
+    "hash": "db311811626be146",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yedi-bolluk-yedi-kitlik": {
+    "hash": "42e1b870d3c88241",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:sekiz-yil-on-yil": {
+    "hash": "5fa4f271db1b1075",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-gece": {
+    "hash": "598a919e08c2309d",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yuz-degnek": {
+    "hash": "909ece988f5e688b",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:seksen-degnek": {
+    "hash": "b363c3603397f83d",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:dort-ay-on-gun": {
+    "hash": "90ce208cfeaa8221",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:iki-tam-yil": {
+    "hash": "506b4832517f56bb",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:uc-arti-yedi": {
+    "hash": "f75f5c1d427d4881",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:altmis-yoksul": {
+    "hash": "017cc4aad6f29baa",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:miras-paylari": {
+    "hash": "a829dbc6bd77bbb8",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:ganimetin-beste-biri": {
+    "hash": "6bf7b89268f68b8e",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:gecenin-kesirleri": {
+    "hash": "3f5ccbdadd40258a",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-kat": {
+    "hash": "22daf3ff8d718f73",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-iki-pinar": {
+    "hash": "952ba3d6c9d1166e",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-iki-kabile": {
+    "hash": "6bcdd40ccf8894e6",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-iki-baskan": {
+    "hash": "6f20ce86a67ef1df",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-bir-yildiz": {
+    "hash": "e325f9f0b2525c16",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yedi-inek-yedi-basak": {
+    "hash": "b7e1125c15bbad50",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yedi-basak-yuz-dane": {
+    "hash": "6ad05e7bc48ae00d",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:doksan-dokuz-koyun": {
+    "hash": "b40afbc756b653b9",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:dokuz-mucize": {
+    "hash": "06944bac4750af89",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:dokuz-kisi": {
+    "hash": "7a91a1760d4ed563",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yetmis-adam": {
+    "hash": "caeb5458aa5501f8",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yetmis-kez": {
+    "hash": "36d915168a8bb7ef",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yuz-bin": {
+    "hash": "cb3df444aede5d90",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yirmi-yuz-iki-yuz-bin": {
+    "hash": "6258521228aafded",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:magara-ehlinin-sayisi": {
+    "hash": "667ddf36f03fc37b",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:on-dokuz": {
+    "hash": "a60a38127e26312d",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:sekiz-tasiyici": {
+    "hash": "d02c9ecda130a313",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yedi-kapi": {
+    "hash": "a9c2cd064a447ca4",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:yetmis-arsin": {
+    "hash": "a610e92628457b74",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:birden-ona": {
+    "hash": "305210dc161cfa70",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:ikil-kalibi": {
+    "hash": "e8faca73f75fa23f",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:sira-sayilari": {
+    "hash": "664674b0177d44ec",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "kuran-sayi"
+  },
+  "kuran-sayi:sekiz-es": {
+    "hash": "ce9414617c2f2c9d",
+    "embeddedAt": "2026-09-13T21:15:06.568Z",
+    "type": "kuran-sayi"
+  },
+  "tool:/arac/sayilar": {
+    "hash": "55235d32e4f2a4da",
+    "embeddedAt": "2026-09-13T19:17:36.167Z",
+    "type": "tool"
+  },
+  "iblis-adlandirma:adlandirma-iki-isim-sayim": {
+    "hash": "dfcfeeb92b168508",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-illa-iblis-istisna": {
+    "hash": "38ac5600d3fd053c",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-ya-iblis-hitap": {
+    "hash": "b1523c13f52e58a8",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-kehf-cinden": {
+    "hash": "c5cd6c39c327a3d5",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-seytan-vesvese": {
+    "hash": "471ba423a3f644ec",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-ayni-anlatida-gecis": {
+    "hash": "50e6d78046ae5e00",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-isra-ayni-hitapta": {
+    "hash": "781deca9665094d1",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-ademe-hitapta-seytan": {
+    "hash": "896839ddc4fa404b",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-sebe-istisna-yer-degistirir": {
+    "hash": "aa3d141dc0e75107",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-istisna-tarafini-degistirir": {
+    "hash": "8e9fa2709739e58c",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-sura-ordulari-ve-irab": {
+    "hash": "81b687eaa18d4dc3",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-taberi-iblas": {
+    "hash": "389a3536b31a8c23",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-taberi-neden-tenvinsiz": {
+    "hash": "bce82e2287be5f1c",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-seytan-iki-kok": {
+    "hash": "bc9323e95d223da3",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-seytan-sinif-adi": {
+    "hash": "7660b7a517c38751",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-gramer-karsilastirma": {
+    "hash": "186da4a7c77db37f",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
+  },
+  "iblis-adlandirma:adlandirma-isim-neden-degisir": {
+    "hash": "a3f1f300d73dbbde",
+    "embeddedAt": "2026-09-13T19:36:40.724Z",
+    "type": "iblis-adlandirma"
   }
 }
