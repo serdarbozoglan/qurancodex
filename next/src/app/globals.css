@@ -1616,21 +1616,21 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   height: 172px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,165,116,0.42) 0%, rgba(212,165,116,0.14) 42%, transparent 70%);
-  filter: blur(7px);
+  background: radial-gradient(circle, rgba(212,165,116,0.6) 0%, rgba(212,165,116,0.22) 42%, transparent 72%);
+  filter: blur(6px);
   z-index: 0;
   pointer-events: none;
   animation: qc-brand-breathe 4600ms ease-in-out infinite;
 }
 .qc-brand-mark > * { position: relative; z-index: 1; }
 @keyframes qc-brand-breathe {
-  0%, 100% { opacity: 0.32; transform: translate(-50%, -50%) scale(0.9); }
-  50%      { opacity: 0.9;  transform: translate(-50%, -50%) scale(1.1); }
+  0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.82); }
+  50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.22); }
 }
 .qc-wordmark { animation: qc-wordmark-breathe 4600ms ease-in-out infinite; will-change: text-shadow; }
 @keyframes qc-wordmark-breathe {
-  0%, 100% { text-shadow: 0 0 8px rgba(212,165,116,0.12); }
-  50%      { text-shadow: 0 0 20px rgba(212,165,116,0.42), 0 0 40px rgba(212,165,116,0.14); }
+  0%, 100% { text-shadow: 0 0 8px rgba(212,165,116,0.1); }
+  50%      { text-shadow: 0 0 24px rgba(212,165,116,0.62), 0 0 48px rgba(212,165,116,0.24); }
 }
 @media (prefers-reduced-motion: reduce) {
   .qc-brand-mark::before { animation: none; opacity: 0.5; }
@@ -1643,14 +1643,14 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
    prefers-reduced-motion: sabit hafif hâle. */
 .qc-verse-breathe { animation: qc-verse-breathe 5200ms ease-in-out infinite; will-change: text-shadow; }
 @keyframes qc-verse-breathe {
-  0%, 100% { text-shadow: 0 0 18px rgba(212,165,116,0.22); }
-  50%      { text-shadow: 0 0 34px rgba(212,165,116,0.55), 0 0 64px rgba(212,165,116,0.22); }
+  0%, 100% { text-shadow: 0 0 12px rgba(212,165,116,0.12); }
+  50%      { text-shadow: 0 0 26px rgba(212,165,116,0.85), 0 0 52px rgba(212,165,116,0.5), 0 0 90px rgba(212,165,116,0.25); }
 }
 /* Üst nav markası — kalıcı görünür olduğu için DAHA İNCE bir nefes (dikkat dağıtmaz). */
 .qc-nav-breathe { animation: qc-nav-breathe 5200ms ease-in-out infinite; will-change: text-shadow; }
 @keyframes qc-nav-breathe {
-  0%, 100% { text-shadow: 0 0 5px rgba(212,165,116,0.08); }
-  50%      { text-shadow: 0 0 12px rgba(212,165,116,0.28); }
+  0%, 100% { text-shadow: 0 0 5px rgba(212,165,116,0.1); }
+  50%      { text-shadow: 0 0 15px rgba(212,165,116,0.5); }
 }
 @media (prefers-reduced-motion: reduce) {
   .qc-verse-breathe { animation: none; text-shadow: 0 0 24px rgba(212,165,116,0.3); }
@@ -1660,8 +1660,8 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 /* Üst nav logosu — çok hafif drop-shadow nefesi (wordmark ile senkron). */
 .qc-nav-logo-breathe { animation: qc-nav-logo-breathe 5200ms ease-in-out infinite; will-change: filter; }
 @keyframes qc-nav-logo-breathe {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(212,165,116,0.15)); }
-  50%      { filter: drop-shadow(0 0 7px rgba(212,165,116,0.4)); }
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(212,165,116,0.12)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(212,165,116,0.65)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .qc-nav-logo-breathe { animation: none; filter: drop-shadow(0 0 3px rgba(212,165,116,0.2)); }
