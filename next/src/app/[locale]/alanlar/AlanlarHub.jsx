@@ -27,6 +27,24 @@ export default function AlanlarHub() {
       {/* ── Premium hero ─────────────────────────────────────────────── */}
       <div style={{ background: `linear-gradient(180deg, ${COLORS.gold}0f 0%, transparent 100%)`, borderBottom: `1px solid ${COLORS.gold}1a`, padding: 'clamp(36px, 6vw, 52px) 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
+          {/* Besmele + çapa âyet (2026-09-13, kullanıcı: bu sayfaya da besmele ve
+              âyet). Çapa Sâd 38:29 — "âyetlerini düşünsünler diye indirdiğimiz
+              mübârek Kitap": alanına göre keşif = âyetler üzerinde tefekkür. */}
+          <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+            color: COLORS.gold, opacity: 0.85, lineHeight: 1.2, marginBottom: 22,
+          }}>﷽</div>
+          <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
+            fontFamily: FONTS.quran, color: COLORS.gold,
+            '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
+            lineHeight: 2.1, margin: '0 0 14px',
+          }}>
+            كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ مُبَارَكٌ لِيَدَّبَّرُوا اٰيَاتِهِ وَلِيَتَذَكَّرَ اُولُوا الْاَلْبَابِ
+          </p>
+          <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, opacity: 0.95, fontSize: '1rem', lineHeight: 1.6, margin: '0 auto 6px', maxWidth: 600 }}>
+            {tr ? '"Bu, âyetlerini düşünsünler ve akıl sahipleri öğüt alsınlar diye sana indirdiğimiz mübârek bir Kitaptır."' : '"A blessed Book We have revealed to you, so that they may reflect on its verses and people of understanding may take heed."'}
+          </p>
+          <p style={{ fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 28px' }}>— {tr ? 'Sâd 38:29' : 'Ṣād 38:29'}</p>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.26em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.78, marginBottom: 14 }}>
             {tr ? '12 Disiplin Kapısı' : '12 Discipline Gateways'}
           </div>
