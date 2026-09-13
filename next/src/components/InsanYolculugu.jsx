@@ -596,9 +596,21 @@ function StageDetail({ stage, isEn, isMobile }) {
       </div>
 
       {/* Risale-i Nur notu — yalnız birincil metinden doğrulanmış aşamalarda.
-          İhsan, kalb-i selîm ve hüsn-i hâtime aşamalarında araştırmada citable
-          bir metin bulunamadığı için blok bilinçli olarak YOK; zayıf bir atıf
-          eklemek yerine boş bırakıldı. */}
+          KALB-İ SELÎM ve HÜSN-İ HÂTİME'de blok bilinçli olarak YOK. 2026-09-13'te
+          iki tur tarandı; şu eserler açılıp okundu: Şuâlar 7, 11, 14, 15;
+          Mesnevî-i Nûriye'nin sekiz alt risalesi; Sözler 16, 21, 23, 24, 26, 28,
+          30, 31, 32; Mektubat 10, 20, 24, 29; Lem'alar 1, 2, 21, 26, 30.
+          · kalb-i selîm: geçtiği her yerde sıfat olarak ("selim kalpler",
+            "fıtrat-ı selime") kullanılıyor, bir makam olarak işlenmiyor; Şuarâ
+            26:88-89 üzerine bahis yok. İşârâtü'l-İ'câz yapısal olarak içeremez
+            (yalnız Fâtiha ve Bakara 1-33'ü kapsar).
+          · hüsn-i hâtime: taranan külliyatta "hüsn-ü hâtime", "son nefes",
+            "hâtime-i hayat" geçmiyor. En yakın metin 26. Lem'a Sekizinci Rica
+            ama ölümün NE OLDUĞUNU anlatıyor (idam değil terhis), iman üzere
+            ölmeyi değil; bu yüzden bu kartın altına konmadı. Ahiret Yolculuğu
+            atlasının ölüm aşaması için aday olabilir.
+          Zayıf atıf eklemek yerine boş bırakıldı; yeniden aranmadan önce bu not
+          okunsun. */}
       {stage.risale && (
         <div className="risale-card" style={{
           position: 'relative',
@@ -622,9 +634,11 @@ function StageDetail({ stage, isEn, isMobile }) {
             fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase',
             color: COLORS.gold, opacity: 0.8, fontWeight: 700, margin: '0 0 4px',
           }}>{isEn ? 'RISALE-I NUR' : 'RİSALE-İ NUR'}</p>
+          {/* §13.26 md.3: altın metinde opaklık tabanı 0.75 — künye satırı 0.6'da
+              ölçümde ihlal veriyordu, 0.8'e çekildi. */}
           <p style={{
             fontSize: '0.62rem', letterSpacing: '0.08em',
-            color: COLORS.gold, opacity: 0.6, fontWeight: 600, margin: '0 0 12px',
+            color: COLORS.gold, opacity: 0.8, fontWeight: 600, margin: '0 0 12px',
           }}>{isEn ? stage.risale.sourceEn : stage.risale.sourceTr}</p>
           <p style={{
             color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.78,
