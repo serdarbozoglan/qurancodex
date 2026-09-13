@@ -14,6 +14,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { tabIcon } from './tabIcons';
 import { ToolTabGlow } from './ToolTabGlow';
 import LinkifyRefs from './LinkifyRefs';
 import SourcesCitation from './SourcesCitation';
@@ -22,17 +23,17 @@ import useNavbarOffset from './useNavbarOffset';
 
 // Tab defs — visibleTabs data'ya göre filtreler.
 const TAB_DEFS = [
-  { key: 'genel',         titleTr: 'Genel Bakış',       titleEn: 'Overview',           dataKey: 'genelBakis' },
-  { key: 'semantik',      titleTr: 'Semantik Alan',     titleEn: 'Semantic Field',     dataKey: 'kuraniIsimler' },
-  { key: 'ayet-gruplari',      titleTr: 'Ana Ayetler',       titleEn: 'Key Verses',         dataKey: 'anaPasajlar' },
-  { key: 'ozel-namazlar', titleTr: 'Özel Namazlar',     titleEn: 'Special Prayers',    dataKey: 'ozelNamazlar' },
-  { key: 'vakit-mekan',   titleTr: 'Vakit ve Mekân',    titleEn: 'Time and Space',     dataKey: 'vakitMekan' },
-  { key: 'kiraat',        titleTr: 'Namazın Sözü',      titleEn: 'The Word of Prayer', dataKey: 'kiraatBoyutu' },
-  { key: 'mimari',        titleTr: 'Rakamsal Mimari',   titleEn: 'Numeric Design',     dataKey: 'rakamsalMimari' },
-  { key: 'peygamberler',  titleTr: 'Peygamberler',      titleEn: 'Prophets',           dataKey: 'peygamberVaryasyonlari' },
-  { key: 'icboyut',       titleTr: 'İç Boyut',          titleEn: 'Inner Dimension',    dataKey: 'icBoyut' },
-  { key: 'insan-etkisi',  titleTr: 'İnsan Etkisi',      titleEn: 'Human Impact',       dataKey: 'insanEtkisi' },
-  { key: 'kaynaklar',     titleTr: 'Kaynaklar',         titleEn: 'Sources',            dataKey: 'kaynaklar' },
+  { key: 'genel', icon: 'info',         titleTr: 'Genel Bakış',       titleEn: 'Overview',           dataKey: 'genelBakis' },
+  { key: 'semantik', icon: 'layers',      titleTr: 'Semantik Alan',     titleEn: 'Semantic Field',     dataKey: 'kuraniIsimler' },
+  { key: 'ayet-gruplari', icon: 'book',      titleTr: 'Ana Ayetler',       titleEn: 'Key Verses',         dataKey: 'anaPasajlar' },
+  { key: 'ozel-namazlar', icon: 'star', titleTr: 'Özel Namazlar',     titleEn: 'Special Prayers',    dataKey: 'ozelNamazlar' },
+  { key: 'vakit-mekan', icon: 'clock',   titleTr: 'Vakit ve Mekân',    titleEn: 'Time and Space',     dataKey: 'vakitMekan' },
+  { key: 'kiraat', icon: 'megaphone',        titleTr: 'Namazın Sözü',      titleEn: 'The Word of Prayer', dataKey: 'kiraatBoyutu' },
+  { key: 'mimari', icon: 'grid',        titleTr: 'Rakamsal Mimari',   titleEn: 'Numeric Design',     dataKey: 'rakamsalMimari' },
+  { key: 'peygamberler', icon: 'users',  titleTr: 'Peygamberler',      titleEn: 'Prophets',           dataKey: 'peygamberVaryasyonlari' },
+  { key: 'icboyut', icon: 'heart',       titleTr: 'İç Boyut',          titleEn: 'Inner Dimension',    dataKey: 'icBoyut' },
+  { key: 'insan-etkisi', icon: 'person',  titleTr: 'İnsan Etkisi',      titleEn: 'Human Impact',       dataKey: 'insanEtkisi' },
+  { key: 'kaynaklar', icon: 'list',     titleTr: 'Kaynaklar',         titleEn: 'Sources',            dataKey: 'kaynaklar' },
 ];
 
 // Data'nın ilgili alanı doldu mu — boş tab render etme.
@@ -176,7 +177,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
               fontFamily: 'inherit',
             }}
           >
-            {language === 'tr' ? tab.titleTr : tab.titleEn}
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(tab.icon)}{language === 'tr' ? tab.titleTr : tab.titleEn}</span>
           {activeTab === tab.key && <ToolTabGlow />}
           </button>
         ))}
