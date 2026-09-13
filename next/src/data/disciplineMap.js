@@ -9,6 +9,19 @@
 // Münâfık/İblis→Psikoloji ikincil; Kurban→İktisat düşürüldü; Fürûk→Hukuk
 // (genel kavram aracı) kaldırıldı; Zaman Boyutları fizik/kozmolojiye zorlanmadı.
 //
+// TABİAT turu, 2. geçiş (2026-09-13): ilk turda astra'ya yalnız KATALOG
+// AÇIKLAMASI verilmişti; sayfaların gerçek içeriğiyle (bölüm başlıkları, sekmeler,
+// geçen âyet referansları) tekrar soruldu ve iki karar değişti:
+//   · Zaman Boyutları EKLENDİ — "6 Kozmik Evre" bölümü Fussilet 41:9-12 ve diğer
+//     yaratılış âyetleriyle kâinatın yaratılışını doğrudan işliyor (dayanak bu;
+//     kıyâmet sahneleri veya görelilik çağrışımı değil).
+//   · Kıyâmet yine EKLENMEDİ — Tekvîr'de gök cisimleri yaratılış delili olarak
+//     değil ÇÖZÜLÜŞ hâlinde anlatılır; ortak nesne kullanımı âfâk etiketi için
+//     yeterli değil.
+//   · İnsan Yolculuğu EKLENDİ — disiplinin çapası Fussilet 41:53 (âfâk VE enfüs)
+//     ve ilk teması "İki Kanatlı Tefekkür"; kapı enfüs tarafını da tanımalı.
+//     Temayı daraltmak yerine kapıyı kapsamla tutarlı kılma yolu seçildi.
+//
 // TABİAT turu (2026-09-13): tabiat-afak kapısı iki araca düşüyordu. gpt-6-astra
 // sekiz adayı tek tek değerlendirdi ve yalnız ikisini onayladı: Renkler (bitki,
 // dağ ve gökyüzü renklerini içeren âyet kümesi) ve Yeminler (yeminlerde geçen
@@ -60,7 +73,7 @@ export const DISCIPLINE_MAP = {
   '/arac/mukattaa':           ['dil-belagat'],
   '/arac/kiyamet':            ['iman-itikad', 'maneviyat-ibadet'],
   '/atlas/ahiret-yolculugu':  ['iman-itikad', 'maneviyat-ibadet'],
-  '/atlas/insan-yolculugu':   ['psikoloji-nefs', 'maneviyat-ibadet'],
+  '/atlas/insan-yolculugu':   ['psikoloji-nefs', 'maneviyat-ibadet', 'tabiat-afak'],
   '/arac/yakin-anlamli-nuanslar': ['dil-belagat', 'psikoloji-nefs'],
   '/arac/cennet-cehennem':    ['iman-itikad', 'maneviyat-ibadet'],
   '/arac/melekler':           ['iman-itikad'],
@@ -82,7 +95,7 @@ export const DISCIPLINE_MAP = {
   '/graf/kavram':             ['dil-belagat', 'kuran-ilimleri'],
   '/arac/ses-mimarisi':       ['dil-belagat'],
   '/arac/tarihsel-kanitlar':  ['tarih-medeniyet'],
-  '/arac/zaman-boyutlari':    ['iman-itikad'],
+  '/arac/zaman-boyutlari':    ['iman-itikad', 'tabiat-afak'],
   '/arac/yeminler':           ['dil-belagat', 'tabiat-afak'],
   '/arac/neden-sonuc':        ['ahlak-karakter', 'sosyoloji-toplum', 'liderlik-yonetim'],
   '/arac/kitap-kavrami':      ['kuran-ilimleri', 'iman-itikad'],

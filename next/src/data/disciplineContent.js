@@ -1427,6 +1427,32 @@ export const DISCIPLINE_CONTENT = {
         }
       },
       {
+        "titleTr": "Enfüs Tefekkürü: Kendi Yaratılışındaki Delillere Bakmak",
+        "titleEn": "Reflection Within: Signs in Your Own Creation",
+        "verses": [
+          {
+            "ref": "Târık 86:5",
+            "ar": "فَلْيَنْظُرِ الْاِنْسَانُ مِمَّ خُلِقَ",
+            "glossTr": "İnsan neden yaratıldığına bir baksın.",
+            "glossEn": "Let the human being consider from what he was created."
+          },
+          {
+            "ref": "İnfitâr 82:7",
+            "ar": "اَلَّذِي خَلَقَكَ فَسَوّٰيكَ فَعَدَلَكَ",
+            "glossTr": "O, seni yaratan, sana düzgün bir biçim veren ve seni dengeli kılandır.",
+            "glossEn": "He is the One who created you, fashioned you, and gave you balanced proportions."
+          },
+          {
+            "ref": "Nahl 16:78",
+            "ar": "وَاللّٰهُ اَخْرَجَكُمْ مِنْ بُطُونِ اُمَّهَاتِكُمْ لَا تَعْلَمُونَ شَيْـٔاً وَجَعَلَ لَكُمُ السَّمْعَ وَالْاَبْصَارَ وَالْاَفْـِٔدَةَ لَعَلَّكُمْ تَشْكُرُونَ",
+            "glossTr": "Allah sizi annelerinizin karnından hiçbir şey bilmezken çıkardı; şükredesiniz diye size işitme, görme ve kalpler verdi.",
+            "glossEn": "Allah brought you out of your mothers' wombs knowing nothing, and gave you hearing, sight and hearts, so that you may be thankful."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Târık 86:5): insana yaratıldığı başlangıcın zayıflığı hatırlatılır; yaratmayı ilk defa gerçekleştirmeye gücü yetenin onu yeniden gerçekleştirmeye de gücü yeteceği belirtilir. (Nahl 16:78): Allah insanları annelerinin karnından hiçbir şey bilmez hâlde çıkardığı, sonra sesleri tanısın diye işitme, görünenleri görsün diye görme ve yararlı ile zararlıyı ayırt etsin diye akıl anlamında kalp verdiği kaydedilir; bu melekeler şükür ve kulluk ile ilişkilendirilir.",
+        "tafsirEn": "In the abridged Ibn Kathir text (At-Tariq 86:5): the human being is alerted to the weakness of the origin from which he was created, and it is noted that whoever is able to begin the creation is able to repeat it. (An-Nahl 16:78): Allah brought people out of their mothers' wombs knowing nothing, then gave them hearing to recognize voices, sight to see visible things, and hearts meaning reason, so they may distinguish the harmful from the beneficial; these faculties are tied to thankfulness and to worship."
+      },
+      {
         "titleTr": "Göklerin ve Yerin Yaratılışında Akıl Sahiplerine Deliller",
         "titleEn": "In the Creation of the Heavens and the Earth, Signs for People of Reason",
         "verses": [

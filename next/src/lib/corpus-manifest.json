@@ -65880,8 +65880,8 @@
     "type": "alan-disiplin"
   },
   "alan:tabiat-afak": {
-    "hash": "ac5ee0032e5ce343",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "c8e41dab020d5ff5",
+    "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
   },
   "alan:tabiat-afak#0": {
@@ -65890,23 +65890,23 @@
     "type": "alan-disiplin"
   },
   "alan:tabiat-afak#1": {
-    "hash": "23eaab76bb30fe28",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "1a804e29d407b0d5",
+    "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
   },
   "alan:tabiat-afak#2": {
-    "hash": "414b03a36fb609fc",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "41f6d150462eb428",
+    "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
   },
   "alan:tabiat-afak#3": {
-    "hash": "31d2c664453acb47",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "3309e21a69cea1a9",
+    "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
   },
   "alan:tabiat-afak#4": {
-    "hash": "50657ca2b8a5f9d7",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "a54c33b5a00afe8d",
+    "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
   },
   "alan:kuran-ilimleri": {
@@ -65967,6 +65967,11 @@
   "alan:tarih-medeniyet#4": {
     "hash": "a3250e0e8f158a18",
     "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "type": "alan-disiplin"
+  },
+  "alan:tabiat-afak#5": {
+    "hash": "92a0a1cfb2b36e55",
+    "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
   }
 }
