@@ -156,11 +156,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
 
       {/* Search + Filter chip row — max-w-7xl container ile Navbar logoyla aynı hizada. */}
       <div
-        className="max-w-7xl mx-auto px-4 lg:px-8 mq-box"
+        className="max-w-7xl mx-auto px-4 lg:px-8"
         style={{
           flexShrink: 0,
           width: '100%', boxSizing: 'border-box',
-          '--pt-d': 14, '--pt-m': 12,
+          // 2026-09-13 — `mq-box` sınıfı burada TÜM padding'i sıfırlıyordu
+          // (--pl/--pr/--pb vars verilmemiş → var(...,unset)=0), Tailwind px-4'ü
+          // eziyor → içerik sol kenara yapışıp kırpılıyordu (kullanıcı bildirdi).
+          // mq-box kaldırıldı; yatay padding Tailwind px-4/lg:px-8'den, dikey açık.
+          paddingTop: '13px', paddingBottom: '12px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
           background: 'rgba(8,10,18,0.92)',
           backdropFilter: 'blur(20px)',
