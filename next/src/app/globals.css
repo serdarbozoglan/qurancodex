@@ -1646,23 +1646,7 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   0%, 100% { text-shadow: 0 0 12px rgba(212,165,116,0.12); }
   50%      { text-shadow: 0 0 26px rgba(212,165,116,0.85), 0 0 52px rgba(212,165,116,0.5), 0 0 90px rgba(212,165,116,0.25); }
 }
-/* Üst nav markası — kalıcı görünür olduğu için DAHA İNCE bir nefes (dikkat dağıtmaz). */
-.qc-nav-breathe { animation: qc-nav-breathe 5200ms ease-in-out infinite; will-change: text-shadow; }
-@keyframes qc-nav-breathe {
-  0%, 100% { text-shadow: 0 0 5px rgba(212,165,116,0.1); }
-  50%      { text-shadow: 0 0 15px rgba(212,165,116,0.5); }
-}
 @media (prefers-reduced-motion: reduce) {
   .qc-verse-breathe { animation: none; text-shadow: 0 0 24px rgba(212,165,116,0.3); }
-  .qc-nav-breathe { animation: none; text-shadow: 0 0 8px rgba(212,165,116,0.14); }
 }
 
-/* Üst nav logosu — çok hafif drop-shadow nefesi (wordmark ile senkron). */
-.qc-nav-logo-breathe { animation: qc-nav-logo-breathe 5200ms ease-in-out infinite; will-change: filter; }
-@keyframes qc-nav-logo-breathe {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(212,165,116,0.12)); }
-  50%      { filter: drop-shadow(0 0 10px rgba(212,165,116,0.65)); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .qc-nav-logo-breathe { animation: none; filter: drop-shadow(0 0 3px rgba(212,165,116,0.2)); }
-}
