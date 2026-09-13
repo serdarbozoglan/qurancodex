@@ -87,7 +87,7 @@ export default function InsanTanimi({ onClose }) {
           color: COLORS.gold, lineHeight: 2.1,
           margin: '0 0 12px',
           }}>
-          لَقَدْ خَلَقْنَا الْاِنْسَانَ فِٓي اَحْسَنِ تَقْوِيمٍ
+          لَقَدْ خَلَقْنَا الْاِنْسَانَ فِي اَحْسَنِ تَقْوِيمٍ
         </p>
         <p style={{
           fontFamily: FONTS.display, fontStyle: 'italic',

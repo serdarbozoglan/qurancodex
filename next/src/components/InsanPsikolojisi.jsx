@@ -75,7 +75,7 @@ export default function InsanPsikolojisi({ onClose }) {
             margin: '0 0 12px',
             }}
         >
-          اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُّٓوءِ
+          اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُّوءِ
         </p>
         <p style={{
           fontFamily: FONTS.display,

@@ -113,7 +113,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
               lineHeight: 2.1,
               margin: '0 auto 12px', maxWidth: '780px',
             }}>
-              وَعَلَّمَ اٰدَمَ الْاَسْمَٓاءَ كُلَّهَا
+              وَعَلَّمَ اٰدَمَ الْاَسْمَاءَ كُلَّهَا
             </p>
             <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',

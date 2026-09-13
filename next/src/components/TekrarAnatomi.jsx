@@ -70,7 +70,7 @@ export default function TekrarAnatomi({ onClose }) {
             margin: '0 0 12px',
             }}
         >
-          فَبِاَيِّ اٰلَٓاءِ رَبِّكُمَا تُكَذِّبَانِ
+          فَبِاَيِّ اٰلَاءِ رَبِّكُمَا تُكَذِّبَانِ
         </p>
         <p style={{
           fontFamily: FONTS.display,
