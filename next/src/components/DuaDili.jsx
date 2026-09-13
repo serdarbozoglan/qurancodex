@@ -72,14 +72,10 @@ export default function DuaDili({ onClose }) {
       {/* Cinematic Hero */}
       <CollapsibleHero id="dua-dili" language={language}
         labelTr="Dua Dili — Yakarışın Mimarisi" labelEn="Language of Prayer — The Architecture of Supplication">
-      <div className="mq-box" style={{
+      <div className="mq-box qc-hero-bg" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-        background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
-                     url("data:image/svg+xml;utf8,${GEOMETRIC_PATTERN}") repeat`,
-        backgroundSize: 'auto, 60px 60px',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
-        position: 'relative',
       }}>
         <div className="mq-fs" style={{
           '--fs-d': '2.6rem', '--fs-m': '2.2rem',
@@ -88,7 +84,8 @@ export default function DuaDili({ onClose }) {
           fontFamily: FONTS.bismillah,
           marginBottom: '24px',
           lineHeight: 1.2,
-        }} dir="rtl" lang="ar" aria-label="Bismillāh">﷽</div>
+          textAlign: 'center',
+        }} lang="ar" aria-label="Bismillāh">﷽</div>
 
         <p dir="rtl" lang="ar" className="qc-verse-breathe" style={{
           fontFamily: FONTS.quran,
@@ -110,7 +107,7 @@ export default function DuaDili({ onClose }) {
         <p style={{
           color: COLORS.silver, fontFamily: FONTS.body,
           fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.78, marginBottom: '24px',
+          opacity: 0.78, marginBottom: '24px', textAlign: 'center',
         }}>— {tr ? "Bakara 2:186" : "al-Baqara 2:186"}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
@@ -118,21 +115,21 @@ export default function DuaDili({ onClose }) {
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
           color: COLORS.gold, opacity: 0.75,
-          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px', textAlign: 'center',
         }}>
           {tr ? "YAKARIŞIN MİMARİSİ · 4 KATMAN" : "ARCHITECTURE OF SUPPLICATION · 4 LAYERS"}
         </p>
         <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite,
           '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
-          lineHeight: 1.2, letterSpacing: '-0.015em', margin: '0 0 12px',
+          lineHeight: 1.2, letterSpacing: '-0.015em', margin: '0 0 12px', textAlign: 'center',
         }}>
           {tr ? "Dua Dili — Yakarışın Mimarisi" : "Language of Prayer — The Architecture of Supplication"}
         </h2>
         <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
           '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
-          margin: 0,
+          margin: 0, textAlign: 'center',
         }}>
           {tr ? "10 peygamber profili · Nidâ + Hâcet + Gerekçe + İsim · Cevap örüntüsü" : "10 prophetic profiles · Vocative + Petition + Reasoning + Names · Response pattern"}
         </p>

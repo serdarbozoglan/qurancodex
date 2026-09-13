@@ -1667,3 +1667,19 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 @media (prefers-reduced-motion: reduce) {
   .qc-verse-breathe-soft { animation: none; filter: brightness(1.05) drop-shadow(0 0 14px rgba(212,165,116,0.3)); }
 }
+
+/* ─── STANDART HERO BACKGROUND (2026-09-13, kullanıcı: hero'lar için ortak bg) ──
+   Tek kaynak: sıcak altın üst-gradyan + soluk altıgen desen. §13.18 hero'ların
+   container'ına `qc-hero-bg` class'ı eklenir (position:relative + overflow:hidden
+   otomatik). İçerik ::before deseninin ÜSTÜNDE kalsın diye doğrudan çocuklar
+   z-index:1 alır. HeroGeometricBackground bileşeniyle AYNI deseni verir; yeni
+   hero'larda bileşen yerine bu class tercih edilir (import gerekmez). */
+.qc-hero-bg { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(212,165,116,0.08) 0%, transparent 100%); }
+.qc-hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.5'%3E%3Cpolygon points='40,8 56,24 56,56 40,72 24,56 24,24' /%3E%3Cpolygon points='40,16 52,28 52,52 40,64 28,52 28,28' /%3E%3Ccircle cx='40' cy='40' r='4' /%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.04;
+}
+.qc-hero-bg > * { position: relative; z-index: 1; }
