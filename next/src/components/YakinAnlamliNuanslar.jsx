@@ -102,7 +102,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             <div className="mq-fs" style={{
               fontFamily: "'Amiri Quran', serif",
               color: COLORS.gold, opacity: 0.82,
-              '--fs-d': '2rem', '--fs-m': '1.6rem',
+              '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               margin: '0 0 18px', lineHeight: 1,
             }} aria-hidden="true">﷽</div>
 

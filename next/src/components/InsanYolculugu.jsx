@@ -113,12 +113,12 @@ export default function InsanYolculugu({ onClose }) {
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
           }}>
-            <div className="mq-fs" style={{
-              fontFamily: "'Amiri Quran', serif",
+            <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
               color: COLORS.gold, opacity: 0.82,
-              '--fs-d': '2rem', '--fs-m': '1.6rem',
-              margin: '0 0 18px', lineHeight: 1,
-            }} aria-hidden="true">﷽</div>
+              '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+              margin: '0 0 26px', lineHeight: 1.2,
+            }}>﷽</div>
 
             <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,

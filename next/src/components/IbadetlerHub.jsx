@@ -81,8 +81,8 @@ function HubHero({ hubData, language, isMobile }) {
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
     }}>
-      <div style={{
-        fontFamily: FONTS.bismillah, fontSize: '1.7rem',
+      <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+        fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', lineHeight: 1.2,
         color: COLORS.gold, opacity: 0.82, marginBottom: '28px',
       }}>﷽</div>
 

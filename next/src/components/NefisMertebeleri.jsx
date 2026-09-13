@@ -170,8 +170,8 @@ export default function NefisMertebeleri({ onClose }) {
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               color: COLORS.gold,
               opacity: 0.82,
-              lineHeight: 1,
-              '--mb-d': '40px', '--mb-m': '28px',
+              lineHeight: 1.2,
+              marginBottom: '32px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
