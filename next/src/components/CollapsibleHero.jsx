@@ -80,7 +80,10 @@ export default function CollapsibleHero({ id, language, labelTr, labelEn, childr
   return (
     <div style={{ position: 'relative' }}>
       {children}
-      <div style={{ display: 'flex', justifyContent: 'center', margin: '-8px 0 28px' }}>
+      {/* 2026-09-13 — margin-top -8px hero'nun alt çizgisiyle (borderBottom)
+          overlap ediyordu (kullanıcı, birden çok sayfada). Pozitif boşlukla
+          çizginin altına alındı. */}
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0 28px' }}>
         <button
           type="button"
           onClick={() => setAndStore(true)}
