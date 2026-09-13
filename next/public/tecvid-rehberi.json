@@ -286,7 +286,7 @@
           "color": "#4ade80",
           "examples": [
             {
-              "text": "اِنّٓا",
+              "text": "اِنَّا",
               "html": "اِ<span style=\"color:#4ade80\">نّ</span>ٓا",
               "verse": "108:1",
               "reciter": "Alafasy",
@@ -387,21 +387,21 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "جٓاءَ",
+              "text": "جَاءَ",
               "html": "ج<span style=\"color:#c084fc\">ٓ</span>اءَ",
               "verse": "110:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110001-1-2.mp3"
             },
             {
-              "text": "وَالسَّمٓاءِ",
+              "text": "وَالسَّمَاءِ",
               "html": "و<span style=\"color:#c084fc\">َا</span>لسَّم<span style=\"color:#c084fc\">ٓ</span>اءِ",
               "verse": "86:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-086001-0-1.mp3"
             },
             {
-              "text": "مٓاءً",
+              "text": "مَاءً",
               "html": "م<span style=\"color:#c084fc\">ٓ</span>اءً",
               "verse": "2:22",
               "reciter": "Alafasy",
@@ -418,21 +418,21 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "اِنّٓا اَعْطَيْنَاكَ",
+              "text": "اِنَّا اَعْطَيْنَاكَ",
               "html": "اِنّ<span style=\"color:#c084fc\">ٓ</span>ا اَعْطَيْن<span style=\"color:#c084fc\">َا</span>كَ",
               "verse": "108:1",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-108001-0-2.mp3"
             },
             {
-              "text": "لٓا اَعْبُدُ",
+              "text": "لَا اَعْبُدُ",
               "html": "ل<span style=\"color:#c084fc\">ٓ</span>ا اَعْبُدُ",
               "verse": "109:2",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-109002-0-2.mp3"
             },
             {
-              "text": "اِنّٓا اَنْزَلْنَاهُ",
+              "text": "اِنَّا اَنْزَلْنَاهُ",
               "html": "اِنّ<span style=\"color:#c084fc\">ٓ</span>ا اَنْزَلْن<span style=\"color:#c084fc\">َا</span>هُ",
               "verse": "97:1",
               "reciter": "Alafasy",
@@ -542,21 +542,21 @@
           "color": "#c084fc",
           "examples": [
             {
-              "text": "الضّٓالِّينَ",
+              "text": "الضَّالِّينَ",
               "html": "الضّ<span style=\"color:#c084fc\">ٓ</span>الّ<span style=\"color:#c084fc\">ِي</span>نَ",
               "verse": "1:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001007-8-9.mp3"
             },
             {
-              "text": "الطّٓامَّةُ",
+              "text": "الطَّامَّةُ",
               "html": "الطّ<span style=\"color:#c084fc\">ٓ</span>امَّةُ",
               "verse": "79:34",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-079034-2-3.mp3"
             },
             {
-              "text": "الصّٓاخَّةُ",
+              "text": "الصَّاخَّةُ",
               "html": "الصّ<span style=\"color:#c084fc\">ٓ</span>اخَّةُ",
               "verse": "80:33",
               "reciter": "Alafasy",
@@ -666,21 +666,21 @@
           "color": "#f2d9a8",
           "examples": [
             {
-              "text": "مَالَهٓ اَخْلَدَهُ",
-              "html": "مَالَهٓ اَخْلَدَ<span style=\"color:#f2d9a8\">هُ</span>",
+              "text": "مَالَهُ اَخْلَدَهُ",
+              "html": "مَالَهُ اَخْلَدَ<span style=\"color:#f2d9a8\">هُ</span>",
               "verse": "104:3",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-104003-2-4.mp3"
             },
             {
-              "text": "يَرَهٓ اَحَدٌ",
+              "text": "يَرَهُ اَحَدٌ",
               "html": "<span style=\"color:#f2d9a8\">يَرَهٓ اَحَدٌ</span>",
               "verse": "90:7",
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-090007-3-5.mp3"
             },
             {
-              "text": "عِنْدَهٓ اِلَّا",
+              "text": "عِنْدَهُ اِلَّا",
               "html": "<span style=\"color:#f2d9a8\">عِنْدَهٓ اِلَّا</span>",
               "verse": "2:255",
               "reciter": "Alafasy",
@@ -952,7 +952,7 @@
               "audio": "/tecvid-audio/alafasy-114001-3-4.mp3"
             },
             {
-              "text": "وَالسَّمٓاءِ",
+              "text": "وَالسَّمَاءِ",
               "html": "وَال<span style=\"color:#3498DB\">سّ</span>َمٓاءِ",
               "verse": "86:1",
               "reciter": "Alafasy",
@@ -1069,7 +1069,7 @@
               "audio": "/tecvid-audio/alafasy-017024-6-8.mp3"
             },
             {
-              "text": "قُلْ رَبِٓي",
+              "text": "قُلْ رَبِّي",
               "html": "<span style=\"color:#60a5fa\">قُلْ رَبِٓي</span>",
               "verse": "18:22",
               "reciter": "Alafasy",

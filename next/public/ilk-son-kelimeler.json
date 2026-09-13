@@ -64,7 +64,7 @@
       "hasOath": false,
       "note": "Hanefî sayımıyla. Bismillah ayrı ayet sayılır; ilk ayet olarak 'al-ḥamdu lillâhi...' alınır. Şâfiî sayımında ilk kelime 'bismi' olur.",
       "firstAyahArabic": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَۙ",
-      "lastAyahArabic": "صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْۙ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضّٓالِّينَ",
+      "lastAyahArabic": "صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْۙ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
       "firstAyahTr": "Hamd (övme ve övülme), alemlerin Rabbi Allah'a mahsustur.",
       "lastAyahTr": "Kendilerine lütuf ve ikramda bulunduğun kimselerin yolunu; gazaba uğramışların ve sapmışların yolunu değil!",
       "firstAyah": {
@@ -73,7 +73,7 @@
         "en": "In the name of Allah, the Entirely Merciful, the Especially Merciful"
       },
       "lastAyah": {
-        "ar": "صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْۙ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضّٓالِّينَ",
+        "ar": "صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْۙ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
         "tr": "Kendilerine lütuf ve ikramda bulunduğun kimselerin yolunu; gazaba uğramışların ve sapmışların yolunu değil!",
         "en": "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray"
       }
@@ -107,7 +107,7 @@
       "hasOath": false,
       "note": "Son ayet 2:286 Kur'an'ın en uzun ayetidir; dua-ayeti (Âyete'l-Duâ).",
       "firstAyahArabic": "الٓمٓ ۚ",
-      "lastAyahArabic": "لَا يُكَلِّفُ اللّٰهُ نَفْساً اِلَّا وُسْعَهَاۜ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْۜ رَبَّنَا لَا تُؤَاخِذْنٓا اِنْ نَسِينٓا اَوْ اَخْطَأْنَاۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنٓا اِصْراً كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَاۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۚ وَاعْفُ عَنَّا۠ وَاغْفِرْ لَنَا۠ وَارْحَمْنَا۠ اَنْتَ مَوْلٰينَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+      "lastAyahArabic": "لَا يُكَلِّفُ اللّٰهُ نَفْساً اِلَّا وُسْعَهَاۜ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْۜ رَبَّنَا لَا تُؤَاخِذْنَا اِنْ نَسِينَا اَوْ اَخْطَأْنَاۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا اِصْراً كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَاۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۚ وَاعْفُ عَنَّا۠ وَاغْفِرْ لَنَا۠ وَارْحَمْنَا۠ اَنْتَ مَوْلٰينَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
       "firstAyahTr": "Elif. Lam. Mim.",
       "lastAyahTr": "Allah her şahsı, ancak gücünün yettiği ölçüde mükellef kılar. Herkesin kazandığı (hayır) kendine, yapacağı (şer) de kendinedir. Rabbimiz! Unutursak veya hataya düşersek bizi sorumlu tutma. Ey Rabbimiz! Bizden öncekilere yüklediğin gibi bize de ağır bir yük yükleme. Ey Rabbimiz! Bize gücümüzün yetmediği işler de yükleme! Bizi affet! Bizi bağışla.",
       "firstAyah": {
@@ -116,7 +116,7 @@
         "en": "Alif, Lam, Meem"
       },
       "lastAyah": {
-        "ar": "لَا يُكَلِّفُ اللّٰهُ نَفْساً اِلَّا وُسْعَهَاۜ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْۜ رَبَّنَا لَا تُؤَاخِذْنٓا اِنْ نَسِينٓا اَوْ اَخْطَأْنَاۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنٓا اِصْراً كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَاۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۚ وَاعْفُ عَنَّا۠ وَاغْفِرْ لَنَا۠ وَارْحَمْنَا۠ اَنْتَ مَوْلٰينَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+        "ar": "لَا يُكَلِّفُ اللّٰهُ نَفْساً اِلَّا وُسْعَهَاۜ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْۜ رَبَّنَا لَا تُؤَاخِذْنَا اِنْ نَسِينَا اَوْ اَخْطَأْنَاۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا اِصْراً كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَاۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۚ وَاعْفُ عَنَّا۠ وَاغْفِرْ لَنَا۠ وَارْحَمْنَا۠ اَنْتَ مَوْلٰينَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
         "tr": "Allah her şahsı, ancak gücünün yettiği ölçüde mükellef kılar. Herkesin kazandığı (hayır) kendine, yapacağı (şer) de kendinedir. Rabbimiz! Unutursak veya hataya düşersek bizi sorumlu tutma. Ey Rabbimiz! Bizden öncekilere yüklediğin gibi bize de ağır bir yük yükleme. Ey Rabbimiz! Bize gücümüzün yetmediği işler de yükleme! Bizi affet! Bizi bağışla.",
         "en": "Allah does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. \"Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people"
       }
@@ -149,7 +149,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "الٓمٓۚ",
-      "lastAyahArabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+      "lastAyahArabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
       "firstAyahTr": "Elif. Lam. Mim.",
       "lastAyahTr": "Ey iman edenler! Sabredin; (düşman karşısında) sebat göster",
       "firstAyah": {
@@ -158,7 +158,7 @@
         "en": "Alif, Lam, Meem"
       },
       "lastAyah": {
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
         "tr": "Ey iman edenler! Sabredin; (düşman karşısında) sebat göster",
         "en": "O you who have believed, persevere and endure and remain stationed and fear Allah that you may be successful"
       }
@@ -173,7 +173,7 @@
       "firstAyahRef": "4:1",
       "lastAyahRef": "4:176",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -190,17 +190,17 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسٓاءًۚ وَاتَّقُوا اللّٰهَ الَّذِي تَسٓاءَلُونَ بِهِ وَالْاَرْحَامَۜ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
-      "lastAyahArabic": "يَسْتَفْتُونَكَۜ قُلِ اللّٰهُ يُفْتِيكُمْ فِي الْكَلَالَةِۜ اِنِ امْرُؤٌا هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهٓ اُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَۚ وَهُوَ يَرِثُـهٓا اِنْ لَمْ يَكُنْ لَهَا وَلَدٌۜ فَاِنْ كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَۜ وَاِنْ كَانٓوا اِخْوَةً رِجَالاً وَنِسٓاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْاُنْثَيَيْنِۜ يُبَيِّنُ اللّٰهُ لَكُمْ اَنْ تَضِلُّواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+      "firstAyahArabic": "يَا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسٓاءًۚ وَاتَّقُوا اللّٰهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْاَرْحَامَۜ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
+      "lastAyahArabic": "يَسْتَفْتُونَكَۜ قُلِ اللّٰهُ يُفْتِيكُمْ فِي الْكَلَالَةِۜ اِنِ امْرُؤٌا هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهُ اُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَۚ وَهُوَ يَرِثُـهَا اِنْ لَمْ يَكُنْ لَهَا وَلَدٌۜ فَاِنْ كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَۜ وَاِنْ كَانُوا اِخْوَةً رِجَالاً وَنِسَاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْاُنْثَيَيْنِۜ يُبَيِّنُ اللّٰهُ لَكُمْ اَنْ تَضِلُّواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
       "firstAyahTr": "Ey insanlar! Sizi bir tek nefisten yaratan ve ondan da eşini yaratan ve ikisinden birçok erkekler ve kadınlar üretip yayan Rabbinizden sakının. Adını kullanarak birbirinizden dilekte bulunduğunuz Allah'tan ve akrabalık haklarına riayetsizlikten de sakının. Şüphesiz Allah sizin üzerinizde gözetleyicidir.",
       "lastAyahTr": "Senden fetva isterler. De ki: \"Allah, babası ve çocuğu olmayan kimsenin mirası hakkındaki hükmü şöyle açıklıyor: Eğer çocuğu olmayan bir kimse ölür de onun bir kızkardeşi bulunursa, bıraktığının yarısı bunundur. Kızkardeş ölüp çocuğu olmazsa erkek kardeş de ona varis olur. Kızkardeşler iki tane olursa (erkek kardeşlerinin) bıraktığının üçte ikisi onlarındır. Eğer erkekli kadınlı daha fazla kardeş mevcut ise erkeğin hakkı, iki kadın payı kadardır. Şaşırmamanız için Allah size açıklama yapıyor. Allah her şeyi bilmektedir.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسٓاءًۚ وَاتَّقُوا اللّٰهَ الَّذِي تَسٓاءَلُونَ بِهِ وَالْاَرْحَامَۜ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
+        "ar": "يَا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسٓاءًۚ وَاتَّقُوا اللّٰهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْاَرْحَامَۜ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
         "tr": "Ey insanlar! Sizi bir tek nefisten yaratan ve ondan da eşini yaratan ve ikisinden birçok erkekler ve kadınlar üretip yayan Rabbinizden sakının. Adını kullanarak birbirinizden dilekte bulunduğunuz Allah'tan ve akrabalık haklarına riayetsizlikten de sakının. Şüphesiz Allah sizin üzerinizde gözetleyicidir.",
         "en": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer"
       },
       "lastAyah": {
-        "ar": "يَسْتَفْتُونَكَۜ قُلِ اللّٰهُ يُفْتِيكُمْ فِي الْكَلَالَةِۜ اِنِ امْرُؤٌا هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهٓ اُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَۚ وَهُوَ يَرِثُـهٓا اِنْ لَمْ يَكُنْ لَهَا وَلَدٌۜ فَاِنْ كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَۜ وَاِنْ كَانٓوا اِخْوَةً رِجَالاً وَنِسٓاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْاُنْثَيَيْنِۜ يُبَيِّنُ اللّٰهُ لَكُمْ اَنْ تَضِلُّواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+        "ar": "يَسْتَفْتُونَكَۜ قُلِ اللّٰهُ يُفْتِيكُمْ فِي الْكَلَالَةِۜ اِنِ امْرُؤٌا هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهُ اُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَۚ وَهُوَ يَرِثُـهَا اِنْ لَمْ يَكُنْ لَهَا وَلَدٌۜ فَاِنْ كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَۜ وَاِنْ كَانُوا اِخْوَةً رِجَالاً وَنِسَاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْاُنْثَيَيْنِۜ يُبَيِّنُ اللّٰهُ لَكُمْ اَنْ تَضِلُّواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
         "tr": "Senden fetva isterler. De ki: \"Allah, babası ve çocuğu olmayan kimsenin mirası hakkındaki hükmü şöyle açıklıyor: Eğer çocuğu olmayan bir kimse ölür de onun bir kızkardeşi bulunursa, bıraktığının yarısı bunundur. Kızkardeş ölüp çocuğu olmazsa erkek kardeş de ona varis olur. Kızkardeşler iki tane olursa (erkek kardeşlerinin) bıraktığının üçte ikisi onlarındır. Eğer erkekli kadınlı daha fazla kardeş mevcut ise erkeğin hakkı, iki kadın payı kadardır. Şaşırmamanız için Allah size açıklama yapıyor. Allah her şeyi bilmektedir.",
         "en": "They request from you a [legal] ruling. Say, \"Allah gives you a ruling concerning one having neither descendants nor ascendants [as heirs].\" If a man dies, leaving no child but [only] a sister, she will have half of what he left. And he inherits from her if she [dies and] has no child. But if there are two sisters [or more], they will have two-thirds of what he left. If there are both brothers and sisters, the male will have the share of two females. Allah makes clear to you [His law], lest you go astray. And Allah is Knowing of all things"
       }
@@ -215,7 +215,7 @@
       "firstAyahRef": "5:1",
       "lastAyahRef": "5:120",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -232,12 +232,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اَوْفُوا بِالْعُقُودِۜ  اُحِلَّتْ لَكُمْ بَهِيمَةُ الْاَنْعَامِ اِلَّا مَا يُتْلٰى عَلَيْكُمْ غَيْرَ مُحِلِّي الصَّيْدِ وَاَنْتُمْ حُرُمٌۜ اِنَّ اللّٰهَ يَحْكُمُ مَا يُرِيدُ",
+      "firstAyahArabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اَوْفُوا بِالْعُقُودِۜ  اُحِلَّتْ لَكُمْ بَهِيمَةُ الْاَنْعَامِ اِلَّا مَا يُتْلٰى عَلَيْكُمْ غَيْرَ مُحِلِّي الصَّيْدِ وَاَنْتُمْ حُرُمٌۜ اِنَّ اللّٰهَ يَحْكُمُ مَا يُرِيدُ",
       "lastAyahArabic": "لِلّٰهِ مُلْكُ السَّمٰوَاتِ وَالْاَرْضِ وَمَا فِيهِنَّۜ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
       "firstAyahTr": "Ey iman edenler! Akitleri(n gereğini) yerine getiriniz. İhramlı iken avlanmayı helal saymamak üzere (aşağıda) size okunacaklar dışında kalan hayvanlar, sizin için helal kılındı. Allah dilediğine hükmeder.",
       "lastAyahTr": "Göklerin, yerin ve içlerindeki her şeyin mülkiyeti Allah'ındır, O, her şeye hakkıyle kadirdir.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اَوْفُوا بِالْعُقُودِۜ  اُحِلَّتْ لَكُمْ بَهِيمَةُ الْاَنْعَامِ اِلَّا مَا يُتْلٰى عَلَيْكُمْ غَيْرَ مُحِلِّي الصَّيْدِ وَاَنْتُمْ حُرُمٌۜ اِنَّ اللّٰهَ يَحْكُمُ مَا يُرِيدُ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اَوْفُوا بِالْعُقُودِۜ  اُحِلَّتْ لَكُمْ بَهِيمَةُ الْاَنْعَامِ اِلَّا مَا يُتْلٰى عَلَيْكُمْ غَيْرَ مُحِلِّي الصَّيْدِ وَاَنْتُمْ حُرُمٌۜ اِنَّ اللّٰهَ يَحْكُمُ مَا يُرِيدُ",
         "tr": "Ey iman edenler! Akitleri(n gereğini) yerine getiriniz. İhramlı iken avlanmayı helal saymamak üzere (aşağıda) size okunacaklar dışında kalan hayvanlar, sizin için helal kılındı. Allah dilediğine hükmeder.",
         "en": "O you who have believed, fulfill [all] contracts. Lawful for you are the animals of grazing livestock except for that which is recited to you [in this Qur'an] - hunting not being permitted while you are in the state of ihram. Indeed, Allah ordains what He intends"
       },
@@ -277,7 +277,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلْحَمْدُ لِلّٰهِ الَّذِي خَلَقَ السَّمٰوَاتِ وَالْاَرْضَ وَجَعَلَ الظُّلُمَاتِ وَالنُّورَۜ  ثُمَّ الَّذِينَ كَفَرُوا بِرَبِّهِمْ يَعْدِلُونَ",
-      "lastAyahArabic": "وَهُوَ الَّذِي جَعَلَكُمْ خَلٓائِفَ الْاَرْضِ وَرَفَعَ بَعْضَكُمْ فَوْقَ بَعْضٍ دَرَجَاتٍ لِيَبْلُوَكُمْ فِي مٓا اٰتٰيكُمْۜ اِنَّ رَبَّكَ سَرِيعُ الْعِقَابِۘ وَاِنَّهُ لَغَفُورٌ رَحِيمٌ",
+      "lastAyahArabic": "وَهُوَ الَّذِي جَعَلَكُمْ خَلَائِفَ الْاَرْضِ وَرَفَعَ بَعْضَكُمْ فَوْقَ بَعْضٍ دَرَجَاتٍ لِيَبْلُوَكُمْ فِي مَا اٰتٰيكُمْۜ اِنَّ رَبَّكَ سَرِيعُ الْعِقَابِۘ وَاِنَّهُ لَغَفُورٌ رَحِيمٌ",
       "firstAyahTr": "Hamd, gökleri ve yeri yaratan, karanlıkları ve aydınlığı var eden Allah'a mahsustur. (Bunca ayet ve delillerden) sonra kafir olanlar (hala putları) Rab'leri ile denk tutuyorlar",
       "lastAyahTr": "Sizi yeryüzünün halifeleri kılan, size verdiği (nimetler) hususunda sizi denemek için kiminizi kiminizden derecelerle üstün kılan O'dur. Şüphesiz Rabbin, cezası çabuk olandır ve gerçekten O, bağışlayan merhamet edendir.",
       "firstAyah": {
@@ -286,7 +286,7 @@
         "en": "[All] praise is [due] to Allah, who created the heavens and the earth and made the darkness and the light. Then those who disbelieve equate [others] with their Lord"
       },
       "lastAyah": {
-        "ar": "وَهُوَ الَّذِي جَعَلَكُمْ خَلٓائِفَ الْاَرْضِ وَرَفَعَ بَعْضَكُمْ فَوْقَ بَعْضٍ دَرَجَاتٍ لِيَبْلُوَكُمْ فِي مٓا اٰتٰيكُمْۜ اِنَّ رَبَّكَ سَرِيعُ الْعِقَابِۘ وَاِنَّهُ لَغَفُورٌ رَحِيمٌ",
+        "ar": "وَهُوَ الَّذِي جَعَلَكُمْ خَلَائِفَ الْاَرْضِ وَرَفَعَ بَعْضَكُمْ فَوْقَ بَعْضٍ دَرَجَاتٍ لِيَبْلُوَكُمْ فِي مَا اٰتٰيكُمْۜ اِنَّ رَبَّكَ سَرِيعُ الْعِقَابِۘ وَاِنَّهُ لَغَفُورٌ رَحِيمٌ",
         "tr": "Sizi yeryüzünün halifeleri kılan, size verdiği (nimetler) hususunda sizi denemek için kiminizi kiminizden derecelerle üstün kılan O'dur. Şüphesiz Rabbin, cezası çabuk olandır ve gerçekten O, bağışlayan merhamet edendir.",
         "en": "And it is He who has made you successors upon the earth and has raised some of you above others in degrees [of rank] that He may try you through what He has given you. Indeed, your Lord is swift in penalty; but indeed, He is Forgiving and Merciful"
       }
@@ -360,12 +360,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يَسْـَٔلُونَكَ عَنِ الْاَنْفَالِۜ قُلِ الْاَنْفَالُ لِلّٰهِ وَالرَّسُولِۚ فَاتَّقُوا اللّٰهَ وَاَصْلِحُوا ذَاتَ بَيْنِكُمْۖ وَاَطِيعُوا اللّٰهَ وَرَسُولَهٓ اِنْ كُنْتُمْ مُؤْمِنِينَ",
+      "firstAyahArabic": "يَسْـَٔلُونَكَ عَنِ الْاَنْفَالِۜ قُلِ الْاَنْفَالُ لِلّٰهِ وَالرَّسُولِۚ فَاتَّقُوا اللّٰهَ وَاَصْلِحُوا ذَاتَ بَيْنِكُمْۖ وَاَطِيعُوا اللّٰهَ وَرَسُولَهُ اِنْ كُنْتُمْ مُؤْمِنِينَ",
       "lastAyahArabic": "وَالَّذِينَ اٰمَنُوا مِنْ بَعْدُ وَهَاجَرُوا وَجَاهَدُوا مَعَكُمْ فَاُو۬لٰٓئِكَ مِنْكُمْۜ وَاُو۬لُوا الْاَرْحَامِ بَعْضُهُمْ اَوْلٰى بِبَعْضٍ فِي كِتَابِ اللّٰهِۜ اِنَّ اللّٰهَ بِكُلِّ شَيْءٍ عَلِيمٌ",
       "firstAyahTr": "Sana savaş ganimetlerini soruyorlar. De ki: Ganimetler Allah ve Peygamber'e aittir. O halde siz (gerçek) müminler iseniz Allah'tan korkun, aranızı düzeltin, Allah ve Resulüne itaat edin.",
       "lastAyahTr": "Sonradan iman eden ve hicret edip de sizinle beraber cihad edenler de sizdendir. Allah'ın kitabına göre yakın akrabalar birbirlerine (varis olmağa) daha uygundur. Şüphesiz ki Allah her şeyi bilendir.",
       "firstAyah": {
-        "ar": "يَسْـَٔلُونَكَ عَنِ الْاَنْفَالِۜ قُلِ الْاَنْفَالُ لِلّٰهِ وَالرَّسُولِۚ فَاتَّقُوا اللّٰهَ وَاَصْلِحُوا ذَاتَ بَيْنِكُمْۖ وَاَطِيعُوا اللّٰهَ وَرَسُولَهٓ اِنْ كُنْتُمْ مُؤْمِنِينَ",
+        "ar": "يَسْـَٔلُونَكَ عَنِ الْاَنْفَالِۜ قُلِ الْاَنْفَالُ لِلّٰهِ وَالرَّسُولِۚ فَاتَّقُوا اللّٰهَ وَاَصْلِحُوا ذَاتَ بَيْنِكُمْۖ وَاَطِيعُوا اللّٰهَ وَرَسُولَهُ اِنْ كُنْتُمْ مُؤْمِنِينَ",
         "tr": "Sana savaş ganimetlerini soruyorlar. De ki: Ganimetler Allah ve Peygamber'e aittir. O halde siz (gerçek) müminler iseniz Allah'tan korkun, aranızı düzeltin, Allah ve Resulüne itaat edin.",
         "en": "They ask you, [O Muhammad], about the bounties [of war]. Say, \"The [decision concerning] bounties is for Allah and the Messenger.\" So fear Allah and amend that which is between you and obey Allah and His Messenger, if you should be believers"
       },
@@ -385,7 +385,7 @@
       "firstAyahRef": "9:1",
       "lastAyahRef": "9:129",
       "firstWord": {
-        "ar": "بَرٓاءَةٌ",
+        "ar": "بَرَاءَةٌ",
         "translit": null,
         "meaning": null,
         "root": null
@@ -403,17 +403,17 @@
       "hasMukattaa": false,
       "hasOath": false,
       "note": "Tevbe Bismillah ile başlamayan tek sûredir — ilk kelime 9:1'in ilk kelimesidir (Berâ'e).",
-      "firstAyahArabic": "بَرٓاءَةٌ مِنَ اللّٰهِ وَرَسُولِهٓ اِلَى الَّذِينَ عَاهَدْتُمْ مِنَ الْمُشْرِكِينَۜ",
-      "lastAyahArabic": "فَاِنْ تَوَلَّوْا فَقُلْ حَسْبِيَ اللّٰهُۘ  لٓا اِلٰهَ اِلَّا هُوَۜ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
+      "firstAyahArabic": "بَرَاءَةٌ مِنَ اللّٰهِ وَرَسُولِهِ اِلَى الَّذِينَ عَاهَدْتُمْ مِنَ الْمُشْرِكِينَۜ",
+      "lastAyahArabic": "فَاِنْ تَوَلَّوْا فَقُلْ حَسْبِيَ اللّٰهُۘ  لَا اِلٰهَ اِلَّا هُوَۜ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
       "firstAyahTr": "Allah ve Resulünden kendileriyle antlaşma yapmış olduğunuz müşriklere bir ihtar!",
       "lastAyahTr": "(Ey Muhammed!) Yüz çevirirlerse de ki: Allah bana yeter. O'ndan başka ilah yoktur. Ben sadece O'na güvenip dayanırım. O yüce Arş'ın sahibidir.",
       "firstAyah": {
-        "ar": "بَرٓاءَةٌ مِنَ اللّٰهِ وَرَسُولِهٓ اِلَى الَّذِينَ عَاهَدْتُمْ مِنَ الْمُشْرِكِينَۜ",
+        "ar": "بَرَاءَةٌ مِنَ اللّٰهِ وَرَسُولِهِ اِلَى الَّذِينَ عَاهَدْتُمْ مِنَ الْمُشْرِكِينَۜ",
         "tr": "Allah ve Resulünden kendileriyle antlaşma yapmış olduğunuz müşriklere bir ihtar!",
         "en": "[This is a declaration of] disassociation, from Allah and His Messenger, to those with whom you had made a treaty among the polytheists"
       },
       "lastAyah": {
-        "ar": "فَاِنْ تَوَلَّوْا فَقُلْ حَسْبِيَ اللّٰهُۘ  لٓا اِلٰهَ اِلَّا هُوَۜ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
+        "ar": "فَاِنْ تَوَلَّوْا فَقُلْ حَسْبِيَ اللّٰهُۘ  لَا اِلٰهَ اِلَّا هُوَۜ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
         "tr": "(Ey Muhammed!) Yüz çevirirlerse de ki: Allah bana yeter. O'ndan başka ilah yoktur. Ben sadece O'na güvenip dayanırım. O yüce Arş'ın sahibidir.",
         "en": "But if they turn away, [O Muhammad], say, \"Sufficient for me is Allah; there is no deity except Him. On Him I have relied, and He is the Lord of the Great Throne"
       }
@@ -614,7 +614,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "الٓـرٰ۠ كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ لِتُخْرِجَ النَّاسَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ بِـاِذْنِ رَبِّهِمْ اِلٰى صِرَاطِ الْعَزِيزِ الْحَمِيدِۙ",
-      "lastAyahArabic": "هٰذَا بَلَاغٌ لِلنَّاسِ وَلِيُنْذَرُوا بِهِ وَلِيَعْلَمٓوا اَنَّمَا هُوَ اِلٰهٌ وَاحِدٌ وَلِيَذَّكَّرَ اُو۬لُوا الْاَلْبَابِ",
+      "lastAyahArabic": "هٰذَا بَلَاغٌ لِلنَّاسِ وَلِيُنْذَرُوا بِهِ وَلِيَعْلَمُوا اَنَّمَا هُوَ اِلٰهٌ وَاحِدٌ وَلِيَذَّكَّرَ اُو۬لُوا الْاَلْبَابِ",
       "firstAyahTr": "Elif. Lam. Ra. (Bu Kur'an), Rablerinin izniyle insanları karanlıklardan aydınlığa, yani her şeye galip (ve) övgüye layık olan Allah'ın yoluna çıkarman için sana indirdiğimiz bir kitaptır.",
       "lastAyahTr": "İşte bu (Kur'an), kendisiyle uyarılsınlar, Allah'ın ancak bir tek Tanrı olduğunu bilsinler ve akıl sahipleri iyice düşünüp öğüt alsınlar diye insanlara (gönderilmiş) bir bildiridir.",
       "firstAyah": {
@@ -623,7 +623,7 @@
         "en": "Alif, Lam, Ra. [This is] a Book which We have revealed to you, [O Muhammad], that you might bring mankind out of darknesses into the light by permission of their Lord - to the path of the Exalted in Might, the Praiseworthy"
       },
       "lastAyah": {
-        "ar": "هٰذَا بَلَاغٌ لِلنَّاسِ وَلِيُنْذَرُوا بِهِ وَلِيَعْلَمٓوا اَنَّمَا هُوَ اِلٰهٌ وَاحِدٌ وَلِيَذَّكَّرَ اُو۬لُوا الْاَلْبَابِ",
+        "ar": "هٰذَا بَلَاغٌ لِلنَّاسِ وَلِيُنْذَرُوا بِهِ وَلِيَعْلَمُوا اَنَّمَا هُوَ اِلٰهٌ وَاحِدٌ وَلِيَذَّكَّرَ اُو۬لُوا الْاَلْبَابِ",
         "tr": "İşte bu (Kur'an), kendisiyle uyarılsınlar, Allah'ın ancak bir tek Tanrı olduğunu bilsinler ve akıl sahipleri iyice düşünüp öğüt alsınlar diye insanlara (gönderilmiş) bir bildiridir.",
         "en": "This [Qur'an] is notification for the people that they may be warned thereby and that they may know that He is but one God and that those of understanding will be reminded"
       }
@@ -782,7 +782,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلْحَمْدُ لِلّٰهِ الَّـذِٓي اَنْزَلَ عَلٰى عَبْدِهِ الْـكِتَابَ وَلَمْ يَجْعَلْ لَهُ عِـوَجا۔ًۜ",
-      "lastAyahArabic": "قُلْ اِنَّـمٓا اَنَا۬ بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمٓا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌۚ فَمَنْ كَانَ يَرْجُوا لِقٓاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهٓ اَحَداً",
+      "lastAyahArabic": "قُلْ اِنَّـمَا اَنَا۬ بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمَا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌۚ فَمَنْ كَانَ يَرْجُوا لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ اَحَداً",
       "firstAyahTr": "Hamd olsun Allah'a ki kulu (Muhammed'e), Kitab 'ı indirdi ve ona hiçbir eğrilik koymadı.",
       "lastAyahTr": "De ki: Ben, yalnızca sizin gibi bir beşerim. (Şu var ki) bana, İlah'ınızın, sadece bir İlah olduğu vahyolunuyor. Artık her kim Rabbine kavuşmayı umuyorsa, iyi iş yapsın ve Rabbine ibadette hiçbir şeyi ortak koşmasın.",
       "firstAyah": {
@@ -791,7 +791,7 @@
         "en": "[All] praise is [due] to Allah, who has sent down upon His Servant the Book and has not made therein any deviance"
       },
       "lastAyah": {
-        "ar": "قُلْ اِنَّـمٓا اَنَا۬ بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمٓا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌۚ فَمَنْ كَانَ يَرْجُوا لِقٓاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهٓ اَحَداً",
+        "ar": "قُلْ اِنَّـمَا اَنَا۬ بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمَا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌۚ فَمَنْ كَانَ يَرْجُوا لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ اَحَداً",
         "tr": "De ki: Ben, yalnızca sizin gibi bir beşerim. (Şu var ki) bana, İlah'ınızın, sadece bir İlah olduğu vahyolunuyor. Artık her kim Rabbine kavuşmayı umuyorsa, iyi iş yapsın ve Rabbine ibadette hiçbir şeyi ortak koşmasın.",
         "en": "Say, \"I am only a man like you, to whom has been revealed that your god is one God. So whoever would hope for the meeting with his Lord - let him do righteous work and not associate in the worship of his Lord anyone"
       }
@@ -932,7 +932,7 @@
       "firstAyahRef": "22:1",
       "lastAyahRef": "22:78",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -951,17 +951,17 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْۚ اِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ",
-      "lastAyahArabic": "وَجَاهِدُوا فِي اللّٰهِ حَقَّ جِهَادِهِۜ هُوَ اجْتَبٰيكُمْ وَمَا جَعَلَ عَلَيْكُمْ فِي الدِّينِ مِنْ حَرَجٍۜ مِلَّةَ اَبِيكُمْ اِبْرٰهِيمَۜ هُوَ سَمّٰيكُمُ الْمُسْلِمِينَ مِنْ قَبْلُ وَفِي هٰذَا لِيَكُونَ الرَّسُولُ شَهِيداً عَلَيْكُمْ وَتَكُونُوا شُهَدٓاءَ عَلَى النَّاسِۚ فَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاعْتَصِمُوا بِاللّٰهِۜ هُوَ مَوْلٰيكُمْۚ فَنِعْمَ الْمَوْلٰى وَنِعْمَ النَّصِيرُ",
+      "firstAyahArabic": "يَا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْۚ اِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ",
+      "lastAyahArabic": "وَجَاهِدُوا فِي اللّٰهِ حَقَّ جِهَادِهِۜ هُوَ اجْتَبٰيكُمْ وَمَا جَعَلَ عَلَيْكُمْ فِي الدِّينِ مِنْ حَرَجٍۜ مِلَّةَ اَبِيكُمْ اِبْرٰهِيمَۜ هُوَ سَمّٰيكُمُ الْمُسْلِمِينَ مِنْ قَبْلُ وَفِي هٰذَا لِيَكُونَ الرَّسُولُ شَهِيداً عَلَيْكُمْ وَتَكُونُوا شُهَدَاءَ عَلَى النَّاسِۚ فَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاعْتَصِمُوا بِاللّٰهِۜ هُوَ مَوْلٰيكُمْۚ فَنِعْمَ الْمَوْلٰى وَنِعْمَ النَّصِيرُ",
       "firstAyahTr": "Ey insanlar! Rabbinizden korkun! Çünkü kıyamet vaktinin depremi müthiş bir şeydir!",
       "lastAyahTr": "Allah uğrunda, hakkını vererek cihad edin. O, sizi seçti; din hususunda üzerinize hiçbir zorluk yüklemedi; babanız İbrahim'in dininde (de böyleydi). Peygamberin size şahit olması, sizin de insanlara şahit olmanız için, O, gerek daha önce (gelmiş kitaplarda), gerekse bunda (Kur'an'da) size \"müslümanlar\" adını verdi. Öyle ise namazı kılın; zekatı verin ve Allah'a sımsıkı sarılın. O, sizin mevlanızdır. Ne güzel mevladır, ne güzel yardımcıdır!",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْۚ اِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ",
+        "ar": "يَا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْۚ اِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ",
         "tr": "Ey insanlar! Rabbinizden korkun! Çünkü kıyamet vaktinin depremi müthiş bir şeydir!",
         "en": "O mankind, fear your Lord. Indeed, the convulsion of the [final] Hour is a terrible thing"
       },
       "lastAyah": {
-        "ar": "وَجَاهِدُوا فِي اللّٰهِ حَقَّ جِهَادِهِۜ هُوَ اجْتَبٰيكُمْ وَمَا جَعَلَ عَلَيْكُمْ فِي الدِّينِ مِنْ حَرَجٍۜ مِلَّةَ اَبِيكُمْ اِبْرٰهِيمَۜ هُوَ سَمّٰيكُمُ الْمُسْلِمِينَ مِنْ قَبْلُ وَفِي هٰذَا لِيَكُونَ الرَّسُولُ شَهِيداً عَلَيْكُمْ وَتَكُونُوا شُهَدٓاءَ عَلَى النَّاسِۚ فَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاعْتَصِمُوا بِاللّٰهِۜ هُوَ مَوْلٰيكُمْۚ فَنِعْمَ الْمَوْلٰى وَنِعْمَ النَّصِيرُ",
+        "ar": "وَجَاهِدُوا فِي اللّٰهِ حَقَّ جِهَادِهِۜ هُوَ اجْتَبٰيكُمْ وَمَا جَعَلَ عَلَيْكُمْ فِي الدِّينِ مِنْ حَرَجٍۜ مِلَّةَ اَبِيكُمْ اِبْرٰهِيمَۜ هُوَ سَمّٰيكُمُ الْمُسْلِمِينَ مِنْ قَبْلُ وَفِي هٰذَا لِيَكُونَ الرَّسُولُ شَهِيداً عَلَيْكُمْ وَتَكُونُوا شُهَدَاءَ عَلَى النَّاسِۚ فَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاعْتَصِمُوا بِاللّٰهِۜ هُوَ مَوْلٰيكُمْۚ فَنِعْمَ الْمَوْلٰى وَنِعْمَ النَّصِيرُ",
         "tr": "Allah uğrunda, hakkını vererek cihad edin. O, sizi seçti; din hususunda üzerinize hiçbir zorluk yüklemedi; babanız İbrahim'in dininde (de böyleydi). Peygamberin size şahit olması, sizin de insanlara şahit olmanız için, O, gerek daha önce (gelmiş kitaplarda), gerekse bunda (Kur'an'da) size \"müslümanlar\" adını verdi. Öyle ise namazı kılın; zekatı verin ve Allah'a sımsıkı sarılın. O, sizin mevlanızdır. Ne güzel mevladır, ne güzel yardımcıdır!",
         "en": "And strive for Allah with the striving due to Him. He has chosen you and has not placed upon you in the religion any difficulty. [It is] the religion of your father, Abraham. Allah named you \"Muslims\" before [in former scriptures] and in this [revelation] that the Messenger may be a witness over you and you may be witnesses over the people. So establish prayer and give zakah and hold fast to Allah. He is your protector; and excellent is the protector, and excellent is the helper"
       }
@@ -1035,17 +1035,17 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "سُورَةٌ اَنْزَلْنَاهَا وَفَرَضْنَاهَا وَاَنْزَلْنَا فِيهٓا اٰيَاتٍ بَيِّنَاتٍ لَعَلَّكُمْ تَذَكَّرُونَ",
-      "lastAyahArabic": "اَلٓا اِنَّ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۜ قَدْ يَعْلَمُ مٓا اَنْتُمْ عَلَيْهِۜ وَيَوْمَ يُرْجَعُونَ اِلَيْهِ فَيُنَبِّئُهُمْ بِمَا عَمِلُواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+      "firstAyahArabic": "سُورَةٌ اَنْزَلْنَاهَا وَفَرَضْنَاهَا وَاَنْزَلْنَا فِيهَا اٰيَاتٍ بَيِّنَاتٍ لَعَلَّكُمْ تَذَكَّرُونَ",
+      "lastAyahArabic": "اَلَا اِنَّ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۜ قَدْ يَعْلَمُ مَا اَنْتُمْ عَلَيْهِۜ وَيَوْمَ يُرْجَعُونَ اِلَيْهِ فَيُنَبِّئُهُمْ بِمَا عَمِلُواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
       "firstAyahTr": "(Bu) Bizim inzal ettiğimiz ve (hükümlerini üzerinize) farz kıldığımız bir sûredir. Belki düşünüp öğüt alırsınız diye onda açık seçik ayetler indirdik.",
       "lastAyahTr": "Bilmiş olun ki, göklerde ve yerde ne varsa Allah'ındır. O, sizin ne yolda olduğunuzu iyi bilir. İnsanlar O'nun huzuruna döndürüldükleri gün yapmış olduklarını onlara hemen bildirir. Allah, her şeyi hakkıyla bilendir.",
       "firstAyah": {
-        "ar": "سُورَةٌ اَنْزَلْنَاهَا وَفَرَضْنَاهَا وَاَنْزَلْنَا فِيهٓا اٰيَاتٍ بَيِّنَاتٍ لَعَلَّكُمْ تَذَكَّرُونَ",
+        "ar": "سُورَةٌ اَنْزَلْنَاهَا وَفَرَضْنَاهَا وَاَنْزَلْنَا فِيهَا اٰيَاتٍ بَيِّنَاتٍ لَعَلَّكُمْ تَذَكَّرُونَ",
         "tr": "(Bu) Bizim inzal ettiğimiz ve (hükümlerini üzerinize) farz kıldığımız bir sûredir. Belki düşünüp öğüt alırsınız diye onda açık seçik ayetler indirdik.",
         "en": "[This is] a surah which We have sent down and made [that within it] obligatory and revealed therein verses of clear evidence that you might remember"
       },
       "lastAyah": {
-        "ar": "اَلٓا اِنَّ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۜ قَدْ يَعْلَمُ مٓا اَنْتُمْ عَلَيْهِۜ وَيَوْمَ يُرْجَعُونَ اِلَيْهِ فَيُنَبِّئُهُمْ بِمَا عَمِلُواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+        "ar": "اَلَا اِنَّ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۜ قَدْ يَعْلَمُ مَا اَنْتُمْ عَلَيْهِۜ وَيَوْمَ يُرْجَعُونَ اِلَيْهِ فَيُنَبِّئُهُمْ بِمَا عَمِلُواۜ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
         "tr": "Bilmiş olun ki, göklerde ve yerde ne varsa Allah'ındır. O, sizin ne yolda olduğunuzu iyi bilir. İnsanlar O'nun huzuruna döndürüldükleri gün yapmış olduklarını onlara hemen bildirir. Allah, her şeyi hakkıyla bilendir.",
         "en": "Unquestionably, to Allah belongs whatever is in the heavens and earth. Already He knows that upon which you [stand] and [knows] the Day when they will be returned to Him and He will inform them of what they have done. And Allah is Knowing of all things"
       }
@@ -1120,7 +1120,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "طٰسٓمٓۜ",
-      "lastAyahArabic": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَذَكَرُوا اللّٰهَ كَثِيراً وَانْتَصَرُوا مِنْ بَعْدِ مَا ظُلِمُواۜ وَسَيَعْلَمُ الَّذِينَ ظَلَمٓوا اَيَّ مُنْقَلَبٍ يَنْقَلِبُونَ",
+      "lastAyahArabic": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَذَكَرُوا اللّٰهَ كَثِيراً وَانْتَصَرُوا مِنْ بَعْدِ مَا ظُلِمُواۜ وَسَيَعْلَمُ الَّذِينَ ظَلَمُوا اَيَّ مُنْقَلَبٍ يَنْقَلِبُونَ",
       "firstAyahTr": "Ta. Sin. Mim.",
       "lastAyahTr": "Ancak iman edip iyi işler yapanlar, Allah'ı çok çok ananlar ve haksızlığa uğratıldıklarında kendilerini savunanlar başkadır. Haksızlık edenler, hangi dönüşe (hangi akıbete) döndürüleceklerini yakında bileceklerdir.",
       "firstAyah": {
@@ -1129,7 +1129,7 @@
         "en": "Ta, Seen, Meem"
       },
       "lastAyah": {
-        "ar": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَذَكَرُوا اللّٰهَ كَثِيراً وَانْتَصَرُوا مِنْ بَعْدِ مَا ظُلِمُواۜ وَسَيَعْلَمُ الَّذِينَ ظَلَمٓوا اَيَّ مُنْقَلَبٍ يَنْقَلِبُونَ",
+        "ar": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَذَكَرُوا اللّٰهَ كَثِيراً وَانْتَصَرُوا مِنْ بَعْدِ مَا ظُلِمُواۜ وَسَيَعْلَمُ الَّذِينَ ظَلَمُوا اَيَّ مُنْقَلَبٍ يَنْقَلِبُونَ",
         "tr": "Ancak iman edip iyi işler yapanlar, Allah'ı çok çok ananlar ve haksızlığa uğratıldıklarında kendilerini savunanlar başkadır. Haksızlık edenler, hangi dönüşe (hangi akıbete) döndürüleceklerini yakında bileceklerdir.",
         "en": "Except those [poets] who believe and do righteous deeds and remember Allah often and defend [the Muslims] after they were wronged. And those who have wronged are going to know to what [kind of] return they will be returned"
       }
@@ -1204,7 +1204,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "طٰسٓمٓۜ",
-      "lastAyahArabic": "وَلَا تَدْعُ مَعَ اللّٰهِ اِلٰهاً اٰخَرَۢ  لٓا اِلٰهَ اِلَّا هُوَ۠   كُلُّ شَيْءٍ هَالِكٌ اِلَّا وَجْهَهُۜ  لَهُ الْحُكْمُ وَاِلَيْهِ تُرْجَعُونَ",
+      "lastAyahArabic": "وَلَا تَدْعُ مَعَ اللّٰهِ اِلٰهاً اٰخَرَۢ  لَا اِلٰهَ اِلَّا هُوَ۠   كُلُّ شَيْءٍ هَالِكٌ اِلَّا وَجْهَهُۜ  لَهُ الْحُكْمُ وَاِلَيْهِ تُرْجَعُونَ",
       "firstAyahTr": "Ta. Sin. Mim.",
       "lastAyahTr": "Allah ile birlikte başka bir tanrıya tapıp yalvarma! O'ndan başka tanrı yoktur. O'nun zatından başka her şey yok olacaktır. Hüküm O'nundur ve siz ancak O'na döndürüleceksiniz.",
       "firstAyah": {
@@ -1213,7 +1213,7 @@
         "en": "Ta, Seen, Meem"
       },
       "lastAyah": {
-        "ar": "وَلَا تَدْعُ مَعَ اللّٰهِ اِلٰهاً اٰخَرَۢ  لٓا اِلٰهَ اِلَّا هُوَ۠   كُلُّ شَيْءٍ هَالِكٌ اِلَّا وَجْهَهُۜ  لَهُ الْحُكْمُ وَاِلَيْهِ تُرْجَعُونَ",
+        "ar": "وَلَا تَدْعُ مَعَ اللّٰهِ اِلٰهاً اٰخَرَۢ  لَا اِلٰهَ اِلَّا هُوَ۠   كُلُّ شَيْءٍ هَالِكٌ اِلَّا وَجْهَهُۜ  لَهُ الْحُكْمُ وَاِلَيْهِ تُرْجَعُونَ",
         "tr": "Allah ile birlikte başka bir tanrıya tapıp yalvarma! O'ndan başka tanrı yoktur. O'nun zatından başka her şey yok olacaktır. Hüküm O'nundur ve siz ancak O'na döndürüleceksiniz.",
         "en": "And do not invoke with Allah another deity. There is no deity except Him. Everything will be destroyed except His Face. His is the judgement, and to Him you will be returned"
       }
@@ -1396,7 +1396,7 @@
       "firstAyahRef": "33:1",
       "lastAyahRef": "33:73",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -1415,12 +1415,12 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا النَّبِيُّ اتَّقِ اللّٰهَ وَلَا تُطِعِ الْكَافِرِينَ وَالْمُنَافِقِينَۜ اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماًۙ",
+      "firstAyahArabic": "يَا اَيُّهَا النَّبِيُّ اتَّقِ اللّٰهَ وَلَا تُطِعِ الْكَافِرِينَ وَالْمُنَافِقِينَۜ اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماًۙ",
       "lastAyahArabic": "لِيُعَذِّبَ اللّٰهُ الْمُنَافِقِينَ وَالْمُنَافِقَاتِ وَالْمُشْرِكِينَ وَالْمُشْرِكَاتِ وَيَتُوبَ اللّٰهُ عَلَى الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِۜ وَكَانَ اللّٰهُ غَفُوراً رَحِيماً",
       "firstAyahTr": "Ey Peygamber! Allah'tan kork, kafirlere ve münafıklara boyun eğme. Elbette Allah her şeyi bilmekte ve yerli yerince yapmaktadır.",
       "lastAyahTr": "(Allah bu emaneti insana vermek suretiyle), münafık erkeklere ve münafık kadınlara, müşrik erkeklere ve müşrik kadınlara azap edecek, inanan erkeklerin ve inanan kadınların da tevbesini kabul buyuracaktır. Allah bağışlayandır, merhamet edendir.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا النَّبِيُّ اتَّقِ اللّٰهَ وَلَا تُطِعِ الْكَافِرِينَ وَالْمُنَافِقِينَۜ اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماًۙ",
+        "ar": "يَا اَيُّهَا النَّبِيُّ اتَّقِ اللّٰهَ وَلَا تُطِعِ الْكَافِرِينَ وَالْمُنَافِقِينَۜ اِنَّ اللّٰهَ كَانَ عَلِيماً حَكِيماًۙ",
         "tr": "Ey Peygamber! Allah'tan kork, kafirlere ve münafıklara boyun eğme. Elbette Allah her şeyi bilmekte ve yerli yerince yapmaktadır.",
         "en": "O Prophet, fear Allah and do not obey the disbelievers and the hypocrites. Indeed, Allah is ever Knowing and Wise"
       },
@@ -1502,7 +1502,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلْحَمْدُ لِلّٰهِ فَاطِرِ السَّمٰوَاتِ وَالْاَرْضِ جَاعِلِ الْمَلٰٓئِكَةِ رُسُلاً اُو۬لِٓي اَجْنِحَةٍ مَثْنٰى وَثُلٰثَ وَرُبَاعَۜ يَزِيدُ فِي الْخَلْقِ مَا يَشٓاءُۜ اِنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
-      "lastAyahArabic": "وَلَوْ يُؤَاخِذُ اللّٰهُ النَّاسَ بِمَا كَسَبُوا مَا تَرَكَ عَلٰى ظَهْرِهَا مِنْ دٓابَّةٍ وَلٰكِنْ يُؤَخِّرُهُمْ اِلٰٓى اَجَلٍ مُسَمًّىۚ فَاِذَا جٓاءَ اَجَلُهُمْ فَاِنَّ اللّٰهَ كَانَ بِعِبَادِهِ بَصِيراً",
+      "lastAyahArabic": "وَلَوْ يُؤَاخِذُ اللّٰهُ النَّاسَ بِمَا كَسَبُوا مَا تَرَكَ عَلٰى ظَهْرِهَا مِنْ دَابَّةٍ وَلٰكِنْ يُؤَخِّرُهُمْ اِلٰٓى اَجَلٍ مُسَمًّىۚ فَاِذَا جَاءَ اَجَلُهُمْ فَاِنَّ اللّٰهَ كَانَ بِعِبَادِهِ بَصِيراً",
       "firstAyahTr": "Gökleri ve yeri yaratan, melekleri ikişer, üçer, dörder kanatlı elçiler yapan Allah'a hamdolsun. O, yaratmada dilediği arttırmayı yapar. Şüphesiz Allah, her şeye gücü yetendir.",
       "lastAyahTr": "Eğer Allah, yaptıkları yüzünden insanları (hemen) cezalandırsaydı, yeryüzünde hiçbir canlı yaratık bırakmazdı. Fakat Allah, onları belirtilmiş bir süreye kadar erteliyor. Vakitleri gelince (gerekeni yapar). Kuşkusuz Allah, kullarını görrmektedir.",
       "firstAyah": {
@@ -1511,7 +1511,7 @@
         "en": "[All] praise is [due] to Allah, Creator of the heavens and the earth, [who] made the angels messengers having wings, two or three or four. He increases in creation what He wills. Indeed, Allah is over all things competent"
       },
       "lastAyah": {
-        "ar": "وَلَوْ يُؤَاخِذُ اللّٰهُ النَّاسَ بِمَا كَسَبُوا مَا تَرَكَ عَلٰى ظَهْرِهَا مِنْ دٓابَّةٍ وَلٰكِنْ يُؤَخِّرُهُمْ اِلٰٓى اَجَلٍ مُسَمًّىۚ فَاِذَا جٓاءَ اَجَلُهُمْ فَاِنَّ اللّٰهَ كَانَ بِعِبَادِهِ بَصِيراً",
+        "ar": "وَلَوْ يُؤَاخِذُ اللّٰهُ النَّاسَ بِمَا كَسَبُوا مَا تَرَكَ عَلٰى ظَهْرِهَا مِنْ دَابَّةٍ وَلٰكِنْ يُؤَخِّرُهُمْ اِلٰٓى اَجَلٍ مُسَمًّىۚ فَاِذَا جَاءَ اَجَلُهُمْ فَاِنَّ اللّٰهَ كَانَ بِعِبَادِهِ بَصِيراً",
         "tr": "Eğer Allah, yaptıkları yüzünden insanları (hemen) cezalandırsaydı, yeryüzünde hiçbir canlı yaratık bırakmazdı. Fakat Allah, onları belirtilmiş bir süreye kadar erteliyor. Vakitleri gelince (gerekeni yapar). Kuşkusuz Allah, kullarını görrmektedir.",
         "en": "And if Allah were to impose blame on the people for what they have earned, He would not leave upon the earth any creature. But He defers them for a specified term. And when their time comes, then indeed Allah has ever been, of His servants, Seeing"
       }
@@ -1586,12 +1586,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": true,
-      "firstAyahArabic": "وَالصّٓافَّاتِ صَفاًّۙ",
+      "firstAyahArabic": "وَالصَّافَّاتِ صَفاًّۙ",
       "lastAyahArabic": "وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ",
       "firstAyahTr": "Saf saf dizilenlere,",
       "lastAyahTr": "Alemlerin Rabbi olan Allah'a da hamd olsun!",
       "firstAyah": {
-        "ar": "وَالصّٓافَّاتِ صَفاًّۙ",
+        "ar": "وَالصَّافَّاتِ صَفاًّۙ",
         "tr": "Saf saf dizilenlere,",
         "en": "By those [angels] lined up in rows"
       },
@@ -1672,7 +1672,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "تَنْزِيلُ الْكِتَابِ مِنَ اللّٰهِ الْعَزِيزِ الْحَكِيمِ",
-      "lastAyahArabic": "وَتَرَى الْمَلٰٓئِكَةَ حٓافِّينَ مِنْ حَوْلِ الْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْۚ وَقُضِيَ بَيْنَهُمْ بِالْحَقِّ وَقِيلَ الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ",
+      "lastAyahArabic": "وَتَرَى الْمَلٰٓئِكَةَ حَافِّينَ مِنْ حَوْلِ الْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْۚ وَقُضِيَ بَيْنَهُمْ بِالْحَقِّ وَقِيلَ الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ",
       "firstAyahTr": "Bu Kitap izzet ve hikmet sahibi Allah katından indirilmiştir.",
       "lastAyahTr": "Melekleri görürsün ki, Rablerine hamd ile tesbih ederek Arş'ın etrafını kuşatmışlardır. Artık aralarında adaletle hükmolunmuş ve \"alemlerin Rabbi olan Allah'a hamdolsun\" denilmiştir.",
       "firstAyah": {
@@ -1681,7 +1681,7 @@
         "en": "The revelation of the Qur'an is from Allah, the Exalted in Might, the Wise"
       },
       "lastAyah": {
-        "ar": "وَتَرَى الْمَلٰٓئِكَةَ حٓافِّينَ مِنْ حَوْلِ الْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْۚ وَقُضِيَ بَيْنَهُمْ بِالْحَقِّ وَقِيلَ الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ",
+        "ar": "وَتَرَى الْمَلٰٓئِكَةَ حَافِّينَ مِنْ حَوْلِ الْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْۚ وَقُضِيَ بَيْنَهُمْ بِالْحَقِّ وَقِيلَ الْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ",
         "tr": "Melekleri görürsün ki, Rablerine hamd ile tesbih ederek Arş'ın etrafını kuşatmışlardır. Artık aralarında adaletle hükmolunmuş ve \"alemlerin Rabbi olan Allah'a hamdolsun\" denilmiştir.",
         "en": "And you will see the angels surrounding the Throne, exalting [Allah] with praise of their Lord. And it will be judged between them in truth, and it will be said, \"[All] praise to Allah, Lord of the worlds"
       }
@@ -1756,7 +1756,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "حٰمٓۜ",
-      "lastAyahArabic": "اَلٓا اِنَّهُمْ فِي مِرْيَةٍ مِنْ لِقٓاءِ رَبِّهِمْۜ  اَلٓا اِنَّهُ بِكُلِّ شَيْءٍ مُحِيطٌ",
+      "lastAyahArabic": "اَلَا اِنَّهُمْ فِي مِرْيَةٍ مِنْ لِقَاءِ رَبِّهِمْۜ  اَلَا اِنَّهُ بِكُلِّ شَيْءٍ مُحِيطٌ",
       "firstAyahTr": "Ha. Mim.",
       "lastAyahTr": "Dikkat edin; onlar, Rablerine kavuşma konusunda şüphe içindedirler. Bilesiniz ki O, her şeyi (ilmiyle) kuşatmıştır.",
       "firstAyah": {
@@ -1765,7 +1765,7 @@
         "en": "Ha, Meem"
       },
       "lastAyah": {
-        "ar": "اَلٓا اِنَّهُمْ فِي مِرْيَةٍ مِنْ لِقٓاءِ رَبِّهِمْۜ  اَلٓا اِنَّهُ بِكُلِّ شَيْءٍ مُحِيطٌ",
+        "ar": "اَلَا اِنَّهُمْ فِي مِرْيَةٍ مِنْ لِقَاءِ رَبِّهِمْۜ  اَلَا اِنَّهُ بِكُلِّ شَيْءٍ مُحِيطٌ",
         "tr": "Dikkat edin; onlar, Rablerine kavuşma konusunda şüphe içindedirler. Bilesiniz ki O, her şeyi (ilmiyle) kuşatmıştır.",
         "en": "Unquestionably, they are in doubt about the meeting with their Lord. Unquestionably He is, of all things, encompassing"
       }
@@ -1799,7 +1799,7 @@
       "hasOath": false,
       "note": "Şûrâ sûresinde mukattaa iki ayete yayılır: 42:1 'Hâ-Mîm' + 42:2 'Ayn-Sîn-Kâf'. Bu 29 mukattaa sûre içinde yapısal olarak eşsiz bir durumdur.",
       "firstAyahArabic": "حٰمٓ",
-      "lastAyahArabic": "صِرَاطِ اللّٰهِ الَّذِي لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۜ اَلٓا اِلَى اللّٰهِ تَصِيرُ الْاُمُورُ",
+      "lastAyahArabic": "صِرَاطِ اللّٰهِ الَّذِي لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۜ اَلَا اِلَى اللّٰهِ تَصِيرُ الْاُمُورُ",
       "firstAyahTr": "Ha. Mim.",
       "lastAyahTr": "(O yol) göklerin ve yerin sahibi olan Allah'ın yoludur. Dikkat edin, bütün işler sonunda Allah'a döner.",
       "firstAyah": {
@@ -1808,7 +1808,7 @@
         "en": "Ha, Meem"
       },
       "lastAyah": {
-        "ar": "صِرَاطِ اللّٰهِ الَّذِي لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۜ اَلٓا اِلَى اللّٰهِ تَصِيرُ الْاُمُورُ",
+        "ar": "صِرَاطِ اللّٰهِ الَّذِي لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۜ اَلَا اِلَى اللّٰهِ تَصِيرُ الْاُمُورُ",
         "tr": "(O yol) göklerin ve yerin sahibi olan Allah'ın yoludur. Dikkat edin, bütün işler sonunda Allah'a döner.",
         "en": "The path of Allah, to whom belongs whatever is in the heavens and whatever is on the earth. Unquestionably, to Allah do [all] matters evolve"
       }
@@ -1927,7 +1927,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "حٰمٓۜ",
-      "lastAyahArabic": "وَلَهُ الْكِبْرِيٓاءُ فِي السَّمٰوَاتِ وَالْاَرْضِۖ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+      "lastAyahArabic": "وَلَهُ الْكِبْرِيَاءُ فِي السَّمٰوَاتِ وَالْاَرْضِۖ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
       "firstAyahTr": "Ha. Mim.",
       "lastAyahTr": "Göklerde ve yerde azamet yalnız O'nundur. O, azizdir, hakimdir.",
       "firstAyah": {
@@ -1936,7 +1936,7 @@
         "en": "Ha, Meem"
       },
       "lastAyah": {
-        "ar": "وَلَهُ الْكِبْرِيٓاءُ فِي السَّمٰوَاتِ وَالْاَرْضِۖ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+        "ar": "وَلَهُ الْكِبْرِيَاءُ فِي السَّمٰوَاتِ وَالْاَرْضِۖ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
         "tr": "Göklerde ve yerde azamet yalnız O'nundur. O, azizdir, hakimdir.",
         "en": "And to Him belongs [all] grandeur within the heavens and the earth, and He is the Exalted in Might, the Wise"
       }
@@ -1969,7 +1969,7 @@
       "hasMukattaa": true,
       "hasOath": false,
       "firstAyahArabic": "حٰمٓ",
-      "lastAyahArabic": "فَاصْبِرْ كَمَا صَبَرَ اُو۬لُوا الْعَزْمِ مِنَ الرُّسُلِ وَلَا تَسْتَعْجِلْ لَهُمْۜ  كَاَنَّهُمْ يَوْمَ يَرَوْنَ مَا يُوعَدُونَۙ لَمْ يَلْبَثٓوا اِلَّا سَاعَةً مِنْ نَهَارٍۜ  بَلَاغٌۚ  فَهَلْ يُهْلَكُ اِلَّا الْقَوْمُ الْفَاسِقُونَ",
+      "lastAyahArabic": "فَاصْبِرْ كَمَا صَبَرَ اُو۬لُوا الْعَزْمِ مِنَ الرُّسُلِ وَلَا تَسْتَعْجِلْ لَهُمْۜ  كَاَنَّهُمْ يَوْمَ يَرَوْنَ مَا يُوعَدُونَۙ لَمْ يَلْبَثُوا اِلَّا سَاعَةً مِنْ نَهَارٍۜ  بَلَاغٌۚ  فَهَلْ يُهْلَكُ اِلَّا الْقَوْمُ الْفَاسِقُونَ",
       "firstAyahTr": "Ha. Mim.",
       "lastAyahTr": "O halde (Resulum), peygamberlerden azim sahibi olanların sabrettiği gibi sen de sabret. Onlar hakkında acele etme, onlar vadedildikleri azabı gördükleri gün sanki dünyada sadece gündüzün bir saati kadar kaldıklarını sanırlar. Bu, bir tebliğdir. Yoldan çıkmış topluluklardan başkası helak edilir.",
       "firstAyah": {
@@ -1978,7 +1978,7 @@
         "en": "Ha, Meem"
       },
       "lastAyah": {
-        "ar": "فَاصْبِرْ كَمَا صَبَرَ اُو۬لُوا الْعَزْمِ مِنَ الرُّسُلِ وَلَا تَسْتَعْجِلْ لَهُمْۜ  كَاَنَّهُمْ يَوْمَ يَرَوْنَ مَا يُوعَدُونَۙ لَمْ يَلْبَثٓوا اِلَّا سَاعَةً مِنْ نَهَارٍۜ  بَلَاغٌۚ  فَهَلْ يُهْلَكُ اِلَّا الْقَوْمُ الْفَاسِقُونَ",
+        "ar": "فَاصْبِرْ كَمَا صَبَرَ اُو۬لُوا الْعَزْمِ مِنَ الرُّسُلِ وَلَا تَسْتَعْجِلْ لَهُمْۜ  كَاَنَّهُمْ يَوْمَ يَرَوْنَ مَا يُوعَدُونَۙ لَمْ يَلْبَثُوا اِلَّا سَاعَةً مِنْ نَهَارٍۜ  بَلَاغٌۚ  فَهَلْ يُهْلَكُ اِلَّا الْقَوْمُ الْفَاسِقُونَ",
         "tr": "O halde (Resulum), peygamberlerden azim sahibi olanların sabrettiği gibi sen de sabret. Onlar hakkında acele etme, onlar vadedildikleri azabı gördükleri gün sanki dünyada sadece gündüzün bir saati kadar kaldıklarını sanırlar. Bu, bir tebliğdir. Yoldan çıkmış topluluklardan başkası helak edilir.",
         "en": "So be patient, [O Muhammad], as were those of determination among the messengers and do not be impatient for them. It will be - on the Day they see that which they are promised - as though they had not remained [in the world] except an hour of a day. [This is] notification. And will [any] be destroyed except the defiantly disobedient people"
       }
@@ -2011,7 +2011,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اَلَّذِينَ كَـفَرُوا وَصَدُّوا عَنْ سَبِيلِ اللّٰهِ اَضَلَّ اَعْمَالَهُمْ",
-      "lastAyahArabic": "هٓا اَنْتُمْ هٰٓؤُ۬لٓاءِ تُدْعَوْنَ لِتُنْفِقُوا فِي سَبِيلِ اللّٰهِۚ فَمِنْكُمْ مَنْ يَبْخَلُۚ وَمَنْ يَبْخَلْ فَاِنَّمَا يَبْخَلُ عَنْ نَفْسِهِۜ وَاللّٰهُ الْغَنِيُّ وَاَنْتُمُ الْفُقَـرٓاءُۚ وَاِنْ تَتَوَلَّوْا يَسْتَبْدِلْ قَوْماً غَيْرَكُمْۙ ثُمَّ لَا يَكُونٓوا اَمْثَالَكُمْ",
+      "lastAyahArabic": "هَا اَنْتُمْ هٰٓؤُ۬لٓاءِ تُدْعَوْنَ لِتُنْفِقُوا فِي سَبِيلِ اللّٰهِۚ فَمِنْكُمْ مَنْ يَبْخَلُۚ وَمَنْ يَبْخَلْ فَاِنَّمَا يَبْخَلُ عَنْ نَفْسِهِۜ وَاللّٰهُ الْغَنِيُّ وَاَنْتُمُ الْفُقَـرٓاءُۚ وَاِنْ تَتَوَلَّوْا يَسْتَبْدِلْ قَوْماً غَيْرَكُمْۙ ثُمَّ لَا يَكُونُوا اَمْثَالَكُمْ",
       "firstAyahTr": "İnkar edenlerin ve Allah yolundan alıkoyanların işlerini Allah boşa çıkarmıştır.",
       "lastAyahTr": "İşte sizler, Allah yolunda harcamaya çağırılıyorsunuz. İçinizden kiminiz cimrilik ediyor. Ama kim cimrilik ederse, ancak kendisine cimrilik etmiş olur. Allah zengindir, siz ise fakirsiniz. Eğer O'ndan yüz çevirirseniz, yerinize sizden başka bir toplum getirir, artık onlar sizin gibi de olmazlar.",
       "firstAyah": {
@@ -2020,7 +2020,7 @@
         "en": "Those who disbelieve and avert [people] from the way of Allah - He will waste their deeds"
       },
       "lastAyah": {
-        "ar": "هٓا اَنْتُمْ هٰٓؤُ۬لٓاءِ تُدْعَوْنَ لِتُنْفِقُوا فِي سَبِيلِ اللّٰهِۚ فَمِنْكُمْ مَنْ يَبْخَلُۚ وَمَنْ يَبْخَلْ فَاِنَّمَا يَبْخَلُ عَنْ نَفْسِهِۜ وَاللّٰهُ الْغَنِيُّ وَاَنْتُمُ الْفُقَـرٓاءُۚ وَاِنْ تَتَوَلَّوْا يَسْتَبْدِلْ قَوْماً غَيْرَكُمْۙ ثُمَّ لَا يَكُونٓوا اَمْثَالَكُمْ",
+        "ar": "هَا اَنْتُمْ هٰٓؤُ۬لٓاءِ تُدْعَوْنَ لِتُنْفِقُوا فِي سَبِيلِ اللّٰهِۚ فَمِنْكُمْ مَنْ يَبْخَلُۚ وَمَنْ يَبْخَلْ فَاِنَّمَا يَبْخَلُ عَنْ نَفْسِهِۜ وَاللّٰهُ الْغَنِيُّ وَاَنْتُمُ الْفُقَـرٓاءُۚ وَاِنْ تَتَوَلَّوْا يَسْتَبْدِلْ قَوْماً غَيْرَكُمْۙ ثُمَّ لَا يَكُونُوا اَمْثَالَكُمْ",
         "tr": "İşte sizler, Allah yolunda harcamaya çağırılıyorsunuz. İçinizden kiminiz cimrilik ediyor. Ama kim cimrilik ederse, ancak kendisine cimrilik etmiş olur. Allah zengindir, siz ise fakirsiniz. Eğer O'ndan yüz çevirirseniz, yerinize sizden başka bir toplum getirir, artık onlar sizin gibi de olmazlar.",
         "en": "Here you are - those invited to spend in the cause of Allah - but among you are those who withhold [out of greed]. And whoever withholds only withholds [benefit] from himself; and Allah is the Free of need, while you are the needy. And if you turn away, He will replace you with another people; then they will not be the likes of you"
       }
@@ -2054,7 +2054,7 @@
       "hasOath": false,
       "note": "Feth sûresi 'innâ fetahnâ laka fetḥan mübînâ' ile açılır — tekit partikülü 'innâ'.",
       "firstAyahArabic": "اِنَّا فَتَحْنَا لَكَ فَتْحاً مُبِيناًۙ",
-      "lastAyahArabic": "مُحَمَّدٌ رَسُولُ اللّٰهِۜ وَالَّذِينَ مَعَهٓ  اَشِدّٓاءُ عَلَى الْكُفَّارِ رُحَمٓاءُ بَيْنَهُمْ تَرٰيهُمْ رُكَّعاً سُجَّداً يَبْتَغُونَ فَضْلاً مِنَ اللّٰهِ وَرِضْوَاناًۘ سِيمَاهُمْ فِي وُجُوهِهِمْ مِنْ اَثَرِ السُّجُودِۜ ذٰلِكَ مَثَلُهُمْ فِي التَّوْرٰيةِۚۛ وَمَثَلُهُمْ فِي الْاِنْجِيلِ۠ۛ   كَزَرْعٍ اَخْرَجَ شَطْـَٔهُ۫ فَاٰزَرَهُ فَاسْتَغْلَظَ فَاسْتَوٰى عَلٰى سُوقِهِ يُعْجِبُ الزُّرَّاعَ لِيَغِيظَ بِهِمُ الْكُفَّارَۜ وَعَدَ اللّٰهُ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُمْ مَغْفِرَةً وَاَجْراً عَظِيماً",
+      "lastAyahArabic": "مُحَمَّدٌ رَسُولُ اللّٰهِۜ وَالَّذِينَ مَعَهُ  اَشِدَّاءُ عَلَى الْكُفَّارِ رُحَمَاءُ بَيْنَهُمْ تَرٰيهُمْ رُكَّعاً سُجَّداً يَبْتَغُونَ فَضْلاً مِنَ اللّٰهِ وَرِضْوَاناًۘ سِيمَاهُمْ فِي وُجُوهِهِمْ مِنْ اَثَرِ السُّجُودِۜ ذٰلِكَ مَثَلُهُمْ فِي التَّوْرٰيةِۚۛ وَمَثَلُهُمْ فِي الْاِنْجِيلِ۠ۛ   كَزَرْعٍ اَخْرَجَ شَطْـَٔهُ۫ فَاٰزَرَهُ فَاسْتَغْلَظَ فَاسْتَوٰى عَلٰى سُوقِهِ يُعْجِبُ الزُّرَّاعَ لِيَغِيظَ بِهِمُ الْكُفَّارَۜ وَعَدَ اللّٰهُ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُمْ مَغْفِرَةً وَاَجْراً عَظِيماً",
       "firstAyahTr": "Biz sana doğrusu apaçık bir fetih ihsan ettik.",
       "lastAyahTr": "Muhammed Allah'ın elçisidir. Beraberinde bulunanlar da kafirlere karşı çetin, kendi aralarında merhametlidirler. Onları rükuya varırken, secde ederken görürsün. Allah'tan lütuf ve rıza isterler. Onların nişanları yüzlerindeki secde izidir. Bu, onların Tevrat'taki vasıflarıdır. İncil'deki vasıfları da şöyledir: Onlar filizini yarıp çıkarmış, gittikçe onu kuvvetlendirerek kalınlaşmış, gövdesi üzerine dikilmiş bir ekine benzerler ki bu, ekicilerin de hoşuna gider. Allah böylece onları çoğaltıp kuvvetlendirmekle kafirleri öfkelendirir. Allah onlardan inanıp iyi işler yapanlara mağfiret ve büyük mükafat vadetmiştir.",
       "firstAyah": {
@@ -2063,7 +2063,7 @@
         "en": "Indeed, We have given you, [O Muhammad], a clear conquest"
       },
       "lastAyah": {
-        "ar": "مُحَمَّدٌ رَسُولُ اللّٰهِۜ وَالَّذِينَ مَعَهٓ  اَشِدّٓاءُ عَلَى الْكُفَّارِ رُحَمٓاءُ بَيْنَهُمْ تَرٰيهُمْ رُكَّعاً سُجَّداً يَبْتَغُونَ فَضْلاً مِنَ اللّٰهِ وَرِضْوَاناًۘ سِيمَاهُمْ فِي وُجُوهِهِمْ مِنْ اَثَرِ السُّجُودِۜ ذٰلِكَ مَثَلُهُمْ فِي التَّوْرٰيةِۚۛ وَمَثَلُهُمْ فِي الْاِنْجِيلِ۠ۛ   كَزَرْعٍ اَخْرَجَ شَطْـَٔهُ۫ فَاٰزَرَهُ فَاسْتَغْلَظَ فَاسْتَوٰى عَلٰى سُوقِهِ يُعْجِبُ الزُّرَّاعَ لِيَغِيظَ بِهِمُ الْكُفَّارَۜ وَعَدَ اللّٰهُ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُمْ مَغْفِرَةً وَاَجْراً عَظِيماً",
+        "ar": "مُحَمَّدٌ رَسُولُ اللّٰهِۜ وَالَّذِينَ مَعَهُ  اَشِدَّاءُ عَلَى الْكُفَّارِ رُحَمَاءُ بَيْنَهُمْ تَرٰيهُمْ رُكَّعاً سُجَّداً يَبْتَغُونَ فَضْلاً مِنَ اللّٰهِ وَرِضْوَاناًۘ سِيمَاهُمْ فِي وُجُوهِهِمْ مِنْ اَثَرِ السُّجُودِۜ ذٰلِكَ مَثَلُهُمْ فِي التَّوْرٰيةِۚۛ وَمَثَلُهُمْ فِي الْاِنْجِيلِ۠ۛ   كَزَرْعٍ اَخْرَجَ شَطْـَٔهُ۫ فَاٰزَرَهُ فَاسْتَغْلَظَ فَاسْتَوٰى عَلٰى سُوقِهِ يُعْجِبُ الزُّرَّاعَ لِيَغِيظَ بِهِمُ الْكُفَّارَۜ وَعَدَ اللّٰهُ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُمْ مَغْفِرَةً وَاَجْراً عَظِيماً",
         "tr": "Muhammed Allah'ın elçisidir. Beraberinde bulunanlar da kafirlere karşı çetin, kendi aralarında merhametlidirler. Onları rükuya varırken, secde ederken görürsün. Allah'tan lütuf ve rıza isterler. Onların nişanları yüzlerindeki secde izidir. Bu, onların Tevrat'taki vasıflarıdır. İncil'deki vasıfları da şöyledir: Onlar filizini yarıp çıkarmış, gittikçe onu kuvvetlendirerek kalınlaşmış, gövdesi üzerine dikilmiş bir ekine benzerler ki bu, ekicilerin de hoşuna gider. Allah böylece onları çoğaltıp kuvvetlendirmekle kafirleri öfkelendirir. Allah onlardan inanıp iyi işler yapanlara mağfiret ve büyük mükafat vadetmiştir.",
         "en": "Muhammad is the Messenger of Allah; and those with him are forceful against the disbelievers, merciful among themselves. You see them bowing and prostrating [in prayer], seeking bounty from Allah and [His] pleasure. Their mark is on their faces from the trace of prostration. That is their description in the Torah. And their description in the Gospel is as a plant which produces its offshoots and strengthens them so they grow firm and stand upon their stalks, delighting the sowers - so that Allah may enrage by them the disbelievers. Allah has promised those who believe and do righteous deeds among them forgiveness and a great reward"
       }
@@ -2078,7 +2078,7 @@
       "firstAyahRef": "49:1",
       "lastAyahRef": "49:18",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -2095,12 +2095,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تُقَدِّمُوا بَيْنَ يَدَيِ اللّٰهِ وَرَسُولِهِ وَاتَّقُوا اللّٰهَۜ اِنَّ اللّٰهَ سَمِيعٌ عَلِيمٌ",
+      "firstAyahArabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تُقَدِّمُوا بَيْنَ يَدَيِ اللّٰهِ وَرَسُولِهِ وَاتَّقُوا اللّٰهَۜ اِنَّ اللّٰهَ سَمِيعٌ عَلِيمٌ",
       "lastAyahArabic": "اِنَّ اللّٰهَ يَعْلَمُ غَيْبَ السَّمٰوَاتِ وَالْاَرْضِۜ وَاللّٰهُ بَصِيرٌ بِمَا تَعْمَلُونَ",
       "firstAyahTr": "Ey iman edenler! Allah'ın ve Resulünün önüne geçmeyin. Allah'tan korkun. Şüphesiz Allah işitendir, bilendir.",
       "lastAyahTr": "Şüphesiz Allah, göklerin ve yerin gizliliklerini bilir. Allah yaptıklarınızı görendir.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تُقَدِّمُوا بَيْنَ يَدَيِ اللّٰهِ وَرَسُولِهِ وَاتَّقُوا اللّٰهَۜ اِنَّ اللّٰهَ سَمِيعٌ عَلِيمٌ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تُقَدِّمُوا بَيْنَ يَدَيِ اللّٰهِ وَرَسُولِهِ وَاتَّقُوا اللّٰهَۜ اِنَّ اللّٰهَ سَمِيعٌ عَلِيمٌ",
         "tr": "Ey iman edenler! Allah'ın ve Resulünün önüne geçmeyin. Allah'tan korkun. Şüphesiz Allah işitendir, bilendir.",
         "en": "O you who have believed, do not put [yourselves] before Allah and His Messenger but fear Allah. Indeed, Allah is Hearing and Knowing"
       },
@@ -2139,7 +2139,7 @@
       "hasOath": false,
       "note": "1. ayetin 2. kelimesi yemindir: 'wa'l-Qur'âni'l-mecîd'. İlk kelime mukattaa olduğundan oath-opener pattern'inde sayılmaz.",
       "firstAyahArabic": "قٓ۠ وَالْقُرْاٰنِ الْمَجِيدِۚ",
-      "lastAyahArabic": "نَحْنُ اَعْلَمُ بِمَا يَقُولُونَ وَمٓا اَنْتَ عَلَيْهِمْ بِجَبَّارٍ فَذَكِّرْ بِالْقُرْاٰنِ مَنْ يَخَافُ وَعِيدِ",
+      "lastAyahArabic": "نَحْنُ اَعْلَمُ بِمَا يَقُولُونَ وَمَا اَنْتَ عَلَيْهِمْ بِجَبَّارٍ فَذَكِّرْ بِالْقُرْاٰنِ مَنْ يَخَافُ وَعِيدِ",
       "firstAyahTr": "Kaf. Şerefli Kur'an'a andolsun.",
       "lastAyahTr": "Biz onların dediklerini çok iyi biliriz. Sen onların üzerinde bir zorlayıcı değilsin. Tehdidimden korkanlara Kur'an'la öğüt ver.",
       "firstAyah": {
@@ -2148,7 +2148,7 @@
         "en": "Qaf. By the honored Qur'an"
       },
       "lastAyah": {
-        "ar": "نَحْنُ اَعْلَمُ بِمَا يَقُولُونَ وَمٓا اَنْتَ عَلَيْهِمْ بِجَبَّارٍ فَذَكِّرْ بِالْقُرْاٰنِ مَنْ يَخَافُ وَعِيدِ",
+        "ar": "نَحْنُ اَعْلَمُ بِمَا يَقُولُونَ وَمَا اَنْتَ عَلَيْهِمْ بِجَبَّارٍ فَذَكِّرْ بِالْقُرْاٰنِ مَنْ يَخَافُ وَعِيدِ",
         "tr": "Biz onların dediklerini çok iyi biliriz. Sen onların üzerinde bir zorlayıcı değilsin. Tehdidimden korkanlara Kur'an'la öğüt ver.",
         "en": "We are most knowing of what they say, and you are not over them a tyrant. But remind by the Qur'an whoever fears My threat"
       }
@@ -2478,7 +2478,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "قَدْ سَمِعَ اللّٰهُ قَوْلَ الَّتِي تُجَادِلُكَ فِي زَوْجِهَا وَتَشْتَكِٓي اِلَى اللّٰهِۗ وَاللّٰهُ يَسْمَعُ تَحَاوُرَكُمَاۜ اِنَّ اللّٰهَ سَمِيعٌ بَصِيرٌ",
-      "lastAyahArabic": "لَا تَجِدُ قَوْماً يُؤْمِنُونَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ يُوٓادُّونَ مَنْ حٓادَّ اللّٰهَ وَرَسُولَهُ وَلَوْ كَانٓوا اٰبٓاءَهُمْ اَوْ اَبْنٓاءَهُمْ اَوْ اِخْوَانَهُمْ اَوْ عَشِيرَتَهُمْۜ اُو۬لٰٓئِكَ كَتَبَ فِي قُلُوبِهِمُ الْاِيمَانَ وَاَيَّدَهُمْ بِرُوحٍ مِنْهُۜ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَاۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ اُو۬لٰٓئِكَ حِزْبُ اللّٰهِۜ اَلٓا اِنَّ حِزْبَ اللّٰهِ هُمُ الْمُفْلِحُونَ",
+      "lastAyahArabic": "لَا تَجِدُ قَوْماً يُؤْمِنُونَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ يُوَادُّونَ مَنْ حَادَّ اللّٰهَ وَرَسُولَهُ وَلَوْ كَانُوا اٰبَاءَهُمْ اَوْ اَبْنَاءَهُمْ اَوْ اِخْوَانَهُمْ اَوْ عَشِيرَتَهُمْۜ اُو۬لٰٓئِكَ كَتَبَ فِي قُلُوبِهِمُ الْاِيمَانَ وَاَيَّدَهُمْ بِرُوحٍ مِنْهُۜ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَاۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ اُو۬لٰٓئِكَ حِزْبُ اللّٰهِۜ اَلَا اِنَّ حِزْبَ اللّٰهِ هُمُ الْمُفْلِحُونَ",
       "firstAyahTr": "Kocası hakkında seninle tartışan ve Allah'a şikayette bulunan kadının sözünü Allah işitmiştir. Allah, sizin konuşmanızı işitir. Çünkü Allah işitendir, bilendir.",
       "lastAyahTr": "Allah'a ve ahiret gününe inanan bir toplumun -babaları, oğulları, kardeşleri, yahut akrabaları da olsa- Allah'a ve Resulüne düşman olanlarla dostluk ettiğini göremezsin. İşte onların kalbine Allah, iman yazmış ve katından bir ruh ile onları desteklemiştir. Onları içlerinden ırmaklar akan cennetlere sokacak, orada ebedi kalacaklardır. Allah onlardan razı olmuş, onlar da Allah'tan hoşnut olmuşlardır. İşte onlar, Allah'ın tarafında olanlardır. İyi bilin ki, kurtuluşa erecekler de sadece Allah'ın tarafında olanlardır.",
       "firstAyah": {
@@ -2487,7 +2487,7 @@
         "en": "Certainly has Allah heard the speech of the one who argues with you, [O Muhammad], concerning her husband and directs her complaint to Allah. And Allah hears your dialogue; indeed, Allah is Hearing and Seeing"
       },
       "lastAyah": {
-        "ar": "لَا تَجِدُ قَوْماً يُؤْمِنُونَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ يُوٓادُّونَ مَنْ حٓادَّ اللّٰهَ وَرَسُولَهُ وَلَوْ كَانٓوا اٰبٓاءَهُمْ اَوْ اَبْنٓاءَهُمْ اَوْ اِخْوَانَهُمْ اَوْ عَشِيرَتَهُمْۜ اُو۬لٰٓئِكَ كَتَبَ فِي قُلُوبِهِمُ الْاِيمَانَ وَاَيَّدَهُمْ بِرُوحٍ مِنْهُۜ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَاۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ اُو۬لٰٓئِكَ حِزْبُ اللّٰهِۜ اَلٓا اِنَّ حِزْبَ اللّٰهِ هُمُ الْمُفْلِحُونَ",
+        "ar": "لَا تَجِدُ قَوْماً يُؤْمِنُونَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ يُوَادُّونَ مَنْ حَادَّ اللّٰهَ وَرَسُولَهُ وَلَوْ كَانُوا اٰبَاءَهُمْ اَوْ اَبْنَاءَهُمْ اَوْ اِخْوَانَهُمْ اَوْ عَشِيرَتَهُمْۜ اُو۬لٰٓئِكَ كَتَبَ فِي قُلُوبِهِمُ الْاِيمَانَ وَاَيَّدَهُمْ بِرُوحٍ مِنْهُۜ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَاۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ اُو۬لٰٓئِكَ حِزْبُ اللّٰهِۜ اَلَا اِنَّ حِزْبَ اللّٰهِ هُمُ الْمُفْلِحُونَ",
         "tr": "Allah'a ve ahiret gününe inanan bir toplumun -babaları, oğulları, kardeşleri, yahut akrabaları da olsa- Allah'a ve Resulüne düşman olanlarla dostluk ettiğini göremezsin. İşte onların kalbine Allah, iman yazmış ve katından bir ruh ile onları desteklemiştir. Onları içlerinden ırmaklar akan cennetlere sokacak, orada ebedi kalacaklardır. Allah onlardan razı olmuş, onlar da Allah'tan hoşnut olmuşlardır. İşte onlar, Allah'ın tarafında olanlardır. İyi bilin ki, kurtuluşa erecekler de sadece Allah'ın tarafında olanlardır.",
         "en": "You will not find a people who believe in Allah and the Last Day having affection for those who oppose Allah and His Messenger, even if they were their fathers or their sons or their brothers or their kindred. Those - He has decreed within their hearts faith and supported them with spirit from Him. And We will admit them to gardens beneath which rivers flow, wherein they abide eternally. Allah is pleased with them, and they are pleased with Him - those are the party of Allah. Unquestionably, the party of Allah - they are the successful"
       }
@@ -2520,7 +2520,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "سَبَّحَ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
-      "lastAyahArabic": "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰىۜ يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+      "lastAyahArabic": "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمَاءُ الْحُسْنٰىۜ يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
       "firstAyahTr": "Göklerde ve yerde olanların hepsi Allah'ı tesbih etmektedir. O, üstündür, hikmet sahibidir.",
       "lastAyahTr": "O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
       "firstAyah": {
@@ -2529,7 +2529,7 @@
         "en": "Whatever is in the heavens and whatever is on the earth exalts Allah, and He is the Exalted in Might, the Wise"
       },
       "lastAyah": {
-        "ar": "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمٓاءُ الْحُسْنٰىۜ يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
+        "ar": "هُوَ اللّٰهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ لَهُ الْاَسْمَاءُ الْحُسْنٰىۜ يُسَبِّـحُ لَهُ مَا فِي السَّمٰوَاتِ وَالْاَرْضِۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
         "tr": "O, yaratan, var eden, şekil veren Allah'tır. En güzel isimler O'nundur. Göklerde ve yerde olanlar O'nun şanını yüceltmektedirler. O, galiptir, hikmet sahibidir.",
         "en": "He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise"
       }
@@ -2544,7 +2544,7 @@
       "firstAyahRef": "60:1",
       "lastAyahRef": "60:13",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -2563,17 +2563,17 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَّخِذُوا عَدُوِّي وَعَدُوَّكُمْ اَوْلِيٓاءَ تُلْقُونَ اِلَيْهِمْ بِالْمَوَدَّةِ وَقَدْ كَفَرُوا بِمَا جٓاءَكُمْ مِنَ الْحَقِّۚ يُخْرِجُونَ الرَّسُولَ وَاِيَّاكُمْ اَنْ تُؤْمِنُوا بِاللّٰهِ رَبِّكُمْۜ اِنْ كُنْتُمْ خَرَجْتُمْ جِهَاداً فِي سَبِيلِي وَابْتِغٓاءَ مَرْضَاتِي تُسِرُّونَ اِلَيْهِمْ بِالْمَوَدَّةِۗ وَاَنَا۬ اَعْلَمُ بِمٓا اَخْفَيْتُمْ وَمٓا اَعْلَنْتُمْۜ وَمَنْ يَفْعَلْهُ مِنْكُمْ فَقَدْ ضَلَّ سَوٓاءَ السَّبِيلِ",
-      "lastAyahArabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَوَلَّوْا قَوْماً غَضِبَ اللّٰهُ عَلَيْهِمْ قَدْ يَـئِسُوا مِنَ الْاٰخِرَةِ كَمَا يَـئِسَ الْكُفَّارُ مِنْ اَصْحَابِ الْقُبُورِ",
+      "firstAyahArabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَّخِذُوا عَدُوِّي وَعَدُوَّكُمْ اَوْلِيَاءَ تُلْقُونَ اِلَيْهِمْ بِالْمَوَدَّةِ وَقَدْ كَفَرُوا بِمَا جَاءَكُمْ مِنَ الْحَقِّۚ يُخْرِجُونَ الرَّسُولَ وَاِيَّاكُمْ اَنْ تُؤْمِنُوا بِاللّٰهِ رَبِّكُمْۜ اِنْ كُنْتُمْ خَرَجْتُمْ جِهَاداً فِي سَبِيلِي وَابْتِغَاءَ مَرْضَاتِي تُسِرُّونَ اِلَيْهِمْ بِالْمَوَدَّةِۗ وَاَنَا۬ اَعْلَمُ بِمَا اَخْفَيْتُمْ وَمَا اَعْلَنْتُمْۜ وَمَنْ يَفْعَلْهُ مِنْكُمْ فَقَدْ ضَلَّ سَوَاءَ السَّبِيلِ",
+      "lastAyahArabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَوَلَّوْا قَوْماً غَضِبَ اللّٰهُ عَلَيْهِمْ قَدْ يَـئِسُوا مِنَ الْاٰخِرَةِ كَمَا يَـئِسَ الْكُفَّارُ مِنْ اَصْحَابِ الْقُبُورِ",
       "firstAyahTr": "Ey iman edenler! Eğer benim yolumda savaşmak ve rızamı kazanmak için çıkmışsanız, benim de düşmanım, sizin de düşmanınız olanlara sevgi göstererek, gizli muhabbet besleyerek onları dost edinmeyin. Oysa onlar, size gelen gerçeği inkar etmişlerdir. Rabbiniz Allah'a inandığınızdan dolayı Peygamber'i de sizi de yurdunuzdan çıkarıyorlar. Ben, sizin saklı tuttuğunuzu da, açığa vurduğunuzu da en iyi bilenim. Sizden kim bunu yaparsa (onları dost edinirse) doğru yoldan sapmış olur.",
       "lastAyahTr": "Ey iman edenler! Kendilerine Allah'ın gazap ettiği bir kavmi dost edinmeyin. Zira onlar, kafirlerin kabirlerdekilerden (onların dirilmesinden) ümit kestikleri gibi ahiretten ümit kesmişlerdir.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَّخِذُوا عَدُوِّي وَعَدُوَّكُمْ اَوْلِيٓاءَ تُلْقُونَ اِلَيْهِمْ بِالْمَوَدَّةِ وَقَدْ كَفَرُوا بِمَا جٓاءَكُمْ مِنَ الْحَقِّۚ يُخْرِجُونَ الرَّسُولَ وَاِيَّاكُمْ اَنْ تُؤْمِنُوا بِاللّٰهِ رَبِّكُمْۜ اِنْ كُنْتُمْ خَرَجْتُمْ جِهَاداً فِي سَبِيلِي وَابْتِغٓاءَ مَرْضَاتِي تُسِرُّونَ اِلَيْهِمْ بِالْمَوَدَّةِۗ وَاَنَا۬ اَعْلَمُ بِمٓا اَخْفَيْتُمْ وَمٓا اَعْلَنْتُمْۜ وَمَنْ يَفْعَلْهُ مِنْكُمْ فَقَدْ ضَلَّ سَوٓاءَ السَّبِيلِ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَّخِذُوا عَدُوِّي وَعَدُوَّكُمْ اَوْلِيَاءَ تُلْقُونَ اِلَيْهِمْ بِالْمَوَدَّةِ وَقَدْ كَفَرُوا بِمَا جَاءَكُمْ مِنَ الْحَقِّۚ يُخْرِجُونَ الرَّسُولَ وَاِيَّاكُمْ اَنْ تُؤْمِنُوا بِاللّٰهِ رَبِّكُمْۜ اِنْ كُنْتُمْ خَرَجْتُمْ جِهَاداً فِي سَبِيلِي وَابْتِغَاءَ مَرْضَاتِي تُسِرُّونَ اِلَيْهِمْ بِالْمَوَدَّةِۗ وَاَنَا۬ اَعْلَمُ بِمَا اَخْفَيْتُمْ وَمَا اَعْلَنْتُمْۜ وَمَنْ يَفْعَلْهُ مِنْكُمْ فَقَدْ ضَلَّ سَوَاءَ السَّبِيلِ",
         "tr": "Ey iman edenler! Eğer benim yolumda savaşmak ve rızamı kazanmak için çıkmışsanız, benim de düşmanım, sizin de düşmanınız olanlara sevgi göstererek, gizli muhabbet besleyerek onları dost edinmeyin. Oysa onlar, size gelen gerçeği inkar etmişlerdir. Rabbiniz Allah'a inandığınızdan dolayı Peygamber'i de sizi de yurdunuzdan çıkarıyorlar. Ben, sizin saklı tuttuğunuzu da, açığa vurduğunuzu da en iyi bilenim. Sizden kim bunu yaparsa (onları dost edinirse) doğru yoldan sapmış olur.",
         "en": "O you who have believed, do not take My enemies and your enemies as allies, extending to them affection while they have disbelieved in what came to you of the truth, having driven out the Prophet and yourselves [only] because you believe in Allah, your Lord. If you have come out for jihad in My cause and seeking means to My approval, [take them not as friends]. You confide to them affection, but I am most knowing of what you have concealed and what you have declared. And whoever does it among you has certainly strayed from the soundness of the way"
       },
       "lastAyah": {
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَوَلَّوْا قَوْماً غَضِبَ اللّٰهُ عَلَيْهِمْ قَدْ يَـئِسُوا مِنَ الْاٰخِرَةِ كَمَا يَـئِسَ الْكُفَّارُ مِنْ اَصْحَابِ الْقُبُورِ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تَتَوَلَّوْا قَوْماً غَضِبَ اللّٰهُ عَلَيْهِمْ قَدْ يَـئِسُوا مِنَ الْاٰخِرَةِ كَمَا يَـئِسَ الْكُفَّارُ مِنْ اَصْحَابِ الْقُبُورِ",
         "tr": "Ey iman edenler! Kendilerine Allah'ın gazap ettiği bir kavmi dost edinmeyin. Zira onlar, kafirlerin kabirlerdekilerden (onların dirilmesinden) ümit kestikleri gibi ahiretten ümit kesmişlerdir.",
         "en": "O you who have believed, do not make allies of a people with whom Allah has become angry. They have despaired of [reward in] the Hereafter just as the disbelievers have despaired of [meeting] the inhabitants of the graves"
       }
@@ -2606,7 +2606,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "سَبَّحَ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِۚ وَهُوَ الْعَزِيزُ الْحَكِيمُ",
-      "lastAyahArabic": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا كُونٓوا اَنْصَارَ اللّٰهِ كَمَا قَالَ عِيسَى ابْنُ مَرْيَمَ لِلْحَوَارِيِّنَ مَنْ اَنْصَارِٓي اِلَى اللّٰهِۜ  قَالَ الْحَوَارِيُّونَ نَحْنُ اَنْصَارُ اللّٰهِ فَاٰمَنَتْ طٓائِفَةٌ مِنْ بَنِٓي اِسْرٓائِلَ وَكَـفَرَتْ طٓائِفَةٌۚ فَاَيَّدْنَا الَّذِينَ اٰمَنُوا عَلٰى عَدُوِّهِمْ فَاَصْبَحُوا ظَاهِرِينَ",
+      "lastAyahArabic": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا كُونُوا اَنْصَارَ اللّٰهِ كَمَا قَالَ عِيسَى ابْنُ مَرْيَمَ لِلْحَوَارِيِّنَ مَنْ اَنْصَارِٓي اِلَى اللّٰهِۜ  قَالَ الْحَوَارِيُّونَ نَحْنُ اَنْصَارُ اللّٰهِ فَاٰمَنَتْ طَائِفَةٌ مِنْ بَنِٓي اِسْرَائِلَ وَكَـفَرَتْ طٓائِفَةٌۚ فَاَيَّدْنَا الَّذِينَ اٰمَنُوا عَلٰى عَدُوِّهِمْ فَاَصْبَحُوا ظَاهِرِينَ",
       "firstAyahTr": "Göklerde ve yerdekilerin hepsi Allah'ı tesbih eder. O, üstündür, hikmet sahibidir.",
       "lastAyahTr": "Ey iman edenler! Allah'ın yardımcıları olun. Nitekim Meryem oğlu İsa havarilere: Allah'a (giden yolda) benim yardımcılarım kimdir? demişti. Havariler de: Allah (yolunun) yardımcıları biziz, demişlerdi. İsrailoğullarından bir zümre inanmış, bir zümre de inkar etmişti. Nihayet biz inananları, düşmanlarına karşı destekledik. Böylece üstün geldiler.",
       "firstAyah": {
@@ -2615,7 +2615,7 @@
         "en": "Whatever is in the heavens and whatever is on the earth exalts Allah, and He is the Exalted in Might, the Wise"
       },
       "lastAyah": {
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا كُونٓوا اَنْصَارَ اللّٰهِ كَمَا قَالَ عِيسَى ابْنُ مَرْيَمَ لِلْحَوَارِيِّنَ مَنْ اَنْصَارِٓي اِلَى اللّٰهِۜ  قَالَ الْحَوَارِيُّونَ نَحْنُ اَنْصَارُ اللّٰهِ فَاٰمَنَتْ طٓائِفَةٌ مِنْ بَنِٓي اِسْرٓائِلَ وَكَـفَرَتْ طٓائِفَةٌۚ فَاَيَّدْنَا الَّذِينَ اٰمَنُوا عَلٰى عَدُوِّهِمْ فَاَصْبَحُوا ظَاهِرِينَ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا كُونُوا اَنْصَارَ اللّٰهِ كَمَا قَالَ عِيسَى ابْنُ مَرْيَمَ لِلْحَوَارِيِّنَ مَنْ اَنْصَارِٓي اِلَى اللّٰهِۜ  قَالَ الْحَوَارِيُّونَ نَحْنُ اَنْصَارُ اللّٰهِ فَاٰمَنَتْ طَائِفَةٌ مِنْ بَنِٓي اِسْرَائِلَ وَكَـفَرَتْ طٓائِفَةٌۚ فَاَيَّدْنَا الَّذِينَ اٰمَنُوا عَلٰى عَدُوِّهِمْ فَاَصْبَحُوا ظَاهِرِينَ",
         "tr": "Ey iman edenler! Allah'ın yardımcıları olun. Nitekim Meryem oğlu İsa havarilere: Allah'a (giden yolda) benim yardımcılarım kimdir? demişti. Havariler de: Allah (yolunun) yardımcıları biziz, demişlerdi. İsrailoğullarından bir zümre inanmış, bir zümre de inkar etmişti. Nihayet biz inananları, düşmanlarına karşı destekledik. Böylece üstün geldiler.",
         "en": "O you who have believed, be supporters of Allah, as when Jesus, the son of Mary, said to the disciples, \"Who are my supporters for Allah?\" The disciples said, \"We are supporters of Allah.\" And a faction of the Children of Israel believed and a faction disbelieved. So We supported those who believed against their enemy, and they became dominant"
       }
@@ -2648,7 +2648,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "يُسَبِّـحُ لِلّٰهِ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ الْمَلِكِ الْقُدُّوسِ الْعَزِيزِ الْحَكِيمِ",
-      "lastAyahArabic": "وَاِذَا رَاَوْا تِجَارَةً اَوْ لَهْواًۨ انْفَضّٓوا اِلَيْهَا وَتَرَكُوكَ قٓائِماًۜ قُلْ مَا عِنْدَ اللّٰهِ خَيْرٌ مِنَ اللَّهْوِ وَمِنَ التِّجَارَةِۜ وَاللّٰهُ خَيْرُ الرَّازِقِينَ",
+      "lastAyahArabic": "وَاِذَا رَاَوْا تِجَارَةً اَوْ لَهْواًۨ انْفَضُّوا اِلَيْهَا وَتَرَكُوكَ قٓائِماًۜ قُلْ مَا عِنْدَ اللّٰهِ خَيْرٌ مِنَ اللَّهْوِ وَمِنَ التِّجَارَةِۜ وَاللّٰهُ خَيْرُ الرَّازِقِينَ",
       "firstAyahTr": "Göklerde ve yerde olanların hepsi, mülkün sahibi, eksiklikten münezzeh, aziz ve hakim olan Allah'ı tesbih eder.",
       "lastAyahTr": "Onlar bir ticaret ve eğlence gördükleri zaman hemen dağılıp ona giderler ve seni ayakta bırakırlar. De ki: Allah'ın yanında bulunan, eğlenceden ve ticaretten daha yararlıdır. Allah, rızık verenlerin en hayırlısıdır.",
       "firstAyah": {
@@ -2657,7 +2657,7 @@
         "en": "Whatever is in the heavens and whatever is on the earth is exalting Allah, the Sovereign, the Pure, the Exalted in Might, the Wise"
       },
       "lastAyah": {
-        "ar": "وَاِذَا رَاَوْا تِجَارَةً اَوْ لَهْواًۨ انْفَضّٓوا اِلَيْهَا وَتَرَكُوكَ قٓائِماًۜ قُلْ مَا عِنْدَ اللّٰهِ خَيْرٌ مِنَ اللَّهْوِ وَمِنَ التِّجَارَةِۜ وَاللّٰهُ خَيْرُ الرَّازِقِينَ",
+        "ar": "وَاِذَا رَاَوْا تِجَارَةً اَوْ لَهْواًۨ انْفَضُّوا اِلَيْهَا وَتَرَكُوكَ قٓائِماًۜ قُلْ مَا عِنْدَ اللّٰهِ خَيْرٌ مِنَ اللَّهْوِ وَمِنَ التِّجَارَةِۜ وَاللّٰهُ خَيْرُ الرَّازِقِينَ",
         "tr": "Onlar bir ticaret ve eğlence gördükleri zaman hemen dağılıp ona giderler ve seni ayakta bırakırlar. De ki: Allah'ın yanında bulunan, eğlenceden ve ticaretten daha yararlıdır. Allah, rızık verenlerin en hayırlısıdır.",
         "en": "But when they saw a transaction or a diversion, [O Muhammad], they rushed to it and left you standing. Say, \"What is with Allah is better than diversion and than a transaction, and Allah is the best of providers"
       }
@@ -2691,17 +2691,17 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "اِذَا جٓاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِقِينَ لَـكَاذِبُونَۚ",
-      "lastAyahArabic": "وَلَنْ يُؤَخِّرَ اللّٰهُ نَفْساً اِذَا جٓاءَ اَجَلُهَاۜ وَاللّٰهُ خَبِيرٌ بِمَا تَعْمَلُونَ",
+      "firstAyahArabic": "اِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِقِينَ لَـكَاذِبُونَۚ",
+      "lastAyahArabic": "وَلَنْ يُؤَخِّرَ اللّٰهُ نَفْساً اِذَا جَاءَ اَجَلُهَاۜ وَاللّٰهُ خَبِيرٌ بِمَا تَعْمَلُونَ",
       "firstAyahTr": "Münafıklar sana geldiklerinde: Şahitlik ederiz ki sen Allah'ın Peygamberisin, derler. Allah da bilir ki sen elbette, O'nun Peygamberisin. Allah, münafıkların kesinlikle yalancı olduklarını bilmektedir.",
       "lastAyahTr": "Allah, eceli geldiğinde hiç kimseyi (ölümünü) ertelemez. Allah, yaptıklarınızdan haberdardır.",
       "firstAyah": {
-        "ar": "اِذَا جٓاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِقِينَ لَـكَاذِبُونَۚ",
+        "ar": "اِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِقِينَ لَـكَاذِبُونَۚ",
         "tr": "Münafıklar sana geldiklerinde: Şahitlik ederiz ki sen Allah'ın Peygamberisin, derler. Allah da bilir ki sen elbette, O'nun Peygamberisin. Allah, münafıkların kesinlikle yalancı olduklarını bilmektedir.",
         "en": "When the hypocrites come to you, [O Muhammad], they say, \"We testify that you are the Messenger of Allah.\" And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars"
       },
       "lastAyah": {
-        "ar": "وَلَنْ يُؤَخِّرَ اللّٰهُ نَفْساً اِذَا جٓاءَ اَجَلُهَاۜ وَاللّٰهُ خَبِيرٌ بِمَا تَعْمَلُونَ",
+        "ar": "وَلَنْ يُؤَخِّرَ اللّٰهُ نَفْساً اِذَا جَاءَ اَجَلُهَاۜ وَاللّٰهُ خَبِيرٌ بِمَا تَعْمَلُونَ",
         "tr": "Allah, eceli geldiğinde hiç kimseyi (ölümünü) ertelemez. Allah, yaptıklarınızdan haberdardır.",
         "en": "But never will Allah delay a soul when its time has come. And Allah is Acquainted with what you do"
       }
@@ -2758,7 +2758,7 @@
       "firstAyahRef": "65:1",
       "lastAyahRef": "65:12",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -2777,17 +2777,17 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا النَّبِيُّ اِذَا طَلَّقْتُمُ النِّسٓاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ وَاَحْصُوا الْعِدَّةَۚ وَاتَّقُوا اللّٰهَ رَبَّكُمْۚ لَا تُخْرِجُوهُنَّ مِنْ بُيُوتِهِنَّ وَلَا يَخْرُجْنَ اِلّٓا اَنْ يَأْتِينَ بِفَاحِشَةٍ مُبَيِّنَةٍۜ وَتِلْكَ حُدُودُ اللّٰهِۜ وَمَنْ يَتَعَدَّ حُدُودَ اللّٰهِ فَقَدْ ظَلَمَ نَفْسَهُۜ  لَا تَدْرِي لَعَلَّ اللّٰهَ يُحْدِثُ بَعْدَ ذٰلِكَ اَمْراً",
-      "lastAyahArabic": "اَللّٰهُ الَّذِي خَلَقَ سَبْعَ سَمٰوَاتٍ وَمِنَ الْاَرْضِ مِثْلَهُنَّۜ يَتَنَزَّلُ الْاَمْرُ بَيْنَهُنَّ لِتَعْلَمٓوا اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌۙ وَاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْماً",
+      "firstAyahArabic": "يَا اَيُّهَا النَّبِيُّ اِذَا طَلَّقْتُمُ النِّسَاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ وَاَحْصُوا الْعِدَّةَۚ وَاتَّقُوا اللّٰهَ رَبَّكُمْۚ لَا تُخْرِجُوهُنَّ مِنْ بُيُوتِهِنَّ وَلَا يَخْرُجْنَ اِلَّا اَنْ يَأْتِينَ بِفَاحِشَةٍ مُبَيِّنَةٍۜ وَتِلْكَ حُدُودُ اللّٰهِۜ وَمَنْ يَتَعَدَّ حُدُودَ اللّٰهِ فَقَدْ ظَلَمَ نَفْسَهُۜ  لَا تَدْرِي لَعَلَّ اللّٰهَ يُحْدِثُ بَعْدَ ذٰلِكَ اَمْراً",
+      "lastAyahArabic": "اَللّٰهُ الَّذِي خَلَقَ سَبْعَ سَمٰوَاتٍ وَمِنَ الْاَرْضِ مِثْلَهُنَّۜ يَتَنَزَّلُ الْاَمْرُ بَيْنَهُنَّ لِتَعْلَمُوا اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌۙ وَاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْماً",
       "firstAyahTr": "Ey Peygamber! Kadınları boşayacağınızda, onları iddetlerini gözeterek boşayın ve iddeti de sayın. Rabbiniz Allah'tan korkun. Apaçık bir hayasızlık yapmaları hali bir yana, onları evlerinden çıkarmayın, kendileri de çıkmasınlar. Bunlar Allah'ın sınırlarıdır. Kim Allah'ın sınırlarını aşarsa, şüphesiz kendine zulmetmiş olur. Bilemezsin, olur ki Allah, bundan sonra bir durum ortaya çıkarıverir.",
       "lastAyahTr": "Allah, yedi kat göğü ve yerden bir o kadarını yaratandır. Ferman bunlar arasından inip durmaktadır ki, böylece Allah'ın her şeye kadir olduğunu ve her şeyi ilmiyle kuşattığını bilesiniz.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا النَّبِيُّ اِذَا طَلَّقْتُمُ النِّسٓاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ وَاَحْصُوا الْعِدَّةَۚ وَاتَّقُوا اللّٰهَ رَبَّكُمْۚ لَا تُخْرِجُوهُنَّ مِنْ بُيُوتِهِنَّ وَلَا يَخْرُجْنَ اِلّٓا اَنْ يَأْتِينَ بِفَاحِشَةٍ مُبَيِّنَةٍۜ وَتِلْكَ حُدُودُ اللّٰهِۜ وَمَنْ يَتَعَدَّ حُدُودَ اللّٰهِ فَقَدْ ظَلَمَ نَفْسَهُۜ  لَا تَدْرِي لَعَلَّ اللّٰهَ يُحْدِثُ بَعْدَ ذٰلِكَ اَمْراً",
+        "ar": "يَا اَيُّهَا النَّبِيُّ اِذَا طَلَّقْتُمُ النِّسَاءَ فَطَلِّقُوهُنَّ لِعِدَّتِهِنَّ وَاَحْصُوا الْعِدَّةَۚ وَاتَّقُوا اللّٰهَ رَبَّكُمْۚ لَا تُخْرِجُوهُنَّ مِنْ بُيُوتِهِنَّ وَلَا يَخْرُجْنَ اِلَّا اَنْ يَأْتِينَ بِفَاحِشَةٍ مُبَيِّنَةٍۜ وَتِلْكَ حُدُودُ اللّٰهِۜ وَمَنْ يَتَعَدَّ حُدُودَ اللّٰهِ فَقَدْ ظَلَمَ نَفْسَهُۜ  لَا تَدْرِي لَعَلَّ اللّٰهَ يُحْدِثُ بَعْدَ ذٰلِكَ اَمْراً",
         "tr": "Ey Peygamber! Kadınları boşayacağınızda, onları iddetlerini gözeterek boşayın ve iddeti de sayın. Rabbiniz Allah'tan korkun. Apaçık bir hayasızlık yapmaları hali bir yana, onları evlerinden çıkarmayın, kendileri de çıkmasınlar. Bunlar Allah'ın sınırlarıdır. Kim Allah'ın sınırlarını aşarsa, şüphesiz kendine zulmetmiş olur. Bilemezsin, olur ki Allah, bundan sonra bir durum ortaya çıkarıverir.",
         "en": "O Prophet, when you [Muslims] divorce women, divorce them for [the commencement of] their waiting period and keep count of the waiting period, and fear Allah, your Lord. Do not turn them out of their [husbands'] houses, nor should they [themselves] leave [during that period] unless they are committing a clear immorality. And those are the limits [set by] Allah. And whoever transgresses the limits of Allah has certainly wronged himself. You know not; perhaps Allah will bring about after that a [different] matter"
       },
       "lastAyah": {
-        "ar": "اَللّٰهُ الَّذِي خَلَقَ سَبْعَ سَمٰوَاتٍ وَمِنَ الْاَرْضِ مِثْلَهُنَّۜ يَتَنَزَّلُ الْاَمْرُ بَيْنَهُنَّ لِتَعْلَمٓوا اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌۙ وَاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْماً",
+        "ar": "اَللّٰهُ الَّذِي خَلَقَ سَبْعَ سَمٰوَاتٍ وَمِنَ الْاَرْضِ مِثْلَهُنَّۜ يَتَنَزَّلُ الْاَمْرُ بَيْنَهُنَّ لِتَعْلَمُوا اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌۙ وَاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْماً",
         "tr": "Allah, yedi kat göğü ve yerden bir o kadarını yaratandır. Ferman bunlar arasından inip durmaktadır ki, böylece Allah'ın her şeye kadir olduğunu ve her şeyi ilmiyle kuşattığını bilesiniz.",
         "en": "It is Allah who has created seven heavens and of the earth, the like of them. [His] command descends among them so you may know that Allah is over all things competent and that Allah has encompassed all things in knowledge"
       }
@@ -2802,7 +2802,7 @@
       "firstAyahRef": "66:1",
       "lastAyahRef": "66:12",
       "firstWord": {
-        "ar": "يٓا",
+        "ar": "يَا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -2819,17 +2819,17 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "يٓا اَيُّهَا النَّبِيُّ  لِمَ تُحَرِّمُ مٓا اَحَلَّ اللّٰهُ لَكَۚ تَبْتَغِي مَرْضَاتَ اَزْوَاجِكَۜ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
-      "lastAyahArabic": "وَمَرْيَمَ ابْنَتَ عِمْرٰنَ الَّتٓي اَحْصَنَتْ فَرْجَهَا فَنَفَخْنَا فِيهِ مِنْ رُوحِنَا وَصَدَّقَتْ بِكَلِمَاتِ رَبِّهَا وَكُتُبِهِ وَكَانَتْ مِنَ الْقَانِتِينَ",
+      "firstAyahArabic": "يَا اَيُّهَا النَّبِيُّ  لِمَ تُحَرِّمُ مَا اَحَلَّ اللّٰهُ لَكَۚ تَبْتَغِي مَرْضَاتَ اَزْوَاجِكَۜ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
+      "lastAyahArabic": "وَمَرْيَمَ ابْنَتَ عِمْرٰنَ الَّتِي اَحْصَنَتْ فَرْجَهَا فَنَفَخْنَا فِيهِ مِنْ رُوحِنَا وَصَدَّقَتْ بِكَلِمَاتِ رَبِّهَا وَكُتُبِهِ وَكَانَتْ مِنَ الْقَانِتِينَ",
       "firstAyahTr": "Ey Peygamber! Eşlerinin rızasını gözeterek Allah'ın sana helal kıldığı şeyi niçin kendine haram ediyorsun? Allah çok bağışlayan, çok esirgeyendir.",
       "lastAyahTr": "İffetini korumuş olan, İmran kızı Meryem'i de (Allah örnek gösterdi). Biz, ona ruhumuzdan üfledik ve Rabbinin sözlerini ve kitaplarını tasdik etti. O gönülden itaat edenlerdendi.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا النَّبِيُّ  لِمَ تُحَرِّمُ مٓا اَحَلَّ اللّٰهُ لَكَۚ تَبْتَغِي مَرْضَاتَ اَزْوَاجِكَۜ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
+        "ar": "يَا اَيُّهَا النَّبِيُّ  لِمَ تُحَرِّمُ مَا اَحَلَّ اللّٰهُ لَكَۚ تَبْتَغِي مَرْضَاتَ اَزْوَاجِكَۜ وَاللّٰهُ غَفُورٌ رَحِيمٌ",
         "tr": "Ey Peygamber! Eşlerinin rızasını gözeterek Allah'ın sana helal kıldığı şeyi niçin kendine haram ediyorsun? Allah çok bağışlayan, çok esirgeyendir.",
         "en": "O Prophet, why do you prohibit [yourself from] what Allah has made lawful for you, seeking the approval of your wives? And Allah is Forgiving and Merciful"
       },
       "lastAyah": {
-        "ar": "وَمَرْيَمَ ابْنَتَ عِمْرٰنَ الَّتٓي اَحْصَنَتْ فَرْجَهَا فَنَفَخْنَا فِيهِ مِنْ رُوحِنَا وَصَدَّقَتْ بِكَلِمَاتِ رَبِّهَا وَكُتُبِهِ وَكَانَتْ مِنَ الْقَانِتِينَ",
+        "ar": "وَمَرْيَمَ ابْنَتَ عِمْرٰنَ الَّتِي اَحْصَنَتْ فَرْجَهَا فَنَفَخْنَا فِيهِ مِنْ رُوحِنَا وَصَدَّقَتْ بِكَلِمَاتِ رَبِّهَا وَكُتُبِهِ وَكَانَتْ مِنَ الْقَانِتِينَ",
         "tr": "İffetini korumuş olan, İmran kızı Meryem'i de (Allah örnek gösterdi). Biz, ona ruhumuzdan üfledik ve Rabbinin sözlerini ve kitaplarını tasdik etti. O gönülden itaat edenlerdendi.",
         "en": "And [the example of] Mary, the daughter of 'Imran, who guarded her chastity, so We blew into [her garment] through Our angel, and she believed in the words of her Lord and His scriptures and was of the devoutly obedient"
       }
@@ -2863,7 +2863,7 @@
       "hasOath": false,
       "note": "Mülk sûresi 'tabārakallezî biyedihi'l-mulk' ile açılır. 'Tabāraka' ile başlayan iki sûreden biri (diğeri 25 Furkân).",
       "firstAyahArabic": "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُۘ وَهُوَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌۙ",
-      "lastAyahArabic": "قُلْ اَرَاَيْتُمْ اِنْ اَصْبَحَ مٓاؤُ۬كُمْ غَوْراً فَمَنْ يَأْتِيكُمْ بِمٓاءٍ مَعِينٍ",
+      "lastAyahArabic": "قُلْ اَرَاَيْتُمْ اِنْ اَصْبَحَ مٓاؤُ۬كُمْ غَوْراً فَمَنْ يَأْتِيكُمْ بِمَاءٍ مَعِينٍ",
       "firstAyahTr": "Mutlak hükümranlık elinde olan Allah, yüceler yücesidir ve O'nun her şeye gücü yeter.",
       "lastAyahTr": "De ki: Suyunuz çekiliverse, söyleyin bakalım, size kim bir akar su getirebilir?",
       "firstAyah": {
@@ -2872,7 +2872,7 @@
         "en": "Blessed is He in whose hand is dominion, and He is over all things competent"
       },
       "lastAyah": {
-        "ar": "قُلْ اَرَاَيْتُمْ اِنْ اَصْبَحَ مٓاؤُ۬كُمْ غَوْراً فَمَنْ يَأْتِيكُمْ بِمٓاءٍ مَعِينٍ",
+        "ar": "قُلْ اَرَاَيْتُمْ اِنْ اَصْبَحَ مٓاؤُ۬كُمْ غَوْراً فَمَنْ يَأْتِيكُمْ بِمَاءٍ مَعِينٍ",
         "tr": "De ki: Suyunuz çekiliverse, söyleyin bakalım, size kim bir akar su getirebilir?",
         "en": "Say, \"Have you considered: if your water was to become sunken [into the earth], then who could bring you flowing water"
       }
@@ -2930,7 +2930,7 @@
       "firstAyahRef": "69:1",
       "lastAyahRef": "69:52",
       "firstWord": {
-        "ar": "اَلْحٓاقَّةُ",
+        "ar": "اَلْحَاقَّةُ",
         "translit": null,
         "meaning": null,
         "root": null
@@ -2989,12 +2989,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "سَاَلَ سٓائِلٌ بِعَذَابٍ وَاقِعٍۙ",
+      "firstAyahArabic": "سَاَلَ سَائِلٌ بِعَذَابٍ وَاقِعٍۙ",
       "lastAyahArabic": "خَاشِعَةً اَبْصَارُهُمْ تَرْهَقُهُمْ ذِلَّةٌۜ ذٰلِكَ الْيَوْمُ الَّذِي كَانُوا يُوعَدُونَ",
       "firstAyahTr": "Bir soran inecek azabı sordu:",
       "lastAyahTr": "Gözleri horluktan aşağı düşmüş ve kendileri zillete bürünmüş bir halde. İşte bu, onların tehdit edilegeldikleri gündür!",
       "firstAyah": {
-        "ar": "سَاَلَ سٓائِلٌ بِعَذَابٍ وَاقِعٍۙ",
+        "ar": "سَاَلَ سَائِلٌ بِعَذَابٍ وَاقِعٍۙ",
         "tr": "Bir soran inecek azabı sordu:",
         "en": "A supplicant asked for a punishment bound to happen"
       },
@@ -3014,7 +3014,7 @@
       "firstAyahRef": "71:1",
       "lastAyahRef": "71:28",
       "firstWord": {
-        "ar": "اِنّٓا",
+        "ar": "اِنَّا",
         "translit": null,
         "meaning": null,
         "root": null
@@ -3031,12 +3031,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "اِنّٓا اَرْسَلْنَا نُوحاً اِلٰى قَوْمِهٓ اَنْ اَنْذِرْ قَوْمَكَ مِنْ قَبْلِ اَنْ يَأْتِيَهُمْ عَذَابٌ اَلِيمٌ",
+      "firstAyahArabic": "اِنَّا اَرْسَلْنَا نُوحاً اِلٰى قَوْمِهِ اَنْ اَنْذِرْ قَوْمَكَ مِنْ قَبْلِ اَنْ يَأْتِيَهُمْ عَذَابٌ اَلِيمٌ",
       "lastAyahArabic": "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَنْ دَخَلَ بَيْتِيَ مُؤْمِناً وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِۜ وَلَا تَزِدِ الظَّالِمِينَ اِلَّا تَبَاراً",
       "firstAyahTr": "Kendilerine yakıcı bir azap gelmeden önce kavmini uyar, diye Nuh'u kendi kavmine gönderdik.",
       "lastAyahTr": "\"Rabbim! Beni, ana-babamı, iman etmiş olarak evime girenleri, iman eden erkekleri ve iman eden kadınları bağışla, zalimlerin de ancak helakini arttır.\"",
       "firstAyah": {
-        "ar": "اِنّٓا اَرْسَلْنَا نُوحاً اِلٰى قَوْمِهٓ اَنْ اَنْذِرْ قَوْمَكَ مِنْ قَبْلِ اَنْ يَأْتِيَهُمْ عَذَابٌ اَلِيمٌ",
+        "ar": "اِنَّا اَرْسَلْنَا نُوحاً اِلٰى قَوْمِهِ اَنْ اَنْذِرْ قَوْمَكَ مِنْ قَبْلِ اَنْ يَأْتِيَهُمْ عَذَابٌ اَلِيمٌ",
         "tr": "Kendilerine yakıcı bir azap gelmeden önce kavmini uyar, diye Nuh'u kendi kavmine gönderdik.",
         "en": "Indeed, We sent Noah to his people, [saying], \"Warn your people before there comes to them a painful punishment"
       },
@@ -3074,12 +3074,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "قُلْ اُو۫حِيَ اِلَيَّ اَنَّهُ اسْتَمَعَ نَفَرٌ مِنَ الْجِنِّ فَقَالٓوا اِنَّا سَمِعْنَا قُرْاٰناً عَجَباًۙ",
+      "firstAyahArabic": "قُلْ اُو۫حِيَ اِلَيَّ اَنَّهُ اسْتَمَعَ نَفَرٌ مِنَ الْجِنِّ فَقَالُوا اِنَّا سَمِعْنَا قُرْاٰناً عَجَباًۙ",
       "lastAyahArabic": "لِيَعْلَمَ اَنْ قَدْ اَبْلَغُوا رِسَالَاتِ رَبِّهِمْ وَاَحَاطَ بِمَا لَدَيْهِمْ وَاَحْصٰى كُلَّ شَيْءٍ عَدَداً",
       "firstAyahTr": "(Resulüm!) De ki: Cinlerden bir topluluğun (benim okuduğum Kur'an'ı) dinleyip de şöyle söyledikleri bana vahyolunmuştur: Gerçekten biz, harikulade güzel bir Kur'an dinledik.",
       "lastAyahTr": "Ki böylece onların (peygamberlerin), Rablerinin gönderdiklerini hakkıyla tebliğ ettiklerini bilsin. (Allah) onların nezdinde olup bitenleri çepeçevre kuşatmış ve her şeyi bir bir saymıştır (kaydetmiştir).",
       "firstAyah": {
-        "ar": "قُلْ اُو۫حِيَ اِلَيَّ اَنَّهُ اسْتَمَعَ نَفَرٌ مِنَ الْجِنِّ فَقَالٓوا اِنَّا سَمِعْنَا قُرْاٰناً عَجَباًۙ",
+        "ar": "قُلْ اُو۫حِيَ اِلَيَّ اَنَّهُ اسْتَمَعَ نَفَرٌ مِنَ الْجِنِّ فَقَالُوا اِنَّا سَمِعْنَا قُرْاٰناً عَجَباًۙ",
         "tr": "(Resulüm!) De ki: Cinlerden bir topluluğun (benim okuduğum Kur'an'ı) dinleyip de şöyle söyledikleri bana vahyolunmuştur: Gerçekten biz, harikulade güzel bir Kur'an dinledik.",
         "en": "Say, [O Muhammad], \"It has been revealed to me that a group of the jinn listened and said, 'Indeed, we have heard an amazing Qur'an"
       },
@@ -3117,17 +3117,17 @@
       "hasMukattaa": false,
       "hasOath": false,
       "note": "'Yâ eyyuhe'l-müzzemmil' — Peygamber'e vocative çağrı. İmperative (emir) değil nidâ yapısı.",
-      "firstAyahArabic": "يٓا اَيُّهَا الْمُزَّمِّلُۙ",
-      "lastAyahArabic": "اِنَّ رَبَّكَ يَعْلَمُ اَنَّكَ تَقُومُ اَدْنٰى مِنْ ثُلُثَيِ الَّيْلِ وَنِصْفَهُ وَثُلُثَهُ وَطٓائِفَةٌ مِنَ الَّذِينَ مَعَكَۜ وَاللّٰهُ يُقَدِّرُ الَّيْلَ وَالنَّهَارَۜ عَلِمَ اَنْ لَنْ تُحْصُوهُ فَتَابَ عَلَيْكُمْ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنَ الْقُرْاٰنِۜ عَلِمَ اَنْ سَيَكُونُ مِنْكُمْ مَرْضٰىۙ وَاٰخَرُونَ يَضْرِبُونَ فِي الْاَرْضِ يَبْتَغُونَ مِنْ فَضْلِ اللّٰهِۙ وَاٰخَرُونَ يُقَاتِلُونَ فِي سَبِيلِ اللّٰهِۘ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنْهُۙ وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاَقْرِضُوا اللّٰهَ قَرْضاً حَسَناًۜ وَمَا تُقَدِّمُوا لِاَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللّٰهِ هُوَ خَيْراً وَاَعْظَمَ اَجْراًۜ وَاسْتَغْفِرُوا اللّٰهَۜ  اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
+      "firstAyahArabic": "يَا اَيُّهَا الْمُزَّمِّلُۙ",
+      "lastAyahArabic": "اِنَّ رَبَّكَ يَعْلَمُ اَنَّكَ تَقُومُ اَدْنٰى مِنْ ثُلُثَيِ الَّيْلِ وَنِصْفَهُ وَثُلُثَهُ وَطَائِفَةٌ مِنَ الَّذِينَ مَعَكَۜ وَاللّٰهُ يُقَدِّرُ الَّيْلَ وَالنَّهَارَۜ عَلِمَ اَنْ لَنْ تُحْصُوهُ فَتَابَ عَلَيْكُمْ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنَ الْقُرْاٰنِۜ عَلِمَ اَنْ سَيَكُونُ مِنْكُمْ مَرْضٰىۙ وَاٰخَرُونَ يَضْرِبُونَ فِي الْاَرْضِ يَبْتَغُونَ مِنْ فَضْلِ اللّٰهِۙ وَاٰخَرُونَ يُقَاتِلُونَ فِي سَبِيلِ اللّٰهِۘ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنْهُۙ وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاَقْرِضُوا اللّٰهَ قَرْضاً حَسَناًۜ وَمَا تُقَدِّمُوا لِاَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللّٰهِ هُوَ خَيْراً وَاَعْظَمَ اَجْراًۜ وَاسْتَغْفِرُوا اللّٰهَۜ  اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
       "firstAyahTr": "Ey örtünüp bürünen (Resulüm)!",
       "lastAyahTr": "(Resulüm!) Senin, gecenin üçte ikisine yakın kısmını, (bazen) yarısını, (bazen de) üçte birini yatmadan (ibadetle) geçirdiğini ve beraberinde bulunanlardan bir topluluğun da (böyle yaptığını) Rabbin elbette biliyor. Gece ve gündüzü (içinde olup bitenleri iyiden iyiye) ölçüp biçen ancak Allah'tır. O sizin, bunu sayamayacağınızı bildiği için, sizi bağışladı. Artık, Kur'an'dan kolayınıza geleni okuyun. Allah bilmektedir ki, içinizde hastalar bulunacak, bir kısmınız Allah'ın lütfundan (rızık) aramaküzere yeryüzünde yol tepecekler, diğer bir kısmınız da Allah yolunda çarpışacaklardır. O halde Kur'an'dan kolayınıza geleni okuyun. Namazı kılın, zekatı verin, Allah'a gönül hoşluğuyla ödünç verin. Kendiniz için önden (dünyada iken) ne iyilik hazırlarsanız Allah katında onu bulursunuz; hem de daha üstün ve mükafatça daha büyük olmak üzere. Allah'tan mağfiret dileyin, şüphesiz Allah çok bağışlayıcı, çok esirgeyicidir.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا الْمُزَّمِّلُۙ",
+        "ar": "يَا اَيُّهَا الْمُزَّمِّلُۙ",
         "tr": "Ey örtünüp bürünen (Resulüm)!",
         "en": "O you who wraps himself [in clothing]"
       },
       "lastAyah": {
-        "ar": "اِنَّ رَبَّكَ يَعْلَمُ اَنَّكَ تَقُومُ اَدْنٰى مِنْ ثُلُثَيِ الَّيْلِ وَنِصْفَهُ وَثُلُثَهُ وَطٓائِفَةٌ مِنَ الَّذِينَ مَعَكَۜ وَاللّٰهُ يُقَدِّرُ الَّيْلَ وَالنَّهَارَۜ عَلِمَ اَنْ لَنْ تُحْصُوهُ فَتَابَ عَلَيْكُمْ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنَ الْقُرْاٰنِۜ عَلِمَ اَنْ سَيَكُونُ مِنْكُمْ مَرْضٰىۙ وَاٰخَرُونَ يَضْرِبُونَ فِي الْاَرْضِ يَبْتَغُونَ مِنْ فَضْلِ اللّٰهِۙ وَاٰخَرُونَ يُقَاتِلُونَ فِي سَبِيلِ اللّٰهِۘ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنْهُۙ وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاَقْرِضُوا اللّٰهَ قَرْضاً حَسَناًۜ وَمَا تُقَدِّمُوا لِاَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللّٰهِ هُوَ خَيْراً وَاَعْظَمَ اَجْراًۜ وَاسْتَغْفِرُوا اللّٰهَۜ  اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
+        "ar": "اِنَّ رَبَّكَ يَعْلَمُ اَنَّكَ تَقُومُ اَدْنٰى مِنْ ثُلُثَيِ الَّيْلِ وَنِصْفَهُ وَثُلُثَهُ وَطَائِفَةٌ مِنَ الَّذِينَ مَعَكَۜ وَاللّٰهُ يُقَدِّرُ الَّيْلَ وَالنَّهَارَۜ عَلِمَ اَنْ لَنْ تُحْصُوهُ فَتَابَ عَلَيْكُمْ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنَ الْقُرْاٰنِۜ عَلِمَ اَنْ سَيَكُونُ مِنْكُمْ مَرْضٰىۙ وَاٰخَرُونَ يَضْرِبُونَ فِي الْاَرْضِ يَبْتَغُونَ مِنْ فَضْلِ اللّٰهِۙ وَاٰخَرُونَ يُقَاتِلُونَ فِي سَبِيلِ اللّٰهِۘ فَاقْرَؤُ۫ا مَا تَيَسَّرَ مِنْهُۙ وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَاَقْرِضُوا اللّٰهَ قَرْضاً حَسَناًۜ وَمَا تُقَدِّمُوا لِاَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللّٰهِ هُوَ خَيْراً وَاَعْظَمَ اَجْراًۜ وَاسْتَغْفِرُوا اللّٰهَۜ  اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
         "tr": "(Resulüm!) Senin, gecenin üçte ikisine yakın kısmını, (bazen) yarısını, (bazen de) üçte birini yatmadan (ibadetle) geçirdiğini ve beraberinde bulunanlardan bir topluluğun da (böyle yaptığını) Rabbin elbette biliyor. Gece ve gündüzü (içinde olup bitenleri iyiden iyiye) ölçüp biçen ancak Allah'tır. O sizin, bunu sayamayacağınızı bildiği için, sizi bağışladı. Artık, Kur'an'dan kolayınıza geleni okuyun. Allah bilmektedir ki, içinizde hastalar bulunacak, bir kısmınız Allah'ın lütfundan (rızık) aramaküzere yeryüzünde yol tepecekler, diğer bir kısmınız da Allah yolunda çarpışacaklardır. O halde Kur'an'dan kolayınıza geleni okuyun. Namazı kılın, zekatı verin, Allah'a gönül hoşluğuyla ödünç verin. Kendiniz için önden (dünyada iken) ne iyilik hazırlarsanız Allah katında onu bulursunuz; hem de daha üstün ve mükafatça daha büyük olmak üzere. Allah'tan mağfiret dileyin, şüphesiz Allah çok bağışlayıcı, çok esirgeyicidir.",
         "en": "Indeed, your Lord knows, [O Muhammad], that you stand [in prayer] almost two thirds of the night or half of it or a third of it, and [so do] a group of those with you. And Allah determines [the extent of] the night and the day. He has known that you [Muslims] will not be able to do it and has turned to you in forgiveness, so recite what is easy [for you] of the Qur'an. He has known that there will be among you those who are ill and others traveling throughout the land seeking [something] of the bounty of Allah and others fighting for the cause of Allah. So recite what is easy from it and establish prayer and give zakah and loan Allah a goodly loan. And whatever good you put forward for yourselves - you will find it with Allah. It is better and greater in reward. And seek forgiveness of Allah. Indeed, Allah is Forgiving and Merciful"
       }
@@ -3160,17 +3160,17 @@
       "hasMukattaa": false,
       "hasOath": false,
       "note": "'Yâ eyyuhe'l-müddessir' — Peygamber'e vocative çağrı. 73 Müzzemmil ile paralel yapı.",
-      "firstAyahArabic": "يٓا اَيُّهَا الْمُدَّثِّرُۙ",
-      "lastAyahArabic": "وَمَا يَذْكُرُونَ اِلّٓا اَنْ يَشٓاءَ اللّٰهُۜ  هُوَ اَهْلُ التَّقْوٰى وَاَهْلُ الْمَغْفِرَةِ",
+      "firstAyahArabic": "يَا اَيُّهَا الْمُدَّثِّرُۙ",
+      "lastAyahArabic": "وَمَا يَذْكُرُونَ اِلَّا اَنْ يَشَاءَ اللّٰهُۜ  هُوَ اَهْلُ التَّقْوٰى وَاَهْلُ الْمَغْفِرَةِ",
       "firstAyahTr": "Ey bürünüp sarınan (Resulüm)!",
       "lastAyahTr": "Bununla beraber, Allah dilemeksizin onlar öğüt alamazlar. Sakınılmaya layık olan da O'dur, mağfiret sahibi de O'dur.",
       "firstAyah": {
-        "ar": "يٓا اَيُّهَا الْمُدَّثِّرُۙ",
+        "ar": "يَا اَيُّهَا الْمُدَّثِّرُۙ",
         "tr": "Ey bürünüp sarınan (Resulüm)!",
         "en": "O you who covers himself [with a garment]"
       },
       "lastAyah": {
-        "ar": "وَمَا يَذْكُرُونَ اِلّٓا اَنْ يَشٓاءَ اللّٰهُۜ  هُوَ اَهْلُ التَّقْوٰى وَاَهْلُ الْمَغْفِرَةِ",
+        "ar": "وَمَا يَذْكُرُونَ اِلَّا اَنْ يَشَاءَ اللّٰهُۜ  هُوَ اَهْلُ التَّقْوٰى وَاَهْلُ الْمَغْفِرَةِ",
         "tr": "Bununla beraber, Allah dilemeksizin onlar öğüt alamazlar. Sakınılmaya layık olan da O'dur, mağfiret sahibi de O'dur.",
         "en": "And they will not remember except that Allah wills. He is worthy of fear and adequate for [granting] forgiveness"
       }
@@ -3204,12 +3204,12 @@
       "hasMukattaa": false,
       "hasOath": true,
       "note": "'Lâ uqsimu' formu klasik tefsir tartışmasında olumsuzlama değil tekit yemin olarak okunur (İbn Kayyim, et-Tibyân fî Aksâmi'l-Kur'ân).",
-      "firstAyahArabic": "لٓا اُقْسِمُ بِيَوْمِ الْقِيٰمَةِۙ",
+      "firstAyahArabic": "لَا اُقْسِمُ بِيَوْمِ الْقِيٰمَةِۙ",
       "lastAyahArabic": "اَلَيْسَ ذٰلِكَ بِقَادِرٍ عَلٰٓى اَنْ يُحْيِيَ الْمَوْتٰى",
       "firstAyahTr": "Kıyamet gününe yemin ederim.",
       "lastAyahTr": "Peki (bunları yapan) Allah'ın, ölüleri tekrar diriltmeye gücü yetmez mi?",
       "firstAyah": {
-        "ar": "لٓا اُقْسِمُ بِيَوْمِ الْقِيٰمَةِۙ",
+        "ar": "لَا اُقْسِمُ بِيَوْمِ الْقِيٰمَةِۙ",
         "tr": "Kıyamet gününe yemin ederim.",
         "en": "I swear by the Day of Resurrection"
       },
@@ -3247,7 +3247,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "هَلْ اَتٰى عَلَى الْاِنْسَانِ حِينٌ مِنَ الدَّهْرِ لَمْ يَكُنْ شَيْـٔاً مَذْكُوراً",
-      "lastAyahArabic": "يُدْخِلُ مَنْ يَشٓاءُ فِي رَحْمَتِهِۜ وَالظَّالِمِينَ اَعَدَّ لَهُمْ عَذَاباً اَلِيماً",
+      "lastAyahArabic": "يُدْخِلُ مَنْ يَشَاءُ فِي رَحْمَتِهِۜ وَالظَّالِمِينَ اَعَدَّ لَهُمْ عَذَاباً اَلِيماً",
       "firstAyahTr": "İnsanın üzerinden, henüz kendisinin anılan bir şey olmadığı uzun bir süre geçmedi mi?",
       "lastAyahTr": "O, dilediğini rahmetine dahil eder. Zalimlere gelince, onlar için elem verici bir azap hazırlamıştır.",
       "firstAyah": {
@@ -3256,7 +3256,7 @@
         "en": "Has there [not] come upon man a period of time when he was not a thing [even] mentioned"
       },
       "lastAyah": {
-        "ar": "يُدْخِلُ مَنْ يَشٓاءُ فِي رَحْمَتِهِۜ وَالظَّالِمِينَ اَعَدَّ لَهُمْ عَذَاباً اَلِيماً",
+        "ar": "يُدْخِلُ مَنْ يَشَاءُ فِي رَحْمَتِهِۜ وَالظَّالِمِينَ اَعَدَّ لَهُمْ عَذَاباً اَلِيماً",
         "tr": "O, dilediğini rahmetine dahil eder. Zalimlere gelince, onlar için elem verici bir azap hazırlamıştır.",
         "en": "He admits whom He wills into His mercy; but the wrongdoers - He has prepared for them a painful punishment"
       }
@@ -3331,7 +3331,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "عَمَّ يَتَسٓاءَلُونَۚ",
-      "lastAyahArabic": "اِنّٓا اَنْذَرْنَا‌كُمْ عَذَاباً قَرِيباًۚ يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْـكَافِرُ يَا لَيْتَنِي كُنْتُ تُرَاباً",
+      "lastAyahArabic": "اِنَّا اَنْذَرْنَا‌كُمْ عَذَاباً قَرِيباًۚ يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْـكَافِرُ يَا لَيْتَنِي كُنْتُ تُرَاباً",
       "firstAyahTr": "Birbirlerine neyi soruyorlar?",
       "lastAyahTr": "Biz, yakın bir azap ile sizi uyardık. O gün kişi önceden yaptıklarına bakacak ve inkarcı kişi: \"Keşke toprak olsaydım!\" diyecektir.",
       "firstAyah": {
@@ -3340,7 +3340,7 @@
         "en": "About what are they asking one another"
       },
       "lastAyah": {
-        "ar": "اِنّٓا اَنْذَرْنَا‌كُمْ عَذَاباً قَرِيباًۚ يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْـكَافِرُ يَا لَيْتَنِي كُنْتُ تُرَاباً",
+        "ar": "اِنَّا اَنْذَرْنَا‌كُمْ عَذَاباً قَرِيباًۚ يَوْمَ يَنْظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْـكَافِرُ يَا لَيْتَنِي كُنْتُ تُرَاباً",
         "tr": "Biz, yakın bir azap ile sizi uyardık. O gün kişi önceden yaptıklarına bakacak ve inkarcı kişi: \"Keşke toprak olsaydım!\" diyecektir.",
         "en": "Indeed, We have warned you of a near punishment on the Day when a man will observe what his hands have put forth and the disbeliever will say, \"Oh, I wish that I were dust"
       }
@@ -3373,7 +3373,7 @@
       "hasMukattaa": false,
       "hasOath": true,
       "firstAyahArabic": "وَالنَّازِعَاتِ غَرْقاًۙ",
-      "lastAyahArabic": "كَاَنَّهُمْ يَوْمَ يَرَوْنَهَا لَمْ يَلْبَثٓوا اِلَّا عَشِيَّةً اَوْ ضُحٰيهَا",
+      "lastAyahArabic": "كَاَنَّهُمْ يَوْمَ يَرَوْنَهَا لَمْ يَلْبَثُوا اِلَّا عَشِيَّةً اَوْ ضُحٰيهَا",
       "firstAyahTr": "Söküp çıkaranlara, andolsun;",
       "lastAyahTr": "Kıyamet gününü gördüklerinde (dünyada) sadece bir akşam vakti ya da kuşluk zamanı kadar kaldıklarını sanırlar.",
       "firstAyah": {
@@ -3382,7 +3382,7 @@
         "en": "By those [angels] who extract with violence"
       },
       "lastAyah": {
-        "ar": "كَاَنَّهُمْ يَوْمَ يَرَوْنَهَا لَمْ يَلْبَثٓوا اِلَّا عَشِيَّةً اَوْ ضُحٰيهَا",
+        "ar": "كَاَنَّهُمْ يَوْمَ يَرَوْنَهَا لَمْ يَلْبَثُوا اِلَّا عَشِيَّةً اَوْ ضُحٰيهَا",
         "tr": "Kıyamet gününü gördüklerinde (dünyada) sadece bir akşam vakti ya da kuşluk zamanı kadar kaldıklarını sanırlar.",
         "en": "It will be, on the Day they see it, as though they had not remained [in the world] except for an afternoon or a morning thereof"
       }
@@ -3457,7 +3457,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "اِذَا الشَّمْسُ كُـوِّرَتْۙۖ",
-      "lastAyahArabic": "وَمَا تَشٓاؤُ۫نَ اِلّٓا اَنْ يَشٓاءَ اللّٰهُ رَبُّ الْعَالَمِينَ",
+      "lastAyahArabic": "وَمَا تَشٓاؤُ۫نَ اِلَّا اَنْ يَشَاءَ اللّٰهُ رَبُّ الْعَالَمِينَ",
       "firstAyahTr": "Güneş katlanıp dürüldüğünde,",
       "lastAyahTr": "Alemlerin Rabbi Allah dilemedikçe siz dileyemezsiniz.",
       "firstAyah": {
@@ -3466,7 +3466,7 @@
         "en": "When the sun is wrapped up [in darkness]"
       },
       "lastAyah": {
-        "ar": "وَمَا تَشٓاؤُ۫نَ اِلّٓا اَنْ يَشٓاءَ اللّٰهُ رَبُّ الْعَالَمِينَ",
+        "ar": "وَمَا تَشٓاؤُ۫نَ اِلَّا اَنْ يَشَاءَ اللّٰهُ رَبُّ الْعَالَمِينَ",
         "tr": "Alemlerin Rabbi Allah dilemedikçe siz dileyemezsiniz.",
         "en": "And you do not will except that Allah wills - Lord of the worlds"
       }
@@ -3498,12 +3498,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "اِذَا السَّمٓاءُ انْفَطَرَتْۙ",
+      "firstAyahArabic": "اِذَا السَّمَاءُ انْفَطَرَتْۙ",
       "lastAyahArabic": "يَوْمَ لَا تَمْلِكُ نَفْسٌ لِنَفْسٍ شَيْـٔاًۜ وَالْاَمْرُ يَوْمَئِذٍ لِلّٰهِ",
       "firstAyahTr": "Gökyüzü yarıldığı zaman,",
       "lastAyahTr": "O gün hiçbir kimse başkası için bir şey yapamaz. O gün iş Allah'a kalmıştır.",
       "firstAyah": {
-        "ar": "اِذَا السَّمٓاءُ انْفَطَرَتْۙ",
+        "ar": "اِذَا السَّمَاءُ انْفَطَرَتْۙ",
         "tr": "Gökyüzü yarıldığı zaman,",
         "en": "When the sky breaks apart"
       },
@@ -3582,12 +3582,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "اِذَا السَّمٓاءُ انْشَقَّتْۙ",
+      "firstAyahArabic": "اِذَا السَّمَاءُ انْشَقَّتْۙ",
       "lastAyahArabic": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ لَهُمْ اَجْرٌ غَيْرُ مَمْنُونٍ",
       "firstAyahTr": "Gök yarıldığı,",
       "lastAyahTr": "İman edip salih amel işleyenler başkadır; onlar için arkası kesilmeyen bir mükafat vardır.",
       "firstAyah": {
-        "ar": "اِذَا السَّمٓاءُ انْشَقَّتْۙ",
+        "ar": "اِذَا السَّمَاءُ انْشَقَّتْۙ",
         "tr": "Gök yarıldığı,",
         "en": "When the sky has split [open]"
       },
@@ -3625,12 +3625,12 @@
       "hasMukattaa": false,
       "hasOath": true,
       "note": "Açılış tam ayet: 'wa's-samā'i dhāti'l-burūc' — ilk kelime 'wa's-samā''.",
-      "firstAyahArabic": "وَالسَّمٓاءِ ذَاتِ الْبُرُوجِۙ",
+      "firstAyahArabic": "وَالسَّمَاءِ ذَاتِ الْبُرُوجِۙ",
       "lastAyahArabic": "فِي لَوْحٍ مَحْفُوظٍ",
       "firstAyahTr": "Burçlara sahip gökyüzüne,",
       "lastAyahTr": "Levh-i Mahfuz'dadır.",
       "firstAyah": {
-        "ar": "وَالسَّمٓاءِ ذَاتِ الْبُرُوجِۙ",
+        "ar": "وَالسَّمَاءِ ذَاتِ الْبُرُوجِۙ",
         "tr": "Burçlara sahip gökyüzüne,",
         "en": "By the sky containing great stars"
       },
@@ -3668,12 +3668,12 @@
       "hasMukattaa": false,
       "hasOath": true,
       "note": "Açılış tam ayet: 'wa's-samā'i wa'ṭ-ṭāriq' — 85 Burûc ile paralel ilk kelime.",
-      "firstAyahArabic": "وَالسَّمٓاءِ وَالطَّارِقِۙ",
+      "firstAyahArabic": "وَالسَّمَاءِ وَالطَّارِقِۙ",
       "lastAyahArabic": "فَمَهِّلِ الْـكَافِرِينَ اَمْهِلْهُمْ رُوَيْداً",
       "firstAyahTr": "Gökyüzüne ve tarıka (sabah yıldızına) yemin ederim.",
       "lastAyahTr": "Onun için Kafirlere mühlet ver, onları biraz kendi hallerine bırak (pek yakında desteğimiz sana gelecek).",
       "firstAyah": {
-        "ar": "وَالسَّمٓاءِ وَالطَّارِقِۙ",
+        "ar": "وَالسَّمَاءِ وَالطَّارِقِۙ",
         "tr": "Gökyüzüne ve tarıka (sabah yıldızına) yemin ederim.",
         "en": "By the sky and the night comer"
       },
@@ -3838,12 +3838,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": true,
-      "firstAyahArabic": "لٓا اُقْسِمُ بِهٰذَا الْبَلَدِۙ",
+      "firstAyahArabic": "لَا اُقْسِمُ بِهٰذَا الْبَلَدِۙ",
       "lastAyahArabic": "عَلَيْهِمْ نَارٌ مُؤْصَدَةٌ",
       "firstAyahTr": "Andolsun bu beldeye,",
       "lastAyahTr": "Cezaları, kapıları üzerlerine sımsıkı kapatılmış bir ateştir.",
       "firstAyah": {
-        "ar": "لٓا اُقْسِمُ بِهٰذَا الْبَلَدِۙ",
+        "ar": "لَا اُقْسِمُ بِهٰذَا الْبَلَدِۙ",
         "tr": "Andolsun bu beldeye,",
         "en": "I swear by this city, Makkah"
       },
@@ -4136,12 +4136,12 @@
       "hasMukattaa": false,
       "hasOath": false,
       "note": "'İnnâ enzelnâhu fî leyleti'l-kadr' ile açılır — tekit partikülü 'innâ' ile Kadir Gecesi'ne atıf.",
-      "firstAyahArabic": "اِنّٓا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِۚ",
+      "firstAyahArabic": "اِنَّا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِۚ",
       "lastAyahArabic": "سَلَامٌ۠ۛ هِيَ حَتّٰى مَطْلَعِ الْفَجْرِ",
       "firstAyahTr": "Biz onu (Kur'an'ı) Kadir gecesinde indirdik.",
       "lastAyahTr": "O gece, esenlik doludur. Ta fecrin doğuşuna kadar.",
       "firstAyah": {
-        "ar": "اِنّٓا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِۚ",
+        "ar": "اِنَّا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِۚ",
         "tr": "Biz onu (Kur'an'ı) Kadir gecesinde indirdik.",
         "en": "Indeed, We sent the Qur'an down during the Night of Decree"
       },
@@ -4179,7 +4179,7 @@
       "hasMukattaa": false,
       "hasOath": false,
       "firstAyahArabic": "لَمْ يَكُنِ الَّذِينَ كَفَرُوا مِنْ اَهْلِ الْـكِتَابِ وَالْمُشْرِكِينَ مُنْفَكِّينَ حَتّٰى تَأْتِيَهُمُ الْبَيِّنَةُۙ",
-      "lastAyahArabic": "جَزٓاؤُ۬هُمْ عِنْدَ رَبِّهِمْ جَنَّاتُ عَدْنٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهٓا اَبَداًۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ ذٰلِكَ لِمَنْ خَشِيَ رَبَّهُ",
+      "lastAyahArabic": "جَزٓاؤُ۬هُمْ عِنْدَ رَبِّهِمْ جَنَّاتُ عَدْنٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَا اَبَداًۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ ذٰلِكَ لِمَنْ خَشِيَ رَبَّهُ",
       "firstAyahTr": "Apaçık delil kendilerine gelinceye kadar ehl-i kitaptan ve müşriklerden inkarcılar (küfürden) ayrılacak değillerdi.",
       "lastAyahTr": "Onların Rableri katındaki mükafatları, zemininden ırmaklar akan, içinde devamlı olarak kalacakları Adn cennetleridir. Allah kendilerinden hoşnut olmuş, onlar da Allah'tan hoşnut olmuşlardır. Bu söylenenler hep Rabbinden korkan (O'na saygı gösterenler) içindir.",
       "firstAyah": {
@@ -4188,7 +4188,7 @@
         "en": "Those who disbelieved among the People of the Scripture and the polytheists were not to be parted [from misbelief] until there came to them clear evidence"
       },
       "lastAyah": {
-        "ar": "جَزٓاؤُ۬هُمْ عِنْدَ رَبِّهِمْ جَنَّاتُ عَدْنٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهٓا اَبَداًۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ ذٰلِكَ لِمَنْ خَشِيَ رَبَّهُ",
+        "ar": "جَزٓاؤُ۬هُمْ عِنْدَ رَبِّهِمْ جَنَّاتُ عَدْنٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَا اَبَداًۜ رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُۜ ذٰلِكَ لِمَنْ خَشِيَ رَبَّهُ",
         "tr": "Onların Rableri katındaki mükafatları, zemininden ırmaklar akan, içinde devamlı olarak kalacakları Adn cennetleridir. Allah kendilerinden hoşnut olmuş, onlar da Allah'tan hoşnut olmuşlardır. Bu söylenenler hep Rabbinden korkan (O'na saygı gösterenler) içindir.",
         "en": "Their reward with Allah will be gardens of perpetual residence beneath which rivers flow, wherein they will abide forever, Allah being pleased with them and they with Him. That is for whoever has feared his Lord"
       }
@@ -4600,12 +4600,12 @@
       "hasMukattaa": false,
       "hasOath": false,
       "note": "'İnnâ a'taynâke'l-kevser' — Kur'an'ın en kısa sûresi (3 ayet) tekit partikülü 'innâ' ile açılır.",
-      "firstAyahArabic": "اِنّٓا اَعْطَيْنَاكَ الْـكَوْثَرَۜ",
+      "firstAyahArabic": "اِنَّا اَعْطَيْنَاكَ الْـكَوْثَرَۜ",
       "lastAyahArabic": "اِنَّ شَانِئَكَ هُوَ الْاَبْتَرُ",
       "firstAyahTr": "(Resulum!) Kuşkusuz biz sana Kevser'i verdik.",
       "lastAyahTr": "Asıl sonu kesik olan, şüphesiz sana hınç besleyendir.",
       "firstAyah": {
-        "ar": "اِنّٓا اَعْطَيْنَاكَ الْـكَوْثَرَۜ",
+        "ar": "اِنَّا اَعْطَيْنَاكَ الْـكَوْثَرَۜ",
         "tr": "(Resulum!) Kuşkusuz biz sana Kevser'i verdik.",
         "en": "Indeed, We have granted you, [O Muhammad], al-Kawthar"
       },
@@ -4643,12 +4643,12 @@
       "closerTags": [],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "قُلْ يٓا اَيُّهَا الْـكَافِرُونَۙ",
+      "firstAyahArabic": "قُلْ يَا اَيُّهَا الْـكَافِرُونَۙ",
       "lastAyahArabic": "لَـكُمْ دِينُكُمْ وَلِيَ دِينِ",
       "firstAyahTr": "Ey Muhammed! De ki: \"Ey kafirler!",
       "lastAyahTr": "\"Sizin dininiz size, benim dinim banadır.\"",
       "firstAyah": {
-        "ar": "قُلْ يٓا اَيُّهَا الْـكَافِرُونَۙ",
+        "ar": "قُلْ يَا اَيُّهَا الْـكَافِرُونَۙ",
         "tr": "Ey Muhammed! De ki: \"Ey kafirler!",
         "en": "Say, \"O disbelievers"
       },
@@ -4687,12 +4687,12 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "اِذَا جٓاءَ نَصْرُ اللّٰهِ وَالْفَتْحُۙ",
+      "firstAyahArabic": "اِذَا جَاءَ نَصْرُ اللّٰهِ وَالْفَتْحُۙ",
       "lastAyahArabic": "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُۜ  اِنَّهُ  كَانَ تَوَّاباً",
       "firstAyahTr": "Allah'ın yardımı ve zaferi geldiği,",
       "lastAyahTr": "Rabbine hamdederek O'nu tesbih et ve O'ndan mağfiret dile. Çünkü O, tevbeleri çok kabul edendir.",
       "firstAyah": {
-        "ar": "اِذَا جٓاءَ نَصْرُ اللّٰهِ وَالْفَتْحُۙ",
+        "ar": "اِذَا جَاءَ نَصْرُ اللّٰهِ وَالْفَتْحُۙ",
         "tr": "Allah'ın yardımı ve zaferi geldiği,",
         "en": "When the victory of Allah has come and the conquest"
       },
@@ -4729,12 +4729,12 @@
       ],
       "hasMukattaa": false,
       "hasOath": false,
-      "firstAyahArabic": "تَبَّتْ  يَدٓا اَبِي لَهَبٍ وَتَبَّۜ",
+      "firstAyahArabic": "تَبَّتْ  يَدَا اَبِي لَهَبٍ وَتَبَّۜ",
       "lastAyahArabic": "فِي جِيدِهَا حَبْلٌ مِنْ مَسَدٍ",
       "firstAyahTr": "Ebu Leheb'in iki eli kurusun! Kurudu da.",
       "lastAyahTr": "Ve boynunda hurma lifinden bükülmüş bir ip olduğu halde.",
       "firstAyah": {
-        "ar": "تَبَّتْ  يَدٓا اَبِي لَهَبٍ وَتَبَّۜ",
+        "ar": "تَبَّتْ  يَدَا اَبِي لَهَبٍ وَتَبَّۜ",
         "tr": "Ebu Leheb'in iki eli kurusun! Kurudu da.",
         "en": "May the hands of Abu Lahab be ruined, and ruined is he"
       },

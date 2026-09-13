@@ -82,7 +82,7 @@
     {
       "type": "verseInline",
       "ref": "11:91",
-      "ar": "قَالُوا يَا شُعَيْبُ مَا نَفْقَهُ كَثِيراً مِمَّا تَقُولُ وَاِنَّا لَنَرٰيكَ فِينَا ضَعِيفاً وَلَوْلَا رَهْطُكَ لَرَجَمْنَاكَ وَمٓا اَنْتَ عَلَيْنَا بِعَزِيزٍ",
+      "ar": "قَالُوا يَا شُعَيْبُ مَا نَفْقَهُ كَثِيراً مِمَّا تَقُولُ وَاِنَّا لَنَرٰيكَ فِينَا ضَعِيفاً وَلَوْلَا رَهْطُكَ لَرَجَمْنَاكَ وَمَا اَنْتَ عَلَيْنَا بِعَزِيزٍ",
       "noteTr": "“Ey Şuayb, senin söylediklerinin çoğunu biz **kavrayıp anlamıyoruz** (fekaha). Doğrusu biz seni içimizde zayıf biri görüyoruz. Eğer yakın çevren olmasaydı, gerçekten seni taşa tutardık. Sen bize karşı güçlü ve üstün değilsin.”",
       "noteEn": "“O Shuʿayb, we do not **grasp** much of what you say (faqiha). Indeed we see you as weak among us. Were it not for your kin we would have stoned you. You hold no power over us.”"
     },
@@ -112,7 +112,7 @@
     {
       "type": "verseInline",
       "ref": "41:5",
-      "ar": "وَقَالُوا قُلُوبُنَا فِٓي اَكِنَّةٍ مِمَّا تَدْعُونٓا اِلَيْهِ وَفِٓي اٰذَانِنَا وَقْرٌ وَمِنْ بَيْنِنَا وَبَيْنِكَ حِجَابٌ فَاعْمَلْ اِنَّـنَا عَامِلُونَ",
+      "ar": "وَقَالُوا قُلُوبُنَا فِٓي اَكِنَّةٍ مِمَّا تَدْعُونَا اِلَيْهِ وَفِٓي اٰذَانِنَا وَقْرٌ وَمِنْ بَيْنِنَا وَبَيْنِكَ حِجَابٌ فَاعْمَلْ اِنَّـنَا عَامِلُونَ",
       "noteTr": "“Dediler ki: Bizi kendisine çağırdığın şeye karşı kalplerimizde **kabuk** (ekinne), kulaklarımızda bir **ağırlık** (vakra), bizimle senin aranda bir **perde** (hicâb) vardır. Artık sen yap, biz de yapıyoruz.”",
       "noteEn": "“They said: our hearts are under **coverings** (akinna) against what you call us to, in our ears is a **heaviness** (waqr), and between us and you a **veil** (ḥijāb). So act — we too are acting.”"
     },
@@ -200,7 +200,7 @@
     {
       "type": "verseInline",
       "ref": "6:25",
-      "ar": "وَمِنْهُمْ مَنْ يَسْتَمِعُ اِلَيْكَ وَجَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِنْ يَرَوْا كُلَّ اٰيَةٍ لَا يُؤْمِنُوا بِهَا حَتّٰٓى اِذَا جٓاؤُكَ يُجَادِلُونَكَ يَقُولُ الَّذِينَ كَفَرٓوا اِنْ هٰذٓا اِلٓا اَسَاطِيرُ الْاَوَّلِينَ",
+      "ar": "وَمِنْهُمْ مَنْ يَسْتَمِعُ اِلَيْكَ وَجَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِنْ يَرَوْا كُلَّ اٰيَةٍ لَا يُؤْمِنُوا بِهَا حَتّٰٓى اِذَا جَاؤُكَ يُجَادِلُونَكَ يَقُولُ الَّذِينَ كَفَرُوا اِنْ هٰذَا اِلٓا اَسَاطِيرُ الْاَوَّلِينَ",
       "noteTr": "“Onlardan seni dinleyenler vardır; oysa biz, onu kavrayıp anlamalarına engel kalplerinde kabuk ve kulaklarında bir ağırlık kıldık… ‘Bu, öncekilerin uydurma masallarından başka bir şey değildir’ derler.”",
       "noteEn": "“Among them are those who listen to you — yet We placed coverings on their hearts lest they understand it… they say: this is nothing but the legends of the ancients.”"
     },
@@ -261,14 +261,14 @@
     {
       "type": "verseInline",
       "ref": "18:56",
-      "ar": "وَمَا نُرْسِلُ الْمُرْسَلِينَ اِلَّا مُبَشِّرِينَ وَمُنْذِرِينَ وَيُجَادِلُ الَّذِينَ كَفَرُوا بِالْبَاطِلِ لِيُدْحِضُوا بِهِ الْحَقَّ وَاتَّخَذٓوا اٰيَاتِي وَمٓا اُنْذِرُوا هُزُواً",
+      "ar": "وَمَا نُرْسِلُ الْمُرْسَلِينَ اِلَّا مُبَشِّرِينَ وَمُنْذِرِينَ وَيُجَادِلُ الَّذِينَ كَفَرُوا بِالْبَاطِلِ لِيُدْحِضُوا بِهِ الْحَقَّ وَاتَّخَذُوا اٰيَاتِي وَمَا اُنْذِرُوا هُزُواً",
       "noteTr": "“Biz elçileri, müjde vericiler ve uyarıcılar olmak dışında göndermeyiz. İnkâr edenler ise, hakkı bâtıl ile çürütmek için **diyalektik** yapıyorlar (cedel). Benim âyetlerimi ve uyarıldıklarını hafife alıyor, alay ediyorlar.”",
       "noteEn": "“We send the messengers only as bearers of glad tidings and warners. Yet those who reject dispute with falsehood to refute the truth, and take My signs and warnings in mockery.”"
     },
     {
       "type": "verseInline",
       "ref": "18:57",
-      "ar": "وَمَنْ اَظْلَمُ مِمَّنْ ذُكِّرَ بِاٰيَاتِ رَبِّهِ فَاَعْرَضَ عَنْهَا وَنَسِيَ مَا قَدَّمَتْ يَدَاهُ اِنَّا جَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِنْ تَدْعُهُمْ اِلَى الْهُدٰى فَلَنْ يَهْتَدٓوا اِذاً اَبَداً",
+      "ar": "وَمَنْ اَظْلَمُ مِمَّنْ ذُكِّرَ بِاٰيَاتِ رَبِّهِ فَاَعْرَضَ عَنْهَا وَنَسِيَ مَا قَدَّمَتْ يَدَاهُ اِنَّا جَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِنْ تَدْعُهُمْ اِلَى الْهُدٰى فَلَنْ يَهْتَدُوا اِذاً اَبَداً",
       "noteTr": "“Kendisine Rabbinin âyetleri hatırlatıldığı zaman sırt çeviren ve ellerinin önden gönderdiklerini unutandan daha zalim kim vardır? Biz gerçekten kalpleri üzerinde onu kavramalarını engelleyen bir kabuk, kulaklarında bir ağırlık kıldık…”",
       "noteEn": "“Who is more unjust than one reminded of his Lord's signs who turns away and forgets what his hands sent forth? We have placed coverings on their hearts lest they understand it, and heaviness in their ears…”"
     },
@@ -285,14 +285,14 @@
     {
       "type": "verseInline",
       "ref": "6:7",
-      "ar": "وَلَوْ نَزَّلْنَا عَلَيْكَ كِتَاباً فِي قِرْطَاسٍ فَلَمَسُوهُ بِاَيْدِيهِمْ لَقَالَ الَّذِينَ كَفَرٓوا اِنْ هٰذٓا اِلَّا سِحْرٌ مُبِينٌ",
+      "ar": "وَلَوْ نَزَّلْنَا عَلَيْكَ كِتَاباً فِي قِرْطَاسٍ فَلَمَسُوهُ بِاَيْدِيهِمْ لَقَالَ الَّذِينَ كَفَرُوا اِنْ هٰذَا اِلَّا سِحْرٌ مُبِينٌ",
       "noteTr": "“Biz kitabı üzerine yazılı bir kâğıtta göndersek ve onlar elleriyle dokunsalar bile, inkâr edenler tartışmasız: ‘Bu apaçık bir büyüden başkası değildir’ derler.”",
       "noteEn": "“Had We sent down to you a book on paper, and had they touched it with their hands, those who reject would still say: this is nothing but plain sorcery.”"
     },
     {
       "type": "verseInline",
       "ref": "6:8",
-      "ar": "وَقَالُوا لَوْلٓا اُنْزِلَ عَلَيْهِ مَلَكٌ وَلَوْ اَنْزَلْنَا مَلَكاً لَقُضِيَ الْاَمْرُ ثُمَّ لَا يُنْظَرُونَ",
+      "ar": "وَقَالُوا لَوْلَا اُنْزِلَ عَلَيْهِ مَلَكٌ وَلَوْ اَنْزَلْنَا مَلَكاً لَقُضِيَ الْاَمْرُ ثُمَّ لَا يُنْظَرُونَ",
       "noteTr": "“Ve derler ki: ‘Ona bir melek indirilmeli değil miydi?’ Eğer bir melek indirilseydi, elbette iş bitirilmiş olurdu da sonra kendilerine göz açtırılmazdı.”",
       "noteEn": "“They say: why was an angel not sent down to him? Had We sent an angel, the matter would have been decided, and they would be given no respite.”"
     },
@@ -464,21 +464,21 @@
     {
       "type": "verseInline",
       "ref": "27:81",
-      "ar": "وَمٓا اَنْتَ بِهَادِي الْعُمْيِ عَنْ ضَلَالَتِهِمْ اِنْ تُسْمِــعُ اِلَّا مَنْ يُؤْمِنُ بِاٰيَاتِنَا فَهُمْ مُسْلِمُونَ",
+      "ar": "وَمَا اَنْتَ بِهَادِي الْعُمْيِ عَنْ ضَلَالَتِهِمْ اِنْ تُسْمِــعُ اِلَّا مَنْ يُؤْمِنُ بِاٰيَاتِنَا فَهُمْ مُسْلِمُونَ",
       "noteTr": "“Yoldan çıkan körleri doğru yola getirecek olan da sen değilsin. Sen ancak âyetlerimize inananlara (**mümin**) duyurabilirsin; ki zaten onlar gönülden teslim olan (**müslim**) kimselerdir.”",
       "noteEn": "“Nor can you guide the blind out of their error. You can make only those hear who believe in Our signs — those who have surrendered.”"
     },
     {
       "type": "verseInline",
       "ref": "30:52",
-      "ar": "فَاِنَّكَ لَا تُسْمِعُ الْمَوْتٰى وَلَا تُسْمِعُ الصُّمَّ الدُّعٓاءَ اِذَا وَلَّوْا مُدْبِرِينَ",
+      "ar": "فَاِنَّكَ لَا تُسْمِعُ الْمَوْتٰى وَلَا تُسْمِعُ الصُّمَّ الدُّعَاءَ اِذَا وَلَّوْا مُدْبِرِينَ",
       "noteTr": "“Elbette sen ölülere asla duyuramazsın; sırtlarını dönüp uzaklaşan sağırlara da.”",
       "noteEn": "“You cannot make the dead hear, nor the deaf hear the call when they turn away in retreat.”"
     },
     {
       "type": "verseInline",
       "ref": "30:53",
-      "ar": "وَمٓا اَنْـتَ بِهَادِ الْعُمْيِ عَنْ ضَلَالَتِهِمْ اِنْ تُسْمِعُ اِلَّا مَنْ يُؤْمِنُ بِاٰيَاتِنَا فَهُمْ مُسْلِمُونَ",
+      "ar": "وَمَا اَنْـتَ بِهَادِ الْعُمْيِ عَنْ ضَلَالَتِهِمْ اِنْ تُسْمِعُ اِلَّا مَنْ يُؤْمِنُ بِاٰيَاتِنَا فَهُمْ مُسْلِمُونَ",
       "noteTr": "“Ve yine, kör olanları sapıklıklarından döndürüp doğru yola iletemezsin. Sen ancak mesajlarımıza inananlara ve kendilerini bize teslim edenlere duyurabilirsin.”",
       "noteEn": "“Nor can you guide the blind out of their error. You can make hear only those who believe in Our signs and have surrendered.”"
     },

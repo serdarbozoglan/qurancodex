@@ -6,7 +6,7 @@
   "anchorVerse": {
     "surah": 66,
     "ayah": 8,
-    "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا تُوبٓوا اِلَى اللّٰهِ تَوْبَةً نَصُوحاً عَسٰى رَبُّكُمْ اَنْ يُكَفِّرَ عَنْكُمْ سَيِّـَٔاتِكُمْ وَيُدْخِلَكُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ يَوْمَ لَا يُخْزِي اللّٰهُ النَّبِيَّ وَالَّذِينَ اٰمَنُوا مَعَهُ نُورُهُمْ يَسْعٰى بَيْنَ اَيْدِيهِمْ وَبِاَيْمَانِهِمْ يَقُولُونَ رَبَّـنٓا اَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
+    "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا تُوبُوا اِلَى اللّٰهِ تَوْبَةً نَصُوحاً عَسٰى رَبُّكُمْ اَنْ يُكَفِّرَ عَنْكُمْ سَيِّـَٔاتِكُمْ وَيُدْخِلَكُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ يَوْمَ لَا يُخْزِي اللّٰهُ النَّبِيَّ وَالَّذِينَ اٰمَنُوا مَعَهُ نُورُهُمْ يَسْعٰى بَيْنَ اَيْدِيهِمْ وَبِاَيْمَانِهِمْ يَقُولُونَ رَبَّـنَا اَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
     "tr": "Ey iman edenler! Allah'a nasûhâ (halis, samimî) bir tevbeyle tevbe edin; umulur ki Rabbiniz kötülüklerinizi örter ve sizi altlarından ırmaklar akan cennetlere koyar.",
     "en": "O you who believe! Turn to Allah in sincere repentance (tawba naṣūḥā); it may be that your Lord will remove from you your evil deeds and admit you to gardens beneath which rivers flow.",
     "refTr": "Tahrîm 66:8",
@@ -467,7 +467,7 @@
     "ayetler": [
       {
         "ref": "Tahrîm 66:8",
-        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا تُوبٓوا اِلَى اللّٰهِ تَوْبَةً نَصُوحاً عَسٰى رَبُّكُمْ اَنْ يُكَفِّرَ عَنْكُمْ سَيِّـَٔاتِكُمْ وَيُدْخِلَكُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ يَوْمَ لَا يُخْزِي اللّٰهُ النَّبِيَّ وَالَّذِينَ اٰمَنُوا مَعَهُ نُورُهُمْ يَسْعٰى بَيْنَ اَيْدِيهِمْ وَبِاَيْمَانِهِمْ يَقُولُونَ رَبَّـنٓا اَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
+        "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا تُوبُوا اِلَى اللّٰهِ تَوْبَةً نَصُوحاً عَسٰى رَبُّكُمْ اَنْ يُكَفِّرَ عَنْكُمْ سَيِّـَٔاتِكُمْ وَيُدْخِلَكُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ يَوْمَ لَا يُخْزِي اللّٰهُ النَّبِيَّ وَالَّذِينَ اٰمَنُوا مَعَهُ نُورُهُمْ يَسْعٰى بَيْنَ اَيْدِيهِمْ وَبِاَيْمَانِهِمْ يَقُولُونَ رَبَّـنَا اَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ",
         "tr": "Ey iman edenler! Allah'a nasûhâ (halis, samimî) bir tevbeyle tevbe edin; umulur ki Rabbiniz kötülüklerinizi örter ve sizi altlarından ırmaklar akan cennetlere koyar.",
         "en": "O you who believe! Turn to Allah in sincere repentance (tawba naṣūḥā); it may be that your Lord will remove from you your evil deeds and admit you to gardens beneath which rivers flow.",
         "not": "Tevbenin anchor ayeti. 'Tevbeten nasûhâ' terkibi Kur'ân'da yalnızca burada geçer. Klasik tefsir 'nasûhâ' kelimesini üç okumada açar: (1) samimî — kulun kendini kandırmadığı; (2) halis — başka niyet karışmayan; (3) geri dönmemek üzere verilmiş — sütün memeye geri dönmediği gibi. Râzî bu üçüncü okumayı ayetin Kur'ânî ağırlığı olarak niteler. Ayet aynı zamanda 'umulur ki' (ʿasâ) sigasıyla kapanır — bu inceliği klasik tefsir vurgular: Allah nasûhâ tevbeyi bile 'garanti kabul' olarak sunmaz; kabul her zaman Allah'ın rahmetine bağlıdır, hak-talep değildir. Aynı ayette 'ırmaklar akan cennetler' ile karşılık verilir — ceza tehdidi değil, ödül vaadi vardır."
@@ -488,14 +488,14 @@
       },
       {
         "ref": "Bakara 2:222",
-        "ar": "وَيَسْـَٔلُونَكَ عَنِ الْمَحِيضِ قُلْ هُوَ اَذًى فَاعْتَزِلُوا النِّسٓاءَ فِي الْمَحِيضِ وَلَا تَقْرَبُوهُنَّ حَتّٰى يَطْهُرْنَ فَاِذَا تَطَهَّرْنَ فَأْتُوهُنَّ مِنْ حَيْثُ اَمَرَكُمُ اللّٰهُ اِنَّ اللّٰهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ",
+        "ar": "وَيَسْـَٔلُونَكَ عَنِ الْمَحِيضِ قُلْ هُوَ اَذًى فَاعْتَزِلُوا النِّسَاءَ فِي الْمَحِيضِ وَلَا تَقْرَبُوهُنَّ حَتّٰى يَطْهُرْنَ فَاِذَا تَطَهَّرْنَ فَأْتُوهُنَّ مِنْ حَيْثُ اَمَرَكُمُ اللّٰهُ اِنَّ اللّٰهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ",
         "tr": "...Muhakkak Allah tevbe edenleri sever, temizlenenleri de sever.",
         "en": "...Indeed Allah loves those who turn to Him in repentance, and He loves those who purify themselves.",
         "not": "Kur'ân'da Allah'ın 'sevdiği' özneleri belirttiği ender ayetlerden biri. Klasik tefsir ayette iki grup arasındaki bağa dikkat çeker: tevbe edenler ve temizlenenler yan yana. Kurtubî sıralamanın manidar olduğunu belirtir: önce tevbe (iç dönüş), sonra temizlenme (dış arınma). Ayet Kur'ân'ın tevbeyi bir 'af-talep' değil, bir 'sevgi ilişkisinin başlangıcı' olarak kurduğunu gösterir. Elmalılı bu ayetin tevbenin karanlık bir suçluluk halinden çıkıp aydınlık bir sevgi ilişkisine geçişi olduğunu vurgular."
       },
       {
         "ref": "Nisa 4:17",
-        "ar": "اِنَّمَا التَّوْبَةُ عَلَى اللّٰهِ لِلَّذِينَ يَعْمَلُونَ السّٓوءَ بِجَهَالَةٍ ثُمَّ يَتُوبُونَ مِنْ قَرِيبٍ فَاُولٰٓئِكَ يَتُوبُ اللّٰهُ عَلَيْهِمْ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
+        "ar": "اِنَّمَا التَّوْبَةُ عَلَى اللّٰهِ لِلَّذِينَ يَعْمَلُونَ السُّوءَ بِجَهَالَةٍ ثُمَّ يَتُوبُونَ مِنْ قَرِيبٍ فَاُولٰٓئِكَ يَتُوبُ اللّٰهُ عَلَيْهِمْ وَكَانَ اللّٰهُ عَلِيماً حَكِيماً",
         "tr": "Allah'ın kabul edeceği tevbe ancak bilmeyerek (cehâlet ile) kötülük yapıp da sonra hemen tevbe edenlerin tevbesidir. İşte Allah bunların tevbesini kabul eder. Allah her şeyi bilendir, hüküm ve hikmet sahibidir.",
         "en": "Allah accepts the repentance of those who do evil in ignorance and then repent soon after. It is these to whom Allah will turn in mercy, for Allah is All-Knowing, All-Wise.",
         "not": "Kabul edilen tevbenin iki niteliği: (1) 'cehâlet ile' (bi-cehâletin) — klasik tefsir bunu 'bilgi yokluğu' değil, 'aklın hakiki hükmünü unutturan âni bir gaflet hali' olarak açar; her günah bu anlamda cehâletle işlenmiştir. (2) 'hemen' (min karîb) — tevbenin ertelenmemesi. Râzî 'min karîb'in iki okumasını tartışır: (a) günahtan hemen sonra; (b) ölümden yeteri kadar önce. Her iki okuma tevbenin 'zaman kaybı' kaldıramayacağını vurgular. Ayet Nisa 4:18 ile bir çift oluşturur: kabul edilenler ↔ edilmeyenler."
@@ -509,7 +509,7 @@
       },
       {
         "ref": "Nûr 24:31",
-        "ar": "وَقُلْ لِلْمُؤْمِنَاتِ يَغْضُضْنَ مِنْ اَبْصَارِهِنَّ وَيَحْفَظْنَ فُرُوجَهُنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ اِلَّا مَا ظَهَرَ مِنْهَا وَلْيَضْرِبْنَ بِخُمُرِهِنَّ عَلٰى جُيُوبِهِنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ اِلَّا لِبُعُولَتِهِنَّ اَوْ اٰبٓائِهِنَّ اَوْ اٰبٓاءِ بُعُولَتِهِنَّ اَوْ اَبْنٓائِهِنَّ اَوْ اَبْنٓاءِ بُعُولَتِهِنَّ اَوْ اِخْوَانِهِنَّ اَوْ بَنِٓي اِخْوَانِهِنَّ اَوْ بَنِٓي اَخَوَاتِهِنَّ اَوْ نِسٓائِهِنَّ اَوْ مَا مَلَكَتْ اَيْمَانُهُنَّ اَوِ التَّابِعِينَ غَيْرِ اُولِي الْاِرْبَةِ مِنَ الرِّجَالِ اَوِ الطِّفْلِ الَّذِينَ لَمْ يَظْهَرُوا عَلٰى عَوْرَاتِ النِّسٓاءِ وَلَا يَضْرِبْنَ بِاَرْجُلِهِنَّ لِيُعْلَمَ مَا يُخْفِينَ مِنْ زِينَتِهِنَّ وَتُوبٓوا اِلَى اللّٰهِ جَمِيعاً اَيُّهَ الْمُؤْمِنُونَ لَعَلَّكُمْ تُفْلِحُونَ",
+        "ar": "وَقُلْ لِلْمُؤْمِنَاتِ يَغْضُضْنَ مِنْ اَبْصَارِهِنَّ وَيَحْفَظْنَ فُرُوجَهُنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ اِلَّا مَا ظَهَرَ مِنْهَا وَلْيَضْرِبْنَ بِخُمُرِهِنَّ عَلٰى جُيُوبِهِنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ اِلَّا لِبُعُولَتِهِنَّ اَوْ اٰبَائِهِنَّ اَوْ اٰبَاءِ بُعُولَتِهِنَّ اَوْ اَبْنَائِهِنَّ اَوْ اَبْنَاءِ بُعُولَتِهِنَّ اَوْ اِخْوَانِهِنَّ اَوْ بَنِٓي اِخْوَانِهِنَّ اَوْ بَنِٓي اَخَوَاتِهِنَّ اَوْ نِسَائِهِنَّ اَوْ مَا مَلَكَتْ اَيْمَانُهُنَّ اَوِ التَّابِعِينَ غَيْرِ اُولِي الْاِرْبَةِ مِنَ الرِّجَالِ اَوِ الطِّفْلِ الَّذِينَ لَمْ يَظْهَرُوا عَلٰى عَوْرَاتِ النِّسَاءِ وَلَا يَضْرِبْنَ بِاَرْجُلِهِنَّ لِيُعْلَمَ مَا يُخْفِينَ مِنْ زِينَتِهِنَّ وَتُوبُوا اِلَى اللّٰهِ جَمِيعاً اَيُّهَ الْمُؤْمِنُونَ لَعَلَّكُمْ تُفْلِحُونَ",
         "tr": "...Ey müminler! Hep birlikte Allah'a tevbe edin; umulur ki felâh (kurtuluş) bulursunuz.",
         "en": "...And turn to Allah all together, O believers, that you may attain success.",
         "not": "Ayetin sonunda tevbe genel müminlere yöneltilir — 'hep birlikte' (cemîʿan). Klasik tefsir bu genelliğe dikkat çeker: tevbe sadece günah işleyenin değil, iman edenin sürekli halidir. Râzî ayetin bağlamının (kadın-erkek adap düzenlemeleri) 'küçük hatalar' zeminine de tevbeyi yaydığını gösterdiğini belirtir. Elmalılı 'felâh' kelimesinin 'yarıp geçme' anlamını taşıdığını, tevbenin bir 'tıkanmışlığı yarıp geçme' pratiği olduğunu vurgular. Kabul edilebilir tevbe (Nisa 4:17) ile sürekli müminî tevbe (Nûr 24:31) arasındaki fark: birincisi bir günah karşısındaki dönüş, ikincisi hayatın sürekli düzeni."
@@ -537,35 +537,35 @@
       },
       {
         "ref": "Hûd 11:3",
-        "ar": "وَاَنِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبٓوا اِلَيْهِ يُمَتِّعْكُمْ مَتَاعاً حَسَناً اِلٰٓى اَجَلٍ مُسَمًّى وَيُؤْتِ كُلَّ ذِي فَضْلٍ فَضْلَهُ وَاِنْ تَوَلَّوْا فَاِنِٓي اَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ كَبِيرٍ",
+        "ar": "وَاَنِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا اِلَيْهِ يُمَتِّعْكُمْ مَتَاعاً حَسَناً اِلٰٓى اَجَلٍ مُسَمًّى وَيُؤْتِ كُلَّ ذِي فَضْلٍ فَضْلَهُ وَاِنْ تَوَلَّوْا فَاِنِّي اَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ كَبِيرٍ",
         "tr": "Rabbinizden mağfiret dileyin, sonra ona tevbe edin ki, belirlenmiş bir süreye kadar sizi güzel bir şekilde yaşatsın...",
         "en": "Seek forgiveness from your Lord, then turn to Him in repentance, that He may grant you enjoyment for an appointed term...",
         "not": "Hûd sûresi peygamber çağrılarının ortak formülünü Hûd 11:3'te açar: istiğfâr + tevbe ikilisi. Hûd 11:52 aynı ikili ile devam eder (Hz. Hûd peygamberin kavmine), 11:61 Hz. Sâlih'in Semûd'a, 11:90 Hz. Şuayb'in Medyen'e çağrısında da aynı formül. Klasik tefsir bu tekrarın Kur'ânî pedagojik yoğunluk olduğunu vurgular: peygamberler kavimlerine tek bir çift fiil öğretir — af dileyin, sonra dönün. Râzî 'istiğfâr önce, tevbe sonra' sıralamasının anlamını tartışır: istiğfâr sözle af talebi, tevbe fiilî dönüş — söz iç kararı hazırlar."
       },
       {
         "ref": "Hûd 11:52",
-        "ar": "وَيَا قَوْمِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبٓوا اِلَيْهِ يُرْسِلِ السَّمٓاءَ عَلَيْكُمْ مِدْرَاراً وَيَزِدْكُمْ قُوَّةً اِلٰى قُوَّتِكُمْ وَلَا تَتَوَلَّوْا مُجْرِمِينَ",
+        "ar": "وَيَا قَوْمِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا اِلَيْهِ يُرْسِلِ السَّمَاءَ عَلَيْكُمْ مِدْرَاراً وَيَزِدْكُمْ قُوَّةً اِلٰى قُوَّتِكُمْ وَلَا تَتَوَلَّوْا مُجْرِمِينَ",
         "tr": "Ey kavmim! Rabbinizden mağfiret dileyin, sonra ona tevbe edin ki üzerinize gökten bol yağmur göndersin ve kuvvetinize kuvvet katsın. Sakın günahkârlar olarak yüz çevirmeyin.",
         "en": "O my people! Seek forgiveness from your Lord, then turn to Him in repentance. He will send heaven's rain upon you in abundance and add strength to your strength. And do not turn away as sinners.",
         "not": "Hz. Hûd peygamberin Âd kavmine çağrısı. Ayet dikkat çekici bir vaad koyar: istiğfâr + tevbe → gökten bol yağmur + kuvvete kuvvet. Klasik tefsir bu vaadin metaforik değil somut olduğunu vurgular: tevbe sadece âhiret kurtuluşu değil, dünya bereketi için de kapıdır. Râzî bu ayetin 'tevbenin kozmik boyutu' olduğunu belirtir — kul döndüğünde tabiat da rahmete döner. Nûh 71:10-12 aynı formülü Hz. Nûh peygamberin ağzından tekrar eder."
       },
       {
         "ref": "Hûd 11:61",
-        "ar": "وَاِلٰى ثَمُودَ اَخَاهُمْ صَالِحاً قَالَ يَا قَوْمِ اعْبُدُوا اللّٰهَ مَا لَكُمْ مِنْ اِلٰهٍ غَيْرُهُ هُوَ اَنْشَاَكُمْ مِنَ الْاَرْضِ وَاسْتَعْمَرَكُمْ فِيهَا فَاسْتَغْفِرُوهُ ثُمَّ تُوبٓوا اِلَيْهِ اِنَّ رَبِّي قَرِيبٌ مُجِيبٌ",
+        "ar": "وَاِلٰى ثَمُودَ اَخَاهُمْ صَالِحاً قَالَ يَا قَوْمِ اعْبُدُوا اللّٰهَ مَا لَكُمْ مِنْ اِلٰهٍ غَيْرُهُ هُوَ اَنْشَاَكُمْ مِنَ الْاَرْضِ وَاسْتَعْمَرَكُمْ فِيهَا فَاسْتَغْفِرُوهُ ثُمَّ تُوبُوا اِلَيْهِ اِنَّ رَبِّي قَرِيبٌ مُجِيبٌ",
         "tr": "...Semûd'a da kardeşleri Sâlih'i gönderdik. 'Ey kavmim! Allah'a kulluk edin. Sizin O'ndan başka ilâhınız yoktur. O sizi topraktan yaratıp orada yerleşmenizi sağladı. O halde ondan mağfiret dileyin, sonra ona tevbe edin. Şüphesiz Rabbim yakındır, duaları kabul edendir.'",
         "en": "...To Thamūd We sent their brother Ṣāliḥ. He said: 'O my people! Worship Allah. You have no god but Him. He brought you forth from the earth and settled you in it. So seek forgiveness from Him, then turn to Him. Indeed my Lord is near, responsive.'",
         "not": "Hz. Sâlih peygamberin Semûd'a çağrısı. Yine aynı formül: istiğfâr + tevbe. Ayetin sonundaki 'Rabbim yakındır, duaları kabul edendir' ifadesi Bakara 2:186'daki 'ben yakınım' ayetiyle rezonans yapar. Klasik tefsir peygamberler zincirinin ortak çağrısının bu iki-fiil formülüne indirgenebileceğini vurgular. Râzî 'karîb' (yakın) sıfatının tevbeyle bağını özellikle işler: Allah'ın yakınlığı, tevbenin motoru olan iç dinamiğidir — uzak bir Tanrı'ya tevbe soğuk kalır, yakın Rabbe tevbe sıcak akar."
       },
       {
         "ref": "Hûd 11:90",
-        "ar": "وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبٓوا اِلَيْهِ اِنَّ رَبِّي رَحِيمٌ وَدُودٌ",
+        "ar": "وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا اِلَيْهِ اِنَّ رَبِّي رَحِيمٌ وَدُودٌ",
         "tr": "Rabbinizden mağfiret dileyin, sonra ona tevbe edin. Şüphesiz Rabbim çok merhametlidir, çok sevendir (Vedûd).",
         "en": "Seek forgiveness from your Lord, then turn to Him. Indeed my Lord is Merciful, most Loving (Wadūd).",
         "not": "Hz. Şuayb peygamberin Medyen'e çağrısı. Ayet 'Vedûd' (çok seven) ilahî ismiyle kapanır — bu isim Kur'ân'da yalnızca iki yerde geçer (Hûd 11:90 ve Bürûc 85:14). Klasik tefsir ismin tevbe bağlamında verilmesini manidar bulur: Allah tevbe edenlere sadece 'merhametli' değil, 'seven' olarak yönelir. Bakara 2:222'nin 'Allah tevbe edenleri sever' ifadesi bu ismin fiile dönüşüdür. Elmalılı Vedûd isminin tevbenin karanlık suçluluk yüzünü kırıp sevgi yüzünü açtığını vurgular."
       },
       {
         "ref": "Enbiyâ 21:87",
-        "ar": "وَذَا النُّونِ اِذْ ذَهَبَ مُغَاضِباً فَظَنَّ اَنْ لَنْ نَقْدِرَ عَلَيْهِ فَنَادٰى فِي الظُّلُمَاتِ اَنْ لٓا اِلٰهَ اِلّٓا اَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+        "ar": "وَذَا النُّونِ اِذْ ذَهَبَ مُغَاضِباً فَظَنَّ اَنْ لَنْ نَقْدِرَ عَلَيْهِ فَنَادٰى فِي الظُّلُمَاتِ اَنْ لَا اِلٰهَ اِلَّا اَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
         "tr": "Zünnûn'u (Yunus'u) da hatırla. Hani öfkelenerek gitmişti; bizim kendisine güç yetiremeyeceğimizi sanmıştı. Sonunda karanlıklar içinde 'Senden başka ilâh yoktur; seni tenzih ederim, gerçekten ben zâlimlerden oldum' diye seslendi.",
         "en": "And remember Dhū al-Nūn, when he departed in anger and thought We would not decree upon him. Then he called out in the depths of darkness: 'There is no god but You; glory be to You — indeed I was among the wrongdoers.'",
         "not": "Hz. Yunus peygamberin balığın karnındaki tevbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir bu duanın üç aşamalı yapısına dikkat çeker: (1) tevhîd (senden başka ilâh yok); (2) tesbih (seni tenzih ederim); (3) itiraf (ben zâlimlerden oldum). Tevbenin bu üçlü omurgası klasik tefsir literatüründe 'Yunus'un tevbe duasının Kur'ânî yapısı' olarak sistemleştirilmiştir. Ayet 21:88'de 'onu kurtardık' cümlesiyle sonuçlanır — nedâmet ve tevhîdle biten dua kurtuluşa açılır. Hadis literatürü bu duanın 'darda kalanın duası' olduğunu ve Hz. Yunus peygamber gibi 'karanlıklardaki hiçbir mümin bunu okurken Allah onu kurtarmadan bırakmaz' bildirimiyle vurgulanır."
@@ -579,14 +579,14 @@
       },
       {
         "ref": "A'râf 7:23",
-        "ar": "قَالَا رَبَّـنَا ظَلَمْنٓا اَنْفُسَنَا وَاِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
+        "ar": "قَالَا رَبَّـنَا ظَلَمْنَا اَنْفُسَنَا وَاِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
         "tr": "Dediler ki: 'Rabbimiz! Biz nefislerimize zulmettik; eğer bize mağfiret etmez ve merhamet buyurmazsan mutlaka ziyana uğrayanlardan oluruz.'",
         "en": "They said: 'Our Lord! We have wronged ourselves. If You do not forgive us and have mercy on us, we shall surely be among the losers.'",
         "not": "Hz. Âdem ve Hz. Havvâ'nın cennette işledikleri hatanın ardından tevbe duası. Ayet Bakara 2:37'nin 'Âdem Rabbinden kelimeler aldı' ifadesindeki 'kelimeler'i açar: klasik tefsir bu kelimelerin A'râf 7:23'teki dua olduğunda ittifak eder. Duanın yapısı Yunus 21:87 ve Kasas 28:16 ile paralel: (1) 'Rabbimiz' — hitap; (2) 'nefsimize zulmettik' — itiraf; (3) 'mağfiret et, merhamet et' — talep; (4) 'yoksa ziyana uğrarız' — sonucun kavranması. Klasik tefsir bu duayı 'insanlığın ilk tevbesi' olarak niteler; insanoğluna öğretilen tevbe pedagojisinin arketip metnidir. Elmalılı ayetin nefsine zulmetme ifadesinin tevbenin Kur'ânî iç bakışı olduğunu vurgular: günah ilk önce başkasına değil, kendine zulümdür."
       },
       {
         "ref": "Zümer 39:54",
-        "ar": "وَاَنِيبٓوا اِلٰى رَبِّكُمْ وَاَسْلِمُوا لَهُ مِنْ قَبْلِ اَنْ يَأْتِيَكُمُ الْعَذَابُ ثُمَّ لَا تُنْصَرُونَ",
+        "ar": "وَاَنِيبُوا اِلٰى رَبِّكُمْ وَاَسْلِمُوا لَهُ مِنْ قَبْلِ اَنْ يَأْتِيَكُمُ الْعَذَابُ ثُمَّ لَا تُنْصَرُونَ",
         "tr": "Azap size gelip çatmadan önce Rabbinize inâbe edin (yönelin) ve ona teslim olun; sonra size yardım da edilmez.",
         "en": "Turn back (anībū) to your Lord and submit to Him, before the punishment comes to you — for then you will not be helped.",
         "not": "Zümer 39:53'ün rahmet vaadinin hemen ardından gelen ayet. Klasik tefsir 39:53 ve 39:54'ün birlikte okunması gerektiğini vurgular: rahmet kapısı sonuna kadar açık (39:53), ama sonsuza kadar değil (39:54 'azap gelmeden önce'). İkinci ayet inâbe kelimesini kullanır — 'sürekli yöneliş'. Kurtubî inâbe ile tevbe arasındaki farkı vurgular: tevbe belirli bir günahtan belirli bir dönüştür; inâbe kalbin sürekli yöneliş halidir. Ayet zamanın Kur'ânî sınırını da koyar: koridor geniştir ama kapanış anı vardır."

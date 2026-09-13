@@ -103,7 +103,7 @@
       "ref": "6:76",
       "noteTr": "Gece onu örttüğünde (cennehu'l-leyl), bir yıldız gördü.",
       "noteEn": "When the night covered him (jannahu al-layl), he saw a star.",
-      "ar": "فَلَمَّا جَنَّ عَلَيْهِ الَّيْلُ رَاٰ كَوْكَباً قَالَ هٰذَا رَبِّي فَلَمٓا اَفَلَ قَالَ لٓا اُحِبُّ الْاٰفِلِينَ"
+      "ar": "فَلَمَّا جَنَّ عَلَيْهِ الَّيْلُ رَاٰ كَوْكَباً قَالَ هٰذَا رَبِّي فَلَمٓا اَفَلَ قَالَ لَا اُحِبُّ الْاٰفِلِينَ"
     },
     {
       "type": "section",
@@ -332,7 +332,7 @@
       "ref": "32:17",
       "noteTr": "Yaptıklarına karşılık olarak, onlar için gözleri aydınlatacak hangi nimetlerin saklı tutulduğunu hiç kimse bilmez (fe-lâ taʿlamu nefsun mâ uḫfiye lehum min kurrati aʿyun).",
       "noteEn": "No soul knows what comfort of the eyes has been hidden for them as reward for what they used to do (fa-lā taʿlamu nafsun mā ukhfiya lahum min qurrati aʿyun).",
-      "ar": "فَلَا تَعْلَمُ نَفْسٌ مٓا اُخْفِيَ لَهُمْ مِنْ قُرَّةِ اَعْيُنٍ جَزٓاءً بِمَا كَانُوا يَعْمَلُونَ"
+      "ar": "فَلَا تَعْلَمُ نَفْسٌ مَا اُخْفِيَ لَهُمْ مِنْ قُرَّةِ اَعْيُنٍ جَزَاءً بِمَا كَانُوا يَعْمَلُونَ"
     },
     {
       "type": "verseInline",
@@ -382,7 +382,7 @@
       "ref": "68:2",
       "noteTr": "Sen, Rabbinin nimetiyle, mecnûn değilsin (mâ ente bi-niʿmeti rabbike bi-mecnûn).",
       "noteEn": "You, by the favor of your Lord, are not a madman (mā anta bi-niʿmati rabbika bi-majnūn).",
-      "ar": "مٓا اَنْتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ"
+      "ar": "مَا اَنْتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ"
     },
     {
       "type": "pullQuote",
@@ -474,7 +474,7 @@
       "ref": "2:35",
       "noteTr": "Ey Âdem, sen ve eşin cennete (el-cennete) yerleşin. Orada dilediğiniz yerden bolca yiyin. Yalnız şu ağaca yaklaşmayın, yoksa zalimlerden olursunuz.",
       "noteEn": "O Adam, dwell — you and your wife — in the Garden (al-jannah). Eat from it freely wherever you wish, but do not approach this tree, lest you be among the wrongdoers.",
-      "ar": "وَقُلْنَا يٓا اٰدَمُ اسْكُنْ اَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَداً حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هٰذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ"
+      "ar": "وَقُلْنَا يَا اٰدَمُ اسْكُنْ اَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَداً حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هٰذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ"
     },
     {
       "type": "paragraph",
@@ -486,7 +486,7 @@
       "ref": "27:10",
       "noteTr": "Onu (asâsını) sanki bir yılan/cin (cânn) gibi titreşirken görünce, dönüp ardına bakmadan kaçtı.",
       "noteEn": "When he saw it (his staff) writhing as if it were a serpent/jinn (jānn), he turned and fled without looking back.",
-      "ar": "وَاَلْقِ عَصَاكَ فَلَمَّا رَاٰهَا تَهْتَزُّ  كَاَنَّهَا جٓانٌّ وَلّٰى مُدْبِراً وَلَمْ يُعَقِّبْ يَا مُوسٰى لَا تَخَفْ اِنِّي لَا يَخَافُ لَدَيَّ الْمُرْسَلُونَ"
+      "ar": "وَاَلْقِ عَصَاكَ فَلَمَّا رَاٰهَا تَهْتَزُّ  كَاَنَّهَا جَانٌّ وَلّٰى مُدْبِراً وَلَمْ يُعَقِّبْ يَا مُوسٰى لَا تَخَفْ اِنِّي لَا يَخَافُ لَدَيَّ الْمُرْسَلُونَ"
     },
     {
       "type": "section",
@@ -504,7 +504,7 @@
       "ref": "58:16",
       "noteTr": "Yeminlerini kalkan (cunne) yaptılar ve Allah yolundan alıkoydular.",
       "noteEn": "They have taken their oaths as a shield (junnah) and have averted [people] from the way of Allah.",
-      "ar": "اِتَّخَذٓوا اَيْمَانَهُمْ جُنَّةً فَصَدُّوا عَنْ سَبِيلِ اللّٰهِ فَلَهُمْ عَذَابٌ مُهِينٌ"
+      "ar": "اِتَّخَذُوا اَيْمَانَهُمْ جُنَّةً فَصَدُّوا عَنْ سَبِيلِ اللّٰهِ فَلَهُمْ عَذَابٌ مُهِينٌ"
     },
     {
       "type": "pullQuote",
