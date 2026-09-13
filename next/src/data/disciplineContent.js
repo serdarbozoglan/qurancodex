@@ -520,6 +520,8 @@ export const DISCIPLINE_CONTENT = {
 
   'ahlak-karakter': {
     reviewedBy: 'gpt-6-astra review — content approved',
+    sourcesLabelTr: 'Kaynaklar',
+    sourcesLabelEn: 'Sources',
     anchor: {
       ref: 'Kalem 68:4',
       ar: `وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ`,
@@ -579,6 +581,28 @@ export const DISCIPLINE_CONTENT = {
         ],
         tafsirTr: `Muhtasar İbn Kesîr metninde (3:134): âyette tarif edilenler, öfkelendiklerinde öfkelerine göre davranmayıp onu tutan kimselerdir; "güçlü, insanları alt eden değil, öfkelendiğinde kendine hâkim olandır" hadisi aktarılır. Kendilerine haksızlık edenleri bağışlayıp kin tutmamak en üstün davranış sayılır. (Tefsir özeti.)`,
         tafsirEn: `The abridged Ibn Kathīr (3:134): those described restrain their anger rather than act on it, citing the hadith "the strong is he who controls himself when angry." Forgiving those who wronged them and holding no rancor is deemed the most excellent conduct. (Summary of the tafsir.)`,
+        commentary: {
+          sourceTr: `Bediüzzaman · Uhuvvet Risalesi (Mektubat, 22. Mektup)`,
+          sourceEn: `Bediüzzaman · Treatise on Brotherhood (Mektubat, 22nd Letter)`,
+          introTr: `Bediüzzaman Said Nursi, Uhuvvet Risalesi'nde mü'minler arası kin ve öfkeyi (çapa âyeti Hucurât 49:10; ayrıca Âl-i İmrân 3:134 ve Fussilet 41:34) şu çerçevede ele alır:`,
+          introEn: `Bediüzzaman Said Nursi, in his Treatise on Brotherhood (anchored on Q 49:10; also Q 3:134 and Q 41:34), treats rancor and anger among believers as follows:`,
+          pointsTr: [
+            `Bir mü'mine kusuru yüzünden kin beslemek haksızlıktır: onun sevgiye lâyık pek çok sıfatını (iman, İslâmiyet) tek bir kusur uğruna mahkûm etmek zulümdür.`,
+            `Adâvet (düşmanlık) ile muhabbet, nur ile zulmet gibi zıttır; ikisi bir kalpte gerçek anlamıyla birlikte bulunamaz.`,
+            `Kin ve öfke en çok onu tutanın kendisine zarar verir; kişi "nefsini bir azab-ı elîmde bırakır."`,
+            `Düşmanlık edilecekse düşmanlığın kendisine edilmelidir: "Adâvet etmek istersen kalbindeki adâvete adâvet et, onun ref'ine (kaldırılmasına) çalış."`,
+            `Kötülüğe kötülükle karşılık husumeti artırır; iyilikle karşılık ise pişmanlık doğurur ve düşmanı dosta çevirir.`,
+          ],
+          pointsEn: [
+            `Holding rancor against a believer for a fault is unjust: to condemn his many lovable qualities (faith, Islam) for a single flaw is a wrong.`,
+            `Enmity and love are opposites like darkness and light; the two cannot truly coexist in one heart.`,
+            `Rancor and anger harm most the one who holds them; a person thereby "leaves his own soul in a painful torment."`,
+            `If one must be hostile, be hostile to the hostility itself: "If you wish to feel enmity, feel it toward the enmity in your heart, and strive to remove it."`,
+            `Repaying evil with evil increases the feud; repaying it with good produces remorse and turns an enemy into a friend.`,
+          ],
+          noteTr: `Alıntılar birincil metinden (Mektubat, 22. Mektup, Birinci Mebhas) doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.`,
+          noteEn: `The quotations are verified from the primary text (Mektubat, 22nd Letter, First Topic). This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration.`,
+        },
       },
       {
         titleTr: 'Tevazu ve kibirden sakınma',
@@ -610,6 +634,8 @@ export const DISCIPLINE_CONTENT = {
     sourcesNoteTr: `Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî ahlâk düşüncesini ve tarihini incelemek için anılır. Akademik olmaları görüşlerini kesinleştirmez.`,
     sourcesNoteEn: `The academic sources are cited not to confirm the Qur'an, but to study human moral thought and its history.`,
     sources: [
+      { author: 'Bediüzzaman Said Nursi', work: `Uhuvvet Risalesi (Mektubat, 22. Mektup)`, pub: 'Risale-i Nur Külliyatı', year: '', id: 'birincil tefsir-risale metni',
+        noteTr: `BİRİNCİL TEFSİR-RİSALE: mü'minler arası kin ve öfkeyi Hucurât 49:10 ve Âl-i İmrân 3:134 ekseninde ele alan modern tefsir metni (beşerî yorum katmanı). TEMA 4'te işlenmiştir.`, noteEn: `PRIMARY RISALE/TAFSIR: a modern text on rancor and anger among believers, anchored on Q 49:10 and Q 3:134 (a human interpretive layer). Treated in Theme 4.` },
       { author: 'Toshihiko Izutsu', work: 'Ethico-Religious Concepts in the Qur\'an', pub: 'McGill-Queen\'s University Press', year: '2002', id: 'ISBN 9780773524279',
         noteTr: `YAKLAŞIM: Kur'an'ın ahlâk terimlerinin (birr, takvâ, sabr, zulm) semantik yapısını dilbilimsel inceleyen referans çalışma.`, noteEn: `APPROACH: a reference semantic-field study of the Qur'an's moral vocabulary (birr, taqwā, ṣabr, ẓulm).` },
       { author: 'Majid Fakhry', work: 'Ethical Theories in Islam', pub: 'E. J. Brill', year: '1994', id: 'ISBN 9789004101074',
