@@ -62,16 +62,15 @@ export default function Ritim({ onClose }) {
           lineHeight: 1.2,
         }} dir="rtl" lang="ar" aria-label="Bismillāh">﷽</div>
 
-        <p
+        <p className="qc-verse-breathe"
           dir="rtl" lang="ar"
           style={{
             fontFamily: FONTS.quran,
-            fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+            fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 0 12px',
-            textShadow: `0 0 22px ${COLORS.gold}1f`,
-          }}
+            }}
         >
           وَالنَّجْمِ اِذَا هَوٰى
         </p>

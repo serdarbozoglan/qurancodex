@@ -338,11 +338,10 @@ export default function TefsirIhtilaflari() {
             color: COLORS.gold, opacity: 0.85, marginBottom: 22, direction: 'rtl',
             textShadow: `0 0 24px ${COLORS.gold}44`,
           }}>﷽</div>
-          <p dir="rtl" lang="ar" className="mq-fs" style={{
-            fontFamily: FONTS.quran, '--fs-d': '1.35rem', '--fs-m': '1.1rem',
+          <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
+            fontFamily: FONTS.quran, '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
             color: COLORS.gold, lineHeight: 2.05, margin: '0 0 18px',
-            textShadow: `0 0 32px ${COLORS.gold}22`,
-          }}>{cleanArabicForDisplay(ANCHOR_3_7_ARABIC_RAW)}</p>
+            }}>{cleanArabicForDisplay(ANCHOR_3_7_ARABIC_RAW)}</p>
           <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
             '--fs-d': '1.02rem', '--fs-m': '0.92rem', color: COLORS.offWhite,

@@ -544,14 +544,13 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             variants={revealVariants}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             dir="rtl" lang="ar"
-            className="mq-fs" style={{
+            className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,
-              '--fs-d': '1.75rem', '--fs-m': '1.35rem',
+              '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
               lineHeight: 2.15,
               margin: '0 0 20px',
-              textShadow: `0 0 32px ${COLORS.gold}22`,
-            }}>{anchorArabic}</motion.p>
+              }}>{anchorArabic}</motion.p>
         )}
 
         <motion.p

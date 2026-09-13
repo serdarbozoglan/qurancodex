@@ -111,9 +111,9 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
-        <p dir="rtl" lang="ar" className="mq-fs" style={{
+        <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
-          '--fs-d': 'clamp(1.5rem, 2.6vw, 1.85rem)', '--fs-m': '1.3rem',
+          '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           lineHeight: 2.1, margin: '0 0 14px',
         }}>
           اللَّهُ نَزَّلَ أَحْسَنَ الْحَدِيثِ كِتَابًا مُتَشَابِهًا مَثَانِيَ

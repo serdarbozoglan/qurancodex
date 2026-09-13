@@ -166,15 +166,14 @@ export default function KuranYeminleri({ onClose }) {
           <p
             dir="rtl"
             lang="ar"
-            className="mq-fs" style={{
+            className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,
-              '--fs-d': 'clamp(1.3rem, 2.4vw, 1.75rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
+              '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 18px',
               maxWidth: '800px',
-              textShadow: `0 0 22px ${COLORS.gold}1c`,
-            }}
+              }}
           >
             وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا
           </p>

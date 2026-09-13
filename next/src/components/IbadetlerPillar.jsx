@@ -235,9 +235,9 @@ function PillarHero({ pillarData, language, isMobile }) {
       }} dir="rtl" lang="ar" aria-label="Bismillāh">﷽</div>
 
       {/* Anchor verse — Kur'ânî metin, KFGQPC, gold */}
-      <div className="mq-fs" style={{
+      <div className="mq-fs qc-verse-breathe" style={{
         fontFamily: FONTS.quran,
-        '--fs-d': 'clamp(1.4rem, 3vw, 2rem)', '--fs-m': 'clamp(1.2rem, 5vw, 1.6rem)',
+        '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
         color: COLORS.gold,
         lineHeight: 2.1,
         marginBottom: '20px',

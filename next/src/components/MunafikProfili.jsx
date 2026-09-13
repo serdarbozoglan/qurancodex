@@ -364,16 +364,15 @@ export default function MunafikProfili({ onClose }) {
           {/* Anchor verse — Bakara 2:8 (KFGQPC, centered) */}
           <p
             dir="rtl" lang="ar"
-            className="mq-fs" style={{
+            className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,
-              '--fs-d': 'clamp(1.2rem, 2.2vw, 1.6rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
+              '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 16px',
               maxWidth: '820px',
               textAlign: 'center',
-              textShadow: `0 0 20px ${COLORS.gold}1c`,
-            }}
+              }}
           >
             وَمِنَ النَّاسِ مَنْ يَقُولُ اٰمَنَّا بِاللّٰهِ وَبِالْيَوْمِ الْاٰخِرِ وَمَا هُمْ بِمُؤْمِنِينَ
           </p>

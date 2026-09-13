@@ -1253,7 +1253,7 @@ export default function WowFacts({ onClose }) {
           maxWidth: '900px', width: '100%', margin: '0 auto', boxSizing: 'border-box',
         }}>
           <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: '32px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
-          <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.15rem, 2.2vw, 1.6rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+          <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', }}>
             اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
           </p>
           <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '640px', opacity: 0.95 }}>

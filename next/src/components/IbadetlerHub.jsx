@@ -86,9 +86,9 @@ function HubHero({ hubData, language, isMobile }) {
         color: COLORS.gold, opacity: 0.82, marginBottom: '28px',
       }}>﷽</div>
 
-      <div className="mq-fs" style={{
+      <div className="mq-fs qc-verse-breathe" style={{
         fontFamily: FONTS.quran,
-        '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+        '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
         color: COLORS.gold, lineHeight: 2.1,
         marginBottom: '22px', direction: 'rtl',
         maxWidth: '760px', margin: '0 auto 22px',

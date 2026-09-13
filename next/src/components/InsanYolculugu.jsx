@@ -120,10 +120,10 @@ export default function InsanYolculugu({ onClose }) {
               margin: '0 0 18px', lineHeight: 1,
             }} aria-hidden="true">﷽</div>
 
-            <p dir="rtl" lang="ar" className="mq-fs" style={{
+            <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,
               color: COLORS.gold,
-              '--fs-d': '1.35rem', '--fs-m': '1.1rem',
+              '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               lineHeight: 2.1,
               margin: '0 auto 12px', maxWidth: '780px',
             }}>

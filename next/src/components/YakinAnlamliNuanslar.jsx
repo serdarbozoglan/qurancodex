@@ -106,10 +106,10 @@ export default function YakinAnlamliNuanslar({ onClose }) {
               margin: '0 0 18px', lineHeight: 1,
             }} aria-hidden="true">﷽</div>
 
-            <p dir="rtl" lang="ar" style={{
+            <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{
               fontFamily: FONTS.quran,
               color: COLORS.gold,
-              fontSize: 'clamp(1.4rem, 3vw, 1.9rem)',
+              fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)',
               lineHeight: 2.1,
               margin: '0 auto 12px', maxWidth: '780px',
             }}>

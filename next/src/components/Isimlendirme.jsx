@@ -125,12 +125,11 @@ export default function Isimlendirme({ onClose }) {
         }} dir="rtl" lang="ar" aria-label="Bismillāh">﷽</div>
 
         {/* Çerçeveyi âyetin kendisi kuruyor: bu bir ibret sayfasıdır. */}
-        <p dir="rtl" lang="ar" className="mq-fs" style={{
-          '--fs-d': 'clamp(1.35rem, 2.8vw, 1.85rem)', '--fs-m': 'clamp(1.15rem, 5vw, 1.4rem)',
+        <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
+          '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           fontFamily: FONTS.quran, color: COLORS.gold, lineHeight: 2.1,
           margin: '0 auto 14px', maxWidth: '860px',
-          textShadow: `0 0 22px ${COLORS.gold}1f`,
-        }}>{anchor.ar}</p>
+          }}>{anchor.ar}</p>
         <p className="mq-fs" style={{
           '--fs-d': 'clamp(0.95rem, 2vw, 1.1rem)', '--fs-m': 'clamp(0.9rem, 4vw, 1rem)',
           fontFamily: FONTS.display, fontStyle: 'italic',

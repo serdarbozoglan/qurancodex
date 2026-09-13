@@ -1631,15 +1631,14 @@ export default function ZamanBoyutlari({ onClose }) {
         {/* Anchor verse — Hac 22:47 (the canonical time-dilation verse) */}
         <p
           dir="rtl" lang="ar"
-          className="mq-fs" style={{
+          className="mq-fs qc-verse-breathe" style={{
             fontFamily: FONTS.quran,
-            '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
+            '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 auto 16px',
             maxWidth: '820px',
-            textShadow: `0 0 20px ${COLORS.gold}1c`,
-          }}
+            }}
         >
           وَاِنَّ يَوْماً عِنْدَ رَبِّكَ كَاَلْفِ سَنَةٍ مِمَّا تَعُدُّونَ
         </p>

@@ -186,9 +186,9 @@ export default function ElestirelCerceve() {
         }}>﷽</div>
 
         {anchor.ar && (
-          <div lang="ar" dir="rtl" className="mq-fs" style={{
+          <div lang="ar" dir="rtl" className="mq-fs qc-verse-breathe" style={{
             fontFamily: FONTS.quran,
-            '--fs-d': 'clamp(1.5rem, 3.2vw, 2.15rem)', '--fs-m': 'clamp(1.3rem, 5.5vw, 1.75rem)',
+            '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
             color: COLORS.gold, lineHeight: 2.1, direction: 'rtl',
             maxWidth: 760, margin: '0 auto 22px',
           }}>{anchor.ar}</div>
