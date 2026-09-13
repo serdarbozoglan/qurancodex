@@ -261,24 +261,14 @@ export default function DuaVerses({ onClose }) {
     };
   }, []);
 
-  // Lock background scroll while overlay is open (prevents duplicate scrollbar)
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
-    const prevPad = body.style.paddingRight;
-    // Compensate for scrollbar disappearance to prevent layout shift
-    const sbWidth = window.innerWidth - html.clientWidth;
-    html.style.overflow = 'hidden';
-    body.style.overflow = 'hidden';
-    if (sbWidth > 0) body.style.paddingRight = `${sbWidth}px`;
-    return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
-      body.style.paddingRight = prevPad;
-    };
-  }, []);
+  // KALDIRILDI (2026-09-13, kullanıcı bildirdi: "scroll yapamıyorum").
+  // Burada html+body'ye `overflow:hidden` koyan bir kaydırma kilidi vardı; bu,
+  // araç bir modal overlay iken doğruydu. Sayfa full-page rotaya dönüştükten
+  // sonra (§13.17) kilit yerinde kaldı ve içeriği normal akışta olan sayfayı
+  // TAMAMEN kaydırılamaz hâle getirdi: ölçümde tekerlek 1200px sürüldüğü hâlde
+  // scrollY 0'da kalıyordu. §13.17: "body+html scroll lock YASAK — full-page
+  // route'larda gerekmez". Sayfada kendi overflow'unu yöneten bir iç kapsayıcı
+  // da yok (ölçüldü), dolayısıyla çift scrollbar riski de yok.
 
   const handlePlay = (dua) => {
     if (audioRef.current) {
