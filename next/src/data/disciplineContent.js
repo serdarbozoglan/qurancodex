@@ -517,4 +517,109 @@ export const DISCIPLINE_CONTENT = {
         noteTr: `YAKLAŞIM: ribâ yasağının fıkhî yorumunun ahlâkî bağlamını yeniden okuyan, farklı yorumları tartışan hakemli makale.`, noteEn: `APPROACH: a peer-reviewed article revisiting the moral context of the riba prohibition and debating differing juristic interpretations.` },
     ],
   },
+
+  'ahlak-karakter': {
+    reviewedBy: 'gpt-6-astra review — content approved',
+    anchor: {
+      ref: 'Kalem 68:4',
+      ar: `وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ`,
+      trTr: `Ve sen gerçekten yüce, üstün bir ahlâk üzeresin.`,
+      trEn: `And you are truly of a great moral character.`,
+    },
+    introTr:
+      `Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik onaya bağlı değildir. ` +
+      `Bu sayfa; ahlâkın zirvesi ve Peygamber örneği, sabır, sıdk ve emanet, öfkeyi yenmek ve af, tevazu, söz ahlâkı gibi âyetleri karakter ve ahlâk bakımından bir araya getirir. ` +
+      `Âyetlerin anlam özetleri, tematik başlıklar, klasik tefsir açıklamaları ve akademik değerlendirmeler beşerî aktarım ve yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir. ` +
+      `Bunlardan belirli bir modern etik teorisi türetilerek Kur'an'a mal edilmez.`,
+    introEn:
+      `The Qur'an is God's word and certain truth; its truth does not depend on scientific or academic confirmation. ` +
+      `This page gathers verses on the summit of character and the Prophet's example, patience, truthfulness and trust, restraining anger and pardon, humility, and the ethics of speech, from the angle of character and morals. ` +
+      `The verse summaries, thematic headings, classical-exegesis notes, and academic assessments are layers of human transmission and interpretation; they are not identical with the Qur'an itself, ` +
+      `and no particular modern ethical theory is derived from them and ascribed to the Qur'an.`,
+    themes: [
+      {
+        titleTr: 'Ahlâkın zirvesi ve Peygamber örneği',
+        titleEn: `The summit of character and the Prophet's example`,
+        verses: [
+          { ref: 'Kalem 68:4', ar: `وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ`, glossTr: `Sen gerçekten yüce, üstün bir ahlâk üzeresin.`, glossEn: `And you are truly a man of outstanding character.` },
+          { ref: 'Ahzâb 33:21', ar: `لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللّٰهِ اُسْوَةٌ حَسَنَةٌ لِمَنْ كَانَ يَرْجُوا اللّٰهَ وَالْيَوْمَ الْاٰخِرَ وَذَكَرَ اللّٰهَ كَثِيراً`, glossTr: `Allah'a ve âhiret gününe umut bağlayıp Allah'ı çokça anan kimse için Allah'ın Resûlü'nde güzel bir örnek (üsve-i hasene) vardır.`, glossEn: `In the Messenger of Allah you have an excellent example for whoever has hope in Allah and the Last Day, and remembers Allah often.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (68:4): âyet Peygamber'in (s.a.v.) olağanüstü ahlâkını över; Hz. Âişe'den nakledilen "onun ahlâkı Kur'an'dı" sözüyle, onun Kur'an'ın öğretilerini bizzat yaşadığı vurgulanır. Metin ayrıca hayâ, yumuşaklık ve affetme gibi vasıfları ve "ben ancak güzel ahlâkı tamamlamak için gönderildim" rivayetini aktarır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (68:4): the verse praises the Prophet's exceptional character, citing ʿĀʾisha's report that "his character was the Qurʾān," i.e. he embodied its teachings. It also lists traits such as modesty, gentleness, and pardoning, and the report "I have only been sent to perfect righteous behavior." (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Sabır',
+        titleEn: 'Patience',
+        verses: [
+          { ref: 'Bakara 2:153', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ`, glossTr: `Ey iman edenler! Sabır ve namaz ile yardım isteyin; Allah sabredenlerle beraberdir.`, glossEn: `O believers! Seek help through patience and prayer; Allah is with those who are patient.` },
+          { ref: 'Âl-i İmrân 3:200', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ`, glossTr: `Ey iman edenler! Sabredin, sabırda birbirinizle yarışın, sebat edin ve Allah'a karşı sorumluluğunuzun bilincinde olun ki kurtuluşa eresiniz.`, glossEn: `O believers! Patiently endure, persevere, stand on guard, and be mindful of Allah, so you may be successful.` },
+          { ref: 'Zümer 39:10', ar: `قُلْ يَا عِبَادِ الَّذِينَ اٰمَنُوا اتَّقُوا رَبَّكُمْ لِلَّذِينَ اَحْسَنُوا فِي هٰذِهِ الدُّنْيَا حَسَنَةٌ وَاَرْضُ اللّٰهِ وَاسِعَةٌ اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ`, glossTr: `Bu dünyada iyilik edenlere iyilik vardır; Allah'ın arzı geniştir ve sabredenlere ecirleri hesapsız ödenir.`, glossEn: `The doers of good in this world have good; God's earth is spacious, and the patient are given their reward without limit.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (2:153): sabır ve namaz, musibetlerin etkisini hafifletmede en güzel yardımcılardır. Metin sabrı üçe ayırır: haramlardan kaçınmak, zorluğuna rağmen ibadetleri yerine getirmek ve sıkıntılara sebatla dayanmak. "Allah sabredenlerle beraberdir" ifadesiyle metanet gösterenlere ilâhî desteğin eşlik ettiği vurgulanır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (2:153): patience and prayer are the best aids to ease afflictions. It divides patience into three: abstaining from the forbidden, performing worship despite difficulty, and enduring hardship steadfastly. "Allah is with those who are patient" signals divine support for those who stay composed. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Sıdk (doğruluk) ve emanet',
+        titleEn: 'Truthfulness and trust',
+        verses: [
+          { ref: 'Tevbe 9:119', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَكُونُوا مَعَ الصَّادِقِينَ`, glossTr: `Ey iman edenler! Allah'a karşı sorumlu olun ve doğrularla (sâdıklarla) beraber olun.`, glossEn: `O believers! Be mindful of Allah and be with the truthful.` },
+          { ref: `Mü'minûn 23:8`, ar: `وَالَّذِينَ هُمْ لِاَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ`, glossTr: `(O mü'minler) emanetlerine ve verdikleri sözlere riayet edenlerdir.`, glossEn: `And those who are true to their trusts and covenants.` },
+          { ref: 'Ahzâb 33:70', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَقُولُوا قَوْلاً سَدِيداً`, glossTr: `Ey iman edenler! Allah'a karşı sorumlu olun ve dosdoğru söz söyleyin.`, glossEn: `O believers! Be mindful of Allah, and say what is right.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (9:119): doğruluk kurtuluşa götüren yoldur; "Doğruluğa sarılın, çünkü doğruluk iyiliğe, iyilik cennete götürür; yalan günaha, günah ateşe götürür" rivayeti aktarılır. Geri bırakılan Ka'b b. Mâlik'in, elli günlük zorlu boykota rağmen mazeret uydurmayıp doğruyu söylemesi ve bunun affına vesile olması örnek verilir. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (9:119): truthfulness is the path to salvation, citing "Hold to truth, for truth leads to righteousness and righteousness to Paradise; lying leads to sin and sin to the Fire." It gives the example of Kaʿb ibn Mālik, who despite a fifty-day boycott chose honesty over a fabricated excuse, which led to his forgiveness. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Öfkeyi yenmek, af ve hilm',
+        titleEn: 'Restraining anger, pardon, and forbearance',
+        verses: [
+          { ref: 'Âl-i İmrân 3:134', ar: `اَلَّذِينَ يُنْفِقُونَ فِي السَّرٓاءِ وَالضَّرٓاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّٰهُ يُحِبُّ الْمُحْسِنِينَ`, glossTr: `Onlar bollukta da darlıkta da infak eden, öfkelerini yutan ve insanları affedenlerdir; Allah iyilik edenleri sever.`, glossEn: `Those who spend in prosperity and adversity, restrain their anger, and pardon others; and Allah loves the good-doers.` },
+          { ref: `A'râf 7:199`, ar: `خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَاَعْرِضْ عَنِ الْجَاهِلِينَ`, glossTr: `Affı ve kolaylığı esas al, iyiliği emret ve cahillerden yüz çevir.`, glossEn: `Be gracious, enjoin what is right, and turn away from the ignorant.` },
+          { ref: 'Şûrâ 42:40', ar: `وَجَزٰٓؤُا سَيِّئَةٍ سَيِّئَةٌ مِثْلُهَا فَمَنْ عَفَا وَاَصْلَحَ فَاَجْرُهُ عَلَى اللّٰهِ اِنَّهُ لَا يُحِبُّ الظَّالِمِينَ`, glossTr: `Bir kötülüğün karşılığı ona denk bir kötülüktür; fakat kim affeder ve arayı düzeltirse mükâfatı Allah'a aittir. Allah zalimleri sevmez.`, glossEn: `The reward of an evil is an evil like it; but whoever pardons and reconciles, their reward is with Allah. He does not like the wrongdoers.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (3:134): âyette tarif edilenler, öfkelendiklerinde öfkelerine göre davranmayıp onu tutan kimselerdir; "güçlü, insanları alt eden değil, öfkelendiğinde kendine hâkim olandır" hadisi aktarılır. Kendilerine haksızlık edenleri bağışlayıp kin tutmamak en üstün davranış sayılır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (3:134): those described restrain their anger rather than act on it, citing the hadith "the strong is he who controls himself when angry." Forgiving those who wronged them and holding no rancor is deemed the most excellent conduct. (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Tevazu ve kibirden sakınma',
+        titleEn: 'Humility and shunning arrogance',
+        verses: [
+          { ref: 'Lokmân 31:18-19', ar: `وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِي الْاَرْضِ مَرَحاً اِنَّ اللّٰهَ لَا يُحِبُّ كُلَّ مُخْتَالٍ فَخُورٍ وَاقْصِدْ فِي مَشْيِكَ وَاغْضُضْ مِنْ صَوْتِكَ اِنَّ اَنْكَرَ الْاَصْوَاتِ لَصَوْتُ الْحَمِيرِ`, glossTr: `İnsanlara küçümseyerek yüz çevirme, yeryüzünde böbürlenerek yürüme; Allah kendini beğenmiş övüngeni sevmez. Yürüyüşünde ölçülü ol, sesini kıs; seslerin en çirkini eşeklerin sesidir.`, glossEn: `Do not turn your nose up at people, nor walk pridefully; Allah does not like the arrogant boaster. Be moderate in your pace and lower your voice, for the ugliest of voices is the braying of donkeys.` },
+          { ref: 'Furkân 25:63', ar: `وَعِبَادُ الرَّحْمٰنِ الَّذِينَ يَمْشُونَ عَلَى الْاَرْضِ هَوْناً وَاِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَاماً`, glossTr: `Rahmân'ın kulları yeryüzünde alçakgönüllülükle yürür; cahiller kendilerine laf attığında "selâm" deyip geçerler.`, glossEn: `The servants of the Most Compassionate walk on the earth humbly, and when the foolish address them, they say "peace."` },
+          { ref: 'İsrâ 17:37', ar: `وَلَا تَمْشِ فِي الْاَرْضِ مَرَحاً اِنَّكَ لَنْ تَخْرِقَ الْاَرْضَ وَلَنْ تَبْلُغَ الْجِبَالَ طُولاً`, glossTr: `Yeryüzünde böbürlenerek yürüme; sen ne yeri yarabilir ne de boyca dağlara erişebilirsin.`, glossEn: `Do not walk on the earth arrogantly; you can neither crack the earth nor reach the mountains in height.` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (31:18): insanlarla konuşurken kibirle yüz çevirmemek, onlara yumuşak ve güler yüzle davranmak gerektiği belirtilir. Yeryüzünde kasılarak, kibir ve inatla yürümek de yasaklanır; çünkü "Allah kendini beğenmiş hiçbir övüngeni sevmez." (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (31:18): one is not to turn the face away in arrogance while speaking, but to be gentle and greet people cheerfully. Walking boastfully and stubbornly is forbidden, for "Allah does not like any arrogant boaster." (Summary of the tafsir.)`,
+      },
+      {
+        titleTr: 'Söz ahlâkı — gıybet ve güzel söz',
+        titleEn: 'The ethics of speech — backbiting and kind words',
+        verses: [
+          { ref: 'Hucurât 49:11', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسٰٓى اَنْ يَكُونُوا خَيْراً مِنْهُمْ وَلَا نِسٓاءٌ مِنْ نِسٓاءٍ عَسٰٓى اَنْ يَكُنَّ خَيْراً مِنْهُنَّ وَلَا تَلْمِزٓوا اَنْفُسَكُمْ وَلَا تَنَابَزُوا بِالْاَلْقَابِ`, glossTr: `Ey iman edenler! Bir topluluk başkalarıyla alay etmesin (belki onlar daha hayırlıdır); ne erkekler ne de kadınlar; birbirinizi karalamayın ve kötü lakaplarla çağırmayın.`, glossEn: `O believers! Let no group ridicule others (they may be better), neither men nor women; do not defame one another nor call each other by offensive nicknames.` },
+          { ref: 'Hucurât 49:12', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اجْتَنِبُوا كَثِيراً مِنَ الظَّنِّ اِنَّ بَعْضَ الظَّنِّ اِثْمٌ وَلَا تَجَسَّسُوا وَلَا يَغْتَبْ بَعْضُكُمْ بَعْضاً اَيُحِبُّ اَحَدُكُمْ اَنْ يَأْكُلَ لَحْمَ اَخِيهِ مَيْتاً فَكَرِهْتُمُوهُ`, glossTr: `Zannın çoğundan sakının (bazı zan günahtır); birbirinizin kusurunu araştırmayın (tecessüs) ve gıybet etmeyin. Biriniz ölmüş kardeşinin etini yemek ister mi? Bundan tiksinirsiniz.`, glossEn: `Avoid much suspicion (some suspicion is sin); do not spy, nor backbite one another. Would any of you like to eat the flesh of his dead brother? You would despise it.` },
+          { ref: 'Bakara 2:83', ar: `وَاِذْ اَخَذْنَا مِيثَاقَ بَنٓي اِسْرٓائِلَ لَا تَعْبُدُونَ اِلَّا اللّٰهَ وَبِالْوَالِدَيْنِ اِحْسَاناً وَذِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينِ وَقُولُوا لِلنَّاسِ حُسْناً`, glossTr: `İsrâiloğulları'ndan alınan misakta, yalnız Allah'a kulluk, ana-babaya ve akrabaya iyilikle birlikte "insanlara güzel söz söyleyin" emri de yer alır.`, glossEn: `In the covenant taken from the Children of Israel, alongside worshipping God alone and kindness to parents and kin, comes the command "speak kindly to people."` },
+        ],
+        tafsirTr: `Muhtasar İbn Kesîr metninde (49:12): asılsız zandan sakınmak gerekir; Hz. Ömer'in "kardeşinin sözüne, iyi bir mazeret bulabildiğin sürece kötü anlam yükleme" sözü ile Peygamber'in "zandan sakının, çünkü zan sözlerin en yalanıdır" uyarısı aktarılır. Gıybet "kardeşini hoşlanmayacağı şekilde anmak" diye tanımlanır; ölü etini yeme benzetmesiyle ondan tiksinilmesi gerektiği anlatılır. (Tefsir özeti.)`,
+        tafsirEn: `The abridged Ibn Kathīr (49:12): avoid baseless suspicion, citing ʿUmar's counsel never to assume ill of a brother's word while a good excuse can be found, and the Prophet's warning "beware of suspicion, for it is the worst of false tales." Backbiting is defined as "mentioning about your brother what he dislikes," the dead-flesh simile teaching one to loathe it. (Summary of the tafsir.)`,
+      },
+    ],
+    assuranceTr: `Bu âyetler ahlâk ve karakter için kesin ölçüler koyar; tefsir ve ahlâk felsefesi katmanı, bu kesinliğin üzerine bina edilen beşerî anlama çabasıdır ve onun yerine geçmez. Bu seçki ahlâkın bütün konularını da tüketmez.`,
+    assuranceEn: `These verses set out firm measures for character and morals; the layer of exegesis and moral philosophy is a human effort to understand built upon that certainty, and does not replace it. This selection also does not exhaust every topic of ethics.`,
+    tafsirScopeTr: `Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin "tefsir" sekmesi, ör. quran.com/68/4 · quran.com/2/153 · quran.com/49/12; erişim: Eylül 2026); matbu baskı/çevirmen künyesi kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar "muhtasar İbn Kesîr metninde" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî bu turda eklenmemiştir.`,
+    tafsirScopeEn: `The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's "tafsir" tab, e.g. quran.com/68/4 · quran.com/2/153 · quran.com/49/12; accessed September 2026); no volume/page is given and attributions read "in the abridged Ibn Kathīr text." Al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added in this pass.`,
+    sourcesNoteTr: `Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî ahlâk düşüncesini ve tarihini incelemek için anılır. Akademik olmaları görüşlerini kesinleştirmez.`,
+    sourcesNoteEn: `The academic sources are cited not to confirm the Qur'an, but to study human moral thought and its history.`,
+    sources: [
+      { author: 'Toshihiko Izutsu', work: 'Ethico-Religious Concepts in the Qur\'an', pub: 'McGill-Queen\'s University Press', year: '2002', id: 'ISBN 9780773524279',
+        noteTr: `YAKLAŞIM: Kur'an'ın ahlâk terimlerinin (birr, takvâ, sabr, zulm) semantik yapısını dilbilimsel inceleyen referans çalışma.`, noteEn: `APPROACH: a reference semantic-field study of the Qur'an's moral vocabulary (birr, taqwā, ṣabr, ẓulm).` },
+      { author: 'Majid Fakhry', work: 'Ethical Theories in Islam', pub: 'E. J. Brill', year: '1994', id: 'ISBN 9789004101074',
+        noteTr: `YAKLAŞIM: İslam ahlâk düşüncesinin kelâmî, felsefî ve tasavvufî ekollerini sistematik tasnif eden akademik kaynak.`, noteEn: `APPROACH: a systematic scholarly taxonomy of Islamic ethical schools (theological, philosophical, mystical).` },
+      { author: 'George F. Hourani', work: 'Reason and Tradition in Islamic Ethics', pub: 'Cambridge University Press', year: '1985', id: 'ISBN 9780521267120',
+        noteTr: `YAKLAŞIM: akıl-nakil ilişkisi ve ahlâkî bilginin kaynağı üzerine klasik dönem tartışmasını inceleyen makaleler.`, noteEn: `APPROACH: collected essays on reason vs. tradition as sources of moral knowledge in the classical period.` },
+      { author: 'İbn Miskeveyh (çev. Constantine K. Zurayk)', work: 'The Refinement of Character (Tehzîbü\'l-Ahlâk)', pub: 'American University of Beirut', year: '1968', id: 'birincil klasik metin (akademik çeviri)',
+        noteTr: `KLASİK METİN: İslam fazilet etiğinin (karakter terbiyesi) temel eseri, güvenilir akademik çeviriyle.`, noteEn: `CLASSICAL TEXT: a foundational work of Islamic virtue ethics (refinement of character) in a reliable scholarly translation.` },
+      { author: 'Mohamed Ahmed Sherif', work: 'Ghazali\'s Theory of Virtue', pub: 'State University of New York Press', year: '1975', id: 'ISBN 9780873952064',
+        noteTr: `YAKLAŞIM: Gazzâlî'nin felsefî, dinî-hukukî ve tasavvufî faziletleri birleştiren ahlâk nazariyesinin akademik tahlili.`, noteEn: `APPROACH: a scholarly analysis of al-Ghazālī's synthesis of philosophical, religious-legal, and mystical virtues.` },
+    ],
+  },
 };
