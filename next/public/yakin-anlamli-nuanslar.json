@@ -1,7 +1,7 @@
 {
   "meta": {
-    "totalSets": 10,
-    "totalTerms": 32,
+    "totalSets": 12,
+    "totalTerms": 37,
     "titleTr": "Yakın Anlamlı Nüanslar",
     "titleEn": "Near-Synonymous Nuances",
     "generatedDate": "2026-07-21",
@@ -763,6 +763,109 @@
       "nuanceEn": "Five faces of the same 'Hell': 'Jahannam' the collective name (a valley with seven gates), 'Jaḥīm' the raging fire, 'Saqar' the scorching fire, 'Laẓā' the hunter fire spitting its tongue, 'al-Ḥuṭama' the shattering fire that rises from the heart. Whichever name the Qur'an chooses, that layer is summoned. Hell's 'plurality' is not random — every sin meets its own fire.",
       "sourceTr": "el-İsfahânî, el-Müfredât (ilgili maddeler); İbn Kayyim, Hâdi'l-Ervâh ilâ Bilâdi'l-Efrâh (cehennem isimleri); Râzî, Mefâtîh (Müddessir, Meâric, Hümeze tefsirleri).",
       "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (relevant entries); Ibn Qayyim, *Ḥādī al-Arwāḥ* (names of Hell); al-Rāzī, *Mafātīḥ* (on al-Muddaththir, al-Maʿārij, al-Humaza)."
+    },
+    {
+      "id": "zillet-meskenet-gazab",
+      "category": "toplum",
+      "titleTr": "Zillet · Meskenet · Gazab — Üç Ayrı Düşüş",
+      "titleEn": "Dhilla · Maskana · Ghaḍab — Three Distinct Falls",
+      "introTr": "Bakara 2:61'in sonunda üç kelime arka arkaya gelir ve sıradan bir tekrar gibi görünür. Oysa her biri başka bir kaybı adlandırır: toplumdaki yeri, o yerden çıkabilme gücünü ve ilâhî hoşnutsuzluğu.",
+      "introEn": "At the end of Bakara 2:61 three words follow one another and look like ordinary repetition. Each names a different loss: one's place in society, the power to leave that place, and divine displeasure.",
+      "terms": [
+        {
+          "termAr": "الذِّلَّةُ",
+          "termTr": "Zillet",
+          "termEn": "Dhilla",
+          "rootTr": "ذ-ل-ل (alçalmak)",
+          "rootEn": "dh-l-l (to be lowly)",
+          "meaningTr": "Toplum içindeki en aşağı konum. Kişinin nerede durduğunu, başkalarının gözündeki yerini anlatır.",
+          "meaningEn": "The lowest standing within a society: where a person is placed, and how they are seen by others.",
+          "verse": {
+            "verseRef": "Bakara 2:61",
+            "ar": "وَضُرِبَتْ عَلَيْهِمُ الذِّلَّةُ وَالْمَسْكَنَةُ وَبَاؤُ بِغَضَبٍ مِنَ اللّٰهِ ذٰلِكَ بِاَنَّهُمْ كَانُوا يَكْفُرُونَ بِاٰيَاتِ اللّٰهِ وَيَقْتُلُونَ النَّبِيِّنَ بِغَيْرِ الْحَقِّ ذٰلِكَ بِمَا عَصَوْا وَكَانُوا يَعْتَدُون",
+            "trTr": "Üzerlerine zillet ve meskenet damgası vuruldu ve Allah'ın gazabına uğradılar.",
+            "trEn": "Humiliation and misery were stamped upon them, and they drew upon themselves God's wrath."
+          }
+        },
+        {
+          "termAr": "الْمَسْكَنَةُ",
+          "termTr": "Meskenet",
+          "termEn": "Maskana",
+          "rootTr": "س-ك-ن (durmak, yerleşmek)",
+          "rootEn": "s-k-n (to be still, to settle)",
+          "meaningTr": "Kişinin kendi gücüyle çıkamadığı bir sıkıntı hâli. Zillet konumu gösterirse, meskenet o konumda çakılı kalmayı gösterir.",
+          "meaningEn": "A distress a person has no power to escape. Where dhilla marks the position, maskana marks being fixed in it.",
+          "verse": {
+            "verseRef": "Bakara 2:61",
+            "ar": "الْمَسْكَنَةُ",
+            "trTr": "Meskenet: kişinin kendi eliyle değiştiremediği çaresizlik.",
+            "trEn": "Maskana: a helplessness a person cannot change by their own hand."
+          }
+        },
+        {
+          "termAr": "غَضَبٍ",
+          "termTr": "Gazab",
+          "termEn": "Ghaḍab",
+          "rootTr": "غ-ض-ب (öfkelenmek)",
+          "rootEn": "gh-ḍ-b (to be angry)",
+          "meaningTr": "İlâhî hoşnutsuzluk. İlk ikisi insanın dünyadaki hâlini, bu üçüncüsü Allah katındaki durumu anlatır.",
+          "meaningEn": "Divine displeasure. The first two describe a condition among people; this third one describes standing before God.",
+          "verse": {
+            "verseRef": "Bakara 2:61",
+            "ar": "وَبَاؤُ بِغَضَبٍ مِنَ اللّٰهِ",
+            "trTr": "Ve Allah'tan bir gazaba uğradılar.",
+            "trEn": "And they drew upon themselves a wrath from God."
+          }
+        }
+      ],
+      "nuanceTr": "Üçü bir arada okunduğunda âyetin anlattığı düşüş katman katman görünür: konum kaybı, o konumdan çıkamama ve ilâhî gazap. Aynı âyette İsrâiloğulları'nın istediği yiyecekler için kullanılan \"bir şehre inin\" ifadesindeki kelime (mısran), Mısır'ın adını çağrıştırır; istenen şeyin nerede bulunduğunu hatırlatan bir söz oyunudur.",
+      "nuanceEn": "Read together, the fall the verse describes appears in layers: loss of standing, inability to leave it, and divine wrath. In the same verse the word used for \"go down to a settlement\" (miṣran) echoes the name of Egypt, a wordplay recalling where the thing asked for is to be found.",
+      "sourceTr": "Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), 2. bölüm \"Word Choice\", s. 33-34. Çağdaş edebî bir okumadır; klasik tefsirin yerine geçmez.",
+      "sourceEn": "Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), ch. 2 \"Word Choice\", pp. 33-34. A contemporary literary reading; it does not replace classical exegesis."
+    },
+    {
+      "id": "edra-yudri",
+      "category": "dil",
+      "titleTr": "Edrâ · Yüdrî — Bilmenin İki Kipi",
+      "titleEn": "Adrā · Yudrī — Two Tenses of Knowing",
+      "introTr": "Kur'ân, ağır bir konuyu ansızın anıp ardından \"sana ne bildirdi?\" diye sorar. Bu soru çoğu yerde geçmiş kipiyle (edrâ), üç yerde ise geniş-gelecek kipiyle (yüdrî) gelir. Türkçeye ikisi de aynı çevrilir; fark kipte saklıdır.",
+      "introEn": "The Qur'an names a weighty subject abruptly, then asks \"what will make you know?\" In most places the verb is in the perfect (adrā); in three places it is in the imperfect (yudrī). Both render the same in translation; the difference sits in the tense.",
+      "terms": [
+        {
+          "termAr": "وَمَا اَدْرٰيكَ",
+          "termTr": "Vemâ edrâke",
+          "termEn": "Wa-mā adrāka",
+          "rootTr": "د-ر-ي (bilmek, sezmek)",
+          "rootEn": "d-r-y (to know, to perceive)",
+          "meaningTr": "Tamamlanmış kip. Bir şeyi \"öğrenmek\" bir kez olur; soru, ardından gelen açıklamayla cevaplanır.",
+          "meaningEn": "The perfect tense. Coming to know a thing happens once; the question is answered by the explanation that follows.",
+          "verse": {
+            "verseRef": "Kadr 97:1-2",
+            "ar": "اِنَّا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ وَمَا اَدْرٰيكَ مَا لَيْلَةُ الْقَدْرِ",
+            "trTr": "Biz onu Kadir gecesinde indirdik. Kadir gecesinin ne olduğunu sana bildiren nedir?",
+            "trEn": "We sent it down on the Night of Decree. And what will make you know what the Night of Decree is?"
+          }
+        },
+        {
+          "termAr": "وَمَا يُدْرِيكَ",
+          "termTr": "Vemâ yüdrîke",
+          "termEn": "Wa-mā yudrīka",
+          "rootTr": "د-ر-ي (aynı kök, farklı kip)",
+          "rootEn": "d-r-y (same root, different tense)",
+          "meaningTr": "Tamamlanmamış kip. Üç yerde geçer ve üçünde de soru cevapsız bırakılır: kıyamet saati (Ahzâb 33:63, Şûrâ 42:17) ve bir insanın arınıp arınmayacağı (Abese 80:3).",
+          "meaningEn": "The imperfect tense. It occurs in three places, and in all three the question is left unanswered: the Hour (Ahzâb 33:63, Şûrâ 42:17) and whether a person will be purified (Abese 80:3).",
+          "verse": {
+            "verseRef": "Ahzâb 33:63",
+            "ar": "يَسْـَٔلُكَ النَّاسُ عَنِ السَّاعَةِ قُلْ اِنَّمَا عِلْمُهَا عِنْدَ اللّٰهِ وَمَا يُدْرِيكَ لَعَلَّ السَّاعَةَ تَكُونُ قَرِيباً",
+            "trTr": "İnsanlar sana kıyametin saatini sorarlar. De ki: onun bilgisi ancak Allah katındadır. Sana ne bildirir? Belki de o saat yakındır.",
+            "trEn": "People ask you about the Hour. Say: knowledge of it is only with God. And what will make you know? Perhaps the Hour is near."
+          }
+        }
+      ],
+      "nuanceTr": "Kip farkı bir üslup tercihi değil, bilginin sınırını gösterir. Tamamlanmış kipte soru cevaplanır; tamamlanmamış kipte cevap verilmez, çünkü bu üç konu insanın önceden bilebileceği şeyler değildir.",
+      "nuanceEn": "The difference in tense is not a stylistic preference; it marks the limit of knowledge. In the perfect the question is answered; in the imperfect it is not, because these three matters are not ones a human being can know in advance.",
+      "sourceTr": "Nouman Ali Khan · Sharif Randhawa, Divine Speech (2016), 2. bölüm \"Word Choice\", s. 36-38. Çağdaş edebî bir okumadır; klasik tefsirin yerine geçmez.",
+      "sourceEn": "Nouman Ali Khan · Sharif Randhawa, Divine Speech (2016), ch. 2 \"Word Choice\", pp. 36-38. A contemporary literary reading; it does not replace classical exegesis."
     }
   ],
   "sources": [

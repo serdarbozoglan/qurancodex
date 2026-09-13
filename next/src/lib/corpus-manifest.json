@@ -65605,18 +65605,18 @@
     "type": "atlas-esma-tanim"
   },
   "alan:iman-itikad": {
-    "hash": "f1c5e0e14f6d079f",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "eac8017c7b6e8427",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iman-itikad#0": {
-    "hash": "f9c5204f3a2e1a20",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "95dc3e6473e83cf6",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iman-itikad#1": {
-    "hash": "c42dc7c1ab8f0e98",
-    "embeddedAt": "2026-09-13T16:03:16.981Z",
+    "hash": "6d0b29834b142fcf",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iman-itikad#2": {
@@ -65635,8 +65635,8 @@
     "type": "alan-disiplin"
   },
   "alan:psikoloji-nefs": {
-    "hash": "e7e9268c8bdd8ad5",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "c2eefd2d24f6c078",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:psikoloji-nefs#0": {
@@ -65645,8 +65645,8 @@
     "type": "alan-disiplin"
   },
   "alan:psikoloji-nefs#1": {
-    "hash": "ddfc8d1a24b0cfd1",
-    "embeddedAt": "2026-09-13T16:19:17.730Z",
+    "hash": "ca178f11d345da7a",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:psikoloji-nefs#2": {
@@ -65660,78 +65660,78 @@
     "type": "alan-disiplin"
   },
   "alan:psikoloji-nefs#4": {
-    "hash": "394caf3031bc1c0b",
-    "embeddedAt": "2026-09-13T16:19:17.730Z",
+    "hash": "420951f7f62f4a61",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:liderlik-yonetim": {
-    "hash": "3ea809ab8704a095",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "35a892e5b8196f5e",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:liderlik-yonetim#0": {
-    "hash": "af0666ad0b605201",
-    "embeddedAt": "2026-09-13T16:31:20.669Z",
+    "hash": "e3c9904764963341",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:liderlik-yonetim#1": {
-    "hash": "81c826f871e68695",
-    "embeddedAt": "2026-09-13T16:31:20.669Z",
+    "hash": "9cb81a49e5f19f88",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:liderlik-yonetim#2": {
-    "hash": "231b89ccd03ccc0c",
-    "embeddedAt": "2026-09-13T16:31:20.669Z",
+    "hash": "4b751fd5c508aeb9",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:liderlik-yonetim#3": {
-    "hash": "3d9099a311e8d967",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "a394b963de4ce954",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:adalet-hukuk": {
-    "hash": "e7cd02d0931a8197",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "990d379d82ede52e",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:adalet-hukuk#0": {
-    "hash": "a0c7eee4b9b3fb1e",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "25f0e4d954e4f019",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:adalet-hukuk#1": {
-    "hash": "7a40e22d5904506b",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "55518a36c6119279",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:adalet-hukuk#2": {
-    "hash": "fa74376f77f74fd1",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "79fa6d8d3e2be5d4",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:adalet-hukuk#3": {
-    "hash": "9a954e38c1d055d7",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "7276961f27e2c203",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:adalet-hukuk#4": {
-    "hash": "ee967dc2e7a94148",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "ba0a4608a4078846",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret": {
-    "hash": "28901b0f703fc0ae",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "e3731d3ba3631c6c",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret#0": {
-    "hash": "1109fac5a6cee231",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "01b15e991f0a1a23",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret#1": {
-    "hash": "ffe43fb9c83fcfe5",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "138f0f6d02c312cd",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret#2": {
@@ -65740,8 +65740,8 @@
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret#3": {
-    "hash": "04012582415d5b2e",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "8480481aae23da72",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret#4": {
@@ -65750,13 +65750,13 @@
     "type": "alan-disiplin"
   },
   "alan:iktisat-ticaret#5": {
-    "hash": "a75be0450096ea82",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "c8a28bf20ee6ef5e",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:ahlak-karakter": {
-    "hash": "ad0cf578322624fa",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "cfd4ffb85e5c630b",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:ahlak-karakter#0": {
@@ -65785,8 +65785,8 @@
     "type": "alan-disiplin"
   },
   "alan:ahlak-karakter#5": {
-    "hash": "627a9a77d83e5aee",
-    "embeddedAt": "2026-09-13T16:19:17.730Z",
+    "hash": "c1b011f65d527b04",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:sosyoloji-toplum": {
@@ -65795,18 +65795,18 @@
     "type": "alan-disiplin"
   },
   "alan:sosyoloji-toplum#0": {
-    "hash": "14d735ddd3cc467a",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "1389c5955b1db37f",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:sosyoloji-toplum#1": {
-    "hash": "8b75eae94f5c7c0f",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "6e7eb496c4fb9978",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:sosyoloji-toplum#2": {
-    "hash": "325d90ceef24537d",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "7699104e2ba54173",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:sosyoloji-toplum#3": {
@@ -65815,8 +65815,8 @@
     "type": "alan-disiplin"
   },
   "alan:sosyoloji-toplum#4": {
-    "hash": "a2d49970bfd92cc1",
-    "embeddedAt": "2026-09-13T10:56:17.110Z",
+    "hash": "befd39d77309a951",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
     "type": "alan-disiplin"
   },
   "alan:dil-belagat": {
@@ -66233,5 +66233,15 @@
     "hash": "17e0f2ea68d0fffd",
     "embeddedAt": "2026-09-13T17:04:51.275Z",
     "type": "risale-not"
+  },
+  "yakin-anlamli:zillet-meskenet-gazab": {
+    "hash": "d188121b3464a83f",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:edra-yudri": {
+    "hash": "30552abe67109a5e",
+    "embeddedAt": "2026-09-13T17:23:47.872Z",
+    "type": "nuance-set"
   }
 }
