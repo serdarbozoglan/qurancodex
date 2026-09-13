@@ -1884,10 +1884,10 @@ export default function SebebiNuzul({ onClose }) {
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
-          <button className="mq-box"
+          <button
             key={i}
             onClick={() => { setActiveTab(i); setTimeout(() => { const tb = document.getElementById('sebebi-tab-bar'); if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-            className="mq-fs" style={{
+            className="mq-box mq-fs" style={{
               display: 'flex',
               alignItems: 'center',
               gap: '8px',

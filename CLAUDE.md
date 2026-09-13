@@ -952,9 +952,44 @@ Bu pattern'a uygun sayfalar (örnek): İlk-Son Kelimeler, Münâfık Profili, S�
 - ❌ **YASAK:** Tab label lowercase — UPPERCASE site-wide pattern.
 - ❌ **YASAK:** Body container'da `padding-top` — sticky tab bar'ı padding'in altından sticky'ler, gap'ten içerik sızar. Body padding-top 0 olmalı; Hero kendi padding'ini içeride versin.
 
----
+#### ⚠ KANONİK REFERANS = "Kur'an'da Renkler" (KuranRenkleri.jsx) — TÜM SEKME ÇUBUKLARI BUNA UYAR (2026-09-12)
 
-### 13.20 CrossToolCTA Pattern (2026-06-14+)
+**Yeni bir alt-sekme/alt-başlık (tab bar) oluştururken veya mevcut birini
+düzenlerken `KuranRenkleri.jsx`'in tab bar'ı ESAS ALINIR** (kullanıcı direktifi
+2026-09-12: "Kur'an'da Renkler bu referans olsun, tüm sitede alt menüler o şekilde
+gözüksün — tab seçilince format dâhil"). Kanonik buton spec'i (`tabStyle`, ~satır
+2659) + seçili gösterge:
+
+```jsx
+// Buton (aktif/pasif):
+padding: isMobile ? '14px 16px' : '15px 22px',
+borderRadius: 0, border: 'none',
+background: active
+  ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)`
+  : 'transparent',
+color: active ? COLORS.gold : SEMANTIC.textFaint,
+fontSize: isMobile ? '0.78rem' : '0.82rem',
+fontWeight: active ? 700 : 500,
+letterSpacing: active ? '0.14em' : '0.12em',
+textTransform: 'uppercase', fontFamily: FONTS.body, whiteSpace: 'nowrap',
+// Seçili gösterge: DÜZ 2px border DEĞİL — ışıltılı altın gradyan alt-çizgi (span):
+{active && <span aria-hidden style={{ position:'absolute', bottom:'-1px',
+  left:'14%', right:'14%', height:'2px',
+  background:`linear-gradient(90deg, transparent, ${COLORS.gold}, transparent)`,
+  boxShadow:`0 0 12px ${COLORS.gold}99, 0 0 4px ${COLORS.gold}`, borderRadius:'2px' }} />}
+```
+
+Container: `display:flex; gap: isMobile?'0':'6px'`; padding var'ları `--pr-d/pl-d:14px`;
+`overflowX:auto; scrollbarWidth:none`; sticky konumlama §13.19'daki gibi
+(`top: navTop+48`, opak bg).
+
+**🐞 ÇİFT `className` HATASI (2026-09-12, 26 dosyada bulundu ve düzeltildi):**
+tab butonu `<button className="mq-box" ... className="mq-fs" style=...>` gibi İKİ
+`className` taşıyorsa, JSX yalnız SONUNCUYU (`mq-fs`) tutar; `mq-box` düşer ve
+`--pr-d/--pl-d` padding'i UYGULANMAZ → sekmeler sıkışık/bitişik görünür (kullanıcı
+"harfler seyrek, bölümler çok yakın" diye bildirdi). **Kural: tek attribute —
+`className="mq-box mq-fs"`.** Tarama: `grep -rn '<button className="mq-box"' src/`
+— eşi `className="mq-fs"` olan her buton birleştirilir.
 
 **Sayfa sonunda 2-3 ilgili tool linkine yönlendiren CTA strip.** Reusable component: `next/src/components/CrossToolCTA.jsx`.
 

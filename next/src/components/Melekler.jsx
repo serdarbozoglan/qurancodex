@@ -1514,7 +1514,7 @@ export default function Melekler({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => {
                 handleTab(i);
@@ -1523,7 +1523,7 @@ export default function Melekler({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none', borderRadius: '0',

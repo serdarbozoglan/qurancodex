@@ -4080,7 +4080,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   is already word-by-word by nature. Desktop only —
                   mobile accesses this via the Settings panel. */}
               {!isMobile && !interlinearMode && (
-                <button className="mq-box"
+                <button
                   onClick={() => {
                     // Word mode and tajweed colors are mutually exclusive — word-by-word
                     // rendering bypasses the tajweed pipeline, so leaving tajweed on while
@@ -4103,7 +4103,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseLeave={e => { e.currentTarget.style.background = wordMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = wordMode ? navC.btnBorderActive : navC.btnBorder; }}
                   title={language === 'tr' ? 'Kelime modu: her kelimenin anlamı' : 'Word mode: per-word meaning'}
                 >
-                  <span className="mq-fs" style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, '--fs-d': '1.15rem', '--fs-m': '1rem', fontWeight: 700 }}>
+                  <span className="mq-box mq-fs" style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, '--fs-d': '1.15rem', '--fs-m': '1rem', fontWeight: 700 }}>
                     ك
                   </span>
                   <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
@@ -4115,7 +4115,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* MEAL — DOĞRUDAN aç/kapa (2026-09-07 kullanıcı UX: buton sadece
                   meali açıp kapatır, tek tık). Yazar seçimi meal sütunundaki
                   inline dropdown'dan yapılır; picker artık burada açılmıyor. */}
-              {!isMobile && <button className="mq-box"
+              {!isMobile && <button
                 onClick={() => setShowTranslation(v => !v)}
                 role="switch" aria-checked={showTranslation}
                 style={{
@@ -4155,14 +4155,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <BookOpenIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                <span className="mq-box mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Tefsir' : 'Tafsir'}
                 </span>
               </button>}
 
               {/* Tahta (drawing overlay) toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
-              {!isMobile && <button className="mq-box"
+              {!isMobile && <button
                 onClick={() => {
                   if (drawMode) {
                     requestExitTahta(() => { clearTahta(); setDrawMode(false); });
@@ -4184,7 +4184,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <TahtaIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                <span className="mq-box mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Tahta' : 'Board'}
                 </span>
               </button>}
@@ -4193,7 +4193,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   Karaoke desteklemeyen kârîlerde de görünür kalır; sebebi
                   panelin içinde açıklanır (buton gizlemek "özellik yok"
                   izlenimi verirdi). */}
-              {!isMobile && <button className="mq-box"
+              {!isMobile && <button
                 onClick={() => {
                   if (hifzOpen) { stopAudio(); setHifzOpen(false); }
                   else setHifzOpen(true);
@@ -4216,7 +4216,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <HifzIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                <span className="mq-box mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Ezber' : 'Memorize'}
                 </span>
               </button>}
@@ -4393,7 +4393,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             backdropFilter: 'blur(20px)',
           }}>
             {/* Header row — always visible, click toggles expansion */}
-            <button className="mq-box"
+            <button
               onClick={() => setShowTajweedLegend(v => !v)}
               style={{
                 width: '100%',
@@ -4619,7 +4619,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                   </div>
                   {/* Right: Arabic name */}
-                  <span className="mq-fs" style={{
+                  <span className="mq-box mq-fs" style={{
                     // CLAUDE.md §13.2 — KFGQPC canonical for Quranic Arabic.
                     fontFamily: FONTS.quran,
                     '--fs-d': '1.25rem', '--fs-m': '1.1rem',
@@ -10468,7 +10468,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* CENTER: prev / play / next */}
             <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '4px' : '10px', flexShrink: 0 }}>
-              <button className="mq-box"
+              <button
                 onClick={() => prevVerse && handleSelectVerse(prevVerse)}
                 disabled={!prevVerse}
                 style={{ background: 'none', border: 'none', color: prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: prevVerse ? 'pointer' : 'default', '--pt-d': "6px", '--pt-m': "3px", '--pr-d': "6px", '--pr-m': "3px", '--pb-d': "6px", '--pb-m': "3px", '--pl-d': "6px", '--pl-m': "3px", display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
@@ -10581,7 +10581,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   setActiveVerse(null);
                 }}
                 title={language === 'tr' ? 'Kapat' : 'Dismiss'}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   width: isMobile ? '32px' : '40px', height: isMobile ? '32px' : '40px', borderRadius: RADIUS.md, cursor: 'pointer',
                   background: dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)',
@@ -11644,13 +11644,13 @@ function VerseCompareModal({
     const isCurrent = author.id === currentMealId;
     const isSelected = isCurrent || compareAuthors.includes(author.id);
     return (
-      <button className="mq-box"
+      <button
         key={author.id}
         type="button"
         onClick={() => toggleAuthor(author.id)}
         disabled={isCurrent}
         title={isCurrent ? (language === 'tr' ? 'Aktif meal; kaldırılamaz' : 'Active translation; cannot remove') : undefined}
-        className="mq-fs" style={{
+        className="mq-box mq-fs" style={{
           display: 'inline-flex', alignItems: 'center', gap: '6px',
           '--pt-d': "6px", '--pt-m': "5px", '--pr-d': "12px", '--pr-m': "10px", '--pb-d': "6px", '--pb-m': "5px", '--pl-d': "12px", '--pl-m': "10px",
           borderRadius: RADIUS.pill,

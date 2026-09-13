@@ -587,7 +587,7 @@ export default function MunafikProfili({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button className="mq-box"
+              <button
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
@@ -596,7 +596,7 @@ export default function MunafikProfili({ onClose }) {
                     if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }, 50);
                 }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
@@ -688,9 +688,9 @@ function PsychologyCTA({ onClose, language, isMobile }) {
     }, 120);
   };
   return (
-    <button className="mq-box"
+    <button
       onClick={handleClick}
-      className="mq-fs" style={{
+      className="mq-box mq-fs" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -788,7 +788,7 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
         filter: 'blur(2px)',
       }} />
       {/* Header — always visible, clickable toggle */}
-      <button className="mq-box"
+      <button
         onClick={onToggle}
         style={{
           width: '100%',
@@ -833,7 +833,7 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
         </div>
 
         {/* Profile title */}
-        <h3 className="mq-fs" style={{
+        <h3 className="mq-box mq-fs" style={{
           fontFamily: FONTS.display,
           '--fs-d': '1.35rem', '--fs-m': '1.15rem',
           fontWeight: 700,

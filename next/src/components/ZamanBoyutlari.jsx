@@ -1757,7 +1757,7 @@ export default function ZamanBoyutlari({ onClose }) {
         {TABS.map(tab => {
           const isActive = tab.id === activeTab;
           return (
-            <button className="mq-box"
+            <button
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
@@ -1766,7 +1766,7 @@ export default function ZamanBoyutlari({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',

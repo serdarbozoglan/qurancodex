@@ -443,7 +443,7 @@ export default function KavimlerAtlasi({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -452,7 +452,7 @@ export default function KavimlerAtlasi({ onClose }) {
                   if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
                 border: 'none', background: 'transparent',

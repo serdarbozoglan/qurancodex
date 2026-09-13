@@ -287,7 +287,7 @@ function PillarCard({ pillar, language, isMobile, router }) {
     }
   };
   return (
-    <button className="mq-box"
+    <button
       onClick={handleClick}
       disabled={!isReady}
       aria-label={`${language === 'tr' ? pillar.titleTr : pillar.titleEn} · ${isReady ? (language === 'tr' ? 'Hazır, sayfaya git' : 'Ready, go to page') : (language === 'tr' ? 'Yakında' : 'Coming soon')}`}
@@ -419,7 +419,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
   const maxFreq = Math.max(...data.nodes.map(n => n.freq));
   return (
     <div style={{ marginBottom: '56px' }}>
-      <h2 className="mq-fs" style={{
+      <h2 className="mq-box mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
         '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 8px', fontWeight: 700,

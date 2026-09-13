@@ -374,7 +374,7 @@ export default function KuranYeminleri({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button className="mq-box"
+              <button
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
@@ -385,7 +385,7 @@ export default function KuranYeminleri({ onClose }) {
                     if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }, 50);
                 }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',

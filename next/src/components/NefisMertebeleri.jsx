@@ -404,12 +404,12 @@ export default function NefisMertebeleri({ onClose }) {
           ].map(tab => {
             const active = activeTab === tab.id;
             return (
-              <button className="mq-box" key={tab.id}
+              <button key={tab.id}
                 onClick={() => {
                   setActiveTab(tab.id);
                   setTimeout(() => document.getElementById('nefs-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                 }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "14px",
                   '--fs-d': '0.76rem', '--fs-m': '0.7rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -542,7 +542,7 @@ export default function NefisMertebeleri({ onClose }) {
         <div className="mq-box" style={{
           '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "20px",
         }}>
-          <button className="mq-box"
+          <button
             onClick={() => openOverlay('munafik')}
             style={{
               width: '100%',
@@ -589,7 +589,7 @@ export default function NefisMertebeleri({ onClose }) {
           borderTop: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
         }}>
-          <p className="mq-fs" style={{
+          <p className="mq-box mq-fs" style={{
             color: COLORS.silver,
             '--fs-d': '0.92rem', '--fs-m': '0.85rem',
             fontFamily: FONTS.body,

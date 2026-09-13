@@ -336,13 +336,13 @@ export default function TarihselKanitlar({ onClose }) {
           {TABS.map((t, i) => {
             const isActive = activeTab === i;
             return (
-              <button className="mq-box"
+              <button
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
                   setTimeout(() => document.getElementById('tarihsel-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                 }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
                   '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -425,10 +425,10 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
         {categories.map(cat => {
           const isActive = cat.id === activeCategoryId;
           return (
-            <button className="mq-box"
+            <button
               key={cat.id}
               onClick={() => onCategoryToggle(cat.id)}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
@@ -449,9 +449,9 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
           );
         })}
         {activeCategoryId && (
-          <button className="mq-box"
+          <button
             onClick={() => onCategoryToggle(activeCategoryId)}
-            className="mq-fs" style={{
+            className="mq-box mq-fs" style={{
               '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "14px", '--pl-m': "12px",
               borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`,

@@ -185,7 +185,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         />
       </div>
 
-      <button className="mq-box" onClick={onToggle} aria-expanded={expanded}
+      <button onClick={onToggle} aria-expanded={expanded}
         style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', width: '100%', '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px", paddingRight: 44 }}>
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -196,7 +196,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         }}>
           {surahShortName(parseInt(c.verseRef.split(':')[0], 10))} {c.verseRef}
         </span>
-        <h3 className="mq-fs" style={{
+        <h3 className="mq-box mq-fs" style={{
           fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700,
           color: COLORS.offWhite, margin: '0 0 8px', lineHeight: 1.35,
         }}>

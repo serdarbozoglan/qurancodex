@@ -412,7 +412,7 @@ export default function CennetCehennem({ onClose }) {
             {TABS.map(tab => {
               const isActive = activeTab === tab.id;
               return (
-                <button className="mq-box"
+                <button
                   key={tab.id}
                   onClick={() => {
                     setActiveTab(tab.id);
@@ -421,7 +421,7 @@ export default function CennetCehennem({ onClose }) {
                       if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 50);
                   }}
-                  className="mq-fs" style={{
+                  className="mq-box mq-fs" style={{
                     display: 'flex', alignItems: 'center', gap: '8px',
                     '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                     '--mt-d': "0", '--mt-m': "0", '--mr-d': "0", '--mr-m': "0", '--mb-d': "0", '--mb-m': "0", '--ml-d': "0", '--ml-m': "0",

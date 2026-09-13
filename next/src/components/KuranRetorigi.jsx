@@ -209,7 +209,7 @@ export default function KuranRetorigi({ onClose }) {
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
-          <button className="mq-box"
+          <button
             key={i}
             onClick={() => {
               setActiveTab(i);
@@ -218,7 +218,7 @@ export default function KuranRetorigi({ onClose }) {
                 if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }, 50);
             }}
-            className="mq-fs" style={{
+            className="mq-box mq-fs" style={{
               '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
               '--fs-d': '0.82rem', '--fs-m': '0.74rem',
               fontFamily: FONTS.body,

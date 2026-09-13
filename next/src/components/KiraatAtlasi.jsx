@@ -1651,10 +1651,10 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>
           {TABS.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => navigateToTab(i)}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
                 '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                 border: 'none',

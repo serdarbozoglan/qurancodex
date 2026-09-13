@@ -347,10 +347,10 @@ export default function FurukAtlasi({ onClose }) {
             {TABS.map((t, i) => {
               const active = activeTab === i;
               return (
-                <button className="mq-box"
+                <button
                   key={i}
                   onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('furuk-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-                  className="mq-fs" style={{
+                  className="mq-box mq-fs" style={{
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
                     flexShrink: 0,

@@ -1631,7 +1631,7 @@ export default function DogaAtlasi({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -1640,7 +1640,7 @@ export default function DogaAtlasi({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',

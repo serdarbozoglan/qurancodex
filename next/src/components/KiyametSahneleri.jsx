@@ -716,7 +716,7 @@ export default function KiyametSahneleri({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {tabs.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -725,7 +725,7 @@ export default function KiyametSahneleri({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',

@@ -246,11 +246,11 @@ export default function RetorikSorular({ onClose }) {
           {FAMILY_TABS.map(f => {
             const isActive = f.id === activeFamilyId;
             return (
-              <button className="mq-box" key={f.id} onClick={() => {
+              <button key={f.id} onClick={() => {
                 setActiveFamilyId(f.id);
                 setTimeout(() => document.getElementById('belagat-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
                   borderRadius: '999px',
                   border: `1px solid ${isActive ? f.color : COLORS.glassBorder}`,

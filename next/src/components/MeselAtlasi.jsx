@@ -259,7 +259,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
   const label = (language === 'tr' ? DOMAIN_LABELS_TR[domain.id] : DOMAIN_LABELS_EN[domain.id]) ?? domain.id;
 
   return (
-    <button className="mq-box"
+    <button
       onClick={() => onDomainFilter(domain.id)}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -280,7 +280,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
           width: 10, height: 10, borderRadius: '50%', background: domain.color, flexShrink: 0,
           boxShadow: `0 0 10px ${domain.color}90`,
         }} />
-        <span className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': '1.08rem', '--fs-m': '1rem', fontWeight: 700, color: COLORS.offWhite }}>
+        <span className="mq-box mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': '1.08rem', '--fs-m': '1rem', fontWeight: 700, color: COLORS.offWhite }}>
           {label.split(' / ')[0]}
         </span>
       </div>
@@ -1529,10 +1529,10 @@ export default function MeselAtlasi({ onClose, backRef }) {
           lineHeight: 1.5,
         }}>
           {tabs.map((label, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px",
                 '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,

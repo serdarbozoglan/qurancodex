@@ -152,7 +152,7 @@ export default function DuaDili({ onClose }) {
         {TABS.map(tab => {
           const active = activeTab === tab.id;
           return (
-            <button className="mq-box"
+            <button
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
@@ -160,7 +160,7 @@ export default function DuaDili({ onClose }) {
                   document.getElementById('dua-dili-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
                 '--fs-d': '0.76rem', '--fs-m': '0.7rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
