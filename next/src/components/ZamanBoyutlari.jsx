@@ -7,6 +7,7 @@ import useTabParam from '../hooks/useTabParam';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
@@ -1757,7 +1758,7 @@ export default function ZamanBoyutlari({ onClose }) {
         {TABS.map(tab => {
           const isActive = tab.id === activeTab;
           return (
-            <button className="mq-box"
+            <button
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
@@ -1766,7 +1767,7 @@ export default function ZamanBoyutlari({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
@@ -1774,8 +1775,8 @@ export default function ZamanBoyutlari({ onClose }) {
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none',
                 borderRadius: '0',
-                borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                borderBottom: 'none', position: 'relative',
+                background: isActive ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
                 color: isActive ? COLORS.gold : COLORS.silver,
                 '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 letterSpacing: '0.14em',
@@ -1791,6 +1792,7 @@ export default function ZamanBoyutlari({ onClose }) {
             >
               <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
               <span className="qc-tab-label">{language === 'tr' ? tab.labelTr : tab.labelEn}</span>
+            {isActive && <ToolTabGlow />}
             </button>
           );
         })}

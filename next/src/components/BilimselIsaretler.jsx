@@ -11,6 +11,7 @@ import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import FramingBadge from './FramingBadge';
 import CrossToolCTA from './CrossToolCTA';
@@ -266,24 +267,25 @@ export default function BilimselIsaretler({ onClose }) {
           {TABS.map((t, i) => {
             const isActive = activeTab === i;
             return (
-              <button className="mq-box" key={i} onClick={() => {
+              <button key={i} onClick={() => {
                 setActiveTab(i);
                 setTimeout(() => document.getElementById('bilim-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
                   '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
                   color: isActive ? COLORS.gold : COLORS.silver,
                   border: 'none',
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                  borderBottom: 'none', position: 'relative',
+                  background: isActive ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
                   cursor: 'pointer', whiteSpace: 'nowrap',
                   display: 'inline-flex', alignItems: 'center', gap: '6px',
                 }}>
                 <span style={{ opacity: isActive ? 1 : 0.6 }}>{t.icon}</span>
                 {tr ? t.tr : t.en}
+              {isActive && <ToolTabGlow />}
               </button>
             );
           })}
@@ -345,15 +347,15 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
         {domains.map(d => {
           const isActive = d.id === activeDomainId;
           return (
-            <button className="mq-box" key={d.id} onClick={() => onDomainToggle(d.id)}
-              className="mq-fs" style={{
+            <button key={d.id} onClick={() => onDomainToggle(d.id)}
+              className="mq-box mq-fs" style={{
                 '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? d.color : COLORS.glassBorder}`,
                 background: isActive ? `${d.color}22` : 'transparent',
                 color: isActive ? d.color : COLORS.silver,
                 '--fs-d': '0.85rem', '--fs-m': '0.78rem',
-                fontWeight: isActive ? 600 : 400, fontFamily: FONTS.body,
+                fontWeight: isActive ? 700 : 500, fontFamily: FONTS.body,
                 cursor: 'pointer', transition: 'all 0.18s', whiteSpace: 'nowrap',
                 display: 'inline-flex', alignItems: 'center', gap: '7px',
               }}>
@@ -363,8 +365,8 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
           );
         })}
         {activeDomainId && (
-          <button className="mq-box" onClick={() => onDomainToggle(activeDomainId)}
-            className="mq-fs" style={{
+          <button onClick={() => onDomainToggle(activeDomainId)}
+            className="mq-box mq-fs" style={{
               '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "14px", '--pl-m': "12px", borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`, background: 'transparent',
               color: COLORS.gold, '--fs-d': '0.85rem', '--fs-m': '0.78rem',

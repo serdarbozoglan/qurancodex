@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import { COLORS, FONTS, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -374,7 +375,7 @@ export default function KuranYeminleri({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button className="mq-box"
+              <button
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
@@ -385,15 +386,15 @@ export default function KuranYeminleri({ onClose }) {
                     if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }, 50);
                 }}
-                className="mq-fs" style={{
+                className="mq-box mq-fs" style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
                   '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
                   border: 'none',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                  background: isActive ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
+                  borderBottom: 'none', position: 'relative',
                   borderRadius: '0',
                   color: isActive ? COLORS.gold : SEMANTIC.textFaint,
                   '--fs-d': '0.82rem', '--fs-m': '0.78rem',
@@ -410,6 +411,7 @@ export default function KuranYeminleri({ onClose }) {
               >
                 <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
                 <span className="qc-tab-label">{language === 'tr' ? tab.tr : tab.en}</span>
+              {isActive && <ToolTabGlow />}
               </button>
             );
           })}
@@ -695,7 +697,7 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
               <span style={{
                 color: isActive ? COLORS.offWhite : 'rgba(232,230,227,0.65)',
                 fontSize: '0.85rem', fontFamily: FONTS.body,
-                fontWeight: isActive ? 600 : 400,
+                fontWeight: isActive ? 700 : 500,
                 flex: 1,
                 transition: 'color 0.2s',
               }}>
@@ -741,7 +743,7 @@ function MobileAccordion({ categories, expanded, onToggle, language }) {
               }}
             >
               <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: cat.accent, flexShrink: 0 }} />
-              <span style={{ flex: 1, color: isOpen ? cat.accent : COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: isOpen ? 600 : 400, textAlign: 'left' }}>
+              <span style={{ flex: 1, color: isOpen ? cat.accent : COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: isOpen ? 700 : 500, textAlign: 'left' }}>
                 {language === 'tr' ? cat.tr : cat.en}
               </span>
               <span style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: FONTS.body }}>{cat.items.length}</span>
@@ -784,7 +786,7 @@ function TabKategoriler({ categories, activeCategoryId, onSelect, language, isMo
                 border: `1px solid ${isActive ? cat.accent : COLORS.glassBorder}`,
                 background: isActive ? `${cat.accent}22` : 'transparent',
                 color: isActive ? cat.accent : COLORS.silver,
-                fontSize: '0.8rem', fontWeight: isActive ? 600 : 400,
+                fontSize: '0.8rem', fontWeight: isActive ? 700 : 500,
                 fontFamily: FONTS.body, cursor: 'pointer', transition: 'all 0.15s',
               }}
             >

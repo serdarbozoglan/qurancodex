@@ -108,7 +108,7 @@
       "punishment": {
         "label": "Azap & Uyarı",
         "sura": "El-Kāria 101:1-3",
-        "arabic": "الْقَارِعَةُ ۝ مَا الْقَارِعَةُ ۝ وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
+        "arabic": "الْقَارِعَةُ  مَا الْقَارِعَةُ  وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
         "dominant": "ق ر ع",
         "feature": "Sesin kendisi 'çarpan'ı taklit eder",
         "noteTr": "Üç ayette ق sesi her seferinde geri döner; boğazda tıkanan, sonra patlayan harf. \"Kāria\" kelimesinin anlamı zaten \"çarpan, vuran\"dır; ses anlamın kendisi olur."
@@ -116,7 +116,7 @@
       "mercy": {
         "label": "Rahmet & Nimet",
         "sura": "Er-Rahmân 55:1-4",
-        "arabic": "الرَّحْمَٰنُ ۝ عَلَّمَ الْقُرْآنَ ۝ خَلَقَ الْإِنسَانَ ۝ عَلَّمَهُ الْبَيَانَ",
+        "arabic": "الرَّحْمَٰنُ  عَلَّمَ الْقُرْآنَ  خَلَقَ الْإِنسَانَ  عَلَّمَهُ الْبَيَانَ",
         "dominant": "ر ل م ن",
         "feature": "Akıcı, dalgalı, açık sesler; Kur'an'ın \"gelini\" (arûs)",
         "noteTr": "Klasik gelenek bu sûreyi \"arûsü'l-Kur'an\" (Kur'an'ın gelini) olarak adlandırır. Sebep sesin estetiğidir: ر ل م ن, dört likit ve nazal, süreklilik içinde yankılanır."
@@ -162,7 +162,7 @@
             "069001",
             "069002"
           ],
-          "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
+          "arabic": "الْحَاقَّةُ  مَا الْحَاقَّةُ",
           "verseRef": "Hâkka 69:1-2",
           "answer": "punishment",
           "revealTr": "Azap. İki ayet boyunca الْحَاقَّةُ kelimesi tekrar tekrar gelir; her ق şedde ile çift telaffuz edilir: \"ḥāq-qa\". Sesin kendisi vurmayı, yere çarpmayı taklit eder. \"Hâkka\", gerçekleşen kıyamet demektir.",
@@ -358,7 +358,7 @@
       "title": "Denizler Bariyeri",
       "content": "İki farklı su kütlesi yan yana akar, ama birbirine karışmaz. Aralarında görünmez bir sınır vardır. Bu, modern oşinografinin halocline adını verdiği fenomendir: tuzluluk, yoğunluk ve sıcaklık farkından oluşan doğal bir sınır katmanı. Cebelitarık Boğazı'nda Atlantik ile Akdeniz, İstanbul Boğazı'nda Karadeniz ile Marmara bu şekilde ayrışır. Kur'an bu fenomeni iki ayrı ayette tanımlar: Rahman 55:19-20'de iki denizin 'birbirini geçmeden' buluşması, Furkan 25:53'te ise aralarında berzah (engel, perde) bulunması. Modern oşinografinin terminolojisiyle kıyaslandığında bu tanımın teknik isabeti dikkat çekmektedir.",
       "verse": {
-        "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
+        "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ١٩ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
         "translation": "İki denizi salıverdi, birbirine kavuşuyorlar. Aralarında bir engel (berzah) var, birbirlerine geçmezler.",
         "reference": "Rahman, 55:19-20"
       },
@@ -453,7 +453,7 @@
       "significance": "Neden dikkat çekici: Bizans'ın 614'teki ezici yenilgisinden 622-628 arasındaki Heraclius zaferine kadar geçen süre, Kur'an'ın 'birkaç yıl içinde' (bid'i sineen — klasik dilbilime göre 3-9 yıl) ifadesiyle tarihsel olarak örtüşür. Bu, bu sayfadaki üç paralellik arasında akademik olarak en sağlam olanıdır. 'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik okuması ise klasik tefsire değil modern apolojetiğe aittir — bkz. eleştirel not.",
       "criticalNote": "'Edna el-ard' ifadesinin 'en alçak yer' şeklindeki jeolojik yorumu modern bir okumadır; klasik tefsirlerin çoğu (Râzî, Taberî, İbn Aşur) bu ifadeyi coğrafi olarak 'Araplara en yakın bölge' şeklinde açıklar. Ek bir tutarsızlık: 614 Sasani-Bizans çatışmasının ana sahnesi Yeruşalim'di — bu şehir deniz seviyesinin yaklaşık 750m üstündedir, Ölü Deniz'in (-430m) değil. Yani 'en alçak yerde yenildi' okuması, savaşın asıl coğrafyasıyla bile birebir örtüşmez. Atlas bu sebeple bu ayetin gücünü 'jeolojik mucize' olarak değil, 'birkaç yıl' zaman tahmininin tarihsel olarak doğrulanması olarak sunar.",
       "verse": {
-        "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
+        "arabic": "غُلِبَتِ الرُّومُ ٢ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ٣ فِي بِضْعِ سِنِينَ",
         "translation": "Rumlar en yakın yerde yenildi. Ama onlar, yenilgilerinden sonra birkaç yıl içinde galip gelecekler.",
         "reference": "Rum, 30:1-4"
       }
@@ -673,7 +673,7 @@
       "btnTools": "Araçlar"
     },
     "verse": {
-      "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
+      "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ  وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
       "translation": "Kur'an'ı düşünüp incelemezler mi? Eğer Allah'tan başkasından olsaydı, onda birçok çelişki bulurlardı.",
       "reference": "Nisa, 4:82"
     }
@@ -722,7 +722,7 @@
     "oppositionRef": "Kaynak",
     "istikaametTitle": "İstikâmet: Tek Cümlelik Yol Haritası",
     "istikaametIntro": "Kur'an'da yüzlerce direktif var. Ama Hz. Peygamber'in \"beni ihtiyarlatan ayet\" dediği tek bir ayet var: Hûd 112. Çünkü \"emrolunduğun gibi dosdoğru ol\" bir eylem değil, sürekli bir hâldir.",
-    "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
+    "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا  إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
     "istikaametRef": "Hûd 11:112",
     "istikaametTr": "\"Emrolunduğun gibi dosdoğru ol, seninle tevbe edenlerle birlikte. Aşırıya gitmeyin. Şüphesiz O, yaptıklarınızı hakkıyla görmektedir.\"",
     "istikaametHadith": "Hz. Peygamber: \"Hûd ve benzeri sûreler beni ihtiyarlattı.\"",
@@ -739,7 +739,7 @@
     "intro": "Bakara, A'râf, Hicr, İsrâ, Kehf, Tâhâ ve Sâd. Yedi sûre, tek bir olay: meleklere Hz. Âdem'e secde emri ve İblis'in reddi. Bir sûrede (Tâhâ 20:116) İblis hiçbir gerekçe sunmaz, hiçbir söz etmez; ayet bütün sahneyi tek bir fiile sıkıştırır: ebā, diretti. Bir başkasında ateş ile çamur karşılaştırması öne çıkar. Bir diğerinde İblis'in cin olduğu belirtilir; bir başkasında ise Allah'ın (c.c.) \"iki elimle yarattığım\" ifadesi geçer. Yedi anlatımı yan yana koyduğumuzda, tek olayın her tekrarında başka bir boyutun öne çıktığı görülür.",
     "subBlockLabel": "Büyük Reddediş",
     "anchorVerseTitle": "Çekirdek Anlatım",
-    "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْل۪يسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِر۪ينَ",
+    "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْلِيسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
     "anchorVerseTr": "Hani meleklere, \"Âdem'e secde edin\" demiştik; İblis hariç secde ettiler. O yüz çevirdi, büyüklendi ve kâfirlerden oldu.",
     "anchorVerseRef": "Bakara 2:34",
     "statsTitle": "Yedi Anlatımın Sayıları",
@@ -1003,7 +1003,7 @@
           {
             "id": "huzun",
             "title": "Hüzün: Sağlıklı Yas ve Üzüntü",
-            "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظ۪يمٌ",
+            "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظِيمٌ",
             "translation": "Hüzünden gözleri ağardı; kederini içine gömdü.",
             "reference": "Yusuf, 12:84",
             "description": "Hz. Yakup, Yusuf'u kaybedince yıllarca ağladı; gözleri aktı. Kur'an bunu zayıflık olarak göstermez; derin bağlılığın, sevginin ve beşerî acının doğal ifadesi olarak aktarır. Hüzün bastırılmamalı, yaşanmalıdır.",
@@ -1165,7 +1165,7 @@
           {
             "id": "giybet",
             "title": "Gıybet: Sosyal Doku Tahribatı",
-            "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
+            "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا  أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
             "translation": "Birbirinizin gıybetini etmeyin. Ölü kardeşinizin etini yemek ister miydiniz?",
             "reference": "Hucurât, 49:12",
             "description": "Kur'an'ın gıybete verdiği metafor sarsıcıdır: ölü et yemek. Neden bu kadar ağır? Çünkü gıybet savunmasızı, cevap veremeyeni hedef alır. Psikolojide gıybetin işlevi: grup kimliği oluşturma, statü kazanma, kendi başarısızlığından dikkati çekme.",
@@ -1353,7 +1353,7 @@
           {
             "id": "oz_farkindalik",
             "title": "Öz Farkındalık",
-            "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ",
+            "arabic": "وَفِي أَنفُسِكُمْ  أَفَلَا تُبْصِرُونَ",
             "translation": "Ve kendi içinizde de (ayetler var). Görmüyor musunuz?",
             "reference": "Zariyat, 51:21",
             "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek psikolojik sağlığın temelidir. Murakabe (öz denetim) pratiği, öz farkındalığın İslamî karşılığıdır."
@@ -1361,7 +1361,7 @@
           {
             "id": "empati",
             "title": "Empati: Ötekinin İçine Girmek",
-            "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ",
+            "arabic": "لَقَدْ جٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَزِيزٌ عَلَيْهِ مَا عَنِتُّمْ",
             "translation": "Size kendinizden bir peygamber geldi; sıkıntıya uğramanız ona ağır gelir.",
             "reference": "Tevbe, 9:128",
             "description": "Empati bir duygu değil, aktif bir yönelimdir: başkasının yükünü hissetmek ve ona doğru harekete geçmek. Hz. Peygamber'in empatisinin Kur'ânî tanımı budur. Sosyal uzantısı: iyilik ve takvada karşılıklı yardımlaşma (Maide 5:2)."

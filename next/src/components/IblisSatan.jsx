@@ -515,7 +515,7 @@ export default function IblisSatan({ onClose }) {
               }}
             >
               {/* Clickable header */}
-              <button className="mq-box"
+              <button
                 onClick={() => setOpenIdx(isOpen ? -1 : i)}
                 aria-expanded={isOpen}
                 style={{
@@ -545,7 +545,7 @@ export default function IblisSatan({ onClose }) {
                 {/* Title block */}
                 <div className="flex-1 min-w-0">
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
-                    <span className="mq-fs" style={{
+                    <span className="mq-box mq-fs" style={{
                       fontFamily: FONTS.display, fontWeight: 700,
                       '--fs-d': '1.2rem', '--fs-m': '1.05rem',
                       color: COLORS.offWhite,

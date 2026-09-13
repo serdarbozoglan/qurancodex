@@ -10,6 +10,7 @@
 import { useEffect, useState } from 'react';
 import QuranDua from '../sections/QuranDua';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -152,7 +153,7 @@ export default function DuaDili({ onClose }) {
         {TABS.map(tab => {
           const active = activeTab === tab.id;
           return (
-            <button className="mq-box"
+            <button
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
@@ -160,15 +161,15 @@ export default function DuaDili({ onClose }) {
                   document.getElementById('dua-dili-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
                 '--fs-d': '0.76rem', '--fs-m': '0.7rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: active ? 700 : 500,
                 color: active ? COLORS.gold : COLORS.silver,
                 border: 'none',
-                borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                background: active ? COLORS.goldAlpha15 : 'transparent',
+                borderBottom: 'none', position: 'relative',
+                background: active ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
                 cursor: 'pointer', flexShrink: 0,
                 display: 'flex', alignItems: 'center', gap: '8px',
                 transition: 'color 0.15s, background 0.15s',
@@ -177,6 +178,7 @@ export default function DuaDili({ onClose }) {
             >
               <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{tab.icon}</svg>
               <span>{tr ? tab.labelTr : tab.labelEn}</span>
+            {active && <ToolTabGlow />}
             </button>
           );
         })}

@@ -108,7 +108,7 @@
       "punishment": {
         "label": "Punishment & Warning",
         "sura": "Al-Qāriʿa 101:1-3",
-        "arabic": "الْقَارِعَةُ ۝ مَا الْقَارِعَةُ ۝ وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
+        "arabic": "الْقَارِعَةُ  مَا الْقَارِعَةُ  وَمَا أَدْرَاكَ مَا الْقَارِعَةُ",
         "dominant": "ق ر ع",
         "feature": "The sound itself enacts \"the striking\"",
         "noteEn": "ق returns in each of the three verses; clogged in the throat, then bursting. \"Qāriʿa\" literally means \"the striker\"; sound becomes meaning."
@@ -116,7 +116,7 @@
       "mercy": {
         "label": "Mercy & Blessing",
         "sura": "Ar-Rahmān 55:1-4",
-        "arabic": "الرَّحْمَٰنُ ۝ عَلَّمَ الْقُرْآنَ ۝ خَلَقَ الْإِنسَانَ ۝ عَلَّمَهُ الْبَيَانَ",
+        "arabic": "الرَّحْمَٰنُ  عَلَّمَ الْقُرْآنَ  خَلَقَ الْإِنسَانَ  عَلَّمَهُ الْبَيَانَ",
         "dominant": "ر ل م ن",
         "feature": "Flowing, open sounds; the \"bride of the Quran\"",
         "noteEn": "Classical tradition calls this surah 'arūs al-Qurʾān' (the bride of the Quran) for its sonic beauty. Four liquids/nasals echo continuously."
@@ -162,7 +162,7 @@
             "069001",
             "069002"
           ],
-          "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
+          "arabic": "الْحَاقَّةُ  مَا الْحَاقَّةُ",
           "verseRef": "Al-Ḥāqqa 69:1-2",
           "answer": "punishment",
           "revealEn": "Punishment. الْحَاقَّةُ keeps returning across the two verses; each ق is geminated by shadda (\"ḥāq-qa\"). The sound enacts striking, slamming. \"Ḥāqqa\" means \"the inevitable reality\".",
@@ -358,7 +358,7 @@
       "title": "The Ocean Barrier",
       "content": "Two distinct bodies of water flow side by side, yet they do not mix. An invisible boundary separates them. Modern oceanography calls this a halocline: a natural boundary layer formed by differences in salinity, density and temperature. The Atlantic and the Mediterranean at the Strait of Gibraltar, and the Black Sea and the Sea of Marmara at the Bosphorus, separate in exactly this way. The Quran describes this phenomenon in two separate verses: in Al-Rahman 55:19-20, two seas meet without transgressing each other; in Al-Furqan 25:53, a barzakh (barrier) lies between them. Set beside modern oceanographic terminology, the precision of these descriptions is notable.",
       "verse": {
-        "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ﴿١٩﴾ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
+        "arabic": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ ١٩ بَيْنَهُمَا بَرْزَخٌ لَّا يَبْغِيَانِ",
         "translation": "He released the two seas, meeting side by side. Between them is a barrier which they do not transgress.",
         "reference": "Rahman, 55:19-20"
       },
@@ -453,7 +453,7 @@
       "significance": "Why it's notable: From the crushing Byzantine defeat of 614 to Heraclius's victories of 622–628, the elapsed time fits the Quran's phrase 'within a few years' (bid'i sineen — 3 to 9 years in classical lexicography). This is the most academically defensible parallel of the three on this page. The geological reading of 'adna al-ard' as 'the lowest land,' by contrast, belongs to modern apologetic literature rather than classical tafsir — see the critical note.",
       "criticalNote": "The geological reading of 'adna al-ard' as 'the lowest land' is a modern interpretation; most classical commentaries (Rāzī, Ṭabarī, Ibn ʿĀshūr) explain the phrase geographically as 'the region nearest to the Arabs.' A further inconsistency: the main theatre of the 614 Sasanian–Byzantine clash was Jerusalem, which lies roughly 750m above sea level — not the Dead Sea (-430m). So the 'defeated in the lowest land' reading does not even match the actual geography of the war. For this reason the Atlas presents the strength of this verse not as a 'geological miracle,' but as the historical confirmation of its 'within a few years' timeframe.",
       "verse": {
-        "arabic": "غُلِبَتِ الرُّومُ ﴿٢﴾ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ﴿٣﴾ فِي بِضْعِ سِنِينَ",
+        "arabic": "غُلِبَتِ الرُّومُ ٢ فِي أَدْنَى الْأَرْضِ وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ٣ فِي بِضْعِ سِنِينَ",
         "translation": "The Romans have been defeated in the nearest land. But after their defeat, they will triumph within a few years.",
         "reference": "Rum, 30:1-4"
       }
@@ -673,7 +673,7 @@
       "btnTools": "Tools"
     },
     "verse": {
-      "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ ۚ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
+      "arabic": "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ  وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللَّهِ لَوَجَدُوا فِيهِ اخْتِلَافًا كَثِيرًا",
       "translation": "Will they not reflect upon the Quran? If it had been from anyone other than Allah, they would have found within it much contradiction.",
       "reference": "Nisa, 4:82"
     }
@@ -722,7 +722,7 @@
     "oppositionRef": "Source",
     "istikaametTitle": "Istiqāma: A One-Sentence Roadmap",
     "istikaametIntro": "The Quran contains hundreds of directives. But the one verse the Prophet described as having aged him is a single verse: Hud 112. Because \"be upright as you have been commanded\" is not an action; it is a continuous state.",
-    "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
+    "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا  إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
     "istikaametRef": "Hud 11:112",
     "istikaametTr": "\"Be upright as you have been commanded, and those who repented with you. Do not transgress. Indeed, He is fully aware of what you do.\"",
     "istikaametHadith": "The Prophet: \"Hud and similar suras have made me old.\"",
@@ -739,7 +739,7 @@
     "intro": "Baqarah, A'raf, Hijr, Isra, Kahf, Ta-Ha and Sād. Seven surahs, one event: the angels' prostration to Adam and Iblis's refusal. In one (Ta-Ha 20:116) Iblis offers no reasoning and says nothing at all; the entire scene collapses into a single verb, abā, \"he refused\". In another, the fire-versus-clay comparison surfaces. Another states that Iblis was of the jinn; yet another contains Allah's phrase \"whom I created with My two hands\". Placed side by side, the seven tellings show that each retelling foregrounds a different dimension of the same event.",
     "subBlockLabel": "The Great Refusal",
     "anchorVerseTitle": "The Core Telling",
-    "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْل۪يسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِر۪ينَ",
+    "anchorVerseAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْلِيسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
     "anchorVerseTr": "\"And [mention] when We said to the angels, 'Prostrate before Adam'; so they prostrated, except for Iblis. He refused and was arrogant and became of the disbelievers.\"",
     "anchorVerseRef": "Baqarah 2:34",
     "statsTitle": "The Seven Tellings, in Numbers",
@@ -1003,7 +1003,7 @@
           {
             "id": "huzun",
             "title": "Huzn: Healthy Grief and Sorrow",
-            "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظ۪يمٌ",
+            "arabic": "وَابْيَضَّتْ عَيْنَاهُ مِنَ الْحُزْنِ فَهُوَ كَظِيمٌ",
             "translation": "His eyes whitened from grief, while he suppressed his sorrow.",
             "reference": "Yusuf, 12:84",
             "description": "Prophet Ya'qub wept for years after losing Yusuf, until his eyes went white. The Quran does not present this as weakness; it conveys it as the natural expression of depth, love and human pain. Grief should not be suppressed; it must be experienced.",
@@ -1165,7 +1165,7 @@
           {
             "id": "giybet",
             "title": "Backbiting: Destruction of the Social Fabric",
-            "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
+            "arabic": "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا  أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا",
             "translation": "And do not backbite one another. Would one of you like to eat the flesh of his dead brother?",
             "reference": "Hujurat, 49:12",
             "description": "The metaphor the Quran gives for backbiting is shocking: eating dead flesh. Why so severe? Because backbiting targets the defenseless, those who cannot respond. Psychology's account of gossip's function: building group identity, gaining status, diverting attention from one's own failures.",
@@ -1353,7 +1353,7 @@
           {
             "id": "oz_farkindalik",
             "title": "Self-Awareness",
-            "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ",
+            "arabic": "وَفِي أَنفُسِكُمْ  أَفَلَا تُبْصِرُونَ",
             "translation": "And within yourselves, will you not see?",
             "reference": "Dhariyat, 51:21",
             "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations and weak points is the foundation of psychological health. The practice of muraqaba (self-monitoring) is the Islamic counterpart of self-awareness."
@@ -1361,7 +1361,7 @@
           {
             "id": "empati",
             "title": "Empathy: Entering the Other's Interior",
-            "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ",
+            "arabic": "لَقَدْ جٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَزِيزٌ عَلَيْهِ مَا عَنِتُّمْ",
             "translation": "There has come to you a Messenger from among yourselves; your suffering is grievous to him.",
             "reference": "Tawba, 9:128",
             "description": "Empathy is not a feeling; it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)."

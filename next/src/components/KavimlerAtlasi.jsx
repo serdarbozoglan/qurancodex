@@ -9,6 +9,7 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import useTabParam from '../hooks/useTabParam';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -443,7 +444,7 @@ export default function KavimlerAtlasi({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -452,11 +453,11 @@ export default function KavimlerAtlasi({ onClose }) {
                   if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
                 border: 'none', background: 'transparent',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                borderBottom: 'none', position: 'relative',
                 color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
                 '--fs-d': '0.82rem', '--fs-m': '0.74rem',
                 fontWeight: activeTab === i ? 700 : 500,
@@ -468,6 +469,7 @@ export default function KavimlerAtlasi({ onClose }) {
               }}
             >
               {tab}
+            {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

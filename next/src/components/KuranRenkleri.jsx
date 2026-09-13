@@ -570,7 +570,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
           const refCount = (c.allRefs && c.allRefs.length) || 0;
 
           return (
-            <button className="mq-box"
+            <button
               key={c.id}
               onClick={() => onColorClick && onColorClick(c.id)}
               onMouseEnter={() => setHoveredId(c.id)}
@@ -608,7 +608,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
               }} />
 
               {/* Turkish name */}
-              <div className="mq-fs" style={{
+              <div className="mq-box mq-fs" style={{
                 fontFamily: FONTS.display,
                 '--fs-d': '1.18rem', '--fs-m': '1.05rem',
                 fontWeight: 600,
@@ -1026,7 +1026,7 @@ function TabBaglam({ language, isMobile }) {
                     }}
                   >
                     {/* Row */}
-                    <button className="mq-box"
+                    <button
                       onClick={() => setExpandedItem(isOpen ? null : key)}
                       style={{
                         display: 'flex', alignItems: 'center', gap: '14px',
@@ -1055,7 +1055,7 @@ function TabBaglam({ language, isMobile }) {
                       }} />
 
                       {/* Name */}
-                      <span className="mq-fs" style={{
+                      <span className="mq-box mq-fs" style={{
                         flex: 1,
                         '--fs-d': '0.92rem', '--fs-m': '0.85rem',
                         color: COLORS.offWhite, fontWeight: 600,

@@ -217,13 +217,13 @@ export default function YakinAnlamliNuanslar({ onClose }) {
               const color = CATEGORY_COLORS[s.category] || COLORS.gold;
               const isActive = activeIdx === i;
               return (
-                <button className="mq-box"
+                <button
                   key={s.id}
                   onClick={() => {
                     setActiveIdx(i);
                     setTimeout(() => document.getElementById('yn-set-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                   }}
-                  className="mq-fs" style={{
+                  className="mq-box mq-fs" style={{
                     flexShrink: 0,
                     '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "16px", '--pl-m': "12px",
                     '--fs-d': '0.76rem', '--fs-m': '0.7rem',

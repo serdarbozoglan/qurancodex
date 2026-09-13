@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
@@ -185,7 +186,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         />
       </div>
 
-      <button className="mq-box" onClick={onToggle} aria-expanded={expanded}
+      <button onClick={onToggle} aria-expanded={expanded}
         style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', width: '100%', '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px", paddingRight: 44 }}>
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -196,7 +197,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         }}>
           {surahShortName(parseInt(c.verseRef.split(':')[0], 10))} {c.verseRef}
         </span>
-        <h3 className="mq-fs" style={{
+        <h3 className="mq-box mq-fs" style={{
           fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700,
           color: COLORS.offWhite, margin: '0 0 8px', lineHeight: 1.35,
         }}>
@@ -377,14 +378,15 @@ export default function TefsirIhtilaflari() {
             <button key={i} onClick={() => setActiveTab(i)} className="mq-fs mq-box" style={{
               '--pt-d': "12px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px",
               '--fs-d': '0.85rem', '--fs-m': '0.78rem',
-              fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
+              fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
               color: activeTab === i ? COLORS.gold : COLORS.silver,
               background: 'none', border: 'none', cursor: 'pointer',
-              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+              borderBottom: 'none', position: 'relative',
               whiteSpace: 'nowrap', transition: 'color 0.15s',
               textTransform: 'uppercase', letterSpacing: '0.06em',
             }}>
               {label}
+            {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

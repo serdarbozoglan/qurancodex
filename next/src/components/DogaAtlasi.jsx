@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -347,13 +348,13 @@ function FilterPills({ filters, labels, counts, active, onChange }) {
               padding: '5px 14px',
               borderRadius: '99px',
               border: isActive ? `1px solid ${COLORS.gold}` : `1px solid ${COLORS.glassBorder}`,
-              background: isActive ? COLORS.goldAlpha15 : 'transparent',
+              background: isActive ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
               color: isActive ? COLORS.gold : COLORS.silver,
               fontSize: '0.8rem',
               fontFamily: FONTS.body,
               cursor: 'pointer',
               transition: 'all 0.15s',
-              fontWeight: isActive ? 600 : 400,
+              fontWeight: isActive ? 700 : 500,
             }}
           >
             {labels[f] ?? f}
@@ -590,7 +591,7 @@ function AnimalCard({ item, language, maxFreq }) {
           color: isHapax ? '#c084fc' : COLORS.silver,
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
-          fontWeight: isHapax ? 700 : 400,
+          fontWeight: isHapax ? 700 : 500,
           marginRight: '32px',
         }}>
           {item.frequency}
@@ -668,7 +669,7 @@ function PlantCard({ item, language, maxFreq }) {
           color: isHapax ? '#c084fc' : COLORS.silver,
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
-          fontWeight: isHapax ? 700 : 400,
+          fontWeight: isHapax ? 700 : 500,
           marginRight: '32px',
         }}>
           {item.frequency}
@@ -1631,7 +1632,7 @@ export default function DogaAtlasi({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -1640,7 +1641,7 @@ export default function DogaAtlasi({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
@@ -1648,7 +1649,7 @@ export default function DogaAtlasi({ onClose }) {
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none',
                 background: activeTab === i ? `${COLORS.goldAlpha15}` : 'transparent',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                borderBottom: 'none', position: 'relative',
                 borderRadius: '0',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
                 '--fs-d': '0.78rem', '--fs-m': '0.72rem',
@@ -1669,6 +1670,7 @@ export default function DogaAtlasi({ onClose }) {
                   ? (isMobile ? tab.shortTr : tab.labelTr)
                   : (isMobile ? tab.shortEn : tab.labelEn)}
               </span>
+            {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

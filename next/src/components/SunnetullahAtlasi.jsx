@@ -15,6 +15,7 @@ import {
   TEXT, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import { toolTabStyle, ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -568,28 +569,16 @@ export default function SunnetullahAtlasi({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button className="mq-box"
+              <button
                 key={i}
                 onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('sunnetullah-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-                className="mq-fs" style={{
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  flexShrink: 0,
+                className="mq-box mq-fs" style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
                   '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
-                  border: 'none',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                  borderRadius: '0',
-                  color: isActive ? COLORS.gold : COLORS.silver,
                   '--fs-d': '0.9rem', '--fs-m': '0.82rem',
-                  fontFamily: FONTS.body,
-                  fontWeight: isActive ? 600 : 400,
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                  whiteSpace: 'nowrap',
+                  ...toolTabStyle(isActive),
                 }}
                 onMouseEnter={e => {
                   if (!isActive) {
@@ -606,6 +595,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               >
                 <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
                 <span>{language === 'tr' ? tab.tr : tab.en}</span>
+                {isActive && <ToolTabGlow />}
               </button>
             );
           })}
@@ -907,10 +897,10 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
         {categories.map(cat => {
           const isActive = cat.id === activeCategoryId;
           return (
-            <button className="mq-box"
+            <button
               key={cat.id}
               onClick={() => onSelect(cat.id)}
-              className="mq-fs" style={{
+              className="mq-box mq-fs" style={{
                 '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
@@ -1057,7 +1047,7 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
 
       {/* Cross-link to Kavimler Atlası — somut helâk örnekleri için */}
       {active.id === 'helak-kanunu' && (
-        <button className="mq-box"
+        <button
           onClick={() => openOverlay('kavimler')}
           style={{
             width: '100%',
@@ -1147,7 +1137,7 @@ function ThematicItemCard({ item, accent, index, language, isMobile }) {
       <div
         dir="rtl"
         lang="ar"
-        className="mq-fs" style={{
+        className="mq-box mq-fs" style={{
           fontFamily: FONTS.quran,
           '--fs-d': '1.5rem', '--fs-m': '1.3rem',
           color: COLORS.offWhite,
@@ -1444,7 +1434,7 @@ function FormulaBox({ formula, language, isMobile }) {
         {parts.map((p, i) => {
           const isActive = activePart === i;
           return (
-            <button className="mq-box"
+            <button
               key={i}
               onClick={() => setActivePart(isActive ? null : i)}
               style={{
@@ -1460,7 +1450,7 @@ function FormulaBox({ formula, language, isMobile }) {
               onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
               onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.025)'; }}
             >
-              <div dir="rtl" lang="ar" className="mq-fs" style={{
+              <div dir="rtl" lang="ar" className="mq-box mq-fs" style={{
                 fontFamily: FONTS.quran,
                 '--fs-d': '1.35rem', '--fs-m': '1.15rem',
                 color: COLORS.gold,

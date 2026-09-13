@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -1884,17 +1885,17 @@ export default function SebebiNuzul({ onClose }) {
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
-          <button className="mq-box"
+          <button
             key={i}
             onClick={() => { setActiveTab(i); setTimeout(() => { const tb = document.getElementById('sebebi-tab-bar'); if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-            className="mq-fs" style={{
+            className="mq-box mq-fs" style={{
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
               '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
               border: 'none',
-              borderBottom: `2px solid ${activeTab === i ? COLORS.gold : 'transparent'}`,
-              background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
+              borderBottom: 'none', position: 'relative',
+              background: activeTab === i ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)` : 'transparent',
               color: activeTab === i ? COLORS.gold : COLORS.silver,
               '--fs-d': '0.78rem', '--fs-m': '0.72rem',
               letterSpacing: '0.14em',
@@ -1909,6 +1910,7 @@ export default function SebebiNuzul({ onClose }) {
           >
             {tab.icon}
             {language === 'tr' ? tab.labelTr : tab.labelEn}
+            {activeTab === i && <ToolTabGlow />}
           </button>
         ))}
       </div>

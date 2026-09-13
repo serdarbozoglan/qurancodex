@@ -9,6 +9,7 @@ import {
   BREAKPOINT_MOBILE, RADIUS,
   VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import { ToolTabGlow } from './ToolTabGlow';
 import ToolScopeNote from './ToolScopeNote';
 import useTabParam from '../hooks/useTabParam';
 import CollapsibleHero from './CollapsibleHero';
@@ -209,7 +210,7 @@ export default function KuranRetorigi({ onClose }) {
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
-          <button className="mq-box"
+          <button
             key={i}
             onClick={() => {
               setActiveTab(i);
@@ -218,7 +219,7 @@ export default function KuranRetorigi({ onClose }) {
                 if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }, 50);
             }}
-            className="mq-fs" style={{
+            className="mq-box mq-fs" style={{
               '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
               '--fs-d': '0.82rem', '--fs-m': '0.74rem',
               fontFamily: FONTS.body,
@@ -226,7 +227,7 @@ export default function KuranRetorigi({ onClose }) {
               color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
               background: 'transparent',
               border: 'none',
-              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+              borderBottom: 'none', position: 'relative',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               transition: 'color 0.15s',
@@ -235,6 +236,7 @@ export default function KuranRetorigi({ onClose }) {
             }}
           >
             {tab}
+          {activeTab === i && <ToolTabGlow />}
           </button>
         ))}
       </div>
