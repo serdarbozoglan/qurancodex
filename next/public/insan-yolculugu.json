@@ -56,7 +56,15 @@
       "obstacleTr": "Çevre, kültür, alışkanlıklar — 'benim rengim de bu' diyerek fıtratın üstünü kapatmak. Modern okumada: dijital gürültü, sürekli uyarı, 'sessizliği kaybetmiş' zihin.",
       "obstacleEn": "Environment, culture, habits — covering the fiṭra by saying 'this is just how I am.' In modern reading: digital noise, constant stimulation, the mind that has lost silence.",
       "nextTr": "Uyanış — fıtrat sesi ilk defa duyulur.",
-      "nextEn": "Awakening — the voice of fiṭra is heard for the first time."
+      "nextEn": "Awakening — the voice of fiṭra is heard for the first time.",
+      "risale": {
+        "sourceTr": "Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Dördüncü Nokta",
+        "sourceEn": "Sözler · Twenty-Third Word, First Topic, Fourth Point",
+        "quoteTr": "Vazife-i asliye-i fıtriyesi, imandan sonra duadır. Dua ise esas-ı ubudiyettir.",
+        "quoteEn": "The essential innate duty of the human being, after faith, is supplication; and supplication is the foundation of worship.",
+        "noteTr": "Aynı bölüm bunu, tamamlanmış olarak dünyaya gelen hayvanlarla öğrenmeye ve istemeye muhtaç doğan insan arasındaki farka bağlar; insanın fıtrî vazifesini öğrenme ve dua ihtiyacıyla ilişkilendirir.",
+        "noteEn": "The same passage grounds this in the contrast between animals, which arrive complete, and the human being, who arrives needing to learn and to ask, tying the innate human duty to that need for learning and supplication."
+      }
     },
     {
       "id": "uyanis",
@@ -99,7 +107,15 @@
       "obstacleTr": "'Bu sorulara zamanım yok' — dünya işlerinin insanı 'düşünme boşluğundan' mahrum bırakması. Klasik âlimlerin (Râzî dahil) işlediği bir temaya göre gaflet, uyanışın en büyük perdesi sayılır.",
       "obstacleEn": "'I have no time for these questions' — worldly business depriving one of the 'contemplation void.' A theme treated by classical scholars (including al-Rāzī): heedlessness is regarded as the greatest veil against awakening.",
       "nextTr": "Uyanış cevabı istemeye başlar → İman.",
-      "nextEn": "Awakening begins to demand an answer → Faith."
+      "nextEn": "Awakening begins to demand an answer → Faith.",
+      "risale": {
+        "sourceTr": "Sözler · Yirmi Altıncı Söz'ün Zeyli",
+        "sourceEn": "Sözler · Addendum to the Twenty-Sixth Word",
+        "quoteTr": "O tarîkler içinde, kāsır fehmimle Kur'an'dan istifade ettiğim acz ve fakr ve şefkat ve tefekkür tarîkıdır. […] Şu tarîk […] dört hatveden ibarettir.",
+        "quoteEn": "Among those paths, the one I have derived from the Qur'an with my deficient understanding is the path of impotence, poverty, compassion and reflection. […] This path […] consists of four steps.",
+        "noteTr": "Dört adımın her biri bir âyete bağlanır (Necm 53:32, Haşr 59:19, Nisâ 4:79, Kasas 28:88). Bediüzzaman acz yolunu aşka göre daha selâmetli niteler ve sunduğu yolu dört hatveli kısa bir tarik olarak açıklar; tasavvufun on letâif ve yedi nefis basamaklarından da ayırır.",
+        "noteEn": "Each of the four steps is tied to a verse (Najm 53:32, Hashr 59:19, Nisa 4:79, Qasas 28:88). He calls the path of impotence safer than the path of love and presents his own way as a short path of four steps, distinguishing it from the ten subtleties and seven levels of the Sufi orders."
+      }
     },
     {
       "id": "iman",
@@ -142,7 +158,15 @@
       "obstacleTr": "Sözle iman, kalpte tereddüt — Hucurât 49:14: 'Bedeviler iman ettik dediler. De ki: iman etmediniz, ancak 'boyun eğdik' deyin, çünkü iman henüz kalplerinize girmedi.' Yüzeysel iman, denenmediği için kendini fark etmez.",
       "obstacleEn": "Verbal faith with inner hesitation — Q 49:14: 'The Bedouins said, We have believed. Say, You have not believed; but say, We have submitted, for faith has not yet entered your hearts.' Superficial faith does not notice itself because it has not been tried.",
       "nextTr": "İman iddiadan yaşayışa geçer → Amel.",
-      "nextEn": "Faith moves from claim to lived life → Practice."
+      "nextEn": "Faith moves from claim to lived life → Practice.",
+      "risale": {
+        "sourceTr": "Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Birinci Nokta",
+        "sourceEn": "Sözler · Twenty-Third Word, First Topic, First Point",
+        "quoteTr": "Çünkü iman, insanı Sâni'-i Zülcelal'ine nisbet ediyor; iman, bir intisaptır. Öyle ise insan, iman ile insanda tezahür eden sanat-ı İlahiye ve nukuş-u esma-i Rabbaniye itibarıyla bir kıymet alır.",
+        "quoteEn": "Faith relates the human being to his Majestic Maker; faith is an affiliation. Through faith, then, a person acquires worth by virtue of the divine artistry and the embroideries of the Lord’s names that appear in him.",
+        "noteTr": "İmanı bir bilgi kabulünden çok bir bağlanma olarak tanımlar; insanın değeri bu bağdan doğar.",
+        "noteEn": "He defines faith as an affiliation rather than the acceptance of a proposition, and derives the human being’s worth from that bond."
+      }
     },
     {
       "id": "amel",
@@ -185,7 +209,15 @@
       "obstacleTr": "Riya — amelin başkasına gösteriş için yapılması. Kur'ân bunu 'ateşle üstü kaplanmış hava' (Nûr 24:39) benzetmesiyle anar: dış parlar, iç boştur.",
       "obstacleEn": "Riyāʾ (ostentation) — performing the deed for others' sight. The Qur'an likens this to 'air covered with fire' (Q 24:39): the outside gleams, the inside is empty.",
       "nextTr": "Amel içeride kök salınca → Takvâ.",
-      "nextEn": "When deed strikes root within → Taqwā."
+      "nextEn": "When deed strikes root within → Taqwā.",
+      "risale": {
+        "sourceTr": "Sözler · Yirmi Birinci Söz, Birinci Makam, Dördüncü İkaz",
+        "sourceEn": "Sözler · Twenty-First Word, First Station, Fourth Warning",
+        "quoteTr": "Acaba bu misafirhane-i dünyada âciz ve fakir kalbine kut ve gına ve […] kabrinde gıda ve ziya ve […] mahşerde senet ve berat ve […] sırat köprüsünde nur ve burak olacak bir namaz, neticesiz midir?",
+        "quoteEn": "Is a prayer that will be food and wealth for your weak and poor heart in this world’s guest house, […] nourishment and light in your grave, […] deed and warrant at the Gathering, […] light and mount on the bridge of Sirat, is such a prayer without result?",
+        "noteTr": "Namazı, sonucu bu dünyada tükenmeyen bir amel olarak anlatır; sâlih amelin karşılığını zaman içinde uzayan bir zincir olarak kurar.",
+        "noteEn": "He presents prayer as an act whose result is not used up in this world, setting the recompense of righteous action as a chain extending through time."
+      }
     },
     {
       "id": "takva",
@@ -228,7 +260,15 @@
       "obstacleTr": "Alışkanlığa dönüşen ibâdet — 'ne yaptığımı biliyorum, artık düşünmek gerekmez.' Bu, takvânın kalpten çekilip 'formüle' inmesidir.",
       "obstacleEn": "Worship that has become mere habit — 'I know what I'm doing, no need to think anymore.' This is taqwā's withdrawal from the heart into a 'formula.'",
       "nextTr": "Takvâ derinleşince → İhsan.",
-      "nextEn": "When taqwā deepens → Iḥsān."
+      "nextEn": "When taqwā deepens → Iḥsān.",
+      "risale": {
+        "sourceTr": "Sözler · Yirmi Altıncı Söz'ün Zeyli, Üçüncü Hatve",
+        "sourceEn": "Sözler · Addendum to the Twenty-Sixth Word, Third Step",
+        "quoteTr": "Şu mertebede tezkiyesi […] şudur ki: Kemalini kemalsizlikte, kudretini aczde, gınasını fakrda bilmektir.",
+        "quoteEn": "Purification at this degree […] is this: to know one's perfection in imperfection, one's power in impotence, one's wealth in poverty.",
+        "noteTr": "Alıntı doğrudan takvâyı değil nefsin tezkiyesini anlatır; buradaki bağ editoryaldır. Aynı zeylde bir sınır da vardır: acz ve fakrı Allah'a karşı görmek esastır, onları yapmak veya halka göstermek değil. Bu açıklama, takvânın gösterişten uzak yaşanmasıyla ilişkilendirilebilir.",
+        "noteEn": "The quotation describes the purification of the self rather than taqwa itself; the link drawn here is editorial. The same addendum sets a limit: what matters is seeing one's impotence and poverty before God, not performing them or displaying them to people. That remark can be related to living taqwa without display."
+      }
     },
     {
       "id": "ihsan",
@@ -400,7 +440,15 @@
       "obstacleTr": "'Ama benim şu isteğim...' — kula özgü tercihi Rabbin tercihinin önüne koymak. Sûfî: rızâ, teslimiyetten bir adım öte — teslim olmakla kalmaz, sever.",
       "obstacleEn": "'But my particular wish...' — placing the servant's preference before the Lord's. In Sufi thought: riḍā is one step beyond submission — one not only submits but loves.",
       "nextTr": "Rızâ → Cennet · Cemâlullah.",
-      "nextEn": "Riḍā → Paradise · The Vision of God."
+      "nextEn": "Riḍā → Paradise · The Vision of God.",
+      "risale": {
+        "sourceTr": "Lem'alar · Yirmi Birinci Lem'a (İhlâs Risalesi), Birinci Düsturunuz",
+        "sourceEn": "Lem'alar · Twenty-First Flash (on Sincerity), First Principle",
+        "quoteTr": "Amelinizde rıza-yı İlahî olmalı. Eğer o razı olsa bütün dünya küsse ehemmiyeti yok.",
+        "quoteEn": "In your work, God’s good pleasure must be the aim. If He is pleased, it is of no consequence should the whole world be displeased.",
+        "noteTr": "Rızâyı bir duygu hâli olarak değil, amelin yöneldiği ölçü olarak koyar.",
+        "noteEn": "He sets divine good pleasure not as a feeling but as the measure toward which action is directed."
+      }
     },
     {
       "id": "cemalullah",
@@ -443,7 +491,15 @@
       "obstacleTr": "'Beni gizleyen perdeler' — dünya sevgisi, gaflet, kir. Kur'ân kâfirlerin bu nimetten mahrum bırakılışını 'perde çekilmesi' olarak anar (Mutaffifîn 83:15): 'Hayır, o gün onlarla Rableri arasına perde çekilecektir.'",
       "obstacleEn": "'The veils that hide me' — worldly love, heedlessness, defilement. The Qur'an speaks of the deniers' deprivation as 'a curtain being drawn' (Q 83:15): 'No! Indeed, on that Day they will be veiled from their Lord.'",
       "nextTr": "Sonsuzluk — burada yolculuk 'başlar', bitmez.",
-      "nextEn": "Eternity — here the journey 'begins', it does not end."
+      "nextEn": "Eternity — here the journey 'begins', it does not end.",
+      "risale": {
+        "sourceTr": "Sözler · Otuz İkinci Söz, Üçüncü Mevkıf, Dokuzuncu İşaret",
+        "sourceEn": "Sözler · Thirty-Second Word, Third Station, Ninth Indication",
+        "quoteTr": "Cennet hayatının dahi bin senesi, bir saat müşahedesine değmeyen […] Zat-ı Zülcelal'in müşahedesi, rü'yetidir.",
+        "quoteEn": "A thousand years of the life of Paradise do not equal one hour of beholding […] the vision of the Majestic One.",
+        "noteTr": "Otuz Birinci Söz'ün Dördüncü Esası da aynı meyveyi her mü'min için mümkün sayar. Bediüzzaman bu bahsi cennetin nimetleri arasında en yüksek mertebe olarak kurar.",
+        "noteEn": "The Fourth Principle of the Thirty-First Word likewise holds this fruit possible for every believer. He sets this as the highest degree among the gifts of Paradise."
+      }
     }
   ],
   "closingVerse": {

@@ -701,8 +701,8 @@ export const CONTENT_SOURCES = [
         titleEn: s.titleEn || '',
         descTr: (s.essenceTr || '').slice(0, 200),
         descEn: (s.essenceEn || '').slice(0, 200),
-        searchTextTr: `İnsan Yolculuğu Aşama ${s.order}: ${s.titleTr} (${s.arabicTerm}). Öz: ${s.essenceTr || ''} Ana ayet ${anchorRef}: ${anchorTr}. Destek ayetler: ${supportRefs}. Pratik: ${s.practiceTr || ''} Engel: ${s.obstacleTr || ''} Sıradaki: ${s.nextTr || ''}`.slice(0, 5000),
-        searchTextEn: `Human Journey Stage ${s.order}: ${s.titleEn} (${s.arabicTerm}). Essence: ${s.essenceEn || ''} Anchor verse ${anchorRef}: ${anchorEn}. Supporting: ${supportRefs}. Practice: ${s.practiceEn || ''} Obstacle: ${s.obstacleEn || ''} Next: ${s.nextEn || ''}`.slice(0, 5000),
+        searchTextTr: `İnsan Yolculuğu Aşama ${s.order}: ${s.titleTr} (${s.arabicTerm}). Öz: ${s.essenceTr || ''} Ana ayet ${anchorRef}: ${anchorTr}. Destek ayetler: ${supportRefs}. Pratik: ${s.practiceTr || ''} Engel: ${s.obstacleTr || ''} Sıradaki: ${s.nextTr || ''}${s.risale ? ` Risale-i Nur (${s.risale.sourceTr}): ${s.risale.quoteTr} ${s.risale.noteTr}` : ''}`.slice(0, 5000),
+        searchTextEn: `Human Journey Stage ${s.order}: ${s.titleEn} (${s.arabicTerm}). Essence: ${s.essenceEn || ''} Anchor verse ${anchorRef}: ${anchorEn}. Supporting: ${supportRefs}. Practice: ${s.practiceEn || ''} Obstacle: ${s.obstacleEn || ''} Next: ${s.nextEn || ''}${s.risale ? ` Risale-i Nur (${s.risale.sourceEn}): ${s.risale.quoteEn} ${s.risale.noteEn}` : ''}`.slice(0, 5000),
       };
     },
   },

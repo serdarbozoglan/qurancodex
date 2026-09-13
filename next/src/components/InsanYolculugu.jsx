@@ -19,7 +19,7 @@ import BookmarkButton from './BookmarkButton';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
-import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import insanYolculuguDataStatic from '../../public/insan-yolculugu.json';
@@ -594,6 +594,53 @@ function StageDetail({ stage, isEn, isMobile }) {
           </p>
         </div>
       </div>
+
+      {/* Risale-i Nur notu — yalnız birincil metinden doğrulanmış aşamalarda.
+          İhsan, kalb-i selîm ve hüsn-i hâtime aşamalarında araştırmada citable
+          bir metin bulunamadığı için blok bilinçli olarak YOK; zayıf bir atıf
+          eklemek yerine boş bırakıldı. */}
+      {stage.risale && (
+        <div className="risale-card" style={{
+          position: 'relative',
+          background: `linear-gradient(170deg, ${COLORS.gold}0b 0%, rgba(0,0,0,0.24) 70%)`,
+          border: `1px solid ${COLORS.gold}22`,
+          borderRadius: RADIUS.lg,
+          padding: '20px 22px 18px 28px',
+          marginBottom: '20px',
+          overflow: 'hidden',
+        }}>
+          <span aria-hidden="true" style={{
+            position: 'absolute', insetInlineStart: '12px', top: '24px', bottom: '20px',
+            width: '1px', background: `linear-gradient(180deg, ${COLORS.gold}88, ${COLORS.gold}18)`,
+          }} />
+          <span aria-hidden="true" style={{
+            position: 'absolute', insetInlineStart: '9px', top: '20px',
+            width: '7px', height: '7px', transform: 'rotate(45deg)',
+            border: `1px solid ${COLORS.gold}aa`, background: COLORS.cosmicBlack,
+          }} />
+          <p style={{
+            fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.8, fontWeight: 700, margin: '0 0 4px',
+          }}>{isEn ? 'RISALE-I NUR' : 'RİSALE-İ NUR'}</p>
+          <p style={{
+            fontSize: '0.62rem', letterSpacing: '0.08em',
+            color: COLORS.gold, opacity: 0.6, fontWeight: 600, margin: '0 0 12px',
+          }}>{isEn ? stage.risale.sourceEn : stage.risale.sourceTr}</p>
+          <p style={{
+            color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.78,
+            fontFamily: FONTS.display, fontStyle: 'italic', margin: '0 0 14px',
+          }}>
+            &quot;{isEn ? stage.risale.quoteEn : stage.risale.quoteTr}&quot;
+          </p>
+          <span aria-hidden="true" style={{
+            display: 'block', height: '1px', margin: '0 0 12px',
+            background: `linear-gradient(90deg, ${COLORS.gold}55, transparent)`,
+          }} />
+          <p style={{ color: SEMANTIC.textMuted, fontSize: '0.84rem', lineHeight: 1.68, margin: 0 }}>
+            {isEn ? stage.risale.noteEn : stage.risale.noteTr}
+          </p>
+        </div>
+      )}
 
       {/* Next stage teaser */}
       {stage.nextTr && (
