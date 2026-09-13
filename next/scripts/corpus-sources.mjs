@@ -1385,6 +1385,7 @@ CONTENT_SOURCES.push({
   extract: (mod) => [
     ...mod.RISALE_POINTS.map((x, i) => ({ ...x, i, route: '/arac/dua-dili', konuTr: 'Dua', konuEn: 'Prayer' })),
     ...mod.RISALE_ESMA.map((x, i) => ({ ...x, i: i + 100, route: '/arac/esma-frekans', konuTr: 'Esmâ-i Hüsnâ', konuEn: 'The Divine Names' })),
+    ...mod.RISALE_ZAMAN.map((x, i) => ({ ...x, i: i + 200, route: '/arac/zaman-boyutlari', konuTr: 'Zaman', konuEn: 'Time' })),
   ],
   buildItem: (x) => ({
     id: `risale:${x.i}`,

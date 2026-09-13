@@ -124,3 +124,62 @@ export const RISALE_ESMA = [
     noteEn: 'The text explains this with the light of the sun and its reflection in every drop of water.',
   },
 ];
+
+// ─── Risale-i Nur'da Zaman — /arac/zaman-boyutlari ───────────────────────────
+// Alıntılar birincil metinden doğrulandı (risaleinur.hizmetvakfi.org, Envâr imlâsı).
+// Üç uyarı araştırmadan geldi ve içerikte gözetildi: (1) rüya, saat temsili ve
+// süratler bahsi 31. Söz'ün İKİNCİ ESAS'ındadır, başka esasta değil; (2) Ashâb-ı
+// Kehf'in uykusunu zaman meselesi olarak işleyen bir Bediüzzaman metni
+// bulunamadı, o karta Kehf'e özel atıf bağlanmaz, yalnız kavramsal koşutluk
+// kurulur; (3) Ramazan Risalesi'ndeki Kadr bahsi sevabın yoğunluğundan söz eder,
+// zamanın metafiziğinden değil.
+export const RISALE_ZAMAN = [
+  {
+    sourceTr: "Sözler · Otuz Birinci Söz (Mi'râc Risalesi), İkinci Esas",
+    sourceEn: "Sözler · Thirty-First Word (Treatise on the Ascension), Second Principle",
+    quoteTr: 'Hem on dakika yatsan bazı olur ki bir sene kadar hâlâta maruz olursun. […] Demek oluyor ki bir zaman-ı vâhid, iki şahsa nisbeten, birisine bir gün, birisine de bir sene hükmüne geçer.',
+    quoteEn: 'You may sleep ten minutes and undergo states equal to a year. […] So one and the same span of time counts, relative to two persons, as a day for one and as a year for the other.',
+    noteTr: 'Rüyada kısa bir süre içinde uzun bir zaman yaşamak, aynı sürenin kişiye göre farklı ölçülebileceğine örnek verilir. Araştırmada Bediüzzaman\'ın Kehf 18:25\'i doğrudan ele aldığı bir metin bulunamadı; sayfadaki Kehf 18:25 ve Hac 22:47 kartlarıyla kurulan bağlantı editoryal bir kavramsal koşutluktur.',
+    noteEn: 'Living a long stretch inside a short sleep is given as an example that the same span can be measured differently from person to person. No text in which Bediüzzaman treats Kehf 18:25 directly was found in this research; the link drawn here with the Kehf 18:25 and Hac 22:47 cards is an editorial parallel.',
+  },
+  {
+    sourceTr: "Sözler · Otuz Birinci Söz, İkinci Esas",
+    sourceEn: 'Sözler · Thirty-First Word, Second Principle',
+    quoteTr: 'İşte zaman, çünkü harekâtın bir rengi, bir levni yahut bir şeridi hükmünde olduğundan, harekâtta cari olan bir hüküm, zamanda dahi caridir.',
+    quoteEn: 'Time, being as it were a colour, a hue, or a ribbon of motion, is subject to whatever rule holds for motion.',
+    noteTr: 'Zamanı hareketin bir niteliği sayar. Aynı yerde on ibreli bir saat temsili gelir: her daire bir öncekinden altmış kat geniştir, farklı ibrelere binen iki gözlemci aynı süreyi çok farklı ölçüde görür.',
+    noteEn: 'He treats time as a property of motion. The same passage offers a clock with ten hands, each circle sixty times wider than the last, so that two observers riding different hands see very different amounts within one and the same span.',
+  },
+  {
+    sourceTr: "Sözler · Otuz Birinci Söz, İkinci Esas",
+    sourceEn: 'Sözler · Thirty-First Word, Second Principle',
+    quoteTr: "Sâni'-i Zülcelal'in sanatında harekât, nihayet derecede muhteliftir. Mesela, savtın süratiyle; ziya, elektrik, ruh, hayal süratleri ne kadar mütefavit olduğu malûm.",
+    quoteEn: "Motions in the Majestic Maker's art differ in the extreme: how greatly the speed of sound differs from those of light, electricity, spirit and imagination is well known.",
+    noteTr: 'Varlıkların süratleri arasındaki fark üzerinden meleklerin kısa bir zamanda arştan ferşe inip çıkmasını anlatır. Sayfadaki Meâric 70:4 kartının yanında okunabilecek en yakın birincil metin budur.',
+    noteEn: 'From the difference between the speeds of beings he moves to the angels descending and ascending in a short time. This is the closest primary text to read alongside the Meâric 70:4 card on this page.',
+  },
+  {
+    sourceTr: 'Mektubat · Onuncu Mektup, Birinci Sual',
+    sourceEn: 'Mektubat · Tenth Letter, First Question',
+    quoteTr: "Levh-i Mahv-İspat ise […] mütebeddil bir defteri ve yazar bozar bir tahtasıdır ki hakikat-i zaman odur. Evet […] zaman dediğimiz, kâinatta cereyan eden bir nehr-i azîmin hakikati dahi Levh-i Mahv-İspat'taki kitabet-i kudretin sahifesi ve mürekkebi hükmündedir.",
+    quoteEn: 'The Tablet of Effacement and Confirmation is […] a mutable register, a write and erase board, and that is the reality of time. Yes, […] what we call time, that vast river flowing through the universe, is in reality the page and the ink of power\'s writing on that Tablet.',
+    noteTr: 'Zamanı bağımsız bir kap olarak değil, ilâhî yazının sayfası olarak tanımlar. Sayfadaki felsefe sekmesinin sorduğu "zaman nedir" sorusuna Risale cephesinden verilen cevap budur.',
+    noteEn: 'He defines time not as an independent container but as the page of a divine writing. This is the Risale answer to the question the philosophy tab on this page asks.',
+  },
+  {
+    sourceTr: "Lem'alar · Otuzuncu Lem'a, Altıncı Nükte (İsm-i Kayyûm), Üçüncü Şuâ",
+    sourceEn: "Lem'alar · Thirtieth Flash, Sixth Point (the Name al-Qayyūm), Third Ray",
+    quoteTr: 'Zaman seylinde mütemadiyen çalkanan […] mahlukatın bir kısmı, bir saniyede gelir, der-akab kaybolur. Bir taifesi, bir dakikada gelir, geçer. […] bir kısmı bir senede, bir kısmı bir asırda, bir kısmı da asırlarda bu âlem-i şehadete gelip konup vazife görüp gidiyorlar.',
+    quoteEn: 'Of the creatures tossed ceaselessly in the torrent of time […] some come in a second and vanish at once; a group comes and goes in a minute; […] some in a year, some in a century, some over centuries come, alight, do their duty and depart.',
+    noteTr: 'Varlıkları ömür uzunluklarına göre basamaklandırır. Sayfadaki zaman ölçeği sekmesinin saniyeden asra uzanan dizilişiyle aynı bakıştır.',
+    noteEn: 'He ranks creatures by the length of their lifespans, the same view as the second to century ordering in this page\'s time scale tab.',
+  },
+  {
+    sourceTr: 'Mektubat · Yirmi Dokuzuncu Mektup, İkinci Risale (Ramazan Risalesi), Yedinci Nükte',
+    sourceEn: 'Mektubat · Twenty-Ninth Letter, Second Treatise (on Ramadan), Seventh Point',
+    quoteTr: 'Evet bir tek ramazan, seksen sene bir ömür semeratını kazandırabilir. Leyle-i Kadir ise nass-ı Kur\'an ile bin aydan daha hayırlı olduğu bu sırra bir hüccet-i kātıadır.',
+    quoteEn: 'A single Ramadan can yield the fruits of an eighty-year lifetime; and that by the Qur\'an\'s explicit text the Night of Decree is better than a thousand months is a decisive proof of this secret.',
+    noteTr: 'Bediüzzaman burada sevabın yoğunluğundan söz eder; zamanın yapısına dair bir iddia ileri sürmez. Kadr 97:3 kartıyla birlikte okunurken bu sınır korunmalıdır.',
+    noteEn: 'Here Bediüzzaman speaks of the density of reward and makes no claim about the structure of time. That limit should be kept when reading it alongside the Kadr 97:3 card.',
+  },
+];

@@ -66173,5 +66173,35 @@
     "hash": "6bbffab51a1773af",
     "embeddedAt": "2026-09-13T14:25:02.112Z",
     "type": "dua-dili-katman"
+  },
+  "risale:200": {
+    "hash": "d6a2c54bb2070658",
+    "embeddedAt": "2026-09-13T14:41:07.916Z",
+    "type": "risale-not"
+  },
+  "risale:201": {
+    "hash": "62c99c28a7e46d71",
+    "embeddedAt": "2026-09-13T14:41:07.916Z",
+    "type": "risale-not"
+  },
+  "risale:202": {
+    "hash": "c66a6d8ee6b020d7",
+    "embeddedAt": "2026-09-13T14:41:07.916Z",
+    "type": "risale-not"
+  },
+  "risale:203": {
+    "hash": "f63bd3438fa4754e",
+    "embeddedAt": "2026-09-13T14:41:07.916Z",
+    "type": "risale-not"
+  },
+  "risale:204": {
+    "hash": "7c40000ce487bae8",
+    "embeddedAt": "2026-09-13T14:41:07.916Z",
+    "type": "risale-not"
+  },
+  "risale:205": {
+    "hash": "5cd2c88845495193",
+    "embeddedAt": "2026-09-13T14:41:07.916Z",
+    "type": "risale-not"
   }
 }
