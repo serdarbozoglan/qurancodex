@@ -836,13 +836,13 @@ export default function Navbar() {
               Size 32px: text ~17px cap height ile optical balance (1.9x bound,
               ~1.3x visible mass — negative space içerideki Q ve outer star
               arasında nefes alır). */}
-          <img src="/logo-mark.png" alt="" aria-hidden="true" width="32" height="32" style={{ display: 'block', flexShrink: 0 }} />
+          <img src="/logo-mark.png" alt="" aria-hidden="true" width="32" height="32" className="qc-nav-logo-breathe" style={{ display: 'block', flexShrink: 0 }} />
           {/* Kelime markası (2026-08-13). Önce "QURAN CODEX" idi — literal
               boşluk taşıyordu ve marka adı kod tabanında 78 kez tek kelime
               "QuranCodex" olarak geçtiği için tutarsızdı. Boşluk kaldırıldı.
               İki yarıyı tonla ayırmak denendi, kullanıcı tek renk istedi:
               harf aralığı (tracking .12-.18em) optik ayrımı zaten veriyor. */}
-          <span className="nav-wordmark">QURANCODEX</span>
+          <span className="nav-wordmark qc-nav-breathe">QURANCODEX</span>
         </Link>
 
         {/* Nav links */}

@@ -139,10 +139,11 @@ export default function Conclusion() {
           width: '88px', height: '1px', position: 'relative', zIndex: 1,
           background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
         }} />
-        <p dir="rtl" lang="ar" style={{
+        {/* Kapanış âyeti "nefes alan" glow (2026-09-13, kullanıcı isteği) —
+            text-shadow animasyonu .qc-verse-breathe'de; reduced-motion'da durur. */}
+        <p dir="rtl" lang="ar" className="qc-verse-breathe" style={{
           fontFamily: FONTS.quran,
           fontSize: 'clamp(2.4rem, 7vw, 3.1rem)', color: COLORS.gold,
-          textShadow: `0 0 30px ${COLORS.gold}30`,
           lineHeight: 1.3, letterSpacing: '0.02em',
           margin: 0, position: 'relative', zIndex: 1,
         }}>

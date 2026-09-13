@@ -1636,3 +1636,33 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .qc-brand-mark::before { animation: none; opacity: 0.5; }
   .qc-wordmark { animation: none; text-shadow: 0 0 12px rgba(212,165,116,0.2); }
 }
+
+/* ─── Kapanış âyeti "nefes alan" glow (2026-09-13) ──────────────────────────
+   Anasayfa Conclusion'daki فَاتَّبِعُوهُ âyeti, metin yaşıyormuş gibi yavaşça
+   nefes alır. Wordmark'tan biraz daha belirgin (büyük, merkezî, altın Arapça).
+   prefers-reduced-motion: sabit hafif hâle. */
+.qc-verse-breathe { animation: qc-verse-breathe 5200ms ease-in-out infinite; will-change: text-shadow; }
+@keyframes qc-verse-breathe {
+  0%, 100% { text-shadow: 0 0 18px rgba(212,165,116,0.22); }
+  50%      { text-shadow: 0 0 34px rgba(212,165,116,0.55), 0 0 64px rgba(212,165,116,0.22); }
+}
+/* Üst nav markası — kalıcı görünür olduğu için DAHA İNCE bir nefes (dikkat dağıtmaz). */
+.qc-nav-breathe { animation: qc-nav-breathe 5200ms ease-in-out infinite; will-change: text-shadow; }
+@keyframes qc-nav-breathe {
+  0%, 100% { text-shadow: 0 0 5px rgba(212,165,116,0.08); }
+  50%      { text-shadow: 0 0 12px rgba(212,165,116,0.28); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qc-verse-breathe { animation: none; text-shadow: 0 0 24px rgba(212,165,116,0.3); }
+  .qc-nav-breathe { animation: none; text-shadow: 0 0 8px rgba(212,165,116,0.14); }
+}
+
+/* Üst nav logosu — çok hafif drop-shadow nefesi (wordmark ile senkron). */
+.qc-nav-logo-breathe { animation: qc-nav-logo-breathe 5200ms ease-in-out infinite; will-change: filter; }
+@keyframes qc-nav-logo-breathe {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(212,165,116,0.15)); }
+  50%      { filter: drop-shadow(0 0 7px rgba(212,165,116,0.4)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qc-nav-logo-breathe { animation: none; filter: drop-shadow(0 0 3px rgba(212,165,116,0.2)); }
+}
