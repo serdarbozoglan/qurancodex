@@ -41,6 +41,24 @@ export const DISCIPLINE_CONTENT = {
         ],
         tafsirTr: `Muhtasar İbn Kesîr metninde (2:255): Âyetü'l-Kürsî'nin, Allah'ın tek ibadete lâyık ilâh olduğunu; Hayy ve Kayyûm sıfatlarıyla hiçbir zaaf ya da muhtaçlığın O'nu tutmadığını, uyku ve uyuklamanın O'na erişemediğini vurguladığı belirtilir. İbn Abbâs'tan nakledilen bir sözle Kürsî'nin yanında kâinatın "çöldeki bir halka" gibi kaldığı aktarılır. (Tefsir özeti.)`,
         tafsirEn: `The abridged Ibn Kathīr (2:255): Ayat al-Kursī affirms Allah as the only One worthy of worship, the Ever-Living and Self-Sustaining whom neither drowsiness nor sleep can touch. A report from Ibn ʿAbbās likens the whole creation beside His Kursī to "a ring in a desert." (Summary of the tafsir.)`,
+        commentary: {
+          sourceTr: `Bediüzzaman · Tabiat Risalesi & Âyetü'l-Kübra (Lem'alar 23. Lem'a; Şualar 7. Şua)`,
+          sourceEn: `Bediüzzaman · Treatise on Nature & The Supreme Sign (Lem'alar 23; Şualar 7)`,
+          introTr: `Bediüzzaman Said Nursi, Tabiat Risalesi'nde (çapa İbrâhim 14:10) ve Âyetü'l-Kübra'da (İsrâ 17:44) tevhidi şöyle temellendirir:`,
+          introEn: `Bediüzzaman Said Nursi grounds tawḥīd in his Treatise on Nature (anchored on Q 14:10) and The Supreme Sign (Q 17:44) as follows:`,
+          pointsTr: [
+            `Her şeyi tabiata, tesadüfe veya sebeplere vermek Tabiat Risalesi'nde "dokuz muhal" (en az doksan imkânsızlık) ile aklen imkânsız gösterilir; makul olan tek yol tevhiddir.`,
+            `Bir şeyin yaratılışı Vâhid-i Ehad'e verilirse "vücub derecesinde bir sühûlet" (kolaylık) doğar; sebep ve tabiata verilirse "imtinâ derecesinde" (imkânsızlık ölçüsünde) zorlaşır.`,
+            `Âyetü'l-Kübra'da kâinat, bir seyyahın mertebe mertebe okuduğu bir "kitâb-ı kebîr"dir; her mevcut, Müellifi ve Sultanı olan Allah'ın varlık ve birliğine şahitlik eder.`,
+          ],
+          pointsEn: [
+            `Ascribing everything to nature, chance, or secondary causes is shown in the Treatise on Nature to be rationally impossible through "nine impossibilities" (at least ninety absurdities); the only reasonable path is tawḥīd.`,
+            `Ascribing a thing's creation to the One (al-Wāḥid al-Aḥad) yields "an ease at the level of necessity," while ascribing it to nature and causes becomes "difficult at the level of impossibility."`,
+            `In The Supreme Sign the universe is a "great book" read stage by stage by a traveler; every existent bears witness to the existence and oneness of God, its Author and Sovereign.`,
+          ],
+          noteTr: `Alıntılar birincil metinlerden doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.`,
+          noteEn: `The quotations are verified from the primary texts. This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration.`,
+        },
       },
       {
         titleTr: 'İmanın esasları — Allah, melekler, kitaplar, resuller, âhiret',
@@ -136,6 +154,26 @@ export const DISCIPLINE_CONTENT = {
         ],
         tafsirTr: `Muhtasar İbn Kesîr metninde (12:53): bu söz, Azîz'in hanımının kral huzurunda Yûsuf'un (a.s.) doğruluğunu ve kendi kusurunu itiraf etmesi olarak açıklanır. İnsan nefsinin tabiatı gereği kötülüğe meylettiği, ancak Rabbin rahmetiyle bu meylden korunabileceği vurgulanır; bu itiraf, nefsi aklamak değil beşerî zaafı kabul etmektir. (Tefsir özeti.)`,
         tafsirEn: `The abridged Ibn Kathīr (12:53): these words are the ʿAzīz's wife confessing before the king, affirming Joseph's truthfulness and her own fault. The human self by nature inclines to evil and is protected from it only by the Lord's mercy; admitting this is humility, not self-exoneration. (Summary of the tafsir.)`,
+        commentary: {
+          sourceTr: `Bediüzzaman · Ene (Enâniyet) Risalesi (Sözler, 30. Söz)`,
+          sourceEn: `Bediüzzaman · Treatise on the Ego (Sözler, 30th Word)`,
+          introTr: `Bediüzzaman Said Nursi, Ene Risalesi'nde insandaki benliği (ene) şöyle çözümler:`,
+          introEn: `Bediüzzaman Said Nursi analyzes the human ego (ene) in his Treatise on the Ego as follows:`,
+          pointsTr: [
+            `Ene (benlik), insana Rabbinin sıfatlarını tanıtan bir emanet ve bir "anahtar" olarak verilmiştir; künûz-u mahfiye (gizli hazineler) olan esmâ-i İlâhiyenin anahtarıdır.`,
+            `Ene'nin iki yüzü vardır: biri hayra ve vücuda bakar (emaneti kabul eden, kendi icad etmeyen); diğeri kendine mal eden enâniyet yüzüdür ve şerre gider.`,
+            `Ene, yaratılış hikmetini unutup kendini "mâlik" sanınca emanete hıyanet eder; "bütün şirkleri, şerleri ve dalâletleri tevlîd eden" enâniyetin bu yüzüdür.`,
+            `Kurtuluş, insanın acz ve fakrını (güçsüzlük ve muhtaçlığını) bilip Rabbine dayanmasındadır (acz-fakr-şefkat-tefekkür yolu; 26. Söz Zeyl, çapa Haşr 59:19).`,
+          ],
+          pointsEn: [
+            `The ego (ene) is given as a trust and a "key" that lets a person recognize the attributes of his Lord; it is the key to the divine names, the hidden treasures.`,
+            `The ego has two faces: one looks to good and existence (accepting the trust, not creating on its own); the other appropriates things to itself, and this egotism turns to evil.`,
+            `When the ego forgets the purpose of its creation and imagines itself an "owner," it betrays the trust; this is the face of egotism that "gives birth to all forms of association, evil, and misguidance."`,
+            `Salvation lies in knowing one's impotence and poverty (ʿajz and faqr) and relying on the Lord (the path of impotence-poverty-compassion-reflection; 26th Word Addendum, anchored on Q 59:19).`,
+          ],
+          noteTr: `Not: "nefs-i emmâre" teması bu metinlerde mevcuttur; ancak Yûsuf 12:53'ün Bediüzzaman tarafından bu metinlerde birebir iktibası doğrulanamadığından ona atıf yapılmamıştır. Alıntılar birincil metinden doğrulanmıştır. Bu, beşerî yorum katmanıdır; Kur'an'ın kesin beyanıyla özdeş değildir.`,
+          noteEn: `Note: the theme of the "inciting self" is present in these texts; but since a direct quotation of Q 12:53 by Bediüzzaman in them could not be verified, it is not attributed to him. The quotations are verified from the primary text. This is a human interpretive layer, not identical with the Qur'an's certain declaration.`,
+        },
       },
       {
         titleTr: 'Kalp — mühür, hastalık, itminan',
@@ -235,6 +273,24 @@ export const DISCIPLINE_CONTENT = {
         ],
         tafsirTr: 'Muhtasar İbn Kesîr metninde (3:159): istişareyi ashabın gönlünü hoş tutması ve yapacakları işe daha istekli katılmasıyla ilişkilendirir; çeşitli istişare örnekleri aktarır. (Tefsir özeti.) Buradan belirli bir oylama veya bağlayıcılık modeli çıkarılmaz.',
         tafsirEn: 'The abridged Ibn Kathīr (3:159): links consultation to setting the companions\' hearts at ease and making them more willing participants; he relates various examples of consultation. (Summary of the tafsir.) No specific voting or bindingness model is inferred from this.',
+        commentary: {
+          sourceTr: `Bediüzzaman · Meşveret (Hutbe-i Şamiye, Altıncı Kelime)`,
+          sourceEn: `Bediüzzaman · Consultation (Hutbe-i Şamiye, Sixth Word)`,
+          introTr: `Bediüzzaman Said Nursi, Hutbe-i Şamiye'nin Altıncı Kelime'sinde şûrâyı (meşveret-i şer'iye) toplumsal hayatın anahtarı sayar (çapa Şûrâ 42:38):`,
+          introEn: `Bediüzzaman Said Nursi, in the Sixth Word of Hutbe-i Şamiye, holds consultation (shūrā) to be the key to social life (anchored on Q 42:38):`,
+          pointsTr: [
+            `"Müslümanların hayat-ı içtimaiye-i İslâmiyedeki saadetlerinin anahtarı, meşveret-i şer'iyedir"; dayanağı "ve emruhum şûrâ beynehum" (Şûrâ 42:38).`,
+            `"Asya'nın ve istikbalinin keşşafı ve miftahı şûrâdır"; Asya'nın geri kalışının bir sebebi, o hakiki şûrâyı yapmamış olmasıdır.`,
+            `İstibdadın (baskıcı yönetimin) yerine meşveret ve hürriyet-i şer'iye konur; bu metin, bireysel liderlikten çok istişareye ve danışmaya dayalı bir düzeni öne çıkarır.`,
+          ],
+          pointsEn: [
+            `"The key to the Muslims' happiness in Islamic social life is lawful consultation (mashwara sharʿiyya)"; grounded in "and their affairs are by mutual consultation" (Q 42:38).`,
+            `"The discoverer and key of Asia and its future is consultation"; one cause of Asia's decline is that it did not practice this true consultation.`,
+            `In place of despotism it sets consultation and lawful freedom; this text foregrounds an order based on consultation rather than individual leadership.`,
+          ],
+          noteTr: `Not: Bu metin şûrâyı Âl-i İmrân 3:159'a değil doğrudan Şûrâ 42:38'e dayandırır. Alıntılar birincil metinden doğrulanmıştır. Bu, beşerî yorum katmanıdır; Kur'an'ın kesin beyanıyla özdeş değildir.`,
+          noteEn: `Note: this text grounds consultation directly in Q 42:38 (not Q 3:159). The quotations are verified from the primary text. This is a human interpretive layer, not identical with the Qur'an's certain declaration.`,
+        },
       },
       {
         titleTr: 'Emanet ve adâlet — yönetimle de ilgili yükümlülükler',
@@ -315,6 +371,24 @@ export const DISCIPLINE_CONTENT = {
         ],
         tafsirTr: 'Muhtasar İbn Kesîr metninde (16:90): adaleti kıst ve itidal (insaf, denge) anlamında açıklar; İbn Mes\'ûd\'dan bu âyetin Kur\'an\'ın en kapsamlı âyeti sayıldığı nakledilir. (Tefsir özeti.)',
         tafsirEn: 'In the abridged Ibn Kathīr (16:90): justice is explained as equity and balance; it is related from Ibn Masʿūd that this verse is counted the most comprehensive in the Qur\'an. (Summary of the tafsir.)',
+        commentary: {
+          sourceTr: `Bediüzzaman · Adalet-i Mahza (Mektubat, 15. Mektup)`,
+          sourceEn: `Bediüzzaman · Pure Justice (Mektubat, 15th Letter)`,
+          introTr: `Bediüzzaman Said Nursi, On Beşinci Mektup'ta adaleti iki türe ayırır (çapa Mâide 5:32):`,
+          introEn: `Bediüzzaman Said Nursi distinguishes two kinds of justice in the 15th Letter (anchored on Q 5:32):`,
+          pointsTr: [
+            `Adalet-i mahza (tam adalet): "Bir mâsumun hakkı, bütün halk için dahi iptal edilmez; bir ferd, umumun selâmeti için feda edilmez."`,
+            `Adalet-i izafiye (nispî adalet): küllün selâmeti için cüz'ü feda eder, cemaat için ferdin hakkını nazara almaz.`,
+            `Ölçü: "Adalet-i mahza kābil-i tatbik ise, adalet-i izafiyeye gidilmez; gidilse zulümdür." Yani izafiye, ancak mahza uygulanamadığında zaruretle devreye girer.`,
+          ],
+          pointsEn: [
+            `Pure justice (ʿadāla maḥḍa): "The right of one innocent cannot be annulled even for all the people; a single individual is not sacrificed for the safety of all."`,
+            `Relative justice (ʿadāla iḍāfiyya): it sacrifices the part for the safety of the whole, disregarding the individual's right for the community.`,
+            `The measure: "If pure justice is applicable, one does not resort to relative justice; to do so is injustice." Relative justice applies only out of necessity, when pure justice cannot be applied.`,
+          ],
+          noteTr: `Bu ayrım Mâide 5:32'ye ("bir cana kıymak bütün insanlığı öldürmek gibidir") dayandırılır. Alıntılar birincil metinden doğrulanmıştır. Bu, beşerî yorum katmanıdır; Kur'an'ın kesin beyanıyla özdeş değildir.`,
+          noteEn: `This distinction is grounded in Q 5:32 ("to take one life is as if killing all humanity"). The quotations are verified from the primary text. This is a human interpretive layer, not identical with the Qur'an's certain declaration.`,
+        },
       },
       {
         titleTr: 'Mîzân — vahiyle gelen ölçü',
