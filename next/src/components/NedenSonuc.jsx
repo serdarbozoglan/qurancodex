@@ -3,7 +3,7 @@
 // ─── NedenSonuc — Neden → Sonuç Atlası ──────────────────────────────────────
 // #208 (2026-07-19) — Kur'ânî neden-sonuç zincirleri (Sünnetullah uzantısı).
 // "Kim X yaparsa Y olur" — nefsî / toplumsal / kozmik 3 katman.
-// Her zincir 3-5 halka + Kur'ânî ayet ankraj.
+// Her zincir 3-5 halka; her halka bir Kur'ân âyetine bağlı.
 // ────────────────────────────────────────────────────────────────────────────
 
 import { Fragment, useState, useEffect } from 'react';
@@ -714,7 +714,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                         onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; }}
                         onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}18`; }}
                       >
-                        <LinkifyRefs text={formatVerseRef(v, tr)} />
+                        {formatVerseRef(v, tr)}
                       </Link>
                     ))}
                   </div>

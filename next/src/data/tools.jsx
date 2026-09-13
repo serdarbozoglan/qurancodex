@@ -420,7 +420,7 @@ export const ANALYSIS_TOOLS = [
     titleEn:     'Cause → Effect Atlas',
     descTr:      '10 Kur\'ânî zincir · nefsî + toplumsal + kozmik',
     descEn:      '10 Quranic chains · inner + social + cosmic',
-    descLongTr:  "Sabır yardımı, yardım zaferi getirir. Şükür nimeti artırır. Zulüm toplumsal helâke, mîzân göklerin ayakta durmasına bağlanır. Sünnetullah'ın somut zincirleri; her halka Kur'ânî ayet ankrajıyla.",
+    descLongTr:  "Sabır yardımı, yardım zaferi getirir. Şükür nimeti artırır. Zulüm toplumsal helâke, mîzân göklerin ayakta durmasına bağlanır. Sünnetullah'ın somut zincirleri; her halka bir Kur'ân âyetine dayanır.",
     descLongEn:  "Patience brings help, and help brings victory. Gratitude increases blessing. Injustice leads to societal collapse; balance keeps the heavens standing. The concrete chains of sunnatullāh, every link anchored in Quranic verses.",
     icon:        NedenSonucIcon,
   },
