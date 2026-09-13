@@ -14,6 +14,13 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import { cleanArabicForDisplay } from '../lib/arabic';
+import { tabIcon } from './tabIcons';
+
+// Tab ikonları (site-wide standart: alt sekmeler ikonlu) — TABS id'leriyle eşli.
+const RENKLER_TAB_ICONS = {
+  renkler: 'grid', palet: 'layers', baglam: 'map', cennet: 'star',
+  kiyamet: 'alert', dilbilim: 'book', kaynaklar: 'folder',
+};
 
 // ─── KURANI_COLORS — Kur'ani semantik renk paleti ─────────────────────────────
 // Bu paleti tokens.js'e katmadık çünkü sadece bu tool'da semantik anlam
@@ -2676,6 +2683,9 @@ export default function KuranRenkleri({ onClose }) {
       whiteSpace: 'nowrap',
       transition: `all ${TRANSITION.fast}`,
       flexShrink: 0,
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
     };
   };
 
@@ -2974,7 +2984,8 @@ export default function KuranRenkleri({ onClose }) {
                     }
                   }}
                 >
-                  {TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}
+                  <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tabIcon(RENKLER_TAB_ICONS[id])}</span>
+                  <span>{TAB_LABELS[id][language] ?? TAB_LABELS[id].tr}</span>
                   {/* Active indicator — gold bottom bar with glow */}
                   {active && (
                     <span
