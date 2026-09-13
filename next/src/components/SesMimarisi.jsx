@@ -11,7 +11,7 @@ import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function SesMimarisi({ onClose }) {
   const { language } = useLanguage();
@@ -83,12 +83,11 @@ export default function SesMimarisi({ onClose }) {
           &quot;{tr ? "Andolsun, şiddetle söküp çıkaranlara..." : "By those who pluck out violently..."}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Nâziât 79:1" : "an-Nāziʿāt 79:1"}</p>
 

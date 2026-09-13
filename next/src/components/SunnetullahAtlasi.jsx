@@ -384,13 +384,12 @@ export default function SunnetullahAtlasi({ onClose }) {
           </p>
 
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Fâtır 35:43' : 'Fāṭir 35:43'}
           </p>
@@ -1391,9 +1390,9 @@ function FormulaBox({ formula, language, isMobile }) {
       </p>
 
       <p style={{
-        color: COLORS.silver, fontSize: '0.66rem',
+        color: SEMANTIC.textMuted, fontSize: '0.66rem',
         letterSpacing: '0.14em', textTransform: 'uppercase',
-        textAlign: 'center', margin: '0 0 22px', opacity: 0.78,
+        textAlign: 'center', margin: '0 0 22px',
         fontFamily: FONTS.body,
       }}>
         — <LinkifyRefs text={formula.sourceRef} />
@@ -1434,9 +1433,9 @@ function FormulaBox({ formula, language, isMobile }) {
                 {p.part}
               </div>
               <div style={{
-                fontSize: '0.68rem', color: COLORS.silver,
+                fontSize: '0.68rem', color: SEMANTIC.textMuted,
                 fontStyle: 'italic', letterSpacing: '0.04em',
-                marginBottom: '4px', opacity: 0.78,
+                marginBottom: '4px',
               }}>
                 {p.translit}
               </div>
@@ -1497,9 +1496,9 @@ function FormulaBox({ formula, language, isMobile }) {
 
       {!isMobile && activePart === null && (
         <p style={{
-          fontSize: '0.7rem', color: COLORS.silver,
+          fontSize: '0.7rem', color: SEMANTIC.textMuted,
           fontFamily: FONTS.body, fontStyle: 'italic',
-          textAlign: 'center', margin: '14px 0 0', opacity: 0.78,
+          textAlign: 'center', margin: '14px 0 0',
         }}>
           {tr ? '↑ bir parçaya tıkla, dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}
         </p>
@@ -1806,9 +1805,8 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
 
       {/* Source line */}
       <p style={{
-        margin: 0, fontSize: '0.7rem', color: COLORS.silver,
-        fontFamily: FONTS.body, lineHeight: 1.5,
-        opacity: 0.78, fontStyle: 'italic',
+        margin: 0, fontSize: '0.7rem', color: SEMANTIC.textMuted,
+        fontFamily: FONTS.body, lineHeight: 1.5, fontStyle: 'italic',
       }}>
         {tr ? pattern.sourceTr : pattern.sourceEn}
       </p>

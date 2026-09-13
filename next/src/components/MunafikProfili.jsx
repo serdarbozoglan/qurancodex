@@ -369,14 +369,13 @@ export default function MunafikProfili({ onClose }) {
           </p>
 
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 32px',
             textAlign: 'center',
-            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Bakara 2:8' : 'Al-Baqarah 2:8'}
           </p>
@@ -1440,9 +1439,8 @@ function KissaCard({ kissa, index, language, isMobile }) {
 
       {/* Source line */}
       <p style={{
-        margin: 0, fontSize: '0.72rem', color: COLORS.silver,
-        fontFamily: FONTS.body, lineHeight: 1.5,
-        opacity: 0.78, fontStyle: 'italic',
+        margin: 0, fontSize: '0.72rem', color: SEMANTIC.textMuted,
+        fontFamily: FONTS.body, lineHeight: 1.5, fontStyle: 'italic',
         position: 'relative', zIndex: 1,
         paddingTop: '10px',
         borderTop: `1px solid ${COLORS.glassBorderSoft}`,

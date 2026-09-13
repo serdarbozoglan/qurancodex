@@ -7,7 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { COLORS, FONTS } from '../../../../../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../../../../../tokens';
 import { useLanguage } from '../../../../../i18n/LanguageContext';
 import { cleanArabicForDisplay } from '../../../../../lib/arabic';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../../../../../lib/surahNames';
@@ -170,12 +170,11 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
 
             {/* Reference */}
             <p style={{
-              color: COLORS.silver,
+              color: SEMANTIC.textMuted,
               fontSize: '0.85rem',
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               fontWeight: 600,
-              opacity: 0.78,
               marginBottom: 36,
             }}>
               — {surahName} {surah}:{ayah}

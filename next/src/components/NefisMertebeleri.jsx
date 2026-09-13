@@ -204,13 +204,12 @@ export default function NefisMertebeleri({ onClose }) {
           </p>
 
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Fecr 89:27-28' : 'Al-Fajr 89:27-28'}
           </p>

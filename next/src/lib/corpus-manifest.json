@@ -66583,5 +66583,175 @@
     "hash": "a3f1f300d73dbbde",
     "embeddedAt": "2026-09-13T19:36:40.724Z",
     "type": "iblis-adlandirma"
+  },
+  "furuk:fear-family": {
+    "hash": "7e0e58a8f9d9affc",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:rain-family": {
+    "hash": "769ccca0f19b79b0",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:wind-family": {
+    "hash": "d32de5a1c6da2781",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:path-family": {
+    "hash": "a344e59b2d7e542c",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:human-family": {
+    "hash": "d1c13db563575761",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:heart-family": {
+    "hash": "5bbb3759c3cc69f4",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:sin-family": {
+    "hash": "16f5036465b40f64",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:fire-family": {
+    "hash": "6b0cb8ba3f01ef99",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:earth-family": {
+    "hash": "dc28f3e6a93d790b",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:child-family": {
+    "hash": "d13bdc4aa937cf0a",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:creation-family": {
+    "hash": "410c30520f342509",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:sending-family": {
+    "hash": "0a3b80fafd6ee5d3",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:knowledge-family": {
+    "hash": "9b7cbbc1cbef8c77",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:thinking-family": {
+    "hash": "67c493710d3f4661",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:certainty-family": {
+    "hash": "d4904617eeb48be2",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:hope-family": {
+    "hash": "e16b8182dfbc4cef",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:sadness-family": {
+    "hash": "1becd6db80c0d7ff",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:peace-family": {
+    "hash": "6192829b9d494d36",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:anger-family": {
+    "hash": "3d470bcddc4f0448",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:love-family": {
+    "hash": "dec3e13f64cdce10",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:water-family": {
+    "hash": "26ee507962845fcb",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:heaven-family": {
+    "hash": "f9bc0586e6bc7170",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:people-family": {
+    "hash": "4fd2048409ce1e0d",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:man-family": {
+    "hash": "f9833893883255d6",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:woman-family": {
+    "hash": "6a8b538e8f48d7f7",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:provision-family": {
+    "hash": "be79b2c04dcdd675",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:death-family": {
+    "hash": "fc8d2e6a1da84272",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:sight-family": {
+    "hash": "26739740ac872e98",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:life-family": {
+    "hash": "10ec8aa4d517ba80",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:paradise-family": {
+    "hash": "72f7edc6dceb0d38",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:good-family": {
+    "hash": "299f192e8d1d6a62",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:help-family": {
+    "hash": "b5c5c7029ec29104",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:eye-spring-family": {
+    "hash": "80d3380b45549306",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
+  },
+  "furuk:instruct-family": {
+    "hash": "dea6795a3e3c4f13",
+    "embeddedAt": "2026-09-13T22:09:19.786Z",
+    "type": "furuk-aile"
   }
 }

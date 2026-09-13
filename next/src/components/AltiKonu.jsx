@@ -143,12 +143,11 @@ export default function AltiKonu({ onClose }) {
           &quot;{tr ? "Hâlâ Kur'an üzerinde derin derin düşünmüyorlar mı? Yoksa kalpler kilitli mi?" : "Will they not then ponder upon the Quran? Or are there locks upon their hearts?"}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Muhammed 47:24" : "Muḥammad 47:24"}</p>
 

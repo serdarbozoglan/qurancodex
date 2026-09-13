@@ -768,7 +768,7 @@ export default function LinguisticDNA() {
                   {s.num}. {language === 'tr' ? s.name : s.nameEn}
                 </span>
                 {/* Desc — muted white, not gold */}
-                <span className="text-sm font-body leading-tight" style={{ color: 'rgba(232,230,227,0.55)' }}>{s.desc}</span>
+                <span className="text-sm font-body leading-tight" style={{ color: SEMANTIC.textMuted }}>{s.desc}</span>
                 </Link>
               </motion.div>
             );

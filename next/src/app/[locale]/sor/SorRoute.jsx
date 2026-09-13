@@ -1676,6 +1676,7 @@ function AtlasCard({ atlas, delay, language }) {
     'dua-dili-katman': tr ? 'Dua dili' : 'Language of prayer',
     'kuran-sayi': tr ? 'Sayılar' : 'Numbers',
     'iblis-adlandirma': tr ? 'İki isim' : 'Two names',
+    'furuk-aile': tr ? 'Fürûk' : 'Distinctions',
     'surah-summary': tr ? 'Sûre özet' : 'Sūra summary',
     'pericope': tr ? 'Pericope' : 'Pericope',
   }[atlas.type] || (tr ? 'Atlas' : 'Atlas');

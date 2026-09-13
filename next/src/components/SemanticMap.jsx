@@ -395,7 +395,7 @@ function ClusterCard({ cluster, onClick, selected, language, maxVerseCount }) {
             </span>
           ))}
           {(c.top_surahs?.length || 0) > 3 && (
-            <span style={{ color: COLORS.silver, fontSize: '0.66rem', opacity: 0.78, alignSelf: 'center' }}>
+            <span style={{ color: SEMANTIC.textMuted, fontSize: '0.66rem', alignSelf: 'center' }}>
               +{c.top_surahs.length - 3}
             </span>
           )}

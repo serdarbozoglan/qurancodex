@@ -96,7 +96,7 @@ function Hero({ language, isMobile }) {
             : '"A Book whose verses are detailed — an Arabic Qur’an for a people who know."'}
         </p>
         <p style={{
-          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontFamily: FONTS.body, color: SEMANTIC.textFaint,
           fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
           margin: '0 0 24px',
         }}>— {tr ? 'Fussilet 41:3' : 'Fussilat 41:3'}</p>
@@ -810,6 +810,10 @@ function TabGroupDetail({ group, allGroups, categories, language, isMobile, onSe
         </div>
       </div>
 
+      {/* Sayım yöntemi + istisnalar — örüntü iddiasının hemen yanında durur,
+          böylece eğilim mutlak bir kural gibi okunmaz (C03). */}
+      <PatternCaveats group={group} language={language} accent={accent} />
+
       {/* 2D semantic map */}
       <SemanticMap group={group} language={language} isMobile={isMobile} accent={accent} />
 
@@ -826,6 +830,71 @@ function TabGroupDetail({ group, allGroups, categories, language, isMobile, onSe
           />
         ))}
       </div>
+    </div>
+  );
+}
+
+// ── Sayım yöntemi + istisnalar ───────────────────────────────────────────────
+// Bir kelime ailesinin örüntüsü eğilimdir, kural değil. Grup verisinde
+// `countingMethodTr/En` ve `exceptionsTr/En` varsa örüntünün yanında gösterilir.
+function PatternCaveats({ group, language, accent = COLORS.gold }) {
+  const tr = language === 'tr';
+  const method = tr ? group.countingMethodTr : group.countingMethodEn;
+  const exceptions = (tr ? group.exceptionsTr : group.exceptionsEn) || [];
+  if (!method && exceptions.length === 0) return null;
+
+  return (
+    <div className="mq-box" style={{
+      background: COLORS.glassBg,
+      border: `1px solid ${COLORS.glassBorderSoft}`,
+      borderLeft: `3px solid ${accent}66`,
+      borderRadius: 10,
+      '--pt-d': '16px', '--pt-m': '14px', '--pr-d': '20px', '--pr-m': '14px',
+      '--pb-d': '16px', '--pb-m': '14px', '--pl-d': '20px', '--pl-m': '14px',
+      marginBottom: 28,
+      display: 'flex', flexDirection: 'column', gap: 14,
+    }}>
+      {method && (
+        <div>
+          <div style={{
+            fontSize: '0.64rem', color: COLORS.gold,
+            textTransform: 'uppercase', letterSpacing: '0.14em',
+            fontWeight: 700, fontFamily: FONTS.body, marginBottom: 6,
+          }}>
+            {tr ? 'Sayım Yöntemi' : 'Counting Method'}
+          </div>
+          <p style={{
+            fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body,
+            lineHeight: 1.7, margin: 0,
+          }}>
+            {method}
+          </p>
+        </div>
+      )}
+      {exceptions.length > 0 && (
+        <div>
+          <div style={{
+            fontSize: '0.64rem', color: CONTEXT_COLORS.positive,
+            textTransform: 'uppercase', letterSpacing: '0.14em',
+            fontWeight: 700, fontFamily: FONTS.body, marginBottom: 6,
+          }}>
+            {tr ? 'Örüntüye Uymayan Geçişler' : 'Occurrences Against the Pattern'}
+          </div>
+          <ul style={{
+            margin: 0, paddingLeft: '1.1rem',
+            display: 'flex', flexDirection: 'column', gap: 6,
+          }}>
+            {exceptions.map((x, i) => (
+              <li key={i} style={{
+                fontSize: '0.82rem', color: COLORS.offWhite,
+                fontFamily: FONTS.body, lineHeight: 1.65,
+              }}>
+                {x}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -1009,6 +1078,13 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
                   {dominantLabel} · %{word.patternStat.dominantPercentage}
                 </span>
               )}
+            </div>
+            {/* Yüzdenin hangi liste üzerinden hesaplandığını söyler — oran, aşağıda
+                açılan ayet listesinden gelir, kelimenin toplam geçişinden değil (C03). */}
+            <div style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body, lineHeight: 1.5 }}>
+              {tr
+                ? `Oran, aşağıda listelenen ${word.allOccurrences.length} geçiş üzerinden hesaplandı.`
+                : `The ratio is computed over the ${word.allOccurrences.length} occurrences listed below.`}
             </div>
           </div>
         </div>
@@ -1232,7 +1308,7 @@ function VerseRow({ occurrence, language }) {
           {surahRefLabel(occurrence.ref)}
         </span>
         <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, flex: 1, lineHeight: 1.5 }}>
-          {occurrence.note}
+          {tr ? occurrence.note : (occurrence.noteEn || occurrence.note)}
         </span>
         <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.silver} strokeWidth="2.5" strokeLinecap="round"
           style={{ transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>

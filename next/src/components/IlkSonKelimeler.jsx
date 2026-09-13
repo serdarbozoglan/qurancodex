@@ -856,7 +856,7 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           {word?.translit && <div style={{ color: COLORS.gold, fontSize: '0.82rem', fontStyle: 'italic', fontWeight: 500 }}>{word.translit}</div>}
           {word?.meaning && <div style={{ color: COLORS.offWhite, fontSize: '0.78rem', marginTop: '2px' }}>{word.meaning}</div>}
-          {word?.root && <div style={{ color: COLORS.silver, fontSize: '0.7rem', marginTop: '4px', opacity: 0.78 }}>
+          {word?.root && <div style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', marginTop: '4px',}}>
             {language === 'tr' ? 'kök' : 'root'}: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>{word.root}</span>
           </div>}
         </div>
@@ -951,13 +951,12 @@ function CinematicHero({ language }) {
         </p>
 
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.72rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 26px',
-          opacity: 0.7,
         }}>
           — {tr ? 'Nisâ 4:82' : 'al-Nisāʾ 4:82'}
         </p>
@@ -2251,7 +2250,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
                 {activeWord.ar}
               </span>
               <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>{activeWord.meaning}</span>
-              <span style={{ color: COLORS.silver, fontSize: '0.68rem', opacity: 0.78, fontFamily: 'ui-monospace, monospace' }}>{activeWord.root}</span>
+              <span style={{ color: SEMANTIC.textMuted, fontSize: '0.68rem', fontFamily: 'ui-monospace, monospace' }}>{activeWord.root}</span>
             </div>
           </div>
           <span style={{

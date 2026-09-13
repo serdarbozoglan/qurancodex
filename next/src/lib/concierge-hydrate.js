@@ -71,6 +71,8 @@ function buildUrl(item, lang = 'tr') {
       return `${base}/arac/sayilar`;
     case 'iblis-adlandirma':
       return `${base}/arac/iblis-seytan`;
+    case 'furuk-aile':
+      return `${base}/atlas/furuk`;
     case 'risale-not':
       // Dua Dili veya Esmâ-i Hüsnâ sayfası (buildItem route'u belirler)
       return item.route ? `${base}${item.route}` : `${base}/arac/dua-dili`;

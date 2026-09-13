@@ -157,7 +157,7 @@ export default function AddresseeSystem({ onClose }) {
         <p className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           &quot;{language === 'tr' ? 'Ey insanlar! Sizi ve sizden öncekileri yaratan Rabbinize kulluk edin ki, takvâya eresiniz.' : "O mankind, worship your Lord who created you and those before you, so that you may attain piety."}&quot;
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
+        <p style={{ color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px',}}>
           — {language === 'tr' ? 'Bakara 2:21' : 'Al-Baqarah 2:21'}
         </p>
         <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>

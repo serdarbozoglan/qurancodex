@@ -547,9 +547,8 @@ function FeaturedEssayCard({ essay, language, reduced, onClick }) {
           fontFamily: FONTS.body,
           fontSize: '0.66rem',
           fontStyle: 'italic',
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           letterSpacing: '0.06em',
-          opacity: 0.78,
         }} dir="ltr">
           {essay.rootTranslit}
         </span>

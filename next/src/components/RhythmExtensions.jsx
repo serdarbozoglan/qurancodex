@@ -3,7 +3,7 @@
 // ImpossibleRhythm section'a dokunmadan, /arac/ritim tool sayfasına eklenen derin bölüm.
 
 import { useState } from 'react';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 
 // ── Halil bin Ahmed el-Ferâhîdî'nin 16 aruz vezni ──
 // Kaynak: el-Halîl b. Ahmed (ö. 175/791), Kitâbü'l-ʿAyn ve Kitâbü'l-ʿArûḍ.
@@ -146,7 +146,7 @@ export default function RhythmExtensions({ language, isMobile }) {
                     <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem' }}>
                       {i + 1}. {tr ? m.tr : m.en}
                     </span>
-                    <span style={{ color: COLORS.silver, fontSize: '0.72rem', opacity: 0.78 }}>
+                    <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem',}}>
                       {tr ? 'Aruz' : 'ʿArūḍ'}
                     </span>
                   </div>
@@ -167,8 +167,8 @@ export default function RhythmExtensions({ language, isMobile }) {
             })}
           </div>
           <p style={{
-            color: COLORS.silver, fontSize: '0.78rem',
-            fontStyle: 'italic', marginTop: '16px', opacity: 0.78,
+            color: SEMANTIC.textMuted, fontSize: '0.78rem',
+            fontStyle: 'italic', marginTop: '16px',
           }}>{tr
             ? "Kaynak: el-Halîl b. Ahmed, Kitâbü'l-ʿArûḍ; Salwa El-Awa, Textual Relations in the Qur'ān (Routledge, 2006)."
             : "Sources: al-Khalīl ibn Aḥmad, Kitāb al-ʿArūḍ; Salwa El-Awa, Textual Relations in the Qur'an (Routledge, 2006)."}</p>
@@ -263,8 +263,8 @@ export default function RhythmExtensions({ language, isMobile }) {
             })}
           </div>
           <p style={{
-            color: COLORS.silver, fontSize: '0.78rem',
-            fontStyle: 'italic', marginTop: '18px', opacity: 0.78,
+            color: SEMANTIC.textMuted, fontSize: '0.78rem',
+            fontStyle: 'italic', marginTop: '18px',
           }}>{tr
             ? "Refrain sayısı klasik tefsirlerde (Râzî, Kurtubî) ve modern akademik çalışmalarda (Angelika Neuwirth, Studien zur Komposition der mekkanischen Suren, 1981) 31 olarak zikredilir."
             : "The refrain is counted at 31 in classical tafsir (Rāzī, Qurṭubī) and in modern academic studies (Angelika Neuwirth, Studien zur Komposition der mekkanischen Suren, 1981)."}

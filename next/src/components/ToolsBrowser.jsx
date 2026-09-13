@@ -353,8 +353,8 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                   {language === 'tr' ? 'Tüm Araçlar' : 'All Tools'}
                 </span>
                 <span style={{
-                  color: COLORS.silver, fontFamily: FONTS.body,
-                  fontSize: '0.7rem', letterSpacing: '0.04em', opacity: 0.78,
+                  color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+                  fontSize: '0.7rem', letterSpacing: '0.04em',
                 }}>
                   {language === 'tr'
                     ? `${TOTAL_TOOL_COUNT} araç · atlas · graf`

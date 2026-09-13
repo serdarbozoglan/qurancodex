@@ -826,6 +826,35 @@ export const CONTENT_SOURCES = [
     }),
   },
 
+  // ─── Fürûk Atlası (34 kelime ailesi) — §13.22 pipeline
+  // Yakın ama farklı kavramlar. TOOL_CATALOG'a kayıtlıydı ama İÇERİĞİ hiç
+  // indekslenmemişti; /sor bu sayfayı bilmiyordu (2026-09-13'te bulundu, aynı
+  // hata sınıfı /alanlar disiplinlerinde de yaşanmıştı).
+  // Concierge: "sabir ile tahammul farki", "havf hasyet", "rih riyah", ...
+  {
+    type: 'furuk-aile',
+    file: 'public/word-groups.json',
+    extract: (data) => data.groups || [],
+    buildItem: (g) => {
+      const words = (g.words || []).map(w =>
+        `${w.tr || ''} (${w.transliteration || ''}): ${w.meaningTr || ''} ${w.distinctionTr || ''}`).join(' | ');
+      const wordsEn = (g.words || []).map(w =>
+        `${w.transliteration || ''}: ${w.meaningEn || ''} ${w.distinctionEn || ''}`).join(' | ');
+      return {
+        id: `furuk:${g.id}`,
+        type: 'furuk-aile',
+        subId: g.id,
+        route: '/atlas/furuk',
+        titleTr: g.titleTr || '',
+        titleEn: g.titleEn || '',
+        descTr: (g.principleTr || '').slice(0, 200),
+        descEn: (g.principleEn || '').slice(0, 200),
+        searchTextTr: `Fürûk: ${g.titleTr}. Türkçede hepsi "${g.turkishTranslation || ''}" diye çevrilir. İlke: ${g.principleTr || ''} Kelimeler: ${words}`.slice(0, 5000),
+        searchTextEn: `Distinctions: ${g.titleEn}. All rendered as "${g.englishTranslation || ''}". Principle: ${g.principleEn || ''} Words: ${wordsEn}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Kur'an'da Sayılar (50 sayı / 70 âyet) — §13.22 pipeline
   // Metinde GEÇEN sayılar ve neyin sayısı oldukları. Harf/kelime sayımına
   // dayalı bir örüntü iddiası YOKTUR. Concierge: "kur'an'da kaç sema var",

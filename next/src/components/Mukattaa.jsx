@@ -20,7 +20,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import { useEffect, useState } from 'react';
 
 export default function Mukattaa({ onClose }) {
@@ -100,12 +100,11 @@ export default function Mukattaa({ onClose }) {
             : 'Alif-Lām-Mīm. That is the Book — no doubt in it — a guidance for the God-conscious.'}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>
           — {tr ? 'Bakara 2:1-2' : 'al-Baqara 2:1-2'}

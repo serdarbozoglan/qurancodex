@@ -454,9 +454,9 @@ function TabGenel({ data, language, isMobile, pillarData }) {
             alignItems: 'center',
           }}>
             <span style={{
-              color: COLORS.silver, fontSize: '0.7rem',
+              color: SEMANTIC.textMuted, fontSize: '0.7rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              marginRight: '4px', opacity: 0.78,
+              marginRight: '4px',
             }}>{language === 'tr' ? 'Anılan Ayetler' : 'Cited Verses'}:</span>
             {foundRefs.map((r, i) => (
               <span key={i} style={{
@@ -492,7 +492,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
               opacity: 0.85, fontWeight: 700,
             }}>{language === 'tr' ? 'Semantik Alan Haritası' : 'Semantic Field Map'}</div>
             <div style={{
-              color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic', opacity: 0.78,
+              color: SEMANTIC.textMuted, fontSize: '0.75rem', fontStyle: 'italic',
             }}>{language === 'tr' ? `${terms.length} terim` : `${terms.length} terms`}</div>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>

@@ -1406,13 +1406,12 @@ export default function Melekler({ onClose }) {
           </p>
 
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.78,
           }}>
             — {tr ? 'Fâtır 35:1' : 'Fāṭir 35:1'}
           </p>

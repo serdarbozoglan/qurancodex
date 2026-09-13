@@ -1675,13 +1675,12 @@ export default function ZamanBoyutlari({ onClose }) {
         </p>
 
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.72rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 36px',
-          opacity: 0.78,
         }}>
           — {language === 'tr' ? 'Hac 22:47' : 'Al-Ḥajj 22:47'}
         </p>

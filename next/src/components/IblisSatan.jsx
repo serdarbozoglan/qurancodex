@@ -200,14 +200,13 @@ export default function IblisSatan({ onClose }) {
       <motion.p
         initial="hidden" animate="visible" variants={fadeUpItem}
         style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.72rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 28px',
           textAlign: 'center',
-          opacity: 0.78,
         }}
       >
         — {t('iblisSatan.anchorVerseRef')}

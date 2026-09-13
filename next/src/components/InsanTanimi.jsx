@@ -91,9 +91,8 @@ export default function InsanTanimi({ onClose }) {
           &quot;{tr ? "Andolsun, Biz insanı en güzel biçimde yarattık." : "Indeed, We created humanity in the finest of forms."}&quot;
         </p>
         <p style={{
-          color: COLORS.silver, fontFamily: FONTS.body,
-          fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.78, marginBottom: '24px',
+          color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+          fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: '24px',
         }}>— {tr ? "Tîn 95:4" : "at-Tīn 95:4"}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />

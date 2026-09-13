@@ -12,7 +12,7 @@ import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function Ritim({ onClose }) {
   const { language } = useLanguage();
@@ -85,12 +85,11 @@ export default function Ritim({ onClose }) {
           &quot;{tr ? 'Andolsun yıldıza, kayıp düştüğü zaman.' : 'By the star when it falls.'}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? 'Necm 53:1' : 'an-Najm 53:1'}</p>
 

@@ -12,7 +12,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function HalkaKompozisyon({ onClose }) {
   const { language } = useLanguage();
@@ -83,12 +83,11 @@ export default function HalkaKompozisyon({ onClose }) {
           &quot;{tr ? "Hamd, âlemlerin Rabbi Allah'a mahsustur." : "All praise belongs to Allah, Lord of the worlds."}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Fâtiha 1:2" : "al-Fātiḥa 1:2"}</p>
 

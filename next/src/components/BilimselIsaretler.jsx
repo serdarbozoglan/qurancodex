@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
-import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
@@ -167,9 +167,9 @@ export default function BilimselIsaretler({ onClose }) {
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
             }}>&quot;{tr ? 'Göğü kudretimizle biz kurduk ve şüphesiz biz onu genişleticiyiz.' : 'And the heaven We built with strength, and indeed, We are expanding it.'}&quot;</p>
             <p style={{
-              color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
+              color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              margin: '0 0 36px', opacity: 0.78,
+              margin: '0 0 36px',
             }}>— {tr ? 'Zâriyât 51:47' : 'al-Dhāriyāt 51:47'}</p>
             <p className="mq-fs" style={{
               color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic',

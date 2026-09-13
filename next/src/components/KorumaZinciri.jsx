@@ -12,7 +12,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function KorumaZinciri({ onClose }) {
   const { language } = useLanguage();
@@ -87,12 +87,11 @@ export default function KorumaZinciri({ onClose }) {
           &quot;{tr ? "Zikri (Kur'an'ı) Biz indirdik; koruyucusu da Biziz." : "Indeed, We sent down the Reminder, and We shall preserve it."}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Hicr 15:9" : "al-Ḥijr 15:9"}</p>
 

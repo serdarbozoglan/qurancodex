@@ -8,7 +8,7 @@
 import { motion } from 'framer-motion';
 import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function ClusterWhisper({ tr, en, verse }) {
   const { language } = useLanguage();
@@ -73,9 +73,9 @@ export default function ClusterWhisper({ tr, en, verse }) {
             &quot;{isTr ? verse.translationTr : verse.translationEn}&quot;
           </p>
           <p style={{
-            color: COLORS.silver, fontFamily: FONTS.body,
+            color: SEMANTIC.textMuted, fontFamily: FONTS.body,
             fontSize: '0.78rem', letterSpacing: '0.14em',
-            textTransform: 'uppercase', opacity: 0.6,
+            textTransform: 'uppercase',
             margin: 0,
           }}>
             {isTr ? verse.referenceTr : verse.referenceEn}

@@ -258,13 +258,12 @@ export default function QuranCommands({ onClose }) {
         </p>
 
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: "'Inter', sans-serif",
           fontSize: '0.72rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 36px',
-          opacity: 0.78,
         }}>
           — {language === 'tr' ? 'Nahl 16:90' : 'An-Naḥl 16:90'}
         </p>

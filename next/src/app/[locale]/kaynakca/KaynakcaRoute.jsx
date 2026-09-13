@@ -14,7 +14,7 @@ import HomeLinkPill from '@/components/HomeLinkPill';
 //   - Mobile: tek sütun (CSS columns desktop'ta 2)
 
 import { useLanguage } from '@/i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD } from '@/tokens';
+import { COLORS, FONTS, GLASS_CARD, SEMANTIC } from '@/tokens';
 import useNavbarOffset from '@/components/useNavbarOffset';
 
 // ─── Kaynak Verisi ──────────────────────────────────────────────────────────
@@ -533,9 +533,8 @@ export default function KaynakcaRoute() {
               düzeltildiği tur). */}
           <p
             style={{
-              color: COLORS.silver, fontFamily: FONTS.body,
-              fontSize: '0.78rem', letterSpacing: '0.02em',
-              opacity: 0.65, margin: '14px 0 0',
+              color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+              fontSize: '0.78rem', letterSpacing: '0.02em', margin: '14px 0 0',
             }}
           >
             {isEn ? 'Last verified: August 14, 2026' : 'Son doğrulama: 14 Ağustos 2026'}

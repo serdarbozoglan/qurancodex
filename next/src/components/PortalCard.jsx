@@ -174,7 +174,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
           </p>
           <p
             style={{
-              color: COLORS.silver,
+              color: SEMANTIC.textMuted,
               fontFamily: FONTS.body,
               fontSize: '0.72rem',
               letterSpacing: '0.16em',
@@ -183,7 +183,6 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
               // 0.7 idi → 4.23 kontrast, AA'nın (4.5) altında. Ölçüldü:
               // silver #94a3b8 cosmic-black üstünde opaklık .75'ten itibaren
               // geçiyor (4.70). Renk tokenı değil, OPAKLIK sorunuydu.
-              opacity: 0.78,
             }}
           >
             — {pick(card.verseRef)}
@@ -217,13 +216,12 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
         {compact && (
           <p
             style={{
-              color: COLORS.silver,
+              color: SEMANTIC.textMuted,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
               fontSize: '0.84rem',
               lineHeight: 1.6,
               margin: '0 0 22px',
-              opacity: 0.78,
               flexGrow: 1,
             }}
           >
@@ -262,13 +260,12 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
         {!compact && (
           <p
             style={{
-              color: COLORS.silver,
+              color: SEMANTIC.textMuted,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
               fontSize: '0.9rem',
               marginTop: '34px',
               lineHeight: 1.6,
-              opacity: 0.78,
             }}
           >
             {pick(card.kicker)}

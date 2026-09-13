@@ -220,9 +220,9 @@ export default function TarihselKanitlar({ onClose }) {
             </p>
 
             <p style={{
-              color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
+              color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              margin: '0 0 36px', opacity: 0.78,
+              margin: '0 0 36px',
             }}>— {tr ? 'Yûnus 10:92' : 'Yūnus 10:92'}</p>
 
             {/* Framing whisper */}

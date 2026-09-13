@@ -23,28 +23,75 @@ const check = (name, ok, detail = '') => {
   else { console.log(`  ✗ ${name}${detail ? ' — ' + detail : ''}`); fails.push(name); }
 };
 
-// Kûfî/Hafs sûre başına ayet sayısı (1..114). Mushaf gerçeği; değişmez.
-const CANON_AYAH = [
-  7,286,200,176,120,165,206,75,129,109, 123,111,43,52,99,128,111,110,98,135,
-  112,78,118,64,77,227,93,88,69,60, 34,30,73,54,45,83,182,88,75,85,
-  54,53,89,59,37,35,38,29,18,45, 60,49,62,55,78,96,29,22,24,13,
-  14,11,11,18,12,12,30,52,52,44, 28,28,20,56,40,31,50,40,46,42,
-  29,19,36,25,22,17,19,26,30,20, 15,21,11,8,8,19,5,8,8,11,
-  11,8,3,9,5,4,7,3,6,3, 5,4,5,6,
-];
-
 console.log('\n─── SAYIM & TUTARLILIK DENETİMİ (B4) ───────────────────────────\n');
 
-// 1) RevelationTimeline AYAH_COUNTS = 114 kanonik (C07)
+// Kûfî/Hafs sûre başına ayet sayısı (1..114) TEK KAYNAKTAN TÜRETİLİR: sitenin
+// kanonik Kur'an veri dosyası. Elle yazılmış bir dizi burada dururken drift
+// riski vardı (§13.29'un "türetilmesi gereken sayı elle yazılmış" kalıbı);
+// C07'nin kökü de buydu. Kaynağın kendisi de doğrulanır: her sûre için ayet
+// numaraları 1..N kesintisiz ve tekrarsız olmalı, toplam 6236 tutmalı.
+let CANON_AYAH = null;
+let verseGraph = null;
+try {
+  verseGraph = readJson('public/verse-graph-bgem3.json');
+  const maxAyah = new Array(114).fill(0);
+  const seen = Array.from({ length: 114 }, () => new Set());
+  for (const v of verseGraph) {
+    const s = v.surah, a = v.ayah;
+    if (!(s >= 1 && s <= 114) || !(a >= 1)) continue;
+    if (a > maxAyah[s - 1]) maxAyah[s - 1] = a;
+    seen[s - 1].add(a);
+  }
+  const broken = [];
+  for (let i = 0; i < 114; i++) {
+    if (seen[i].size !== maxAyah[i] || maxAyah[i] === 0) {
+      broken.push(`sûre ${i + 1}: ${seen[i].size} kayıt / en yüksek ayet ${maxAyah[i]}`);
+    }
+  }
+  check('Kanonik ayet sayıları kaynağı sağlam (sûre başına 1..N kesintisiz)',
+    broken.length === 0 && maxAyah.reduce((a, b) => a + b, 0) === verseGraph.length,
+    broken.slice(0, 5).join('; ') || `toplam ${maxAyah.reduce((a, b) => a + b, 0)} ≠ ${verseGraph.length}`);
+  CANON_AYAH = maxAyah;
+} catch (e) { check('Kanonik ayet sayıları türetilmesi', false, e.message); }
+
+// 1) RevelationTimeline AYAH_COUNTS = 114 kanonik, SÛRE BAZINDA (C07)
 try {
   const src = read('src/components/RevelationTimeline.jsx');
   const m = src.match(/AYAH_COUNTS\s*=\s*\[([^\]]+)\]/);
   const arr = (m ? m[1].match(/\d+/g) : []).map(Number);
-  const firstDiff = CANON_AYAH.findIndex((v, i) => v !== arr[i]);
-  check('AYAH_COUNTS = 114 kanonik Kûfî/Hafs (C07)',
-    arr.length === 114 && firstDiff === -1,
-    arr.length !== 114 ? `uzunluk ${arr.length} (114 olmalı)` : `sûre ${firstDiff + 1}: ${arr[firstDiff]} ≠ ${CANON_AYAH[firstDiff]}`);
+  if (!CANON_AYAH) throw new Error('kanonik dizi türetilemedi');
+  const diffs = [];
+  for (let i = 0; i < 114; i++) {
+    if (arr[i] !== CANON_AYAH[i]) diffs.push(`sûre ${i + 1}: ${arr[i] ?? '—'} ≠ ${CANON_AYAH[i]}`);
+  }
+  const sumOk = arr.reduce((a, b) => a + b, 0) === CANON_AYAH.reduce((a, b) => a + b, 0);
+  check('AYAH_COUNTS = 114 kanonik Kûfî/Hafs, sûre bazında (C07)',
+    arr.length === 114 && diffs.length === 0 && sumOk,
+    arr.length !== 114
+      ? `uzunluk ${arr.length} (114 olmalı)`
+      : `${diffs.length} sûre uyuşmuyor → ${diffs.slice(0, 10).join('; ')}${diffs.length > 10 ? ` (+${diffs.length - 10} daha)` : ''}`);
 } catch (e) { check('AYAH_COUNTS okunması', false, e.message); }
+
+// 1b) Aynı tablonun diğer kopyaları da kanonikle eş olmalı (C07 tek-kaynak güvencesi).
+//     Üç bileşen kendi sabit dizisini taşıyor; biri sessizce kaysa ekranda farklı
+//     sayılar çıkar. Hepsi aynı türetilmiş diziye karşı ölçülür.
+for (const file of ['src/components/VerseGraph.jsx', 'src/components/ReadingMode.jsx']) {
+  try {
+    const src = read(file);
+    const m = src.match(/SURAH_AYAH_COUNTS\s*=\s*\[([^\]]+)\]/);
+    const arr = (m ? m[1].match(/\d+/g) : []).map(Number);
+    if (!CANON_AYAH) throw new Error('kanonik dizi türetilemedi');
+    const diffs = [];
+    for (let i = 0; i < 114; i++) {
+      if (arr[i] !== CANON_AYAH[i]) diffs.push(`sûre ${i + 1}: ${arr[i] ?? '—'} ≠ ${CANON_AYAH[i]}`);
+    }
+    check(`SURAH_AYAH_COUNTS kanonikle eş (${file.split('/').pop()})`,
+      arr.length === 114 && diffs.length === 0,
+      arr.length !== 114
+        ? `uzunluk ${arr.length} (114 olmalı)`
+        : `${diffs.length} sûre uyuşmuyor → ${diffs.slice(0, 10).join('; ')}`);
+  } catch (e) { check(`SURAH_AYAH_COUNTS okunması (${file.split('/').pop()})`, false, e.message); }
+}
 
 // InventoryStrip STATS'ı ayrıştır (§13.28) → label→sayı haritası
 const invStats = {};
@@ -83,9 +130,9 @@ try {
     `envanter ${invStats['Tefekkür Yazısı']} ≠ _index ${arts.length}`);
 } catch (e) { check('Tefekkür sayımı', false, e.message); }
 
-// 4) Âyet sayısı: InventoryStrip == verse-graph uzunluğu
+// 4) Âyet sayısı: InventoryStrip == kanonik Kur'an verisinin uzunluğu
 try {
-  const vg = readJson('public/verse-graph-bgem3.json');
+  const vg = verseGraph ?? readJson('public/verse-graph-bgem3.json');
   check('Âyet sayısı: envanter == verse-graph (6236)',
     invStats['Âyet'] === vg.length,
     `envanter ${invStats['Âyet']} ≠ verse-graph ${vg.length}`);

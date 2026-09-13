@@ -12,7 +12,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 
 export default function InsanPsikolojisi({ onClose }) {
   const { language } = useLanguage();
@@ -84,12 +84,11 @@ export default function InsanPsikolojisi({ onClose }) {
           &quot;{tr ? "Şüphesiz nefs, kötülüğü çokça emreder." : "Indeed, the soul is ever inclined to evil."}&quot;
         </p>
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Yûsuf 12:53" : "Yūsuf 12:53"}</p>
 

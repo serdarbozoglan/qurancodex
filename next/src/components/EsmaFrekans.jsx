@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION, SEMANTIC } from '../tokens';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import SourcesCitation from './SourcesCitation';
 import KOK_HARITASI from '../../public/esma-kok-haritasi.json';
@@ -318,13 +318,12 @@ function Hero({ tr }) {
             &quot;{tr ? HERO_VERSE.tr : HERO_VERSE.en}&quot;
           </p>
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.82rem',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             margin: 0,
-            opacity: 0.78,
           }}>
             — {tr ? HERO_VERSE.ref : HERO_VERSE.refEn}
           </p>
@@ -716,12 +715,11 @@ function Manifesto({ tr, data }) {
 
         <p style={{
           marginTop: '40px',
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.78rem',
           fontStyle: 'italic',
           lineHeight: 1.6,
-          opacity: 0.78,
         }}>
           {tr
             ? 'Bu sınıflandırma anlatısal bir denge gösterimi için yapılmıştır; bir isim hem celâl hem cemal boyutuna sahip olabilir. Üstteki sayım yalnız 6 + 6 örnek isimle sınırlıdır.'
@@ -1211,12 +1209,11 @@ function FlagshipCard({ verse, index, tr }) {
             &quot;{tr ? verse.mealTr : verse.mealEn}&quot;
           </p>
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             margin: 0,
             letterSpacing: '0.06em',
-            opacity: 0.78,
           }}>
             {tr ? '— Diyanet meali' : '— Sahih International'}
           </p>
@@ -1744,10 +1741,9 @@ function NamePairs({ tr, pairsData, triplesData }) {
         {pairsData && (
           <p style={{
             marginTop: '40px',
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontSize: '0.82rem',
             fontStyle: 'italic',
-            opacity: 0.78,
             maxWidth: '780px',
             lineHeight: 1.75,
           }}>
@@ -2306,10 +2302,9 @@ function KokAileleri({ tr, koklerData }) {
 
         <p style={{
           marginTop: '40px',
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontSize: '0.78rem',
           fontStyle: 'italic',
-          opacity: 0.78,
           maxWidth: '760px',
           lineHeight: 1.6,
         }}>
@@ -3573,7 +3568,7 @@ function NameDetail({ item, tr, isAllah }) {
       )}
       {/* tum_ayetler boşsa: dürüst alt-not. */}
       {item.yuksek_frekansli && !showAllAyets && (!item.tum_ayetler || item.tum_ayetler.length <= 15) && (ayetler || []).length === 15 && (
-        <p style={{ color: COLORS.silver, fontSize: '0.76rem', marginTop: '14px', fontStyle: 'italic', opacity: 0.78, lineHeight: 1.6 }}>
+        <p style={{ color: SEMANTIC.textMuted, fontSize: '0.76rem', marginTop: '14px', fontStyle: 'italic', lineHeight: 1.6 }}>
           {tr
             ? `İlk 15 referans gösterilmiştir. Toplam ${item.kuranda_gecis_sayisi} geçiş için aşağıdaki Corpus Quran linkini kullanın.`
             : `First 15 references shown. For all ${item.kuranda_gecis_sayisi} occurrences, use the Corpus Quran link below.`}
@@ -3728,13 +3723,12 @@ function ClosingReflection({ tr, language }) {
               : "When My servants ask you concerning Me — indeed I am near. I respond to the call of the caller when he calls upon Me."}&quot;
           </p>
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: 0,
-            opacity: 0.78,
           }}>
             — {tr ? 'Bakara 2:186' : 'al-Baqara 2:186'}
           </p>

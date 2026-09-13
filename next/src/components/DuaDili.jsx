@@ -109,9 +109,8 @@ export default function DuaDili({ onClose }) {
           &quot;{tr ? "Kullarım Beni sorarsa — Ben yakınım. Bana dua edenin duasına icabet ederim." : "When My servants ask about Me — I am near; I respond to the call of the caller."}&quot;
         </p>
         <p style={{
-          color: COLORS.silver, fontFamily: FONTS.body,
-          fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.78, marginBottom: '24px', textAlign: 'center',
+          color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+          fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: '24px', textAlign: 'center',
         }}>— {tr ? "Bakara 2:186" : "al-Baqara 2:186"}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
@@ -469,8 +468,8 @@ function AnatomyTab({ tr, isMobile }) {
         {/* Breakdown */}
         <div style={{
           fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-          color: COLORS.silver, marginBottom: '12px',
-          fontFamily: FONTS.body, fontWeight: 700, opacity: 0.78,
+          color: SEMANTIC.textMuted, marginBottom: '12px',
+          fontFamily: FONTS.body, fontWeight: 700,
         }}>
           {tr ? "KATMAN AYRIŞTIRMASI" : "LAYER BREAKDOWN"}
         </div>

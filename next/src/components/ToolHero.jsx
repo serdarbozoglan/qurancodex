@@ -14,7 +14,7 @@
 // Arapça metin ÇAĞIRAN sayfadan gelir ve verse-graph'tan enjekte edilmiştir;
 // bu bileşen Arapça üretmez.
 
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function ToolHero({
   language,
@@ -60,9 +60,8 @@ export default function ToolHero({
       }}>&quot;{tr ? trTr : trEn}&quot;</p>
 
       <p style={{
-        color: COLORS.silver, fontFamily: FONTS.body,
-        fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-        opacity: 0.7, margin: '0 0 26px', textAlign: 'center',
+        color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+        fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px', textAlign: 'center',
       }}>— {tr ? refTr : refEn}</p>
 
       {(tr ? whisperTr : whisperEn) && (

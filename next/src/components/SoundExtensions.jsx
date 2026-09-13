@@ -4,7 +4,7 @@
 // 4 ek karşıtlık çifti + Arapça fonetik spektrum (SVG chart).
 
 import { useState } from 'react';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 
 // ── 4 karşıtlık çifti — mevcut 2 pair (Azap vs Rahmet, Kıyamet vs Nimet)'e ek ──
 const CONTRAST_PAIRS = [
@@ -290,8 +290,8 @@ export default function SoundExtensions({ language, isMobile }) {
           </div>
 
           <p style={{
-            color: COLORS.silver, fontSize: '0.78rem', fontStyle: 'italic',
-            textAlign: 'center', marginTop: '20px', opacity: 0.78,
+            color: SEMANTIC.textMuted, fontSize: '0.78rem', fontStyle: 'italic',
+            textAlign: 'center', marginTop: '20px',
           }}>{tr
             ? "Kaynak: Klasik Arap fonetiği (Sibeveyhi, el-Kitâb); modern Kur'ân retoriği: Michael Sells, Approaching the Qur'an."
             : "Source: Classical Arabic phonetics (Sībawayhi, al-Kitāb); modern Qur'anic rhetoric: Michael Sells, Approaching the Qur'an."}</p>

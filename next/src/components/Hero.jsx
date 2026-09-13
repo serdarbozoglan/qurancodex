@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import ParticleBackground from './ParticleBackground';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -335,7 +335,7 @@ export default function Hero() {
 
         <motion.p
           className="mq-fs" style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             '--fs-d': '0.84rem', '--fs-m': '0.66rem',
             letterSpacing: '0.16em',
@@ -344,7 +344,6 @@ export default function Hero() {
             maxWidth: isMobile ? '250px' : undefined,
             margin: isMobile ? '0 auto 16px' : '0 0 36px',
             // .65 → 3.79, AA altı. Ölçülen eşik: silver .75.
-            opacity: 0.78,
           }}
           {...entrance(
             { opacity: 0 },

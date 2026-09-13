@@ -690,7 +690,7 @@ export default function QuranDua() {
               {stage.source && (
                 <div style={{
                   fontSize: '0.62rem', letterSpacing: '0.06em',
-                  color: stage.color, opacity: 0.7, fontWeight: 600,
+                  color: stage.color, fontWeight: 600,
                   fontFamily: "'Inter', sans-serif",
                   textAlign: 'right',
                 }}>
@@ -812,7 +812,6 @@ export default function QuranDua() {
               <p
                 style={{
                   color: d.color,
-                  opacity: 0.6,
                   fontSize: '0.72rem',
                   marginTop: '8px',
                   fontFamily: "'Inter', sans-serif",

@@ -2,9 +2,9 @@
   "meta": {
     "totalGroups": 34,
     "totalWords": 112,
-    "totalOccurrences": 356,
+    "totalOccurrences": 377,
     "version": "0.3.0-phase2",
-    "note": "Phase 2 complete — 34 word groups across 7 categories. Verse occurrence lists are representative key verses, not exhaustive. Frequencies based on classical sources (Askerî, İsfahânî, İbn Kayyım, corpus.quran.com)."
+    "note": "Phase 2 complete: 34 word groups across 7 categories. Most groups list representative key verses; wind-family and rain-family list every occurrence and carry their own counting-method note. Frequencies for those two are derived from the Quranic text itself; elsewhere they follow classical sources (Askerî, İsfahânî, İbn Kayyım, corpus.quran.com)."
   },
   "categories": [
     {
@@ -55,20 +55,20 @@
     },
     {
       "id": "matar-ghayth",
-      "quoteTr": "Matar azap, ğays rahmet getirir.",
-      "quoteEn": "Matar brings punishment, ghayth brings mercy.",
-      "expansionTr": "Aynı Türkçe çeviri: 'yağmur'. Ama Kur'an Matar'ı neredeyse her zaman azap bağlamında, Ğays'ı her zaman rahmet bağlamında kullanır. Kelime seçimi bağlamı belirler.",
-      "expansionEn": "Same Turkish translation: 'rain'. But the Quran almost always uses Matar in punishment contexts, Ghayth always in mercy contexts. Word choice determines context.",
+      "quoteTr": "Matar çoğunlukla azap, ğays her geçişinde rahmet bağlamındadır.",
+      "quoteEn": "Maṭar mostly appears in punishment contexts; ghayth in every occurrence in mercy contexts.",
+      "expansionTr": "İkisi de Türkçeye 'yağmur' diye çevrilir. İsim olarak matar 7 geçişte yer alır; 6'sı taş yağmuru gibi azap tasviridir. Karşı örnek Nisâ 4:102'dir: orada matar, savaş düzeninde silahı bırakmaya ruhsat veren sıradan bir yağmurdur. Ğays üç geçişinin üçünde de bereket yağmurudur. Kelime seçimi bağlamı taşır, ama matar tarafında bu bir eğilimdir.",
+      "expansionEn": "Both are rendered 'rain'. As a noun maṭar has 7 occurrences, 6 of them describing punishment such as a rain of stones. The counter-example is Q 4:102, where maṭar is ordinary rain that permits soldiers to set their weapons down. Ghayth in all three of its occurrences is rain of blessing. Word choice does carry context, but on the maṭar side it is a tendency.",
       "source": "Fâdıl Sâlih es-Sâmerrâî, et-Ta'bîru'l-Kur'ânî",
       "groupId": "rain-family"
     },
     {
       "id": "rih-riyah",
-      "quoteTr": "Rîh (tekil) azap, riyâh (çoğul) rahmet.",
-      "quoteEn": "Rīḥ (singular) punishment, riyāḥ (plural) mercy.",
-      "expansionTr": "Aynı kökten iki form — tekil ve çoğul. Kur'an'da tekil 'rîh' neredeyse her zaman azap rüzgârı, çoğul 'riyâh' müjdeleyen rahmet rüzgârları. Hz. Peygamber dua ederken bunu söylerdi.",
-      "expansionEn": "Two forms of the same root — singular and plural. In the Quran, singular 'rīḥ' is almost always a wind of punishment; plural 'riyāḥ' are winds of mercy bringing glad tidings.",
-      "source": "es-Süyûtî, el-İtkân",
+      "quoteTr": "Tekil rîh çoğunlukla olumsuz, çoğul riyâh çoğunlukla rahmet bağlamında geçer.",
+      "quoteEn": "Singular rīḥ mostly appears in adverse contexts, plural riyāḥ mostly in mercy contexts.",
+      "expansionTr": "Aynı kökün iki formu. Hafs rivayetine göre sayıldığında tekil rîh rüzgâr anlamıyla 17 geçişte, çoğul riyâh 10 geçişte yer alır. Tekil geçişlerin büyük kısmı olumsuz veya yıkıcı bir bağlamda, çoğul geçişlerin dokuzu rahmet, nimet ya da kudret delili bağlamındadır. Yani örüntü bir eğilimdir ve iki tarafta da karşı örnekleri vardır. Olumlu tekil örnekler: Yûnus 10:22'de gemileri yürüten 'rîhin tayyibetin' ve Hz. Süleyman'ın emrine verilen rüzgâr (Enbiyâ 21:81, Sebe 34:12, Sâd 38:36). Çoğul taraftaki karşı örnek Kehf 18:45'tir: riyâh orada dünya hayatının geçiciliğini anlatan meselde çerçöpü savurur. İbn Abbâs'tan, Hz. Peygamber'in rüzgâr estiğinde \"Allah'ım, onu rahmet kıl, azap kılma; onu riyâh kıl, rîh kılma\" diye dua ettiği rivayet edilir.",
+      "expansionEn": "Two forms of one root. Counted in the Hafs reading, the singular rīḥ occurs 17 times in the sense of wind and the plural riyāḥ 10 times. Most singular occurrences sit in an adverse or destructive context, while nine of the plural ones speak of mercy, blessing or divine power. So the pattern is a tendency, and it has counter-examples on both sides. Positive singulars include the 'rīḥin ṭayyibatin' that carries the ships in Q 10:22, and the wind placed at Solomon's command (Q 21:81, Q 34:12, Q 38:36). On the plural side the counter-example is Q 18:45, where riyāḥ scatter the dry stubble in the parable of worldly life. It is narrated from Ibn ʿAbbās that when the wind blew the Prophet would pray, \"O God, make it mercy and not punishment; make it riyāḥ and not rīḥ.\"",
+      "source": "el-Bagavî, Meâlimü't-Tenzîl (Hicr 15:22 tefsiri)",
       "groupId": "wind-family"
     },
     {
@@ -615,8 +615,8 @@
       "titleEn": "Rain Family",
       "turkishTranslation": "Yağmur",
       "englishTranslation": "Rain",
-      "principleTr": "Matar azap bağlamında, ğays rahmet bağlamında kullanılır.",
-      "principleEn": "Matar appears in punishment contexts, ghayth in mercy contexts.",
+      "principleTr": "Matar çoğunlukla azap bağlamında, ğays her geçişinde rahmet bağlamında kullanılır.",
+      "principleEn": "Maṭar mostly appears in punishment contexts; ghayth in every occurrence in mercy contexts.",
       "principleSource": "Fâdıl Sâlih es-Sâmerrâî, et-Ta'bîru'l-Kur'ânî",
       "words": [
         {
@@ -624,11 +624,11 @@
           "ar": "مَطَر",
           "tr": "Matar",
           "transliteration": "maṭar",
-          "meaningTr": "Neredeyse her zaman azap bağlamında — Lût kavmine taş yağması, müşriklere azap talebi. 'Yağdırma' fiili (amṭara) daima olumsuzdur.",
-          "meaningEn": "Almost always in punishment contexts — stones rained on Lot's people, punishment requested by disbelievers. The verb 'amṭara' (to rain down) is always negative.",
-          "distinctionTr": "Ğays'tan farkı: Matar 'taş yağmuru' gibi azap ifadesi, ğays ise rahmet yağmuru.",
-          "distinctionEn": "Difference from ghayth: Matar is a punishment expression (like 'rain of stones'), ghayth is rain of mercy.",
-          "frequency": 13,
+          "meaningTr": "İsim olarak yedi geçişinin altısı azap bağlamında: Hz. Lût kavmine taş yağması, müşriklerin azap talebi. Karşı örnek Nisâ 4:102'dir; orada matar sıradan bir yağmurdur. Kökün yedi fiil geçişi de azap indirmeyi anlatır; Ahkâf 46:24'teki ism-i fâil ise Âd kavminin sıradan yağmur beklentisini aktarır.",
+          "meaningEn": "Six of its seven occurrences as a noun are in punishment contexts: stones rained on Lot's people, the punishment demanded by the deniers. The counter-example is Q 4:102, where maṭar is ordinary rain. The root's seven verb occurrences all describe the sending down of punishment, while the active participle in Q 46:24 reports what the people of 'Ād expected to be ordinary rain.",
+          "distinctionTr": "Ğays'tan farkı: matar ağırlıkla azap tasvirinde, ğays rahmet yağmurunda geçer.",
+          "distinctionEn": "Difference from ghayth: maṭar sits mostly in descriptions of punishment, ghayth in rain of mercy.",
+          "frequency": 7,
           "color": "#e74c3c",
           "semanticAxes": {
             "x": 0.3,
@@ -638,40 +638,59 @@
             {
               "ref": "7:84",
               "context": "negative",
-              "note": "Hz. Lût kavmine taş yağdırdık",
-              "targetWord": "مَطَرًا"
+              "note": "Hz. Lût kavmine yağdırılan taş yağmuru",
+              "noteEn": "The rain of stones sent upon Lot's people",
+              "targetWord": "مَطَراً"
+            },
+            {
+              "ref": "25:40",
+              "context": "negative",
+              "note": "Helâk edilen şehrin üzerine yağan kötü yağmur",
+              "noteEn": "The evil rain that fell on the destroyed city",
+              "targetWord": "مَطَرَ"
             },
             {
               "ref": "26:173",
               "context": "negative",
-              "note": "Üzerlerine kötü yağmur yağdırdık",
+              "note": "Üzerlerine yağdırılan yağmur",
+              "noteEn": "The rain sent down upon them",
+              "targetWord": "مَطَراً"
+            },
+            {
+              "ref": "26:173",
+              "context": "negative",
+              "note": "Uyarılanların yağmuru ne kötüydü",
+              "noteEn": "How evil was the rain of those who had been warned",
               "targetWord": "مَطَرُ"
             },
             {
               "ref": "27:58",
               "context": "negative",
-              "note": "Uyarılanlara kötü yağmur",
-              "targetWord": "مَطَرَ"
+              "note": "Üzerlerine indirilen yağmur",
+              "noteEn": "The rain sent down upon them",
+              "targetWord": "مَطَراً"
             },
             {
-              "ref": "8:32",
+              "ref": "27:58",
               "context": "negative",
-              "note": "Müşriklerin taş yağması talebi",
-              "targetWord": "مَطَرًا"
+              "note": "Uyarılanların yağmuru ne kötüydü",
+              "noteEn": "How evil was the rain of those who had been warned",
+              "targetWord": "مَطَرُ"
             },
             {
               "ref": "4:102",
               "context": "neutral",
-              "note": "Savaş ortamı — hava durumu",
+              "note": "Savaş düzeninde yağmurdan gelen eziyet; silah bırakma ruhsatı",
+              "noteEn": "Hardship from rain during battle formation, allowing weapons to be set down",
               "targetWord": "مَطَرٍ"
             }
           ],
           "patternStat": {
             "positive": 0,
             "neutral": 1,
-            "negative": 4,
+            "negative": 6,
             "dominantPattern": "negative",
-            "dominantPercentage": 80
+            "dominantPercentage": 86
           }
         },
         {
@@ -679,10 +698,10 @@
           "ar": "غَيْث",
           "tr": "Ğays",
           "transliteration": "ghayth",
-          "meaningTr": "Her zaman rahmet bağlamında — kuraklıktan sonra bereket yağmuru. 'Ğavs' (imdat, yardım) köküyle aynı — yardım eden yağmur.",
-          "meaningEn": "Always in mercy contexts — blessing rain after drought. Shares root with 'ghawth' (aid, rescue) — the rain that rescues.",
-          "distinctionTr": "3 geçişi de olumlu. Matar'dan tam zıt çizgide.",
-          "distinctionEn": "All 3 occurrences positive. Exactly opposite to matar.",
+          "meaningTr": "Üç geçişinin üçü de bereket bağlamında: kuraklıktan sonra inen, ekini dirilten yağmur. Hadîd 57:20'de yağmurun kendisi bereket, içinde geçtiği mesel ise dünya hayatının geçiciliğini anlatır.",
+          "meaningEn": "All three of its occurrences are contexts of blessing: rain that comes after drought and revives the crop. In Q 57:20 the rain itself is a blessing, while the parable it sits in speaks of the transience of worldly life.",
+          "distinctionTr": "Üç geçişi de olumlu; matar'ın ağırlıklı azap bağlamının karşı kutbunda.",
+          "distinctionEn": "All three occurrences positive, at the opposite pole from maṭar's mostly punitive contexts.",
           "frequency": 3,
           "color": "#2ecc71",
           "semanticAxes": {
@@ -693,19 +712,22 @@
             {
               "ref": "42:28",
               "context": "positive",
-              "note": "Ümit kesildiğinde inen rahmet",
+              "note": "Ümit kesildikten sonra inen rahmet yağmuru",
+              "noteEn": "The rain of mercy sent after hope was lost",
               "targetWord": "الْغَيْثَ"
             },
             {
               "ref": "31:34",
               "context": "positive",
-              "note": "Yağmur bilgisi Allah katında",
+              "note": "Yağmurun bilgisi Allah katındadır",
+              "noteEn": "Knowledge of the rain rests with God",
               "targetWord": "الْغَيْثَ"
             },
             {
               "ref": "57:20",
               "context": "positive",
-              "note": "Dünya hayatı meseli — yağmur ürün verir",
+              "note": "Dünya hayatı meselinde ürünü çiftçiyi sevindiren yağmur",
+              "noteEn": "Rain whose growth delights the tillers, in the parable of worldly life",
               "targetWord": "غَيْثٍ"
             }
           ],
@@ -737,12 +759,14 @@
               "ref": "24:43",
               "context": "neutral",
               "note": "Bulut-şimşek-yağmur tasviri",
+              "noteEn": "A description of cloud, lightning and rainfall",
               "targetWord": "الْوَدْقَ"
             },
             {
               "ref": "30:48",
               "context": "neutral",
               "note": "Rüzgâr bulutları taşır, yağmur iner",
+              "noteEn": "The winds carry the clouds and the rain falls",
               "targetWord": "الْوَدْقَ"
             }
           ],
@@ -754,6 +778,18 @@
             "dominantPercentage": 100
           }
         }
+      ],
+      "countingMethodTr": "Sayım م ط ر ve غ ي ث kökleri üzerinden, Hafs rivayetine göre Kur'an metninin tamamı taranarak yapıldı. İsim olarak matar 7 geçişte yer alır ve aşağıdaki liste tamdır; Şuarâ 26:173 ile Neml 27:58'de kelime iki kez geçtiği için geçiş sayısı âyet sayısından fazladır. Aynı kökün 7 fiil geçişi (Hûd 11:82, Hicr 15:74, A'râf 7:84, Enfâl 8:32, Furkân 25:40, Şuarâ 26:173, Neml 27:58) ve 1 ism-i fâil geçişi (Ahkâf 46:24) ayrı sayılır. Ğays 3, vedk 2 geçiştedir. Bağlam etiketleri bir okumadır; sayılar metinden gelir.",
+      "countingMethodEn": "Counted over the full Quranic text in the Hafs reading, for the roots م ط ر and غ ي ث. As a noun maṭar has 7 occurrences and the list below is complete; in Q 26:173 and Q 27:58 the word appears twice, so occurrences outnumber verses. The same root's 7 verb occurrences (Q 11:82, Q 15:74, Q 7:84, Q 8:32, Q 25:40, Q 26:173, Q 27:58) and 1 active-participle occurrence (Q 46:24) are tallied separately. Ghayth has 3 occurrences, wadq 2. The context labels are a reading; the counts come from the text.",
+      "exceptionsTr": [
+        "Nisâ 4:102'de matar, savaş düzeninde silahı bırakmaya ruhsat veren sıradan yağmurdur, azap değildir.",
+        "Ahkâf 46:24'te 'bize yağmur getiren' ifadesi Âd kavminin beklentisidir; gelen bulut sıradan yağmur değil azap taşır.",
+        "Hadîd 57:20'de ğays bereket yağmurudur, ama içinde geçtiği mesel dünya hayatının geçiciliğini anlatır."
+      ],
+      "exceptionsEn": [
+        "In Q 4:102 maṭar is ordinary rain that permits soldiers to set their weapons down, not a punishment.",
+        "In Q 46:24 'bringing us rain' is what the people of 'Ād expected; the cloud that came carried punishment, not ordinary rain.",
+        "In Q 57:20 ghayth is rain of blessing, yet the parable it sits in speaks of the transience of worldly life."
       ]
     },
     {
@@ -763,20 +799,20 @@
       "titleEn": "Wind Family",
       "turkishTranslation": "Rüzgâr",
       "englishTranslation": "Wind",
-      "principleTr": "Tekil 'rîh' çoğunlukla azap, çoğul 'riyâh' çoğunlukla rahmet bağlamında geçer.",
-      "principleEn": "Singular 'rīḥ' usually appears in contexts of punishment; plural 'riyāḥ' usually in contexts of mercy.",
-      "principleSource": "es-Süyûtî, el-İtkân",
+      "principleTr": "Tekil 'rîh' çoğunlukla olumsuz ve yıkıcı bağlamlarda, çoğul 'riyâh' çoğunlukla rahmet ve nimet bağlamlarında geçer.",
+      "principleEn": "Singular 'rīḥ' mostly appears in adverse, destructive contexts; plural 'riyāḥ' mostly in contexts of mercy and blessing.",
+      "principleSource": "İbn Manzûr, Lisânü'l-Arab, 'روح' maddesi",
       "words": [
         {
           "id": "rih",
           "ar": "رِيح",
           "tr": "Rîh (tekil)",
           "transliteration": "rīḥ",
-          "meaningTr": "Tekil form, neredeyse her zaman azap rüzgârı. Âd kavmini helâk eden sûr-u sarsar 'rîh'tir. İstisna: Yûnus 10:22'de tekil 'rîhin tayyibetin' (hoş rüzgâr) olumlu bağlamda geçer.",
-          "meaningEn": "Singular form, almost always a wind of punishment. The devastating wind that destroyed 'Ād is 'rīḥ'. Exception: in Yūnus 10:22 the singular 'rīḥin ṭayyibatin' (a pleasant wind) appears in a positive context.",
-          "distinctionTr": "Çoğul 'riyâh' ile zıt. Aynı kökten iki form, iki farklı bağlam.",
-          "distinctionEn": "Opposite to plural 'riyāḥ'. Same root, two forms, two different contexts.",
-          "frequency": 18,
+          "meaningTr": "Tekil form, geçişlerinin çoğunda olumsuz veya yıkıcı bir bağlamda: Âd kavmini helâk eden sarsar bir rîhtir. Ama bu her geçiş için geçerli bir kural değildir. Yûnus 10:22'de tekil 'rîhin tayyibetin' gemileri yürüten elverişli rüzgârdır; Enbiyâ 21:81, Sebe 34:12 ve Sâd 38:36'da tekil rîh Hz. Süleyman'a verilen bir nimettir.",
+          "meaningEn": "The singular form sits in an adverse or destructive context in most of its occurrences: the devastating wind that destroyed 'Ād is a rīḥ. This does not hold for every occurrence. In Q 10:22 the singular 'rīḥin ṭayyibatin' is the favourable wind carrying the ships; in Q 21:81, Q 34:12 and Q 38:36 the singular rīḥ is a favour granted to Solomon.",
+          "distinctionTr": "Çoğul 'riyâh' ile bağlam eğilimi bakımından karşıt; iki tarafın da karşı örnekleri var.",
+          "distinctionEn": "Contrasts with the plural 'riyāḥ' as a tendency; both sides have counter-examples.",
+          "frequency": 17,
           "color": "#e74c3c",
           "semanticAxes": {
             "x": 0.3,
@@ -784,36 +820,131 @@
           },
           "allOccurrences": [
             {
-              "ref": "41:16",
+              "ref": "3:117",
               "context": "negative",
-              "note": "Âd kavmine uğursuz günlerde rîh",
-              "targetWord": "رِيحًا"
+              "note": "İnkârcının harcaması meselinde ekini kavuran soğuk rüzgâr",
+              "noteEn": "A freezing wind blighting the crop in the parable of the denier's spending",
+              "targetWord": "رِيحٍ"
             },
             {
-              "ref": "54:19",
-              "context": "negative",
-              "note": "Sarp günde kasıp kavuran rîh",
-              "targetWord": "رِيحًا"
-            },
-            {
-              "ref": "69:6",
-              "context": "negative",
-              "note": "Âd kavmini helâk eden sarsar rîhi",
+              "ref": "10:22",
+              "context": "positive",
+              "note": "Gemileri yürüten elverişli rüzgâr (rîhin tayyibetin)",
+              "noteEn": "The favourable wind carrying the ships (rīḥin ṭayyibatin)",
               "targetWord": "بِرِيحٍ"
             },
             {
               "ref": "10:22",
-              "context": "neutral",
-              "note": "Denizde rüzgâr ve fırtına",
+              "context": "negative",
+              "note": "Aynı âyetin devamındaki fırtına; denizde tehlike (rîhun âsıf)",
+              "noteEn": "The storm later in the same verse, danger at sea (rīḥun ʿāṣif)",
               "targetWord": "رِيحٌ"
+            },
+            {
+              "ref": "14:18",
+              "context": "negative",
+              "note": "Amellerin boşa çıkışı meselinde külleri savuran rüzgâr",
+              "noteEn": "The wind scattering ashes in the parable of deeds come to nothing",
+              "targetWord": "الرِّيحُ"
+            },
+            {
+              "ref": "17:69",
+              "context": "negative",
+              "note": "Denizde gönderilen kasırga",
+              "noteEn": "A hurricane sent at sea",
+              "targetWord": "الرِّيحِ"
+            },
+            {
+              "ref": "21:81",
+              "context": "positive",
+              "note": "Hz. Süleyman'ın emrine verilen rüzgâr",
+              "noteEn": "The wind placed at Solomon's command",
+              "targetWord": "الرِّيحَ"
+            },
+            {
+              "ref": "22:31",
+              "context": "negative",
+              "note": "Şirk meselinde insanı uzağa sürükleyen rüzgâr",
+              "noteEn": "The wind that sweeps a man far off, in the parable of associating partners with God",
+              "targetWord": "الرِّيحُ"
+            },
+            {
+              "ref": "30:51",
+              "context": "negative",
+              "note": "Şartlı anlatımda ekini sarartan, zarar veren rüzgâr",
+              "noteEn": "In a conditional passage, the harmful wind that turns the crop yellow",
+              "targetWord": "رِيحاً"
+            },
+            {
+              "ref": "33:9",
+              "context": "negative",
+              "note": "Ahzâb'da kuşatan ordulara karşı gönderilen rüzgâr; müminler için kurtuluş",
+              "noteEn": "The wind sent against the besieging armies at al-Ahzab, a deliverance for the believers",
+              "targetWord": "رِيحاً"
+            },
+            {
+              "ref": "34:12",
+              "context": "positive",
+              "note": "Hz. Süleyman'a verilen rüzgâr; sabah gidişi bir aylık mesafe",
+              "noteEn": "The wind granted to Solomon, a month's journey each morning",
+              "targetWord": "الرِّيحَ"
+            },
+            {
+              "ref": "38:36",
+              "context": "positive",
+              "note": "Hz. Süleyman'ın emrinde yumuşak esen rüzgâr",
+              "noteEn": "The wind blowing gently at Solomon's command",
+              "targetWord": "الرِّيحَ"
+            },
+            {
+              "ref": "41:16",
+              "context": "negative",
+              "note": "Âd kavmine uğursuz günlerde gönderilen rüzgâr",
+              "noteEn": "The wind sent against 'Ād on ill-fated days",
+              "targetWord": "رِيحاً"
+            },
+            {
+              "ref": "42:33",
+              "context": "neutral",
+              "note": "Rüzgârın dindirilmesi; kudret delili ve deniz ulaşımı",
+              "noteEn": "The stilling of the wind, a sign of power and of travel by sea",
+              "targetWord": "الرِّيحَ"
+            },
+            {
+              "ref": "46:24",
+              "context": "negative",
+              "note": "Yağmur bulutu sanılan, azap taşıyan rüzgâr",
+              "noteEn": "The wind mistaken for a rain cloud, carrying punishment",
+              "targetWord": "رِيحٌ"
+            },
+            {
+              "ref": "51:41",
+              "context": "negative",
+              "note": "Âd kavmine gönderilen kısır rüzgâr",
+              "noteEn": "The barren wind sent against 'Ād",
+              "targetWord": "الرِّيحَ"
+            },
+            {
+              "ref": "54:19",
+              "context": "negative",
+              "note": "Uğursuzluğu süren günde dondurucu rüzgâr",
+              "noteEn": "A freezing wind on a day of continuing misfortune",
+              "targetWord": "رِيحاً"
+            },
+            {
+              "ref": "69:6",
+              "context": "negative",
+              "note": "Âd kavmini mahveden uğultulu fırtına",
+              "noteEn": "The roaring storm that destroyed 'Ād",
+              "targetWord": "بِرِيحٍ"
             }
           ],
           "patternStat": {
-            "positive": 0,
+            "positive": 4,
             "neutral": 1,
-            "negative": 3,
+            "negative": 12,
             "dominantPattern": "negative",
-            "dominantPercentage": 75
+            "dominantPercentage": 71
           }
         },
         {
@@ -821,10 +952,10 @@
           "ar": "رِيَاح",
           "tr": "Riyâh (çoğul)",
           "transliteration": "riyāḥ",
-          "meaningTr": "Çoğul form, çoğunlukla rahmet ve müjde rüzgârları. Bulutları süren, yağmur getiren, tozları dağıtan.",
-          "meaningEn": "Plural form, mostly winds of mercy and glad tidings. Driving clouds, bringing rain, dispersing dust.",
-          "distinctionTr": "Tekil 'rîh' ile tam zıt. Kur'an'da olumlu bağlamlarda çoğul kullanılır.",
-          "distinctionEn": "Exactly opposite to singular 'rīḥ'. In the Quran, plural is used in positive contexts.",
+          "meaningTr": "Çoğul form, on geçişinin dokuzunda rahmet ve müjde rüzgârları: bulutları süren, yağmur getiren, ölü toprağı dirilten. Kehf 18:45'te ise çerçöpü savuran rüzgârlar olarak geçer.",
+          "meaningEn": "The plural form is winds of mercy and glad tidings in nine of its ten occurrences: driving clouds, bringing rain, reviving dead earth. In Q 18:45 it is the winds that scatter dry stubble.",
+          "distinctionTr": "Tekil 'rîh' ile eğilim olarak karşıt; on geçişin dokuzu olumlu bağlamda.",
+          "distinctionEn": "Contrasts with the singular 'rīḥ' as a tendency; nine of its ten occurrences are positive.",
           "frequency": 10,
           "color": "#2ecc71",
           "semanticAxes": {
@@ -833,38 +964,98 @@
           },
           "allOccurrences": [
             {
+              "ref": "2:164",
+              "context": "positive",
+              "note": "Göklerin ve yerin kudret delilleri arasında rüzgârların yönlendirilmesi",
+              "noteEn": "The steering of the winds among the signs of power in the heavens and the earth",
+              "targetWord": "الرِّيَاحِ"
+            },
+            {
               "ref": "7:57",
               "context": "positive",
-              "note": "Rahmetinin önünde müjdeci rüzgârlar",
+              "note": "Rahmetin önünde müjdeci rüzgârlar",
+              "noteEn": "Winds sent as heralds before His mercy",
               "targetWord": "الرِّيَاحَ"
             },
             {
               "ref": "15:22",
               "context": "positive",
               "note": "Bulutları aşılayıcı rüzgârlar",
+              "noteEn": "Winds sent as fertilisers of the clouds",
+              "targetWord": "الرِّيَاحَ"
+            },
+            {
+              "ref": "18:45",
+              "context": "neutral",
+              "note": "Dünya hayatı meselinde çerçöpü savuran rüzgârlar",
+              "noteEn": "Winds scattering dry stubble in the parable of worldly life",
+              "targetWord": "الرِّيَاحُ"
+            },
+            {
+              "ref": "25:48",
+              "context": "positive",
+              "note": "Rahmetin önünde müjdeci rüzgârlar, ölü toprağa can veren su",
+              "noteEn": "Winds as heralds of mercy, and water that revives dead earth",
+              "targetWord": "الرِّيَاحَ"
+            },
+            {
+              "ref": "27:63",
+              "context": "positive",
+              "note": "Karanın ve denizin karanlığında yol bulduran, rahmetin müjdecisi rüzgârlar",
+              "noteEn": "Winds that guide through the darkness of land and sea, heralds of mercy",
               "targetWord": "الرِّيَاحَ"
             },
             {
               "ref": "30:46",
               "context": "positive",
-              "note": "Müjdeci rüzgârlar — O'nun rahmetinden",
+              "note": "Müjdeci rüzgârlar; gemiler onunla yüzer",
+              "noteEn": "Winds as heralds, by which the ships sail",
+              "targetWord": "الرِّيَاحَ"
+            },
+            {
+              "ref": "30:48",
+              "context": "positive",
+              "note": "Rüzgârlar bulutu kaldırır, yağmur iner",
+              "noteEn": "The winds raise the cloud and the rain falls",
               "targetWord": "الرِّيَاحَ"
             },
             {
               "ref": "35:9",
               "context": "positive",
-              "note": "Bulutları canlandıran rüzgârlar",
+              "note": "Bulutu harekete geçirip ölü bölgeyi canlandıran rüzgârlar",
+              "noteEn": "Winds that drive the cloud and revive a dead land",
               "targetWord": "الرِّيَاحَ"
+            },
+            {
+              "ref": "45:5",
+              "context": "positive",
+              "note": "Gece-gündüz ve rızık kudret delilleri arasında rüzgârların yönlendirilmesi",
+              "noteEn": "The steering of the winds among the signs of power in night, day and provision",
+              "targetWord": "الرِّيَاحِ"
             }
           ],
           "patternStat": {
-            "positive": 4,
-            "neutral": 0,
+            "positive": 9,
+            "neutral": 1,
             "negative": 0,
             "dominantPattern": "positive",
-            "dominantPercentage": 100
+            "dominantPercentage": 90
           }
         }
+      ],
+      "countingMethodTr": "Sayım, Hafs rivayetine göre Kur'an metninin tamamı taranarak ر و ح kökünün rîh ve riyâh biçimleri üzerinden yapıldı. Tekil rîh 19 geçişte yer alır; bunlardan ikisi rüzgâr anlamında değildir (Yûsuf 12:94'te 'koku', Enfâl 8:46'da 'güç') ve listeye alınmadı. Kalan 17 geçiş 16 âyete dağılır, çünkü Yûnus 10:22'de iki ayrı rîh geçer. Çoğul riyâh 10 âyette 10 geçiş verir. Toplam 29 isim geçişi, Quranic Arabic Corpus'un aynı kök için verdiği sayıyla örtüşür. Aynı kökle ilişkilendirilen reyhân (Rahmân 55:12, Vâkıa 56:89) ayrı bir sözlük birimidir ve kapsam dışındadır. Geçiş sayıları metinden gelir; ekteki azap, rahmet ve nötr etiketleri ise bağlam okumasıdır, mekanik bir sayım sonucu değildir. Olumsuz etiketi yalnız tarihî azap olaylarını değil, denizdeki fırtınayı ve meselde yıkıcı rol üstlenen rüzgârı da kapsar.",
+      "countingMethodEn": "Counted over the full Quranic text in the Hafs reading, on the rīḥ and riyāḥ forms of the root ر و ح. The singular rīḥ has 19 occurrences; two of them are not 'wind' (Q 12:94 'scent', Q 8:46 'strength') and are left out of the list. The remaining 17 occurrences fall in 16 verses, because Q 10:22 carries two separate instances of rīḥ. The plural riyāḥ gives 10 occurrences in 10 verses. The total of 29 nominal occurrences matches the figure the Quranic Arabic Corpus gives for the same root. Rayḥān, associated with the same root (Q 55:12, Q 56:89), is a separate lexical item and falls outside the scope. The occurrence counts come from the text; the punishment, mercy and neutral labels attached to them are a reading of context rather than a mechanical count. The adverse label covers not only historical punishments but also a storm at sea and a wind playing a destructive role inside a parable.",
+      "exceptionsTr": [
+        "Yûnus 10:22'de tekil 'rîhin tayyibetin', gemileri yürüten elverişli rüzgârdır.",
+        "Enbiyâ 21:81, Sebe 34:12 ve Sâd 38:36'da tekil rîh, Hz. Süleyman'a verilen bir nimettir.",
+        "Âl-i İmrân 3:117, İbrâhîm 14:18 ve Hac 22:31'de rüzgâr tarihî bir azap olayı değil, bir meselin unsurudur.",
+        "Kehf 18:45'te çoğul riyâh, dünya hayatının geçiciliğini anlatan meselde çerçöpü savurur."
+      ],
+      "exceptionsEn": [
+        "In Q 10:22 the singular 'rīḥin ṭayyibatin' is the favourable wind that carries the ships.",
+        "In Q 21:81, Q 34:12 and Q 38:36 the singular rīḥ is a favour granted to Solomon.",
+        "In Q 3:117, Q 14:18 and Q 22:31 the wind is an element of a parable, not a historical punishment.",
+        "In Q 18:45 the plural riyāḥ scatter dry stubble in the parable of worldly life."
       ]
     },
     {

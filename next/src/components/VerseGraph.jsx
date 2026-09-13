@@ -2230,7 +2230,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
           <button
             onClick={onClose}
             aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
-            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.78, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            style={{ background: 'none', border: 'none', color: SEMANTIC.textMuted, padding: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
@@ -2926,7 +2926,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           <button
             onClick={onClose}
             aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
-            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.78, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            style={{ background: 'none', border: 'none', color: SEMANTIC.textMuted, padding: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >

@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../../../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, TRANSITION } from '../../../../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../../../../tokens';
 import ToolHeader from '../../../../components/ToolHeader';
 import RootHero from '../../../../components/tefekkur/RootHero';
 import ArticleRenderer, { extractToc } from '../../../../components/tefekkur/ArticleRenderer';
@@ -230,10 +230,9 @@ export default function TefekkurArticleRoute({ article }) {
             href={`/${language}/tefekkur`}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
-              fontSize: '0.78rem', color: COLORS.silver,
+              fontSize: '0.78rem', color: SEMANTIC.textMuted,
               fontFamily: FONTS.body, textDecoration: 'none',
-              marginBottom: '12px',
-              opacity: 0.78, transition: 'opacity 0.15s, color 0.15s',
+              marginBottom: '12px', transition: 'opacity 0.15s, color 0.15s',
               justifySelf: 'start',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.opacity = '1'; }}
@@ -443,8 +442,8 @@ export default function TefekkurArticleRoute({ article }) {
                     }}>
                       <div style={{
                         fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
-                        color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
-                        marginBottom: '6px', opacity: 0.78,
+                        color: SEMANTIC.textMuted, textTransform: 'uppercase', fontFamily: FONTS.body,
+                        marginBottom: '6px',
                       }}>
                         ← {tr ? 'Önceki' : 'Previous'}
                       </div>
@@ -468,8 +467,8 @@ export default function TefekkurArticleRoute({ article }) {
                     }}>
                       <div style={{
                         fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
-                        color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
-                        marginBottom: '6px', opacity: 0.78,
+                        color: SEMANTIC.textMuted, textTransform: 'uppercase', fontFamily: FONTS.body,
+                        marginBottom: '6px',
                       }}>
                         {tr ? 'Sonraki' : 'Next'} →
                       </div>
@@ -542,8 +541,8 @@ export default function TefekkurArticleRoute({ article }) {
               >
                 <div style={{
                   fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
-                  color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
-                  marginBottom: '12px', opacity: 0.78,
+                  color: SEMANTIC.textMuted, textTransform: 'uppercase', fontFamily: FONTS.body,
+                  marginBottom: '12px',
                 }}>
                   {tr ? 'İçindekiler' : 'Contents'}
                 </div>

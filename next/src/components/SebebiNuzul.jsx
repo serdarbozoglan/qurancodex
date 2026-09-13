@@ -1849,7 +1849,7 @@ export default function SebebiNuzul({ onClose }) {
         <p className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           &quot;{language === 'tr' ? "İnkâr edenler, 'Kur'an ona bir defada toptan indirilseydi ya' dediler. Biz onu kalbine sağlam yerleştirelim diye böyle yaptık." : "The disbelievers said, 'Why was the Quran not sent down to him all at once?' We have done it this way to firmly establish your heart with it."}&quot;
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
+        <p style={{ color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px',}}>
           — {language === 'tr' ? 'Furkân 25:32' : 'Al-Furqān 25:32'}
         </p>
         <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>

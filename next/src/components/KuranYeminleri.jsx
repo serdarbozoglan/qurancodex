@@ -189,13 +189,12 @@ export default function KuranYeminleri({ onClose }) {
           </p>
 
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Şems 91:1-2' : 'al-Shams 91:1-2'}
           </p>
@@ -1172,9 +1171,9 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
                     {/* Reference (full pericope) */}
                     {ex.refShort && (
                       <div style={{
-                        fontSize: '0.65rem', color: COLORS.silver,
+                        fontSize: '0.65rem', color: SEMANTIC.textMuted,
                         fontFamily: FONTS.body, fontWeight: 600,
-                        marginTop: '2px', opacity: 0.78,
+                        marginTop: '2px',
                       }}>
                         {ex.refShort}
                       </div>
@@ -2352,13 +2351,12 @@ function VakiaSpotlight({ language, isMobile }) {
         </p>
 
         <p style={{
-          color: COLORS.silver,
+          color: SEMANTIC.textMuted,
           fontFamily: FONTS.body,
           fontSize: '0.72rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 20px',
-          opacity: 0.78,
         }}>
           — {tr ? 'Vâkıa 56:75-76' : 'al-Wāqiʿa 56:75-76'}
         </p>

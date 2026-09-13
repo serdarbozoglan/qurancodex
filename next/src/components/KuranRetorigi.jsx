@@ -167,7 +167,7 @@ export default function KuranRetorigi({ onClose }) {
         <p className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           &quot;{tr ? "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an), uydurulmuş bir söz değildir." : "Indeed, in their stories is a lesson for those of understanding. This is not a fabricated tale."}&quot;
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
+        <p style={{ color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px',}}>
           — {tr ? 'Yûsuf 12:111' : 'Yūsuf 12:111'}
         </p>
         <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>

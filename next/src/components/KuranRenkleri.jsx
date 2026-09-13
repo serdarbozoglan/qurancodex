@@ -237,7 +237,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
             {/* All refs */}
             {renk.allRefs && renk.allRefs.length > 1 && (
               <div style={{ marginBottom: '10px' }}>
-                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.78 }}>
+                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: SEMANTIC.textMuted, fontFamily: FONTS.body, margin: '0 0 8px',}}>
                   {tr ? 'Diğer Ayetler' : 'Other Verses'}
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -704,9 +704,8 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
       {/* Footer note */}
       <p className="mq-box" style={{
         textAlign: 'center',
-        color: COLORS.silver,
+        color: SEMANTIC.textMuted,
         fontSize: '0.75rem',
-        opacity: 0.78,
         '--mt-d': '40px', '--mt-m': '28px',
         fontStyle: 'italic',
       }}>
@@ -1783,8 +1782,8 @@ function TabKiyamet({ language, isMobile }) {
                     {tr ? s.titleTr : s.titleEn}
                   </span>
                   <span style={{
-                    fontSize: '0.66rem', color: COLORS.silver,
-                    fontFamily: FONTS.body, opacity: 0.78,
+                    fontSize: '0.66rem', color: SEMANTIC.textMuted,
+                    fontFamily: FONTS.body,
                   }}>
                     {s.ref}
                   </span>
@@ -2766,13 +2765,12 @@ export default function KuranRenkleri({ onClose }) {
           </p>
 
           <p style={{
-            color: COLORS.silver,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.78,
           }}>
             — {tr ? 'Fâtır 35:27' : 'Fāṭir 35:27'}
           </p>

@@ -28,7 +28,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 import useNavbarOffset from './useNavbarOffset';
 import data from '../../public/isimlendirme.json';
 
@@ -137,9 +137,8 @@ export default function Isimlendirme({ onClose }) {
         }}>&quot;{tr ? anchor.tr : anchor.en}&quot;</p>
         <p className="mq-fs" style={{
           '--fs-d': '0.7rem', '--fs-m': '0.66rem',
-          color: COLORS.silver, fontFamily: FONTS.body,
-          letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.78, margin: '0 0 26px',
+          color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+          letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px',
         }}>— {tr ? 'Yûsuf' : 'Yūsuf'} {anchor.ref}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />

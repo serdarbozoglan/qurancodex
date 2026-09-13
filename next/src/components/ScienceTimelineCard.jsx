@@ -206,13 +206,12 @@ export default function ScienceTimelineCard({ card, locale = 'tr' }) {
           </Link>
           <p
             style={{
-              color: COLORS.silver,
+              color: SEMANTIC.textMuted,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
               fontSize: '0.9rem',
               marginTop: '26px',
               lineHeight: 1.6,
-              opacity: 0.78,
             }}
           >
             {pick(card.kicker)}

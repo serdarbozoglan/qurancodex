@@ -27,6 +27,7 @@ const TYPE_LABELS = {
   'dua-dili-katman':                { tr: 'Dua dili',       en: 'Prayer',           icon: '☾' },
   'kuran-sayi':                     { tr: 'Sayılar',        en: 'Numbers',          icon: '#' },
   'iblis-adlandirma':               { tr: 'İki isim',       en: 'Two names',        icon: '◐' },
+  'furuk-aile':                     { tr: 'Fürûk',          en: 'Distinctions',     icon: '≠' },
   'atlas-kavram':                   { tr: 'Kavram',         en: 'Concept',          icon: '✧' },
   'surah-summary':                  { tr: 'Sûre',           en: 'Sūrah',            icon: '§' },
   'pericope':                       { tr: 'Ayet Grubu',     en: 'Pericope',         icon: '¶' },

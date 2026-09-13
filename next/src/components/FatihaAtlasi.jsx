@@ -583,7 +583,7 @@ function TabScholars({ data, language, isMobile }) {
                 <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.94rem' }}>
                   {tr ? s.nameTr : s.nameEn}
                 </span>
-                <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.7rem', flexShrink: 0, opacity: 0.75 }}>
+                <span style={{ color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontSize: '0.7rem', flexShrink: 0,}}>
                   {s.died === 'çağdaş / contemporary' ? (tr ? 'çağdaş' : 'contemporary') : `ö. ${s.died}`}
                 </span>
               </div>

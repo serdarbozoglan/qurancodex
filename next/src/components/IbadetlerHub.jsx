@@ -248,8 +248,8 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
           margin: 0, fontWeight: 700,
         }}>{language === 'tr' ? 'Sekiz Sütun' : 'The Eight Pillars of Worship'}</h2>
         <div style={{
-          color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', opacity: 0.78,
+          color: SEMANTIC.textMuted, fontSize: '0.78rem',
+          fontStyle: 'italic',
         }}>
           {(() => {
             const readyCount = pillars.filter(p => p.status === 'ready').length;
@@ -372,8 +372,8 @@ function PillarCard({ pillar, language, isMobile, router }) {
       }}>
         {pillar.anchorRef && (
           <div style={{
-            color: COLORS.silver, fontSize: '0.7rem',
-            fontStyle: 'italic', opacity: 0.78,
+            color: SEMANTIC.textMuted, fontSize: '0.7rem',
+            fontStyle: 'italic',
           }}>{pillar.anchorRef}</div>
         )}
         {isReady && (
@@ -476,8 +476,8 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
       </div>
       {data.notTr && (
         <p style={{
-          color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', marginTop: '16px', opacity: 0.78,
+          color: SEMANTIC.textMuted, fontSize: '0.78rem',
+          fontStyle: 'italic', marginTop: '16px',
         }}>{language === 'tr' ? data.notTr : (data.notEn ?? data.notTr)}</p>
       )}
     </div>
@@ -716,8 +716,8 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
 
       {data.notTr && (
         <p style={{
-          color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', marginTop: '14px', opacity: 0.78,
+          color: SEMANTIC.textMuted, fontSize: '0.78rem',
+          fontStyle: 'italic', marginTop: '14px',
         }}>{tr ? data.notTr : (data.notEn ?? data.notTr)}</p>
       )}
     </div>
@@ -824,8 +824,8 @@ function PeygamberIzleriSection({ data, language, isMobile, router }) {
           margin: 0, fontWeight: 700,
         }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
         <div style={{
-          color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', opacity: 0.78,
+          color: SEMANTIC.textMuted, fontSize: '0.78rem',
+          fontStyle: 'italic',
         }}>
           {data.totalProphets} {tr ? 'peygamber' : 'prophets'} · {data.totalRecords} {tr ? 'kayıt' : 'records'}
         </div>

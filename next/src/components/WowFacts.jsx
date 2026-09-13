@@ -1258,7 +1258,7 @@ export default function WowFacts({ onClose }) {
           <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '640px', opacity: 0.95 }}>
             &quot;{language === 'tr' ? "Hâlâ Kur'an'ı düşünüp anlamaya çalışmıyorlar mı? Eğer Allah'tan başkasından gelseydi onda birçok tutarsızlık bulurlardı." : "Then do they not reflect upon the Quran? Had it been from any other than Allah, they would have found in it many discrepancies."}&quot;
           </p>
-          <p style={{ color: COLORS.silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 30px', opacity: 0.78 }}>
+          <p style={{ color: SEMANTIC.textMuted, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 30px',}}>
             — {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}
           </p>
           <p style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>

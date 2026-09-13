@@ -523,8 +523,8 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                   <span style={{ color: domColor, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
                     {(language === 'tr' ? DOMAIN_LABELS_TR[p.imageryDomain] : DOMAIN_LABELS_EN[p.imageryDomain])?.split(' / ')[0]}
                   </span>
-                  <span aria-hidden="true" style={{ color: COLORS.silver, opacity: 0.55, fontSize: '0.7rem' }}>·</span>
-                  <span style={{ color: COLORS.silver, opacity: 0.75, fontSize: '0.7rem', fontFamily: FONTS.body }}>
+                  <span aria-hidden="true" style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem' }}>·</span>
+                  <span style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', fontFamily: FONTS.body }}>
                     <LinkifyRefs text={surahRef(`${p.surah}:${p.ayah}`)} />
                   </span>
                 </div>
