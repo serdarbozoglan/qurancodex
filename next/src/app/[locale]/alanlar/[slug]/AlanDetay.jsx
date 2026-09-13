@@ -217,6 +217,41 @@ export default function AlanDetay({ slug }) {
                     </p>
                   </div>
                 )}
+
+                {/* Öne çıkan tefsir/risale okuması — görünür blok */}
+                {th.commentary && (
+                  <div style={{ marginTop: 16, padding: 'clamp(16px, 3vw, 20px) clamp(16px, 3vw, 22px)', background: `linear-gradient(180deg, ${COLORS.gold}12, ${COLORS.gold}05)`, border: `1px solid ${COLORS.gold}33`, borderRadius: RADIUS.lg }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 4 }}>
+                      <span aria-hidden="true" style={{ color: COLORS.gold, opacity: 0.9, flexShrink: 0 }}>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2z" /><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2z" /></svg>
+                      </span>
+                      <span style={{ fontFamily: FONTS.body, fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.9 }}>
+                        {tr ? th.commentary.sourceTr : th.commentary.sourceEn}
+                      </span>
+                    </div>
+                    <div style={{ marginBottom: 12 }}>
+                      <LayerTag tone="human">{tr ? 'Beşerî tefsir / yorum katmanı' : 'Human exegesis / interpretive layer'}</LayerTag>
+                    </div>
+                    {(tr ? th.commentary.introTr : th.commentary.introEn) && (
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.9rem', color: SEMANTIC.textMuted, lineHeight: 1.7, margin: '0 0 14px' }}>
+                        {tr ? th.commentary.introTr : th.commentary.introEn}
+                      </p>
+                    )}
+                    <ol style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                      {(tr ? th.commentary.pointsTr : th.commentary.pointsEn).map((pt, k) => (
+                        <li key={k} style={{ position: 'relative', paddingInlineStart: 26 }}>
+                          <span aria-hidden="true" style={{ position: 'absolute', insetInlineStart: 0, top: 1, fontFamily: FONTS.display, fontWeight: 800, fontSize: '0.82rem', color: COLORS.gold, opacity: 0.78 }}>{k + 1}</span>
+                          <span style={{ fontFamily: FONTS.body, fontSize: '0.87rem', color: SEMANTIC.textPrimary, lineHeight: 1.62 }}>{pt}</span>
+                        </li>
+                      ))}
+                    </ol>
+                    {(tr ? th.commentary.noteTr : th.commentary.noteEn) && (
+                      <p style={{ fontFamily: FONTS.body, fontSize: '0.76rem', color: SEMANTIC.textFaint, lineHeight: 1.6, margin: '13px 0 0' }}>
+                        {tr ? th.commentary.noteTr : th.commentary.noteEn}
+                      </p>
+                    )}
+                  </div>
+                )}
               </section>
             ))}
 
