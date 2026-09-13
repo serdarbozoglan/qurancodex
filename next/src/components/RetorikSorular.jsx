@@ -139,45 +139,24 @@ export default function RetorikSorular({ onClose }) {
       {TOOL_HEADER}
       <div ref={bodyRef} style={{ flex: 1 }}>
         <CollapsibleHero id="retorik-sorular" language={language} labelTr="Kur'an'ın Belağatı" labelEn="Belāġa of the Qur'an">
-        <div className="mq-box" style={{
-          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
-          background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+        <div className="mq-box qc-hero-bg" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          textAlign: 'center', position: 'relative', overflow: 'hidden',
+          textAlign: 'center',
         }}>
-          <svg aria-hidden="true" width="100%" height="100%" style={{
-            position: 'absolute', inset: 0, pointerEvents: 'none',
-            opacity: 0.05, mixBlendMode: 'screen',
-          }}>
-            <defs>
-              <pattern id="belagat-geometric" x="0" y="0" width="72" height="72" patternUnits="userSpaceOnUse">
-                <path d="M36 6 L54 18 L54 42 L36 54 L18 42 L18 18 Z" stroke={COLORS.gold} strokeWidth="0.5" fill="none" />
-                <path d="M36 18 L48 24 L48 36 L36 42 L24 36 L24 24 Z" stroke={COLORS.gold} strokeWidth="0.4" fill="none" opacity="0.6" />
-                <circle cx="36" cy="30" r="2" fill={COLORS.gold} opacity="0.4" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#belagat-geometric)" />
-          </svg>
-          <div aria-hidden="true" style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '80%', height: '90%', pointerEvents: 'none',
-            background: `radial-gradient(ellipse at center, ${COLORS.gold}0F 0%, transparent 70%)`,
-            filter: 'blur(4px)',
-          }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
-            <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-              color: COLORS.gold, opacity: 0.82, lineHeight: 1,
-              '--mb-d': '40px', '--mb-m': '28px',
+              color: COLORS.gold, opacity: 0.82, lineHeight: 1.2,
               textShadow: `0 0 22px ${COLORS.gold}28`,
+              marginBottom: '24px',
             }}>﷽</div>
             <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,
               '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold, lineHeight: 2.1,
-              margin: '0 auto 16px', maxWidth: '820px',
+              margin: '0 auto 12px', maxWidth: '820px',
               }}>{cleanArabic('اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ اَمْ عَلٰى قُلُوبٍ اَقْفَالُهَا')}</p>
             <p className="mq-fs" style={{
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',

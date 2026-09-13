@@ -722,4 +722,1282 @@ export const DISCIPLINE_CONTENT = {
         noteTr: `YAKLAŞIM: Gazzâlî'nin felsefî, dinî-hukukî ve tasavvufî faziletleri birleştiren ahlâk nazariyesinin akademik tahlili.`, noteEn: `APPROACH: a scholarly analysis of al-Ghazālī's synthesis of philosophical, religious-legal, and mystical virtues.` },
     ],
   },
+
+  'sosyoloji-toplum': {
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "Ra'd 13:11",
+      "ar": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاِذَا اَرَادَ اللّٰهُ بِقَوْمٍ سُوءاً فَلَا مَرَدَّ لَهُ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ",
+      "trTr": "Şüphesiz Allah, bir topluluk kendi iç hâlini değiştirmedikçe onların durumunu değiştirmez.",
+      "trEn": "Indeed, Allah does not change the condition of a people until they change what is in themselves."
+    },
+    "introTr": "Bu sayfa, Kur'an'ın topluluklar, milletlerin yükseliş ve çöküşü, adalet ile zulüm, kardeşlik ve ıslah üzerine beyanlarından bir seçki sunar. Sıralanan âyetler, sünnetullah çerçevesinde toplumsal hayata dair sabit ölçüleri düşünmeye davet eder. Seçki kapsayıcı değildir ve âyetlerin manasını tüketmez.",
+    "introEn": "This page offers a selection from the Qur'an's declarations on communities, the rise and fall of nations, justice and oppression, brotherhood, and reform. The verses invite reflection on the constant measures of social life within the frame of God's way (sunnatullah). The selection is not exhaustive and does not exhaust the meaning of the verses.",
+    "themes": [
+      {
+        "titleTr": "İlâhî toplumsal yasa: değişim insanın kendinden başlar",
+        "titleEn": "The divine social law: change begins within the self",
+        "verses": [
+          {
+            "ref": "Ra'd 13:11",
+            "ar": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاِذَا اَرَادَ اللّٰهُ بِقَوْمٍ سُوءاً فَلَا مَرَدَّ لَهُ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ",
+            "glossTr": "Allah, bir topluluk kendi iç hâlini değiştirmedikçe onların durumunu değiştirmez.",
+            "glossEn": "Allah does not change the condition of a people until they change what is in themselves."
+          },
+          {
+            "ref": "Enfâl 8:53",
+            "ar": "ذٰلِكَ بِاَنَّ اللّٰهَ لَمْ يَكُ مُغَيِّراً نِعْمَةً اَنْعَمَهَا عَلٰى قَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاَنَّ اللّٰهَ سَمِيعٌ عَلِيمٌ",
+            "glossTr": "Allah, bir topluluğa verdiği nimeti, onlar kendi hâllerini değiştirmedikçe geri almaz.",
+            "glossEn": "Allah does not withdraw a favor granted to a people until they change what is in themselves."
+          },
+          {
+            "ref": "Fâtır 35:43",
+            "ar": "اِسْتِكْبَاراً فِي الْاَرْضِ وَمَكْرَ السَّيِّئِ وَلَا يَحِيقُ الْمَكْرُ السَّيِّئُ اِلَّا بِاَهْلِهِ فَهَلْ يَنْظُرُونَ اِلَّا سُنَّتَ الْاَوَّلِينَ فَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْدِيلاً وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَحْوِيلاً",
+            "glossTr": "Allah'ın kanununda (sünnetinde) bir değişme de bir sapma da bulamazsın.",
+            "glossEn": "You will find no change in Allah's way, nor will you find it diverted."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Ra'd 13:11): her insanı nöbetleşe koruyan, gece ve gündüz değişen melekler bulunduğu ve Allah'ın ilminin bütün yaratılışı kuşattığı belirtilir. Metin, insanların itaatten isyana yönelmesiyle içinde bulundukları nimetin değişmesi arasındaki ilişkiyi açıklar.",
+        "tafsirEn": "In the abridged Ibn Kathir on 13:11, it is noted that angels take turns guarding each person, some by day and some by night, and that Allah's knowledge encompasses all creation. The text explains the relationship between people's turning from obedience to disobedience and a change in the blessings they enjoy."
+      },
+      {
+        "titleTr": "Milletlerin eceli: yükseliş ve çöküş",
+        "titleEn": "The term of nations: rise and fall",
+        "verses": [
+          {
+            "ref": "A'râf 7:34",
+            "ar": "وَلِكُلِّ اُمَّةٍ اَجَلٌ فَاِذَا جَاءَ اَجَلُهُمْ لَا يَسْتَأْخِرُونَ سَاعَةً وَلَا يَسْتَقْدِمُونَ",
+            "glossTr": "Her topluluğun belirli bir eceli vardır; vakti gelince onu ne erteleyebilir ne de öne alabilirler.",
+            "glossEn": "Every community has an appointed term; when it comes, they can neither delay nor advance it."
+          },
+          {
+            "ref": "Yûnus 10:49",
+            "ar": "قُلْ لَا اَمْلِكُ لِنَفْسِي ضَراًّ وَلَا نَفْعاً اِلَّا مَا شَاءَ اللّٰهُ لِكُلِّ اُمَّةٍ اَجَلٌ اِذَا جَاءَ اَجَلُهُمْ فَلَا يَسْتَأْخِرُونَ سَاعَةً وَلَا يَسْتَقْدِمُونَ",
+            "glossTr": "Her ümmetin bir eceli vardır; vakti geldiğinde bir an geciktirilmez, öne de alınmaz.",
+            "glossEn": "Every community has a term; when it arrives, it is neither delayed nor brought forward."
+          },
+          {
+            "ref": "En'âm 6:6",
+            "ar": "اَلَمْ يَرَوْا كَمْ اَهْلَكْنَا مِنْ قَبْلِهِمْ مِنْ قَرْنٍ مَكَّنَّاهُمْ فِي الْاَرْضِ مَا لَمْ نُمَكِّنْ لَكُمْ وَاَرْسَلْنَا السَّمَاءَ عَلَيْهِمْ مِدْرَاراً وَجَعَلْنَا الْاَنْهَارَ تَجْرِي مِنْ تَحْتِهِمْ فَاَهْلَكْنَاهُمْ بِذُنُوبِهِمْ وَاَنْشَأْنَا مِنْ بَعْدِهِمْ قَرْناً اٰخَرِينَ",
+            "glossTr": "Kendilerinden önce, yeryüzünde iyice yerleştikleri hâlde günahları yüzünden helâk edilen nice nesli görmezler mi?",
+            "glossEn": "Have they not seen how many peoples, though firmly established, were destroyed for their sins?"
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (A'râf 7:34): her topluluğun belirlenmiş bir eceli olduğu, vakti gelince onu ne bir an erteleyebilecekleri ne de öne alabilecekleri belirtilir. Metin, Allah'ın insanlara müjdeleyici ve uyarıcı elçiler gönderdiğini, sakınıp salih olanların korku ve üzüntü duymayacağını, âyetleri yalanlayıp büyüklenenlerin ise ateş ehli olacağını aktarır.",
+        "tafsirEn": "In the abridged Ibn Kathir on 7:34, every community has an appointed term that cannot be delayed or advanced by even an hour. The text notes that Allah sent messengers as bringers of good news and warning, that those who are mindful and righteous will neither fear nor grieve, and that those who reject the signs arrogantly are the dwellers of the Fire."
+      },
+      {
+        "titleTr": "Adalet, zulüm ve toplumsal helâk",
+        "titleEn": "Justice, oppression, and societal collapse",
+        "verses": [
+          {
+            "ref": "Hûd 11:117",
+            "ar": "وَمَا كَانَ رَبُّكَ لِيُهْلِكَ الْقُرٰى بِظُلْمٍ وَاَهْلُهَا مُصْلِحُونَ",
+            "glossTr": "Rabbin, halkı ıslah üzere iken bir ülkeyi haksız yere helâk edecek değildir.",
+            "glossEn": "Your Lord would not destroy a society unjustly while its people were acting rightly."
+          },
+          {
+            "ref": "Kasas 28:59",
+            "ar": "وَمَا كَانَ رَبُّكَ مُهْلِكَ الْقُرٰى حَتّٰى يَبْعَثَ فِٓي اُمِّهَا رَسُولاً يَتْلُوا عَلَيْهِمْ اٰيَاتِنَا وَمَا كُنَّا مُهْلِكِي الْقُرٰٓى اِلَّا وَاَهْلُهَا ظَالِمُونَ",
+            "glossTr": "Rabbin, ana kentine bir elçi göndermedikçe ve halkı zulümde ısrar etmedikçe ülkeleri helâk etmez.",
+            "glossEn": "Your Lord does not destroy societies until He sends a messenger to their center, and only when their people persist in wrongdoing."
+          },
+          {
+            "ref": "İsrâ 17:16",
+            "ar": "وَاِذَا اَرَدْنَا اَنْ نُهْلِكَ قَرْيَةً اَمَرْنَا مُتْرَفِيهَا فَفَسَقُوا فِيهَا فَحَقَّ عَلَيْهَا الْقَوْلُ فَدَمَّرْنَاهَا تَدْمِيراً",
+            "glossTr": "Bir ülkeyi helâk etmek istediğimizde oranın refah içindeki ileri gelenlerine emrederiz; onlar orada taşkınlık edince söz gerçekleşir.",
+            "glossEn": "When We will to destroy a society, We command its affluent leaders, but they transgress in it, so the decree comes to pass."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Hûd 11:117): Allah'ın, halkı ıslah üzere (muslih) iken bir beldeyi haksızlıkla helâk etmeyeceği vurgulanır. Metin, toplumda iyiliği emredip kötülükten alıkoyan bir kesimin bulunması gerektiğini, bir kötülüğü görüp de değiştirmeyenlerin umumi bir cezaya uğrayabileceğini, helâkin ancak kendilerine zulmeden topluluklara geldiğini ve Allah'ın kullarına asla haksızlık etmediğini belirtir.",
+        "tafsirEn": "In the abridged Ibn Kathir on 11:117, Allah would not unjustly destroy a town while its people are reformers. The text underlines that a community must contain those who enjoin good and forbid evil, that a people who witness an evil and fail to change it may be overtaken by punishment, and that destruction comes only to societies that have wronged themselves, for Allah's justice is absolute."
+      },
+      {
+        "titleTr": "Ümmet, kardeşlik ve şûrâ",
+        "titleEn": "Community, brotherhood, and consultation",
+        "verses": [
+          {
+            "ref": "Hucurât 49:10",
+            "ar": "اِنَّمَا الْمُؤْمِنُونَ اِخْوَةٌ فَاَصْلِحُوا بَيْنَ اَخَوَيْكُمْ وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُرْحَمُونَ",
+            "glossTr": "Mü'minler ancak kardeştir; öyleyse kardeşlerinizin arasını düzeltin.",
+            "glossEn": "The believers are but brothers, so make peace between your brothers."
+          },
+          {
+            "ref": "Âl-i İmrân 3:103",
+            "ar": "وَاعْتَصِمُوا بِحَبْلِ اللّٰهِ جَمِيعاً وَلَا تَفَرَّقُوا وَاذْكُرُوا نِعْمَتَ اللّٰهِ عَلَيْكُمْ اِذْ  كُنْتُمْ اَعْدَاءً فَاَلَّفَ بَيْنَ قُلُوبِكُمْ فَاَصْبَحْتُمْ بِنِعْمَتِهِ اِخْوَاناً وَكُنْتُمْ عَلٰى شَفَا حُفْرَةٍ مِنَ النَّارِ فَاَنْقَذَكُمْ مِنْهَا   كَذٰلِكَ يُبَيِّنُ اللّٰهُ لَكُمْ اٰيَاتِهِ لَعَلَّكُمْ تَهْتَدُونَ",
+            "glossTr": "Hep birlikte Allah'ın ipine sımsıkı sarılın ve ayrılığa düşmeyin.",
+            "glossEn": "Hold firmly together to the rope of Allah and do not be divided."
+          },
+          {
+            "ref": "Şûrâ 42:38",
+            "ar": "وَالَّذِينَ اسْتَجَابُوا لِرَبِّهِمْ وَاَقَامُوا الصَّلٰوةَ وَاَمْرُهُمْ شُورٰى بَيْنَهُمْ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ",
+            "glossTr": "Onların işleri, aralarında danışma (şûrâ) iledir.",
+            "glossEn": "Their affairs are conducted by mutual consultation among them."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Hucurât 49:10): Allah'ın, anlaşmazlığa düşen mü'min taraflar arasını düzeltmeyi emrettiği ve büyük de olsa günah işlemenin imanı geçersiz kılmadığı belirtilir. Metin, İslâm kardeşliğini bir bedenin uzuvlarına benzeten rivayetlere ve Evs ile Hazrec arasındaki anlaşmazlığa dair nakle yer verir, hüküm verirken adaletin ve takvânın rahmete vesile olduğunu vurgular.",
+        "tafsirEn": "In the abridged Ibn Kathir on 49:10, Allah commands reconciliation between disputing believers, and committing even a major sin does not nullify faith. The text cites traditions likening Islamic brotherhood to a single body and the context of the dispute between the Aws and Khazraj, and stresses that equity in judgment together with God-consciousness leads to mercy.",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Mektubat, Yirmi İkinci Mektup (Uhuvvet Risalesi), Birinci Mebhas",
+          "sourceEn": "Bediüzzaman · The Letters (Mektubat), Twenty-Second Letter (Treatise on Brotherhood), First Topic",
+          "introTr": "Uhuvvet Risalesi, mü'minler arasındaki husumeti tahlil eder ve kardeşlik bağının toplumsal hayattaki yerini işler.",
+          "introEn": "The Treatise on Brotherhood analyzes hostility among believers and treats the place of the bond of brotherhood in social life.",
+          "pointsTr": [
+            "Mü'minler arasında nifak ve şikaka, kin ve adâvete yol açan tarafgirlik, inat ve hasedin; hakikat, hikmet ve İslâmiyet ölçüsünce çirkin ve merdud olduğunu belirtir.",
+            "Mü'minleri birbirine bağlayan pek çok birlik bağını (Hâlık'ınız bir, Mâlik'iniz bir, Mâbud'unuz bir, Râzık'ınız bir, bir Peygamber, bir din, bir kıble) sıralayarak, bu bağlar karşısında adâvetin bir haksızlık olduğunu ortaya koyar.",
+            "Bir mü'mine karşı kin beslemenin, vahdet bağlarına hürmetsizlik ve uhuvvet rabıtasına zulüm olduğunu; bu düşmanlığın hakikatçe, hikmetçe, hayat-ı şahsiye, içtimaiye ve mâneviyece zararlı olduğunu açıklar."
+          ],
+          "pointsEn": [
+            "He states that partisanship, obstinacy, and envy, which give rise to hypocrisy, discord, rancor, and enmity among believers, are ugly and rejected by the measure of truth, wisdom, and Islam.",
+            "He enumerates the many bonds of unity that tie believers together (one Creator, one Owner, one Object of worship, one Provider, one Prophet, one religion, one qibla), showing that enmity is an injustice against these bonds.",
+            "He explains that bearing rancor toward a believer is a disrespect to the bonds of unity and a wrong against the bond of brotherhood, and that such hostility is harmful at the level of truth, wisdom, and personal, social, and spiritual life."
+          ],
+          "noteTr": "Alıntılar birincil metinlerden doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotations are verified from the primary texts. This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration."
+        }
+      },
+      {
+        "titleTr": "Islah ve ifsad, çeşitlilik ve takvâ ölçüsü",
+        "titleEn": "Reform and corruption, diversity, and the measure of righteousness",
+        "verses": [
+          {
+            "ref": "A'râf 7:56",
+            "ar": "وَلَا تُفْسِدُوا فِي الْاَرْضِ بَعْدَ اِصْلَاحِهَا وَادْعُوهُ خَوْفاً وَطَمَعاً اِنَّ رَحْمَتَ اللّٰهِ قَرِيبٌ مِنَ الْمُحْسِنِينَ",
+            "glossTr": "Yeryüzü ıslah edildikten sonra orada bozgunculuk çıkarmayın.",
+            "glossEn": "Do not spread corruption in the land after it has been set right."
+          },
+          {
+            "ref": "Bakara 2:11",
+            "ar": "وَاِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا فِي الْاَرْضِ  قَالُوا اِنَّمَا نَحْنُ مُصْلِحُونَ",
+            "glossTr": "Onlara 'yeryüzünde bozgunculuk yapmayın' dendiğinde, 'biz ancak ıslah edicileriz' derler.",
+            "glossEn": "When told not to spread corruption, they claim they are only reformers."
+          },
+          {
+            "ref": "Hucurât 49:13",
+            "ar": "يَا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوباً وَقَـبَائِلَ لِتَعَارَفُوا اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰيكُمْ اِنَّ اللّٰهَ عَلِيمٌ خَبِيرٌ",
+            "glossTr": "Sizi tanışasınız diye halklar ve kabileler kıldık; en değerliniz, en takvâlı olanınızdır.",
+            "glossEn": "We made you peoples and tribes so that you may know one another; the most honored is the most righteous."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (A'râf 7:56): yeryüzü ıslah edildikten sonra orada bozgunculuk çıkarmanın en büyük zararı doğurduğu belirtilir. Metin, Allah'a alçakgönüllülükle, korku ve ümitle dua etmeye teşvik eder, duada haddi aşmaktan sakındırır ve Allah'ın rahmetinin, emirlerine uyup yasaklarından kaçınan iyilik ehline yakın olduğunu aktarır.",
+        "tafsirEn": "In the abridged Ibn Kathir on 7:56, spreading corruption in the land after it has been set right causes the greatest harm. The text encourages calling upon Allah humbly, with fear and hope, warns against transgressing in supplication, and notes that Allah's mercy is near to the good-doers who obey His commands and avoid what He has prohibited."
+      }
+    ],
+    "assuranceTr": "Bu âyetler kesin hakikattir; buradaki meâl, tefsir özeti ve yorum katmanları beşerîdir ve âyetlerin yerini tutmaz. Seçki kapsayıcı olmayıp herhangi bir modern toplum kuramı doğrudan Kur'an'dan türetilmemiştir.",
+    "assuranceEn": "These verses are certain truth; the translations, tafsir summaries, and commentary layers here are human and do not replace the verses. The selection is not exhaustive, and no modern social theory is derived directly from the Qur'an.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/13/11 · quran.com/7/34 · quran.com/11/117; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/13/11 · quran.com/7/34 · quran.com/11/117; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Akademik kaynaklar, Kur'an'ı doğrulamak için değil, insan düşüncesini ve tarihini incelemek için anılmıştır.",
+    "sourcesNoteEn": "The academic sources are cited to study human thought and history, not to confirm the Qur'an.",
+    "sources": [
+      {
+        "author": "Ibn Khaldun (trans. Franz Rosenthal, ed. N. J. Dawood)",
+        "work": "The Muqaddimah: An Introduction to History (Abridged Edition)",
+        "pub": "Princeton University Press",
+        "year": "2015",
+        "id": "ISBN 9780691166285",
+        "noteTr": "YAKLAŞIM: 14. yüzyıl tarih felsefesi; asabiyet (toplumsal dayanışma) kavramıyla devletlerin ve toplumların yükseliş ve çöküş döngülerini beşerî bir çözümlemeyle ele alır.",
+        "noteEn": "APPROACH: A fourteenth-century philosophy of history; through the concept of asabiyya (group solidarity) it analyzes, as a human study, the cycles by which states and societies rise and fall."
+      },
+      {
+        "author": "Ernest Gellner",
+        "work": "Muslim Society (Cambridge Studies in Social and Cultural Anthropology, 32)",
+        "pub": "Cambridge University Press",
+        "year": "1983",
+        "id": "ISBN 9780521274074",
+        "noteTr": "YAKLAŞIM: Sosyal antropoloji perspektifi; Müslüman toplumlarında din, kabile yapısı ve şehir hayatı ilişkisini beşerî bir kuramla inceler.",
+        "noteEn": "APPROACH: A social-anthropology perspective; it examines the relation between religion, tribal structure, and urban life in Muslim societies as a human theory."
+      },
+      {
+        "author": "Fazlur Rahman",
+        "work": "Islam (Second Edition)",
+        "pub": "University of Chicago Press",
+        "year": "1979",
+        "id": "ISBN 9780226702810",
+        "noteTr": "YAKLAŞIM: İslâm'ın tarihsel ve düşünsel gelişimini bir din ve entelektüel gelenek olarak ele alan akademik bir inceleme.",
+        "noteEn": "APPROACH: An academic study treating the historical and intellectual development of Islam as a religion and intellectual tradition."
+      },
+      {
+        "author": "Toshihiko Izutsu",
+        "work": "Ethico-Religious Concepts in the Qur'an",
+        "pub": "McGill-Queen's University Press",
+        "year": "2002",
+        "id": "ISBN 9780773524279",
+        "noteTr": "YAKLAŞIM: Semantik analiz yöntemiyle Kur'an'ın ahlâk ve toplum kavramlarının (ör. zulüm, ıslah) dilsel yapısını inceleyen beşerî bir çalışma.",
+        "noteEn": "APPROACH: A human study using semantic analysis to examine the linguistic structure of the Qur'an's ethical and social concepts (e.g., wrongdoing, reform)."
+      },
+      {
+        "author": "Bryan S. Turner",
+        "work": "Weber and Islam: A Critical Study",
+        "pub": "Routledge & Kegan Paul",
+        "year": "1974",
+        "id": "ISBN 9780710078483",
+        "noteTr": "YAKLAŞIM: Din sosyolojisi; Max Weber'in İslâm toplumlarına dair çözümlemelerini eleştirel biçimde tartışan akademik bir metin.",
+        "noteEn": "APPROACH: Sociology of religion; an academic text critically discussing Max Weber's analyses of Islamic societies."
+      },
+      {
+        "author": "Şerif Mardin",
+        "work": "Religion and Social Change in Modern Turkey: The Case of Bediüzzaman Said Nursi",
+        "pub": "State University of New York Press",
+        "year": "1989",
+        "id": "ISBN 9780887069970",
+        "noteTr": "YAKLAŞIM: Din sosyolojisi; modern Türkiye'de din ile toplumsal değişim ilişkisini Bediüzzaman Said Nursî örneği üzerinden inceleyen beşerî bir araştırma.",
+        "noteEn": "APPROACH: Sociology of religion; a human study examining the relation between religion and social change in modern Turkey through the case of Bediüzzaman Said Nursi."
+      }
+    ]
+  },
+
+  'dil-belagat': {
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "İsrâ 17:88",
+      "ar": "قُلْ لَئِنِ اجْتَمَعَتِ الْاِنْسُ وَالْجِنُّ عَلٰٓى اَنْ يَأْتُوا بِمِثْلِ هٰذَا الْقُرْاٰنِ لَا يَأْتُونَ بِمِثْلِهِ وَلَوْ كَانَ بَعْضُهُمْ لِبَعْضٍ ظَهِيراً",
+      "trTr": "De ki: Andolsun, insanlar ve cinler bu Kur'ân'ın bir benzerini getirmek için bir araya gelseler, birbirlerine destek de olsalar, onun bir benzerini getiremezler.",
+      "trEn": "Say: If all humans and jinn were to gather to produce the like of this Qur'an, they could not produce its like, even if they supported one another."
+    },
+    "introTr": "Kur'ân, kendi benzerinin getirilemeyeceğini bizzat ilân eder: apaçık ve fasih bir Arapça ile indirilmiştir ve muhataplarına, doğru söylüyorlarsa onun benzeri bir sûre getirmelerini söyleyerek meydan okur (tahaddî). Bu sayfa, ilgili âyetleri belâgat, fesâhat, îcâz (az sözle çok mânâ), temsil ve mesel, ses ve ahenk, nazım ve yapı başlıkları altında ele alır. Bu teknik tasnif, beşerî yorum katmanıdır. Belâgat ve i'câz, önce Kur'ân'ın kendi beyanıdır; klasik ve modern âlimlerin bu konudaki çalışmaları ise bu beyanı anlamaya yönelik beşerî bir gayrettir, ilâhî hakikati onaylayan bir merci değildir.",
+    "introEn": "The Qur'an declares its own inimitability: it is sent down in clear, eloquent Arabic and challenges its hearers, if they are truthful, to bring a single sura like it (tahaddi). This page considers the relevant verses under the headings of eloquence (balāgha), clarity (faṣāḥa), concision (ījāz), parable (mathal), sound and rhythm, and composition and structure. This technical classification belongs to human interpretation. Eloquence and inimitability are first of all the Qur'an's own declaration; the work of classical and modern scholars on these matters is a human effort to understand that declaration, not an authority that endorses a divine truth.",
+    "themes": [
+      {
+        "titleTr": "Tahaddî: Meydan Okuma",
+        "titleEn": "Tahaddi: The Challenge",
+        "verses": [
+          {
+            "ref": "İsrâ 17:88",
+            "ar": "قُلْ لَئِنِ اجْتَمَعَتِ الْاِنْسُ وَالْجِنُّ عَلٰٓى اَنْ يَأْتُوا بِمِثْلِ هٰذَا الْقُرْاٰنِ لَا يَأْتُونَ بِمِثْلِهِ وَلَوْ كَانَ بَعْضُهُمْ لِبَعْضٍ ظَهِيراً",
+            "glossTr": "De ki: Andolsun, insanlar ve cinler bu Kur'ân'ın bir benzerini getirmek için bir araya gelseler, birbirlerine destek de olsalar, onun bir benzerini getiremezler.",
+            "glossEn": "Say: If all humans and jinn were to gather to produce the like of this Qur'an, they could not produce its like, even if they supported one another."
+          },
+          {
+            "ref": "Hûd 11:13",
+            "ar": "اَمْ يَقُولُونَ افْتَرٰيهُ  قُلْ فَأْتُوا بِعَشْرِ سُوَرٍ مِثْلِهِ مُفْتَرَيَاتٍ وَادْعُوا مَنِ اسْتَطَعْتُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ",
+            "glossTr": "Yoksa 'Onu kendisi uydurdu' mu diyorlar? De ki: Öyleyse siz de onun benzeri uydurulmuş on sûre getirin ve doğru söylüyorsanız, Allah'tan başka gücünüzün yettiği kim varsa çağırın.",
+            "glossEn": "Or do they say, 'He has fabricated it'? Say: Then bring ten fabricated suras like it, and call upon whoever you can besides Allah, if you are truthful."
+          },
+          {
+            "ref": "Bakara 2:23",
+            "ar": "وَاِنْ كُنْتُمْ فِي رَيْبٍ مِمَّا نَزَّلْنَا عَلٰى عَبْدِنَا فَأْتُوا بِسُورَةٍ مِنْ مِثْلِهِ وَادْعُوا شُهَدَاءَكُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ",
+            "glossTr": "Kulumuza indirdiğimizden şüphe içindeyseniz, haydi onun benzeri bir sûre getirin ve doğru söyleyenlerseniz, Allah'tan başka şahitlerinizi de çağırın.",
+            "glossEn": "And if you are in doubt about what We have sent down upon Our servant, then bring a sura like it, and call your witnesses besides Allah, if you are truthful."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (İsrâ 17:88): insanlar ve cinler bir araya gelip birbirine yardım etseler dahi Kur'ân'ın bir benzerini asla getiremezler; çünkü bu, dengi ve benzeri olmayan Yaratıcı'nın kelâmıdır. Aynı meydan okuma metinde (Bakara 2:23) tek bir sûre düzeyine indirilerek tekrarlanır; İbn Kesîr, bu tahaddînin Kur'ân'ın nazmındaki ve üslûbundaki üstünlüğe dayandığını, onun Arapların söz sanatını dahi aştığını belirtir.",
+        "tafsirEn": "In the abridged Ibn Kathir text (Isra 17:88): even if humans and jinn gathered and supported one another, they could never bring the like of the Qur'an, for it is the speech of the Creator who has no equal or peer. The same challenge is repeated in the text (Baqara 2:23), scaled down to a single sura; Ibn Kathir notes that this tahaddi rests on the Qur'an's superiority in composition and style, surpassing even the eloquence of the Arabs.",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Yirmi Beşinci Söz (Mu'cizât-ı Kur'âniye Risalesi)",
+          "sourceEn": "Bediüzzaman · The Words, Twenty-Fifth Word (Treatise on the Miraculousness of the Qur'an)",
+          "introTr": "Bediüzzaman, Yirmi Beşinci Söz'de Kur'ân'ın i'câzını en başta nazmındaki belâgate bağlar ve tahaddî âyetlerini bu çerçevede okur.",
+          "introEn": "In the Twenty-Fifth Word, Bediüzzaman roots the Qur'an's inimitability first of all in the eloquence of its composition (nazm) and reads the challenge verses within this frame.",
+          "pointsTr": [
+            "Kur'ân'ın en parlak mu'cizesi, lafızları ile mânâları arasındaki kusursuz uyumdan, yani nazmının cezâletinden ve belâgatinden doğar; Bediüzzaman bu cezâlet ve belâgati, Kur'ân'ın i'câz vecihlerinden biri olarak ele alır.",
+            "Meydan okuma, belâgatte zirvede bulunan Arap ediplerine yapılmıştır; buna rağmen bu ediplerden hiçbiri tek bir sûrenin benzerini dahi ortaya koyamamıştır.",
+            "Bediüzzaman, Arapların tek bir sûreyle meydan okumaya karşılık vermek yerine mal ve can kaybına yol açan savaş yolunu seçmelerini, benzerini getiremediklerinin delili olarak yorumlar."
+          ],
+          "pointsEn": [
+            "The Qur'an's most brilliant miracle arises from the flawless harmony between its words and meanings, that is, from the elegance and strength of its composition; Bediüzzaman treats this strength and eloquence of composition as one aspect of the Qur'an's inimitability.",
+            "The challenge was addressed to the Arab masters of rhetoric who stood at the summit of eloquence, yet none of them could bring the like of even a single sura.",
+            "Bediüzzaman reads the Arabs' choice of war, at the cost of wealth and life, instead of answering the challenge with a single sura, as evidence that they could not produce its like."
+          ],
+          "noteTr": "Alıntılar birincil metinlerden doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotations are verified from the primary texts. This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration."
+        }
+      },
+      {
+        "titleTr": "Apaçık Arapça ve Fesâhat",
+        "titleEn": "Clear Arabic and Fasaha",
+        "verses": [
+          {
+            "ref": "Yûsuf 12:2",
+            "ar": "اِنَّا اَنْزَلْنَاهُ قُرْءٰناً عَرَبِياًّ لَعَلَّـكُمْ تَعْقِلُونَ",
+            "glossTr": "Biz onu, aklınızı kullanasınız diye Arapça bir Kur'ân olarak indirdik.",
+            "glossEn": "Indeed, We have sent it down as an Arabic Qur'an, that you may understand."
+          },
+          {
+            "ref": "Nahl 16:103",
+            "ar": "وَلَقَدْ نَعْلَمُ اَنَّهُمْ يَقُولُونَ اِنَّمَا يُعَلِّمُهُ بَشَرٌ لِسَانُ الَّذِي يُلْحِدُونَ اِلَيْهِ اَعْجَمِيٌّ وَهٰذَا لِسَانٌ عَرَبِيٌّ مُبِينٌ",
+            "glossTr": "Andolsun ki 'Onu bir insan öğretiyor' dediklerini biliyoruz. İma ettikleri kişinin dili yabancıdır; bu ise apaçık bir Arapça'dır.",
+            "glossEn": "We surely know they say, 'It is only a human teaching him.' The tongue of the one they allude to is foreign, while this is clear Arabic."
+          },
+          {
+            "ref": "Zümer 39:28",
+            "ar": "قُرْاٰناً عَرَبِياًّ غَيْرَ ذِي عِوَجٍ لَعَلَّهُمْ يَتَّقُونَ",
+            "glossTr": "Onu, sakınıp korunsunlar diye, hiçbir eğriliği bulunmayan Arapça bir Kur'ân olarak indirdik.",
+            "glossEn": "An Arabic Qur'an, without any crookedness, that they may be mindful."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Nahl 16:103): müşriklerin, Hz. Peygamber'e Kur'ân'ı bir yabancının öğrettiği iddiası çürütülür. İma edilen kişinin Arapçası son derece kıt ve sınırlıyken, Kur'ân apaçık ve fasih bir Arapça ile, kusursuz mânâ ve üslûpla gelmiştir. İbn Kesîr, hiçbir aklın böylesine üstün bir metnin kaynağını dili yetersiz bir yabancıya bağlayamayacağını vurgular.",
+        "tafsirEn": "In the abridged Ibn Kathir text (Nahl 16:103): the idolaters' claim that a foreigner was teaching the Prophet the Qur'an is refuted. The one they alluded to had only very limited Arabic, whereas the Qur'an came in clear, eloquent Arabic with perfect meanings and style. Ibn Kathir stresses that no reasonable mind could trace such a superior text to a foreigner of scant language."
+      },
+      {
+        "titleTr": "Temsil ve Mesel",
+        "titleEn": "Parable and Similitude",
+        "verses": [
+          {
+            "ref": "Bakara 2:26",
+            "ar": "اِنَّ اللّٰهَ لَا يَسْتَحْـيِ اَنْ يَضْرِبَ مَثَلاً مَا بَعُوضَةً فَمَا فَوْقَهَا  فَاَمَّا الَّذِينَ اٰمَنُوا فَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ  وَاَمَّا الَّذِينَ كَفَرُوا فَيَقُولُونَ مَاذَا اَرَادَ اللّٰهُ بِهٰذَا مَثَلاً يُضِلُّ بِهِ كَثِيراً وَيَهْدِي بِهِ كَثِيراً وَمَا يُضِلُّ بِهِ اِلَّا الْفَاسِقِينَ",
+            "glossTr": "Şüphesiz Allah, bir sivrisineği, hatta ondan daha küçük bir şeyi örnek vermekten çekinmez. İman edenler bunun Rablerinden gelen gerçek olduğunu bilir; inkâr edenler ise 'Allah bu örnekle ne demek istedi?' derler.",
+            "glossEn": "Indeed, Allah is not ashamed to give as an example a mosquito, or what is smaller than it. Those who believe know it is the truth from their Lord; but those who disbelieve say, 'What did Allah intend by this example?'"
+          },
+          {
+            "ref": "İbrâhîm 14:24",
+            "ar": "اَلَمْ تَرَ كَيْفَ ضَرَبَ اللّٰهُ مَثَلاً كَلِمَةً طَيِّبَةً كَشَجَرَةٍ طَيِّبَةٍ اَصْلُهَا ثَابِتٌ وَفَرْعُهَا فِي السَّمَاءِ",
+            "glossTr": "Görmedin mi Allah nasıl bir benzetme yaptı: Güzel bir söz, kökü sağlam, dalları göğe uzanan güzel bir ağaç gibidir.",
+            "glossEn": "Have you not seen how Allah sets forth a parable: a good word is like a good tree, its root firm and its branches in the sky."
+          },
+          {
+            "ref": "Haşr 59:21",
+            "ar": "لَوْ اَنْزَلْنَا هٰذَا الْقُرْاٰنَ عَلٰى جَبَلٍ لَرَاَيْتَهُ خَاشِعاً مُتَصَدِّعاً مِنْ خَشْيَةِ اللّٰهِ وَتِلْكَ الْاَمْثَالُ نَضْرِبُهَا لِلنَّاسِ لَعَلَّهُمْ يَتَفَكَّرُونَ",
+            "glossTr": "Eğer biz bu Kur'ân'ı bir dağa indirseydik, onu Allah korkusundan baş eğmiş, parça parça olmuş görürdün. İşte bu benzetmeleri, düşünsünler diye insanlara veriyoruz.",
+            "glossEn": "Had We sent down this Qur'an upon a mountain, you would have seen it humbled and split apart out of awe of Allah. Such are the parables We set forth for people, that they may reflect."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Bakara 2:26): Allah, hakikati etkili biçimde anlatmak için sivrisinek gibi en küçük varlığı, hatta daha küçüğünü örnek vermekten çekinmez; çünkü hiçbir konu ilâhî ders için değersiz değildir. Mü'minler bu misallerin Rablerinden gelen gerçek olduğunu bilir; inkârcılar ise onlara itiraz ederek sapkınlıklarını artırır. Böylece temsil, kalplerin durumunu açığa çıkaran bir ölçü olur.",
+        "tafsirEn": "In the abridged Ibn Kathir text (Baqara 2:26): to convey truth effectively, Allah is not ashamed to draw a parable from even the smallest creature, such as a mosquito or what is smaller, for no subject is too lowly for divine instruction. The believers know these examples to be the truth from their Lord, while the deniers object to them and only increase in misguidance; thus the parable becomes a measure that exposes the state of hearts."
+      },
+      {
+        "titleTr": "Ses, Ritim ve Tertîl",
+        "titleEn": "Sound, Rhythm and Measured Recitation",
+        "verses": [
+          {
+            "ref": "Müzzemmil 73:4",
+            "ar": "اَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْاٰنَ تَرْتِيلاً",
+            "glossTr": "...ve Kur'ân'ı ağır ağır, tane tane (tertîl ile) oku.",
+            "glossEn": "...and recite the Qur'an in a slow, measured tone (tartil)."
+          },
+          {
+            "ref": "Kamer 54:17",
+            "ar": "وَلَقَدْ يَسَّرْنَا الْقُرْاٰنَ لِلذِّكْرِ فَهَلْ مِنْ مُدَّكِرٍ",
+            "glossTr": "Andolsun, biz Kur'ân'ı öğüt alınsın diye kolaylaştırdık. Öğüt alan yok mu?",
+            "glossEn": "And We have certainly made the Qur'an easy to remember. So is there anyone who will take heed?"
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Kamer 54:17): Allah, Kur'ân'ı hem ezberlemek hem de anlamak isteyenler için kolaylaştırmıştır; bu kolaylık, insanların üzerinde düşünüp öğüt alması içindir. Metin, 'öğüt alan yok mu?' sorusuyla bu kolaylaştırmanın bir davet olduğunu pekiştirir.",
+        "tafsirEn": "In the abridged Ibn Kathir text (Qamar 54:17): Allah has made the Qur'an easy both to memorize and to comprehend for those who seek it, so that people may reflect upon it and take heed. The text reinforces this ease as an invitation with the question, 'So is there anyone who will take heed?'"
+      },
+      {
+        "titleTr": "Yapı, Tenâsüb ve İç Tutarlılık",
+        "titleEn": "Structure, Proportion and Inner Consistency",
+        "verses": [
+          {
+            "ref": "Nisâ 4:82",
+            "ar": "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً",
+            "glossTr": "Kur'ân'ı hâlâ düşünüp incelemiyorlar mı? Eğer o, Allah'tan başkasının katından olsaydı, onda birçok çelişki bulurlardı.",
+            "glossEn": "Do they not then reflect upon the Qur'an? Had it been from other than Allah, they would have found in it much contradiction."
+          },
+          {
+            "ref": "Zümer 39:23",
+            "ar": "اَللّٰهُ نَزَّلَ اَحْسَنَ الْحَدِيثِ كِتَاباً مُتَشَابِهاً مَثَانِيَ  تَقْشَعِرُّ مِنْهُ جُلُودُ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ ثُمَّ تَلِينُ جُلُودُهُمْ وَقُلُوبُهُمْ اِلٰى ذِكْرِ اللّٰهِ ذٰلِكَ هُدَى اللّٰهِ يَهْدِي بِهِ مَنْ يَشَاءُ وَمَنْ يُضْلِلِ اللّٰهُ فَمَا لَهُ مِنْ هَادٍ",
+            "glossTr": "Allah, sözün en güzelini; kısımları birbirine benzeyen, ikişerli tekrarlanan bir kitap olarak indirdi. Rablerinden korkanların ondan derileri ürperir; sonra derileri ve kalpleri Allah'ın zikrine yumuşar.",
+            "glossEn": "Allah has sent down the best of speech: a Book of consistent parts, oft-repeated, at which the skins of those who fear their Lord shiver; then their skins and hearts soften at the remembrance of Allah."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Nisâ 4:82): Kur'ân, Hakîm ve övgüye lâyık olan Allah'tan geldiği için hiçbir iç çelişki taşımaz; başkasından gelseydi içinde çok sayıda tutarsızlık bulunurdu. Bu iç bütünlük, her bölümün diğerini destekleyip doğrulamasıyla kendini gösterir; İbn Kesîr, müteşâbih âyetlerin muhkem âyetler ışığında anlaşılması gerektiğini, Kur'ân'ın kendi âhengini bir yorum ölçüsü kıldığını belirtir.",
+        "tafsirEn": "In the abridged Ibn Kathir text (Nisa 4:82): the Qur'an carries no inner contradiction because it comes from Allah, the Most Wise and Praiseworthy; had it been from another, they would have found in it much inconsistency. This inner unity shows itself in each part supporting and confirming the others; Ibn Kathir notes that the ambiguous verses are to be understood in the light of the clear ones, so that the Qur'an's own harmony becomes a measure of interpretation."
+      }
+    ],
+    "assuranceTr": "Kur'ân kesin hakikattir; onda şüphe yoktur (lâ raybe fîh). Onun belâgati ve i'câzı, Kur'ân'ın kendi beyanıdır; bir sûrenin bile benzerinin getirilemeyeceği meydan okuması bizzat Kur'ân metnindedir. Klasik ve modern âlimlerin belâgat, fesâhat, nazm ve i'câz üzerine yazdıkları, bu ilâhî hakikati onaylayan bir dış merci değil; beşerî düşüncenin onu anlama ve tarihini inceleme çabasıdır. Kur'ân'ın doğruluğu hiçbir akademik ya da bilimsel tasdike bağlı değildir; o, kendinden doğrulanan Allah kelâmıdır.",
+    "assuranceEn": "The Qur'an is certain truth; there is no doubt in it (la rayba fih). Its inimitable eloquence and i'jaz are the Qur'an's own declaration; the challenge that no one can bring the like of even a single sura is within the text itself. What classical and modern scholars have written on eloquence, clarity, composition and inimitability is not an external authority that endorses this divine truth, but a human effort to understand it and to study its history. The Qur'an's truth rests on no academic or scientific endorsement; it is the self-authenticating word of Allah.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/17/88 · quran.com/16/103 · quran.com/2/26; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/17/88 · quran.com/16/103 · quran.com/2/26; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Aşağıdaki eserler beşerî bir yorum ve inceleme katmanıdır: klasik i'câz risaleleri ile modern belâgat, edebiyat ve estetik çalışmaları, insan düşüncesini ve tarihini inceler; Kur'ân'ın kesin hakikatini ispatlamak ya da bir teoriyle âyetleri eşleştirmek için değil, onun kendi belâgat iddiasını anlamak için okunmalıdır. Hiçbiri Kur'ân ile özdeş değildir.",
+    "sourcesNoteEn": "The works below are a human layer of interpretation and study: classical i'jaz treatises and modern works on rhetoric, literature and aesthetics examine human thought and history. They are to be read in order to understand the Qur'an's own claim of eloquence, not to prove its certain truth or to match verses to a theory. None of them is identical with the Qur'an.",
+    "sources": [
+      {
+        "author": "al-Rummânî, al-Hattâbî, Abdülkāhir el-Cürcânî (çev./ed. Issa J. Boullata)",
+        "work": "Three Treatises on the I'jaz of the Qur'an: Qur'anic Studies and Literary Criticism",
+        "pub": "Garnet Publishing, Reading",
+        "year": "2014",
+        "id": "ISBN 9781859643891",
+        "noteTr": "YAKLAŞIM: Dördüncü ve beşinci Hicrî yüzyıla ait üç klasik i'câz risalesinin İngilizce tercümesi; Kur'ân'ın benzerinin getirilememesini belâgat, nazm ve söz sanatı üzerinden inceleyen erken dönem tartışmalarını sunar.",
+        "noteEn": "APPROACH: English translation of three classical treatises on i'jaz from the fourth and fifth Islamic centuries; presents the early debates that examine the Qur'an's inimitability through eloquence, composition and rhetoric."
+      },
+      {
+        "author": "Mustansir Mir",
+        "work": "Coherence in the Qur'an: A Study of Islahi's Concept of Nazm in Tadabbur-i Qur'an",
+        "pub": "American Trust Publications, Indianapolis",
+        "year": "1986",
+        "id": "ISBN 9780892590650",
+        "noteTr": "YAKLAŞIM: Emîn Ahsen Islâhî'nin nazm (sûre içi ve sûreler arası tutarlılık) teorisini inceleyen akademik bir çalışma; Kur'ân'ın yapısal bütünlüğü üzerine modern bir okuma sunar.",
+        "noteEn": "APPROACH: An academic study of Amin Ahsan Islahi's theory of nazm (coherence within and between suras); offers a modern reading of the Qur'an's structural unity."
+      },
+      {
+        "author": "Angelika Neuwirth",
+        "work": "Scripture, Poetry and the Making of a Community: Reading the Qur'an as a Literary Text",
+        "pub": "Oxford University Press / The Institute of Ismaili Studies, Oxford",
+        "year": "2014",
+        "id": "ISBN 9780198701644",
+        "noteTr": "YAKLAŞIM: Sûreleri edebî ve tarihsel bağlamında okuyan akademik bir inceleme; Kur'ân metninin yapısını ve dil örgüsünü beşerî bir bakışla ele alır, ilâhî hakikati tasdik iddiası taşımaz.",
+        "noteEn": "APPROACH: An academic study that reads the suras in their literary and historical context; it treats the structure and texture of the Qur'anic text from a human standpoint and makes no claim to confirm a divine truth."
+      },
+      {
+        "author": "Hussein Abdul-Raof",
+        "work": "Arabic Rhetoric: A Pragmatic Analysis",
+        "pub": "Routledge, London",
+        "year": "2006",
+        "id": "ISBN 9780415386098",
+        "noteTr": "YAKLAŞIM: Arap belâgatinin (meânî, beyân, bedî') dilbilimsel ve edimbilimsel bir çözümlemesi; Kur'ân örnekleri üzerinden belâgat kategorilerini beşerî bir dil çalışması olarak açıklar.",
+        "noteEn": "APPROACH: A linguistic and pragmatic analysis of Arabic rhetoric (ma'ani, bayan, badi'); it explains the categories of eloquence through Qur'anic examples as a human study of language."
+      },
+      {
+        "author": "Navid Kermani (çev. Tony Crawford)",
+        "work": "God is Beautiful: The Aesthetic Experience of the Quran",
+        "pub": "Polity Press, Cambridge",
+        "year": "2015",
+        "id": "ISBN 9780745651675",
+        "noteTr": "YAKLAŞIM: Kur'ân'ın işitsel ve estetik etkisinin tarih boyunca nasıl algılandığını inceleyen bir alımlama çalışması; muhatapların deneyimini beşerî bir açıdan ele alır.",
+        "noteEn": "APPROACH: A reception study of how the Qur'an's aural and aesthetic effect has been perceived through history; it treats the experience of hearers from a human perspective."
+      },
+      {
+        "author": "Michael Sells",
+        "work": "Approaching the Qur'an: The Early Revelations",
+        "pub": "White Cloud Press, Ashland (2nd ed.)",
+        "year": "2007",
+        "id": "ISBN 9781883991692",
+        "noteTr": "YAKLAŞIM: Erken dönem (kısa) sûrelerin çevirisi ve açıklaması; ses, ritim ve tekrar gibi işitsel unsurları edebî bir okuma çerçevesinde inceler.",
+        "noteEn": "APPROACH: A translation and annotation of the early (short) suras; it examines aural features such as sound, rhythm and repetition within a literary reading."
+      }
+    ]
+  },
+
+  'maneviyat-ibadet': {
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "Zâriyât 51:56",
+      "ar": "وَمَا خَلَقْتُ الْجِنَّ وَالْاِنْسَ اِلَّا لِيَعْبُدُونِ",
+      "trTr": "Ben cinleri ve insanları ancak bana kulluk etsinler diye yarattım.",
+      "trEn": "I did not create jinn and humans except to worship Me."
+    },
+    "introTr": "Kur'an, kulluğu (ibadeti) yaratılışın gayesi olarak koyar ve mü'mini namazı ikâme etmeye, oruç tutmaya, zekât ve infakta bulunmaya, duâ etmeye ve Allah'ı anmaya (zikre) kat'î bir dille çağırır. Bu çağrının merkezinde ihlâs ve takvâ, yani ameli yalnız Allah için ve O'nun huzurunda bir bilinçle yapmak vardır. Bu sayfadaki başlıklandırmalar, ibadet türlerinin tasnifi ve mânevî okumalar birer beşerî yorum katmanıdır; âyetlerin kendisi ise Rabbimizin kesin beyanıdır.",
+    "introEn": "The Qur'an sets worship as the very purpose of creation and calls the believer, in decisive terms, to establish prayer, to fast, to give zakat and to spend, to supplicate, and to remember God (dhikr). At the heart of this call stand sincerity (ihlas) and God-consciousness (taqwa): acting for God alone and with awareness of standing before Him. The headings, the classification of acts of worship, and the spiritual readings on this page are a human interpretive layer; the verses themselves are our Lord's certain declaration.",
+    "themes": [
+      {
+        "titleTr": "İkâme-i Salât: Namazı Dosdoğru Kılmak",
+        "titleEn": "Establishing Prayer (Ikamat as-Salat)",
+        "verses": [
+          {
+            "ref": "Ankebût 29:45",
+            "ar": "اُتْلُ مَا اُوحِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
+            "glossTr": "Sana vahyedilen Kitab'ı oku ve namazı kıl. Şüphesiz namaz hayâsızlıktan ve kötülükten alıkoyar; Allah'ı anmak ise en büyüğüdür. Allah yaptıklarınızı bilir.",
+            "glossEn": "Recite what has been revealed to you of the Book and establish prayer. Indeed, prayer deters one from indecency and wickedness. The remembrance of Allah is even greater. And Allah knows what you do."
+          },
+          {
+            "ref": "Bakara 2:238",
+            "ar": "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلٰوةِ الْوُسْطٰى وَقُومُوا لِلّٰهِ قَانِتِينَ",
+            "glossTr": "Namazlara ve orta namaza devam edin; Allah'ın huzurunda gönülden boyun eğerek durun.",
+            "glossEn": "Observe the prayers, especially the middle prayer, and stand before Allah in true devotion."
+          },
+          {
+            "ref": "İsrâ 17:78",
+            "ar": "اَقِمِ الصَّلٰوةَ لِدُلُوكِ الشَّمْسِ اِلٰى غَسَقِ الَّيْلِ وَقُرْاٰنَ الْفَجْرِ اِنَّ قُرْاٰنَ الْفَجْرِ كَانَ مَشْهُوداً",
+            "glossTr": "Güneşin kaymasından gecenin karanlığına kadar namazı kıl; sabah namazını da. Çünkü sabah namazı şahitlidir.",
+            "glossEn": "Observe the prayer from the decline of the sun until the darkness of the night, and the dawn prayer; for the dawn prayer is witnessed."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Bakara 2:238): namazların vaktinde ve tam olarak eda edilmesi emredilir; İbn Mes'ûd'dan nakledilen rivayette 'vaktinde kılınan namaz' Allah katında amellerin en sevgilisi sayılır. Metin, cumhûr-u ulemânın 'orta namaz'ı ikindi namazı olarak tespit ettiğini ve Hendek günü Hz. Peygamber'in ikindiyi vaktinde kılamamaktan söz eden rivayetiyle bunun desteklendiğini aktarır. Ayrıca Allah'ın huzurunda 'kanitîn' olarak durmanın itaat ve huşû gerektirdiği belirtilir.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Baqarah 2:238): performing the prayers properly and at their fixed times is commanded; in a report from Ibn Mas'ud, prayer at its time is 'the dearest deed to Allah.' The text notes that the majority of scholars identify the 'middle prayer' as the 'Asr prayer, supported by the report from the day of Al-Ahzab in which the Prophet mentioned being kept from the 'Asr prayer. It also states that standing before Allah in devotion (qunut) requires obedience and humility.",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Dokuzuncu Söz",
+          "sourceEn": "Bediüzzaman · The Words, The Ninth Word",
+          "introTr": "Bediüzzaman, Dokuzuncu Söz'de namazın niçin beş vakte tahsis edildiği sorusunu işler ve her bir vakti kâinattaki büyük tasarrufların ve insan ömrünün bir aynası olarak okur.",
+          "introEn": "In the Ninth Word, Bediüzzaman takes up the question of why prayer is assigned to five times, reading each appointed time as a mirror of the great workings in the cosmos and of the phases of human life.",
+          "pointsTr": [
+            "Namazın mânâsı; kavlen ve fiilen 'Sübhânallah' diyerek Allah'ı takdis, 'Allahü ekber' diyerek O'nun büyüklüğünü tazim, 'Elhamdülillah' diyerek de şükür ve senâda bulunmaktır.",
+            "Beş vaktin her biri mühim bir inkılâbın başlangıcı, büyük bir tasarruf-u İlâhî'nin aynası ve iki vakit arasında toplanan sayısız nimete karşı bir şükür mevkiidir.",
+            "Her vakit bir hâli hatırlatır: sabah baharın başını, insanın rahimde yaratılışını ve kâinatın ilk gününü; öğle yazın ortasını ve gençliğin kemâlini; ikindi güz mevsimini, ihtiyarlığı ve Asr-ı Saâdet'i; akşam kışın başını ve ömrün sonunu, hatta kıyametin kopmasını; yatsı ise gecenin karanlığını, vefatı ve dünyanın kapanışını ihtar eder."
+          ],
+          "pointsEn": [
+            "The meaning of prayer is to hallow God by saying, in word and act, 'Subhanallah'; to magnify His greatness by 'Allahu akbar'; and to give thanks and praise by 'Alhamdulillah.'",
+            "Each of the five times is the beginning of an important transformation, a mirror of a great divine disposal, and an occasion of thanks for the countless bounties gathered between two prayer times.",
+            "Each time recalls a state: dawn recalls the start of spring, the forming of a human in the womb, and the first day of the universe; noon recalls midsummer and the fullness of youth; afternoon recalls autumn, old age, and the Age of Happiness; sunset recalls the onset of winter and the end of a lifespan, even the coming of the Resurrection; and night recalls darkness, death, and the closing of the world."
+          ],
+          "noteTr": "Alıntılar birincil metinlerden doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotations are verified from the primary texts. This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration."
+        }
+      },
+      {
+        "titleTr": "Oruç ve Sıyâm: Nefsi Terbiye ve Takvâ",
+        "titleEn": "Fasting (Sawm): Discipline of the Self and Taqwa",
+        "verses": [
+          {
+            "ref": "Bakara 2:183",
+            "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+            "glossTr": "Ey iman edenler! Oruç, sizden öncekilere farz kılındığı gibi size de farz kılındı; umulur ki sakınırsınız (takvâya erersiniz).",
+            "glossEn": "O believers! Fasting is prescribed for you as it was prescribed for those before you, so that you may become mindful of God."
+          },
+          {
+            "ref": "Bakara 2:185",
+            "ar": "شَهْرُ رَمَضَانَ الَّذِي اُنْزِلَ فِيهِ الْقُرْاٰنُ هُدًى لِلنَّاسِ وَبَيِّنَاتٍ مِنَ الْهُدٰى وَالْفُرْقَانِ فَمَنْ شَهِدَ مِنْكُمُ الشَّهْرَ فَلْيَصُمْهُ وَمَنْ كَانَ مَرِيضاً اَوْ عَلٰى سَفَرٍ فَعِدَّةٌ مِنْ اَيَّامٍ اُخَرَ يُرِيدُ اللّٰهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰيكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ",
+            "glossTr": "Ramazan, insanlara yol gösterici, doğrunun ve doğruyu eğriden ayırmanın açık delilleri olarak Kur'an'ın indirildiği aydır. Kim bu aya erişirse oruç tutsun. Allah size kolaylık diler, zorluk dilemez.",
+            "glossEn": "Ramadan is the month in which the Qur'an was revealed as guidance for the people, with clear proofs of guidance and the criterion. So whoever is present this month, let them fast. Allah intends ease for you, not hardship."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Bakara 2:183): Allah, mü'minlere ihlâslı bir niyetle yemeden, içmeden ve cinsî münasebetten uzak durmayı emreder; çünkü oruç nefisleri arındırır ve onlara karışabilecek kötü hasletlerden temizler. Metin, orucun önceki ümmetlere de farz kılındığını, bunun mü'minler için bir örnek olduğunu ve belirli sayıda güne tahsis edilmesinin kalplere ağır gelmeyip sabır ve sebâtı koruduğunu ifade eder.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Baqarah 2:183): Allah orders the believers to abstain, with sincere intention, from food, drink, and marital relations, because fasting purifies the souls and cleanses them of the evil that may mix with them. The text notes that fasting was also prescribed for earlier nations as an example for the believers, and that assigning it to a fixed number of days prevents undue hardship on the heart and preserves resolve and endurance."
+      },
+      {
+        "titleTr": "Zekât ve İnfâk: Malı Arındırmak",
+        "titleEn": "Zakat and Spending (Infaq): Purifying Wealth",
+        "verses": [
+          {
+            "ref": "Bakara 2:261",
+            "ar": "مَثَلُ الَّذِينَ يُنْفِقُونَ اَمْوَالَهُمْ فِي سَبِيلِ اللّٰهِ كَمَثَلِ حَبَّةٍ اَنْبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنْبُلَةٍ مِائَةُ حَبَّةٍ وَاللّٰهُ يُضَاعِفُ لِمَنْ يَشَاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ",
+            "glossTr": "Mallarını Allah yolunda harcayanların durumu, her başağında yüz tane bulunan yedi başak veren bir tohum gibidir. Allah dilediğine kat kat verir. Allah lütfu geniş olandır, hakkıyla bilendir.",
+            "glossEn": "The example of those who spend their wealth in the cause of Allah is that of a grain that grows seven ears, each ear bearing a hundred grains. And Allah multiplies for whom He wills. Allah is All-Bountiful, All-Knowing."
+          },
+          {
+            "ref": "Tevbe 9:103",
+            "ar": "خُذْ مِنْ اَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِمْ بِهَا وَصَلِّ عَلَيْهِمْ اِنَّ صَلٰوتَكَ سَكَنٌ لَهُمْ وَاللّٰهُ سَمِيعٌ عَلِيمٌ",
+            "glossTr": "Onların mallarından bir sadaka al ki, bununla onları temizleyip arındırasın; onlara duâ et. Şüphesiz senin duân onlar için bir huzurdur. Allah işitendir, bilendir.",
+            "glossEn": "Take from their wealth a charity by which you purify and bless them, and pray for them; indeed your prayer is a comfort for them. And Allah is All-Hearing, All-Knowing."
+          },
+          {
+            "ref": "Bakara 2:267",
+            "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اَنْفِقُوا مِنْ طَيِّبَاتِ مَا كَسَبْتُمْ وَمِمَّا اَخْرَجْنَا لَكُمْ مِنَ الْاَرْضِ وَلَا تَيَمَّمُوا الْخَبِيثَ مِنْهُ تُنْفِقُونَ وَلَسْتُمْ بِاٰخِذِيهِ اِلَّا اَنْ تُغْمِضُوا فِيهِ وَاعْلَمُوا اَنَّ اللّٰهَ غَنِيٌّ حَمِيدٌ",
+            "glossTr": "Ey iman edenler! Kazandıklarınızın ve yerden sizin için çıkardıklarımızın temiz olanlarından infak edin. Kendinizin göz yummadan alamayacağınız âdi şeyleri vermeye kalkmayın.",
+            "glossEn": "O believers! Spend from the good things you have earned and from what We have produced for you from the earth. Do not aim at the defective to give from it, that which you would not take yourselves except with closed eyes."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Bakara 2:261): Allah yolunda infak, yedi başak veren ve her başağında yüz tane bulunan bir tohumla temsil edilir; iyi amelin on kattan yedi yüz kata kadar katlanabileceği belirtilir. Metin, bu temsilin salt bir sayı zikretmekten daha tesirli olduğunu, ilâhî bereketin ziraî büyümeyi andırdığını ve kat kat mükâfatın kişinin ihlâsına bağlı olduğunu ('Allah dilediğine kat kat verir') vurgular.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Baqarah 2:261): spending in the cause of Allah is represented by a grain that yields seven ears, each with a hundred grains; the good deed may be multiplied from ten up to seven hundred times. The text stresses that this parable is more effective than merely stating a number, that the divine increase resembles agricultural growth, and that the manifold reward depends on the person's sincerity ('Allah gives manifold increase to whom He wills')."
+      },
+      {
+        "titleTr": "Duâ: Rabbe Yönelmek ve İcabet",
+        "titleEn": "Supplication (Du'a): Turning to the Lord",
+        "verses": [
+          {
+            "ref": "Bakara 2:186",
+            "ar": "وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ",
+            "glossTr": "Kullarım sana beni sorduğunda; işte ben yakınım. Bana dua ettiğinde dua edenin çağrısına karşılık veririm. Öyleyse onlar da benim çağrıma uysunlar ve bana iman etsinler ki doğru yolu bulsunlar.",
+            "glossEn": "When My servants ask you about Me, indeed I am near. I respond to the call of the caller when he calls upon Me. So let them respond to Me and believe in Me, that they may be rightly guided."
+          },
+          {
+            "ref": "Mü'min 40:60",
+            "ar": "وَقَالَ رَبُّكُمُ ادْعُونِٓي اَسْتَجِبْ لَكُمْ اِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ",
+            "glossTr": "Rabbiniz şöyle buyurdu: Bana dua edin, size karşılık vereyim. Bana kulluk etmeyi büyüklüklerine yediremeyenler, aşağılanmış olarak cehenneme gireceklerdir.",
+            "glossEn": "Your Lord has said: Call upon Me, I will respond to you. Indeed, those who are too proud to worship Me will enter Hell in humiliation."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Bakara 2:186): Allah'ın kullarına yakın olduğu ve duâya icabet ettiği vurgulanır; 'siz sağır veya uzaktaki birine değil, her şeyi işiten ve gören bir Zât'a sesleniyorsunuz' rivayeti aktarılır. Metin, günah veya akrabalık bağlarını koparma talebi içermeyen duânın, kul acele edip duâyı terk etmediği sürece makbul olduğunu; icabetin ya dünyada gerçekleşeceğini, ya âhirete saklanacağını, ya da denk bir zararın giderilmesi şeklinde tecelli edeceğini nakleder.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Baqarah 2:186): it is stressed that Allah is near to His servants and answers supplication; a report is cited that 'you are not calling upon one deaf or absent, but One who is All-Hearing, All-Seeing.' The text relates that supplication is accepted provided it does not ask for sin or the severing of kinship ties and the servant does not grow hasty and abandon it, and that the response comes either fulfilled in this world, or stored for the Hereafter, or as the averting of an equivalent harm."
+      },
+      {
+        "titleTr": "Zikir, İhlâs ve Takvâ: Kalbin Huzuru",
+        "titleEn": "Remembrance, Sincerity, and Taqwa: The Heart's Rest",
+        "verses": [
+          {
+            "ref": "Ra'd 13:28",
+            "ar": "اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ اَلَا بِذِكْرِ اللّٰهِ تَطْمَئِنُّ الْقُلُوبُ",
+            "glossTr": "Onlar, iman edenler ve kalpleri Allah'ı anmakla huzura kavuşanlardır. Bilesiniz ki kalpler ancak Allah'ı anmakla huzur bulur.",
+            "glossEn": "Those who believe and whose hearts find rest in the remembrance of Allah. Surely in the remembrance of Allah do hearts find rest."
+          },
+          {
+            "ref": "Ahzâb 33:41",
+            "ar": "يَا اَيُّهَا الَّذِينَ اٰمَنُوا اذْكُرُوا اللّٰهَ ذِكْراً كَثِيراً",
+            "glossTr": "Ey iman edenler! Allah'ı çokça anın.",
+            "glossEn": "O believers! Remember Allah with much remembrance."
+          },
+          {
+            "ref": "Beyyine 98:5",
+            "ar": "وَمَا اُمِرُوا اِلَّا لِيَعْبُدُوا اللّٰهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ وَيُقِيمُوا الصَّلٰوةَ وَيُؤْتُوا الزَّكٰوةَ وَذٰلِكَ دِينُ الْقَيِّمَةِ",
+            "glossTr": "Oysa onlara, dini yalnız Allah'a has kılarak, dosdoğru olarak yalnız O'na kulluk etmeleri, namazı kılmaları ve zekâtı vermeleri emredilmişti. İşte dosdoğru din budur.",
+            "glossEn": "They were commanded only to worship Allah, being sincere to Him in devotion and upright, and to establish prayer and give zakat; that is the upright religion."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Ra'd 13:28): iman edenlerin kalplerinin Allah'ın anılmasıyla huzura kavuştuğu, O'nun tarafına yönelince mutmain olduğu ve O'nu dost ve yardımcı bilmekten hoşnut olduğu belirtilir. Metin, 'Bilesiniz ki kalpler ancak Allah'ı anmakla huzur bulur' beyanını teyit eder.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Ar-Ra'd 13:28): it is stated that the hearts of the believers find comfort at the side of Allah, become tranquil when He is remembered, and are pleased to have Him as Protector and Supporter. The text affirms the declaration: 'Verily, in the remembrance of Allah do hearts find rest.'"
+      }
+    ],
+    "assuranceTr": "Kur'an kesin hakikattir; onda şüphe yoktur (lâ raybe fîh). İbadetin emri Rabbimizin kat'î çağrısıdır ve doğruluğu hiçbir bilimsel, psikolojik ya da tıbbî bulgunun tasdikine bağlı değildir. Namazın kalbe huzur vermesi veya orucun bedene faydası birer sonuç olabilir; fakat bunlar ibadetin 'delili' değildir. İbadet, yalnız Allah emrettiği ve O'nun rızası için yapılır. Bu sayfadaki tasnifler ve mânevî okumalar beşerî yorum katmanıdır; Kur'an'ın kesin beyanıyla özdeş değildir.",
+    "assuranceEn": "The Qur'an is certain truth; there is no doubt in it (la rayba fih). The command to worship is our Lord's decisive call, and its truth depends on no scientific, psychological, or medical finding for confirmation. That prayer brings the heart rest, or that fasting benefits the body, may be an outcome, but these are not the 'proof' of worship. Worship is performed only because Allah has commanded it and for His good pleasure. The classifications and spiritual readings on this page are a human interpretive layer, not identical with the Qur'an's certain declaration.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/2/238 · quran.com/2/183 · quran.com/2/261; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/2/238 · quran.com/2/183 · quran.com/2/261; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Aşağıdaki eserler, ibadetin insanlık tarihindeki anlaşılış, tatbik ve kurumlaşma biçimlerini inceleyen akademik ve klasik çalışmalardır. Bunlar Kur'an'ı 'doğrulamak' için değil, beşerî dinî düşünce ve pratiği anlamak için okunur. Tefsir ve risale metinleri de beşerî yorum katmanıdır.",
+    "sourcesNoteEn": "The works below are academic and classical studies of how worship has been understood, practiced, and institutionalized in human history. They are read not to 'confirm' the Qur'an, but to understand human religious thought and practice. Tafsir and Risale texts are likewise a human interpretive layer.",
+    "sources": [
+      {
+        "author": "Marion Holmes Katz",
+        "work": "Prayer in Islamic Thought and Practice",
+        "pub": "Cambridge University Press (Cambridge)",
+        "year": "2013",
+        "id": "ISBN 9780521887885",
+        "noteTr": "YAKLAŞIM: Namazın (salât) İslâm hukuku, tasavvuf ve felsefede farklı anlaşılış biçimlerini izleyen tarihsel bir inceleme; beşerî yorum ve pratik tarihini konu edinir.",
+        "noteEn": "APPROACH: A historical survey tracing how prayer (salat) has been understood in Islamic law, Sufism, and philosophy; it treats the history of human interpretation and practice."
+      },
+      {
+        "author": "Amy Singer",
+        "work": "Charity in Islamic Societies",
+        "pub": "Cambridge University Press (Cambridge)",
+        "year": "2008",
+        "id": "ISBN 9780521529129",
+        "noteTr": "YAKLAŞIM: Zekât, sadaka ve vakıf gibi hayır kurumlarının sosyal ve tarihsel incelemesi; ibadetin insanî tatbik ve kurumlaşmasını ele alır, Kur'an'a hüküm vermez.",
+        "noteEn": "APPROACH: A social and historical study of charitable institutions such as zakat, sadaqa, and waqf; it addresses the human practice and institutionalization of worship, not a verdict on the Qur'an."
+      },
+      {
+        "author": "Constance E. Padwick",
+        "work": "Muslim Devotions: A Study of Prayer-Manuals in Common Use",
+        "pub": "Oneworld Publications (Oxford)",
+        "year": "1996",
+        "id": "ISBN 9781851681150",
+        "noteTr": "YAKLAŞIM: Duâ ve evrâd metinlerine dayanan klasik bir dindarlık incelemesi; Müslüman ibadet ve niyaz geleneğinin betimleyici tarihi, doktriner bir Kur'an otoritesi değil.",
+        "noteEn": "APPROACH: A classic study of piety based on supplication and devotional manuals; a descriptive history of the Muslim devotional tradition, not a doctrinal authority on the Qur'an."
+      },
+      {
+        "author": "Toshihiko Izutsu",
+        "work": "Ethico-Religious Concepts in the Qur'an",
+        "pub": "McGill-Queen's University Press (Montreal)",
+        "year": "2002",
+        "id": "ISBN 9780773524279",
+        "noteTr": "YAKLAŞIM: Takvâ, ihlâs gibi Kur'anî ahlâk kavramlarının semantik-dilbilimsel çözümlemesi; beşerî ilmî bir yöntemle metnin kavram yapısını inceler.",
+        "noteEn": "APPROACH: A semantic and linguistic analysis of Qur'anic ethical concepts such as taqwa and ihlas; it studies the conceptual structure of the text through a human scholarly method."
+      },
+      {
+        "author": "Hâfız İbn Kesîr (çev./ihtisar: Safiyyurrahmân el-Mübârekfûrî heyeti)",
+        "work": "Tafsir Ibn Kathir (Abridged), 10 cilt",
+        "pub": "Darussalam (Riyad)",
+        "year": "2000",
+        "id": "ISBN 9781591440208",
+        "noteTr": "YAKLAŞIM: Klasik Sünnî tefsir. Sayfadaki notlarda quran.com üzerindeki İngilizce muhtasar metin kullanılmıştır; çevrimiçi metnin bu matbu baskıyla eşleşmesi kesinleştirilmemiştir. Tefsir beşerî yorum katmanıdır.",
+        "noteEn": "APPROACH: A classical Sunni tafsir. The notes use the English abridged text on quran.com; its correspondence with this print edition has not been established. Tafsir is a human interpretive layer."
+      },
+      {
+        "author": "Bediüzzaman Said Nursî",
+        "work": "Sözler (Dokuzuncu Söz)",
+        "pub": "Envâr Neşriyat / Söz Basım Yayın (İstanbul)",
+        "year": "2012",
+        "id": "Risale-i Nur birincil metni (matbu ISBN doğrulanamadı)",
+        "noteTr": "YAKLAŞIM: Namaz vakitlerinin hikmetine dair modern bir risale/tefsir okuması; commentary bloğunun birincil kaynağıdır. Beşerî yorum katmanıdır (metin risale.online üzerinden teyit edilmiştir).",
+        "noteEn": "APPROACH: A modern Risale/tafsir reading of the wisdom of the prayer times; the primary source for the commentary block. A human interpretive layer (the text was confirmed via risale.online)."
+      }
+    ]
+  },
+
+  'tabiat-afak': {
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "Fussilet 41:53",
+      "ar": "سَنُرِيهِمْ اٰيَاتِنَا فِي الْاٰفَاقِ وَفِٓي اَنْفُسِهِمْ حَتّٰى يَتَبَـيَّنَ لَهُمْ اَنَّهُ الْحَقُّ اَوَلَمْ يَكْفِ بِرَبِّكَ اَنَّهُ عَلٰى كُلِّ شَيْءٍ شَهِيدٌ",
+      "trTr": "Onlara âyetlerimizi hem âfâkta (dış dünyada) hem de kendi nefislerinde göstereceğiz; tâ ki bu (Kur'an'ın) hak olduğu kendilerine besbelli olsun. Rabbinin her şeye şahit olması yetmez mi?",
+      "trEn": "We will show them Our signs in the horizons and within themselves until it becomes clear to them that this (Qur'an) is the truth. Is it not enough that your Lord is a Witness over all things?"
+    },
+    "introTr": "Kur'an bir bilim kitabı değildir. Göklerdeki ve yerdeki kevnî âyetler (âfâk) ile insanın kendi nefsindeki (enfüs) işaretler, ölçülüp ispatlanmayı bekleyen bilimsel önermeler değil; kalbi Yaratıcı'ya çağıran, tefekküre ve şükre davet eden kesin hakikat işaretleridir (lâ raybe fîh). Bu sayfa bilimsel bulguları Kur'an'ın hakemi yapmaz; 'bilim tasdik ediyor' demez ve hiçbir âyeti bir teoriye eşlemez. Meâl, tefsir ve akademik çalışmalar ise beşerî yorum katmanıdır. Bu başlık altında; âfâk ve enfüs tefekkürü, göklerin ve yerin yaratılışı, gece ile gündüzün değişmesi, yağmurun ölü toprağı diriltmesi, gökyüzü, dağlar ve kâinattaki ölçü (mîzân) gibi temalar, insanı Rabbini tanımaya ve O'na şükretmeye çağıran işaretler olarak bir araya getirilmiştir.",
+    "introEn": "The Qur'an is not a science textbook. The cosmic signs in the heavens and the earth (afaq) and the signs within the human self (anfus) are not scientific propositions awaiting measurement or proof; they are certain truths in which there is no doubt, calling the heart toward its Creator and inviting reflection (tafakkur) and gratitude. This page never makes scientific findings the arbiter of the Qur'an: it does not say 'science confirms it' and it matches no verse to any theory. Translations, tafsir and academic studies are a human interpretive layer. Under this heading, themes such as reflection on the horizons and the self, the creation of the heavens and the earth, the alternation of night and day, rain reviving the dead earth, the sky, the mountains and the balance (mizan) of creation are gathered as signs inviting the human being to know and thank the Creator.",
+    "themes": [
+      {
+        "titleTr": "Âfâk ve Enfüs: İki Kanatlı Tefekkür",
+        "titleEn": "The Horizons and the Self: Reflection on Two Wings",
+        "verses": [
+          {
+            "ref": "Fussilet 41:53",
+            "ar": "سَنُرِيهِمْ اٰيَاتِنَا فِي الْاٰفَاقِ وَفِٓي اَنْفُسِهِمْ حَتّٰى يَتَبَـيَّنَ لَهُمْ اَنَّهُ الْحَقُّ اَوَلَمْ يَكْفِ بِرَبِّكَ اَنَّهُ عَلٰى كُلِّ شَيْءٍ شَهِيدٌ",
+            "glossTr": "Onlara âyetlerimizi hem âfâkta hem de kendi nefislerinde göstereceğiz; tâ ki bu (Kur'an'ın) hak olduğu kendilerine besbelli olsun. Rabbinin her şeye şahit olması yetmez mi?",
+            "glossEn": "We will show them Our signs in the horizons and within themselves until it becomes clear to them that this (Qur'an) is the truth. Is it not enough that your Lord is a Witness over all things?"
+          },
+          {
+            "ref": "Zâriyât 51:20",
+            "ar": "وَفِي الْاَرْضِ اٰيَاتٌ لِلْمُوقِنِينَ",
+            "glossTr": "Yeryüzünde, kesin olarak inananlar için (nice) işaretler vardır;",
+            "glossEn": "And on the earth there are signs for those who have sure faith,"
+          },
+          {
+            "ref": "Zâriyât 51:21",
+            "ar": "وَفِٓي اَنْفُسِكُمْ  اَفَلَا تُبْصِرُونَ",
+            "glossTr": "Kendi nefislerinizde de (işaretler vardır). Hâlâ görmez misiniz?",
+            "glossEn": "and within yourselves (as well). Then will you not see?"
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Fussilet 41:53): Yüce Allah, delillerini kullarına hem dış âlemde (âfâk) hem de kendi nefislerinde göstereceğini bildirir; insanın yaratılışındaki incelik ve terkip, Yaratıcı'nın hikmetine işaret eder ve bütün bunlar Kur'an'ın hak olduğunu ortaya koyar. Metin, meseleyi Rabbin her şeye şahit oluşuna bağlar.",
+        "tafsirEn": "In the abridged Ibn Kathir on (Fussilet 41:53): Allah announces that He will show His proofs to His servants both in the outer world (afaq) and within their own selves; the fine composition of the human being points to the wisdom of the Creator, and all of this makes plain that the Qur'an is the truth. The text ties the matter to the Lord being a Witness over all things.",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Âyetü'l-Kübra (Şualar, 7. Şua), Tabiat Risalesi (Lem'alar, 23. Lem'a) ve Otuz Üç Pencere (Sözler, 33. Söz)",
+          "sourceEn": "Bediüzzaman · Ayat al-Kubra (The Rays, Seventh Ray), The Treatise on Nature (The Flashes, Twenty-Third Flash) and The Thirty-Three Windows (The Words, Thirty-Third Word)",
+          "introTr": "Bediüzzaman, âfâk ve enfüs tefekkürünü Risale-i Nur'un merkezine koyar. Âyetü'l-Kübra'yı 'kâinattan Hâlıkını soran bir seyyahın müşahedatı' diye niteler: gökten yere, denizlerden dağlara kadar her varlık, kendi lisanınca Yaratıcı'sına şahitlik eder. Otuz Üç Pencere'de her şeyde Cenâb-ı Hakk'a açılan bir pencere bulunduğunu ve tefekkürün en yüksek meyvesinin marifetullah olduğunu gösterir. Tabiat Risalesi'nde ise tefekkürün 'tabiat'ta durup kalmasını reddeder.",
+          "introEn": "Bediüzzaman places reflection on the horizons and the self at the center of the Risale-i Nur. He describes Ayat al-Kubra as 'the observations of a traveler asking the universe about its Creator': from the heavens to the earth, from the seas to the mountains, every being testifies in its own tongue to its Maker. In The Thirty-Three Windows he shows that in each thing there is a window opening onto God, and that the highest fruit of reflection is knowledge of God (marifat). In The Treatise on Nature he refuses to let reflection stop at 'nature' itself.",
+          "pointsTr": [
+            "Âyetü'l-Kübra (7. Şua): Kâinatı temaşa eden seyyah, göklerin, yerin, unsurların ve bütün mahlûkatın her birinin Yaratıcı'nın varlığına ve birliğine şahitlik ettiğini işitir; âfâk, bir marifet kitabı gibi okunur.",
+            "Otuz Üç Pencere (33. Söz): Her bir varlıkta Cenâb-ı Hakk'a açılan bir 'pencere' bulunduğu, kevnî âyetler üzerine tefekkürün nihaî gayesinin iman ve marifetullah olduğu vurgulanır.",
+            "Tabiat Risalesi (23. Lem'a): 'Bir san'at olabilir, sâni olamaz. Bir nakıştır, nakkaş olamaz... Mahlûk bir perde-i izzettir, hâlık olamaz.' Yani tabiat sanatın kendisidir, sanatkâr değil; bu sebeple tefekkür tabiatta değil, onu yaratan Sâni'de karar kılar."
+          ],
+          "pointsEn": [
+            "Ayat al-Kubra (Seventh Ray): the traveler contemplating the universe hears every being, from the heavens to the earth, from the elements to all creatures, testify to the existence and oneness of the Creator; the horizons are read like a book of divine knowledge.",
+            "The Thirty-Three Windows (Thirty-Third Word): in each thing there is a 'window' opening onto God, and the ultimate aim of reflecting on cosmic signs is faith and knowledge of God.",
+            "The Treatise on Nature (Twenty-Third Flash): 'It can be a work of art, but not the artist; an embroidery, but not the embroiderer... a created veil of majesty, but not the Creator.' Nature is the art, not the artist, so reflection does not rest in nature but in the One who made it."
+          ],
+          "noteTr": "Alıntılar birincil metinlerden doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî tefekkür/yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir ve bilimsel ispat olarak sunulamaz.",
+          "noteEn": "The quotations are verified from the primary texts. This is a modern Risale/tafsir reflective reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration and not presented as scientific proof."
+        }
+      },
+      {
+        "titleTr": "Göklerin ve Yerin Yaratılışında Akıl Sahiplerine Deliller",
+        "titleEn": "In the Creation of the Heavens and the Earth, Signs for People of Reason",
+        "verses": [
+          {
+            "ref": "Âl-i İmrân 3:190",
+            "ar": "اِنَّ فِي خَلْقِ السَّمٰوَاتِ وَالْاَرْضِ وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ لَاٰيَاتٍ لِاُولِي الْاَلْبَابِ",
+            "glossTr": "Şüphesiz göklerin ve yerin yaratılışında, gece ile gündüzün birbiri ardınca gelişinde, akıl sahipleri için işaretler vardır.",
+            "glossEn": "Indeed, in the creation of the heavens and the earth and the alternation of the day and night there are signs for people of reason."
+          },
+          {
+            "ref": "Âl-i İmrân 3:191",
+            "ar": "اَلَّذِينَ يَذْكُرُونَ اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمٰوَاتِ وَالْاَرْضِ رَبَّنَا مَا خَلَقْتَ هٰذَا بَاطِلاً سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ",
+            "glossTr": "Onlar, ayakta, otururken ve yanları üzereyken Allah'ı anar; göklerin ve yerin yaratılışı üzerinde düşünürler: 'Rabbimiz! Sen bunu boş yere yaratmadın. Sen her türlü noksandan münezzehsin; bizi ateşin azabından koru.'",
+            "glossEn": "Those who remember Allah while standing, sitting, and lying on their sides, and reflect on the creation of the heavens and the earth (and pray), 'Our Lord! You have not created (all) this without purpose. Glory be to You! Protect us from the torment of the Fire.'"
+          },
+          {
+            "ref": "Câsiye 45:3",
+            "ar": "اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ",
+            "glossTr": "Şüphesiz göklerde ve yerde, inananlar için işaretler vardır.",
+            "glossEn": "Surely in (the creation of) the heavens and the earth there are signs for the believers."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Âl-i İmrân 3:190-191): Göğün yüksekliği ve genişliği, yerin serilişi, gece ile gündüzün birbiri ardınca gelip birinin diğerinden uzayıp kısalması, akıl sahipleri için delildir. Bu kimseler ayakta, otururken ve yanları üzereyken Allah'ı anar; göklerin ve yerin yaratılışı üzerinde derin düşünür ve bu yaratılışın Yaratıcı'nın kudretine, ilmine, hikmetine, irade ve rahmetine şahitlik ettiğini görürler.",
+        "tafsirEn": "In the abridged Ibn Kathir on (Âl-i İmrân 3:190-191): the height and vastness of the sky, the spread of the earth, and the alternation of night and day, as one lengthens and the other shortens, are a proof for people of understanding. Such people remember Allah standing, sitting, and lying on their sides, think deeply about the creation of the heavens and the earth, and see that this creation testifies to the power, knowledge, wisdom, will and mercy of the Creator."
+      },
+      {
+        "titleTr": "Gece ile Gündüzün Değişmesi, Diller ve Renkler",
+        "titleEn": "The Alternation of Night and Day, Languages and Colours",
+        "verses": [
+          {
+            "ref": "Rûm 30:22",
+            "ar": "وَمِنْ اٰيَاتِهِ خَلْقُ السَّمٰوَاتِ وَالْاَرْضِ وَاخْتِلَافُ اَلْسِنَتِكُمْ وَاَلْوَانِكُمْ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِلْعَالِمِينَ",
+            "glossTr": "Göklerin ve yerin yaratılması, dillerinizin ve renklerinizin farklı olması da O'nun işaretlerindendir. Şüphesiz bunda, bilenler için işaretler vardır.",
+            "glossEn": "And of His signs is the creation of the heavens and the earth and the diversity of your languages and colours. Surely in this are signs for those of knowledge."
+          },
+          {
+            "ref": "Yûnus 10:6",
+            "ar": "اِنَّ فِي اخْتِلَافِ الَّيْلِ وَالنَّهَارِ وَمَا خَلَقَ اللّٰهُ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِقَوْمٍ يَتَّقُونَ",
+            "glossTr": "Gece ile gündüzün değişmesinde ve Allah'ın göklerde ve yerde yarattığı her şeyde, sakınan bir topluluk için işaretler vardır.",
+            "glossEn": "Surely in the alternation of the day and the night, and in all that Allah has created in the heavens and the earth, there are signs for people mindful (of Him)."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Rûm 30:22): Allah'ın büyük kudretine delâlet eden âyetlerden biri göklerin ve yerin yaratılmasıdır; metin, göğün enginliği ile yerin dağları ve vadileriyle donanmış yoğunluğuna dikkat çeker. İnsanların dillerinin ve renklerinin çeşitliliği de, bunları bir araya getiren Yaratıcı'yı tanıyan ve bilenler için birer işarettir.",
+        "tafsirEn": "In the abridged Ibn Kathir on (Rûm 30:22): among the signs indicating Allah's magnificent power is the creation of the heavens and the earth; the text notes the vastness of the heavens alongside the dense features of the earth, its mountains and valleys. The diversity of people's languages and colours is likewise a sign for those who know and recognize the Creator who brought them together."
+      },
+      {
+        "titleTr": "Su, Yağmur ve Ölü Toprağın Yeniden Dirilmesi",
+        "titleEn": "Water, Rain and the Reviving of the Dead Earth",
+        "verses": [
+          {
+            "ref": "Enbiyâ 21:30",
+            "ar": "اَوَلَمْ يَرَ الَّذِينَ كَفَرُوا اَنَّ السَّمٰوَاتِ وَالْاَرْضَ كَانَتَا رَتْقاً فَفَتَقْنَاهُمَا وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ اَفَلَا يُؤْمِنُونَ",
+            "glossTr": "İnkâr edenler görmediler mi ki gökler ve yer bitişikti; biz onları ayırdık ve her canlıyı sudan yarattık. Hâlâ inanmayacaklar mı?",
+            "glossEn": "Do those who disbelieve not see that the heavens and the earth were a joined mass, then We parted them, and that We made every living thing from water? Will they not then believe?"
+          },
+          {
+            "ref": "Rûm 30:24",
+            "ar": "وَمِنْ اٰيَاتِهِ يُرِيكُمُ الْبَرْقَ خَوْفاً وَطَمَعاً وَيُنَزِّلُ مِنَ السَّمَاءِ مَاءً فَيُحْـيِ بِهِ الْاَرْضَ بَعْدَ مَوْتِهَا اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَعْقِلُونَ",
+            "glossTr": "Size korku ve ümit vermek için şimşeği göstermesi ve gökten yağmur indirip onunla ölümünden sonra yeryüzünü diriltmesi de O'nun işaretlerindendir. Şüphesiz bunda, aklını kullanan bir topluluk için işaretler vardır.",
+            "glossEn": "And of His signs is that He shows you the lightning, inspiring fear and hope, and sends down rain from the sky, reviving the earth after its death. Surely in this are signs for people who understand."
+          },
+          {
+            "ref": "Nahl 16:65",
+            "ar": "وَاللّٰهُ اَنْزَلَ مِنَ السَّمَاءِ مَاءً فَاَحْيَا بِهِ الْاَرْضَ بَعْدَ مَوْتِهَا اِنَّ فِي ذٰلِكَ لَاٰيَةً لِقَوْمٍ يَسْمَعُونَ",
+            "glossTr": "Allah gökten su indirip onunla ölümünden sonra yeryüzüne hayat verir. Şüphesiz bunda, işiten bir topluluk için bir işaret vardır.",
+            "glossEn": "And Allah sends down rain from the sky, giving life thereby to the earth after its death. Surely in this is a sign for people who listen."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Enbiyâ 21:30): metin bu âyeti Allah'ın yaratmadaki kâmil kudretinin bir delili olarak açıklar ve O'nun ilâhlığını inkâr edenlere yönelir; göklerle yerin birbirinden ayrılışını ve her canlının sudan var edilişini, iman etmeye çağıran birer işaret olarak sunar. Nahl 16:65 için de metin, gökten inen suyla ölü toprağın diriltilmesini, işiten bir topluluk için bir işaret olarak kaydeder.",
+        "tafsirEn": "In the abridged Ibn Kathir on (Enbiyâ 21:30): the text explains this verse as a proof of Allah's perfect power in creation and addresses those who deny His divine nature; it presents the separation of the heavens and the earth and the creation of every living thing from water as signs calling to belief. On (Nahl 16:65) the text likewise records the reviving of the dead earth by water sent down from the sky as a sign for people who listen."
+      },
+      {
+        "titleTr": "Gökyüzü, Dağlar ve Kâinattaki Ölçü (Mîzân)",
+        "titleEn": "The Sky, the Mountains and the Balance (Mizan) of Creation",
+        "verses": [
+          {
+            "ref": "Rahmân 55:7",
+            "ar": "وَالسَّمَاءَ رَفَعَهَا وَوَضَعَ الْمِيزَانَ",
+            "glossTr": "Göğü yükseltti ve ölçüyü (mîzânı) koydu;",
+            "glossEn": "And the sky He raised high, and set up the balance,"
+          },
+          {
+            "ref": "Rahmân 55:8",
+            "ar": "اَلَّا تَطْغَوْا فِي الْمِيزَانِ",
+            "glossTr": "ki ölçüde haddi aşmayasınız.",
+            "glossEn": "so that you would not transgress in the balance."
+          },
+          {
+            "ref": "Nebe' 78:7",
+            "ar": "وَالْجِبَالَ اَوْتَاداً",
+            "glossTr": "Ve dağları birer kazık (yapmadık mı)?",
+            "glossEn": "and the mountains as pegs?"
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Rahmân 55:7-9): Allah göğü yükseltmiş ve mîzânı koymuştur; metin mîzânı adalet olarak açıklar ve göklerle yerin adalet ve hak üzere yaratıldığını, her şeyin bu ölçüye dayandığını belirtir. Nebe' 78:6-7 için ise metin, yerin bir döşek gibi kararlı kılındığını ve dağların onu sabit tutan, sarsılmasını önleyen kazıklar olarak yerleştirildiğini kaydeder.",
+        "tafsirEn": "In the abridged Ibn Kathir on (Rahmân 55:7-9): Allah raised the sky and set the balance; the text explains the balance as justice and states that the heavens and the earth were created upon justice and truth, everything resting on this measure. On (Nebe' 78:6-7) the text records that the earth was made a stable resting place and that the mountains were set as pegs to hold it firm and keep it from quaking with its people."
+      }
+    ],
+    "assuranceTr": "Bu sayfadaki her âyet referansı quran.com üzerinde doğrulanmıştır. Kevnî âyetler kesin hakikattir; hükümleri bilimin onayına bağlı değildir ve bu sayfada hiçbir âyet bir bilimsel teoriye 'mucize' olarak eşlenmemiştir. Bilim olsa olsa tefekküre bir vesiledir, Kur'an'ın hakemi değildir. Buradaki tefsir ve yorumlar beşerî anlama çabalarıdır ve Kur'an'ın kesin beyanıyla özdeş tutulamaz.",
+    "assuranceEn": "Every verse reference on this page has been verified on quran.com. The cosmic signs are certain truth; their meaning does not depend on the approval of science, and on this page no verse is matched to any scientific theory as a 'miracle'. Science is, at most, an occasion for reflection, not the arbiter of the Qur'an. The tafsir and commentary here are human efforts at understanding and cannot be equated with the Qur'an's certain declaration.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/41/53 · quran.com/3/190 · quran.com/30/22; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/41/53 · quran.com/3/190 · quran.com/30/22; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Aşağıdaki kaynaklar, tabiat ve kâinat üzerine Kur'anî tefekkürü beşerî bir ilim ve düşünce faaliyeti olarak ele alan akademik çalışmalardır. 'Bilimsel mucize' (i'câz-ı ilmî / Bucaille tarzı) apolojetiğinden bilinçle uzak durulmuş; bunun yerine Kur'an'ın kevnî âyetleri nasıl bir işaret ve mânâ olarak sunduğunu inceleyen eserler seçilmiştir. Her künye ve ISBN doğrulanmıştır.",
+    "sourcesNoteEn": "The works below are academic studies that treat Qur'anic reflection on nature and the cosmos as a human scholarly and intellectual activity. They deliberately avoid 'scientific miracle' (i'jaz ilmi / Bucaille-style) apologetics; instead they examine how the Qur'an presents its cosmic signs as sign and meaning. Every citation and ISBN has been verified.",
+    "sources": [
+      {
+        "author": "Fazlur Rahman",
+        "work": "Major Themes of the Qur'an (2nd ed.)",
+        "pub": "University of Chicago Press",
+        "year": "2009",
+        "id": "ISBN 9780226702865",
+        "noteTr": "YAKLAŞIM: Klasik tematik bir Kur'an incelemesi; tabiattaki âyetleri Yaratıcı'ya işaret eden deliller olarak teolojik bir çerçevede okur, bilimsel eşleştirme yapmaz.",
+        "noteEn": "APPROACH: A classic thematic study of the Qur'an; reads the signs in nature within a theological frame as pointers to the Creator, without scientific concordism."
+      },
+      {
+        "author": "Seyyed Hossein Nasr",
+        "work": "Religion and the Order of Nature (The 1994 Cadbury Lectures)",
+        "pub": "Oxford University Press",
+        "year": "1996",
+        "id": "ISBN 9780195108231",
+        "noteTr": "YAKLAŞIM: Tabiatın kutsallığını ve dinî kozmoloji geleneğini savunan metafizik bir eser; modern seküler bilimin indirgemeci doğa tasavvurunu eleştirir, apolojetik değildir.",
+        "noteEn": "APPROACH: A metaphysical work defending the sacredness of nature and the tradition of religious cosmology; critiques the reductionist view of nature in modern secular science, and is not apologetic."
+      },
+      {
+        "author": "Toshihiko Izutsu",
+        "work": "God and Man in the Qur'an: Semantics of the Qur'anic Weltanschauung",
+        "pub": "Islamic Book Trust",
+        "year": "2002",
+        "id": "ISBN 9789839154382",
+        "noteTr": "YAKLAŞIM: Kur'an dünya görüşünün semantik/dilbilimsel çözümlemesi; yaratılış ve âyet kavramlarını anahtar terimler üzerinden inceleyen beşerî bir yorum çalışmasıdır.",
+        "noteEn": "APPROACH: A semantic and linguistic analysis of the Qur'anic worldview; a human interpretive study examining the concepts of creation and sign through key terms."
+      },
+      {
+        "author": "Nidhal Guessoum",
+        "work": "Islam's Quantum Question: Reconciling Muslim Tradition and Modern Science",
+        "pub": "I.B. Tauris",
+        "year": "2011",
+        "id": "ISBN 9781848855182",
+        "noteTr": "YAKLAŞIM: 'Bilimsel mucize' (i'câz-ı ilmî) söylemini bir yöntem olarak açıkça eleştirir; âyetleri bilimsel ispata dönüştüren okumaya karşı, konuya nasıl yaklaşılmaması gerektiğini gösteren eleştirel bir kaynaktır.",
+        "noteEn": "APPROACH: Explicitly critiques the 'scientific miracle' (i'jaz) discourse as a method; a critical source showing how not to read verses as scientific proof, over against concordist readings."
+      },
+      {
+        "author": "Sarra Tlili",
+        "work": "Animals in the Qur'an (Cambridge Studies in Islamic Civilization)",
+        "pub": "Cambridge University Press",
+        "year": "2012",
+        "id": "ISBN 9781107023703",
+        "noteTr": "YAKLAŞIM: Kur'an'da yaratılış ve canlılar üzerine filolojik/tefsir temelli bir inceleme; kevnî varlıkları insan-merkezci olmayan bir okumayla ele alır.",
+        "noteEn": "APPROACH: A philological and exegetical study of creation and living beings in the Qur'an; treats created beings through a non-anthropocentric reading."
+      },
+      {
+        "author": "Anna M. Gade",
+        "work": "Muslim Environmentalisms: Religious and Social Foundations",
+        "pub": "Columbia University Press",
+        "year": "2019",
+        "id": "ISBN 9780231191043",
+        "noteTr": "YAKLAŞIM: Müslümanların tabiat ve çevreyle ilişkisinin dinî ve toplumsal temellerini inceleyen akademik bir çalışma; yaratılışa dair sorumluluk ve ahlâk boyutunu öne çıkarır.",
+        "noteEn": "APPROACH: An academic study of the religious and social foundations of Muslim engagement with nature and the environment; foregrounds responsibility and ethics toward creation."
+      }
+    ]
+  },
+
+  'kuran-ilimleri': {
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "Hicr 15:9",
+      "ar": "اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهُ لَحَافِظُونَ",
+      "trTr": "Şüphesiz o zikri (Kur'an'ı) biz indirdik biz ve elbette onu koruyacak olan da biziz.",
+      "trEn": "Indeed, it is We who sent down the Reminder, and indeed, We will be its guardian."
+    },
+    "introTr": "Kur'an İlimleri (ulûmü'l-Kur'ân), Kur'an metninin okunmasına, anlaşılmasına ve aktarılmasına hizmet eden yardımcı ilimlerin bütünüdür: vahyin ve tenzîlin nasıl indiği, muhkem ve müteşâbih âyetlerin ayrımı, metnin korunması ile cem'i ve hıfzı, âyetlerin iniş sebepleri (sebeb-i nüzûl) ve kırâât ile okuma geleneği. Bu sayfa, bu konuların Kur'an'daki temel dayanaklarını gösterir. Söz konusu ilimler, kesin olan metnin daha iyi okunması için geliştirilmiş beşerî çalışmalardır; metnin doğruluğunu ispat eden bir merci değil, ona hizmet eden bir yorum ve inceleme katmanıdır.",
+    "introEn": "The Qur'anic Sciences ('ulum al-Qur'an) are the body of auxiliary disciplines that serve the reading, understanding, and transmission of the Qur'anic text: how revelation and its sending down (tanzil) occurred, the distinction between precise (muhkam) and ambiguous (mutashabih) verses, the preservation, collection, and memorization of the text, the occasions of revelation (asbab al-nuzul), and the readings (qira'at) and recitation tradition. This page shows where these subjects are anchored in the Qur'an. These sciences are human works developed to read the certain text more faithfully; they are a layer of interpretation and study that serves the text, not an authority that proves it true.",
+    "themes": [
+      {
+        "titleTr": "Tenzîl ve tedrîcî iniş",
+        "titleEn": "Revelation and its gradual sending",
+        "verses": [
+          {
+            "ref": "Kadr 97:1",
+            "ar": "اِنَّا اَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ",
+            "glossTr": "Şüphesiz biz onu (Kur'an'ı) Kadir gecesinde indirdik.",
+            "glossEn": "Indeed, We sent it (the Qur'an) down on the Night of Decree."
+          },
+          {
+            "ref": "Furkân 25:32",
+            "ar": "وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْاٰنُ جُمْلَةً وَاحِدَةً كَذٰلِكَ لِنُثَبِّتَ بِهِ فُؤٰادَكَ وَرَتَّلْنَاهُ تَرْتِيلاً",
+            "glossTr": "İnkâr edenler, 'Kur'an ona bir defada topluca indirilseydi ya!' dediler. Biz onu, kalbini pekiştirmek için böyle parça parça indirdik ve onu ağır ağır, düzenli okuduk.",
+            "glossEn": "The disbelievers say, 'If only the Qur'an had been sent down to him all at once.' We revealed it in stages to reassure your heart, and We recited it in a measured way."
+          },
+          {
+            "ref": "İsrâ 17:106",
+            "ar": "وَقُرْاٰناً فَرَقْنَاهُ لِتَقْرَاَهُ عَلَى النَّاسِ عَلٰى مُكْثٍ وَنَزَّلْنَاهُ تَنْزِيلاً",
+            "glossTr": "Onu, insanlara ağır ağır okuyasın diye Kur'an'ı bölüm bölüm ayırdık ve onu peyderpey indirdik.",
+            "glossEn": "It is a Qur'an We have set out in parts, so you may recite it to people at intervals, and We sent it down in stages."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Furkân 25:32) inkâr edenlerin, Kur'an'ın niçin bir defada topluca indirilmediğini sordukları; buna karşılık kademeli inişin Hz. Muhammed'in kalbini pekiştirmek için olduğu ve vahyin yaklaşık yirmi üç yıl boyunca hâllere ve gelen hükümlere göre indirildiği aktarılır. Aynı metin (İsrâ 17:106) Kur'an'ın insanlara ağır ağır okunması için bölüm bölüm indirildiğini kaydeder; (Kadr 97:1) ise İbn Abbâs'a dayanan rivayetle Kur'an'ın Kadir gecesinde bütün olarak dünya semasına, oradan da yıllar içinde parça parça indirildiği görüşünü nakleder.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Furqan 25:32), the disbelievers ask why the Qur'an was not sent down all at once; the reply given is that the gradual sending served to strengthen the heart of the Prophet Muhammad, the revelation coming over about twenty-three years according to circumstances and the rulings that arose. The same text (Isra 17:106) records that it was set out in parts so it could be recited to people slowly; and (Qadr 97:1) reports, on the authority of Ibn Abbas, the view that the Qur'an was sent whole to the lowest heaven on the Night of Decree, then descended piecemeal over the years."
+      },
+      {
+        "titleTr": "Muhkem ve müteşâbih",
+        "titleEn": "Precise and ambiguous verses",
+        "verses": [
+          {
+            "ref": "Âl-i İmrân 3:7",
+            "ar": "هُوَ الَّـذِٓي اَنْزَلَ عَلَيْكَ الْكِتَابَ مِنْهُ اٰيَاتٌ مُحْكَمَاتٌ هُنَّ اُمُّ الْكِتَابِ وَاُخَرُ مُتَشَابِهَاتٌ فَاَمَّا الَّذِينَ فِي قُلُوبِهِمْ زَيْغٌ فَيَتَّبِعُونَ مَا تَشَابَهَ مِنْهُ ابْتِغَاءَ الْفِتْنَةِ وَابْتِغَاءَ تَأْوِيلِهِ وَمَا يَعْلَمُ تَأْوِيلَهُ اِلَّا اللّٰهُ وَالرَّاسِخُونَ فِي الْعِلْمِ يَقُولُونَ اٰمَنَّا بِهِ   كُلٌّ مِنْ عِنْدِ رَبِّنَا وَمَا يَذَّكَّرُ اِلَّا اُولُوا الْاَلْبَابِ",
+            "glossTr": "Sana Kitab'ı indiren O'dur. Onun bir kısım âyetleri muhkemdir, bunlar Kitab'ın esasıdır; diğerleri ise müteşâbihtir. Kalplerinde eğrilik olanlar, fitne çıkarmak ve onu tevil etmek için müteşâbih olanların ardına düşerler. Oysa onun tevilini Allah'tan başkası bilmez. İlimde derinleşmiş olanlar ise 'Ona iman ettik, hepsi Rabbimizin katındandır' derler.",
+            "glossEn": "It is He who has sent down the Book to you. In it are precise verses that are the foundation of the Book, and others that are ambiguous. Those with deviation in their hearts pursue the ambiguous, seeking discord and its interpretation. But no one knows its interpretation except Allah. And those firm in knowledge say, 'We believe in it; all is from our Lord.'"
+          },
+          {
+            "ref": "Zümer 39:23",
+            "ar": "اَللّٰهُ نَزَّلَ اَحْسَنَ الْحَدِيثِ كِتَاباً مُتَشَابِهاً مَثَانِيَ  تَقْشَعِرُّ مِنْهُ جُلُودُ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ ثُمَّ تَلِينُ جُلُودُهُمْ وَقُلُوبُهُمْ اِلٰى ذِكْرِ اللّٰهِ ذٰلِكَ هُدَى اللّٰهِ يَهْدِي بِهِ مَنْ يَشَاءُ وَمَنْ يُضْلِلِ اللّٰهُ فَمَا لَهُ مِنْ هَادٍ",
+            "glossTr": "Allah, sözün en güzelini, âyetleri birbirine benzeyen ve tekrarlanan tutarlı bir kitap olarak indirdi. Rablerinden korkanların derileri ondan ürperir; sonra derileri ve kalpleri Allah'ın zikrine yumuşar.",
+            "glossEn": "Allah has sent down the best statement, a consistent Book whose parts resemble one another and are oft-repeated. The skins of those who fear their Lord shiver at it; then their skin and hearts soften at the remembrance of Allah."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Âl-i İmrân 3:7) âyetlerin muhkem (apaçık, Kitab'ın esası) ve müteşâbih (birden çok anlama açık) diye ikiye ayrıldığı; kalbinde eğrilik olanların, açık âyetleri bırakıp kendi görüşlerine destek aramak için müteşâbihlerin ardına düştüğü; ilimde derinleşenlerin ise hepsinin Allah katından olduğunu kabul ederek iman ettiği belirtilir. Metin iki durak görüşünü de aktarır: tevil, şeylerin nihaî hakikati anlamındaysa bilgisi Allah'a aittir; açıklama anlamındaysa ilimde derinleşenler de onu bilebilir. Âyetteki durak yerinin, yani 'tevilini Allah'tan başkası bilmez' ile 'ilimde derinleşenler de bilir' okumaları arasındaki tercihin nerede yapılacağı, âlimler arasında süregelen beşerî bir tartışmadır; bu, metnin kesinliğinde değil, insan yorumundaki bir ihtilaftır.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al Imran 3:7), the verses are divided into precise ones (muhkam, clear, the foundation of the Book) and ambiguous ones (mutashabih, open to more than one meaning); those with deviation in their hearts abandon the clear verses and pursue the ambiguous to support their own views, while those firm in knowledge believe, accepting that all of it is from Allah. The text reports both readings: if ta'wīl means the ultimate reality of things, Allah alone knows it; if it means explanation, those firmly grounded in knowledge can also know it. Where the pause should fall, that is, between reading 'none knows its interpretation except Allah' and 'and those firm in knowledge also know', is a longstanding human debate among scholars; it is a disagreement within human interpretation, not in the certainty of the text."
+      },
+      {
+        "titleTr": "Metnin korunması, cem'i ve hıfzı",
+        "titleEn": "Preservation, collection, and memorization of the text",
+        "verses": [
+          {
+            "ref": "Hicr 15:9",
+            "ar": "اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهُ لَحَافِظُونَ",
+            "glossTr": "Şüphesiz o zikri (Kur'an'ı) biz indirdik biz ve elbette onu koruyacak olan da biziz.",
+            "glossEn": "Indeed, it is We who sent down the Reminder, and indeed, We will be its guardian."
+          },
+          {
+            "ref": "Kıyâme 75:17",
+            "ar": "اِنَّ عَلَيْنَا جَمْعَهُ وَقُرْاٰنَهُ",
+            "glossTr": "Şüphesiz onu (senin kalbinde) toplamak ve okutmak bize aittir.",
+            "glossEn": "Indeed, upon Us is its collection and its recitation."
+          },
+          {
+            "ref": "A'lâ 87:6",
+            "ar": "سَنُقْرِئُكَ فَلَا تَنْسٰى",
+            "glossTr": "Sana Kur'an'ı okutacağız da unutmayacaksın.",
+            "glossEn": "We will make you recite, and you will not forget."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Hicr 15:9) Allah'ın Kur'an'ı bizzat indirdiğini bildirdiği ve onu değiştirilmekten, tahrif edilmekten koruduğu ifade edilir. (Kıyâme 75:17) vahyin önce Hz. Muhammed'in kalbinde toplandığı, sonra okutulduğu ve açıklandığı; (A'lâ 87:6) ise ona okutulacağı ve unutmayacağı yönünde ilâhî bir vaadin verildiği aktarılır. Metnin cem'i, yani bir araya getirilip yazıya geçirilmesi ve hıfzı, yani ezberlenmesi, sonraki âlimlerin ayrıntılı biçimde incelediği beşerî ilim dallarıdır.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Hijr 15:9), Allah declares that He Himself sent down the Qur'an and protects it from being changed or corrupted. (Al-Qiyamah 75:17) reports that the revelation was first gathered in the heart of the Prophet Muhammad, then recited and explained; and (Al-A'la 87:6) that He gave a divine promise that the Prophet would recite it and not forget. The collection of the text, meaning its gathering and committing to writing, and its memorization are human disciplines that later scholars studied in detail.",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Yirmi Beşinci Söz (İ'câz-ı Kur'ân Risâlesi)",
+          "sourceEn": "Bediüzzaman · The Words, Twenty-Fifth Word (Treatise on the Miraculousness of the Qur'an)",
+          "introTr": "Modern bir Risale okuması olarak Bediüzzaman, Yirmi Beşinci Söz'de Kur'an'ın i'câzını (benzersizliğini) ve metnin asırlar boyunca korunmuşluğunu bir arada ele alır. Aşağıdaki noktalar birincil metinden doğrulanmıştır.",
+          "introEn": "As a modern Risale reading, in the Twenty-Fifth Word Bediüzzaman treats together the Qur'an's i'jaz (inimitability) and the preservation of the text across the centuries. The points below are verified from the primary text.",
+          "pointsTr": [
+            "Kur'an'ın on üç asır boyunca yedi vecihle i'câzını koruduğunu ve kırka yakın i'câz türüyle bir mu'cize olduğunu ileri sürer.",
+            "Kur'an'ın dâimâ gençliğini, sağlamlığını, zînet ve güzelliğini koruyup artırdığını, her çağa tazeliğini yitirmeden hitap ettiğini söyler.",
+            "Bu benzersizliğin en açık ölçüsü olarak, İsrâ 17:88'de dile getirilen ve asırlarca cevapsız kalan meydan okumayı gösterir: insanlar ve cinler bir araya gelse Kur'an'ın bir benzerini getiremezler."
+          ],
+          "pointsEn": [
+            "He argues that the Qur'an preserved its i'jaz in seven respects across thirteen centuries and is a miracle with nearly forty kinds of inimitability.",
+            "He holds that the Qur'an perpetually preserves and increases its youth, firmness, adornment, and beauty, addressing every age without losing its freshness.",
+            "As the clearest measure of this inimitability he points to the challenge voiced in Isra 17:88, unanswered for centuries: even if humans and jinn joined together they could not produce the like of the Qur'an."
+          ],
+          "noteTr": "Alıntılar birincil metinlerden doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotations are verified from the primary texts. This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration."
+        }
+      },
+      {
+        "titleTr": "Sebeb-i nüzûl kavramı",
+        "titleEn": "The concept of occasions of revelation",
+        "verses": [
+          {
+            "ref": "Bakara 2:189",
+            "ar": "يَسْـَٔلُونَكَ عَنِ الْاَهِلَّةِ قُلْ هِيَ مَوَاقِيتُ لِلنَّاسِ وَالْحَجِّ وَلَيْسَ الْبِرُّ بِاَنْ تَأْتُوا الْبُيُوتَ مِنْ ظُهُورِهَا وَلٰكِنَّ الْبِرَّ مَنِ اتَّقٰى وَأْتُوا الْبُيُوتَ مِنْ اَبْوَابِهَا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+            "glossTr": "Sana hilâlleri sorarlar. De ki: 'Onlar, insanlar ve hac için vakit ölçüleridir.' İyilik, evlere arkalarından girmeniz değildir; asıl iyilik, Allah'a karşı gelmekten sakınanın iyiliğidir. Evlere kapılarından girin ve Allah'a karşı gelmekten sakının ki kurtuluşa eresiniz.",
+            "glossEn": "They ask you about the crescent moons. Say, 'They are measures of time for people and for the pilgrimage.' It is not righteousness to enter houses from their backs; rather, righteousness is that of one who is mindful of Allah. Enter houses through their doors, and be mindful of Allah so you may succeed."
+          },
+          {
+            "ref": "Furkân 25:33",
+            "ar": "وَلَا يَأْتُونَكَ بِمَثَلٍ اِلَّا جِئْنَاكَ بِالْحَقِّ وَاَحْسَنَ تَفْسِيراً",
+            "glossTr": "Onlar sana hiçbir itiraz getirmezler ki, biz sana gerçeği ve en güzel açıklamayı getirmiş olmayalım.",
+            "glossEn": "They do not bring you any argument except that We bring you the truth and the best explanation."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Bakara 2:189) hilâllerin insanlar için ve hac için birer vakit ölçüsü olduğu; ayrıca câhiliye döneminde ihramlıyken evlere arka taraftan girme âdetine değinilerek, asıl iyiliğin takvâ olduğunun bildirildiği aktarılır. Bu, âyetin somut bir duruma cevaben okunduğunu gösterir. (Furkân 25:33) ise inkârcıların her itirazına karşı gerçeğin ve en güzel açıklamanın getirildiğini kaydeder. Klasik âlimler, sebeb-i nüzûlü, yani âyetlerin indiği somut vesileleri araştıran ilmi, bu tür pasajlar üzerinden temellendirmiştir.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Baqarah 2:189), the crescent moons are measures of time for people and for the pilgrimage; the text also addresses the pre-Islamic custom of entering houses from the back while in pilgrim state, teaching that true righteousness is God-consciousness. This shows the verse being read in response to a concrete situation. (Al-Furqan 25:33) records that to every objection of the deniers the truth and the best explanation are brought. Classical scholars grounded the discipline of asbab al-nuzul, the study of the concrete occasions on which verses came down, on passages such as these."
+      },
+      {
+        "titleTr": "Kırâât, tertîl ve yedi harf",
+        "titleEn": "Readings, measured recitation, and the seven aḥruf",
+        "verses": [
+          {
+            "ref": "Müzzemmil 73:4",
+            "ar": "اَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْاٰنَ تَرْتِيلاً",
+            "glossTr": "Yahut buna biraz ekle ve Kur'an'ı tertîl ile, ağır ağır ve tane tane oku.",
+            "glossEn": "Or add to it, and recite the Qur'an with measured recitation (tartil)."
+          },
+          {
+            "ref": "Kıyâme 75:18",
+            "ar": "فَاِذَا قَرَأْنَاهُ فَاتَّبِعْ قُرْاٰنَهُ",
+            "glossTr": "Biz onu okuduğumuzda, sen onun okunuşunu takip et.",
+            "glossEn": "So when We recite it, follow its recitation."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Müzzemmil 73:4) Kur'an'ı tertîl ile, yani ağır ağır ve tane tane okumanın onu anlamaya ve üzerinde düşünmeye yardımcı olduğu; Âişe'nin Peygamber'in bir sûreyi ağır ağır okuduğunu, Enes'in ise harfleri uzatarak okuduğunu naklettiği aktarılır. (Kıyâme 75:18) Hz. Muhammed'e, Cebrâil'in vahyi okuyuşunu dinleyip ona uymasını buyurur. Kırâât ilmi, Kur'an'ın rivayet edilen okuyuşlarını inceleyen beşerî bir ilim dalıdır; 'yedi harf' ise ulûmü'l-Kur'ân kapsamında tartışılan bir meseledir.",
+        "tafsirEn": "In the Mukhtasar Ibn Kathir text (Al-Muzzammil 73:4), reciting the Qur'an with tartil, that is slowly and distinctly, helps in understanding it and reflecting upon it; it reports that Aisha said the Prophet used to recite a chapter slowly, and Anas that he used to elongate the letters. (Al-Qiyamah 75:18) instructs the Prophet Muhammad to listen to and follow Gabriel's recitation of the revelation. The science of qira'at studies the transmitted readings of the Qur'an; the seven aḥruf are a topic discussed within the Qur'anic sciences."
+      }
+    ],
+    "assuranceTr": "Kur'an kesin hakikattir; onda hiçbir şüphe yoktur (lâ raybe fîh). Onun doğruluğu hiçbir ilmin, akademinin veya tarihsel incelemenin onayına bağlı değildir. Bu sayfadaki yardımcı ilimler, metni doğrulamak için değil, onu doğru okumak ve anlamak için vardır. Âlimlerin nâsih-mensûh, müteşâbih âyetlerin tevili veya kırâât farkları üzerindeki ihtilafları, metnin kendisindeki bir belirsizlik değil, insan yorumundaki bir tartışmadır.",
+    "assuranceEn": "The Qur'an is certain truth; in it there is no doubt (la rayba fih). Its truth does not depend on the approval of any science, academy, or historical study. The auxiliary sciences on this page exist not to confirm the text but to read and understand it faithfully. Where scholars differ over abrogation, the interpretation of ambiguous verses, or variant readings, that is a debate within human interpretation, not an uncertainty in the text itself.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/25/32 · quran.com/3/7 · quran.com/15/9; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/25/32 · quran.com/3/7 · quran.com/15/9; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Aşağıdaki eserler, ulûmü'l-Kur'ân alanındaki beşerî âlimlik geleneğini ve metnin tarihini inceleyen kaynaklardır. Akademik ve klasik eserler, Kur'an'ın doğruluğunu tasdik etmek için değil, bu ilimlerin insanlar eliyle nasıl geliştiğini göstermek için verilmiştir.",
+    "sourcesNoteEn": "The works below study the human scholarly tradition of the Qur'anic sciences and the history of the text. These academic and classical sources are given not to confirm the truth of the Qur'an but to show how these disciplines developed through human effort.",
+    "sources": [
+      {
+        "author": "Ahmad von Denffer",
+        "work": "'Ulum al-Qur'an: An Introduction to the Sciences of the Qur'an",
+        "pub": "The Islamic Foundation, Leicester",
+        "year": "2011",
+        "id": "ISBN 9780860372486",
+        "noteTr": "YAKLAŞIM: İngilizce giriş niteliğinde; klasik ulûmü'l-Kur'ân konularını (vahiy, nüzûl, metnin tarihi, tefsir) beşerî bir ilim geleneği olarak tanıtır.",
+        "noteEn": "APPROACH: An English-language introduction; presents the classical topics of the Qur'anic sciences (revelation, nuzul, history of the text, tafsir) as a human scholarly tradition."
+      },
+      {
+        "author": "Jalal al-Din al-Suyuti (trans. H. Algar, M. Schub, A. Abdel Haleem; ed. O. Al-Bili)",
+        "work": "The Perfect Guide to the Sciences of the Qur'an (Al-Itqan fi 'Ulum al-Qur'an), Vol. 1",
+        "pub": "Garnet Publishing, Reading",
+        "year": "2011",
+        "id": "ISBN 9781859642429",
+        "noteTr": "YAKLAŞIM: Klasik bir ulûmü'l-Kur'ân ansiklopedisinin İngilizce çevirisi; konuların âlimler tarafından nasıl tasnif edildiğini gösteren beşerî bir âlimlik eseridir.",
+        "noteEn": "APPROACH: English translation of a classical encyclopedia of the Qur'anic sciences; a work of human scholarship showing how the topics were classified by scholars."
+      },
+      {
+        "author": "Muhammad Mustafa al-Azami",
+        "work": "The History of the Qur'anic Text from Revelation to Compilation",
+        "pub": "UK Islamic Academy, Leicester",
+        "year": "2003",
+        "id": "ISBN 9781872531656",
+        "noteTr": "YAKLAŞIM: Metnin cem'i ve intikali tarihini inceleyen akademik çalışma; metnin tarihini ele alır, ilâhî doğruluğunu ispat iddiası taşımaz.",
+        "noteEn": "APPROACH: An academic study of the history of the collection and transmission of the text; it treats the history of the text and makes no claim to prove its divine truth."
+      },
+      {
+        "author": "Abu Ammaar Yasir Qadhi",
+        "work": "An Introduction to the Sciences of the Qur'aan",
+        "pub": "Al-Hidaayah Publishing, Birmingham",
+        "year": "1999",
+        "id": "ISBN 9781898649328",
+        "noteTr": "YAKLAŞIM: İngilizce ders kitabı; vahiy, cem, yedi harf ve kırâât, i'câz gibi konuları klasik âlimliğe dayanarak özetleyen beşerî bir çalışmadır.",
+        "noteEn": "APPROACH: An English textbook; a human work summarizing topics such as revelation, collection, the seven aḥruf and qira'at, and i'jaz on the basis of classical scholarship."
+      },
+      {
+        "author": "Theodor Nöldeke, F. Schwally, G. Bergsträsser, O. Pretzl (ed. & trans. Wolfgang H. Behn)",
+        "work": "The History of the Qur'an",
+        "pub": "Brill, Leiden",
+        "year": "2013",
+        "id": "ISBN 9789004212343",
+        "noteTr": "YAKLAŞIM: Batılı akademik metin tarihi incelemesi; oryantalist yöntemle beşerî tarih ve âlimliği konu edinir, dinî bir tasdik kaynağı değildir.",
+        "noteEn": "APPROACH: A Western academic study of the history of the text; using an orientalist method it studies human history and scholarship, and is not a source of religious confirmation."
+      },
+      {
+        "author": "İsmail Cerrahoğlu",
+        "work": "Tefsir Usûlü",
+        "pub": "Türkiye Diyanet Vakfı Yayınları, Ankara",
+        "year": "2020",
+        "id": "ISBN 9786257205627",
+        "noteTr": "YAKLAŞIM: Türkçe akademik tefsir usûlü ders kitabı; ulûmü'l-Kur'ân konularını üniversite düzeyinde beşerî bir disiplin olarak işler.",
+        "noteEn": "APPROACH: A Turkish academic textbook on tafsir methodology; it treats the topics of the Qur'anic sciences at university level as a human discipline."
+      }
+    ]
+  },
+
+  'tarih-medeniyet': {
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "Yûsuf 12:111",
+      "ar": "لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى وَلٰكِنْ تَصْدِيقَ الَّذِي بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَيْءٍ وَهُدًى وَرَحْمَةً لِقَوْمٍ يُؤْمِنُونَ",
+      "trTr": "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an) uydurulmuş bir söz değildir; kendinden öncekini doğrulayan, her şeyi açıklayan, inananlar için bir yol gösterici ve rahmettir.",
+      "trEn": "In their stories there is surely a lesson for people of understanding. This is no fabricated account, but a confirmation of what came before it, a detailed explanation of all things, a guidance and a mercy for people who believe."
+    },
+    "introTr": "Kur'an Allah'ın kelâmıdır ve kesin hakikattir; onda şüphe yoktur (lâ raybe fîh) ve doğruluğu bilimsel, tarihî veya arkeolojik tasdike bağlı değildir. Bu sayfa; kıssaların ibret oluşu, yeryüzünde gezip geçmiş kavimlerin âkıbetinden ders alma, Âd, Semûd, Firavun ve Sebe' gibi kavimlerin yükselişi ile çöküşü ve medeniyetlerin hâli üzerine âyetleri tarih ve medeniyet bakımından bir araya getirir. Âyetlerin anlam özetleri, tematik başlıklar, klasik tefsir açıklamaları ve akademik değerlendirmeler beşerî aktarım ve yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir. Arkeolojik veya tarihî bulgular en fazla tefekküre vesiledir; Kur'an'ın hakemi ya da doğrulayanı değildir ve bunlardan belirli bir tarih tezi türetilerek Kur'an'a mal edilmez.",
+    "introEn": "The Qur'an is God's word and certain truth; there is no doubt in it (lā rayba fīh), and its truth does not depend on scientific, historical, or archaeological confirmation. This page gathers, from the angle of history and civilization, verses on the stories (qiṣaṣ) as lessons, on travelling the earth to heed the fate of former peoples, and on the rise and fall of nations such as ʿĀd, Thamūd, Pharaoh, and Sabaʾ. The verse summaries, thematic headings, classical-exegesis notes, and academic assessments are layers of human transmission and interpretation; they are not identical with the Qur'an itself. Archaeological or historical findings are at most occasions for reflection; they are never the arbiter or the confirmer of the Qur'an, and no particular historical thesis is derived from them and ascribed to it.",
+    "themes": [
+      {
+        "titleTr": "Kıssalar ibret içindir",
+        "titleEn": "The stories are a lesson",
+        "verses": [
+          {
+            "ref": "Yûsuf 12:111",
+            "ar": "لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى وَلٰكِنْ تَصْدِيقَ الَّذِي بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَيْءٍ وَهُدًى وَرَحْمَةً لِقَوْمٍ يُؤْمِنُونَ",
+            "glossTr": "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an) uydurulmuş bir söz değildir; kendinden öncekini doğrulayan, her şeyi açıklayan, inananlar için bir yol gösterici ve rahmettir.",
+            "glossEn": "In their stories there is surely a lesson for people of understanding. This is no fabricated account, but a confirmation of what came before it, a detailed explanation of all things, a guidance and a mercy for people who believe."
+          },
+          {
+            "ref": "Hûd 11:120",
+            "ar": "وَكُلاًّ نَقُصُّ عَلَيْكَ مِنْ اَنْبَاءِ الرُّسُلِ مَا نُثَبِّتُ بِهِ فُؤٰادَكَ وَجَاءَكَ فِي هٰذِهِ الْحَقُّ وَمَوْعِظَةٌ وَذِكْرٰى لِلْمُؤْمِنِينَ",
+            "glossTr": "Peygamberlerin haberlerinden, kalbini kendisiyle sağlamlaştırdığımız her şeyi sana anlatıyoruz. Bunda sana gerçek, inananlara da bir öğüt ve hatırlatma gelmiştir.",
+            "glossEn": "And all that We relate to you of the accounts of the messengers is that by which We make your heart firm. In these has come to you the truth, as well as an admonition and a reminder for the believers."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Yûsuf 12:111): peygamberlerin kıssaları akıl sahipleri için ibrettir; mü'minlerin kurtuluşu ve inkârcıların helâki tefekküre konudur. Metin, Kur'an'ın uydurulmuş bir söz olmadığını, Allah katından geldiğini; önceki vahiylerdeki doğruyu tasdik edip tahrif olanı düzelttiğini ve helâl ile harâm dâhil her şeyi açıkladığını vurgular. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (12:111): the stories of the messengers are a lesson for people of understanding; the deliverance of the believers and the destruction of the deniers are matters for reflection. The text stresses that the Qur'an is not fabricated speech but came from Allah, confirming the truth in earlier revelations and correcting what was altered, and explaining all things, the lawful and the unlawful included. (Summary of the tafsir.)"
+      },
+      {
+        "titleTr": "Yeryüzünde gezin, öncekilerin âkıbetine bakın",
+        "titleEn": "Travel the earth and see the fate of those before",
+        "verses": [
+          {
+            "ref": "Âl-i İmrân 3:137",
+            "ar": "قَدْ خَلَتْ مِنْ قَبْلِكُمْ سُنَنٌ فَسِيرُوا فِي الْاَرْضِ فَانْظُرُوا كَيْفَ كَانَ عَاقِبَةُ الْمُكَذِّبِينَ",
+            "glossTr": "Sizden önce de (ilâhî) yasalar gelip geçti. Öyleyse yeryüzünde gezin de yalanlayanların sonunun nasıl olduğuna bir bakın.",
+            "glossEn": "Ways of life have passed away before you; so travel through the land and see what was the end of those who denied the truth."
+          },
+          {
+            "ref": "Rûm 30:9",
+            "ar": "اَوَلَمْ يَسِيرُوا فِي الْاَرْضِ فَيَنْظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذِينَ مِنْ قَبْلِهِمْ كَانُوا اَشَدَّ مِنْهُمْ قُوَّةً وَاَثَارُوا الْاَرْضَ وَعَمَرُوهَا اَكْثَرَ مِمَّا عَمَرُوهَا وَجَاءَتْهُمْ رُسُلُهُمْ بِالْبَيِّنَاتِ فَمَا كَانَ اللّٰهُ لِيَظْلِمَهُمْ وَلٰكِنْ كَانُوا اَنْفُسَهُمْ يَظْلِمُونَ",
+            "glossTr": "Yeryüzünde gezip, kendilerinden öncekilerin sonunun nasıl olduğuna bakmadılar mı? Onlar kuvvetçe bunlardan daha güçlüydü; toprağı sürüp işlediler ve onu bunların imar ettiğinden daha çok imar ettiler. Peygamberleri onlara apaçık deliller getirmişti. Allah onlara zulmedecek değildi; fakat onlar kendilerine zulmediyorlardı.",
+            "glossEn": "Have they not travelled through the land and seen how was the end of those before them? They were stronger than them in power, and they cultivated the earth and built it up more than these have built it. Their messengers came to them with clear proofs. Allah would not wrong them, but they wronged themselves."
+          },
+          {
+            "ref": "Hac 22:46",
+            "ar": "اَفَلَمْ يَسِيرُوا فِي الْاَرْضِ فَتَكُونَ لَهُمْ قُلُوبٌ يَعْقِلُونَ بِهَا اَوْ اٰذَانٌ يَسْمَعُونَ بِهَا فَاِنَّهَا لَا تَعْمَى الْاَبْصَارُ وَلٰكِنْ تَعْمَى الْقُلُوبُ الَّتِي فِي الصُّدُورِ",
+            "glossTr": "Yeryüzünde gezmediler mi ki, düşünecek kalpleri, işitecek kulakları olsun? Gerçek şu ki, gözler kör olmaz; fakat asıl, göğüslerdeki kalpler kör olur.",
+            "glossEn": "Have they not travelled through the land so that they may have hearts to reason with or ears to hear with? For it is not the eyes that are blind, but it is the hearts within the breasts that grow blind."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Âl-i İmrân 3:137): Uhud'da zarara uğrayan mü'minlere, kendilerinden önceki ümmetlerin de benzer imtihanlardan geçtiği hatırlatılır; yeryüzünde gezip yalanlayanların âkıbetine bakmak, sonunda zaferin inananlara, hüsranın inkârcılara ait olduğu yasayı gösterir. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (3:137): the believers who suffered loss at Uḥud are reminded that earlier communities underwent similar trials; travelling the earth to observe the end of the deniers reveals the pattern that final victory belongs to the believers and ruin to the deniers. (Summary of the tafsir.)"
+      },
+      {
+        "titleTr": "Âd, Semûd ve helâk olan kavimler",
+        "titleEn": "ʿĀd, Thamūd, and the nations that perished",
+        "verses": [
+          {
+            "ref": "Fecr 89:6-9",
+            "ar": "اَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ اِرَمَ ذَاتِ الْعِمَادِ اَلَّتِي لَمْ يُخْلَقْ مِثْلُهَا فِي الْبِلَادِ وَثَمُودَ الَّذِينَ جَابُوا الصَّخْرَ بِالْوَادِ",
+            "glossTr": "Görmedin mi Rabbin ne yaptı sütunlar sahibi İrem'e, Âd kavmine; ki ülkeler içinde onun benzeri yaratılmamıştı. Ve vadide kayaları oyan Semûd'a.",
+            "glossEn": "Have you not seen how your Lord dealt with ʿĀd, of Iram, who had lofty pillars, the like of whom had not been created in the lands; and with Thamūd, who carved out the rocks in the valley?"
+          },
+          {
+            "ref": "A'râf 7:74",
+            "ar": "وَاذْ‌كُرُوا اِذْ جَعَلَكُمْ خُلَـفَاءَ مِنْ بَعْدِ عَادٍ وَبَوَّاَكُمْ فِي الْاَرْضِ تَتَّخِذُونَ مِنْ سُهُولِهَا قُصُوراً وَتَنْحِتُونَ الْجِبَالَ بُيُوتاً  فَاذْكُـرُوا اٰلَاءَ اللّٰهِ وَلَا تَعْثَوْا فِي الْاَرْضِ مُفْسِدِينَ",
+            "glossTr": "Hatırlayın ki (Allah) sizi Âd'dan sonra halîfeler yaptı ve yeryüzünde yerleştirdi; onun ovalarında köşkler ediniyor, dağları yontup evler yapıyordunuz. Öyleyse Allah'ın nimetlerini anın ve yeryüzünde bozgunculuk yaparak karışıklık çıkarmayın.",
+            "glossEn": "Remember when He made you successors after ʿĀd and settled you in the land: you built palaces on its plains and carved homes into the mountains. So remember Allah's favours and do not go about spreading corruption in the land."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Fecr 89:6): Âd kavmi, İrem soyundan gelen, büyük bir bedenî güce ve sütunlu yapılara sahip bir topluluktu; Hz. Hûd'u yalanlayınca yedi gece sekiz gün esen bir kasırgayla helâk edildiler. Semûd ise vadilerde kayaları yontarak evler yapmış, elçilerini yalanlayınca cezalandırılmıştı. Firavun da azgınlığı ve bozgunculuğuyla anılır; netice, Rabbin her an gözetleyici olduğudur. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (89:6): ʿĀd, descended from Iram, were a people of great physical strength and pillared structures; when they denied Hūd they were destroyed by a wind that blew seven nights and eight days. Thamūd carved houses out of rock in the valleys and were punished when they denied their messenger. Pharaoh too is recalled for his tyranny and corruption; the upshot is that your Lord is ever watchful. (Summary of the tafsir.)"
+      },
+      {
+        "titleTr": "Firavun ve zorba iktidarların çöküşü",
+        "titleEn": "Pharaoh and the downfall of tyrannical powers",
+        "verses": [
+          {
+            "ref": "Kasas 28:5",
+            "ar": "وَنُرِيدُ اَنْ نَمُنَّ عَلَى الَّذِينَ اسْتُضْعِفُوا فِي الْاَرْضِ وَنَجْعَلَهُمْ اَئِمَّةً وَنَجْعَلَهُمُ الْوَارِثِينَ",
+            "glossTr": "Biz ise istiyorduk ki o yerde güçsüz bırakılanlara lütufta bulunalım, onları önderler yapalım ve onları (ötekilere) vâris kılalım.",
+            "glossEn": "But it was Our will to favour those who were oppressed in the land, to make them leaders and to make them the inheritors."
+          },
+          {
+            "ref": "Yûnus 10:92",
+            "ar": "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ اٰيَةً وَاِنَّ كَثِيراً مِنَ النَّاسِ عَنْ اٰيَاتِنَا لَغَافِلُونَ",
+            "glossTr": "Bugün senden sonra geleceklere bir ibret olasın diye bedenini kurtaracağız. Doğrusu insanların çoğu âyetlerimizden gafildir.",
+            "glossEn": "Today We will preserve your body so that you may be a sign for those who come after you. Yet indeed, most people are heedless of Our signs."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Kasas 28:5): Firavun yeryüzünde büyüklenmiş, halkını sınıflara bölmüş ve İsrâiloğulları'nı ezmişti. Buna karşılık Allah'ın muradı, zayıf bırakılanlara lütfedip onları önderler ve vârisler kılmaktı; hiçbir dünyevî güç ilâhî takdiri engelleyemez, Firavun'un kudreti kendisini Hz. Mûsâ eliyle gelen âkıbetten koruyamadı. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (28:5): Pharaoh exalted himself in the land, split his people into classes, and oppressed the Children of Israel. Against this, Allah's will was to favour the oppressed and make them leaders and inheritors; no worldly power can thwart the divine decree, and Pharaoh's might could not protect him from the end that came through Mūsā. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Onuncu Söz (Üçüncü Hakikat: Hikmet ve Adalet)",
+          "sourceEn": "Bediüzzaman · The Words, Tenth Word (Third Truth: Wisdom and Justice)",
+          "introTr": "Bediüzzaman Said Nursi, Onuncu Söz'ün Üçüncü Hakikati'nde, Firavun gibi zorbaların dünyadaki sonunu ve cezasız kalıp göçen zalimleri, mutlak ilâhî adaletin tecellisi çerçevesinde şöyle değerlendirir:",
+          "introEn": "Bediüzzaman Said Nursi, in the Third Truth of the Tenth Word, reads the worldly end of tyrants like Pharaoh, and the oppressors who depart this world unpunished, within the frame of God's absolute justice:",
+          "pointsTr": [
+            "Dünyada kimi zalimler cezasız, kimi mazlumlar karşılıksız kalarak göçüp gider: 'Zâlim izzetinde, mazlûm zilletinde kalıp buradan göçüp gidiyorlar. Demek, bir mahkeme-i kübrâya bırakılıyor.'",
+            "Öyleyse dünyadaki cezalandırmanın eksik görünmesi, adaletin yokluğu değil; asıl hesabın daha büyük ve bâki bir mahkemeye tehir edilmesidir.",
+            "Her şeyi yerli yerine koyan mutlak hikmet ve adalet, zulmün ebediyen karşılıksız kalmasını kabul etmez; bu yüzden bâki bir âlem ve büyük bir hesap günü zorunludur."
+          ],
+          "pointsEn": [
+            "In this world some oppressors depart unpunished and some of the wronged without redress: 'The oppressor remains in his glory and the wronged in his abasement as they pass away from here. So it is deferred to a supreme court.'",
+            "The apparent incompleteness of worldly punishment is therefore not an absence of justice, but the postponement of the true reckoning to a greater and everlasting court.",
+            "The absolute wisdom and justice that set everything in its place will not accept that wrongdoing go forever unrequited; hence an eternal realm and a great day of reckoning are necessary."
+          ],
+          "noteTr": "Alıntılar birincil metinden (Sözler, Onuncu Söz, Üçüncü Hakikat) doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotations are verified from the primary text (The Words, Tenth Word, Third Truth). This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration."
+        }
+      },
+      {
+        "titleTr": "Sebe': nimet, nankörlük ve çöküş",
+        "titleEn": "Sabaʾ: bounty, ingratitude, and collapse",
+        "verses": [
+          {
+            "ref": "Sebe' 34:15",
+            "ar": "لَقَدْ كَانَ لِسَبَأٍ فِي مَسْكَنِهِمْ اٰيَةٌ جَنَّتَانِ عَنْ يَمِينٍ وَشِمَالٍ كُلُوا مِنْ رِزْقِ رَبِّكُمْ وَاشْكُرُوا لَهُ بَلْدَةٌ طَيِّبَةٌ وَرَبٌّ غَفُورٌ",
+            "glossTr": "Andolsun, Sebe (halkı) için oturdukları yerde bir ibret vardı: Biri sağda, biri solda iki bahçe. 'Rabbinizin rızkından yiyin ve O'na şükredin; güzel bir belde ve çok bağışlayan bir Rab.'",
+            "glossEn": "Indeed, for the people of Sabaʾ there was a sign in their dwelling place: two gardens, one on the right and one on the left. 'Eat from the provision of your Lord and give thanks to Him: a good land and a forgiving Lord.'"
+          },
+          {
+            "ref": "Sebe' 34:16",
+            "ar": "فَاَعْرَضُوا فَاَرْسَلْنَا عَلَيْهِمْ سَيْلَ الْعَرِمِ وَبَدَّلْنَاهُمْ بِجَنَّتَيْهِمْ جَنَّتَيْنِ ذَوَاتَيْ اُكُلٍ خَمْطٍ وَاَثْلٍ وَشَيْءٍ مِنْ سِدْرٍ قَلِيلٍ",
+            "glossTr": "Fakat onlar yüz çevirdiler; biz de üzerlerine Arim selini gönderdik ve onların iki bahçesini, buruk meyveli, ılgınlı ve içinde biraz da sidr ağacı bulunan iki bahçeye çevirdik.",
+            "glossEn": "But they turned away, so We sent upon them the flood of the dam, and We turned their two gardens into two gardens of bitter fruit, tamarisks, and a few lote trees."
+          },
+          {
+            "ref": "Sebe' 34:17",
+            "ar": "ذٰلِكَ جَزَيْنَاهُمْ بِمَا كَفَرُوا وَهَلْ نُجَازِٓي اِلَّا الْكَفُورَ",
+            "glossTr": "Nankörlük etmeleri sebebiyle onları böyle cezalandırdık. Biz nankörden başkasını cezalandırır mıyız?",
+            "glossEn": "Thus We repaid them for their ingratitude. And do We ever punish in this way anyone but the ungrateful?"
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (Sebe' 34:15): Sebe halkı, Me'rib barajının iki yanında uzanan bereketli iki bahçeyle ve bolluk içinde bir beldeyle rızıklandırılmış, şükretmeleri emredilmişti. Şükür yerine yüz çevirip nankörlük edince baraj çökmüş, bereketli bahçeler buruk meyveli, dikenli bir çorakla yer değiştirmiştir. Netice, cezanın nankörlüğün karşılığı olduğudur. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (34:15): the people of Sabaʾ were provided with two fertile gardens flanking the dam of Maʾrib and a land of plenty, and were commanded to give thanks. When they turned away in ingratitude instead, the dam collapsed and the lush gardens were exchanged for a thorny waste of bitter fruit. The upshot is that the punishment was the recompense of ingratitude. (Summary of the tafsir.)"
+      }
+    ],
+    "assuranceTr": "Bu âyetler, geçmiş kavimlerin âkıbetleri üzerinden zulüm ve nankörlüğe karşı uyarır ve ibret almaya çağırır. Kıssaları anlatan bu metnin kendisi de korunmuştur (Hicr 15:9). Tefsir ve akademik tarih katmanı, bu kesinliğin üzerine bina edilen beşerî anlama çabasıdır ve onun yerine geçmez. Bu seçki, Kur'an'daki bütün kıssaları ve kavimleri de tüketmez.",
+    "assuranceEn": "These verses warn against oppression and ingratitude through the fates of past peoples and call readers to take heed. The very text that narrates these stories is itself preserved (Al-Hijr 15:9). The layer of exegesis and academic history is a human effort to understand built upon that certainty, and does not replace it. This selection also does not exhaust every story and nation in the Qur'an.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/12/111 · quran.com/3/137 · quran.com/89/6; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/12/111 · quran.com/3/137 · quran.com/89/6; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Akademik ve klasik kaynaklar, Kur'an'ı tasdik için değil; beşerî tarih düşüncesini, tarih yazımını ve kıssa geleneğini incelemek için anılır. Bir kaynağın akademik olması görüşlerini kesinleştirmez.",
+    "sourcesNoteEn": "The academic and classical sources are cited not to confirm the Qur'an, but to study human historical thought, historiography, and the narrative tradition. A source being academic does not make its views certain.",
+    "sources": [
+      {
+        "author": "İbn Haldûn (çev. Franz Rosenthal, ed. N. J. Dawood)",
+        "work": "The Muqaddimah: An Introduction to History",
+        "pub": "Princeton University Press (Bollingen)",
+        "year": "1989",
+        "id": "ISBN 9780691017549",
+        "noteTr": "KLASİK METİN: medeniyetlerin ve hanedanların yükseliş-çöküş döngüsünü (asabiyet) inceleyen, tarih felsefesinin klasik eseri.",
+        "noteEn": "CLASSICAL TEXT: the classic work in the philosophy of history, analyzing the rise-and-fall cycle of civilizations and dynasties (ʿaṣabiyya)."
+      },
+      {
+        "author": "Roberto Tottoli",
+        "work": "Biblical Prophets in the Qur'an and Muslim Literature",
+        "pub": "Curzon / Routledge",
+        "year": "2002",
+        "id": "ISBN 9780700713943",
+        "noteTr": "YAKLAŞIM: Kur'an'daki ve İslâmî literatürdeki peygamber kıssalarını ve kavim anlatılarını karşılaştırmalı inceleyen akademik çalışma.",
+        "noteEn": "APPROACH: a comparative scholarly study of prophetic narratives and accounts of past peoples in the Qur'an and Muslim literature."
+      },
+      {
+        "author": "Brannon M. Wheeler",
+        "work": "Prophets in the Quran: An Introduction to the Quran and Muslim Exegesis",
+        "pub": "Continuum",
+        "year": "2002",
+        "id": "ISBN 9780826449566",
+        "noteTr": "YAKLAŞIM: Kur'an kıssalarını klasik tefsir malzemesiyle birlikte sunan giriş-referans eseri.",
+        "noteEn": "APPROACH: an introductory reference presenting the Qur'anic narratives alongside classical exegetical material."
+      },
+      {
+        "author": "Tarif Khalidi",
+        "work": "Arabic Historical Thought in the Classical Period",
+        "pub": "Cambridge University Press",
+        "year": "1994",
+        "id": "ISBN 9780521465540",
+        "noteTr": "YAKLAŞIM: klasik dönem Müslüman tarih düşüncesinin ve tarih yazımının gelişimini inceleyen akademik kaynak.",
+        "noteEn": "APPROACH: a scholarly study of the development of Muslim historical thought and historiography in the classical period."
+      },
+      {
+        "author": "M. A. S. Abdel Haleem",
+        "work": "Understanding the Qur'an: Themes and Style",
+        "pub": "I.B. Tauris",
+        "year": "1999",
+        "id": "ISBN 9781860640094",
+        "noteTr": "YAKLAŞIM: Kur'an'ın tematik yapısını ve üslûbunu (Hz. Yûsuf kıssasının anlatımı dâhil) inceleyen akademik çalışma.",
+        "noteEn": "APPROACH: a scholarly study of the Qur'an's thematic structure and style, including the narration of the story of Joseph."
+      },
+      {
+        "author": "Bediüzzaman Said Nursî",
+        "work": "Sözler (Onuncu Söz)",
+        "pub": "Envâr Neşriyat (İstanbul)",
+        "year": "2012",
+        "id": "Risale-i Nur birincil metni (matbu ISBN doğrulanamadı)",
+        "noteTr": "BİRİNCİL TEFSİR-RİSALE: zulmün geçiciliğini ve ilâhî adaletin mahkeme-i kübrâya tehirini işleyen modern tefsir metni (beşerî yorum katmanı). Tema 4'te işlenmiştir; metin risale.online üzerinden teyit edilmiştir.",
+        "noteEn": "PRIMARY RISALE/TAFSIR: a modern text on the transience of oppression and the deferral of divine justice to a supreme court (a human interpretive layer). Treated in Theme 4; the text was confirmed via risale.online."
+      }
+    ]
+  },
 };

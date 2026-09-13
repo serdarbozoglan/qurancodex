@@ -22,7 +22,6 @@ import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
-import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 import extData from '../../public/nefis-mertebeleri-ext.json';
 // 2026-08-14 (Z3f2) — ana veri de aynı şekilde statik import edildi; fetch
@@ -152,26 +151,22 @@ export default function NefisMertebeleri({ onClose }) {
 
         {/* ─────────────────────────────── HERO ─────────────────────────────── */}
         <CollapsibleHero id="nefs-mertebeleri" language={language} labelTr="Nefs Mertebeleri" labelEn="Stations of the Soul">
-        <div className="mq-box" style={{
-          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "32px", '--pl-d': "40px", '--pl-m': "20px",
-          background: 'linear-gradient(180deg, rgba(139,0,0,0.05) 0%, transparent 100%)',
+        <div className="mq-box qc-hero-bg" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden',
         }}>
-          <HeroGeometricBackground />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
-          <div className="mq-box"
+          <div className="mq-fs"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            className="mq-fs" style={{
+            style={{
               fontFamily: FONTS.bismillah,
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1.2,
-              marginBottom: '32px',
+              marginBottom: '24px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
@@ -186,7 +181,7 @@ export default function NefisMertebeleri({ onClose }) {
               '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
-              margin: '0 auto 16px',
+              margin: '0 auto 12px',
               maxWidth: '820px',
               }}
           >

@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import { COLORS, RADIUS, TRANSITION, BREAKPOINT_MOBILE, FONTS } from '../tokens';
+import { COLORS, CATEGORY, RADIUS, TRANSITION, BREAKPOINT_MOBILE, FONTS } from '../tokens';
 
 const PROPHET_PROFILES = [
   {
     id: 'ibrahim',
     nameTr: 'Hz. İbrahim',
     nameEn: 'Prophet Abraham',
-    emojiColor: COLORS.gold,
+    emojiColor: CATEGORY.emerald,
     profileTr: 'Kurucu · Mimar · Baba',
     profileEn: 'Founder · Architect · Father',
     themesTr: ['Nesil ve süreklilik', 'Halk için şefaat', 'Hidayet ve zikir', 'Rızık ve minnet'],
@@ -22,10 +22,30 @@ const PROPHET_PROFILES = [
     ar: 'رَبَّنَا تَقَبَّلْ مِنَّا  إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ',
     countTr: '15+ dua',
     countEn: '15+ supplications',
-    insightTr: "Hz. İbrahim'in duaları görev bilinci taşır; her dua bir nesil, bir ümmet, bir şehir içindir.",
-    insightEn: "Abraham's prayers carry a sense of mission; each prayer is for a generation, a nation, a city.",
-    responseTr: 'Cevap: Mekke kuruldu, Beytullah inşa edildi (Bakara 2:127); ileri yaşta Hz. İsmail ve Hz. İshak verildi (İbrâhim 14:39).',
-    responseEn: 'Response: Mecca was established, the Sacred House was built (Al-Baqara 2:127); in old age he was granted Ishmael and Isaac (Ibrāhīm 14:39).',
+    extraDuas: [
+      { ar: 'رَبِّ اجْعَلْ هٰذَا بَلَداً اٰمِناً وَارْزُقْ اَهْلَهُ مِنَ الثَّمَرَاتِ مَنْ اٰمَنَ مِنْهُمْ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ', refTr: 'Bakara 2:126', refEn: 'al-Baqara 2:126',
+        trTr: 'Rabbim, burayı güvenli bir şehir kıl; halkından Allah\'a ve âhiret gününe iman edenleri ürünlerle rızıklandır.',
+        trEn: 'My Lord, make this a secure city, and provide its people with fruits, those of them who believe in Allah and the Last Day.' },
+      { ar: 'رَبَّنَا وَاجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِنْ ذُرِّيَّتِنَا اُمَّةً مُسْلِمَةً لَكَ وَاَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَا اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ', refTr: 'Bakara 2:128', refEn: 'al-Baqara 2:128',
+        trTr: 'Rabbimiz, ikimizi sana teslim olmuş kıl; soyumuzdan da sana teslim olmuş bir ümmet çıkar; bize ibadet usullerimizi göster ve tevbemizi kabul et. Şüphesiz sen tevbeleri çok kabul eden, çok merhametli olansın.',
+        trEn: 'Our Lord, make us both submissive to You, and from our offspring a community submissive to You; show us our rites and accept our repentance. Indeed You are the Accepting of repentance, the Merciful.' },
+      { ar: 'رَبَّنَا وَابْعَثْ فِيهِمْ رَسُولاً مِنْهُمْ يَتْلُوا عَلَيْهِمْ اٰيَاتِكَ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ وَيُزَكِّيهِمْ اِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ', refTr: 'Bakara 2:129', refEn: 'al-Baqara 2:129',
+        trTr: 'Rabbimiz, içlerinden onlara senin âyetlerini okuyacak, kitabı ve hikmeti öğretecek ve onları arındıracak bir elçi gönder. Şüphesiz sen mutlak güç ve hikmet sahibisin.',
+        trEn: 'Our Lord, raise among them a messenger from themselves who will recite Your verses to them, teach them the Book and wisdom, and purify them. Indeed You are the Almighty, the All-Wise.' },
+      { ar: 'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلٰوةِ وَمِنْ ذُرِّيَّتِي رَبَّـنَا وَتَقَبَّلْ دُعَاءِ رَبَّـنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ', refTr: 'İbrâhîm 14:40-41', refEn: 'Ibrāhīm 14:40-41',
+        trTr: 'Rabbim, beni ve soyumdan olanları namazı dosdoğru kılanlardan eyle. Rabbimiz, duamı kabul et. Rabbimiz, hesabın görüleceği gün beni, anne babamı ve mü\'minleri bağışla.',
+        trEn: 'My Lord, make me one who establishes prayer, and from my offspring as well. Our Lord, accept my supplication. Our Lord, forgive me, my parents, and the believers on the Day the reckoning takes place.' },
+      { ar: 'رَبِّ هَبْ لِي حُكْماً وَاَلْحِقْنِي بِالصَّالِحِينَ', refTr: 'Şuarâ 26:83', refEn: 'al-Shuʿarāʾ 26:83',
+        trTr: 'Rabbim, bana hikmet ver ve beni sâlihlere kat.',
+        trEn: 'My Lord, grant me wisdom and join me with the righteous.' },
+      { ar: 'رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ', refTr: 'Sâffât 37:100', refEn: 'al-Ṣāffāt 37:100',
+        trTr: 'Rabbim, bana sâlihlerden bir evlat bağışla.',
+        trEn: 'My Lord, grant me a child from among the righteous.' },
+    ],
+    insightTr: "Hz. İbrahim'in duaları görev bilinci taşır; dualarında nesil, ümmet ve şehir için talepler de yer alır.",
+    insightEn: "Abraham's prayers carry a sense of mission; among them are petitions for a generation, a community, and a city.",
+    responseTr: 'Cevap: Beytullah\'ın temelleri yükseltildi (Bakara 2:127); ileri yaşta Hz. İsmail ve Hz. İshak verildi (İbrâhim 14:39).',
+    responseEn: 'Response: The foundations of the Sacred House were raised (Al-Baqara 2:127); in old age he was granted Ishmael and Isaac (Ibrāhīm 14:39).',
   },
   {
     id: 'eyyub',
@@ -41,16 +61,21 @@ const PROPHET_PROFILES = [
     ar: 'أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ',
     countTr: '2 dua',
     countEn: '2 supplications',
+    extraDuas: [
+      { ar: 'اَنِّي مَسَّنِيَ الشَّيْطَانُ بِنُصْبٍ وَعَذَابٍ', refTr: 'Sâd 38:41', refEn: 'Ṣād 38:41',
+        trTr: 'Şeytan bana bir yorgunluk ve azap dokundurdu.',
+        trEn: 'Satan has touched me with hardship and torment.' },
+    ],
     insightTr: "Hz. Eyyub'un duası şikâyet değil, arzdır; durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
     insightEn: "Job's prayer is not complaint but presentation; he lays his condition before God without rebellion. 'Adversity has touched me,' he says, then immediately invokes 'You are the Most Merciful.' Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr): a respectful arrangement of one's state, the method of the prophet of patience.",
-    responseTr: 'Cevap: Şifa, ailesi geri döndü, malı bir misli artırıldı (Enbiyâ 21:84, Sâd 38:42-43); "Şüphesiz biz onu sabreden bulduk; ne güzel kuldur o!" (Sâd 38:44).',
-    responseEn: 'Response: Healing, his family was restored, his wealth doubled (Al-Anbiya 21:84, Sad 38:42-43); "Indeed We found him patient; an excellent servant!" (Sad 38:44).',
+    responseTr: 'Cevap: Sıkıntısı kaldırıldı; ailesi ve onlarla birlikte bir misli verildi (Enbiyâ 21:84, Sâd 38:43); "Şüphesiz biz onu sabreden bulduk; ne güzel kuldur o!" (Sâd 38:44).',
+    responseEn: 'Response: His affliction was removed, and his family was given back to him along with the like of them (Al-Anbiya 21:84, Sad 38:43); "Indeed We found him patient; an excellent servant!" (Sad 38:44).',
   },
   {
     id: 'yusuf',
     nameTr: 'Hz. Yusuf',
     nameEn: 'Prophet Joseph',
-    emojiColor: '#ec4899',
+    emojiColor: CATEGORY.rose,
     profileTr: 'Gurbet · Çile · Tamamlanma',
     profileEn: 'Exile · Tribulation · Completion',
     themesTr: ['Yabancı topraklarda dua', 'İmtihandan sığınma', 'İktidar şükrü', 'Müslüman olarak ölüm talebi'],
@@ -60,10 +85,15 @@ const PROPHET_PROFILES = [
     ar: 'رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ',
     countTr: '3 dua: gurbet, sığınma ve tamamlanma',
     countEn: '3 prayers: exile, refuge and completion',
-    insightTr: "Hz. Yusuf'un duaları gurbetin üç evresini izler. İmtihan anında sığınma: 'zindan günaha tercih edilir' (Yûsuf 12:33), bedensel kaybın ahlâkî kazançtan az olduğunun ifadesi. İktidar elde edildiğinde şükür ve teslimiyet: 'beni Müslüman olarak öldür ve sâlihlere kat' (Yûsuf 12:101), zafer anında dahi son talep dünyada değil ahirette tamamlanmak. Yûsuf sûresi tek bir kıssa olarak inen tek sûredir; duaları kıssanın zirvelerini işaretler.",
-    insightEn: "Hz. Joseph's prayers trace three phases of exile. Refuge in trial: 'prison is dearer than sin' (Yūsuf 12:33), an assertion that bodily loss is less than moral gain. Surrender in power: 'cause me to die as a Muslim and join me with the righteous' (Yūsuf 12:101); even at the moment of victory, the final petition is for completion not in this world but in the next. The Sūra of Yūsuf is the only sura revealed as a single continuous narrative; his prayers mark its peaks.",
-    responseTr: "Cevap: Hz. Yusuf zindandan kurtulup Mısır'ın hazinelerine memur edildi (Yûsuf 12:54-56), babası ve kardeşleri yanına geldi (Yûsuf 12:99-100); duası ile ailesi bütünleştirildi.",
-    responseEn: "Response: Hz. Joseph was released from prison and entrusted with the storehouses of Egypt (Yūsuf 12:54-56); his father and brothers came to him (Yūsuf 12:99-100); through his prayer his family was reunited.",
+    extraDuas: [
+      { ar: 'رَبِّ قَدْ اٰتَيْتَنِي مِنَ الْمُلْكِ وَعَلَّمْتَنِي مِنْ تَأْوِيلِ الْاَحَادِيثِ فَاطِرَ السَّمٰوَاتِ وَالْاَرْضِ اَنْتَ وَلِيِّ فِي الدُّنْيَا وَالْاٰخِرَةِ تَوَفَّنِي مُسْلِماً وَاَلْحِقْنِي بِالصَّالِحِينَ', refTr: 'Yûsuf 12:101', refEn: 'Yūsuf 12:101',
+        trTr: 'Rabbim, bana mülkten bir pay verdin ve olayların yorumunu öğrettin. Gökleri ve yeri yaratan! Dünyada da âhirette de benim velim sensin; canımı müslüman olarak al ve beni sâlihlere kat.',
+        trEn: 'My Lord, You have given me a share of sovereignty and taught me the interpretation of events. Originator of the heavens and the earth, You are my protector in this world and the next; take my soul in submission and join me with the righteous.' },
+    ],
+    insightTr: "Hz. Yusuf'un duaları gurbetin üç evresini izler. İmtihan anında sığınma: 'zindan günaha tercih edilir' (Yûsuf 12:33), bedensel kaybın ahlâkî kazançtan az olduğunun ifadesi. İktidar elde edildiğinde şükür ve teslimiyet: 'beni Müslüman olarak öldür ve sâlihlere kat' (Yûsuf 12:101), zafer anında dahi son talep dünyada değil ahirette tamamlanmak. Yûsuf sûresi, Hz. Yusuf kıssasını bütünlüklü biçimde anlatır; duaları kıssanın zirvelerini işaretler.",
+    insightEn: "Joseph's prayers trace three phases of exile. Refuge in trial: 'prison is dearer than sin' (Yūsuf 12:33), an assertion that bodily loss is less than moral gain. Surrender in power: 'cause me to die as a Muslim and join me with the righteous' (Yūsuf 12:101); even at the moment of victory, the final petition is for completion not in this world but in the next. The Sūra of Yūsuf narrates Joseph's story as a single continuous account revealed as a single continuous narrative; his prayers mark its peaks.",
+    responseTr: "Cevap: Hz. Yusuf zindandan kurtulup Mısır'ın hazinelerine memur edildi (Yûsuf 12:54-56), babası ve kardeşleri yanına geldi (Yûsuf 12:99-100); ailesiyle yeniden bir araya geldi.",
+    responseEn: "Response: Joseph was released from prison and entrusted with the storehouses of Egypt (Yūsuf 12:54-56); his father and brothers came to him (Yūsuf 12:99-100); and his family was brought together again.",
   },
   {
     id: 'musa',
@@ -79,6 +109,23 @@ const PROPHET_PROFILES = [
     ar: 'رَبِّ اشْرَحْ لِي صَدْرِي ﴿٢٥﴾ وَيَسِّرْ لِي أَمْرِي ﴿٢٦﴾ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ﴿٢٧﴾ يَفْقَهُوا قَوْلِي ﴿٢٨﴾',
     countTr: '15\'ten fazla dua: Kur\'an\'ın en uzun dua zinciri',
     countEn: "More than 15 supplications: the Qur'an's longest prayer chain",
+    extraDuas: [
+      { ar: 'رَبِّ اِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي', refTr: 'Kasas 28:16', refEn: 'al-Qaṣaṣ 28:16',
+        trTr: 'Rabbim, ben nefsime zulmettim; beni bağışla.',
+        trEn: 'My Lord, I have wronged myself, so forgive me.' },
+      { ar: 'رَبِّ نَجِّنِي مِنَ الْقَوْمِ الظَّالِمِينَ', refTr: 'Kasas 28:21', refEn: 'al-Qaṣaṣ 28:21',
+        trTr: 'Rabbim, beni zalimler topluluğundan kurtar.',
+        trEn: 'My Lord, save me from the wrongdoing people.' },
+      { ar: 'رَبِّ اِنِّي لِمَا اَنْزَلْتَ اِلَيَّ مِنْ خَيْرٍ فَقِيرٌ', refTr: 'Kasas 28:24', refEn: 'al-Qaṣaṣ 28:24',
+        trTr: 'Rabbim, bana indireceğin her hayra muhtacım.',
+        trEn: 'My Lord, I am in need of whatever good You send down to me.' },
+      { ar: 'رَبِّ اغْفِرْ لِي وَلِاَخِي وَاَدْخِلْنَا فِي رَحْمَتِكَ وَاَنْتَ اَرْحَمُ الرَّاحِمِينَ', refTr: 'A\'râf 7:151', refEn: 'al-Aʿrāf 7:151',
+        trTr: 'Rabbim, beni ve kardeşimi bağışla; bizi rahmetine al. Sen merhametlilerin en merhametlisisin.',
+        trEn: 'My Lord, forgive me and my brother and admit us into Your mercy, for You are the Most Merciful of the merciful.' },
+      { ar: 'رَبَّـنَا اِنَّكَ اٰتَيْتَ فِرْعَوْنَ وَمَلَاَهُ زِينَةً وَاَمْوَالاً فِي الْحَيٰوةِ الدُّنْيَا رَبَّـنَا لِيُضِلُّوا عَنْ سَبِيلِكَ رَبَّـنَا اطْمِسْ عَلٰٓى اَمْوَالِهِمْ وَاشْدُدْ عَلٰى قُلُوبِهِمْ فَلَا يُؤْمِنُوا حَتّٰى يَرَوُا الْعَذَابَ الْاَلِيمَ', refTr: 'Yûnus 10:88', refEn: 'Yūnus 10:88',
+        trTr: 'Rabbimiz, sen Firavun\'a ve ileri gelenlerine dünya hayatında süs ve mallar verdin. Rabbimiz, senin yolundan saptırsınlar diye mi? Rabbimiz, mallarını yok et ve kalplerini sıkıca bağla; acı azabı görünceye kadar iman etmesinler.',
+        trEn: 'Our Lord, You have given Pharaoh and his chiefs splendour and wealth in this worldly life. Our Lord, is it so they may lead people astray from Your path? Our Lord, obliterate their wealth and harden their hearts, so they will not believe until they see the painful punishment.' },
+    ],
     insightTr: "Hz. Mûsâ'nın duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hz. Hârûn). Bu sıra, modern psikolojinin 'iç düzenleme, dış eylem, diyalog, ekosistem' sıralamasıyla örtüşür. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar; 'şerh-i sadr' iç dünyada yer açmak demektir.",
     insightEn: "Moses' prayer is a map of psychology: first inner state (let the chest expand, not constrict), then outer task (ease the work), then communication (untie my tongue), finally social support (my brother Aaron). This sequence aligns with modern psychology's order of inner regulation, outer action, dialogue and ecosystem. Before Pharaoh, a prophet voices his own weakness not as complaint but as petition; 'sharḥ al-ṣadr' means making inner space.",
     responseTr: 'Cevap: "Talebin verildi" (Tâhâ 20:36). Hz. Hârûn yardımcı kılındı, korku açıklığa dönüştürüldü.',
@@ -98,8 +145,8 @@ const PROPHET_PROFILES = [
     ar: 'لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',
     countTr: "1 ana dua (Enbiyâ 21:87): mâna açısından en yoğun",
     countEn: "1 main prayer (Al-Anbiya 21:87): semantically the most dense",
-    insightTr: "Hz. Yunus'un duası mâna açısından Kur'an'ın en yoğun dualarından biridir; tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Hz. Zekeriyyâ Meryem 19:4, Hz. Mûsâ Kasas 28:24); Hz. Yunus'un farkı uzunluk değil, mâna yoğunluğudur.",
-    insightEn: "Jonah's prayer is semantically among the most concentrated in the Qur'an; three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Zechariah Maryam 19:4, Moses Al-Qaṣaṣ 28:24); Jonah's distinction is not length but density of meaning.",
+    insightTr: "Hz. Yunus'un duası mâna açısından Kur'an'ın en yoğun dualarından biridir; tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar da vardır (Hz. Mûsâ, Kasas 28:24); Hz. Yunus'un farkı uzunluk değil, mâna yoğunluğudur.",
+    insightEn: "Jonah's prayer is semantically among the most concentrated in the Qur'an; three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Moses, Al-Qaṣaṣ 28:24); Jonah's distinction is not length but density of meaning.",
     responseTr: 'Cevap: Karanlığın içinde kurtarıldı (Enbiyâ 21:88). Kur\'an "Allah onu tasadan kurtardı" diye nitelendirir.',
     responseEn: 'Response: Delivered from the darkness (Al-Anbiya 21:88). The Qur\'an states "We saved him from the distress."',
   },
@@ -117,10 +164,62 @@ const PROPHET_PROFILES = [
     ar: 'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا',
     countTr: '4 ana dua',
     countEn: '4 main supplications',
+    extraDuas: [
+      { ar: 'فَهَبْ لِي مِنْ لَدُنْكَ وَلِياًّ يَرِثُنِي وَيَرِثُ مِنْ اٰلِ يَعْقُوبَ وَاجْعَلْهُ رَبِّ رَضِياًّ', refTr: 'Meryem 19:5-6', refEn: 'Maryam 19:5-6',
+        trTr: 'Bana katından bir velî bağışla; bana ve Yakup soyuna mirasçı olsun. Rabbim, onu rızana lâyık kıl.',
+        trEn: 'Grant me from Yourself an heir who will inherit from me and from the family of Jacob, and make him, my Lord, pleasing to You.' },
+      { ar: 'رَبِّ هَبْ لِي مِنْ لَدُنْكَ ذُرِّيَّةً طَيِّبَةً اِنَّكَ سَمِيعُ الدُّعَاءِ', refTr: 'Âl-i İmrân 3:38', refEn: 'Āl ʿImrān 3:38',
+        trTr: 'Rabbim, bana katından tertemiz bir nesil bağışla; şüphesiz sen duayı işitensin.',
+        trEn: 'My Lord, grant me from Yourself a good offspring; indeed You hear supplication.' },
+      { ar: 'رَبِّ لَا تَذَرْنِي فَرْداً وَاَنْتَ خَيْرُ الْوَارِثِينَ', refTr: 'Enbiyâ 21:89', refEn: 'al-Anbiyāʾ 21:89',
+        trTr: 'Rabbim, beni tek başıma bırakma; sen vârislerin en hayırlısısın.',
+        trEn: 'My Lord, do not leave me alone, and You are the best of inheritors.' },
+    ],
     insightTr: "Hz. Zekeriyyâ'nın duası 'gizli ses' (nidâen hafiyyâ, Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez; Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
     insightEn: "Zechariah's prayer is offered 'in a hushed voice' (nidā'an khafiyyan, Maryam 19:3); he is too modest for others to overhear what he asks. He notes that his bones have weakened, yet does not say 'You know'; he places his own helplessness before God rather than testifying to it. The despair of old age transforms into a petition of hope: 'I have never been unblessed in calling upon You.'",
     responseTr: 'Cevap: İleri yaşta Hz. Yahyâ (Yûhanna) verildi (Meryem 19:7). Aynı isim daha önce kimseye verilmemişti.',
-    responseEn: 'Response: In advanced age he was granted Hz. Yaḥyā (John) (Maryam 19:7). A name not given to anyone before.',
+    responseEn: 'Response: In advanced age he was granted Yaḥyā (John) (Maryam 19:7). A name not given to anyone before.',
+  },
+  {
+    // Efendimizin duası — kullanıcı isteği 2026-09-13: peygamber sekmeleri
+    // arasında Hz. Muhammed yoktu. Arapça verse-graph'tan alınmıştır (Tâhâ 20:114).
+    id: 'muhammed',
+    nameTr: 'Hz. Muhammed',
+    nameEn: 'Prophet Muhammad',
+    emojiColor: COLORS.gold,
+    profileTr: 'İlim · Rahmet · Ümmet',
+    profileEn: 'Knowledge · Mercy · Community',
+    themesTr: ['İlmin artması talebi', 'Vahiyde acele etmemek', 'Ana babaya rahmet', 'Vesveseden sığınma'],
+    themesEn: ['Asking for increase in knowledge', 'Not hastening revelation', 'Mercy toward parents', 'Refuge from promptings'],
+    famousTr: '"Rabbi zidnî ilmâ": Rabbim, ilmimi artır. (Tâhâ 20:114)',
+    famousEn: '"Rabbi zidnī ʿilmā": My Lord, increase me in knowledge. (Ṭā-Hā 20:114)',
+    ar: 'رَبِّ زِدْنِي عِلْماً',
+    countTr: '10+ dua',
+    countEn: '10+ supplications',
+    extraDuas: [
+      { ar: 'رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيراً', refTr: 'İsrâ 17:24', refEn: 'al-Isrāʾ 17:24',
+        trTr: 'Rabbim, küçükken beni yetiştirdikleri gibi Sen de onlara merhamet et.',
+        trEn: 'My Lord, have mercy on them as they raised me when I was small.' },
+      { ar: 'رَبِّ اَدْخِلْنِي مُدْخَلَ صِدْقٍ وَاَخْرِجْنِي مُخْرَجَ صِدْقٍ وَاجْعَلْ لِي مِنْ لَدُنْكَ سُلْطَاناً نَصِيراً', refTr: 'İsrâ 17:80', refEn: 'al-Isrāʾ 17:80',
+        trTr: 'Rabbim, beni doğruluk ile girdir, doğruluk ile çıkar ve bana katından yardım edici bir güç ver.',
+        trEn: 'My Lord, cause me to enter in truth and to exit in truth, and grant me from Yourself a supporting authority.' },
+      { ar: 'رَبِّ اَعُوذُ بِكَ مِنْ هَمَزَاتِ الشَّيَاطِينِ', refTr: "Mü'minûn 23:97", refEn: 'al-Muʾminūn 23:97',
+        trTr: 'Rabbim, şeytanların vesveselerinden Sana sığınırım.',
+        trEn: 'My Lord, I seek refuge in You from the promptings of the devils.' },
+      { ar: 'رَبِّ فَلَا تَجْعَلْنِي فِي الْقَوْمِ الظَّالِمِينَ', refTr: "Mü'minûn 23:94", refEn: 'al-Muʾminūn 23:94',
+        trTr: 'Rabbim, beni zalimler topluluğu içinde bırakma.',
+        trEn: 'My Lord, do not place me among the wrongdoing people.' },
+      { ar: 'رَبِّ اغْفِرْ وَارْحَمْ وَاَنْتَ خَيْرُ الرَّاحِمِينَ', refTr: "Mü'minûn 23:118", refEn: 'al-Muʾminūn 23:118',
+        trTr: 'Rabbim, bağışla ve merhamet et; Sen merhamet edenlerin en hayırlısısın.',
+        trEn: 'My Lord, forgive and have mercy, for You are the best of the merciful.' },
+      { ar: 'رَبِّ احْكُمْ بِالْحَقِّ وَرَبُّنَا الرَّحْمٰنُ الْمُسْتَعَانُ عَلٰى مَا تَصِفُونَ', refTr: 'Enbiyâ 21:112', refEn: 'al-Anbiyāʾ 21:112',
+        trTr: 'Rabbim, hak ile hükmet. Rabbimiz, sizin nitelendirmelerinize karşı yardımı istenen Rahmân\'dır.',
+        trEn: 'My Lord, judge in truth. Our Lord is the Most Merciful, the One whose help is sought against what you describe.' },
+    ],
+    insightTr: "Kur'an'da Hz. Muhammed'e öğretilen dua tek değildir; çoğu 'de ki' (kul) kalıbıyla gelir ve bir ölçü koyar. 'Rabbim, ilmimi artır' (Tâhâ 20:114), vahyi alan kişinin dahi öğrenmeye devam ettiğini gösterir; aynı âyet önce vahiyde acele edilmemesini söyler, yani talep sabırla birlikte gelir. İsrâ 17:24'teki ana babaya rahmet duası ise yalnız ona özgü değildir; hitap mü'minleri de kapsar. Diğerleri: ana babaya rahmet (İsrâ 17:24), doğruluk üzere giriş ve çıkış ile yardım edici bir güç (İsrâ 17:80), şeytanların vesvesesinden sığınma (Mü'minûn 23:97-98), zalimler topluluğu içinde bırakılmama (Mü'minûn 23:93-94), bağışlanma ve merhamet (Mü'minûn 23:118) ve hak ile hükmedilmesi (Enbiyâ 21:112).",
+    insightEn: "The Qur'an teaches Muhammad more than one prayer; most arrive in the 'say' (qul) form and set a measure. 'My Lord, increase me in knowledge' (Ṭā-Hā 20:114) shows that even the one receiving revelation keeps learning, and the same verse first says not to hasten the revelation, so the request comes paired with patience. The prayer for parents in al-Isrāʾ 17:24 is not his alone; the address includes the believers. Others: mercy for parents (al-Isrāʾ 17:24), an entrance and an exit in truth with a supporting authority (al-Isrāʾ 17:80), refuge from the promptings of devils (al-Muʾminūn 23:97-98), not to be left among wrongdoing people (al-Muʾminūn 23:93-94), forgiveness and mercy (al-Muʾminūn 23:118), and judgement in truth (al-Anbiyāʾ 21:112).",
+    responseTr: "Cevap: Bu dualar Kur'an'da yer alarak kalıcı birer öğreti hâline gelmiştir; ana babaya dua (İsrâ 17:24) ve bağışlanma talebi (Mü'minûn 23:118) mü'minlerin diline de geçmiştir.",
+    responseEn: "Response: These prayers, preserved in the Qur'an, became lasting teachings; the prayer for parents (al-Isrāʾ 17:24) and the plea for forgiveness (al-Muʾminūn 23:118) passed into the speech of believers as well.",
   },
 ];
 
@@ -594,6 +693,40 @@ export default function QuranDua() {
                   {tr ? p.famousTr : p.famousEn}
                 </p>
               </div>
+
+              {/* Aynı peygamberin Kur'an'daki diğer duaları (varsa) */}
+              {p.extraDuas && (
+                <div>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)', marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
+                    {tr ? (p.extraLabelTr || "Kur'an'daki Diğer Duaları") : (p.extraLabelEn || 'Other Prayers in the Qur\'an')}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {p.extraDuas.map((dua, i) => (
+                      <div key={i} style={{
+                        background: 'rgba(0,0,0,0.12)',
+                        border: `1px solid ${p.emojiColor}18`,
+                        borderRadius: RADIUS.chip,
+                        padding: '12px 16px',
+                      }}>
+                        <p dir="rtl" lang="ar" style={{
+                          fontFamily: FONTS.quran,
+                          fontSize: '1.6rem', lineHeight: 2,
+                          color: p.emojiColor, opacity: 0.92,
+                          margin: '0 0 6px',
+                        }}>
+                          {dua.ar}
+                        </p>
+                        <p style={{ color: 'rgba(232,230,227,0.7)', fontSize: '0.82rem', fontStyle: 'italic', fontFamily: "'Inter', sans-serif", lineHeight: 1.55, margin: '0 0 4px' }}>
+                          {tr ? dua.trTr : dua.trEn}
+                        </p>
+                        <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.66rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+                          {tr ? dua.refTr : dua.refEn}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Two columns: themes + insight */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>

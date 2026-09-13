@@ -28,11 +28,6 @@ const TABS = [
   { id: 'sources', icon: 'book', labelTr: 'Kaynaklar', labelEn: 'Sources' },
 ];
 
-const GEOMETRIC_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'>
-<g fill='none' stroke='%23d4a574' stroke-width='0.4' opacity='0.5'>
-<polygon points='36,8 44,20 60,20 52,32 60,44 44,44 36,56 28,44 12,44 20,32 12,20 28,20' />
-<circle cx='36' cy='36' r='10'/></g></svg>`;
-
 export default function InsanTanimi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
@@ -66,11 +61,8 @@ export default function InsanTanimi({ onClose }) {
 
       {/* Cinematic Hero */}
       <CollapsibleHero id="insan-tanimi" language={language} labelTr="Kur'an'da İnsan — Sizi Nasıl Görüyor?" labelEn="Humanity in the Quran — How Does It See You?">
-      <div className="mq-box" style={{
+      <div className="mq-box qc-hero-bg" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-        background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
-                     url("data:image/svg+xml;utf8,${GEOMETRIC_PATTERN}") repeat`,
-        backgroundSize: 'auto, 72px 72px',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>

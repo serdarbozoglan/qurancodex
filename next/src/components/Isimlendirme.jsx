@@ -111,10 +111,9 @@ export default function Isimlendirme({ onClose }) {
 
       <CollapsibleHero id="isimlendirme" language={language} labelTr="İsimlendirme Ekonomisi" labelEn="The Economy of Naming">
       {/* ── Kahraman ─────────────────────────────────────────────────── */}
-      <div className="mq-box" style={{
-        '--pt-d': '56px', '--pt-m': '40px', '--pr-d': '32px', '--pr-m': '16px',
-        '--pb-d': '40px', '--pb-m': '30px', '--pl-d': '32px', '--pl-m': '16px',
-        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+      <div className="mq-box qc-hero-bg" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px",
+        '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
@@ -128,7 +127,7 @@ export default function Isimlendirme({ onClose }) {
         <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
           '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           fontFamily: FONTS.quran, color: COLORS.gold, lineHeight: 2.1,
-          margin: '0 auto 14px', maxWidth: '860px',
+          margin: '0 auto 12px', maxWidth: '860px',
           }}>{anchor.ar}</p>
         <p className="mq-fs" style={{
           '--fs-d': 'clamp(0.95rem, 2vw, 1.1rem)', '--fs-m': 'clamp(0.9rem, 4vw, 1rem)',

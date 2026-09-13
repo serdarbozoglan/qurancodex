@@ -503,16 +503,17 @@ export default function ConceptGraph({ onClose, restore = null }) {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
           {/* Hero strip — §13.18 Premium: anchor verse + eyebrow + Playfair italic + micro-stats */}
-          <div className="cg-hero-strip" style={{
+          {/* Zemin §13.18 standardı: qc-hero-bg (Dua Dili referansı). Inline
+              `background` KALDIRILDI — sınıfı ezip glow'u görünmez yapıyordu. */}
+          <div className="cg-hero-strip qc-hero-bg" style={{
             borderBottom: `1px solid ${COLORS.goldAlpha15}`,
-            background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, transparent 100%)`,
             flexShrink: 0,
             textAlign: 'center',
           }}>
             {/* Besmele (standart 2.6rem) — 2026-09-13 kullanıcı: hero'da besmele yoktu. */}
             <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-              color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '22px',
+              color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px',
             }}>﷽</div>
             {/* Anchor verse — Bakara 2:269 (hikmet). Boyut standarda çekildi + glow;
                 يَشَٓاءُ'daki bindiren maddah (§13.14) temizlendi. */}

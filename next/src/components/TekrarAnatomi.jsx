@@ -45,9 +45,8 @@ export default function TekrarAnatomi({ onClose }) {
       {/* Cinematic Hero */}
       <CollapsibleHero id="tekrar-anatomi" language={language}
         labelTr="Sıfır Gereksizlik — Tekrarın Anatomisi" labelEn="Zero Redundancy — The Anatomy of Repetition">
-      <div className="mq-box" style={{
+      <div className="mq-box qc-hero-bg" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>

@@ -1244,16 +1244,15 @@ export default function WowFacts({ onClose }) {
         {/* ── HERO (Cinematic) — Nisâ 4:82 ────────────────────────── */}
         <CollapsibleHero id="kurani-tani" language={language}
           labelTr="Kur'an'ı Tanı" labelEn="Meet the Quran">
-        <section style={{
-          padding: '40px 24px 32px',
+        <section className="mq-box qc-hero-bg" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           textAlign: 'center',
           flexShrink: 0,
-          background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: '1px solid rgba(255,255,255,0.06)',
-          maxWidth: '900px', width: '100%', margin: '0 auto', boxSizing: 'border-box',
+          width: '100%', boxSizing: 'border-box',
         }}>
-          <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: '32px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
-          <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', }}>
+          <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+          <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 12px', maxWidth: '780px', }}>
             اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
           </p>
           <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '640px', opacity: 0.95 }}>

@@ -882,6 +882,53 @@ Bu pattern'a uygun sayfalar (örnek): İlk-Son Kelimeler, Münâfık Profili, S�
 
 ### 13.18 Cinematic Hero — PREMIUM TEMPLATE (2026-06-14+)
 
+#### ⚠ KANONİK REFERANS = DUA DİLİ HERO'SU (2026-09-13, kullanıcı direktifi)
+
+**Zemin, besmele ve ilk (çapa) âyetin konumları için tek ölçü `DuaDili.jsx`
+hero'sudur; Fâtiha ve Esmâ-i Hüsnâ sayfaları bu turun DIŞINDADIR (kullanıcı
+"onlara dokunma" dedi).** Kullanıcı direktifi: "Dua Dili'ndeki background'u ve
+besmele ve ilk âyet pozisyonlarını standart yap diğer sayfalarda."
+
+```jsx
+// Hero kapsayıcısı — zemin SADECE .qc-hero-bg (altın radial glow + çok soluk
+// altıgen desen). Çakışan inline `background` KALDIRILIR; inline stil sınıfı ezer.
+<div className="mq-box qc-hero-bg" style={{
+  '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px",
+  '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
+  borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+  textAlign: 'center',
+}}>
+  <div className="mq-fs" style={{            // ← SADECE mq-fs (mq-box DEĞİL, aşağı bak)
+    '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+    color: COLORS.gold, opacity: 0.82,
+    fontFamily: FONTS.bismillah,
+    marginBottom: '24px', lineHeight: 1.2, textAlign: 'center',
+  }} lang="ar" aria-label="Bismillāh">﷽</div>
+
+  <p dir="rtl" lang="ar" className="qc-verse-breathe" style={{
+    fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)',
+    color: COLORS.gold, lineHeight: 2.1, margin: '0 0 12px', textAlign: 'center',
+  }}>{/* çapa âyeti */}</p>
+```
+
+Ölçülen referans değerler (1440px, `/tr/arac/dua-dili`): hero üstü y=130
+(ToolHeader'ın hemen altı) · hero padding-top 56px · besmele y=186, **kutu
+yüksekliği 50px** · besmele→âyet boşluğu 24px · âyet satır yüksekliği 87.36px.
+
+- ❌ **YASAK: hero çocuklarında `mq-box`.** Hero kapsayıcısı `--pt-d`/`--pb-d`
+  gibi CSS değişkenlerini tanımlar ve bunlar **miras alınır**; `mq-box` taşıyan
+  besmele o padding'i (56/36px) kendi kutusuna uygular, kutu 50px yerine
+  **142px** olur ve âyeti ~92px aşağı iter. Aradaki margin 24px ölçülmeye devam
+  ettiği için hata yalnız *kutu yüksekliği* ölçülünce görülür — doğrulamada
+  `getBoundingClientRect().height` de bak, sadece boşluğa bakma.
+  (2026-09-13, İlkSonKelimeler'de bulundu; kullanıcı "hâlâ besmele Dua
+  Dili'ndeki yerde değil" diye bildirdi.)
+- ❌ **YASAK: standart hero'da `<HeroGeometricBackground />`.** Dua Dili
+  kullanmıyor; zemin `qc-hero-bg`'den gelir. Kullanıcı geometrik katmanı
+  görünce bildirdi ("hâlâ background'da geometrik şekiller görüyorum").
+  Bileşen kaldırılınca kullanılmayan `import` satırı da silinir.
+  İstisna: Fâtiha ve Esmâ-i Hüsnâ (dokunulmayan iki sayfa).
+
 **Tool sayfası Hero'su standart Premium Template'i takip eder.** Sırayla:
 
 1. **Bismillah ornament** — `﷽` Amiri Quran font (`FONTS.bismillah`), gold (#d4a574), opacity 0.82, centered, `lineHeight: 1.2`

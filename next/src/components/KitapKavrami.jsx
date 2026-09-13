@@ -19,7 +19,6 @@ import BookmarkButton from './BookmarkButton';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import kitapKavramiDataStatic from '../../public/kitap-kavrami.json';
-import HeroGeometricBackground from './HeroGeometricBackground';
 
 export default function KitapKavrami() {
   const { language } = useLanguage();
@@ -97,23 +96,21 @@ export default function KitapKavrami() {
       {/* ─── Sinematik hero (§13.18) — 2026-09-13 görsel yükseltme ───
           Kullanıcı: sayfa görsel olarak zayıftı. Çapa âyet Bakara 2:2, çünkü
           Kur'ân'ın kendine verdiği iki ismi (el-Kitâb + Hüdâ) tek âyette taşır. */}
-      <div style={{
-        position: 'relative', overflow: 'hidden', textAlign: 'center',
-        padding: 'clamp(48px, 7vw, 88px) 24px clamp(36px, 5vw, 56px)',
+      <div className="mq-box qc-hero-bg" style={{
+        textAlign: 'center',
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         borderBottom: `1px solid ${COLORS.gold}1f`,
-        background: 'linear-gradient(180deg, rgba(212,165,116,0.08) 0%, transparent 100%)',
       }}>
-        <HeroGeometricBackground />
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 900, margin: '0 auto' }}>
           <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
             fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-            color: COLORS.gold, opacity: 0.85, lineHeight: 1.2, marginBottom: '26px',
+            color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px',
           }}>﷽</div>
 
           <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
             fontFamily: FONTS.quran, color: COLORS.gold,
             '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
-            lineHeight: 2.1, margin: '0 0 16px',
+            lineHeight: 2.1, margin: '0 0 12px',
           }}>
             ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ
           </p>

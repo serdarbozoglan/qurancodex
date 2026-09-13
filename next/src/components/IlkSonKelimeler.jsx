@@ -8,7 +8,6 @@ import { CloseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
-import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
 import {
   COLORS, FONTS,
@@ -154,16 +153,23 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
         language={language}
       />
 
-      {/* Search + Filter chip row — max-w-7xl container ile Navbar logoyla aynı hizada. */}
+      {/* Hero — arama ve 114 sûrelik spektrumdan ÖNCE gelir (§13.18 sırası). */}
+      <div style={{ flexShrink: 0, width: '100%' }}>
+        <CinematicHero language={language} />
+      </div>
+
+      {/* Search + Filter chip row — ToolHeader ile birebir aynı sol kenar hizası
+          (max-w-[1720px] px-5 lg:px-10); daha dar bir kapsayıcı kullanılırsa
+          arama kutusu başlıktan içeride başlar (kullanıcı bildirdi 2026-09-13). */}
       <div
-        className="max-w-7xl mx-auto px-4 lg:px-8"
+        className="w-full max-w-[1720px] mx-auto px-5 lg:px-10"
         style={{
           flexShrink: 0,
           width: '100%', boxSizing: 'border-box',
           // 2026-09-13 — `mq-box` sınıfı burada TÜM padding'i sıfırlıyordu
-          // (--pl/--pr/--pb vars verilmemiş → var(...,unset)=0), Tailwind px-4'ü
+          // (--pl/--pr/--pb vars verilmemiş → var(...,unset)=0), Tailwind px-5'i
           // eziyor → içerik sol kenara yapışıp kırpılıyordu (kullanıcı bildirdi).
-          // mq-box kaldırıldı; yatay padding Tailwind px-4/lg:px-8'den, dikey açık.
+          // mq-box kaldırıldı; yatay padding Tailwind px-5/lg:px-10'dan, dikey açık.
           paddingTop: '13px', paddingBottom: '12px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
           background: 'rgba(8,10,18,0.92)',
@@ -878,33 +884,25 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
   );
 }
 
-// ─── Spotlight Section ────────────────────────────────────────────────────────
-// Münâsebât-ı Süver çerçevesinde 7 öne çıkan kelime bağı kartı.
-// Bridge / ring / family / cluster / intra-bridge / intra-ring tipleri.
-function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter, onFilterClick }) {
-  if (!spotlights || spotlights.length === 0) return null;
+// ═══ CinematicHero — §13.18 premium hero ═════════════════════════════════════
+// Sayfanın en üstünde, arama satırının ÜSTÜNDE durur: önce çapa âyeti ve tez,
+// sonra arama, sonra 114 sûrelik kök spektrumu (kullanıcı direktifi 2026-09-13).
+function CinematicHero({ language }) {
   const tr = language === 'tr';
   return (
-    <div className="mq-box" style={{
-      maxWidth: '960px',
-      margin: '0 auto 32px',
-      '--pt-d': "0", '--pt-m': "0", '--pr-d': "0", '--pr-m': "4px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "0", '--pl-m': "4px",
-    }}>
-      {/* ════ CINEMATIC HERO — Premium Template Pilot ══════════════════════
-          Bismillah ornament + Nisâ 4:82 (sayfanın tezi) + framing whisper.
-          Premium tool page template'in ilk pilotu — Esma flagship pattern. */}
-      <div className="mq-box" style={{
-        marginBottom: '36px',
-        '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "0", '--pr-m': "8px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "0", '--pl-m': "8px",
+    <div style={{ width: '100%' }}>
+      {/* ════ CINEMATIC HERO — §13.18. Zemin ve besmele/çapa âyeti konumları
+          Dua Dili hero'su referans alınarak eşitlendi (kullanıcı direktifi
+          2026-09-13): qc-hero-bg zemini, besmele 24px, çapa âyeti 12px. */}
+      <div className="mq-box qc-hero-bg" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
+        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
       }}>
-        <HeroGeometricBackground />
         <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Bismillah ornament — small decorative, KFGQPC'de U+FDFD glyph yok,
             Amiri Quran ligature kullanılır (§13.2 documented exception) */}
-        <div className="mq-box"
+        <div
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
@@ -913,8 +911,8 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
             '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold,
             opacity: 0.82,
-            lineHeight: 1,
-            '--mb-d': '44px', '--mb-m': '32px',
+            lineHeight: 1.2,
+            marginBottom: '24px',
             textShadow: `0 0 20px ${COLORS.gold}22`,
           }}
         >
@@ -930,7 +928,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
             '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
-            margin: '0 auto 18px',
+            margin: '0 auto 12px',
             maxWidth: '780px',
             }}
         >
@@ -941,10 +939,10 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           color: COLORS.offWhite,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
-          lineHeight: 1.7,
+          '--fs-d': '1.1rem', '--fs-m': '1rem',
+          lineHeight: 1.6,
           margin: '0 auto 8px',
-          maxWidth: '620px',
+          maxWidth: '660px',
           opacity: 0.95,
         }}>
           &quot;{tr
@@ -958,8 +956,8 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           fontSize: '0.72rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          margin: '0 0 36px',
-          opacity: 0.78,
+          margin: '0 0 26px',
+          opacity: 0.7,
         }}>
           — {tr ? 'Nisâ 4:82' : 'al-Nisāʾ 4:82'}
         </p>
@@ -969,10 +967,10 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           color: COLORS.silver,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          '--fs-d': 'clamp(0.95rem, 1.5vw, 1.02rem)', '--fs-m': '0.92rem',
-          lineHeight: 1.7,
-          margin: '0 auto 40px',
-          maxWidth: '640px',
+          '--fs-d': '1.05rem', '--fs-m': '0.95rem',
+          lineHeight: 1.8,
+          margin: '0 auto 26px',
+          maxWidth: '720px',
           opacity: 0.85,
         }}>
           {tr
@@ -984,13 +982,13 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         <div aria-hidden="true" style={{
           width: '120px',
           height: '1px',
-          background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
-          margin: '0 auto 32px',
+          background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)`,
+          margin: '0 auto 26px',
         }} />
 
         {/* Eyebrow + Title — Manifesto Statement */}
         <div style={{
-          fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+          fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
           color: COLORS.gold, opacity: 0.75, marginBottom: '14px',
         }}>
@@ -998,12 +996,11 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         </div>
         <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          '--fs-d': 'clamp(2rem, 3.6vw, 2.8rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
-          color: COLORS.offWhite, margin: '0 0 16px',
+          '--fs-d': 'clamp(2.4rem, 4.2vw, 3.4rem)', '--fs-m': 'clamp(1.9rem, 8vw, 2.4rem)',
+          color: COLORS.offWhite, margin: '0 auto 12px',
           lineHeight: 1.15,
           letterSpacing: '-0.015em',
           maxWidth: '760px',
-          marginLeft: 'auto', marginRight: 'auto',
         }}>
           {tr ? 'Sûrelerin Damgaları' : 'The Seals of the Surahs'}
         </h2>
@@ -1025,7 +1022,22 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         </p>
         </div>
       </div>
+    </div>
+  );
+}
 
+// ─── Spotlight Section ────────────────────────────────────────────────────────
+// Münâsebât-ı Süver çerçevesinde 7 öne çıkan kelime bağı kartı.
+// Bridge / ring / family / cluster / intra-bridge / intra-ring tipleri.
+function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter, onFilterClick }) {
+  if (!spotlights || spotlights.length === 0) return null;
+  const tr = language === 'tr';
+  return (
+    <div className="mq-box" style={{
+      maxWidth: '960px',
+      margin: '0 auto 32px',
+      '--pt-d': "0", '--pt-m': "0", '--pr-d': "0", '--pr-m': "4px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "0", '--pl-m': "4px",
+    }}>
       {/* ════ Manifesto descriptive paragraphs ════════════════════════════ */}
       <div style={{ marginBottom: '32px', textAlign: isMobile ? 'left' : 'left' }}>
         <p className="mq-fs" style={{
@@ -2164,7 +2176,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
         <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '6px' }}>
           {tr ? '114 Sûrenin Kök Spektrumu' : 'Root Spectrum of 114 Surahs'}
         </div>
-        <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: 0, opacity: 0.8, lineHeight: 1.4, maxWidth: '620px', marginLeft: 'auto', marginRight: 'auto' }}>
+        <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: '0 auto', opacity: 0.8, lineHeight: 1.4, maxWidth: '620px' }}>
           {tr
             ? 'İki satır aynı 114 sûreyi aynı sırayla gösterir (soldan sağa 1. Fâtiha → 114. Nâs); bir sütun bir sûredir. Üstteki kare o sûrenin AÇILIŞ kelimesinin Arapça kökünü, hemen altındaki kare aynı sûrenin KAPANIŞ kelimesinin kökünü renklendirir. İki kare aynı renkteyse, o sûre aynı anlam ailesiyle (ör. Rabb, Rahmet) açılıp kapanıyor demektir.'
             : 'The two rows show the same 114 surahs in the same order (left to right, 1. Al-Fatiha → 114. An-Nas); one column is one surah. The top square colors that surah\'s OPENING word root; the square directly below it colors the same surah\'s CLOSING word root. If the two squares share a color, that surah opens and closes within the same semantic family (e.g. Rabb, Mercy).'}

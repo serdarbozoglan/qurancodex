@@ -56,10 +56,17 @@ try {
 } catch (e) { check('InventoryStrip okunması', false, e.message); }
 
 // 2) Araç sayısı: InventoryStrip == TOOL_CATALOG.length (C12)
+// Envanter şeridi sayıyı artık katalogdan TÜRETİYOR (`const TOOL_COUNT =
+// TOOL_CATALOG.length`), literal yazmıyor; §13.28'in elle güncelleme borcu
+// böylece yapısal olarak kapandı. Türetilmiş hâl bu denetimi kendiliğinden
+// geçer — literal kalmışsa eskisi gibi katalogla karşılaştırılır.
 try {
   const { TOOL_CATALOG } = await import(path.join(ROOT, 'src/data/toolCatalog.js'));
+  const inv = read('src/sections/InventoryStrip.jsx');
+  const derived = /const\s+TOOL_COUNT\s*=\s*TOOL_CATALOG\.length/.test(inv)
+    && /n:\s*String\(TOOL_COUNT\)\s*,\s*labelTr:\s*'Araç'/.test(inv);
   check('Araç sayısı: envanter == TOOL_CATALOG (C12)',
-    invStats['Araç'] === TOOL_CATALOG.length,
+    derived || invStats['Araç'] === TOOL_CATALOG.length,
     `envanter ${invStats['Araç']} ≠ TOOL_CATALOG ${TOOL_CATALOG.length}`);
   // 6) Sitemap kaynağı TOOL_CATALOG'dan besleniyor mu (SEO02 yapısal güvence)
   const sm = read('src/app/sitemap.js');

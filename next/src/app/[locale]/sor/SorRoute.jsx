@@ -252,6 +252,55 @@ function SorInner() {
           padding: '14px 24px',
         }}
       >
+          {/* Top row — sticky bar'ın TAM genişliğinde (860px kolonun DIŞINDA):
+            Anasayfa linki §13.17 HomeLinkPill gibi viewport'un tam sağında durur.
+            860 kutusunun içindeyken kolonun sağ kenarında kalıyordu. */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '10px',
+          marginBottom: '8px',
+        }}>
+          {/* 2026-08-17 — kullanıcı geri bildirimi: Anasayfa linki sitenin
+              geri kalanında (HomeLinkPill, §13.17) hep SAĞDA; bu sayfada
+              solda kalmıştı. Sırası "ESC ile kapat" ile değiştirildi. */}
+          <span
+            style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.66rem',
+              color: COLORS.silver,
+              opacity: 0.78,
+              letterSpacing: '0.04em',
+            }}
+            className="hidden sm:inline"
+          >
+            {tr ? 'ESC ile kapat' : 'Press ESC to close'}
+          </span>
+          <Link
+            href={`/${language}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontFamily: FONTS.body,
+              fontSize: '0.72rem',
+              color: `${COLORS.gold}bb`,
+              textDecoration: 'none',
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              padding: '2px 4px',
+              transition: 'color 0.15s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.color = `${COLORS.gold}bb`; }}
+          >
+            <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>←</span>
+            <span>{tr ? 'Anasayfa' : 'Home'}</span>
+          </Link>
+        </div>
+
         <div style={{
           maxWidth: '860px',
           margin: '0 auto',
@@ -259,52 +308,6 @@ function SorInner() {
           flexDirection: 'column',
           gap: '8px',
         }}>
-          {/* Top row: Anasayfa link + hint */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '10px',
-          }}>
-            {/* 2026-08-17 — kullanıcı geri bildirimi: Anasayfa linki sitenin
-                geri kalanında (HomeLinkPill, §13.17) hep SAĞDA; bu sayfada
-                solda kalmıştı. Sırası "ESC ile kapat" ile değiştirildi. */}
-            <span
-              style={{
-                fontFamily: FONTS.body,
-                fontSize: '0.66rem',
-                color: COLORS.silver,
-                opacity: 0.78,
-                letterSpacing: '0.04em',
-              }}
-              className="hidden sm:inline"
-            >
-              {tr ? 'ESC ile kapat' : 'Press ESC to close'}
-            </span>
-            <Link
-              href={`/${language}`}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontFamily: FONTS.body,
-                fontSize: '0.72rem',
-                color: `${COLORS.gold}bb`,
-                textDecoration: 'none',
-                fontWeight: 600,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                padding: '2px 4px',
-                transition: 'color 0.15s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; }}
-              onMouseLeave={e => { e.currentTarget.style.color = `${COLORS.gold}bb`; }}
-            >
-              <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>←</span>
-              <span>{tr ? 'Anasayfa' : 'Home'}</span>
-            </Link>
-          </div>
-
           {/* Query bar */}
           <form
             onSubmit={handleSubmit}

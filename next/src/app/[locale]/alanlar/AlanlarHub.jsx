@@ -25,19 +25,19 @@ export default function AlanlarHub() {
       />
 
       {/* ── Premium hero ─────────────────────────────────────────────── */}
-      <div style={{ background: `linear-gradient(180deg, ${COLORS.gold}0f 0%, transparent 100%)`, borderBottom: `1px solid ${COLORS.gold}1a`, padding: 'clamp(36px, 6vw, 52px) 20px', textAlign: 'center' }}>
+      <div className="mq-box qc-hero-bg" style={{ borderBottom: `1px solid ${COLORS.gold}1a`, '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", textAlign: 'center' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           {/* Besmele + çapa âyet (2026-09-13, kullanıcı: bu sayfaya da besmele ve
               âyet). Çapa Sâd 38:29 — "âyetlerini düşünsünler diye indirdiğimiz
               mübârek Kitap": alanına göre keşif = âyetler üzerinde tefekkür. */}
           <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
             fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-            color: COLORS.gold, opacity: 0.85, lineHeight: 1.2, marginBottom: 22,
+            color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px',
           }}>﷽</div>
           <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
             fontFamily: FONTS.quran, color: COLORS.gold,
             '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
-            lineHeight: 2.1, margin: '0 0 14px',
+            lineHeight: 2.1, margin: '0 0 12px',
           }}>
             كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ مُبَارَكٌ لِيَدَّبَّرُوا اٰيَاتِهِ وَلِيَتَذَكَّرَ اُولُوا الْاَلْبَابِ
           </p>

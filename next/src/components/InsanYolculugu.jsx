@@ -107,9 +107,8 @@ export default function InsanYolculugu({ onClose }) {
         <>
           {/* ─── Hero — §13.18 Premium ────────────────────────────── */}
           <CollapsibleHero id="insan-yolculugu" language={language} labelTr="İnsan Yolculuğu" labelEn="The Human Journey">
-          <div className="mq-box" style={{
-            '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
-            background: `linear-gradient(180deg, ${COLORS.goldAlpha06} 0%, transparent 100%)`,
+          <div className="mq-box qc-hero-bg" style={{
+            '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
           }}>
@@ -117,7 +116,7 @@ export default function InsanYolculugu({ onClose }) {
               fontFamily: "'Amiri Quran', 'Amiri', serif",
               color: COLORS.gold, opacity: 0.82,
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-              margin: '0 0 26px', lineHeight: 1.2,
+              margin: '0 0 24px', lineHeight: 1.2,
             }}>﷽</div>
 
             <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{

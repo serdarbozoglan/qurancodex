@@ -458,13 +458,10 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
   };
 
   return (
-    <section className="mq-box" style={{
-      '--pt-d': "86px", '--pt-m': "56px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "62px", '--pb-m': "44px", '--pl-d': "40px", '--pl-m': "20px",
-      background: `linear-gradient(180deg, ${COLORS.gold}0f 0%, transparent 65%)`,
+    <section className="mq-box qc-hero-bg" style={{
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       borderBottom: `1px solid ${COLORS.gold}18`,
       textAlign: 'center',
-      position: 'relative',
-      overflow: 'hidden',
     }}>
       {/* Ambient starfield */}
       {!reducedMotion && (
@@ -532,10 +529,11 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             fontFamily: FONTS.bismillah,
             '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold,
-            opacity: 0.85,
-            marginBottom: 28,
+            opacity: 0.82,
+            marginBottom: '24px',
             direction: 'rtl',
             textShadow: `0 0 24px ${COLORS.gold}44`,
+            lineHeight: 1.2,
           }}>﷽</motion.div>
 
         {/* Anchor verse — Kâf 50:19 (JSON'dan çekilir, §13.15 normalized) */}
@@ -548,8 +546,8 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
               fontFamily: FONTS.quran,
               '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
-              lineHeight: 2.15,
-              margin: '0 0 20px',
+              lineHeight: 2.1,
+              margin: '0 0 12px',
               }}>{anchorArabic}</motion.p>
         )}
 

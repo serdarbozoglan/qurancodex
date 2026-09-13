@@ -314,48 +314,23 @@ export default function MunafikProfili({ onClose }) {
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <CollapsibleHero id="munafik" language={language} labelTr="Münafık Profili" labelEn="Profile of the Hypocrite">
-        <div className="mq-box" style={{
-          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
-          background: 'linear-gradient(180deg, rgba(231,76,60,0.06) 0%, transparent 100%)',
+        <div className="mq-box qc-hero-bg" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          position: 'relative',
-          overflow: 'hidden',
         }}>
-          {/* Islamic geometric pattern — subtle background */}
-          <svg aria-hidden="true" width="100%" height="100%" style={{
-            position: 'absolute', inset: 0, pointerEvents: 'none',
-            opacity: 0.04, mixBlendMode: 'screen',
-          }}>
-            <defs>
-              <pattern id="munafik-geometric" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
-                <path d="M32 4 L52 16 L52 40 L32 52 L12 40 L12 16 Z" stroke={COLORS.softRed || '#e74c3c'} strokeWidth="0.6" fill="none" />
-                <circle cx="32" cy="28" r="2" fill={COLORS.softRed || '#e74c3c'} opacity="0.5" />
-                <path d="M32 12 L44 20 L44 36 L32 44 L20 36 L20 20 Z" stroke={COLORS.gold} strokeWidth="0.4" fill="none" opacity="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#munafik-geometric)" />
-          </svg>
-          {/* Center-glow radial */}
-          <div aria-hidden="true" style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '80%', height: '90%', pointerEvents: 'none',
-            background: `radial-gradient(ellipse at center, rgba(231,76,60,0.08) 0%, transparent 70%)`,
-            filter: 'blur(4px)',
-          }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
-          <div className="mq-box"
+          <div className="mq-fs"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            className="mq-fs" style={{
+            style={{
               fontFamily: FONTS.bismillah,
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               color: COLORS.gold,
               opacity: 0.82,
-              lineHeight: 1,
+              lineHeight: 1.2,
               textAlign: 'center',
-              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
+              marginBottom: '24px',
             }}
           >
             ﷽
@@ -369,7 +344,7 @@ export default function MunafikProfili({ onClose }) {
               '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
-              margin: '0 auto 16px',
+              margin: '0 auto 12px',
               maxWidth: '820px',
               textAlign: 'center',
               }}

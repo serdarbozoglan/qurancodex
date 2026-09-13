@@ -8,7 +8,6 @@ import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
-import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 import { renderInlineMarkdown } from './tefekkur/inlineMarkdown';
 
@@ -121,29 +120,25 @@ export default function IblisSatan({ onClose }) {
         language={language}
       />
 
-      {/* ─── Scrollable Body ─────────────────────────────── */}
-      <div className="mq-box" style={{
-        flex: 1,
-        '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "60px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "60px", '--pl-m': "16px",
+      {/* ─── Hero — tam genişlik zemin bandı, ToolHeader'ın hemen altında
+           (Dua Dili referansı: kendi padding'i nefes payını verir) ────────── */}
+      <div className="mq-box qc-hero-bg" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       }}>
-
-      {/* ─── Hero region wrapper (additive — layers HeroGeometricBackground) ── */}
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <HeroGeometricBackground />
         <div style={{ position: 'relative', zIndex: 1 }}>
       {/* ─── Bismillah ornament — Amiri Quran ligature ───── */}
-      <motion.div className="mq-box"
+      <motion.div className="mq-fs"
         initial="hidden" animate="visible" variants={fadeUpItem}
         dir="rtl" lang="ar" aria-label="Bismillāh"
-        className="mq-fs" style={{
+        style={{
           textAlign: 'center',
           fontFamily: FONTS.bismillah,
           '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
-          lineHeight: 1,
-          '--mb-d': '40px', '--mb-m': '28px',
+          lineHeight: 1.2,
           textShadow: `0 0 22px ${COLORS.gold}28`,
+          marginBottom: '24px',
         }}
       >
         ﷽
@@ -176,7 +171,7 @@ export default function IblisSatan({ onClose }) {
           '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           color: COLORS.gold,
           lineHeight: 2.1,
-          margin: '0 auto 16px',
+          margin: '0 auto 12px',
           maxWidth: '820px',
           textAlign: 'center',
           }}
@@ -297,7 +292,13 @@ export default function IblisSatan({ onClose }) {
       />
         </div>
       </div>
-      {/* ─── End Hero region wrapper ─────────────────────── */}
+      {/* ─── End Hero ────────────────────────────────────── */}
+
+      {/* ─── Scrollable Body ─────────────────────────────── */}
+      <div className="mq-box" style={{
+        flex: 1,
+        '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "60px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "60px", '--pl-m': "16px",
+      }}>
 
       {/* ─── Header (in-body) ───────────────────────────── */}
       {/* 7-Marker Preview: her nokta = bir sûrenin accent rengi.

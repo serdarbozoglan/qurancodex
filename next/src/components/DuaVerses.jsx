@@ -397,15 +397,14 @@ export default function DuaVerses({ onClose }) {
 
       <CollapsibleHero id="dualar" language={language} labelTr="Dua Ayetleri" labelEn="Quranic Supplications">
       {/* ── HERO (Cinematic) — Bakara 2:186 ─────────────────────── */}
-      <div style={{
-        padding: '32px 20px 24px',
+      <div className="mq-box qc-hero-bg" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         textAlign: 'center',
         flexShrink: 0,
-        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
       }}>
-        <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', color: gold, opacity: 0.82, lineHeight: 1, marginBottom: '22px', textShadow: `0 0 22px ${gold}28` }}>﷽</div>
-        <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)', color: gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', }}>
+        <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', color: gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px', textShadow: `0 0 22px ${gold}28` }}>﷽</div>
+        <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)', color: gold, lineHeight: 2.1, margin: '0 auto 12px', maxWidth: '780px', }}>
           وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ
         </p>
         <p style={{ color: '#e8e6e3', fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>

@@ -241,30 +241,25 @@ export default function CennetCehennem({ onClose }) {
         subtitleEn="9 paradises · 7 hells · al-Aʿrāf"
         language={language}
       />
-
-      {/* ── BODY ────────────────────────────────────────────────── */}
-      <div className="mq-box" ref={bodyRef} style={{ flex: 1, overflowX: 'hidden', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "14px", '--pb-d': "48px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "14px" }}>
-        <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
-
           {/* ── HERO (Cinematic — Bismillah + Rahman 55:46 + framing + filigree) ─────── */}
           <CollapsibleHero id="cennet-cehennem" language={language}
             labelTr="Cennet & Cehennem" labelEn="Paradise & Hell">
-          <div className="mq-box" style={{
-            '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "0", '--pl-m': "0",
+          <div className="mq-box qc-hero-bg" style={{
+            '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
             textAlign: 'center',
             '--mb-d': '28px', '--mb-m': '20px',
           }}>
             {/* Bismillah */}
-            <div className="mq-box"
+            <div className="mq-fs"
               dir="rtl" lang="ar" aria-label="Bismillāh"
-              className="mq-fs" style={{
+              style={{
                 fontFamily: FONTS.bismillah,
                 '--fs-d': '2.6rem', '--fs-m': '2.2rem',
                 color: GOLD,
                 opacity: 0.82,
-                lineHeight: 1,
-                '--mb-d': '36px', '--mb-m': '26px',
+                lineHeight: 1.2,
                 textShadow: `0 0 22px ${GOLD}28`,
+                marginBottom: '24px',
               }}
             >
               ﷽
@@ -278,7 +273,7 @@ export default function CennetCehennem({ onClose }) {
                 '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
                 color: COLORS.gold,
                 lineHeight: 2.1,
-                margin: '0 auto 16px',
+                margin: '0 auto 12px',
                 maxWidth: '820px',
                 }}
             >
@@ -377,6 +372,12 @@ export default function CennetCehennem({ onClose }) {
             </p>
           </div>
           </CollapsibleHero>
+
+
+      {/* ── BODY ────────────────────────────────────────────────── */}
+      <div className="mq-box" ref={bodyRef} style={{ flex: 1, overflowX: 'hidden', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "14px", '--pb-d': "48px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "14px" }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
+
 
           <ToolScopeNote
             language={language}

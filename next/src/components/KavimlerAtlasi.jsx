@@ -284,14 +284,6 @@ function HelakIcon({ type, size = 16, color }) {
   );
 }
 
-// Sünnetullah pattern — Islamic geometric hero background
-const KAVIM_HERO_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'>
-<g fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.5'>
-<polygon points='40,8 56,20 62,40 56,60 40,72 24,60 18,40 24,20' />
-<polygon points='40,20 52,28 56,40 52,52 40,60 28,52 24,40 28,28' opacity='0.5' />
-<circle cx='40' cy='40' r='8' opacity='0.6'/>
-</g></svg>`;
-
 // ── Shared helpers ────────────────────────────────────────────────────────────
 
 function InfoTip({ textTr, textEn, language }) {
@@ -651,28 +643,24 @@ function HeroSection({ meta, language, isMobile }) {
   ];
 
   return (
-    <div className="mq-box" style={{
-      '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-      background: `linear-gradient(180deg, rgba(180,100,40,0.05) 0%, transparent 100%),
-                   url("data:image/svg+xml;utf8,${KAVIM_HERO_PATTERN}") repeat`,
-      backgroundSize: 'auto, 80px 80px',
+    <div className="mq-box qc-hero-bg" style={{
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
-      position: 'relative',
     }}>
       {/* Bismillah ornament — Amiri Quran ligature */}
-      <div className="mq-box"
+      <div className="mq-fs"
         dir="rtl"
         lang="ar"
         aria-label="Bismillāh"
-        className="mq-fs" style={{
+        style={{
           fontFamily: FONTS.bismillah,
           '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
-          lineHeight: 1,
-          '--mb-d': '40px', '--mb-m': '28px',
+          lineHeight: 1.2,
           textShadow: `0 0 22px ${COLORS.gold}28`,
+          marginBottom: '24px',
         }}
       >
         ﷽
@@ -687,7 +675,7 @@ function HeroSection({ meta, language, isMobile }) {
           '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           color: COLORS.gold,
           lineHeight: 2.1,
-          margin: '0 auto 18px',
+          margin: '0 auto 12px',
           maxWidth: '820px',
           }}
       >

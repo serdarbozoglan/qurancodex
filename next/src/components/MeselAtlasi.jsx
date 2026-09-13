@@ -12,7 +12,6 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
-import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
@@ -158,24 +157,21 @@ const RHETORIC_TYPE_LABELS = {
 function Hero({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div className="mq-box" style={{
-      position: 'relative', overflow: 'hidden',
+    <div className="mq-box qc-hero-bg" style={{
       '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-      background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
     }}>
-      <HeroGeometricBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div aria-hidden="true" className="mq-fs" style={{
           fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-          color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
+          color: COLORS.gold, opacity: 0.82, marginBottom: '24px', lineHeight: 1.2,
         }}>﷽</div>
 
         <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
           '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
-          lineHeight: 2.1, margin: '0 0 14px',
+          lineHeight: 2.1, margin: '0 0 12px',
         }}>
           وَتِلْكَ الْأَمْثَالُ نَضْرِبُهَا لِلنَّاسِ وَمَا يَعْقِلُهَا إِلَّا الْعَالِمُونَ
         </p>

@@ -216,9 +216,8 @@ function PillarHero({ pillarData, language, isMobile }) {
   const hero = pillarData.hero ?? {};
   if (!anchor) return null;
   return (
-    <div className="mq-box" style={{
+    <div className="mq-box qc-hero-bg" style={{
       '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-      background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
     }}>
@@ -240,10 +239,9 @@ function PillarHero({ pillarData, language, isMobile }) {
         '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
         color: COLORS.gold,
         lineHeight: 2.1,
-        marginBottom: '20px',
         direction: 'rtl',
         maxWidth: '720px',
-        margin: '0 auto 20px',
+        margin: '0 auto 12px',
       }} lang="ar" dir="rtl">
         {anchor.ar}
       </div>

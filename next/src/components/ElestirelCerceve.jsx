@@ -81,12 +81,12 @@ function paragraphs(text) {
 // dizilme, ölçülebilir bir CLS üretir. Kurallar bu sayfaya özgü olduğu için
 // paylaşılan stil dosyası yerine bileşenle birlikte taşınır.
 const PAGE_CSS = `
-.ec-hero { padding: 52px 32px 44px; }
+.ec-hero { padding: 56px 32px 36px; }
 .ec-principles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .ec-source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
 @media (max-width: 900px) { .ec-source-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) {
-  .ec-hero { padding: 36px 16px 30px; }
+  .ec-hero { padding: 40px 16px 28px; }
   .ec-principles { grid-template-columns: 1fr; }
 }
 `;
@@ -175,14 +175,13 @@ export default function ElestirelCerceve() {
 
       <CollapsibleHero id="elestirel-cerceve" language={language} labelTr="Eleştirel Çerçeve" labelEn="Critical Frame">
       {/* ── Cinematic hero — §13.18 premium template ─────────────────────── */}
-      <div className="ec-hero" style={{
-        background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, transparent 100%)`,
+      <div className="ec-hero qc-hero-bg" style={{
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
         <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
           fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', lineHeight: 1.2,
-          color: COLORS.gold, opacity: 0.82, marginBottom: 18,
+          color: COLORS.gold, opacity: 0.82, marginBottom: '24px',
         }}>﷽</div>
 
         {anchor.ar && (
@@ -190,7 +189,7 @@ export default function ElestirelCerceve() {
             fontFamily: FONTS.quran,
             '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
             color: COLORS.gold, lineHeight: 2.1, direction: 'rtl',
-            maxWidth: 760, margin: '0 auto 22px',
+            maxWidth: 760, margin: '0 auto 12px',
           }}>{anchor.ar}</div>
         )}
 

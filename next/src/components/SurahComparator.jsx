@@ -1040,15 +1040,15 @@ export default function SurahComparator({ onClose }) {
           {/* Besmele + çapa âyet (2026-09-13, kullanıcı: Sûre DNA'da hero yoktu).
               Çapa Nisâ 4:82 — Kur'ân'ın iç tutarlılığı ("onda çok çelişki
               bulurlardı"): sûrelerin yapısal DNA'sını karşılaştırmanın zemini. */}
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div className="qc-hero-bg" style={{ textAlign: 'center', marginBottom: '32px' }}>
             <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-              color: COLORS.gold, opacity: 0.85, lineHeight: 1.2, marginBottom: '20px',
+              color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px',
             }}>﷽</div>
             <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran, color: COLORS.gold,
               '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
-              lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '760px',
+              lineHeight: 2.1, margin: '0 auto 12px', maxWidth: '760px',
             }}>
               اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
             </p>

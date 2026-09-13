@@ -27,6 +27,8 @@ const TABS = [
     icon: <><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></> },
   { id: 'response', labelTr: 'Cevap Kalıpları', labelEn: 'Response Patterns',
     icon: <><path d="M3 12h18M13 6l6 6-6 6M5 6l6 6-6 6"/></> },
+  { id: 'risale', labelTr: "Risale-i Nur'da Dua", labelEn: 'Prayer in the Risale-i Nur',
+    icon: <><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></> },
   { id: 'sources', labelTr: 'Kaynaklar', labelEn: 'Sources',
     icon: <><path d="M4 4h12a4 4 0 0 1 4 4v12M4 4v14a2 2 0 0 0 2 2h14M4 4l16 16"/></> },
 ];
@@ -186,6 +188,7 @@ export default function DuaDili({ onClose }) {
         {activeTab === 'prophets' && <ProphetsTab tr={tr} isMobile={isMobile} />}
         {activeTab === 'anatomy' && <AnatomyTab tr={tr} isMobile={isMobile} />}
         {activeTab === 'response' && <ResponseTab tr={tr} isMobile={isMobile} />}
+        {activeTab === 'risale' && <RisaleTab tr={tr} isMobile={isMobile} />}
         {activeTab === 'sources' && <SourcesTab language={language} isMobile={isMobile} />}
       </div>
     </div>
@@ -223,8 +226,8 @@ function ProphetsTab({ tr, isMobile }) {
             margin: '0 auto', lineHeight: 1.65,
           }}>
             {tr
-              ? "İbrahim, Eyyûb, Yûsuf, Mûsâ, Yûnus ve Zekeriyyâ'nın duaları yukarıdaki panelde. Aşağıda insanlık tarihini çerçeveleyen 4 profil daha: ilk (Âdem), en uzun (Nûh), en zengin (Süleymân) ve son (Muhammed ﷺ)."
-              : "The prayers of Abraham, Job, Joseph, Moses, Jonah, and Zechariah are in the panel above. Below are four more profiles that frame human history: the first (Adam), the longest (Noah), the wealthiest (Solomon), and the last (Muhammad ﷺ)."}
+              ? "İbrahim, Eyyûb, Yûsuf, Mûsâ, Yûnus, Zekeriyyâ ve Hz. Muhammed'in duaları yukarıdaki panelde. Aşağıda insanlık tarihini çerçeveleyen 3 profil daha: ilk (Âdem), en uzun (Nûh) ve en zengin (Süleymân)."
+              : "The prayers of Abraham, Job, Joseph, Moses, Jonah, Zechariah, and Muhammad are in the panel above. Below are three more profiles that frame human history: the first (Adam), the longest (Noah), and the wealthiest (Solomon)."}
           </p>
         </div>
 
@@ -629,6 +632,113 @@ function ResponseTab({ tr, isMobile }) {
 }
 
 // ─── Tab 4: Sources ────────────────────────────────────────────────
+// ─── Risale-i Nur'da Dua ─────────────────────────────────────────────────────
+// Alıntılar birincil metinden (Sözler / Mektubat / Lem'alar tam metin nüshaları)
+// doğrulanarak alınmıştır. Bu bölüm beşerî bir yorum katmanıdır; Kur'an'ın kesin
+// beyanıyla özdeş değildir.
+const RISALE_POINTS = [
+  {
+    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
+    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
+    quoteTr: 'Cevap vermek ayrıdır, kabul etmek ayrıdır. Her dua için cevap vermek var; fakat kabul etmek, hem ayn-ı matlubu vermek Cenab-ı Hakk\'ın hikmetine tabidir.',
+    quoteEn: 'Answering is one thing, granting is another. Every prayer receives an answer; but granting it, giving the very thing asked for, is subject to God\'s wisdom.',
+    noteTr: 'Duanın karşılıksız kalması diye bir şey yoktur; karşılığın ne olacağı hikmete bırakılmıştır.',
+    noteEn: 'No prayer goes unanswered; what form the answer takes is left to divine wisdom.',
+  },
+  {
+    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
+    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
+    quoteTr: 'Hem dua bir ubudiyettir. Ubudiyet ise semeratı uhreviyedir. Dünyevî maksatlar ise o nevi dua ve ibadetin vakitleridir. O maksatlar, gayeleri değil.',
+    quoteEn: 'Prayer is an act of worship, and the fruits of worship belong to the hereafter. Worldly aims are the occasions of such prayer, not its purposes.',
+    noteTr: 'Dua yalnızca bir talep aracı değil, aynı zamanda kulluktur; dünyevî maksatlar ibadetin asıl gayesi değildir.',
+    noteEn: 'Prayer is not merely a means of request but an act of worship; worldly aims are not the true purpose of that worship.',
+  },
+  {
+    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
+    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
+    quoteTr: 'Eğer dua çok edildiği halde beliyyeler def\'olunmazsa denilmeyecek ki: "Dua kabul olmadı." Belki denilecek ki: "Duanın vakti, kaza olmadı."',
+    quoteEn: 'If much is prayed and the afflictions are not lifted, one does not say "the prayer was not accepted," but "the time of the prayer has not yet run out."',
+    noteTr: 'Gecikme reddediş değildir; bu, sayfadaki cevap kalıplarının çerçevesiyle örtüşür.',
+    noteEn: 'Delay is not refusal, which matches the response patterns set out on this page.',
+  },
+  {
+    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
+    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
+    quoteTr: 'Dördüncü nevi ki, en meşhurudur, bizim duamızdır. Bu da iki kısımdır: Biri, fiilî ve halî; diğeri, kalbî ve kālîdir. […] Hattâ çift sürmek hazine-i rahmet kapısını çalmaktır.',
+    quoteEn: 'The fourth kind, the best known, is our own prayer. It has two parts: one active and by disposition, the other of the heart and in words. […] Even ploughing is a knocking at the door of the treasury of mercy.',
+    noteTr: 'Dua yalnız sözle değildir; hâl ve fiil de bir yakarış biçimidir.',
+    noteEn: 'Prayer is not only speech; disposition and action are themselves forms of supplication.',
+  },
+  {
+    sourceTr: "Mektubat · Yirmi Dördüncü Mektup'un Birinci Zeyli, Üçüncü Nükte",
+    sourceEn: 'Mektubat · Twenty-Fourth Letter, First Addendum, Third Point',
+    quoteTr: 'Dua-yı kavlî-i ihtiyarînin makbuliyeti, iki cihetledir. Ya aynı matlubu ile makbul olur veyahut daha evlâsı verilir.',
+    quoteEn: 'The acceptance of voluntary verbal prayer is twofold: either it is accepted with the very thing requested, or something better is given.',
+    noteTr: "İkinci Zeyl mevlid ve mi'râc bahsidir; dua meselesi Birinci Zeyl'dedir.",
+    noteEn: 'The Second Addendum treats the mawlid and the ascension; the discussion of prayer is in the First Addendum.',
+  },
+  {
+    sourceTr: "Lem'alar · Birinci Lem'a (Hz. Yûnus) ve İkinci Lem'a (Hz. Eyyûb)",
+    sourceEn: "Lem'alar · First Flash (Yūnus) and Second Flash (Ayyūb)",
+    quoteTr: "İşte biz, Hazret-i Yunus aleyhisselâmın birinci vaziyetinden yüz derece daha müthiş bir vaziyetteyiz. · Hazret-i Eyyüb aleyhisselâmın zahirî yara hastalıklarının mukabili, bizim bâtınî ve ruhî ve kalbî hastalıklarımız vardır.",
+    quoteEn: 'We are in a state a hundred times more fearful than that first state of Yūnus. · Corresponding to the outward wounds of Ayyūb, we have inward, spiritual and heart sicknesses.',
+    noteTr: "Hz. Yûnus ve Hz. Eyyûb'un duaları okuyucunun kendi hâli için bir şablon olarak okunur; bu iki risale Otuz Birinci Mektup'un ilk iki lem'asıdır.",
+    noteEn: 'The prayers of Yūnus and Ayyūb are read as a template for the reader\'s own condition; these two treatises are the first two flashes of the Thirty-First Letter.',
+  },
+];
+
+function RisaleTab({ tr, isMobile }) {
+  return (
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px",
+      maxWidth: '1180px', margin: '0 auto',
+    }}>
+      <div style={{ maxWidth: '820px', margin: '0 auto 28px', textAlign: 'center' }}>
+        <p style={{
+          fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.75,
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
+        }}>
+          {tr ? "BEŞERÎ YORUM KATMANI · RİSALE-İ NUR" : 'HUMAN INTERPRETIVE LAYER · RISALE-I NUR'}
+        </p>
+        <p style={{ color: COLORS.offWhite, fontSize: '0.96rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
+          {tr
+            ? "Bediüzzaman Said Nursi duayı yalnız bir istek aracı olarak değil, kulluğun kendisi olarak ele alır. Aşağıdaki alıntılar birincil metinden doğrulanmıştır. Bu bölüm bir yorum katmanıdır; âyetlerin kesin beyanının yerine geçmez."
+            : 'Bediüzzaman Said Nursi treats prayer not merely as a means of request but as an act of worship in itself. The quotations below are verified from the primary texts. This section is a layer of interpretation and does not stand in place of the certain declaration of the verses.'}
+        </p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '16px', maxWidth: '1000px', margin: '0 auto' }}>
+        {RISALE_POINTS.map((pt, i) => (
+          <div key={i} style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: `1px solid ${COLORS.gold}22`,
+            borderLeft: `3px solid ${COLORS.gold}66`,
+            borderRadius: RADIUS.lg,
+            padding: '18px 20px',
+          }}>
+            <p style={{
+              fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase',
+              color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body, fontWeight: 700, margin: '0 0 10px',
+            }}>
+              {tr ? pt.sourceTr : pt.sourceEn}
+            </p>
+            <p style={{
+              color: COLORS.offWhite, fontSize: '0.92rem', lineHeight: 1.7,
+              fontFamily: FONTS.display, fontStyle: 'italic', margin: '0 0 10px',
+            }}>
+              &quot;{tr ? pt.quoteTr : pt.quoteEn}&quot;
+            </p>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, fontFamily: FONTS.body, margin: 0, opacity: 0.9 }}>
+              {tr ? pt.noteTr : pt.noteEn}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function SourcesTab({ language, isMobile }) {
   return (
     <div className="mq-box" style={{

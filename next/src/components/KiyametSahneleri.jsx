@@ -521,18 +521,18 @@ export default function KiyametSahneleri({ onClose }) {
 
         {/* ── Hero (Cinematic — Bismillah + anchor + framing + filigree) ── */}
         <CollapsibleHero id="kiyamet" language={language} labelTr="Kıyâmet Sahneleri" labelEn="Scenes of the Day of Judgment">
-        <div className="mq-box" style={{ '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'center' }}>
+        <div className="mq-box qc-hero-bg" style={{ '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'center' }}>
           {/* Bismillah */}
-          <div className="mq-box"
+          <div className="mq-fs"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            className="mq-fs" style={{
+            style={{
               fontFamily: FONTS.bismillah,
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
               color: GOLD,
               opacity: 0.82,
-              lineHeight: 1,
-              '--mb-d': '40px', '--mb-m': '28px',
+              lineHeight: 1.2,
               textShadow: `0 0 22px ${GOLD}28`,
+              marginBottom: '24px',
             }}
           >
             ﷽
@@ -546,7 +546,7 @@ export default function KiyametSahneleri({ onClose }) {
               '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: GOLD,
               lineHeight: 2.1,
-              margin: '0 auto 16px',
+              margin: '0 auto 12px',
               maxWidth: '820px',
               }}
           >

@@ -11,7 +11,6 @@ import ToolScopeNote from './ToolScopeNote';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
-import HeroGeometricBackground from './HeroGeometricBackground';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
@@ -46,15 +45,11 @@ export default function InsanPsikolojisi({ onClose }) {
 
       {/* Cinematic Hero */}
       <CollapsibleHero id="insan-psikolojisi" language={language} labelTr="İnsan Psikolojisi — İç Dünyanın Haritası" labelEn="Human Psychology — Map of the Inner World">
-      <div className="mq-box" style={{
+      <div className="mq-box qc-hero-bg" style={{
         '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
-        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden',
       }}>
-        <HeroGeometricBackground />
         <div style={{ position: 'relative', zIndex: 1 }}>
         <div className="mq-fs" style={{
           '--fs-d': '2.6rem', '--fs-m': '2.2rem',

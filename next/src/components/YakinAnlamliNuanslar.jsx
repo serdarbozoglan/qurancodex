@@ -93,9 +93,8 @@ export default function YakinAnlamliNuanslar({ onClose }) {
           {/* ─── Hero — §13.18 Premium ─────────────────────────────── */}
           <CollapsibleHero id="yakin-anlamli-nuanslar" language={language}
             labelTr="Yakın Anlamlı Nüanslar" labelEn="Near-Synonymous Nuances">
-          <div className="mq-box" style={{
-            '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
-            background: `linear-gradient(180deg, ${COLORS.goldAlpha06} 0%, transparent 100%)`,
+          <div className="mq-box qc-hero-bg" style={{
+            '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
           }}>
@@ -103,7 +102,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
               fontFamily: "'Amiri Quran', serif",
               color: COLORS.gold, opacity: 0.82,
               '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-              margin: '0 0 18px', lineHeight: 1,
+              margin: '0 0 24px', lineHeight: 1.2,
             }} aria-hidden="true">﷽</div>
 
             <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{

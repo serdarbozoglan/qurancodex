@@ -75,23 +75,22 @@ function HubHero({ hubData, language, isMobile }) {
   const hero = hubData.hero ?? {};
   if (!anchor) return null;
   return (
-    <div className="mq-box" style={{
-      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "40px", '--pb-m': "32px", '--pl-d': "32px", '--pl-m': "16px",
-      background: 'linear-gradient(180deg, rgba(212,165,116,0.07) 0%, transparent 100%)',
+    <div className="mq-box qc-hero-bg" style={{
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
     }}>
       <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
         fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem', lineHeight: 1.2,
-        color: COLORS.gold, opacity: 0.82, marginBottom: '28px',
+        color: COLORS.gold, opacity: 0.82, marginBottom: '24px',
       }}>﷽</div>
 
       <div className="mq-fs qc-verse-breathe" style={{
         fontFamily: FONTS.quran,
         '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
         color: COLORS.gold, lineHeight: 2.1,
-        marginBottom: '22px', direction: 'rtl',
-        maxWidth: '760px', margin: '0 auto 22px',
+        direction: 'rtl',
+        maxWidth: '760px', margin: '0 auto 12px',
       }} lang="ar" dir="rtl">{anchor.ar}</div>
 
       <p style={{

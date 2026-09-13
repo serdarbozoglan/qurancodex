@@ -322,9 +322,9 @@ export default function TefsirIhtilaflari() {
           müfessirler arası yorum farkının klasik referans noktası. */}
       <CollapsibleHero id="tefsir-ihtilaflari" language={language}
         labelTr="Tefsir İhtilafları" labelEn="Exegetical Disagreements">
-      <div className="mq-box" style={{
-        textAlign: 'center', position: 'relative', overflow: 'hidden',
-        '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "24px", '--pl-m': "16px",
+      <div className="mq-box qc-hero-bg" style={{
+        textAlign: 'center',
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       }}>
         <div aria-hidden="true" style={{
           position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)',
@@ -335,12 +335,13 @@ export default function TefsirIhtilaflari() {
         <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
           <div className="mq-fs" style={{
             fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-            color: COLORS.gold, opacity: 0.85, marginBottom: 22, direction: 'rtl',
+            color: COLORS.gold, opacity: 0.82, marginBottom: '24px', direction: 'rtl',
             textShadow: `0 0 24px ${COLORS.gold}44`,
+            lineHeight: 1.2,
           }}>﷽</div>
           <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
             fontFamily: FONTS.quran, '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
-            color: COLORS.gold, lineHeight: 2.05, margin: '0 0 18px',
+            color: COLORS.gold, lineHeight: 2.1, margin: '0 0 12px',
             }}>{cleanArabicForDisplay(ANCHOR_3_7_ARABIC_RAW)}</p>
           <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
