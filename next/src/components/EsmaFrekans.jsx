@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
 import { RISALE_ESMA } from '../data/risaleNotes';
+import RisaleNotes from './RisaleNotes';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
@@ -3863,52 +3864,12 @@ function ClosingReflection({ tr, language }) {
 function RisaleEsma({ tr }) {
   return (
     <section style={{ padding: '0 24px 48px', background: COLORS.cosmicBlack }}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto 26px', textAlign: 'center' }}>
-          <p style={{
-            fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, fontFamily: FONTS.body, fontWeight: 700, marginBottom: '12px',
-          }}>
-            {tr ? 'BEŞERÎ YORUM KATMANI · RİSALE-İ NUR' : 'HUMAN INTERPRETIVE LAYER · RISALE-I NUR'}
-          </p>
-          <p style={{ color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
-            {tr
-              ? 'Bediüzzaman Said Nursi esmâyı, kâinatın her dairesinde bir ismin öne çıktığı ve aynı ismin mertebe mertebe göründüğü bir okuma ile ele alır. Alıntılar birincil metinden doğrulanmıştır ve âyetin kesin beyanının yerine geçmez.'
-              : 'Bediüzzaman Said Nursi reads the divine names through a scheme in which one name comes to the fore in each sphere of the universe and the same name appears in degrees. The quotations are verified from the primary texts and do not stand in place of the certain declaration of the verses.'}
-          </p>
-        </div>
-
-        {/* Sütun sayısı saf CSS ile çözülür (auto-fit): §14.2 gereği düzen
-            JS state'ine (isMobile) bağlanmaz, hydration sonrası yeniden
-            dizilme ve CLS oluşmaz. */}
-        <div id="esma-risale-grid" style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))' }}>
-          {RISALE_ESMA.map((pt, i) => (
-            <div key={i} style={{
-              background: 'rgba(255,255,255,0.02)',
-              border: `1px solid ${COLORS.gold}22`,
-              borderLeft: `3px solid ${COLORS.gold}66`,
-              borderRadius: RADIUS.lg,
-              padding: '18px 20px',
-            }}>
-              <p style={{
-                fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body, fontWeight: 700, margin: '0 0 10px',
-              }}>
-                {tr ? pt.sourceTr : pt.sourceEn}
-              </p>
-              <p style={{
-                color: COLORS.offWhite, fontSize: '0.92rem', lineHeight: 1.7,
-                fontFamily: FONTS.display, fontStyle: 'italic', margin: '0 0 10px',
-              }}>
-                &quot;{tr ? pt.quoteTr : pt.quoteEn}&quot;
-              </p>
-              <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, fontFamily: FONTS.body, margin: 0, opacity: 0.9 }}>
-                {tr ? pt.noteTr : pt.noteEn}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <RisaleNotes
+        items={RISALE_ESMA}
+        language={tr ? 'tr' : 'en'}
+        introTr="Bediüzzaman Said Nursi esmâyı, kâinatın her dairesinde bir ismin öne çıktığı ve aynı ismin mertebe mertebe göründüğü bir okuma ile ele alır. Alıntılar birincil metinden doğrulanmıştır ve âyetin kesin beyanının yerine geçmez."
+        introEn="Bediüzzaman Said Nursi reads the divine names through a scheme in which one name comes to the fore in each sphere of the universe and the same name appears in degrees. The quotations are verified from the primary texts and do not stand in place of the certain declaration of the verses."
+      />
     </section>
   );
 }

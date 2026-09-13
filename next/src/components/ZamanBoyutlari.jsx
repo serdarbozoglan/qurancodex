@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Fragment } from 'react';
 import { RISALE_ZAMAN } from '../data/risaleNotes';
+import RisaleNotes from './RisaleNotes';
 import { useLanguage } from '../i18n/LanguageContext';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
@@ -1432,51 +1433,16 @@ export default function ZamanBoyutlari({ onClose }) {
     const isTr = language === 'tr';
     return (
       <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
-        <div style={{ maxWidth: '780px', margin: '0 auto 24px', textAlign: 'center' }}>
-          <p style={{
-            fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, fontFamily: FONTS.body, fontWeight: 700, margin: '0 0 12px',
-          }}>
-            {isTr ? 'BEŞERÎ YORUM KATMANI · RİSALE-İ NUR' : 'HUMAN INTERPRETIVE LAYER · RISALE-I NUR'}
-          </p>
-          <p style={{ color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
-            {isTr
-              ? 'Bediüzzaman Said Nursi zamanı, hareketin bir niteliği ve ilâhî yazının sayfası olarak ele alır; aynı sürenin kişiden kişiye farklı ölçülebileceğini rüya ve saat temsilleriyle anlatır. Alıntılar birincil metinden doğrulanmıştır ve âyetlerin kesin beyanının yerine geçmez.'
-              : 'Bediüzzaman Said Nursi treats time as a property of motion and as the page of a divine writing, and uses the analogies of dream and clock to show that the same span can be measured differently from person to person. The quotations are verified from the primary texts and do not stand in place of the certain declaration of the verses.'}
-          </p>
-        </div>
-
-        {/* Sütun sayısı saf CSS ile (auto-fit): düzen JS state'ine bağlanmaz (§14.2) */}
-        <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', maxWidth: '1000px', margin: '0 auto' }}>
-          {RISALE_ZAMAN.map((pt, i) => (
-            <div key={i} style={{
-              background: 'rgba(255,255,255,0.02)',
-              border: `1px solid ${COLORS.gold}22`,
-              borderLeft: `3px solid ${COLORS.gold}66`,
-              borderRadius: RADIUS.lg,
-              padding: '18px 20px',
-            }}>
-              <p style={{
-                fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body, fontWeight: 700, margin: '0 0 10px',
-              }}>
-                {isTr ? pt.sourceTr : pt.sourceEn}
-              </p>
-              <p style={{
-                color: COLORS.offWhite, fontSize: '0.92rem', lineHeight: 1.7,
-                fontFamily: FONTS.display, fontStyle: 'italic', margin: '0 0 10px',
-              }}>
-                &quot;{isTr ? pt.quoteTr : pt.quoteEn}&quot;
-              </p>
-              <p style={{ color: SEMANTIC.textMuted, fontSize: '0.82rem', lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
-                {isTr ? pt.noteTr : pt.noteEn}
-              </p>
-            </div>
-          ))}
-        </div>
+        <RisaleNotes
+          items={RISALE_ZAMAN}
+          language={isTr ? 'tr' : 'en'}
+          introTr="Bediüzzaman Said Nursi zamanı, hareketin bir niteliği ve ilâhî yazının sayfası olarak ele alır; aynı sürenin kişiden kişiye farklı ölçülebileceğini rüya ve saat temsilleriyle anlatır. Alıntılar birincil metinden doğrulanmıştır ve âyetlerin kesin beyanının yerine geçmez."
+          introEn="Bediüzzaman Said Nursi treats time as a property of motion and as the page of a divine writing, and uses the analogies of dream and clock to show that the same span can be measured differently from person to person. The quotations are verified from the primary texts and do not stand in place of the certain declaration of the verses."
+        />
       </div>
     );
   }
+
 
   function renderKaynaklar() {
     const isTr = language === 'tr';

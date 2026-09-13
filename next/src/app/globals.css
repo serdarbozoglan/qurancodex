@@ -1689,3 +1689,15 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   opacity: 0.028;
 }
 .qc-hero-bg > * { position: relative; z-index: 1; }
+
+/* Risale-i Nur alıntı kartı — hover'da hafif kalkış ve altın hâle */
+.risale-card { transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }
+.risale-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 165, 116, 0.38);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(212, 165, 116, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .risale-card { transition: none; }
+  .risale-card:hover { transform: none; }
+}

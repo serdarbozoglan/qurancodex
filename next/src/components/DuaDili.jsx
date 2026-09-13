@@ -9,6 +9,7 @@
 
 import { useEffect, useState } from 'react';
 import { RISALE_POINTS } from '../data/risaleNotes';
+import RisaleNotes from './RisaleNotes';
 import QuranDua from '../sections/QuranDua';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
@@ -633,54 +634,18 @@ function ResponseTab({ tr, isMobile }) {
 }
 
 
-function RisaleTab({ tr, isMobile }) {
+function RisaleTab({ tr }) {
   return (
     <div className="mq-box" style={{
       '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px",
       maxWidth: '1180px', margin: '0 auto',
     }}>
-      <div style={{ maxWidth: '820px', margin: '0 auto 28px', textAlign: 'center' }}>
-        <p style={{
-          fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
-          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
-        }}>
-          {tr ? "BEŞERÎ YORUM KATMANI · RİSALE-İ NUR" : 'HUMAN INTERPRETIVE LAYER · RISALE-I NUR'}
-        </p>
-        <p style={{ color: COLORS.offWhite, fontSize: '0.96rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
-          {tr
-            ? "Bediüzzaman Said Nursi duayı bir ibadet olarak ele alır; dünyevî maksatları duanın vakti sayar, gayesi değil. Aşağıdaki alıntılar birincil metinden doğrulanmıştır. Bu bölüm bir yorum katmanıdır; âyetlerin kesin beyanının yerine geçmez."
-            : 'Bediüzzaman Said Nursi treats prayer as an act of worship and regards worldly aims as its occasion rather than its purpose. The quotations below are verified from the primary texts. This section is a layer of interpretation and does not stand in place of the certain declaration of the verses.'}
-        </p>
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '16px', maxWidth: '1000px', margin: '0 auto' }}>
-        {RISALE_POINTS.map((pt, i) => (
-          <div key={i} style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: `1px solid ${COLORS.gold}22`,
-            borderLeft: `3px solid ${COLORS.gold}66`,
-            borderRadius: RADIUS.lg,
-            padding: '18px 20px',
-          }}>
-            <p style={{
-              fontSize: '0.64rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body, fontWeight: 700, margin: '0 0 10px',
-            }}>
-              {tr ? pt.sourceTr : pt.sourceEn}
-            </p>
-            <p style={{
-              color: COLORS.offWhite, fontSize: '0.92rem', lineHeight: 1.7,
-              fontFamily: FONTS.display, fontStyle: 'italic', margin: '0 0 10px',
-            }}>
-              &quot;{tr ? pt.quoteTr : pt.quoteEn}&quot;
-            </p>
-            <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, fontFamily: FONTS.body, margin: 0, opacity: 0.9 }}>
-              {tr ? pt.noteTr : pt.noteEn}
-            </p>
-          </div>
-        ))}
-      </div>
+      <RisaleNotes
+        items={RISALE_POINTS}
+        language={tr ? 'tr' : 'en'}
+        introTr="Bediüzzaman Said Nursi duayı bir ibadet olarak ele alır; dünyevî maksatları duanın vakti sayar, gayesi değil. Aşağıdaki alıntılar birincil metinden doğrulanmıştır. Bu bölüm bir yorum katmanıdır; âyetlerin kesin beyanının yerine geçmez."
+        introEn="Bediüzzaman Said Nursi treats prayer as an act of worship and regards worldly aims as its occasion rather than its purpose. The quotations below are verified from the primary texts. This section is a layer of interpretation and does not stand in place of the certain declaration of the verses."
+      />
     </div>
   );
 }
