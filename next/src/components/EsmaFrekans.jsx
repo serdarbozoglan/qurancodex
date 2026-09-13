@@ -279,13 +279,13 @@ function Hero({ tr }) {
           <p
             dir="rtl"
             lang="ar"
+            className="qc-verse-breathe-soft"
             style={{
               fontFamily: FONTS.quran,
               fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 0 22px',
-              textShadow: `0 0 28px ${COLORS.gold}26`,
             }}
           >
             {HERO_VERSE.arabic}

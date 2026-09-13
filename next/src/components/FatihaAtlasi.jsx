@@ -52,9 +52,11 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.85, marginBottom: '26px', lineHeight: 1.2,
         }}>﷽</div>
 
-        <p dir="rtl" lang="ar" className="mq-fs" style={{
+        {/* Boyut Esmâ-i Hüsnâ hero âyetiyle eşitlendi + nefes glow'u (2026-09-13,
+            kullanıcı isteği). Esma: clamp(1.7rem, 4.2vw, 2.6rem). */}
+        <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe-soft" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
-          '--fs-d': 'clamp(1.7rem, 3vw, 2.15rem)', '--fs-m': '1.5rem',
+          '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           lineHeight: 2.15, margin: '0 0 16px',
         }}>
           {cleanArabic('اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ')}
