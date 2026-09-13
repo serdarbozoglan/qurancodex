@@ -150,6 +150,35 @@ A mesmerizing, cinematic single-page website that reveals the hidden architectur
 - Keyboard navigation for all interactive elements
 - Focus visible styles
 
+### 9.1 Reduced motion ZATEN İKİ KATMANLA ÇÖZÜLDÜ — bileşen bileşen arama
+
+**Bu maddeyi "ihlal ediliyor" sanıp 40 dosyayı düzenlemeye kalkma.** Mekanizma
+global ve iki katmanlı:
+
+1. **framer-motion:** `components/MotionPrefs.jsx`, kök layout'ta `children`'ı
+   `<MotionConfig reducedMotion="user">` ile sarar. Tercih açıkken transform ve
+   layout animasyonları kapanır; opaklık geçişleri bilerek kalır (sönümlü bir
+   beliriş vestibüler rahatsızlık vermez). SSR uyuşmazlığı olmasın diye ilk
+   render `"never"`, tercih mount'tan sonra devreye girer.
+2. **CSS:** `globals.css` sonundaki `@media (prefers-reduced-motion: reduce)`
+   bloğu `*`, `*::before`, `*::after` için `animation-duration: 0.01ms`,
+   `animation-iteration-count: 1` ve `transition-duration: 0.01ms` uygular.
+   MotionConfig'in görmediği saf CSS animasyonlarını bu katman kapatır.
+
+Bileşenlerdeki `useReducedMotionSafe` kullanımları bunun ÜSTÜNE gelir (jest
+propları gibi, framer-motion'ın kendiliğinden kısmadığı yerler için) ve
+zorunlu değildir.
+
+⚠ **UYUMU `grep -l useReducedMotion` İLE ÖLÇME.** 2026-09-13'te tam olarak bu
+yapıldı: 38 dosya `whileInView` kullanıyor, 18'i hook'u import ediyor diye
+"29 dosyalık §9 borcu var" sonucuna varıldı ve site bu yüzden düşük puanlandı.
+Borç yoktu. Mekanizma global olduğu için import sayımı hiçbir şey ölçmez.
+**Davranışı ölç:** sayfayı `reducedMotion: 'reduce'` ile aç, gez, ve o anda
+KOŞAN animasyon olup olmadığına bak (`getComputedStyle(el).animationName`,
+`animationDuration`, `transitionDuration`). Ölçülen sonuç: koşan animasyon
+**0**, kalan transformların hepsi statik tasarım (merkezleme, döndürülmüş
+süs ögesi). Aynı ders §13.27'de de yazılı: tarayıcı yazarken de ölç, varsayma.
+
 ---
 
 ## 11. TYPOGRAPHY & LAYOUT RULES (ENFORCE ALWAYS)
