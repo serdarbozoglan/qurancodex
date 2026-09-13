@@ -93,12 +93,12 @@ export default function CollapsibleHero({ id, language, labelTr, labelEn, childr
             display: 'inline-flex', alignItems: 'center', gap: '6px',
             padding: '5px 14px', background: 'transparent',
             border: `1px solid ${COLORS.gold}1e`, borderRadius: '999px',
-            color: `${COLORS.gold}99`, cursor: 'pointer', fontFamily: FONTS.body,
+            color: `${COLORS.gold}cc`, cursor: 'pointer', fontFamily: FONTS.body,
             fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em',
             textTransform: 'uppercase', transition: 'all 0.15s',
           }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = `${COLORS.gold}44`; e.currentTarget.style.color = `${COLORS.gold}dd`; }}
-          onMouseLeave={e => { e.currentTarget.style.borderColor = `${COLORS.gold}1e`; e.currentTarget.style.color = `${COLORS.gold}99`; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = `${COLORS.gold}1e`; e.currentTarget.style.color = `${COLORS.gold}cc`; }}
         >
           <span aria-hidden="true" style={{ fontSize: '0.8rem', lineHeight: 1 }}>▴</span>
           {tr ? 'Girişi gizle' : 'Hide intro'}

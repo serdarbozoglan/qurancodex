@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
-import { COLORS, FONTS, GLASS_CARD, RADIUS, CATEGORY_SCALE, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, RADIUS, CATEGORY_SCALE, BREAKPOINT_MOBILE, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -71,7 +71,7 @@ function Hero({ language, isMobile }) {
             : '"You alone we worship, and You alone we ask for help."'}
         </p>
         <p style={{
-          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontFamily: FONTS.body, color: SEMANTIC.textFaint,
           fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
           margin: '0 0 26px',
         }}>— {tr ? 'Fâtiha 1:5' : 'Al-Fātiḥa 1:5'}</p>
@@ -259,7 +259,7 @@ function NodeRow({ n, accent, tr, isMobile }) {
       <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.2rem', '--fs-m': '1.05rem', color: accent, margin: 0, lineHeight: 1.7, flexShrink: 0 }}>{cleanArabic(n.ar)}</p>
       <div style={{ flex: 1, minWidth: 0, textAlign: isMobile ? 'right' : 'left' }}>
         <p className="mq-fs" style={{ color: COLORS.offWhite, '--fs-d': '0.8rem', '--fs-m': '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: 0 }}>{tr ? n.labelTr : n.labelEn}</p>
-        <p style={{ color: COLORS.silver, fontSize: '0.66rem', fontFamily: FONTS.body, opacity: 0.65, margin: 0 }}><LinkifyRefs text={n.ref} /></p>
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.66rem', fontFamily: FONTS.body, margin: 0 }}><LinkifyRefs text={n.ref} /></p>
       </div>
     </div>
   );
@@ -590,7 +590,7 @@ function TabScholars({ data, language, isMobile }) {
               <div style={{ color: accent, fontFamily: FONTS.body, fontStyle: 'italic', fontSize: '0.82rem', marginBottom: 4 }}>
                 {tr ? s.workTr : s.workEn}
               </div>
-              <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.7rem', opacity: 0.7, marginBottom: 10 }}>
+              <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.7rem', marginBottom: 10 }}>
                 {tr ? s.roleTr : s.roleEn} · {s.city}
               </div>
               <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.65, fontFamily: FONTS.body, margin: 0 }}>

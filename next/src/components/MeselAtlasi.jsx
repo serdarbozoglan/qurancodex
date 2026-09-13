@@ -185,7 +185,7 @@ function Hero({ language, isMobile }) {
             : '"And these examples We present to the people, but none grasp them except those of knowledge."'}
         </p>
         <p style={{
-          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontFamily: FONTS.body, color: SEMANTIC.textFaint,
           fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
           margin: '0 0 24px',
         }}>— {tr ? 'Ankebût 29:43' : 'Al-Ankabut 29:43'}</p>
@@ -523,7 +523,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                   <span style={{ color: domColor, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
                     {(language === 'tr' ? DOMAIN_LABELS_TR[p.imageryDomain] : DOMAIN_LABELS_EN[p.imageryDomain])?.split(' / ')[0]}
                   </span>
-                  <span style={{ color: COLORS.silver, opacity: 0.4, fontSize: '0.7rem' }}>·</span>
+                  <span aria-hidden="true" style={{ color: COLORS.silver, opacity: 0.55, fontSize: '0.7rem' }}>·</span>
                   <span style={{ color: COLORS.silver, opacity: 0.75, fontSize: '0.7rem', fontFamily: FONTS.body }}>
                     <LinkifyRefs text={surahRef(`${p.surah}:${p.ayah}`)} />
                   </span>
@@ -549,7 +549,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
 
                 {/* Footer — single rhetoric-type label + expand cue */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 14, borderTop: `1px solid ${domColor}20` }}>
-                  <span style={{ color: COLORS.silver, opacity: 0.65, fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body }}>
                     {PARABLE_TYPE_LABELS[p.parableType]}
                     {p.pairedWith && (
                       <>

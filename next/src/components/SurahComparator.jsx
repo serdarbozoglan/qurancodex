@@ -1059,7 +1059,7 @@ export default function SurahComparator({ onClose }) {
               ? '"Kur\'ân\'ı düşünmezler mi? Eğer o, Allah\'tan başkasının katından olsaydı, onda birçok çelişki bulurlardı."'
               : '"Do they not reflect upon the Qur\'an? Had it been from other than Allah, they would have found in it much contradiction."'}
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", color: COLORS.silver, opacity: 0.7, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>— {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}</p>
+          <p style={{ fontFamily: "'Inter', sans-serif", color: SEMANTIC.textFaint, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>— {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}</p>
         </div>
         <div className="sc-landing-wrap" style={{ flex: 1, overflowY: 'auto', maxWidth: '800px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
 

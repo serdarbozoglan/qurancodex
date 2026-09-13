@@ -19,7 +19,7 @@
 // olmalı (audit §5.4 risk notu).
 
 import { ImageResponse } from 'next/og';
-import { COLORS } from '../tokens';
+import { COLORS, SEMANTIC } from '../tokens';
 
 const CACHE_HEADERS = {
   'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800',
@@ -151,8 +151,7 @@ export function toolOgCard({ category, title, subtitle, glyph, accentColor }) {
             position: 'absolute',
             bottom: 36,
             right: 60,
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             fontSize: 20,
             letterSpacing: '0.18em',
           }}

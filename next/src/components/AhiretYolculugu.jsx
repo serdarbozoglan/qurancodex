@@ -573,8 +573,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
           className="mq-fs" style={{
             fontFamily: FONTS.body,
             '--fs-d': '0.75rem', '--fs-m': '0.7rem',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 40px',
@@ -1030,7 +1029,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
               }}>
                 <div style={{ marginBottom: 4 }}>
                   <span style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600 }}>{t.source}</span>
-                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78, marginLeft: 8, fontStyle: 'italic' }}>{t.workRef}</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: SEMANTIC.textMuted, marginLeft: 8, fontStyle: 'italic' }}>{t.workRef}</span>
                 </div>
                 <p className="mq-fs" style={{
                   fontFamily: FONTS.body,
@@ -1190,8 +1189,7 @@ function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
         <p style={{
           fontFamily: FONTS.body,
           fontSize: '0.68rem',
-          color: COLORS.silver,
-          opacity: 0.78,
+          color: SEMANTIC.textMuted,
           letterSpacing: '0.14em',
           textTransform: 'uppercase',
           margin: 0,
@@ -1230,8 +1228,7 @@ function MiniRef({ ref_, isMobile, tr }) {
           <span dir="rtl" lang="ar" style={{
             fontFamily: FONTS.quran,
             fontSize: '1rem',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
           }}>{ref_.surahName}</span>
         )}
       </div>

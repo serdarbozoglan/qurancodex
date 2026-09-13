@@ -11,7 +11,7 @@ import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import { cleanArabicForDisplay } from '../lib/arabic';
 
 // ─── Konu Zemini — her 6 konu için ayet-temelli genişletme ─────────────────
@@ -231,7 +231,7 @@ export default function AltiKonu({ onClose }) {
                         <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.65, margin: '0 0 6px' }}>
                           {tr ? v.trTr : v.trEn}
                         </p>
-                        <p style={{ fontFamily: FONTS.body, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.7, margin: 0 }}>
+                        <p style={{ fontFamily: FONTS.body, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: SEMANTIC.textFaint, margin: 0 }}>
                           — {v.refLabel}
                         </p>
                       </div>
@@ -250,7 +250,7 @@ export default function AltiKonu({ onClose }) {
                       </div>
                     )}
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 10px', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.6, fontFamily: FONTS.body }}>
+                      <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
                         {tr ? 'Kaynaklar:' : 'Sources:'}
                       </span>
                       {(tr ? topic.sourcesTr : topic.sourcesEn).map(s => (

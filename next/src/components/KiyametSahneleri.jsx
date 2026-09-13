@@ -898,7 +898,7 @@ function TabKronoloji({ data, language, isMobile }) {
                       fontFamily: FONTS.display,
                     }}>{sceneCount}</div>
                     <div style={{
-                      fontSize: '0.62rem', color: COLORS.silver, opacity: 0.78,
+                      fontSize: '0.62rem', color: SEMANTIC.textMuted,
                       letterSpacing: '0.1em', textTransform: 'uppercase',
                       fontFamily: FONTS.body,
                     }}>{tr ? "sahne" : "scenes"}</div>
@@ -1024,7 +1024,7 @@ function TabKronoloji({ data, language, isMobile }) {
             </p>
           </div>
         </div>
-        <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
+        <p style={{ fontSize: '0.72rem', color: SEMANTIC.textMuted, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
           {language === 'tr'
             ? "Üç halka iç içe geçer: küçük olanlar yaşadığımız zaman içinde, orta olanlar tarihin sonuna doğru, büyük olanlar saatin ilk anında. (Suyûtî; Buhârî, Eşrâtu's-Sâat fasılları)"
             : "The three rings nest within each other: minor signs unfold in lived history, middle in history's closing, major in the Hour's first instant. (al-Suyūṭī; al-Bukhārī, chapters on Ashrāṭ al-Sāʿa)"}

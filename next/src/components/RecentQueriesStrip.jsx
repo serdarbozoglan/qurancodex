@@ -8,7 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import { useLanguage } from '../i18n/LanguageContext';
 import { readQueryHistory, QUERY_HISTORY_KEY } from '../lib/query-history';
 
@@ -66,8 +66,7 @@ export default function RecentQueriesStrip() {
           href={`/${language}/sor`}
           style={{
             fontSize: '0.7rem',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             textDecoration: 'none',
             marginLeft: 'auto',

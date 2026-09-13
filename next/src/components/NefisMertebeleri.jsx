@@ -814,7 +814,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
               fontFamily: FONTS.body, position: 'relative',
             }}>{tr ? v.labelTr : v.labelEn}</div>
             <div style={{
-              fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78,
+              fontSize: '0.72rem', color: SEMANTIC.textMuted,
               marginBottom: '18px', letterSpacing: '0.06em',
               fontFamily: FONTS.body, position: 'relative',
             }}>{tr ? v.refTr : v.refEn}</div>

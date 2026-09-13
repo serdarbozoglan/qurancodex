@@ -12,7 +12,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { tabIcon } from './tabIcons';
 import { ToolTabGlow } from './ToolTabGlow';
@@ -263,8 +263,7 @@ function PillarHero({ pillarData, language, isMobile }) {
       <p style={{
         textTransform: 'uppercase',
         letterSpacing: '0.16em',
-        color: COLORS.silver,
-        opacity: 0.78,
+        color: SEMANTIC.textMuted,
         fontSize: '0.72rem',
         marginBottom: '28px',
       }}>

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import AnimatedCounter from '../components/AnimatedCounter';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 // Icons for the three counter cards
 const ShieldIcon = () => (
   <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -115,7 +115,7 @@ export default function LivingPreservation() {
             </div>
 
             <p style={{
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.6rem',
+              color: SEMANTIC.textMuted, fontSize: '0.6rem',
               fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase',
               fontFamily: FONTS.body, marginBottom: '8px',
             }}>
@@ -140,7 +140,7 @@ export default function LivingPreservation() {
 
             {(key === 'variation' || key === 'sanaa') && (
               <p style={{
-                color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.68rem',
+                color: SEMANTIC.textMuted, fontSize: '0.68rem',
                 fontFamily: FONTS.body, fontStyle: 'italic',
                 marginTop: '8px', lineHeight: 1.5,
               }}>
@@ -210,7 +210,7 @@ export default function LivingPreservation() {
                 <h4 style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.82rem', color: COLORS.gold, margin: '0 0 4px' }}>
                   {t('livingPreservation.birmingham.title')}
                 </h4>
-                <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+                <p style={{ color: SEMANTIC.textMuted, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
                   {t('livingPreservation.birmingham.description')}
                 </p>
               </div>

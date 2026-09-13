@@ -15,7 +15,7 @@ export default function PullQuote({ tr: trText, en: enText, source, language }) 
       position: 'relative',
     }}>
       {/* Decorative quote mark */}
-      <div style={{
+      <div aria-hidden="true" style={{
         position: 'absolute',
         top: '8px', left: '20px',
         fontFamily: FONTS.display, fontSize: '3rem',

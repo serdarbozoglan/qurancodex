@@ -24,7 +24,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import useReducedMotionSafe from '../../../hooks/useReducedMotionSafe';
 import { useLanguage } from '../../../i18n/LanguageContext';
-import { COLORS, FONTS } from '../../../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../../../tokens';
 import { detectQueryLang } from '../../../lib/query-lang';
 import BookmarkButton from '../../../components/BookmarkButton';
 import { readQueryHistory, pushQueryHistory as sharedPushHistory, removeQueryHistory as sharedRemoveHistory } from '../../../lib/query-history';
@@ -269,8 +269,7 @@ function SorInner() {
             style={{
               fontFamily: FONTS.body,
               fontSize: '0.66rem',
-              color: COLORS.silver,
-              opacity: 0.78,
+              color: SEMANTIC.textMuted,
               letterSpacing: '0.04em',
             }}
             className="hidden sm:inline"
@@ -570,8 +569,7 @@ function IdleState({ language, onSelect }) {
             fontSize: '0.72rem',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             marginBottom: '14px',
           }}>
             {tr ? 'Örnek sorular' : 'Example questions'}
@@ -619,8 +617,7 @@ function IdleState({ language, onSelect }) {
             fontSize: '0.72rem',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             marginBottom: '14px',
           }}>
             {tr ? 'Son sorularınız' : 'Recent questions'}
@@ -676,8 +673,7 @@ function IdleState({ language, onSelect }) {
                     background: 'transparent',
                     border: 'none',
                     padding: '4px 10px 4px 4px',
-                    color: COLORS.silver,
-                    opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     cursor: 'pointer',
                     fontSize: '0.9rem',
                     lineHeight: 1,
@@ -847,8 +843,7 @@ function LoadingState({ language }) {
         marginTop: '32px',
         fontFamily: FONTS.body,
         fontSize: '0.7rem',
-        color: COLORS.silver,
-        opacity: 0.78,
+        color: SEMANTIC.textMuted,
         letterSpacing: '0.06em',
       }}>
         {tr ? 'Sistem fetvâ vermez; ilgili âyet, yazı ve araçlara yönlendirir.' : 'The system issues no rulings; it guides you to relevant verses, essays and tools.'}
@@ -1005,8 +1000,7 @@ function RejectedState({ language, rejection, onSuggestion }) {
             fontSize: '0.72rem',
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             margin: '0 0 12px',
           }}>
             {tr ? 'Örnek konular' : 'Example topics'}
@@ -1267,8 +1261,7 @@ function ResponseView({ data, language, feedback, setFeedback }) {
           marginTop: '24px',
           fontFamily: FONTS.body,
           fontSize: '0.68rem',
-          color: COLORS.silver,
-          opacity: 0.78,
+          color: SEMANTIC.textMuted,
           letterSpacing: '0.08em',
         }}>
           {(meta.timings.total / 1000).toFixed(1)}s · {meta.candidateCount} {language === 'tr' ? 'aday' : 'candidates'}
@@ -1483,8 +1476,7 @@ function VerseCard({ verse, delay, language }) {
           <p style={{
             fontFamily: FONTS.body,
             fontSize: '0.7rem',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             margin: '0 0 14px',
             letterSpacing: '0.04em',
           }}>
@@ -1855,8 +1847,7 @@ function ArticleCard({ article, delay, language }) {
               <span style={{
                 fontFamily: FONTS.body,
                 fontSize: '0.7rem',
-                color: COLORS.silver,
-                opacity: 0.78,
+                color: SEMANTIC.textMuted,
               }}>
                 {article.readingMinutes} {tr ? 'dk okuma' : 'min read'}
               </span>
@@ -1953,7 +1944,7 @@ function FeedbackRow({ feedback, setFeedback, language, queryHash }) {
         gap: '14px',
       }}
     >
-      <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, opacity: 0.78 }}>
+      <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: SEMANTIC.textMuted }}>
         {tr ? 'Bu yardımcı oldu mu?' : 'Was this helpful?'}
       </span>
       <button

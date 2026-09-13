@@ -151,7 +151,7 @@ export default function QuranDua() {
             <div style={{ textAlign: 'center', color: '#3498db', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? 'Rabbî · Rabbim' : 'Rabbī · my Lord'}
             </div>
-            <div style={{ textAlign: 'center', color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
+            <div style={{ textAlign: 'center', color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
               {tr ? 'tekil · ~40 yer' : 'singular · ~40 occurrences'}
             </div>
             <div style={{
@@ -177,7 +177,7 @@ export default function QuranDua() {
             }}>⇋</span>
             <span style={{
               writingMode: 'vertical-rl', textOrientation: 'mixed',
-              color: 'rgba(212,165,116,0.5)', fontSize: '0.62rem',
+              color: 'rgba(212, 165, 116, 0.8)', fontSize: '0.62rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
               fontFamily: "'Inter', sans-serif", fontWeight: 700,
               marginTop: '8px',
@@ -209,7 +209,7 @@ export default function QuranDua() {
             <div style={{ textAlign: 'center', color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? 'Rabbenâ · Rabbimiz' : 'Rabbanā · our Lord'}
             </div>
-            <div style={{ textAlign: 'center', color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
+            <div style={{ textAlign: 'center', color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
               {tr ? 'çoğul · ~38 yer' : 'plural · ~38 occurrences'}
             </div>
             <div style={{
@@ -272,7 +272,7 @@ export default function QuranDua() {
               إِنِّي قَرِيبٌ
             </div>
             <div style={{
-              fontSize: '0.7rem', color: '#a78bfa', opacity: 0.7, fontWeight: 600,
+              fontSize: '0.7rem', color: '#a78bfa', fontWeight: 600,
               fontFamily: "'Inter', sans-serif", textAlign: 'right', marginBottom: '10px',
             }}>
               ↳ {tr ? 'Bakara 2:186: "Ben yakınım"' : 'Al-Baqara 2:186: "I am near"'}
@@ -319,7 +319,7 @@ export default function QuranDua() {
                   رَبَّنَا ظَلَمْنَا أَنفُسَنَا
                 </div>
                 <div style={{
-                  fontSize: '0.68rem', color: '#e74c3c', opacity: 0.7, fontWeight: 600,
+                  fontSize: '0.68rem', color: '#e74c3c', fontWeight: 600,
                   fontFamily: "'Inter', sans-serif", textAlign: 'right',
                 }}>
                   ↳ {tr ? 'Hz. Âdem · A\'râf 7:23' : 'Hz. Adam · Al-Aʿrāf 7:23'}
@@ -335,7 +335,7 @@ export default function QuranDua() {
                   رَبِّ إِنِّي ظَلَمْتُ نَفْسِي
                 </div>
                 <div style={{
-                  fontSize: '0.68rem', color: '#e74c3c', opacity: 0.7, fontWeight: 600,
+                  fontSize: '0.68rem', color: '#e74c3c', fontWeight: 600,
                   fontFamily: "'Inter', sans-serif", textAlign: 'right',
                 }}>
                   ↳ {tr ? 'Hz. Mûsâ · Kasas 28:16' : 'Hz. Moses · Al-Qaṣaṣ 28:16'}
@@ -381,7 +381,7 @@ export default function QuranDua() {
             <div style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
               {tr ? s.labelTr : s.labelEn}
             </div>
-            <div style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', lineHeight: 1.4 }}>
+            <div style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', lineHeight: 1.4 }}>
               {tr ? s.subTr : s.subEn}
             </div>
           </div>
@@ -442,7 +442,7 @@ export default function QuranDua() {
                 <h3 style={{ color: p.emojiColor, fontFamily: FONTS.display, fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
                   {tr ? p.nameTr : p.nameEn}
                 </h3>
-                <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
+                <p style={{ color: SEMANTIC.textMuted, fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
                   {tr ? p.profileTr : p.profileEn}
                 </p>
               </div>
@@ -593,7 +593,7 @@ export default function QuranDua() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {tr ? "Duanın Anatomisi: Dört Aşama" : "Anatomy of a Prayer: Four Stages"}
         </h3>
-        <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
+        <p style={{ color: SEMANTIC.textMuted, fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
           {tr
             ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur; bu sıra rastgele değil, içsel bir mimaridir. Tek bir kısa dua dördünü birden açıkça taşımaz; aşağıda Bakara 2:201 ile Hz. Eyyub'un duası (Enbiyâ 21:83) bileşik bir örnek olarak kullanılmıştır:"
             : "In the Qur'anic prayer tradition, every prayer comprises four core stages; not random, but an inner architecture. No single short prayer makes all four explicit; below, Al-Baqara 2:201 and Hz. Job's prayer (Al-Anbiya 21:83) are used as a composite example:"
@@ -712,7 +712,7 @@ export default function QuranDua() {
                 marginTop: 'auto',
                 paddingTop: '8px',
                 borderTop: `1px dashed ${stage.color}25`,
-                color: 'rgba(148, 163, 184, 0.78)',
+                color: SEMANTIC.textMuted,
                 fontSize: '0.72rem',
                 lineHeight: 1.55,
                 fontFamily: "'Inter', sans-serif",
@@ -731,7 +731,7 @@ export default function QuranDua() {
           border: '1px solid rgba(255,255,255,0.05)',
           borderLeft: '2px solid rgba(212,165,116,0.4)',
           borderRadius: RADIUS.md,
-          color: 'rgba(148, 163, 184, 0.78)',
+          color: SEMANTIC.textMuted,
           fontSize: '0.78rem',
           fontFamily: "'Inter', sans-serif",
           fontStyle: 'italic',
@@ -748,7 +748,7 @@ export default function QuranDua() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {tr ? 'Seçilmiş Rabbena Duaları' : 'Selected Rabbana Prayers'}
         </h3>
-        <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.9375rem', lineHeight: 1.6, fontFamily: "'Inter', sans-serif", marginBottom: '12px' }}>
+        <p style={{ color: SEMANTIC.textMuted, fontSize: '0.9375rem', lineHeight: 1.6, fontFamily: "'Inter', sans-serif", marginBottom: '12px' }}>
           {tr
             ? "Her biri farklı bir ihtiyacın, farklı bir anın dile gelişi."
             : 'Each one a different need, a different moment finding voice.'}
@@ -763,7 +763,7 @@ export default function QuranDua() {
           ].map(item => (
             <div key={item.color} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
               <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: 2, background: item.color, flexShrink: 0 }} />
-              <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.69rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '0.05em' }}>
+              <span style={{ color: SEMANTIC.textMuted, fontSize: '0.69rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '0.05em' }}>
                 {tr ? item.labelTr : item.labelEn}
               </span>
             </div>

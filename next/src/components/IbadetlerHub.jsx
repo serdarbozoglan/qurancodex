@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import LinkifyRefs from './LinkifyRefs';
 import CollapsibleHero from './CollapsibleHero';
@@ -102,7 +102,7 @@ function HubHero({ hubData, language, isMobile }) {
 
       <p style={{
         textTransform: 'uppercase', letterSpacing: '0.18em',
-        color: COLORS.silver, opacity: 0.78,
+        color: SEMANTIC.textMuted,
         fontSize: '0.75rem', marginBottom: '32px',
       }}>— {language === 'tr' ? anchor.refTr : anchor.refEn}</p>
 
@@ -665,9 +665,9 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
                 <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '1rem' }}>{tr ? r.labelTr : r.labelEn}</span>
               </div>
               <div style={{ display: 'grid', gap: '6px', fontSize: '0.82rem' }}>
-                <div><span style={{ color: COLORS.silver, opacity: 0.78 }}>{tr ? 'Yükümlülük' : 'Degree'}:</span> <span style={{ color: r.yukumlulukColor, fontWeight: 700 }}>{tr ? r.yukumlulukTr : r.yukumlulukEn}</span></div>
-                <div><span style={{ color: COLORS.silver, opacity: 0.78 }}>{tr ? 'Kategori' : 'Category'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.kategoriTr : r.kategoriEn}</span></div>
-                <div><span style={{ color: COLORS.silver, opacity: 0.78 }}>{tr ? 'Sünnet Tafsili' : 'Sunnah Detail'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.sunnetTafsilTr : r.sunnetTafsilEn}</span></div>
+                <div><span style={{ color: SEMANTIC.textMuted }}>{tr ? 'Yükümlülük' : 'Degree'}:</span> <span style={{ color: r.yukumlulukColor, fontWeight: 700 }}>{tr ? r.yukumlulukTr : r.yukumlulukEn}</span></div>
+                <div><span style={{ color: SEMANTIC.textMuted }}>{tr ? 'Kategori' : 'Category'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.kategoriTr : r.kategoriEn}</span></div>
+                <div><span style={{ color: SEMANTIC.textMuted }}>{tr ? 'Sünnet Tafsili' : 'Sunnah Detail'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.sunnetTafsilTr : r.sunnetTafsilEn}</span></div>
               </div>
             </div>
           ))}

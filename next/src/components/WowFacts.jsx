@@ -100,18 +100,18 @@ const FACTS = [
     surahRef: 'Çeşitli sûreler · 55. sûre',
     titleTr: 'Rahmân ve Rahîm: Merhametin İki İsmi',
     titleEn: 'Ar-Rahman and Ar-Rahim: Two Names of Mercy',
-    bodyTr: 'Kur\'an, Allah\'ın merhametini iki isimle sık sık anar: "Rahîm" (daima merhamet eden) yaklaşık 116 kez, "Rahmân" (çok merhametli) yaklaşık 57 kez geçer. Rahmân, Kur\'an\'da yalnız Allah için kullanılır ve bir sûreye ad olur (Er-Rahmân, 55. sûre); bu sûrede "Rabbinizin hangi nimetlerini yalanlıyorsunuz" sorusu 31 kez tekrarlanır.\n\nNot: Sayımlar Quranic Arabic Corpus\'un ر ح م kökü verisine dayanır; "Rab" gibi sıfat-isimler ayrı sayılır.',
-    bodyEn: 'The Quran names God\'s mercy with two of His names: "Ar-Rahim" (the Ever-Merciful) appears about 116 times, and "Ar-Rahman" (the All-Merciful) about 57 times. In the Quran, Ar-Rahman is used only for God and gives its name to a surah (Ar-Rahman, the 55th), where the question "Which of your Lord\'s favors will you deny?" recurs 31 times.\n\nNote: Counts follow the Quranic Arabic Corpus data for the root ر ح م; attribute-names like "Rab" (Lord) are tallied separately.',
+    bodyTr: 'Kur\'an, Allah\'ın merhametini iki isimle sık sık anar: "Rahîm" 115 geçişte, "Rahmân" 57 geçişte yer alır. Yani bu iki isimden daha sık geçeni Rahîm\'dir. Klasik açıklamalarda Rahmân\'da rahmetin kuşatıcılığı, Rahîm\'de sürekliliği öne çıkarılır; ikisinin farkı tek bir tanımla kapatılmaz. Rahmân\'ın 57 geçişinin tamamında ad Allah içindir ve bu isim bir sûreye de ad olur (Er-Rahmân, 55. sûre); o sûrede "Rabbinizin hangi nimetlerini yalanlıyorsunuz" sorusu 31 kez tekrarlanır. Rahîm ise her geçişinde ilâhî isim değildir: Tevbe 9:128\'de aynı kelime Peygamber\'i niteler, kalan 114 geçiş Allah içindir.\n\nNot: Sayım, sitenin kanonik Kur\'an metni Hafs rivayetine göre taranarak ر ح م kökünün iki kalıbı üzerinden yapıldı: "rahmân" (er-rahmân, bi\'r-rahmân, li\'r-rahmân) ve tekil "rahîm" (er-rahîm, rahîm, rahîmâ). Quranic Arabic Corpus rahmân için aynı 57 sayısını verir; rahîm için 116 der, çünkü o sayıma Fetih 48:29\'daki çoğul "ruhamâ" da girer ve orada kelime Allah\'ı değil, müminlerin birbirine merhametini anlatır. Fiil biçimleri ile "rahmet", "erhamu\'r-râhimîn" ve Kehf 18:81\'deki "ruhm" gibi türevler bu sayımın dışındadır.',
+    bodyEn: 'The Quran names God\'s mercy with two of His names: "Ar-Rahim" has 115 occurrences and "Ar-Rahman" 57. So Ar-Rahim is the more frequent of the two. Classical accounts bring out the encompassing reach of mercy in Ar-Rahman and its continuity in Ar-Rahim; the difference between them is not settled by a single gloss. All 57 occurrences of Ar-Rahman name God, and the name also titles a surah (Ar-Rahman, the 55th), where the question "Which of your Lord\'s favors will you deny?" recurs 31 times. Ar-Rahim is not a divine name in every instance: in Q 9:128 the same word describes the Prophet, leaving 114 occurrences that name God.\n\nNote: The count was made over the site\'s canonical Quranic text in the Hafs reading, on two patterns of the root ر ح م: "rahman" (al-rahman, bi-l-rahman, li-l-rahman) and the singular "rahim" (al-rahim, rahim, rahiman). The Quranic Arabic Corpus gives the same figure of 57 for rahman; for rahim it gives 116, because that tally also includes the plural "ruhama" in Q 48:29, where the word describes the believers\' mercy toward one another rather than God. Verb forms and derivatives such as "rahma", "arham al-rahimin" and "ruhm" in Q 18:81 fall outside this count.',
     wowTr: 'Merhamet, Kur\'an\'ın atmosferinde sürekli yankılanır.',
     wowEn: 'Mercy echoes continuously throughout the Quran\'s atmosphere.',
     explore: 'Rahman',
     visualType: 'counter',
     visualData: {
-      value: 116,
+      value: 115,
       suffixTr: 'kez',
       suffixEn: 'times',
-      labelTr: 'Rahîm isminin geçiş sayısı (Rahmân ~57 kez)',
-      labelEn: 'Occurrences of Ar-Rahim (Ar-Rahman ~57)',
+      labelTr: 'Rahîm isminin geçiş sayısı (Rahmân 57 kez)',
+      labelEn: 'Occurrences of Ar-Rahim (Ar-Rahman 57)',
     },
   },
   {
@@ -777,7 +777,7 @@ function CounterVisual({ value, suffixTr, suffixEn, labelTr, labelEn, language, 
       </span>
       {label && (
         <span style={{
-          fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
+          fontSize: '0.66rem', color: SEMANTIC.textMuted,
           fontFamily: "'Inter', sans-serif",
           letterSpacing: '0.05em', textTransform: 'uppercase',
           marginTop: '6px', fontWeight: 600,
@@ -847,7 +847,7 @@ function RingVisual({ segments, highlight, labelTr, labelEn, language, cardColor
         </svg>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
           <span style={{
-            fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
+            fontSize: '0.66rem', color: SEMANTIC.textMuted,
             fontFamily: "'Inter', sans-serif",
             letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
           }}>
@@ -877,7 +877,7 @@ function TimelineVisual({ events, highlightIndex, labelTr, labelEn, language, ca
       border: `1px solid ${cardColor + '22'}`,
     }}>
       <span style={{
-        fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
+        fontSize: '0.66rem', color: SEMANTIC.textMuted,
         fontFamily: "'Inter', sans-serif",
         letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
         marginBottom: '10px',
@@ -960,7 +960,7 @@ function CalligraphyVisual({ text, transliteration, labelTr, labelEn, language, 
         </span>
       )}
       <span style={{
-        fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
+        fontSize: '0.66rem', color: SEMANTIC.textMuted,
         fontFamily: "'Inter', sans-serif",
         letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
         marginTop: '4px',
@@ -1026,7 +1026,7 @@ function WowCard({ fact, language, onClose }) {
         </span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'auto' }}>
           <span style={{
-            color: 'rgba(148, 163, 184, 0.78)',
+            color: SEMANTIC.textMuted,
             fontSize: '0.68rem',
             fontFamily: "'Inter', sans-serif",
             whiteSpace: 'nowrap',

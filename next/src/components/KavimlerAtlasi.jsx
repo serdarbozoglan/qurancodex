@@ -1258,7 +1258,7 @@ function TabHelakDesen({ language, isMobile }) {
                 color: HELAK_COLORS[m.type], fontFamily: FONTS.body,
               }}>{tr ? m.tr : m.en}</div>
               <div style={{
-                fontSize: '0.58rem', color: COLORS.silver, opacity: 0.78,
+                fontSize: '0.58rem', color: SEMANTIC.textMuted,
                 fontFamily: FONTS.body, fontStyle: 'italic',
               }}>{m.ex}</div>
             </div>

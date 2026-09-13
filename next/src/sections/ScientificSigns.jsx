@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 
 // Verse coordinates for each tab (surah:ayah) — audio handled with fallback by QuranVerse
 const TAB_VERSE = {
@@ -267,7 +267,7 @@ export default function ScientificSigns() {
                   {/* Century badge */}
                   <span style={{
                     fontSize: '0.68rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                    color: 'rgba(148, 163, 184, 0.78)',
+                    color: SEMANTIC.textMuted,
                     background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(255,255,255,0.08)',
                     borderRadius: '20px', padding: '4px 12px',
@@ -288,7 +288,7 @@ export default function ScientificSigns() {
                       position: 'absolute', left: '50%', top: '50%',
                       transform: 'translate(-50%, -50%)',
                       fontSize: '0.6rem', fontFamily: "'Inter', sans-serif",
-                      color: 'rgba(148, 163, 184, 0.78)', letterSpacing: '0.1em',
+                      color: SEMANTIC.textMuted, letterSpacing: '0.1em',
                       background: 'rgba(13,27,42,0.95)', padding: '0 8px',
                       whiteSpace: 'nowrap',
                     }}>
@@ -302,7 +302,7 @@ export default function ScientificSigns() {
                   {isMobile && (
                     <span style={{
                       fontSize: '0.6rem', fontFamily: "'Inter', sans-serif",
-                      color: 'rgba(148, 163, 184, 0.78)', letterSpacing: '0.1em',
+                      color: SEMANTIC.textMuted, letterSpacing: '0.1em',
                       whiteSpace: 'nowrap', flexShrink: 0,
                     }}>
                       {language === 'tr' ? '↔ 1.400 yıl' : '↔ 1,400 yrs'}
@@ -347,7 +347,7 @@ export default function ScientificSigns() {
                         }}>
                           {isExpanded ? tabData.content : preview}
                           {!isExpanded && hasMore && (
-                            <span style={{ color: 'rgba(148, 163, 184, 0.78)' }}> …</span>
+                            <span style={{ color: SEMANTIC.textMuted }}> …</span>
                           )}
                         </p>
                         {hasMore && (
@@ -391,7 +391,7 @@ export default function ScientificSigns() {
                       <p style={{
                         fontSize: '0.65rem', fontFamily: "'Inter', sans-serif",
                         letterSpacing: '0.2em', textTransform: 'uppercase',
-                        color: 'rgba(148, 163, 184, 0.78)', marginBottom: '14px',
+                        color: SEMANTIC.textMuted, marginBottom: '14px',
                       }}>
                         {tabData.meaningsTitle}
                       </p>
@@ -444,7 +444,7 @@ export default function ScientificSigns() {
                       <p style={{
                         fontSize: '0.65rem', fontFamily: "'Inter', sans-serif",
                         letterSpacing: '0.2em', textTransform: 'uppercase',
-                        color: 'rgba(148, 163, 184, 0.78)', marginBottom: '14px',
+                        color: SEMANTIC.textMuted, marginBottom: '14px',
                       }}>
                         {language === 'tr' ? 'Önemli Detaylar' : 'Key Details'}
                       </p>
@@ -492,14 +492,14 @@ export default function ScientificSigns() {
                         <span style={{
                           fontSize: '0.62rem', fontFamily: "'Inter', sans-serif",
                           letterSpacing: '0.16em', textTransform: 'uppercase',
-                          color: 'rgba(148, 163, 184, 0.78)', fontWeight: 600,
+                          color: SEMANTIC.textMuted, fontWeight: 600,
                         }}>
                           {language === 'tr' ? 'Eleştirel Not' : 'Critical Note'}
                         </span>
                       </div>
                       <p style={{
                         fontSize: '0.82rem', fontFamily: "'Inter', sans-serif",
-                        lineHeight: 1.78, color: 'rgba(148, 163, 184, 0.78)',
+                        lineHeight: 1.78, color: SEMANTIC.textMuted,
                         fontStyle: 'italic', margin: 0,
                       }}>
                         {tabData.criticalNote}

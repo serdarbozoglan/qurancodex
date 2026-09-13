@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -124,7 +124,7 @@ export default function KitapKavrami() {
               : '"This is the Book about which there is no doubt, a guidance (hudā) for the God-conscious."'}
           </p>
           <p style={{
-            fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+            fontFamily: FONTS.body, color: SEMANTIC.textFaint,
             fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
             margin: '0 0 30px',
           }}>— {tr ? 'Bakara 2:2' : 'Al-Baqara 2:2'}</p>
@@ -401,8 +401,7 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
                     fontSize: '0.62rem',
                     letterSpacing: '0.16em',
                     textTransform: 'uppercase',
-                    color: COLORS.silver,
-                    opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     fontWeight: 700,
                     marginBottom: 8,
                   }}>

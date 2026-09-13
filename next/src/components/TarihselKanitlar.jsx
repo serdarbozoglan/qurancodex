@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
-import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
@@ -862,7 +862,7 @@ function ScholarsTab({ scholars, language, isMobile }) {
               }}>{tr ? s.work : s.workEn}</p>
               <p style={{
                 margin: '4px 0 0', fontSize: '0.7rem',
-                color: COLORS.silver, opacity: 0.78,
+                color: SEMANTIC.textMuted,
                 fontFamily: FONTS.body, letterSpacing: '0.06em',
               }}>{s.century}</p>
             </div>

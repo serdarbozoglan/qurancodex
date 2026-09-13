@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
-import { COLORS, FONTS, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -712,8 +712,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                     fontSize: '0.62rem',
                     letterSpacing: '0.16em',
                     textTransform: 'uppercase',
-                    color: COLORS.silver,
-                    opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     fontWeight: 700,
                     marginBottom: 8,
                   }}>

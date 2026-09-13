@@ -7,7 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
 import AnimatedCounter from '../components/AnimatedCounter';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 
 // Intro highlight'ları — 3 mukatta harf grubu burada ÖRNEK olarak veriliyor,
 // taxonomic kategori olarak değil. Renk semantiği (teal = karma, gold = Mekkî)
@@ -622,7 +622,7 @@ export default function LinguisticDNA() {
                       className="text-xs font-body px-2 py-0.5 rounded-full"
                       style={{
                         background: 'rgba(255,255,255,0.05)',
-                        color: 'rgba(148, 163, 184, 0.78)',
+                        color: SEMANTIC.textMuted,
                         border: '1px solid rgba(255,255,255,0.1)',
                       }}
                     >

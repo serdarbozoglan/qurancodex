@@ -1531,7 +1531,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
         zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
-        borderRadius: RADIUS.pillSm, padding: '6px 18px', color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.7rem',
+        borderRadius: RADIUS.pillSm, padding: '6px 18px', color: SEMANTIC.textMuted, fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
       }}>
@@ -1544,11 +1544,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
       {/* Legend */}
       <div style={{ position: 'absolute', bottom: '24px', left: '24px', display: 'flex', gap: '12px', alignItems: 'center', pointerEvents: 'none' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif" }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: SEMANTIC.textMuted, fontFamily: "'Inter', sans-serif" }}>
           <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: MEKKI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Mekkî' : 'Meccan'}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif" }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: SEMANTIC.textMuted, fontFamily: "'Inter', sans-serif" }}>
           <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: MEDENI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Medenî' : 'Medinan'}
         </div>
@@ -1596,7 +1596,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         position: 'absolute', bottom: '24px', right: '24px', zIndex: 20,
         display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end',
       }}>
-        <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.58rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", userSelect: 'none' }}>
+        <span style={{ color: SEMANTIC.textMuted, fontSize: '0.58rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", userSelect: 'none' }}>
           {language === 'tr' ? 'Görünüm' : 'View'}
         </span>
         <div style={{
@@ -3046,7 +3046,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
                 : '"God has sent down the finest discourse — a Book consistent within itself, paired."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.78, fontSize: '0.68rem', fontWeight: 600,
+              color: SEMANTIC.textMuted, fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 22px',
             }}>
               — {language === 'tr' ? 'Zümer 39:23' : 'az-Zumar 39:23'}
@@ -3795,10 +3795,10 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
             <span style={{ color: '#3498db', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.06em' }}>
               {language === 'tr' ? 'Siyak-Sibak' : 'Context'}
             </span>
-            <span style={{ color: '#3498db', opacity: 0.5, fontSize: '0.62rem', fontStyle: 'italic', fontWeight: 400 }}>
+            <span style={{ color: '#3498db', fontSize: '0.62rem', fontStyle: 'italic', fontWeight: 400 }}>
               {language === 'tr' ? '(bağlam)' : ''}
             </span>
-            <span style={{ color: '#3498db', fontSize: '0.7rem', marginLeft: 'auto', opacity: 0.7 }}>{showContext ? '▲' : '▼'}</span>
+            <span style={{ color: '#3498db', fontSize: '0.7rem', marginLeft: 'auto' }}>{showContext ? '▲' : '▼'}</span>
           </button>
           {showContext && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '8px' }}>
@@ -3810,7 +3810,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.1)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.12)'; }}>
-                  <span style={{ color: '#3498db', fontSize: '0.72rem', marginRight: '8px', opacity: 0.7 }}>{v.id}</span>
+                  <span style={{ color: '#3498db', fontSize: '0.72rem', marginRight: '8px' }}>{v.id}</span>
                   <span style={{ color: '#b0c4d8', fontSize: '0.84rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{vt(v)}</span>
                 </button>
               ))}
@@ -3828,7 +3828,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.1)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.12)'; }}>
-                  <span style={{ color: '#3498db', fontSize: '0.72rem', marginRight: '8px', opacity: 0.7 }}>{v.id}</span>
+                  <span style={{ color: '#3498db', fontSize: '0.72rem', marginRight: '8px' }}>{v.id}</span>
                   <span style={{ color: '#b0c4d8', fontSize: '0.84rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{vt(v)}</span>
                 </button>
               ))}

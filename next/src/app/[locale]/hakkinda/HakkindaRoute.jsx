@@ -11,7 +11,7 @@ import HomeLinkPill from '@/components/HomeLinkPill';
 // (memory: quran-supremacy-framing). Kullanıcı direktifi 2026-07-24.
 
 import { useLanguage } from '@/i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD } from '@/tokens';
+import { COLORS, FONTS, GLASS_CARD, SEMANTIC } from '@/tokens';
 import useNavbarOffset from '@/components/useNavbarOffset';
 
 // "Son güncelleme" tarihi — CLAUDE.md kuralı: her `git push`'ta en son push
@@ -143,7 +143,7 @@ export default function HakkindaRoute() {
           {/* Son güncelleme tarihi — LAST_UPDATED sabitinden (dosya başında).
               CLAUDE.md §13.28-benzeri kural: her push'ta en son push gününe
               güncellenir (bkz. CLAUDE.md "Hakkında sayfası güncelleme tarihi"). */}
-          <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.78rem', opacity: 0.65, margin: '14px 0 0' }}>
+          <p style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.78rem', margin: '14px 0 0' }}>
             {isEn ? `Last updated: ${LAST_UPDATED_EN}` : `Son güncelleme: ${LAST_UPDATED_TR}`}
           </p>
 

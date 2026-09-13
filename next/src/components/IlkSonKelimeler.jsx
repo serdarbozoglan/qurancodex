@@ -232,7 +232,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           </div>
           {/* Helper text — kullanıcıya örnek terimler ipucu verir + scope açıklar */}
           <p style={{
-            fontSize: '0.68rem', color: 'rgba(148, 163, 184, 0.78)',
+            fontSize: '0.68rem', color: SEMANTIC.textMuted,
             fontFamily: FONTS.body, margin: '0 0 0 2px',
             fontStyle: 'italic',
           }}>
@@ -1398,7 +1398,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
                 </span>
                 <span style={{
                   fontSize: '0.78rem', fontFamily: FONTS.body,
-                  color: COLORS.silver, opacity: 0.78,
+                  color: SEMANTIC.textMuted,
                 }}>
                   {tr ? 'sûre' : 'surahs'}
                 </span>
@@ -1768,7 +1768,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
         <div style={{
           marginTop: '14px',
           fontSize: '0.74rem', fontFamily: FONTS.body,
-          color: COLORS.silver, opacity: 0.78,
+          color: SEMANTIC.textMuted,
           fontStyle: 'italic', letterSpacing: '0.02em',
         }}>
           — {spotlight.sources.join(' · ')}
@@ -1943,7 +1943,7 @@ function SpotlightSurahPanel({ surah, language, side }) {
       <div style={{
         fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.2em', textTransform: 'uppercase',
-        color: COLORS.silver, opacity: 0.78, marginBottom: '12px',
+        color: SEMANTIC.textMuted, marginBottom: '12px',
       }}>
         {surah.num}. {tr ? surah.nameTr : surah.nameEn} · {positionLabel}
       </div>
@@ -2011,7 +2011,7 @@ function SpotlightList({ spotlight, language, isMobile }) {
           }}>
             <span style={{
               fontSize: '0.72rem',
-              color: COLORS.silver, opacity: 0.78,
+              color: SEMANTIC.textMuted,
               fontWeight: 600,
               flexShrink: 0,
             }}>
@@ -2214,7 +2214,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
       </div>
 
       {/* Row labels */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.62rem', color: COLORS.silver, opacity: 0.78, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '10px', padding: '0 4px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.62rem', color: SEMANTIC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '10px', padding: '0 4px' }}>
         <span>{tr ? '1. Fâtiha' : '1. Al-Fatiha'}</span>
         <span>{tr ? '↑ açılış · kapanış ↓' : '↑ opener · closer ↓'}</span>
         <span>{tr ? '114. Nâs' : '114. An-Nās'}</span>
@@ -2272,7 +2272,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
         {ROOT_FAMILIES.map(f => (
           <span key={f.hex} style={{
             display: 'inline-flex', alignItems: 'center', gap: '5px',
-            fontSize: '0.62rem', color: COLORS.silver, opacity: 0.78,
+            fontSize: '0.62rem', color: SEMANTIC.textMuted,
             padding: '2px 8px',
             border: `1px solid ${f.hex}30`,
             background: `${f.hex}0a`,

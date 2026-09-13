@@ -7,7 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { COLORS, FONTS, STATUS } from '../tokens';
+import { COLORS, FONTS, STATUS, SEMANTIC } from '../tokens';
 import { useLanguage } from '../i18n/LanguageContext';
 import { readReadingProgress, formatRelativeTime, clearReadingProgress } from '../lib/reading-progress';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
@@ -130,8 +130,7 @@ export default function ReadingProgressCard() {
             {relative && (
               <div style={{
                 fontSize: '0.72rem',
-                color: COLORS.silver,
-                opacity: 0.78,
+                color: SEMANTIC.textMuted,
                 marginTop: 3,
                 fontFamily: FONTS.body,
               }}>

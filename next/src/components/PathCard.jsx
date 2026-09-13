@@ -11,7 +11,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD, RADIUS } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, RADIUS, SEMANTIC } from '../tokens';
 
 export default function PathCard({
   icon,
@@ -181,7 +181,7 @@ export default function PathCard({
                 {language === 'tr' ? step.tr : step.en}
               </span>
               {i < steps.length - 1 && (
-                <span style={{ color: COLORS.silver, opacity: 0.78, fontSize: '0.75rem' }}>·</span>
+                <span style={{ color: SEMANTIC.textMuted, fontSize: '0.75rem' }}>·</span>
               )}
             </span>
           ))}

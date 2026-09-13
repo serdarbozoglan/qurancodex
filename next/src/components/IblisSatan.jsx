@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
@@ -253,7 +253,7 @@ export default function IblisSatan({ onClose }) {
                 ({language === 'tr' ? v.tr : v.en})
               </span>
               {i < arr.length - 1 && (
-                <span style={{ color: COLORS.silver, opacity: 0.78, marginLeft: '4px' }}>·</span>
+                <span style={{ color: SEMANTIC.textMuted, marginLeft: '4px' }}>·</span>
               )}
             </span>
           ))}
@@ -333,7 +333,7 @@ export default function IblisSatan({ onClose }) {
                   flexShrink: 0,
                 }}
               />
-              <span style={{ color: COLORS.silver, opacity: 0.78, letterSpacing: '0.04em' }}>
+              <span style={{ color: SEMANTIC.textMuted, letterSpacing: '0.04em' }}>
                 {s.name}
               </span>
             </span>
@@ -341,7 +341,7 @@ export default function IblisSatan({ onClose }) {
         </div>
         <div style={{
           marginTop: '6px',
-          color: COLORS.silver, opacity: 0.78,
+          color: SEMANTIC.textMuted,
           fontSize: '0.6rem', letterSpacing: '0.18em',
           fontFamily: FONTS.body, textTransform: 'uppercase',
         }}>
@@ -486,7 +486,7 @@ export default function IblisSatan({ onClose }) {
             }}
           >
             <span style={{
-              fontSize: '0.7rem', color: COLORS.silver, opacity: 0.78,
+              fontSize: '0.7rem', color: SEMANTIC.textMuted,
               fontFamily: FONTS.body, fontWeight: 700,
             }}>
               {String(i + 1).padStart(2, '0')}
@@ -555,7 +555,7 @@ export default function IblisSatan({ onClose }) {
                       {p.surahName}
                     </span>
                     <span style={{
-                      color: COLORS.silver, opacity: 0.78,
+                      color: SEMANTIC.textMuted,
                       fontSize: '0.78rem',
                       fontFamily: FONTS.body,
                       letterSpacing: '0.04em',
@@ -573,7 +573,7 @@ export default function IblisSatan({ onClose }) {
                   </div>
                   {!isOpen && (
                     <p style={{
-                      color: COLORS.silver, opacity: 0.78,
+                      color: SEMANTIC.textMuted,
                       fontSize: '0.84rem', fontFamily: FONTS.body,
                       lineHeight: 1.55,
                       margin: '6px 0 0',
@@ -878,7 +878,7 @@ export default function IblisSatan({ onClose }) {
                             {tag && (
                               <span style={{
                                 fontSize: '0.62rem',
-                                color: COLORS.silver, opacity: 0.78,
+                                color: SEMANTIC.textMuted,
                                 marginLeft: '2px',
                               }}>
                                 · {tag}

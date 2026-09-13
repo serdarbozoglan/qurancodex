@@ -4,7 +4,7 @@ import { useState, useEffect, lazy, Suspense, useRef, Fragment } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, TRANSITION, RADIUS, FONTS } from '../tokens';
+import { COLORS, TRANSITION, RADIUS, FONTS, SEMANTIC } from '../tokens';
 import { CloseIcon } from './icons';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
@@ -879,7 +879,7 @@ export default function Navbar() {
                   {/* Mega-menu: two columns */}
                   {(() => {
                     const colLabel = {
-                      color: 'rgba(148, 163, 184, 0.78)',
+                      color: SEMANTIC.textMuted,
                       fontSize: '0.62rem',
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 700,
@@ -978,7 +978,7 @@ export default function Navbar() {
                             <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
                               {language === 'tr' ? item.titleTr : item.titleEn}
                             </span>
-                            <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                               {language === 'tr' ? item.descTr : item.descEn}
                             </span>
                           </span>
@@ -1101,7 +1101,7 @@ export default function Navbar() {
                             <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                               {language === 'tr' ? FEATURED_EXPLORE_ITEM.titleTr : FEATURED_EXPLORE_ITEM.titleEn}
                             </span>
-                            <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                            <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                               {language === 'tr' ? FEATURED_EXPLORE_ITEM.descTr : FEATURED_EXPLORE_ITEM.descEn}
                             </span>
                           </span>
@@ -1179,7 +1179,7 @@ export default function Navbar() {
                   {/* Mega-menu: three columns */}
                   {(() => {
                     const colLabel = {
-                      color: 'rgba(148, 163, 184, 0.78)',
+                      color: SEMANTIC.textMuted,
                       fontSize: '0.62rem',
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 700,
@@ -1209,7 +1209,7 @@ export default function Navbar() {
                           <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
                             {language === 'tr' ? tool.labelTr : tool.labelEn}
                           </span>
-                          <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                          <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                             {language === 'tr' ? tool.descTr : tool.descEn}
                           </span>
                         </span>
@@ -1260,7 +1260,7 @@ export default function Navbar() {
                                   <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                                     {language === 'tr' ? ft.labelTr : ft.labelEn}
                                   </span>
-                                  <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                                  <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                                     {language === 'tr' ? ft.descTr : ft.descEn}
                                   </span>
                                 </span>
@@ -1431,7 +1431,7 @@ export default function Navbar() {
                 <div style={menuCoreStyle}>
                   {(() => {
                     const colLabel = {
-                      color: 'rgba(148, 163, 184, 0.78)',
+                      color: SEMANTIC.textMuted,
                       fontSize: '0.62rem',
                       fontFamily: "'Inter', sans-serif",
                       fontWeight: 700,
@@ -1486,7 +1486,7 @@ export default function Navbar() {
                           <span style={{ color: '#e8e6e3', fontSize: '0.86rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                             {language === 'tr' ? cat.labelTr : cat.labelEn}
                           </span>
-                          <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                          <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                             {language === 'tr' ? cat.descTr : cat.descEn}
                           </span>
                         </span>
@@ -1505,7 +1505,7 @@ export default function Navbar() {
                           transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), border-color 0.45s cubic-bezier(0.32,0.72,0,1)',
                         }}>{cat.count}</span>
                         <span className="tarr" style={{
-                          color: 'rgba(148, 163, 184, 0.78)',
+                          color: SEMANTIC.textMuted,
                           opacity: 0.78,
                           fontSize: '0.85rem', lineHeight: 1,
                           transition: 'opacity 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.45s cubic-bezier(0.32,0.72,0,1), color 0.45s cubic-bezier(0.32,0.72,0,1)',
@@ -1579,7 +1579,7 @@ export default function Navbar() {
                               <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                                 {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                               </span>
-                              <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                              <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                                 {language === 'tr'
                                   ? `${tefekkurStats.total} yazı · ${tefekkurStats.categoryCount} kategori · Felsufi`
                                   : `${tefekkurStats.total} essays · ${tefekkurStats.categoryCount} categories · Felsufi`}
@@ -1663,7 +1663,7 @@ export default function Navbar() {
                                     display: 'flex', alignItems: 'center', gap: '7px',
                                     fontSize: '0.61rem', fontFamily: "'Inter', sans-serif",
                                     letterSpacing: '0.07em', textTransform: 'uppercase',
-                                    color: 'rgba(148, 163, 184, 0.78)', fontWeight: 500,
+                                    color: SEMANTIC.textMuted, fontWeight: 500,
                                   }}>
                                     <span style={{
                                       width: '5px', height: '5px', borderRadius: '50%',
@@ -1679,7 +1679,7 @@ export default function Navbar() {
                                   </span>
                                 </span>
                                 <span className="farr" style={{
-                                  color: 'rgba(148, 163, 184, 0.78)',
+                                  color: SEMANTIC.textMuted,
                                   opacity: 0,
                                   fontSize: '0.85rem', lineHeight: 1,
                                   transition: 'opacity 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.45s cubic-bezier(0.32,0.72,0,1)',
@@ -1715,7 +1715,7 @@ export default function Navbar() {
                                 <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
                                   Felsufi
                                 </span>
-                                <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
+                                <span style={{ color: SEMANTIC.textMuted, fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
                                   {language === 'tr' ? 'Yazarın Medium profili ↗' : "Author's Medium profile ↗"}
                                 </span>
                               </span>
@@ -2133,7 +2133,7 @@ export default function Navbar() {
               background: 'linear-gradient(90deg, rgba(212,165,116,0.28), rgba(212,165,116,0))',
             };
             const SUB_LABEL = {
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.62rem', fontWeight: 700,
+              color: SEMANTIC.textMuted, fontSize: '0.62rem', fontWeight: 700,
               textTransform: 'uppercase', letterSpacing: '0.16em',
               margin: '14px 4px 4px', fontFamily: "'Inter', sans-serif",
             };
@@ -2155,7 +2155,7 @@ export default function Navbar() {
               lineHeight: 1.3,
             };
             const ITEM_DESC = {
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem',
+              color: SEMANTIC.textMuted, fontSize: '0.72rem',
               fontFamily: "'Inter', sans-serif", fontWeight: 400,
               lineHeight: 1.35, marginTop: '2px',
             };

@@ -399,7 +399,7 @@ export default function HumanDefinition() {
                 style={{
                   position: 'absolute', top: '10px', right: '10px',
                   background: 'none', border: 'none', cursor: 'pointer',
-                  color: 'rgba(212,165,116,0.5)', fontSize: '0.85rem', lineHeight: 1,
+                  color: 'rgba(212, 165, 116, 0.8)', fontSize: '0.85rem', lineHeight: 1,
                   transition: 'color 0.15s',
                 }}
                 onMouseEnter={e => e.currentTarget.style.color = COLORS.gold}
@@ -909,7 +909,7 @@ export default function HumanDefinition() {
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.12)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '0.55rem', fontWeight: 800, color: 'rgba(148, 163, 184, 0.78)',
+                        fontSize: '0.55rem', fontWeight: 800, color: SEMANTIC.textMuted,
                         fontFamily: FONTS.body, letterSpacing: '0.05em',
                         flexShrink: 0,
                       }}>
@@ -919,7 +919,7 @@ export default function HumanDefinition() {
                         {pair.ref}
                       </span>
                       {isOpen && pair.contextTr && (
-                        <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.62rem', fontFamily: FONTS.body, lineHeight: 1.4, flex: 1, textAlign: 'right' }}>
+                        <span style={{ color: SEMANTIC.textMuted, fontSize: '0.62rem', fontFamily: FONTS.body, lineHeight: 1.4, flex: 1, textAlign: 'right' }}>
                           {lang === 'tr' ? pair.contextTr : pair.contextEn}
                         </span>
                       )}
@@ -938,7 +938,7 @@ export default function HumanDefinition() {
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.12)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '0.6rem', fontWeight: 800, color: 'rgba(148, 163, 184, 0.78)',
+                        fontSize: '0.6rem', fontWeight: 800, color: SEMANTIC.textMuted,
                         fontFamily: FONTS.body, letterSpacing: '0.05em',
                         flexShrink: 0,
                       }}>
@@ -948,7 +948,7 @@ export default function HumanDefinition() {
                         {pair.ref}
                       </span>
                       {isOpen && pair.contextTr && (
-                        <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.58rem', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.4 }}>
+                        <span style={{ color: SEMANTIC.textMuted, fontSize: '0.58rem', fontFamily: FONTS.body, textAlign: 'center', lineHeight: 1.4 }}>
                           {lang === 'tr' ? pair.contextTr : pair.contextEn}
                         </span>
                       )}

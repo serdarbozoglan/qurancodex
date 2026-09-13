@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { tabIcon } from './tabIcons';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
 import CollapsibleHero from './CollapsibleHero';
@@ -354,7 +354,7 @@ export default function TefsirIhtilaflari() {
           </p>
           <p className="mq-fs" style={{
             fontFamily: FONTS.body, '--fs-d': '0.72rem', '--fs-m': '0.68rem',
-            color: COLORS.silver, opacity: 0.78, letterSpacing: '0.18em',
+            color: SEMANTIC.textMuted, letterSpacing: '0.18em',
             textTransform: 'uppercase', margin: '0 0 24px',
           }}>— {tr ? 'Âl-i İmrân 3:7' : 'Āl-i \'Imrān 3:7'}</p>
           <p className="mq-fs" style={{

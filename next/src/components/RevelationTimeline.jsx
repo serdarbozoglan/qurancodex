@@ -244,7 +244,7 @@ export default function RevelationTimeline({ onClose }) {
               {/* 2026-08-17 — site denetimi: ▲▼ farkı mushaf sırası - nüzul
                   sırasından hesaplanan türetilmiş bir istatistik; kanonik
                   sıralama verisinden ayırt etmek için etiketlendi. */}
-              <span style={{ color: COLORS.silver, fontSize: '0.66rem', fontStyle: 'italic', opacity: 0.7 }}>
+              <span style={{ color: SEMANTIC.textFaint, fontSize: '0.66rem', fontStyle: 'italic' }}>
                 {language === 'tr' ? '(fark: hesaplanan)' : '(delta: computed)'}
               </span>
               {viewMode === 'timeline' && (

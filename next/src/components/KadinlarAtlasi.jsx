@@ -5,10 +5,7 @@ import ToolHero from './ToolHero';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import useFocusTrap from '../hooks/useFocusTrap';
-import {
-  COLORS, FONTS,
-  BREAKPOINT_MOBILE, RADIUS,
-} from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -889,7 +886,7 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
             borderRadius: RADIUS.sm,
           }}>
             <div style={{
-              fontSize: '0.6rem', color: COLORS.silver, opacity: 0.78,
+              fontSize: '0.6rem', color: SEMANTIC.textMuted,
               fontFamily: FONTS.body, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
               marginBottom: '6px',
@@ -1377,7 +1374,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
           borderRadius: RADIUS.sm,
         }}>
           <div style={{
-            fontSize: '0.6rem', color: COLORS.silver, opacity: 0.78,
+            fontSize: '0.6rem', color: SEMANTIC.textMuted,
             fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
             marginBottom: '6px',
@@ -1576,7 +1573,7 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.silver, opacity: 0.78, marginBottom: '8px',
+        color: SEMANTIC.textMuted, marginBottom: '8px',
       }}>
         {tr ? data.titleTr : data.titleEn}
       </div>
@@ -1628,7 +1625,7 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
                 {(tierMeta.descTr || tierMeta.descEn) && (
                   <div style={{
                     fontSize: '0.82rem', fontFamily: FONTS.body,
-                    color: COLORS.silver, opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     fontStyle: 'italic', lineHeight: 1.55,
                     maxWidth: '760px',
                   }}>

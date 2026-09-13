@@ -139,7 +139,7 @@ export default function InsanYolculugu({ onClose }) {
                 : '"Ey mutmain nefis! Sen Rabbinden razı, O da senden razı olarak Rabbine dön."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.78,
+              color: SEMANTIC.textMuted,
               fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 22px',

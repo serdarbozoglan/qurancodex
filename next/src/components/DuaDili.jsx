@@ -19,7 +19,7 @@ import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 import data from '../../public/dua-dili.json';
 
 const TABS = [
@@ -332,7 +332,7 @@ function ProphetCard({ p, tr, isMobile }) {
         }}>&quot;{tr ? p.translationTr : p.translationEn}&quot;</p>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-          color: COLORS.silver, opacity: 0.78,
+          color: SEMANTIC.textMuted,
           margin: 0, textAlign: 'left',
         }}>— {tr ? p.refTr : p.refEn}</p>
       </div>
@@ -583,7 +583,7 @@ function ResponseTab({ tr, isMobile }) {
                 color: COLORS.offWhite, fontWeight: 600, marginBottom: '4px',
               }}>{tr ? r.prophetTr : r.prophetEn}</div>
               <div style={{
-                fontSize: '0.68rem', color: COLORS.silver, opacity: 0.78,
+                fontSize: '0.68rem', color: SEMANTIC.textMuted,
                 fontFamily: FONTS.body,
               }}>{tr ? r.verseTr : r.verseEn}</div>
             </div>

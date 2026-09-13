@@ -6,7 +6,7 @@ import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { surahName } from '../lib/surahNames';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, TEXT, VERSE_DISPLAY_CARD } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, TEXT, VERSE_DISPLAY_CARD, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import useNavbarOffset from './useNavbarOffset';
@@ -422,7 +422,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             </span>
             {graphRef.current?.nodes[0]?.verseCount != null && (
               <span style={{
-                color: COLORS.silver, opacity: 0.78,
+                color: SEMANTIC.textMuted,
                 fontSize: '0.68rem', fontWeight: 600,
                 letterSpacing: '0.14em', textTransform: 'uppercase',
               }}>
@@ -439,7 +439,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             scrollbarWidth: 'none', padding: '0 4px', alignItems: 'center',
           }}>
             <span style={{
-              color: COLORS.silver, opacity: 0.78,
+              color: SEMANTIC.textMuted,
               fontSize: '0.62rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               flexShrink: 0, paddingRight: '4px',
@@ -541,7 +541,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                 : '"He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.78,
+              color: SEMANTIC.textMuted,
               fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 22px',
@@ -1110,7 +1110,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                       {language === 'tr' ? n.concept.tr : n.concept.en}
                     </p>
                     <p style={{
-                      color: COLORS.silver, opacity: 0.78,
+                      color: SEMANTIC.textMuted,
                       fontSize: '0.68rem', margin: 0,
                       letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600,
                     }}>
@@ -1159,7 +1159,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                     </span>
                   </div>
                   <p style={{
-                    color: COLORS.silver, opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     fontSize: '0.66rem', margin: 0,
                     letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600,
                   }}>
@@ -1169,7 +1169,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   </p>
                 </>
               ) : (
-                <p style={{ color: COLORS.silver, opacity: 0.78, fontSize: '0.82rem', margin: 0 }}>
+                <p style={{ color: SEMANTIC.textMuted, fontSize: '0.82rem', margin: 0 }}>
                   {language === 'tr' ? 'Ayet görmek için bir düğüme dokunun' : 'Tap a node to see verses'}
                 </p>
               )}
@@ -1178,7 +1178,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             {/* Verses */}
             <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, padding: '12px 10px' }}>
               {focusedVerses.length === 0 && (
-                <p style={{ color: COLORS.silver, opacity: 0.78, fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
+                <p style={{ color: SEMANTIC.textMuted, fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
                   {language === 'tr' ? 'Bir kavram seçin' : 'Select a concept'}
                 </p>
               )}
@@ -1228,7 +1228,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   </p>
                   {/* Reference */}
                   <p style={{
-                    color: COLORS.silver, opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     fontSize: '0.66rem', margin: 0, fontWeight: 600,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
                   }}>
@@ -1279,7 +1279,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
               flexShrink: 0,
             }}>
               <p style={{
-                color: COLORS.silver, opacity: 0.78,
+                color: SEMANTIC.textMuted,
                 fontSize: '0.66rem', margin: 0, textAlign: 'center',
                 letterSpacing: '0.1em', fontWeight: 500,
               }}>

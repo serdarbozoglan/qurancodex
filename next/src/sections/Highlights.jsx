@@ -111,7 +111,7 @@ function SolarLunarConverter({ accent }) {
         </p>
       )}
 
-      <p style={{ marginTop: '8px', fontSize: '0.65rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: FONTS.body }}>
+      <p style={{ marginTop: '8px', fontSize: '0.65rem', color: SEMANTIC.textMuted, fontFamily: FONTS.body }}>
         {language === 'tr' ? 'Formül: güneş yılı × 365.25 ÷ 354.37' : 'Formula: solar years × 365.25 ÷ 354.37'}
       </p>
     </div>

@@ -1820,7 +1820,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
         {/* Multi-select hint */}
         <div style={{ textAlign: 'center', marginBottom: '32px', minHeight: '24px' }}>
           {multiSelect ? (
-            <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.8rem', margin: 0 }}>
+            <p style={{ color: SEMANTIC.textMuted, fontSize: '0.8rem', margin: 0 }}>
               {tr(
                 'Harita için seçili peygamber: ' + tr(focusedProphetObj.nameTr, focusedProphetObj.nameEn),
                 'Map shows: ' + tr(focusedProphetObj.nameTr, focusedProphetObj.nameEn),
@@ -2200,7 +2200,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                         fontFamily: FONTS.body, lineHeight: 1.1,
                       }}>{value}</div>
                       <div style={{
-                        color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.75rem',
+                        color: SEMANTIC.textMuted, fontSize: '0.75rem',
                         marginTop: '5px', fontFamily: FONTS.body,
                       }}>{tr(labelTr, labelEn)}</div>
                     </div>
@@ -2211,7 +2211,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                 <div style={{ maxWidth: '480px', margin: '0 auto 20px' }}>
                   <div style={{
                     display: 'flex', justifyContent: 'space-between',
-                    fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)',
+                    fontSize: '0.72rem', color: SEMANTIC.textMuted,
                     marginBottom: '6px', fontFamily: FONTS.body,
                   }}>
                     <span style={{ color: 'rgba(212,165,116,0.8)' }}>
@@ -2278,7 +2278,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                 </div>
                 <div style={{
                   textAlign: 'center', marginTop: '10px',
-                  fontSize: '0.82rem', color: 'rgba(148, 163, 184, 0.78)',
+                  fontSize: '0.82rem', color: SEMANTIC.textMuted,
                   fontFamily: FONTS.body,
                 }}>
                   {tr(
@@ -2326,7 +2326,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                        <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: FONTS.body }}>
                           {tr('Zikir sayısı', 'Mentions')}
                         </span>
                         <span style={{ color: p.color, fontWeight: 700, fontSize: '0.85rem', fontFamily: FONTS.body }}>
@@ -2334,7 +2334,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                         </span>
                       </div>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                        <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: FONTS.body }}>
                           {tr('Sûre sayısı', 'Surahs')}
                         </span>
                         <span style={{ color: COLORS.offWhite, fontWeight: 600, fontSize: '0.85rem', fontFamily: FONTS.body }}>
@@ -2345,7 +2345,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                       <div>
                         <div style={{
                           display: 'flex', justifyContent: 'space-between',
-                          fontSize: '0.68rem', color: 'rgba(148, 163, 184, 0.78)',
+                          fontSize: '0.68rem', color: SEMANTIC.textMuted,
                           marginBottom: '4px', fontFamily: FONTS.body,
                         }}>
                           <span style={{ color: 'rgba(212,165,116,0.75)' }}>
@@ -2378,7 +2378,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
             onClick={() => setDisclaimerOpen(o => !o)}
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.85rem',
+              color: SEMANTIC.textMuted, fontSize: '0.85rem',
               fontFamily: FONTS.body,
               display: 'inline-flex', alignItems: 'center', gap: '5px',
               padding: '4px 0',
@@ -2405,7 +2405,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
               border: `1px solid ${COLORS.glassBorderSoft}`,
               textAlign: 'left',
             }}>
-              <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.82rem', lineHeight: 1.65, margin: 0 }}>
+              <p style={{ color: SEMANTIC.textMuted, fontSize: '0.82rem', lineHeight: 1.65, margin: 0 }}>
                 {tr(
                   'Bu görsel, Kur\'an âyetlerinin değil sûrelerin geleneksel nüzul sıralamasını esas alır (İbn Abbas rivayeti temel alınmıştır). Her sûrenin ilk nüzul sırasındaki konumu gösterilmektedir; bireysel âyetlerin nüzul sırası klasik kaynaklarda büyük ölçüde bilinmemektedir. Sûre bazlı kapsama verisi, peygamber anlatısının yoğunluğunu değil hangi sûrelerde geçtiğini gösterir.',
                   'This visualization is based on the traditional surah-level revelation order (following the Ibn Abbas tradition), not individual verse order. Each surah is placed at its position in the revelation sequence; individual verse timing is largely unknown in classical sources. Surah-level coverage data shows which surahs contain a prophet\'s narrative, not narrative intensity.',
@@ -2572,7 +2572,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
 
           {/* Closing line */}
           <p style={{
-            textAlign: 'center', color: 'rgba(148, 163, 184, 0.78)',
+            textAlign: 'center', color: SEMANTIC.textMuted,
             fontSize: '0.9rem', lineHeight: 1.7,
             marginTop: '36px', fontStyle: 'italic',
           }}>
@@ -2590,7 +2590,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
             border: `1px solid ${COLORS.glassBorderSoft}`,
             borderRadius: RADIUS.md,
           }}>
-            <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: SEMANTIC.textMuted, fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
               <span style={{ color: 'rgba(212,165,116,0.85)', fontWeight: 700, marginRight: '6px' }}>{tr('Not:', 'Note:')}</span>
               {tr(
                 'Peygamber kıssaları Kur\'an\'da tek bir döneme sınırlı değildir; bir peygamber hem Mekkî hem Medenî sûrelerde yer alabilir. Bu tablo, her kıssanın en yoğun işlendiği nüzul ortamını ve Siyer\'deki psikolojik karşılığını esas almaktadır.',
@@ -2603,7 +2603,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
         {/* Transition — bridge between revelation data and geography */}
         <div style={{ textAlign: 'center', margin: '64px 0 0' }}>
           <p style={{
-            color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.95rem',
+            color: SEMANTIC.textMuted, fontSize: '0.95rem',
             lineHeight: 1.75, maxWidth: '560px', margin: '0 auto',
             fontStyle: 'italic',
           }}>
@@ -2761,7 +2761,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                         })}
                         {p.surahs.length > 6 && (
                           <span style={{
-                            fontSize: '0.62rem', color: 'rgba(148, 163, 184, 0.78)',
+                            fontSize: '0.62rem', color: SEMANTIC.textMuted,
                             fontFamily: FONTS.body,
                           }}>
                             +{p.surahs.length - 6}
@@ -3029,7 +3029,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           }}>
             {[
               { label: tr('baba → oğul', 'father → son'), color: 'rgba(212,165,116,0.7)', dashed: false },
-              { label: tr('kardeşler', 'brothers'), color: 'rgba(148, 163, 184, 0.78)', dashed: true },
+              { label: tr('kardeşler', 'brothers'), color: SEMANTIC.textMuted, dashed: true },
             ].map(({ label, color, dashed }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <svg aria-hidden="true" width="28" height="10">
@@ -3042,10 +3042,10 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                 </span>
               </div>
             ))}
-            <span style={{ fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: FONTS.body, fontStyle: 'italic' }}>
+            <span style={{ fontSize: '0.72rem', color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontStyle: 'italic' }}>
               {tr("Yalnızca Kur'an'da açıkça geçen bağlar", "Only Quranically confirmed connections")}
             </span>
-            <span style={{ fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: FONTS.body, fontStyle: 'italic' }}>
+            <span style={{ fontSize: '0.72rem', color: SEMANTIC.textMuted, fontFamily: FONTS.body, fontStyle: 'italic' }}>
               {tr('· Ayet referanslarına dokunun', '· Tap verse references')}
             </span>
           </div>
@@ -3091,7 +3091,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                         {tr(p.nameTr, p.nameEn)}
                       </div>
                       <div style={{
-                        fontSize: '0.75rem', color: 'rgba(148, 163, 184, 0.78)',
+                        fontSize: '0.75rem', color: SEMANTIC.textMuted,
                         fontFamily: FONTS.body,
                       }}>
                         {tr(`Kur'an'da ismi ${p.mentions} kez geçiyor`, `Named ${p.mentions} times in the Quran`)}
@@ -3112,7 +3112,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                       style={{
                         background: 'none', border: `1px solid ${COLORS.glassBorder}`,
                         borderRadius: RADIUS.md, cursor: 'pointer',
-                        color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.85rem',
+                        color: SEMANTIC.textMuted, fontSize: '0.85rem',
                         padding: '5px 10px', fontFamily: FONTS.body,
                         flexShrink: 0, marginLeft: '16px',
                       }}
@@ -3236,7 +3236,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                           }}
                         />
                         <div style={{
-                          fontSize: '0.83rem', color: 'rgba(148, 163, 184, 0.78)',
+                          fontSize: '0.83rem', color: SEMANTIC.textMuted,
                           lineHeight: 1.7, fontFamily: FONTS.body,
                           fontStyle: 'italic', marginBottom: '8px',
                           borderTop: '1px solid rgba(212,165,116,0.10)',

@@ -4,9 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { toolTabStyle, ToolTabGlow } from './ToolTabGlow';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
-import {
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, CATEGORY_SCALE, CATEGORY,
-} from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, CATEGORY_SCALE, CATEGORY, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CollapsibleHero from './CollapsibleHero';
 import CrossToolCTA from './CrossToolCTA';
@@ -132,7 +130,7 @@ function Hero({ language, isMobile }) {
             : '"Allah has sent down the best statement: a consistent Book wherein there is repetition."'}
         </p>
         <p style={{
-          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontFamily: FONTS.body, color: SEMANTIC.textFaint,
           fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
           margin: '0 0 24px',
         }}>— {tr ? 'Zümer 39:23' : 'Az-Zumar 39:23'}</p>

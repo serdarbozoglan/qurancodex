@@ -44,7 +44,7 @@ export default function AlanlarHub() {
           <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, opacity: 0.95, fontSize: '1rem', lineHeight: 1.6, margin: '0 auto 6px', maxWidth: 600 }}>
             {tr ? '"Bu, âyetlerini düşünsünler ve akıl sahipleri öğüt alsınlar diye sana indirdiğimiz mübârek bir Kitaptır."' : '"A blessed Book We have revealed to you, so that they may reflect on its verses and people of understanding may take heed."'}
           </p>
-          <p style={{ fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 28px' }}>— {tr ? 'Sâd 38:29' : 'Ṣād 38:29'}</p>
+          <p style={{ fontFamily: FONTS.body, color: SEMANTIC.textFaint, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 28px' }}>— {tr ? 'Sâd 38:29' : 'Ṣād 38:29'}</p>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.26em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.78, marginBottom: 14 }}>
             {tr ? '12 Disiplin Kapısı' : '12 Discipline Gateways'}
           </div>

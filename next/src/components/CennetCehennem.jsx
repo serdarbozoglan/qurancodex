@@ -1524,7 +1524,7 @@ function NineCennetLayers({ language, isMobile, names }) {
                 }}>{tr ? n.nameTr : n.nameEn}</div>
                 {!isMobile && (
                   <div style={{
-                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78,
+                    fontSize: '0.72rem', color: SEMANTIC.textMuted,
                     fontFamily: FONTS.body, marginTop: '2px',
                   }}>{tr ? n.meaningTr : n.meaningEn}</div>
                 )}
@@ -1613,7 +1613,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
                 }}>{tr ? n.nameTr : n.nameEn}</div>
                 {!isMobile && (
                   <div style={{
-                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78,
+                    fontSize: '0.72rem', color: SEMANTIC.textMuted,
                     fontFamily: FONTS.body, marginTop: '2px',
                   }}>{tr ? n.meaningTr : n.meaningEn}</div>
                 )}
@@ -1631,7 +1631,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
 
       <p style={{
         marginTop: '18px', textAlign: 'center', fontSize: '0.75rem',
-        color: COLORS.silver, opacity: 0.78, fontStyle: 'italic',
+        color: SEMANTIC.textMuted, fontStyle: 'italic',
         fontFamily: FONTS.body, maxWidth: '540px', marginLeft: 'auto', marginRight: 'auto',
       }}>
         {tr
@@ -1698,7 +1698,7 @@ function Rahman31Viz({ language, isMobile, rs }) {
       </div>
       <div style={{
         display: 'flex', justifyContent: 'space-between',
-        fontSize: '0.65rem', color: COLORS.silver, opacity: 0.78,
+        fontSize: '0.65rem', color: SEMANTIC.textMuted,
         fontFamily: FONTS.body,
         maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto',
       }}>

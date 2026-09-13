@@ -354,7 +354,7 @@ export default function QuranCommands({ onClose }) {
         </div>
 
         {/* Curated note + disclaimer */}
-        <p style={{ fontSize: '0.75rem', color: 'rgba(148, 163, 184, 0.78)', lineHeight: 1.5 }}>
+        <p style={{ fontSize: '0.75rem', color: SEMANTIC.textMuted, lineHeight: 1.5 }}>
           ℹ {L.curatedNote} {L.disclaimer}
         </p>
       </div>
@@ -468,7 +468,7 @@ export default function QuranCommands({ onClose }) {
                 <h2 style={{ fontSize: '1.15rem', fontWeight: 700, color: accent, margin: 0, lineHeight: 1.2 }}>
                   {language === 'tr' ? activeCategory?.titleTr : activeCategory?.titleEn}
                 </h2>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(148, 163, 184, 0.78)', margin: '2px 0 0' }}>
+                <p style={{ fontSize: '0.78rem', color: SEMANTIC.textMuted, margin: '2px 0 0' }}>
                   {(activeCategory?.commands || []).length} {language === 'tr' ? 'madde' : 'items'}
                 </p>
               </div>
@@ -656,7 +656,7 @@ function CommandCard({ cmd, accent, language, L }) {
       {/* Academic note */}
       {cmd.note && (
         <div style={{
-          fontSize: '0.73rem', color: 'rgba(148, 163, 184, 0.78)',
+          fontSize: '0.73rem', color: SEMANTIC.textMuted,
           background: 'rgba(148,163,184,0.06)',
           border: '1px solid rgba(148,163,184,0.12)',
           borderRadius: RADIUS.sm, padding: '7px 10px',

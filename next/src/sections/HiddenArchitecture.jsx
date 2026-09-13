@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC, CATEGORY } from '../tokens';
 import { renderInlineMarkdown } from '../components/tefekkur/inlineMarkdown';
 
 // ── Pair colors: A/A' = gold, B/B' = emerald, C/C' = sky-blue ──
@@ -438,15 +438,15 @@ export default function HiddenArchitecture() {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: surah.center.ar ? '6px' : 0 }}>
                 <span style={{
                   width: '30px', height: '30px', borderRadius: RADIUS.full,
-                  border: '2px solid #9b59b6',
+                  border: '2px solid #a78bfa',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.8rem', fontWeight: 800,
                   fontFamily: "'Inter', sans-serif",
-                  color: '#9b59b6', flexShrink: 0,
+                  color: CATEGORY.violet, flexShrink: 0,
                 }}>D</span>
                 <span style={{
                   fontSize: '0.82rem', fontWeight: 700,
-                  color: '#9b59b6', fontFamily: "'Inter', sans-serif",
+                  color: CATEGORY.violet, fontFamily: "'Inter', sans-serif",
                   textTransform: 'uppercase', letterSpacing: '0.06em',
                 }}>
                   {language === 'tr' ? surah.center.themeTr : surah.center.themeEn}
@@ -455,7 +455,7 @@ export default function HiddenArchitecture() {
               {surah.center.ar && (
                 <p dir="rtl" lang="ar" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: '1.25rem', color: '#9b59b6',
+                  fontSize: '1.25rem', color: CATEGORY.violet,
                   lineHeight: 2, textAlign: 'right',
                 }}>
                   {surah.center.ar}
@@ -470,7 +470,7 @@ export default function HiddenArchitecture() {
               const pairs = language === 'tr' ? surah.pairsTr : surah.pairsEn;
               const item = pairs[activePair];
               if (!item) return null;
-              const color = activePair < 3 ? PAIR_COLORS[activePair].text : '#9b59b6';
+              const color = activePair < 3 ? PAIR_COLORS[activePair].text : CATEGORY.violet;
               const borderColor = activePair < 3 ? PAIR_COLORS[activePair].border : 'rgba(155,89,182,0.5)';
               const bgColor = activePair < 3 ? PAIR_COLORS[activePair].bg : 'rgba(155,89,182,0.08)';
               return (
@@ -942,7 +942,7 @@ export default function HiddenArchitecture() {
                   ))}
                 </svg>
                 <div>
-                  <p style={{ fontSize: '14px', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif", marginBottom: '6px' }}>
+                  <p style={{ fontSize: '14px', color: SEMANTIC.textMuted, fontFamily: "'Inter', sans-serif", marginBottom: '6px' }}>
                     {language === 'tr' ? 'Bir katman seçin' : 'Select a layer'}
                   </p>
                   <p style={{ fontSize: '12px', color: 'rgba(148,163,184,0.22)', fontFamily: "'Inter', sans-serif" }}>
@@ -982,7 +982,7 @@ export default function HiddenArchitecture() {
                         <h4 style={{ fontSize: '22px', fontWeight: 700, color: layer.color, fontFamily: FONTS.display, lineHeight: 1.2, marginBottom: '3px' }}>
                           {language === 'tr' ? layer.nameTr : layer.nameEn}
                         </h4>
-                        <p style={{ fontSize: '11px', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                        <p style={{ fontSize: '11px', color: SEMANTIC.textMuted, fontFamily: "'Inter', sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                           {language === 'tr' ? layer.subTr : layer.subEn}
                         </p>
                       </div>
@@ -1027,7 +1027,7 @@ export default function HiddenArchitecture() {
                       {(language === 'tr' ? layer.noteTr : layer.noteEn) && (
                         <p style={{
                           marginTop: '10px',
-                          fontSize: '11px', color: 'rgba(148, 163, 184, 0.78)',
+                          fontSize: '11px', color: SEMANTIC.textMuted,
                           fontStyle: 'italic', lineHeight: 1.6,
                           fontFamily: "'Inter', sans-serif",
                           borderTop: '1px solid rgba(255,255,255,0.05)',

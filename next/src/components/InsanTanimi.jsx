@@ -18,7 +18,7 @@ import SourcesCitation from './SourcesCitation';
 import useNavbarOffset from './useNavbarOffset';
 import useTabParam from '../hooks/useTabParam';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 import extData from '../../public/insan-tanimi-ext.json';
 
 const TABS = [
@@ -262,7 +262,7 @@ function EquationTab({ tr, isMobile, data }) {
               }}>&quot;{tr ? el.translationTr : el.translationEn}&quot;</p>
               <p style={{
                 fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: COLORS.silver, opacity: 0.78, margin: 0, textAlign: 'left',
+                color: SEMANTIC.textMuted, margin: 0, textAlign: 'left',
               }}>{tr ? el.refTr : el.refEn}</p>
             </div>
           </div>
@@ -321,7 +321,7 @@ function EquationTab({ tr, isMobile, data }) {
           }}>{data.resultVerseAr}</p>
           <p style={{
             fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-            color: COLORS.silver, opacity: 0.78, margin: 0,
+            color: SEMANTIC.textMuted, margin: 0,
           }}>— {tr ? data.resultVerseRefTr : data.resultVerseRefEn}</p>
         </div>
       </div>

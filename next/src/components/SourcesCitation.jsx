@@ -8,7 +8,7 @@
 // (`globals.css`, `.sources-citation__*`). `isMobile` prop'u geriye dönük
 // uyumluluk için imzada kalıyor, artık kullanılmıyor.
 
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 
 export default function SourcesCitation({ language, isMobile: _isMobile, sources }) {
   const tr = language === 'tr';
@@ -68,8 +68,7 @@ export default function SourcesCitation({ language, isMobile: _isMobile, sources
                 <>
                   <div style={{
                     fontSize: '0.7rem',
-                    color: COLORS.silver,
-                    opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     fontFamily: FONTS.body,
                     marginBottom: hasNote ? '6px' : 0,
                   }}>

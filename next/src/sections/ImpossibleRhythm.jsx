@@ -7,7 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from '../components/icons';
-import { FONTS, COLORS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
+import { FONTS, COLORS, RADIUS, BREAKPOINT_MOBILE, SEMANTIC } from '../tokens';
 
 const KAWTHAR_VERSES = [
   { ar: 'إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ', num: '١' },
@@ -372,8 +372,7 @@ export default function ImpossibleRhythm() {
                 <p
                   className="font-body italic text-sm mx-auto mb-4"
                   style={{
-                    color: COLORS.silver,
-                    opacity: 0.78,
+                    color: SEMANTIC.textMuted,
                     maxWidth: '520px',
                     lineHeight: 1.6,
                   }}
@@ -509,10 +508,10 @@ export default function ImpossibleRhythm() {
             {discoveryStep === 4 && (
               <div className="text-center">
                 <div className="mb-6 flex flex-col sm:flex-row gap-3 justify-center text-sm font-body">
-                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148, 163, 184, 0.78)', border: '1px solid rgba(148,163,184,0.2)' }}>
+                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: SEMANTIC.textMuted, border: '1px solid rgba(148,163,184,0.2)' }}>
                     ✗ {language === 'tr' ? 'Şiir değil' : 'Not poetry'}
                   </span>
-                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148, 163, 184, 0.78)', border: '1px solid rgba(148,163,184,0.2)' }}>
+                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: SEMANTIC.textMuted, border: '1px solid rgba(148,163,184,0.2)' }}>
                     ✗ {language === 'tr' ? 'Düzyazı değil' : 'Not prose'}
                   </span>
                 </div>

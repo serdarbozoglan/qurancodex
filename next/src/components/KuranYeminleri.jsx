@@ -660,7 +660,7 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
       {/* Legend */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '220px' }}>
         <div style={{
-          color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.6rem', fontWeight: 700,
+          color: SEMANTIC.textMuted, fontSize: '0.6rem', fontWeight: 700,
           letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: FONTS.body,
           marginBottom: '8px', paddingLeft: '12px',
         }}>
@@ -1748,7 +1748,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                     </p>
                   </div>
                   <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
-                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.78, marginBottom: '6px', fontFamily: FONTS.body }}>
+                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: SEMANTIC.textMuted, marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? "Muksam Aleyhi · Yeminin Vurguladığı" : "Muqsam ʿAlayhi · What It Affirms"}
                     </div>
                     <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.6, margin: 0 }}>
@@ -1939,7 +1939,7 @@ function TabTahaddi({ language, isMobile }) {
               </div>
 
               {/* Source */}
-              <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.78, fontStyle: 'italic' }}>
+              <div style={{ fontSize: '0.65rem', color: SEMANTIC.textMuted, fontStyle: 'italic' }}>
                 {v.kaynak}
               </div>
             </div>
@@ -2104,7 +2104,7 @@ function TabKozmoloji({ language, isMobile }) {
             <p style={{ fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.65, margin: 0 }}>
               {tr ? it.obsTr : it.obsEn}
             </p>
-            <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.78, fontStyle: 'italic', marginTop: '6px' }}>
+            <div style={{ fontSize: '0.65rem', color: SEMANTIC.textMuted, fontStyle: 'italic', marginTop: '6px' }}>
               {it.kaynak}
             </div>
           </div>
@@ -2510,7 +2510,7 @@ function YeminCevapReveal({ language, isMobile }) {
                     {tr ? 'Yemin' : 'Oath'}
                   </span>
                   <span style={{
-                    fontSize: '0.74rem', color: COLORS.silver, opacity: 0.78,
+                    fontSize: '0.74rem', color: SEMANTIC.textMuted,
                     fontFamily: FONTS.body,
                   }}>
                     {tr ? item.oathRefTr : item.oathRefEn}
@@ -2596,7 +2596,7 @@ function YeminCevapReveal({ language, isMobile }) {
                       {tr ? 'Yeminin Vurguladığı' : 'What It Affirms'}
                     </span>
                     <span style={{
-                      fontSize: '0.74rem', color: COLORS.silver, opacity: 0.78,
+                      fontSize: '0.74rem', color: SEMANTIC.textMuted,
                       fontFamily: FONTS.body,
                     }}>
                       {tr ? item.answerRefTr : item.answerRefEn}

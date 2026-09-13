@@ -19,7 +19,7 @@ import BookmarkButton from './BookmarkButton';
 import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
-import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
+import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD, SEMANTIC } from '../tokens';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import nuanslarDataStatic from '../../public/yakin-anlamli-nuanslar.json';
@@ -125,7 +125,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
                 : '"Ve Âdem\'e (varlıkların) bütün isimlerini öğretti."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.78,
+              color: SEMANTIC.textMuted,
               fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 22px',
@@ -367,7 +367,7 @@ function SetDetail({ nset, isEn, isMobile }) {
                 }}>{isEn ? t.termEn : t.termTr}</p>
               </div>
               <p style={{
-                color: COLORS.silver, opacity: 0.78,
+                color: SEMANTIC.textMuted,
                 fontSize: '0.72rem',
                 letterSpacing: '0.06em',
                 fontFamily: FONTS.body,
@@ -453,7 +453,7 @@ function SetDetail({ nset, isEn, isMobile }) {
       {/* Source citation */}
       {(nset.sourceTr || nset.sourceEn) && (
         <p style={{
-          color: COLORS.silver, opacity: 0.78,
+          color: SEMANTIC.textMuted,
           fontSize: '0.75rem',
           lineHeight: 1.6,
           margin: '24px 0 0',

@@ -2,7 +2,7 @@
 // Vesvese Kanalı Widget — İblis'in kalbe ulaşma yolları (Nâs 114:4-6)
 // Extracted from IblisSatan.jsx (2026-07-11).
 
-import { COLORS, FONTS, RADIUS } from '../../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../../tokens';
 
 // ═════════════ DALGA 3.3 WIDGETS ═════════════
 
@@ -130,7 +130,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
             }}>{tr ? p.descTr : p.descEn}</p>
             <p style={{
               fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: COLORS.silver, opacity: 0.78, margin: 0,
+              color: SEMANTIC.textMuted, margin: 0,
               fontFamily: FONTS.body,
             }}>— {p.verseRef}</p>
           </div>
@@ -162,7 +162,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
                   fontFamily: FONTS.body,
                 }}>{tr ? a.tr : a.en}</div>
                 <div style={{
-                  fontSize: '0.68rem', color: COLORS.silver, opacity: 0.78,
+                  fontSize: '0.68rem', color: SEMANTIC.textMuted,
                   fontFamily: FONTS.body,
                 }}>{tr ? a.descTr : a.descEn}</div>
               </>

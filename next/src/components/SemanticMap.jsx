@@ -2,11 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import {
-  COLORS, FONTS,
-  RADIUS, TRANSITION,
-  BREAKPOINT_MOBILE,
-} from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, BREAKPOINT_MOBILE, SEMANTIC } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
 import DataDictionary from './DataDictionary';
 import ToolHeader from './ToolHeader';
@@ -172,7 +168,7 @@ export default function SemanticMap({ onClose }) {
       }}>
         {/* Methodology summary */}
         <div style={{
-          fontSize: '0.7rem', color: COLORS.silver, opacity: 0.78,
+          fontSize: '0.7rem', color: SEMANTIC.textMuted,
           fontFamily: FONTS.body, lineHeight: 1.55,
         }}>
           {language === 'tr'
@@ -248,7 +244,7 @@ export default function SemanticMap({ onClose }) {
           scrollbarWidth: 'none',
         }}>
           <span style={{
-            color: COLORS.silver, opacity: 0.78, fontSize: '0.68rem',
+            color: SEMANTIC.textMuted, fontSize: '0.68rem',
             letterSpacing: '0.18em', textTransform: 'uppercase',
             fontFamily: FONTS.body, alignSelf: 'center', marginRight: '6px',
           }}>

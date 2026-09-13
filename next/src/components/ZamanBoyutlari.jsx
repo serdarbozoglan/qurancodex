@@ -580,8 +580,7 @@ export default function ZamanBoyutlari({ onClose }) {
                       <div style={{
                         position: 'absolute', top: '10px', left: '50%',
                         transform: 'translateX(-50%)',
-                        fontSize: '0.6rem', color: COLORS.silver,
-                        opacity: 0.78, whiteSpace: 'nowrap',
+                        fontSize: '0.6rem', color: SEMANTIC.textMuted, whiteSpace: 'nowrap',
                         fontFamily: FONTS.body,
                       }}>10<sup>{i}</sup></div>
                     </div>
@@ -618,7 +617,7 @@ export default function ZamanBoyutlari({ onClose }) {
                           <div style={{ color: p.color, fontWeight: 700, marginBottom: '2px' }}>
                             {language === 'tr' ? p.labelTr : p.labelEn}
                           </div>
-                          <div style={{ color: COLORS.silver, opacity: 0.78, fontSize: '0.6rem' }}>
+                          <div style={{ color: SEMANTIC.textMuted, fontSize: '0.6rem' }}>
                             {language === 'tr' ? p.symbolTr : p.symbolEn}
                           </div>
                         </div>
@@ -628,8 +627,7 @@ export default function ZamanBoyutlari({ onClose }) {
                 </div>
                 <div style={{
                   marginTop: '48px', display: 'flex', justifyContent: 'space-between',
-                  padding: '0 12px', fontSize: '0.68rem', color: COLORS.silver,
-                  opacity: 0.78, fontFamily: FONTS.body,
+                  padding: '0 12px', fontSize: '0.68rem', color: SEMANTIC.textMuted, fontFamily: FONTS.body,
                 }}>
                   <span>← {language === 'tr' ? 'DAKİKA MERTEBESİ' : 'MINUTE ORDER'}</span>
                   <span>{language === 'tr' ? 'MİLYONLARCA YIL MERTEBESİ' : 'ORDER OF MILLIONS OF YEARS'} →</span>
@@ -1132,7 +1130,7 @@ export default function ZamanBoyutlari({ onClose }) {
               </p>
             </div>
           </div>
-          <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
+          <p style={{ fontSize: '0.72rem', color: SEMANTIC.textMuted, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
             {language === 'tr'
               ? "Üç çerçeve birbirini doğrulamaz; üçü birden zamanın \"sabit akan bir nehir\" olmadığını söyler. Kur'an'ın 23 yıllık iniş hatları boyunca bu sezgiyi sürekli geri çağırması, üzerinde durulmaya değer bir dilbilim olgusudur."
               : "The three frames do not validate each other; together they say time is not 'a steadily flowing river.' That the Quran returns to this intuition across its 23-year revelation is a linguistic fact worth pausing on."}

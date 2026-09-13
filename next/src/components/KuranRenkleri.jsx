@@ -661,8 +661,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
               <div style={{
                 fontFamily: 'ui-monospace, SFMono-Regular, monospace',
                 fontSize: '0.66rem',
-                color: COLORS.silver,
-                opacity: 0.78,
+                color: SEMANTIC.textMuted,
                 letterSpacing: '0.04em',
                 marginBottom: '10px',
               }}>
@@ -3158,7 +3157,7 @@ function ColorsClosing({ language, isMobile }) {
             ? <>Klasik tefsirde bu çoğulluk sembolik okunabilir; İbn Kayyım&apos;ın Hâdi&apos;l-Ervâh&apos;ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em>, gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem bu yaklaşıma hem ayetlere aykırıdır.</>
             : <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim&apos;s Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em>, the color the eye meets first; the other colors are the promise&apos;s <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The &quot;monochrome Paradise&quot; reading contradicts both this approach and the text.</>}
         </p>
-        <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.78, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
+        <p style={{ fontSize: '0.78rem', color: SEMANTIC.textMuted, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr
             ? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır; bu, diğer cennet renklerini dışlamak değil, yapısal bir vurgudur.</>
             : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the &quot;headline sign of the promise&quot;; a structural emphasis, not an exclusion of the other paradise colors.</>}

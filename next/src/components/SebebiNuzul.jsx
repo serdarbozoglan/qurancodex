@@ -1372,7 +1372,7 @@ function TabZaman({ language, isMobile }) {
         }}>
           <span style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)',
+            textTransform: 'uppercase', color: SEMANTIC.textMuted,
             whiteSpace: 'nowrap', marginRight: '10px', flexShrink: 0,
           }}>
             {language === 'tr' ? 'Dönem' : 'Period'}
@@ -1415,7 +1415,7 @@ function TabZaman({ language, isMobile }) {
 
           <span style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)',
+            textTransform: 'uppercase', color: SEMANTIC.textMuted,
             whiteSpace: 'nowrap', marginRight: '10px', flexShrink: 0,
           }}>
             {language === 'tr' ? 'Konu' : 'Topic'}

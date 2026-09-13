@@ -6,7 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import Link from 'next/link';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import StatCard from '../components/StatCard';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC } from '../tokens';
 
 // Hover/tap tooltip anchored to bottom-right of its container (card must be position:relative)
 function InfoTooltip({ text }) {
@@ -367,7 +367,7 @@ export default function ZeroRedundancy() {
               {t('zeroRedundancy.icaz.card1.body2')}
             </p>
             <p style={{
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem',
+              color: SEMANTIC.textMuted, fontSize: '0.78rem',
               fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
             }}>
               {t('zeroRedundancy.icaz.card1.source')}
@@ -417,7 +417,7 @@ export default function ZeroRedundancy() {
                           <span style={{ color: a.color, fontWeight: 700, fontSize: '1.05rem', fontFamily: FONTS.body }}>
                             {fn.name}
                           </span>
-                          <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.85rem', fontFamily: FONTS.body }}>
+                          <span style={{ color: SEMANTIC.textMuted, fontSize: '0.85rem', fontFamily: FONTS.body }}>
                             {fn.subtitle}
                           </span>
                         </div>
@@ -442,7 +442,7 @@ export default function ZeroRedundancy() {
               );
             })()}
             <p style={{
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem',
+              color: SEMANTIC.textMuted, fontSize: '0.78rem',
               fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
             }}>
               {t('zeroRedundancy.icaz.card2.source')}
@@ -475,7 +475,7 @@ export default function ZeroRedundancy() {
               {t('zeroRedundancy.icaz.card3.body2')}
             </p>
             <p style={{
-              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem',
+              color: SEMANTIC.textMuted, fontSize: '0.78rem',
               fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
             }}>
               {t('zeroRedundancy.icaz.card3.source')}

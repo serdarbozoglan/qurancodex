@@ -18,7 +18,7 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import ParticleBackground from '../components/ParticleBackground';
 
 // Rotating placeholder queries — dil ile birlikte döner
@@ -270,8 +270,7 @@ export default function ConciergePrompt() {
           <div style={{
             fontFamily: FONTS.body,
             fontSize: '0.68rem',
-            color: COLORS.silver,
-            opacity: 0.78,
+            color: SEMANTIC.textMuted,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             marginBottom: '10px',
@@ -323,8 +322,7 @@ export default function ConciergePrompt() {
           marginTop: '28px',
           fontFamily: FONTS.body,
           fontSize: '0.74rem',
-          color: COLORS.silver,
-          opacity: 0.78,
+          color: SEMANTIC.textMuted,
           letterSpacing: '0.04em',
         }}>
           {tr
