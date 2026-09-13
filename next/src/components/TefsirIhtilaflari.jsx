@@ -10,6 +10,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
+import { tabIcon } from './tabIcons';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
@@ -279,6 +280,7 @@ export default function TefsirIhtilaflari() {
   const TABS_TR = ['Yöntem', 'Vakalar', 'Müfessirler'];
   const TABS_EN = ['Method', 'Cases', 'Exegetes'];
   const tabs = tr ? TABS_TR : TABS_EN;
+  const TAB_ICON_NAMES = ['route', 'folder', 'users'];
 
   const TOOL_HEADER = (
     <ToolHeader
@@ -385,7 +387,7 @@ export default function TefsirIhtilaflari() {
               whiteSpace: 'nowrap', transition: 'color 0.15s',
               textTransform: 'uppercase', letterSpacing: '0.06em',
             }}>
-              {label}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(TAB_ICON_NAMES[i])}{label}</span>
             {activeTab === i && <ToolTabGlow />}
             </button>
           ))}

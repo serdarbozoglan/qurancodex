@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { tabIcon } from './tabIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
@@ -31,6 +32,7 @@ const VERSE_BLOCK_BASE = {
 
 const TABS_TR = ['KRONOLOJİ', 'SURELER', 'KOZMİK SAHNELER', 'HESAP & MİZAN', "KUR'AN / HADİS", 'KAYNAKLAR'];
 const TABS_EN = ['CHRONOLOGY', 'SURAHS', 'COSMIC SCENES', 'RECKONING', 'QURAN / HADITH', 'SOURCES'];
+const KIYAMET_TAB_ICONS = ['clock','bookOpen','star','scale','book','list'];
 
 // 14 Ağustos (K5): accent'lerin çoğu tam opaklıkta bile AA'yı geçmiyordu
 // (kırmızı 3.60, teal 3.74/5.79, mavi 2.83, mor 3.47 — cosmic-black üstünde).
@@ -746,7 +748,7 @@ export default function KiyametSahneleri({ onClose }) {
               onMouseEnter={e => { if (activeTab !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
               onMouseLeave={e => { if (activeTab !== i) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
             >
-              {tab}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(KIYAMET_TAB_ICONS[i])}{tab}</span>
               {activeTab === i && <ToolTabGlow />}
               </button>
           ))}

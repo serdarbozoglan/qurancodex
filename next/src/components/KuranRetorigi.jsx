@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { tabIcon } from './tabIcons';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -22,6 +23,7 @@ import retorikDataStatic from '../../public/kuran-retorigi.json';
 
 const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', 'Seçilmiş Sorular', 'Sûre Haritası'];
 const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', 'Selected Questions', 'Surah Map'];
+const RETORIK_TAB_ICONS = ['grid','megaphone','help','map'];
 
 export default function KuranRetorigi({ onClose }) {
   const { language } = useLanguage();
@@ -235,7 +237,7 @@ export default function KuranRetorigi({ onClose }) {
               letterSpacing: activeTab === i ? '0.14em' : '0.12em',
             }}
           >
-            {tab}
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(RETORIK_TAB_ICONS[i])}{tab}</span>
           {activeTab === i && <ToolTabGlow />}
           </button>
         ))}

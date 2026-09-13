@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { tabIcon } from './tabIcons';
 import LinkifyRefs from './LinkifyRefs';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
@@ -398,10 +399,10 @@ export default function NefisMertebeleri({ onClose }) {
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>
           {[
-            { id: 'journey', labelTr: '7 Mertebe · Yolculuk', labelEn: '7 Stages · Journey' },
-            { id: 'matrix', labelTr: 'Karşılaştırma Matrisi', labelEn: 'Comparison Matrix' },
-            { id: 'keyverses', labelTr: 'Anahtar Ayetler', labelEn: 'Key Verses' },
-            { id: 'frameworks', labelTr: 'Ulema Çerçeveleri', labelEn: 'Scholar Frameworks' },
+            { id: 'journey', icon: 'stairs', labelTr: '7 Mertebe · Yolculuk', labelEn: '7 Stages · Journey' },
+            { id: 'matrix', icon: 'grid', labelTr: 'Karşılaştırma Matrisi', labelEn: 'Comparison Matrix' },
+            { id: 'keyverses', icon: 'book', labelTr: 'Anahtar Ayetler', labelEn: 'Key Verses' },
+            { id: 'frameworks', icon: 'layers', labelTr: 'Ulema Çerçeveleri', labelEn: 'Scholar Frameworks' },
           ].map(tab => {
             const active = activeTab === tab.id;
             return (
@@ -422,7 +423,7 @@ export default function NefisMertebeleri({ onClose }) {
                   cursor: 'pointer', flexShrink: 0,
                   fontFamily: FONTS.body, whiteSpace: 'nowrap',
                 }}>
-                {language === 'tr' ? tab.labelTr : tab.labelEn}
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(tab.icon)}{language === 'tr' ? tab.labelTr : tab.labelEn}</span>
               {active && <ToolTabGlow />}
               </button>
             );

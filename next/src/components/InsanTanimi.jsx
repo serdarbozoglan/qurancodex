@@ -7,6 +7,7 @@
 // Tab 4: Kaynaklar — SourcesCitation
 
 import { useEffect, useState } from 'react';
+import { tabIcon } from './tabIcons';
 import HumanDefinition from '../sections/HumanDefinition';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
@@ -21,10 +22,10 @@ import { COLORS, FONTS, RADIUS } from '../tokens';
 import extData from '../../public/insan-tanimi-ext.json';
 
 const TABS = [
-  { id: 'concepts', labelTr: 'Ana Kavramlar', labelEn: 'Core Concepts' },
-  { id: 'equation', labelTr: 'İnsan Denklemi', labelEn: 'Human Equation' },
-  { id: 'scholars', labelTr: 'Ulema Yaklaşımları', labelEn: 'Scholar Approaches' },
-  { id: 'sources', labelTr: 'Kaynaklar', labelEn: 'Sources' },
+  { id: 'concepts', icon: 'grid', labelTr: 'Ana Kavramlar', labelEn: 'Core Concepts' },
+  { id: 'equation', icon: 'scale', labelTr: 'İnsan Denklemi', labelEn: 'Human Equation' },
+  { id: 'scholars', icon: 'users', labelTr: 'Ulema Yaklaşımları', labelEn: 'Scholar Approaches' },
+  { id: 'sources', icon: 'book', labelTr: 'Kaynaklar', labelEn: 'Sources' },
 ];
 
 const GEOMETRIC_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'>
@@ -172,7 +173,7 @@ export default function InsanTanimi({ onClose }) {
                 cursor: 'pointer', flexShrink: 0,
                 fontFamily: FONTS.body, whiteSpace: 'nowrap',
               }}>
-              {tr ? tab.labelTr : tab.labelEn}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(tab.icon)}{tr ? tab.labelTr : tab.labelEn}</span>
             {active && <ToolTabGlow />}
             </button>
           );

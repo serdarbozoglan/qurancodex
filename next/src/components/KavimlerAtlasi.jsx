@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { tabIcon } from './tabIcons';
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -19,6 +20,7 @@ import kavimlerDataStatic from '../../public/kavimler.json';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
+const KAVIM_TAB_ICONS = ['users','alert','layers','map','compare','book'];
 
 const HELAK_COLORS = {
   ruzgar:   '#93c5fd',
@@ -468,7 +470,7 @@ export default function KavimlerAtlasi({ onClose }) {
                 whiteSpace: 'nowrap',
               }}
             >
-              {tab}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>{tabIcon(KAVIM_TAB_ICONS[i])}{tab}</span>
             {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
