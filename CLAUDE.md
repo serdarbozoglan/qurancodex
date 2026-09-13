@@ -1535,9 +1535,29 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
    YOKTUR — ihtiyaç varsa punto/ağırlık ile ayrış, renkle değil.
 2. **`COLORS.slate500-800` metin rengi OLAMAZ.** Kenarlık, ayraç ve ikon
    zemini olarak doğrudur (AA eşiği metne aittir) — bu yüzden silinmediler.
-3. **Opaklık tabanı:** `silver` ≥ **0.78** · `gold` ≥ **0.75**.
-   Altına inen her metin AA'yı kırar (silver 0.70 → 4.23).
-   Bu, hem `opacity` prop'u hem de `rgba(...)` alfası için geçerlidir.
+3. **Metin rengine OPAKLIK UYGULANMAZ.** (2026-09-13'te ölçülerek düzeltildi;
+   burada önceden "silver ≥ 0.78 · gold ≥ 0.75" yazıyordu ve o taban YANLIŞTI.)
+   Ölçüm üç şey gösterdi:
+   · `SEMANTIC.textFaint` tam opaklıkta 5.94, ama o "güvenli" 0.78 tabanında
+     **4.01**'e düşer — yani bu token hiç opaklık kaldırmaz.
+   · Tabanlar cosmic-black'e göre hesaplanmıştı; **kart zeminleri daha açıktır**
+     ve orada `silver@0.78` 5.00 değil **4.35** verir. Yani taban zemine bağlı,
+     tek bir sayı olarak yazılamaz.
+   · Kategori renklerinin **hepsi tam opaklıkta AA geçer** (5.13–7.40); yalnız
+     opaklık düşünce çökerler (`CATEGORY.red` 1.0 → 5.13, 0.7 → **3.00**).
+     Palet sağlamdı, kullanım hatalıydı.
+   **Kural:** metin rengi tam opaklıkta kullanılır; daha sönük bir görünüm
+   gerekiyorsa madde 1'deki kademeye inilir (`textPrimary` → `textMuted` →
+   `textFaint`), opaklık kısılmaz. Bu hem `opacity` prop'u hem `rgba(...)`
+   alfası hem de `${COLORS.gold}99` gibi hex-alfa ekleri için geçerlidir.
+   İstisna yalnız **dekoratif** ögedir (filigran numara, süs tırnağı): orada
+   opaklık serbesttir ama öge `aria-hidden="true"` taşımak ZORUNDADIR.
+   > Bu düzeltme 51 dosyada 84 blokta uygulandı; 77'si tek bir desendi
+   > (hero referans etiketi `color: COLORS.silver … opacity: 0.78`). Paylaşılan
+   > `ToolHero` da bu kalıbı taşıyordu ve 46 sayfaya yayıyordu.
+   > ⚠ Tarayıcı yazarken: color ve opacity **aynı satırda olmayabilir**. İlk
+   > tarayıcım yalnız tek satıra bakıyordu ve 85 vakayı kaçırdı; stil nesnesinin
+   > TAMAMINI (`style={{ … }}` bloğu) incele.
 4. **Alfa token'ları metin rengi olarak kullanılamaz** (`silverAlpha70` = 4.23,
    `silverAlpha40` çok daha kötü). Bunlar zemin/kenarlık token'larıdır.
 5. **Kasıtlı sönük durum** (devre dışı, "bu öge burada yok" gibi) oran
