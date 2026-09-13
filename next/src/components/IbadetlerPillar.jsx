@@ -222,10 +222,12 @@ function PillarHero({ pillarData, language, isMobile }) {
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
     }}>
-      {/* Bismillah ornament */}
+      {/* Bismillah ornament — boyut Dua Dili sayfasıyla eşitlendi (2026-09-13,
+          kullanıcı: ibadetlerdeki besmele Dua Dili'ndekinden küçüktü). Sabit
+          1.6rem yerine Dua Dili'nin responsive clamp'i. */}
       <div style={{
         fontFamily: FONTS.bismillah,
-        fontSize: '1.6rem',
+        fontSize: 'clamp(1.4rem, 3vw, 2rem)',
         color: COLORS.gold,
         opacity: 0.82,
         marginBottom: '24px',
