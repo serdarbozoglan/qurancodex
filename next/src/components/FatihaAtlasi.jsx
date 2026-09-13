@@ -54,7 +54,7 @@ function Hero({ language, isMobile }) {
 
         {/* Boyut Esmâ-i Hüsnâ hero âyetiyle eşitlendi + nefes glow'u (2026-09-13,
             kullanıcı isteği). Esma: clamp(1.7rem, 4.2vw, 2.6rem). */}
-        <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe-soft" style={{
+        <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
           '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
           lineHeight: 2.15, margin: '0 0 16px',

@@ -279,7 +279,7 @@ function Hero({ tr }) {
           <p
             dir="rtl"
             lang="ar"
-            className="qc-verse-breathe-soft"
+            className="qc-verse-breathe"
             style={{
               fontFamily: FONTS.quran,
               fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)',
