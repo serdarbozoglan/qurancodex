@@ -509,17 +509,22 @@ export default function ConceptGraph({ onClose, restore = null }) {
             flexShrink: 0,
             textAlign: 'center',
           }}>
-            {/* Anchor verse — Bakara 2:269 (hikmet) */}
-            <p dir="rtl" lang="ar" className="mq-fs" style={{
+            {/* Besmele (standart 2.6rem) — 2026-09-13 kullanıcı: hero'da besmele yoktu. */}
+            <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+              fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+              color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '22px',
+            }}>﷽</div>
+            {/* Anchor verse — Bakara 2:269 (hikmet). Boyut standarda çekildi + glow;
+                يَشَٓاءُ'daki bindiren maddah (§13.14) temizlendi. */}
+            <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
               fontFamily: FONTS.quran,
               color: COLORS.gold,
-              '--fs-d': '1.35rem', '--fs-m': '1.05rem',
+              '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
               lineHeight: 2.1,
-              margin: '0 auto 12px',
-              maxWidth: '780px',
-              opacity: 0.94,
+              margin: '0 auto 14px',
+              maxWidth: '820px',
             }}>
-              يُؤْتِي الْحِكْمَةَ مَنْ يَشَٓاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً
+              يُؤْتِي الْحِكْمَةَ مَنْ يَشَاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً
             </p>
             <p className="mq-fs" style={{
               color: COLORS.offWhiteAlpha78,
