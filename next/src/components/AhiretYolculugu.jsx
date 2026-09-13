@@ -19,7 +19,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import { surahName } from '../lib/surahNames';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
@@ -1043,6 +1043,52 @@ function StageBody({ stage, isMobile, tr, language, router }) {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Risale-i Nur notu — yalnız birincil metinden doğrulanmış aşamalarda.
+          Ölüm aşamasında (sekerât) 26. Lem'a'nın Sekizinci Rica'sı kullanılıyor;
+          metin ölümün mahiyetini anlatır, iman üzere ölmeyi değil. */}
+      {stage.risale && (
+        <div className="risale-card" style={{
+          position: 'relative',
+          background: `linear-gradient(170deg, ${COLORS.gold}0b 0%, rgba(0,0,0,0.24) 70%)`,
+          border: `1px solid ${COLORS.gold}22`,
+          borderRadius: 12,
+          padding: '20px 22px 18px 28px',
+          marginTop: 4,
+          overflow: 'hidden',
+        }}>
+          <span aria-hidden="true" style={{
+            position: 'absolute', insetInlineStart: 12, top: 24, bottom: 20,
+            width: 1, background: `linear-gradient(180deg, ${COLORS.gold}88, ${COLORS.gold}18)`,
+          }} />
+          <span aria-hidden="true" style={{
+            position: 'absolute', insetInlineStart: 9, top: 20,
+            width: 7, height: 7, transform: 'rotate(45deg)',
+            border: `1px solid ${COLORS.gold}aa`, background: COLORS.cosmicBlack,
+          }} />
+          <div style={{
+            fontFamily: FONTS.body, fontSize: '0.6rem', letterSpacing: '0.2em',
+            textTransform: 'uppercase', color: COLORS.gold, opacity: 0.8, fontWeight: 700, marginBottom: 4,
+          }}>{tr ? 'RİSALE-İ NUR' : 'RISALE-I NUR'}</div>
+          <div style={{
+            fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.08em',
+            color: COLORS.gold, opacity: 0.8, fontWeight: 600, marginBottom: 12,
+          }}>{tr ? stage.risale.sourceTr : stage.risale.sourceEn}</div>
+          <p className="mq-fs" style={{
+            fontFamily: FONTS.display, fontStyle: 'italic',
+            '--fs-d': '0.95rem', '--fs-m': '0.9rem',
+            color: COLORS.offWhite, lineHeight: 1.78, margin: '0 0 14px',
+          }}>&quot;{tr ? stage.risale.quoteTr : stage.risale.quoteEn}&quot;</p>
+          <span aria-hidden="true" style={{
+            display: 'block', height: 1, margin: '0 0 12px',
+            background: `linear-gradient(90deg, ${COLORS.gold}55, transparent)`,
+          }} />
+          <p style={{
+            fontFamily: FONTS.body, fontSize: '0.84rem', lineHeight: 1.68,
+            color: SEMANTIC.textMuted, margin: 0,
+          }}>{tr ? stage.risale.noteTr : stage.risale.noteEn}</p>
         </div>
       )}
 

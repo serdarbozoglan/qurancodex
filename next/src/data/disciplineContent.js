@@ -301,119 +301,287 @@ export const DISCIPLINE_CONTENT = {
   },
 
   'psikoloji-nefs': {
-    reviewedBy: 'gpt-6-astra review — content approved',
-    anchor: {
-      ref: 'Yûsuf 12:53',
-      ar: `وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ`,
-      trTr: `Nefis, Rabbimin rahmet ettikleri dışında, sürekli kötülüğü emreder; şüphesiz Rabbim çok bağışlayan, çok merhamet edendir.`,
-      trEn: `The self indeed incites to evil, except those on whom my Lord has mercy; surely my Lord is Forgiving, Merciful.`,
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "anchor": {
+      "ref": "Yûsuf 12:53",
+      "ar": "وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ",
+      "trTr": "Nefis, Rabbimin rahmet ettikleri dışında, sürekli kötülüğü emreder; şüphesiz Rabbim çok bağışlayan, çok merhamet edendir.",
+      "trEn": "The self indeed incites to evil, except those on whom my Lord has mercy; surely my Lord is Forgiving, Merciful."
     },
-    introTr:
-      `Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik (özellikle modern psikoloji) onayına bağlı değildir. ` +
-      `Bu sayfa; nefis, kalp, korku ve hüzün, insanın zaafları ve tezkiye (arınma) gibi âyetleri insanın iç dünyası bakımından bir araya getirir. ` +
-      `"Nefs mertebeleri" gibi sınıflamalar tasavvufî ve beşerî bir yorum katmanıdır; âyetler bu hâlleri anar, sistematik sınıflama insan yorumudur. ` +
-      `Anlam özetleri, başlıklar, klasik tefsir ve akademik değerlendirmeler beşerî yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir ve modern bir psikoloji ekolü Kur'an'a mal edilmez.`,
-    introEn:
-      `The Qur'an is God's word and certain truth; its truth does not depend on scientific or academic (especially modern psychological) confirmation. ` +
-      `This page gathers verses on the self (nafs), the heart, fear and grief, human frailties, and purification (tazkiya), from the angle of the inner life of the human being. ` +
-      `Classifications such as the "stations of the self" are a Sufi and human layer of interpretation; the verses name these states, while the systematic scheme is a human reading. ` +
-      `The summaries, headings, classical exegesis, and academic assessments are layers of human interpretation; they are not identical with the Qur'an itself, and no modern school of psychology is ascribed to the Qur'an.`,
-    themes: [
+    "introTr": "Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik (özellikle modern psikoloji) onayına bağlı değildir. Bu sayfa; nefis, kalp, korku ve hüzün, insanın zaafları ve tezkiye (arınma) gibi âyetleri insanın iç dünyası bakımından bir araya getirir. \"Nefs mertebeleri\" gibi sınıflamalar tasavvufî ve beşerî bir yorum katmanıdır; âyetler bu hâlleri anar, sistematik sınıflama insan yorumudur. Anlam özetleri, başlıklar, klasik tefsir ve akademik değerlendirmeler beşerî yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir ve modern bir psikoloji ekolü Kur'an'a mal edilmez.",
+    "introEn": "The Qur'an is God's word and certain truth; its truth does not depend on scientific or academic (especially modern psychological) confirmation. This page gathers verses on the self (nafs), the heart, fear and grief, human frailties, and purification (tazkiya), from the angle of the inner life of the human being. Classifications such as the \"stations of the self\" are a Sufi and human layer of interpretation; the verses name these states, while the systematic scheme is a human reading. The summaries, headings, classical exegesis, and academic assessments are layers of human interpretation; they are not identical with the Qur'an itself, and no modern school of psychology is ascribed to the Qur'an.",
+    "themes": [
       {
-        titleTr: 'Nefis ve mertebeleri',
-        titleEn: 'The self and its states',
-        verses: [
-          { ref: 'Yûsuf 12:53', ar: `وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ`, glossTr: `Nefis, Rabbin rahmet ettikleri dışında, sürekli kötülüğü emreder/ona meyleder (nefs-i emmâre).`, glossEn: `The self constantly inclines toward evil, except those on whom the Lord has mercy (the inciting self).` },
-          { ref: 'Kıyâme 75:2', ar: `وَلٓا اُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ`, glossTr: `Allah, kendini kınayan, sürekli hesaba çeken nefse yemin eder (nefs-i levvâme).`, glossEn: `God swears by the self-reproaching soul that blames itself (the reproaching self).` },
-          { ref: 'Fecr 89:27-28', ar: `يٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ اِرْجِعٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً`, glossTr: `Ey huzura ermiş nefis! Razı olmuş ve razı olunmuş olarak Rabbine dön (nefs-i mutmainne).`, glossEn: `O tranquil, reassured soul! Return to your Lord, well-pleased and well-pleasing (the tranquil self).` },
+        "titleTr": "Nefis ve mertebeleri",
+        "titleEn": "The self and its states",
+        "verses": [
+          {
+            "ref": "Yûsuf 12:53",
+            "ar": "وَمٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ",
+            "glossTr": "Nefis, Rabbin rahmet ettikleri dışında, sürekli kötülüğü emreder/ona meyleder (nefs-i emmâre).",
+            "glossEn": "The self constantly inclines toward evil, except those on whom the Lord has mercy (the inciting self)."
+          },
+          {
+            "ref": "Kıyâme 75:2",
+            "ar": "وَلٓا اُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
+            "glossTr": "Allah, kendini kınayan, sürekli hesaba çeken nefse yemin eder (nefs-i levvâme).",
+            "glossEn": "God swears by the self-reproaching soul that blames itself (the reproaching self)."
+          },
+          {
+            "ref": "Fecr 89:27-28",
+            "ar": "يٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ اِرْجِعٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً",
+            "glossTr": "Ey huzura ermiş nefis! Razı olmuş ve razı olunmuş olarak Rabbine dön (nefs-i mutmainne).",
+            "glossEn": "O tranquil, reassured soul! Return to your Lord, well-pleased and well-pleasing (the tranquil self)."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (12:53): bu söz, Azîz'in hanımının kral huzurunda Hz. Yûsuf'un (a.s.) doğruluğunu ve kendi kusurunu itiraf etmesi olarak açıklanır. İnsan nefsinin tabiatı gereği kötülüğe meylettiği, ancak Rabbin rahmetiyle bu meylden korunabileceği vurgulanır; bu itiraf, nefsi aklamak değil beşerî zaafı kabul etmektir. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (12:53): these words are the ʿAzīz's wife confessing before the king, affirming Joseph's truthfulness and her own fault. The human self by nature inclines to evil and is protected from it only by the Lord's mercy; admitting this is humility, not self-exoneration. (Summary of the tafsir.)`,
-        commentary: {
-          sourceTr: `Bediüzzaman · Ene (Enâniyet) Risalesi (Sözler, 30. Söz)`,
-          sourceEn: `Bediüzzaman · Treatise on the Ego (Sözler, 30th Word)`,
-          introTr: `Bediüzzaman Said Nursi, Ene Risalesi'nde insandaki benliği (ene) şöyle çözümler:`,
-          introEn: `Bediüzzaman Said Nursi analyzes the human ego (ene) in his Treatise on the Ego as follows:`,
-          pointsTr: [
-            `Ene (benlik), insana Rabbinin sıfatlarını tanıtan bir emanet ve bir "anahtar" olarak verilmiştir; künûz-u mahfiye (gizli hazineler) olan esmâ-i İlâhiyenin anahtarıdır.`,
-            `Ene'nin iki yüzü vardır: biri hayra ve vücuda bakar (emaneti kabul eden, kendi icad etmeyen); diğeri kendine mal eden enâniyet yüzüdür ve şerre gider.`,
-            `Ene, yaratılış hikmetini unutup kendini "mâlik" sanınca emanete hıyanet eder; "bütün şirkleri, şerleri ve dalâletleri tevlîd eden" enâniyetin bu yüzüdür.`,
-            `Kurtuluş, insanın acz ve fakrını (güçsüzlük ve muhtaçlığını) bilip Rabbine dayanmasındadır (acz-fakr-şefkat-tefekkür yolu; 26. Söz Zeyl, çapa Haşr 59:19).`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (12:53): bu söz, Azîz'in hanımının kral huzurunda Hz. Yûsuf'un (a.s.) doğruluğunu ve kendi kusurunu itiraf etmesi olarak açıklanır. İnsan nefsinin tabiatı gereği kötülüğe meylettiği, ancak Rabbin rahmetiyle bu meylden korunabileceği vurgulanır; bu itiraf, nefsi aklamak değil beşerî zaafı kabul etmektir. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (12:53): these words are the ʿAzīz's wife confessing before the king, affirming Joseph's truthfulness and her own fault. The human self by nature inclines to evil and is protected from it only by the Lord's mercy; admitting this is humility, not self-exoneration. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Ene (Enâniyet) Risalesi (Sözler, 30. Söz)",
+          "sourceEn": "Bediüzzaman · Treatise on the Ego (Sözler, 30th Word)",
+          "introTr": "Bediüzzaman Said Nursi, Ene Risalesi'nde insandaki benliği (ene) şöyle çözümler:",
+          "introEn": "Bediüzzaman Said Nursi analyzes the human ego (ene) in his Treatise on the Ego as follows:",
+          "pointsTr": [
+            "Ene (benlik), insana Rabbinin sıfatlarını tanıtan bir emanet ve bir \"anahtar\" olarak verilmiştir; künûz-u mahfiye (gizli hazineler) olan esmâ-i İlâhiyenin anahtarıdır.",
+            "Ene'nin iki yüzü vardır: biri hayra ve vücuda bakar (emaneti kabul eden, kendi icad etmeyen); diğeri kendine mal eden enâniyet yüzüdür ve şerre gider.",
+            "Ene, yaratılış hikmetini unutup kendini \"mâlik\" sanınca emanete hıyanet eder; \"bütün şirkleri, şerleri ve dalâletleri tevlîd eden\" enâniyetin bu yüzüdür.",
+            "Kurtuluş, insanın acz ve fakrını (güçsüzlük ve muhtaçlığını) bilip Rabbine dayanmasındadır (acz-fakr-şefkat-tefekkür yolu; 26. Söz Zeyl, çapa Haşr 59:19)."
           ],
-          pointsEn: [
-            `The ego (ene) is given as a trust and a "key" that lets a person recognize the attributes of his Lord; it is the key to the divine names, the hidden treasures.`,
-            `The ego has two faces: one looks to good and existence (accepting the trust, not creating on its own); the other appropriates things to itself, and this egotism turns to evil.`,
-            `When the ego forgets the purpose of its creation and imagines itself an "owner," it betrays the trust; this is the face of egotism that "gives birth to all forms of association, evil, and misguidance."`,
-            `Salvation lies in knowing one's impotence and poverty (ʿajz and faqr) and relying on the Lord (the path of impotence-poverty-compassion-reflection; 26th Word Addendum, anchored on Q 59:19).`,
+          "pointsEn": [
+            "The ego (ene) is given as a trust and a \"key\" that lets a person recognize the attributes of his Lord; it is the key to the divine names, the hidden treasures.",
+            "The ego has two faces: one looks to good and existence (accepting the trust, not creating on its own); the other appropriates things to itself, and this egotism turns to evil.",
+            "When the ego forgets the purpose of its creation and imagines itself an \"owner,\" it betrays the trust; this is the face of egotism that \"gives birth to all forms of association, evil, and misguidance.\"",
+            "Salvation lies in knowing one's impotence and poverty (ʿajz and faqr) and relying on the Lord (the path of impotence-poverty-compassion-reflection; 26th Word Addendum, anchored on Q 59:19)."
           ],
-          noteTr: `Not: "nefs-i emmâre" teması bu metinlerde mevcuttur; ancak Yûsuf 12:53'ün Bediüzzaman tarafından bu metinlerde birebir iktibası doğrulanamadığından ona atıf yapılmamıştır. Alıntılar birincil metinden doğrulanmıştır. Bu, beşerî yorum katmanıdır; Kur'an'ın kesin beyanıyla özdeş değildir.`,
-          noteEn: `Note: the theme of the "inciting self" is present in these texts; but since a direct quotation of Q 12:53 by Bediüzzaman in them could not be verified, it is not attributed to him. The quotations are verified from the primary text. This is a human interpretive layer, not identical with the Qur'an's certain declaration.`,
-        },
+          "noteTr": "Not: \"nefs-i emmâre\" teması bu metinlerde mevcuttur; ancak Yûsuf 12:53'ün Bediüzzaman tarafından bu metinlerde birebir iktibası doğrulanamadığından ona atıf yapılmamıştır. Alıntılar birincil metinden doğrulanmıştır. Bu, beşerî yorum katmanıdır; Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "Note: the theme of the \"inciting self\" is present in these texts; but since a direct quotation of Q 12:53 by Bediüzzaman in them could not be verified, it is not attributed to him. The quotations are verified from the primary text. This is a human interpretive layer, not identical with the Qur'an's certain declaration."
+        }
       },
       {
-        titleTr: 'Kalp — mühür, hastalık, itminan',
-        titleEn: 'The heart — sealing, disease, tranquility',
-        verses: [
-          { ref: 'Bakara 2:7', ar: `خَتَمَ اللّٰهُ عَلٰى قُلُوبِهِمْ وَعَلٰى سَمْعِهِمْ وَعَلٰٓى اَبْصَارِهِمْ غِشَاوَةٌ وَلَهُمْ عَذَابٌ عَظِيمٌ`, glossTr: `Allah onların kalplerini ve kulaklarını mühürlemiştir, gözlerinde perde vardır; büyük bir azap onları bekler.`, glossEn: `God has sealed their hearts and their hearing, and over their sight is a covering; a great punishment awaits them.` },
-          { ref: 'Bakara 2:10', ar: `فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللّٰهُ مَرَضاً وَلَهُمْ عَذَابٌ اَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ`, glossTr: `Kalplerinde hastalık vardır; Allah da onların hastalığını artırmıştır.`, glossEn: `In their hearts is a disease, and God has let their disease increase.` },
-          { ref: 'Ra’d 13:28', ar: `اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ اَلَا بِذِكْرِ اللّٰهِ تَطْمَئِنُّ الْقُلُوبُ`, glossTr: `Onlar iman edenlerdir; kalpleri ancak Allah'ı anmakla huzura, itminana kavuşur.`, glossEn: `Those who believe, whose hearts find rest in the remembrance of God; surely in the remembrance of God hearts find rest.` },
+        "titleTr": "Kalp — mühür, hastalık, itminan",
+        "titleEn": "The heart — sealing, disease, tranquility",
+        "verses": [
+          {
+            "ref": "Bakara 2:7",
+            "ar": "خَتَمَ اللّٰهُ عَلٰى قُلُوبِهِمْ وَعَلٰى سَمْعِهِمْ وَعَلٰٓى اَبْصَارِهِمْ غِشَاوَةٌ وَلَهُمْ عَذَابٌ عَظِيمٌ",
+            "glossTr": "Allah onların kalplerini ve kulaklarını mühürlemiştir, gözlerinde perde vardır; büyük bir azap onları bekler.",
+            "glossEn": "God has sealed their hearts and their hearing, and over their sight is a covering; a great punishment awaits them."
+          },
+          {
+            "ref": "Bakara 2:10",
+            "ar": "فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللّٰهُ مَرَضاً وَلَهُمْ عَذَابٌ اَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ",
+            "glossTr": "Kalplerinde hastalık vardır; Allah da onların hastalığını artırmıştır.",
+            "glossEn": "In their hearts is a disease, and God has let their disease increase."
+          },
+          {
+            "ref": "Ra’d 13:28",
+            "ar": "اَلَّذِينَ اٰمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللّٰهِ اَلَا بِذِكْرِ اللّٰهِ تَطْمَئِنُّ الْقُلُوبُ",
+            "glossTr": "Onlar iman edenlerdir; kalpleri ancak Allah'ı anmakla huzura, itminana kavuşur.",
+            "glossEn": "Those who believe, whose hearts find rest in the remembrance of God; surely in the remembrance of God hearts find rest."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (13:28): kalplerin Allah'ı anmakla huzur bulduğu ve O zikredildiğinde sükûnete erdiği açıklanır. "Allah'ı anmakla kalpler mutmain olur" hükmü kapsayıcı bir hakikat olarak sunulur. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (13:28): hearts find comfort on the side of God and become tranquil when He is remembered; the principle "in the remembrance of God hearts find rest" is presented as an all-embracing truth. (Summary of the tafsir.)`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (13:28): kalplerin Allah'ı anmakla huzur bulduğu ve O zikredildiğinde sükûnete erdiği açıklanır. \"Allah'ı anmakla kalpler mutmain olur\" hükmü kapsayıcı bir hakikat olarak sunulur. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (13:28): hearts find comfort on the side of God and become tranquil when He is remembered; the principle \"in the remembrance of God hearts find rest\" is presented as an all-embracing truth. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · İşârâtü'l-İ'câz, Bakara sûresi 7. âyetin tefsiri",
+          "sourceEn": "Bediüzzaman · İşârâtü'l-İ'câz, commentary on Bakara 2:7",
+          "introTr": "Bediüzzaman kalbin mühürlenmesini keyfî bir ceza olarak değil, harap edilmiş bir binanın kapanması olarak okur:",
+          "introEn": "Bediüzzaman reads the sealing of the heart not as an arbitrary punishment but as the closing of a building already ruined:",
+          "pointsTr": [
+            "\"Kalp gözü, sanki cevahire bir hazine olmak üzere Cenab-ı Hak tarafından yapılan bir binadır. Vaktâ ki sû-i ihtiyarlarıyla ifsada uğradı ve cevherlere yapılan yerler, yılanlar ve akreplerle doldu; kapısı hatmedildi ki o sâri hastalıktan başkaları mutazarrır olmasın.\"",
+            "Aynı eserde Bakara 2:9-10 tefsirinde kalp, hayatın mihveri sayılır; nifakla hastalanınca ruhun fiilleri de düşer."
+          ],
+          "pointsEn": [
+            "\"The eye of the heart is, as it were, a building made by Almighty God to be a treasury for jewels. When through their own evil choice it fell into ruin and the places made for the jewels filled with snakes and scorpions, its door was sealed, so that others should not be harmed by that contagious disease.\"",
+            "In the same work, commenting on Bakara 2:9-10, the heart is called the axis of life: when it sickens with hypocrisy, the acts of the spirit fall away too."
+          ],
+          "noteTr": "Temanın üçüncü âyeti olan Ra'd 13:28 (kalplerin zikirle itminanı) için birincil metinde doğrulanmış bir bahis bulunamadı; bu yüzden yalnız mühür ve hastalık kısmı alınmıştır. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "For the theme's third verse, Ra'd 13:28 on hearts finding rest in remembrance, no verified passage was found in the primary texts, so only the sealing and disease part is quoted here. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
       },
       {
-        titleTr: 'Korku, hüzün ve teselli',
-        titleEn: 'Fear, grief, and consolation',
-        verses: [
-          { ref: 'Bakara 2:38', ar: `قُلْنَا اهْبِطُوا مِنْهَا جَمِيعاً فَاِمَّا يَأْتِيَنَّكُمْ مِنِّي هُدًى فَمَنْ تَبِعَ هُدَايَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ`, glossTr: `Kim benim hidâyetime uyarsa, onlara korku yoktur ve onlar üzülmeyecektir.`, glossEn: `Whoever follows My guidance will have no fear, nor will they grieve.` },
-          { ref: 'Tevbe 9:40', ar: `اِلَّا تَنْصُرُوهُ فَقَدْ نَصَرَهُ اللّٰهُ اِذْ اَخْرَجَهُ الَّذِينَ كَفَرُوا ثَانِيَ اثْنَيْنِ اِذْ هُمَا فِي الْغَارِ اِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ اِنَّ اللّٰهَ مَعَنَا فَاَنْزَلَ اللّٰهُ سَكِينَتَهُ عَلَيْهِ وَاَيَّدَهُ بِجُنُودٍ لَمْ تَرَوْهَا وَجَعَلَ كَلِمَةَ الَّذِينَ كَفَرُوا السُّفْلٰى وَكَلِمَةُ اللّٰهِ هِيَ الْعُلْيَا وَاللّٰهُ عَزِيزٌ حَكِيمٌ`, glossTr: `Peygamber, mağaradaki arkadaşına "Üzülme, şüphesiz Allah bizimledir" dedi; Allah da ona sekîneti (huzuru) indirdi.`, glossEn: `The Prophet told his companion in the cave, "Do not grieve; surely God is with us," and God sent down His tranquility (sakīna) upon him.` },
-          { ref: 'Âl-i İmrân 3:139', ar: `وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَاَنْتُمُ الْاَعْلَوْنَ اِنْ كُنْتُمْ مُؤْمِنِينَ`, glossTr: `Gevşemeyin ve üzülmeyin; eğer gerçek müminseniz üstün gelecek olan sizsiniz.`, glossEn: `Do not falter or grieve; you will prevail if you are true believers.` },
+        "titleTr": "Korku, hüzün ve teselli",
+        "titleEn": "Fear, grief, and consolation",
+        "verses": [
+          {
+            "ref": "Bakara 2:38",
+            "ar": "قُلْنَا اهْبِطُوا مِنْهَا جَمِيعاً فَاِمَّا يَأْتِيَنَّكُمْ مِنِّي هُدًى فَمَنْ تَبِعَ هُدَايَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
+            "glossTr": "Kim benim hidâyetime uyarsa, onlara korku yoktur ve onlar üzülmeyecektir.",
+            "glossEn": "Whoever follows My guidance will have no fear, nor will they grieve."
+          },
+          {
+            "ref": "Tevbe 9:40",
+            "ar": "اِلَّا تَنْصُرُوهُ فَقَدْ نَصَرَهُ اللّٰهُ اِذْ اَخْرَجَهُ الَّذِينَ كَفَرُوا ثَانِيَ اثْنَيْنِ اِذْ هُمَا فِي الْغَارِ اِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ اِنَّ اللّٰهَ مَعَنَا فَاَنْزَلَ اللّٰهُ سَكِينَتَهُ عَلَيْهِ وَاَيَّدَهُ بِجُنُودٍ لَمْ تَرَوْهَا وَجَعَلَ كَلِمَةَ الَّذِينَ كَفَرُوا السُّفْلٰى وَكَلِمَةُ اللّٰهِ هِيَ الْعُلْيَا وَاللّٰهُ عَزِيزٌ حَكِيمٌ",
+            "glossTr": "Peygamber, mağaradaki arkadaşına \"Üzülme, şüphesiz Allah bizimledir\" dedi; Allah da ona sekîneti (huzuru) indirdi.",
+            "glossEn": "The Prophet told his companion in the cave, \"Do not grieve; surely God is with us,\" and God sent down His tranquility (sakīna) upon him."
+          },
+          {
+            "ref": "Âl-i İmrân 3:139",
+            "ar": "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَاَنْتُمُ الْاَعْلَوْنَ اِنْ كُنْتُمْ مُؤْمِنِينَ",
+            "glossTr": "Gevşemeyin ve üzülmeyin; eğer gerçek müminseniz üstün gelecek olan sizsiniz.",
+            "glossEn": "Do not falter or grieve; you will prevail if you are true believers."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (9:40): bu âyet, Peygamber'in (s.a.v.) Medine'ye hicret sırasında mağarada Ebû Bekir'e "Üzülme, Allah bizimledir" diyerek onu teskin etmesi olarak açıklanır. Allah'ın üzerine sekîneti indirdiği, görünmez ordularla desteklediği ve sonunda kendi kelâmını üstün kıldığı belirtilir. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (9:40): this verse is the Prophet reassuring Abū Bakr in the cave during the migration to Medina with "Do not grieve, God is with us." God sent down His sakīna upon him, supported them with unseen forces, and made His word uppermost. (Summary of the tafsir.)`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (9:40): bu âyet, Peygamber'in (s.a.v.) Medine'ye hicret sırasında mağarada Ebû Bekir'e \"Üzülme, Allah bizimledir\" diyerek onu teskin etmesi olarak açıklanır. Allah'ın üzerine sekîneti indirdiği, görünmez ordularla desteklediği ve sonunda kendi kelâmını üstün kıldığı belirtilir. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (9:40): this verse is the Prophet reassuring Abū Bakr in the cave during the migration to Medina with \"Do not grieve, God is with us.\" God sent down His sakīna upon him, supported them with unseen forces, and made His word uppermost. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Lem'alar, Yirmi Altıncı Lem'a (İhtiyarlar Risalesi), Yedinci Rica",
+          "sourceEn": "Bediüzzaman · Lem'alar, Twenty-Sixth Flash (for the Elderly), Seventh Hope",
+          "introTr": "Bediüzzaman hüznü geçmişe, korkuyu geleceğe bağlar ve insanın kendi iradesinin ikisine de yetmediğini söyler:",
+          "introEn": "Bediüzzaman locates grief in the past and fear in the future, and says a person’s own will reaches neither:",
+          "pointsTr": [
+            "\"Ne geçmiş zamana geçebilir, tâ ondan bana gelen hüzünleri sustursun ve ne de istikbale hulûl edebilir, tâ ondan gelen korkuları men’etsin.\"",
+            "\"Zaman-ı mazinin en derin derelerine kuvvet-i iman ile girebildiği ve hüzünlerin zulmetlerini def’edebildiği gibi; nur-u iman ile istikbalin en uzak dağlarına kadar çıkar, korkuları izale eder.\""
+          ],
+          "pointsEn": [
+            "\"It can neither pass into the past, so as to silence the griefs that come to me from it, nor penetrate the future, so as to prevent the fears that come from it.\"",
+            "\"Just as through the strength of belief it can enter the deepest valleys of past time and repel the darknesses of grief, so through the light of belief it climbs to the farthest mountains of the future and dispels its fears.\""
+          ],
+          "noteTr": "Yedinci Rica'da anılan teselli âyetleri arasında Kasas 28:88 ve Âl-i İmrân 3:173 vardır; temanın çapası olan Tevbe 9:40 bu bölümde geçmez, bu yüzden ikisi birbirine bağlanmamıştır (tespit incelenen bölümle sınırlıdır). Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "Among the consolation verses cited in the Seventh Hope are Kasas 28:88 and Âl-i İmrân 3:173; Tevbe 9:40, which anchors this theme, does not appear in that section, so the two are not tied together (this observation is limited to the section examined). The quotation is verified from the primary text. This is a human interpretive layer."
+        }
       },
       {
-        titleTr: 'İnsanın zaafları',
-        titleEn: 'Human frailties',
-        verses: [
-          { ref: 'Meâric 70:19', ar: `اِنَّ الْاِنْسَانَ خُلِقَ هَلُوعاً`, glossTr: `Gerçekten insan hırslı ve sabırsız (helû') bir yaratılışta yaratılmıştır.`, glossEn: `Indeed, humankind was created impatient and anxious (halūʿ).` },
-          { ref: 'İsrâ 17:11', ar: `وَيَدْعُ الْاِنْسَانُ بِالشَّرِّ دُعَاءَهُ بِالْخَيْرِ وَكَانَ الْاِنْسَانُ عَجُولاً`, glossTr: `İnsan, hayrı ister gibi şerri de isteyecek kadar acelecidir; o pek aceleci yaratılmıştır.`, glossEn: `Humankind prays for evil as it prays for good; humankind is ever hasty.` },
-          { ref: 'Kehf 18:54', ar: `وَلَقَدْ صَرَّفْنَا فِي هٰذَا الْقُرْاٰنِ لِلنَّاسِ مِنْ كُلِّ مَثَلٍ وَكَانَ الْاِنْسَانُ اَكْثَرَ شَيْءٍ جَدَلاً`, glossTr: `İnsan, varlıklar içinde en çok tartışan, en mücadeleci olandır.`, glossEn: `Humankind is the most argumentative of all beings.` },
+        "titleTr": "İnsanın zaafları",
+        "titleEn": "Human frailties",
+        "verses": [
+          {
+            "ref": "Meâric 70:19",
+            "ar": "اِنَّ الْاِنْسَانَ خُلِقَ هَلُوعاً",
+            "glossTr": "Gerçekten insan hırslı ve sabırsız (helû') bir yaratılışta yaratılmıştır.",
+            "glossEn": "Indeed, humankind was created impatient and anxious (halūʿ)."
+          },
+          {
+            "ref": "İsrâ 17:11",
+            "ar": "وَيَدْعُ الْاِنْسَانُ بِالشَّرِّ دُعَاءَهُ بِالْخَيْرِ وَكَانَ الْاِنْسَانُ عَجُولاً",
+            "glossTr": "İnsan, hayrı ister gibi şerri de isteyecek kadar acelecidir; o pek aceleci yaratılmıştır.",
+            "glossEn": "Humankind prays for evil as it prays for good; humankind is ever hasty."
+          },
+          {
+            "ref": "Kehf 18:54",
+            "ar": "وَلَقَدْ صَرَّفْنَا فِي هٰذَا الْقُرْاٰنِ لِلنَّاسِ مِنْ كُلِّ مَثَلٍ وَكَانَ الْاِنْسَانُ اَكْثَرَ شَيْءٍ جَدَلاً",
+            "glossTr": "İnsan, varlıklar içinde en çok tartışan, en mücadeleci olandır.",
+            "glossEn": "Humankind is the most argumentative of all beings."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (70:19): insanın tabiatı gereği "helû'" (sabırsız, hırslı) yaratıldığı; devam eden âyetlerle (70:20-21) kötülük dokununca telaşlandığı, hayır dokununca cimrileştiği açıklanır. Namazı koruyup infak eden müminlerin bu hasletlerden istisna tutulduğu belirtilir. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (70:19): man is created "halūʿ" (impatient, greedy) by nature; with the following verses (70:20-21), he becomes fretful when evil touches him and withholding when good comes. The believers who guard prayer and give generously are the exception. (Summary of the tafsir.)`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (70:19): insanın tabiatı gereği \"helû'\" (sabırsız, hırslı) yaratıldığı; devam eden âyetlerle (70:20-21) kötülük dokununca telaşlandığı, hayır dokununca cimrileştiği açıklanır. Namazı koruyup infak eden müminlerin bu hasletlerden istisna tutulduğu belirtilir. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (70:19): man is created \"halūʿ\" (impatient, greedy) by nature; with the following verses (70:20-21), he becomes fretful when evil touches him and withholding when good comes. The believers who guard prayer and give generously are the exception. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Yirmi Birinci Söz, Birinci Makam, Üçüncü İkaz",
+          "sourceEn": "Bediüzzaman · Sözler, Twenty-First Word, First Station, Third Warning",
+          "introTr": "Bediüzzaman sabırsızlığı, sabır kuvvetinin yanlış dağıtılması üzerinden açıklar:",
+          "introEn": "Bediüzzaman explains impatience through the misdistribution of the strength of patience:",
+          "pointsTr": [
+            "\"Ey sabırsız nefsim! […] gelecek günlerdeki ibadet vazifesini ve namaz hizmetini ve musibet elemini, bugün tasavvur edip sabırsızlık göstermek hiç kâr-ı akıl mıdır?\"",
+            "\"Cenab-ı Hakk’ın sana verdiği sabır kuvvetini, eğer yanlış yolda dağıtmazsan her meşakkate ve her musibete kâfi gelebilir.\""
+          ],
+          "pointsEn": [
+            "\"O my impatient soul! […] is it at all reasonable to imagine today the duty of worship of days to come, […] and the pain of future calamity, and to show impatience?\"",
+            "\"If you do not squander on the wrong path the strength of patience God has given you, it can suffice for every hardship and every calamity.\""
+          ],
+          "noteTr": "Aynı ikaz Ahlâk & Karakter sayfasının sabır temasında da anılır; orada sabrın üç kısmı, burada aceleciliğin kaynağı bakımından okunur. Temanın üçüncü âyeti Kehf 18:54 (insanın en çok tartışan varlık oluşu) için doğrulanmış bir bahis bulunamadı. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "The same warning is also cited on the Ethics and Character page under patience; there it is read for the three kinds of patience, here for the source of haste. For the theme’s third verse, Kehf 18:54 on humankind being the most argumentative, no verified passage was found. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
       },
       {
-        titleTr: 'Tezkiye — nefsi arındırma',
-        titleEn: 'Tazkiya — purifying the self',
-        verses: [
-          { ref: 'Şems 91:7-10', ar: `وَنَفْسٍ وَمَا سَوّٰيهَا فَاَلْهَمَهَا فُجُورَهَا وَتَقْوٰيهَا قَدْ اَفْلَحَ مَنْ زَكّٰيهَا وَقَدْ خَابَ مَنْ دَسّٰيهَا`, glossTr: `Nefse fücûru (kötülüğü) ve takvâyı (sakınmayı) ilham eden Allah'a andolsun; nefsini arındıran kurtuluşa ermiş, kirletip örten ise hüsrana uğramıştır.`, glossEn: `By the soul and how He shaped it, inspiring it with its wickedness and its righteousness: whoever purifies it succeeds, and whoever corrupts it is ruined.` },
-          { ref: 'A’lâ 87:14', ar: `قَدْ اَفْلَحَ مَنْ تَزَكّٰى`, glossTr: `Arınan kimse gerçekten kurtuluşa ermiştir.`, glossEn: `Successful indeed is the one who purifies himself.` },
+        "titleTr": "Tezkiye — nefsi arındırma",
+        "titleEn": "Tazkiya — purifying the self",
+        "verses": [
+          {
+            "ref": "Şems 91:7-10",
+            "ar": "وَنَفْسٍ وَمَا سَوّٰيهَا فَاَلْهَمَهَا فُجُورَهَا وَتَقْوٰيهَا قَدْ اَفْلَحَ مَنْ زَكّٰيهَا وَقَدْ خَابَ مَنْ دَسّٰيهَا",
+            "glossTr": "Nefse fücûru (kötülüğü) ve takvâyı (sakınmayı) ilham eden Allah'a andolsun; nefsini arındıran kurtuluşa ermiş, kirletip örten ise hüsrana uğramıştır.",
+            "glossEn": "By the soul and how He shaped it, inspiring it with its wickedness and its righteousness: whoever purifies it succeeds, and whoever corrupts it is ruined."
+          },
+          {
+            "ref": "A’lâ 87:14",
+            "ar": "قَدْ اَفْلَحَ مَنْ تَزَكّٰى",
+            "glossTr": "Arınan kimse gerçekten kurtuluşa ermiştir.",
+            "glossEn": "Successful indeed is the one who purifies himself."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (91:9): Allah'ın nefse hem günahı hem de takvâyı tanıttığı, bu iki yolu açıkça gösterdiği açıklanır. Allah'a itaatle kendini arındıranın kurtulduğu, nefsini isyanla kirletip ihmal edenin ise hüsrana uğradığı belirtilir. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (91:9): God made the soul understand both transgression and righteousness, clarifying the two paths. Whoever purifies himself through obedience to God succeeds, while whoever corrupts and neglects his soul through disobedience fails. (Summary of the tafsir.)`,
-      },
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (91:9): Allah'ın nefse hem günahı hem de takvâyı tanıttığı, bu iki yolu açıkça gösterdiği açıklanır. Allah'a itaatle kendini arındıranın kurtulduğu, nefsini isyanla kirletip ihmal edenin ise hüsrana uğradığı belirtilir. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (91:9): God made the soul understand both transgression and righteousness, clarifying the two paths. Whoever purifies himself through obedience to God succeeds, while whoever corrupts and neglects his soul through disobedience fails. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Yirmi Altıncı Söz'ün Zeyli, Birinci Hatve",
+          "sourceEn": "Bediüzzaman · Sözler, Addendum to the Twenty-Sixth Word, First Step",
+          "introTr": "Bediüzzaman tezkiyenin ilk adımını, nefsi temize çıkarma iddiasından vazgeçmek olarak koyar (çapa âyeti Necm 53:32):",
+          "introEn": "Bediüzzaman sets the first step of purification as giving up the claim to declare the self pure (anchored on Najm 53:32):",
+          "pointsTr": [
+            "\"Mabuda lâyık bir tarzda nefsini medheder […] İşte şu mertebede, şu hatvede tezkiyesi, tathiri: Onu tezkiye etmemek, tebrie etmemektir.\"",
+            "Arınma, bir vasıf kazanmakla değil, bir iddiadan vazgeçmekle başlar."
+          ],
+          "pointsEn": [
+            "\"He praises his own soul in a manner fit only for an object of worship […] Thus at this degree, at this step, its purification and cleansing consists in not declaring it pure, in not acquitting it.\"",
+            "Purification begins not by acquiring an attribute but by giving up a claim."
+          ],
+          "noteTr": "Temanın çapası olan Şems 91:9 bu zeylin Üçüncü Hatve’sinde geçer; Birinci Hatve’nin âyeti Necm 53:32’dir. Üçüncü Hatve İnsan Yolculuğu sayfasında kullanıldığı için burada Birinci Hatve alınmıştır. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "Şems 91:9, which anchors this theme, appears in the Third Step of this addendum; the verse of the First Step is Najm 53:32. Since the Third Step is used on the Human Journey page, the First Step is quoted here. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
+      }
     ],
-    assuranceTr: `Bu âyetler insanın iç dünyasına dair kesin beyanlardır; nefs mertebeleri şeması ve psikolojik okumalar, bu kesinliğin üzerine bina edilen beşerî anlama çabalarıdır ve onun yerine geçmez. Buradan doğrudan bir tanı ya da terapi yöntemi türetilmez.`,
-    assuranceEn: `These verses are certain declarations about the inner life; the scheme of the stations of the self and psychological readings are human efforts to understand built upon that certainty, and do not replace it. No diagnostic or therapeutic method is derived directly from them.`,
-    tafsirScopeTr: `Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin "tefsir" sekmesi, ör. quran.com/12/53 · quran.com/13/28 · quran.com/70/19; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar "muhtasar İbn Kesîr metninde" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.`,
-    tafsirScopeEn: `The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's "tafsir" tab, e.g. quran.com/12/53 · quran.com/13/28 · quran.com/70/19; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read "in the abridged Ibn Kathīr text." The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.`,
-    sourcesNoteTr: `Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî psikoloji ve tasavvuf düşüncesini ve tarihini incelemek için, yaklaşımları belirtilerek anılır. Akademik olmaları görüşlerini kesinleştirmez.`,
-    sourcesNoteEn: `The academic sources are cited not to confirm the Qur'an, but to study human psychological and Sufi thought and history.`,
-    sources: [
-      { author: 'Malik Badri', work: 'Contemplation: An Islamic Psychospiritual Study', pub: 'IIIT', year: '2000', id: 'ISBN 9781565642676',
-        noteTr: `YAKLAŞIM: tefekkürü psikospiritüel bir süreç olarak kavramsallaştıran modern İslam psikolojisi çalışması.`, noteEn: `APPROACH: a work of modern Islamic psychology conceptualizing contemplation as a psycho-spiritual process.` },
-      { author: 'Malik Badri', work: 'The Dilemma of Muslim Psychologists', pub: 'MWH London', year: '1979', id: 'ISBN 9780906194058',
-        noteTr: `YAKLAŞIM: Müslüman psikologların Batı paradigmalarıyla ilişkisini sorgulayan tarihsel-eleştirel metin.`, noteEn: `APPROACH: a historical-critical text on Muslim psychologists' engagement with Western paradigms.` },
-      { author: 'Abdallah Rothman, Adrian Coyle', work: 'Toward a Framework for Islamic Psychology and Psychotherapy: An Islamic Model of the Soul', pub: 'Journal of Religion and Health 57', year: '2018', id: 'DOI 10.1007/s10943-018-0651-x',
-        noteTr: `YAKLAŞIM: nefs, ruh ve kalp kavramlarını çağdaş psikoterapi çerçevesine oturtan hakemli bir model önerisi.`, noteEn: `APPROACH: a peer-reviewed model mapping nafs, rūḥ, and qalb onto a contemporary psychotherapeutic framework.` },
-      { author: 'Abdallah Rothman', work: 'Developing a Model of Islamic Psychology and Psychotherapy', pub: 'Routledge', year: '2021', id: 'ISBN 9780367611507',
-        noteTr: `YAKLAŞIM: İslamî teolojik kavramlarla çağdaş psikolojinin entegrasyonunu ele alan akademik monografi.`, noteEn: `APPROACH: an academic monograph integrating Islamic theological concepts with contemporary psychology.` },
-      { author: 'Sara Sviri', work: 'Perspectives on Early Islamic Mysticism: The World of al-Ḥakīm al-Tirmidhī and his Contemporaries', pub: 'Routledge', year: '2020', id: 'ISBN 9780415302838',
-        noteTr: `YAKLAŞIM: erken tasavvufta nefis ile kalp arasındaki gerilimi kaynaklardan inceleyen filolojik-tarihsel çalışma.`, noteEn: `APPROACH: a philological-historical study of the tension between nafs and qalb in early Sufism.` },
-      { author: 'Ebû Hâmid el-Gazzâlî', work: 'Al-Ghazali on Disciplining the Soul & on Breaking the Two Desires (çev. T.J. Winter)', pub: 'The Islamic Texts Society', year: '1995', id: 'ISBN 9780946621439',
-        noteTr: `YAKLAŞIM: Gazzâlî'nin nefis terbiyesi (riyâzat) kuramının birincil klasik kaynağı, eleştirel akademik çeviriyle.`, noteEn: `APPROACH: a critically edited translation of Ghazālī's primary classical theory of disciplining the self (riyāḍat al-nafs).` },
-    ],
+    "assuranceTr": "Bu âyetler insanın iç dünyasına dair kesin beyanlardır; nefs mertebeleri şeması ve psikolojik okumalar, bu kesinliğin üzerine bina edilen beşerî anlama çabalarıdır ve onun yerine geçmez. Buradan doğrudan bir tanı ya da terapi yöntemi türetilmez.",
+    "assuranceEn": "These verses are certain declarations about the inner life; the scheme of the stations of the self and psychological readings are human efforts to understand built upon that certainty, and do not replace it. No diagnostic or therapeutic method is derived directly from them.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/12/53 · quran.com/13/28 · quran.com/70/19; erişim: Eylül 2026); matbu baskı/çevirmen künyesi quran.com üzerinden kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî'nin ilgili yorumları bu turda birincil kaynaktan teyit edilemediği için eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/12/53 · quran.com/13/28 · quran.com/70/19; accessed September 2026); since its print edition/translator cannot be established through quran.com, no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" The relevant comments of al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added, as they could not be verified from the primary source in this pass.",
+    "sourcesNoteTr": "Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî psikoloji ve tasavvuf düşüncesini ve tarihini incelemek için, yaklaşımları belirtilerek anılır. Akademik olmaları görüşlerini kesinleştirmez.",
+    "sourcesNoteEn": "The academic sources are cited not to confirm the Qur'an, but to study human psychological and Sufi thought and history.",
+    "sources": [
+      {
+        "author": "Malik Badri",
+        "work": "Contemplation: An Islamic Psychospiritual Study",
+        "pub": "IIIT",
+        "year": "2000",
+        "id": "ISBN 9781565642676",
+        "noteTr": "YAKLAŞIM: tefekkürü psikospiritüel bir süreç olarak kavramsallaştıran modern İslam psikolojisi çalışması.",
+        "noteEn": "APPROACH: a work of modern Islamic psychology conceptualizing contemplation as a psycho-spiritual process."
+      },
+      {
+        "author": "Malik Badri",
+        "work": "The Dilemma of Muslim Psychologists",
+        "pub": "MWH London",
+        "year": "1979",
+        "id": "ISBN 9780906194058",
+        "noteTr": "YAKLAŞIM: Müslüman psikologların Batı paradigmalarıyla ilişkisini sorgulayan tarihsel-eleştirel metin.",
+        "noteEn": "APPROACH: a historical-critical text on Muslim psychologists' engagement with Western paradigms."
+      },
+      {
+        "author": "Abdallah Rothman, Adrian Coyle",
+        "work": "Toward a Framework for Islamic Psychology and Psychotherapy: An Islamic Model of the Soul",
+        "pub": "Journal of Religion and Health 57",
+        "year": "2018",
+        "id": "DOI 10.1007/s10943-018-0651-x",
+        "noteTr": "YAKLAŞIM: nefs, ruh ve kalp kavramlarını çağdaş psikoterapi çerçevesine oturtan hakemli bir model önerisi.",
+        "noteEn": "APPROACH: a peer-reviewed model mapping nafs, rūḥ, and qalb onto a contemporary psychotherapeutic framework."
+      },
+      {
+        "author": "Abdallah Rothman",
+        "work": "Developing a Model of Islamic Psychology and Psychotherapy",
+        "pub": "Routledge",
+        "year": "2021",
+        "id": "ISBN 9780367611507",
+        "noteTr": "YAKLAŞIM: İslamî teolojik kavramlarla çağdaş psikolojinin entegrasyonunu ele alan akademik monografi.",
+        "noteEn": "APPROACH: an academic monograph integrating Islamic theological concepts with contemporary psychology."
+      },
+      {
+        "author": "Sara Sviri",
+        "work": "Perspectives on Early Islamic Mysticism: The World of al-Ḥakīm al-Tirmidhī and his Contemporaries",
+        "pub": "Routledge",
+        "year": "2020",
+        "id": "ISBN 9780415302838",
+        "noteTr": "YAKLAŞIM: erken tasavvufta nefis ile kalp arasındaki gerilimi kaynaklardan inceleyen filolojik-tarihsel çalışma.",
+        "noteEn": "APPROACH: a philological-historical study of the tension between nafs and qalb in early Sufism."
+      },
+      {
+        "author": "Ebû Hâmid el-Gazzâlî",
+        "work": "Al-Ghazali on Disciplining the Soul & on Breaking the Two Desires (çev. T.J. Winter)",
+        "pub": "The Islamic Texts Society",
+        "year": "1995",
+        "id": "ISBN 9780946621439",
+        "noteTr": "YAKLAŞIM: Gazzâlî'nin nefis terbiyesi (riyâzat) kuramının birincil klasik kaynağı, eleştirel akademik çeviriyle.",
+        "noteEn": "APPROACH: a critically edited translation of Ghazālī's primary classical theory of disciplining the self (riyāḍat al-nafs)."
+      }
+    ]
   },
 
   'liderlik-yonetim': {
@@ -768,134 +936,333 @@ export const DISCIPLINE_CONTENT = {
   },
 
   'ahlak-karakter': {
-    reviewedBy: 'gpt-6-astra review — content approved',
-    sourcesLabelTr: 'Kaynaklar',
-    sourcesLabelEn: 'Sources',
-    anchor: {
-      ref: 'Kalem 68:4',
-      ar: `وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ`,
-      trTr: `Ve sen gerçekten yüce, üstün bir ahlâk üzeresin.`,
-      trEn: `And you are truly of a great moral character.`,
+    "reviewedBy": "gpt-6-astra review — content approved",
+    "sourcesLabelTr": "Kaynaklar",
+    "sourcesLabelEn": "Sources",
+    "anchor": {
+      "ref": "Kalem 68:4",
+      "ar": "وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ",
+      "trTr": "Ve sen gerçekten yüce, üstün bir ahlâk üzeresin.",
+      "trEn": "And you are truly of a great moral character."
     },
-    introTr:
-      `Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik onaya bağlı değildir. ` +
-      `Bu sayfa; ahlâkın zirvesi ve Peygamber örneği, sabır, sıdk ve emanet, öfkeyi yenmek ve af, tevazu, söz ahlâkı gibi âyetleri karakter ve ahlâk bakımından bir araya getirir. ` +
-      `Âyetlerin anlam özetleri, tematik başlıklar, klasik tefsir açıklamaları ve akademik değerlendirmeler beşerî aktarım ve yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir. ` +
-      `Bunlardan belirli bir modern etik teorisi türetilerek Kur'an'a mal edilmez.`,
-    introEn:
-      `The Qur'an is God's word and certain truth; its truth does not depend on scientific or academic confirmation. ` +
-      `This page gathers verses on the summit of character and the Prophet's example, patience, truthfulness and trust, restraining anger and pardon, humility, and the ethics of speech, from the angle of character and morals. ` +
-      `The verse summaries, thematic headings, classical-exegesis notes, and academic assessments are layers of human transmission and interpretation; they are not identical with the Qur'an itself, ` +
-      `and no particular modern ethical theory is derived from them and ascribed to the Qur'an.`,
-    themes: [
+    "introTr": "Kur'an Allah'ın kelâmıdır ve kesin hakikattir; doğruluğu bilimsel veya akademik onaya bağlı değildir. Bu sayfa; ahlâkın zirvesi ve Peygamber örneği, sabır, sıdk ve emanet, öfkeyi yenmek ve af, tevazu, söz ahlâkı gibi âyetleri karakter ve ahlâk bakımından bir araya getirir. Âyetlerin anlam özetleri, tematik başlıklar, klasik tefsir açıklamaları ve akademik değerlendirmeler beşerî aktarım ve yorum katmanlarıdır; Kur'an'ın kendisiyle özdeş değildir. Bunlardan belirli bir modern etik teorisi türetilerek Kur'an'a mal edilmez.",
+    "introEn": "The Qur'an is God's word and certain truth; its truth does not depend on scientific or academic confirmation. This page gathers verses on the summit of character and the Prophet's example, patience, truthfulness and trust, restraining anger and pardon, humility, and the ethics of speech, from the angle of character and morals. The verse summaries, thematic headings, classical-exegesis notes, and academic assessments are layers of human transmission and interpretation; they are not identical with the Qur'an itself, and no particular modern ethical theory is derived from them and ascribed to the Qur'an.",
+    "themes": [
       {
-        titleTr: 'Ahlâkın zirvesi ve Peygamber örneği',
-        titleEn: `The summit of character and the Prophet's example`,
-        verses: [
-          { ref: 'Kalem 68:4', ar: `وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ`, glossTr: `Sen gerçekten yüce, üstün bir ahlâk üzeresin.`, glossEn: `And you are truly a man of outstanding character.` },
-          { ref: 'Ahzâb 33:21', ar: `لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللّٰهِ اُسْوَةٌ حَسَنَةٌ لِمَنْ كَانَ يَرْجُوا اللّٰهَ وَالْيَوْمَ الْاٰخِرَ وَذَكَرَ اللّٰهَ كَثِيراً`, glossTr: `Allah'a ve âhiret gününe umut bağlayıp Allah'ı çokça anan kimse için Allah'ın Resûlü'nde güzel bir örnek (üsve-i hasene) vardır.`, glossEn: `In the Messenger of Allah you have an excellent example for whoever has hope in Allah and the Last Day, and remembers Allah often.` },
+        "titleTr": "Ahlâkın zirvesi ve Peygamber örneği",
+        "titleEn": "The summit of character and the Prophet's example",
+        "verses": [
+          {
+            "ref": "Kalem 68:4",
+            "ar": "وَاِنَّكَ لَعَلٰى خُلُقٍ عَظِيمٍ",
+            "glossTr": "Sen gerçekten yüce, üstün bir ahlâk üzeresin.",
+            "glossEn": "And you are truly a man of outstanding character."
+          },
+          {
+            "ref": "Ahzâb 33:21",
+            "ar": "لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللّٰهِ اُسْوَةٌ حَسَنَةٌ لِمَنْ كَانَ يَرْجُوا اللّٰهَ وَالْيَوْمَ الْاٰخِرَ وَذَكَرَ اللّٰهَ كَثِيراً",
+            "glossTr": "Allah'a ve âhiret gününe umut bağlayıp Allah'ı çokça anan kimse için Allah'ın Resûlü'nde güzel bir örnek (üsve-i hasene) vardır.",
+            "glossEn": "In the Messenger of Allah you have an excellent example for whoever has hope in Allah and the Last Day, and remembers Allah often."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (68:4): âyet Peygamber'in (s.a.v.) olağanüstü ahlâkını över; Hz. Âişe'den nakledilen "onun ahlâkı Kur'an'dı" sözüyle, onun Kur'an'ın öğretilerini bizzat yaşadığı vurgulanır. Metin ayrıca hayâ, yumuşaklık ve affetme gibi vasıfları ve "ben ancak güzel ahlâkı tamamlamak için gönderildim" rivayetini aktarır. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (68:4): the verse praises the Prophet's exceptional character, citing ʿĀʾisha's report that "his character was the Qurʾān," i.e. he embodied its teachings. It also lists traits such as modesty, gentleness, and pardoning, and the report "I have only been sent to perfect righteous behavior." (Summary of the tafsir.)`,
-      },
-      {
-        titleTr: 'Sabır',
-        titleEn: 'Patience',
-        verses: [
-          { ref: 'Bakara 2:153', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ`, glossTr: `Ey iman edenler! Sabır ve namaz ile yardım isteyin; Allah sabredenlerle beraberdir.`, glossEn: `O believers! Seek help through patience and prayer; Allah is with those who are patient.` },
-          { ref: 'Âl-i İmrân 3:200', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ`, glossTr: `Ey iman edenler! Sabredin, sabırda birbirinizle yarışın, sebat edin ve Allah'a karşı sorumluluğunuzun bilincinde olun ki kurtuluşa eresiniz.`, glossEn: `O believers! Patiently endure, persevere, stand on guard, and be mindful of Allah, so you may be successful.` },
-          { ref: 'Zümer 39:10', ar: `قُلْ يَا عِبَادِ الَّذِينَ اٰمَنُوا اتَّقُوا رَبَّكُمْ لِلَّذِينَ اَحْسَنُوا فِي هٰذِهِ الدُّنْيَا حَسَنَةٌ وَاَرْضُ اللّٰهِ وَاسِعَةٌ اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ`, glossTr: `Bu dünyada iyilik edenlere iyilik vardır; Allah'ın arzı geniştir ve sabredenlere ecirleri hesapsız ödenir.`, glossEn: `The doers of good in this world have good; God's earth is spacious, and the patient are given their reward without limit.` },
-        ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (2:153): sabır ve namaz, musibetlerin etkisini hafifletmede en güzel yardımcılardır. Metin sabrı üçe ayırır: haramlardan kaçınmak, zorluğuna rağmen ibadetleri yerine getirmek ve sıkıntılara sebatla dayanmak. "Allah sabredenlerle beraberdir" ifadesiyle metanet gösterenlere ilâhî desteğin eşlik ettiği vurgulanır. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (2:153): patience and prayer are the best aids to ease afflictions. It divides patience into three: abstaining from the forbidden, performing worship despite difficulty, and enduring hardship steadfastly. "Allah is with those who are patient" signals divine support for those who stay composed. (Summary of the tafsir.)`,
-      },
-      {
-        titleTr: 'Sıdk (doğruluk) ve emanet',
-        titleEn: 'Truthfulness and trust',
-        verses: [
-          { ref: 'Tevbe 9:119', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَكُونُوا مَعَ الصَّادِقِينَ`, glossTr: `Ey iman edenler! Allah'a karşı sorumlu olun ve doğrularla (sâdıklarla) beraber olun.`, glossEn: `O believers! Be mindful of Allah and be with the truthful.` },
-          { ref: `Mü'minûn 23:8`, ar: `وَالَّذِينَ هُمْ لِاَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ`, glossTr: `(O mü'minler) emanetlerine ve verdikleri sözlere riayet edenlerdir.`, glossEn: `And those who are true to their trusts and covenants.` },
-          { ref: 'Ahzâb 33:70', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَقُولُوا قَوْلاً سَدِيداً`, glossTr: `Ey iman edenler! Allah'a karşı sorumlu olun ve dosdoğru söz söyleyin.`, glossEn: `O believers! Be mindful of Allah, and say what is right.` },
-        ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (9:119): doğruluk kurtuluşa götüren yoldur; "Doğruluğa sarılın, çünkü doğruluk iyiliğe, iyilik cennete götürür; yalan günaha, günah ateşe götürür" rivayeti aktarılır. Geri bırakılan Ka'b b. Mâlik'in, elli günlük zorlu boykota rağmen mazeret uydurmayıp doğruyu söylemesi ve bunun affına vesile olması örnek verilir. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (9:119): truthfulness is the path to salvation, citing "Hold to truth, for truth leads to righteousness and righteousness to Paradise; lying leads to sin and sin to the Fire." It gives the example of Kaʿb ibn Mālik, who despite a fifty-day boycott chose honesty over a fabricated excuse, which led to his forgiveness. (Summary of the tafsir.)`,
-      },
-      {
-        titleTr: 'Öfkeyi yenmek, af ve hilm',
-        titleEn: 'Restraining anger, pardon, and forbearance',
-        verses: [
-          { ref: 'Âl-i İmrân 3:134', ar: `اَلَّذِينَ يُنْفِقُونَ فِي السَّرٓاءِ وَالضَّرٓاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّٰهُ يُحِبُّ الْمُحْسِنِينَ`, glossTr: `Onlar bollukta da darlıkta da infak eden, öfkelerini yutan ve insanları affedenlerdir; Allah iyilik edenleri sever.`, glossEn: `Those who spend in prosperity and adversity, restrain their anger, and pardon others; and Allah loves the good-doers.` },
-          { ref: `A'râf 7:199`, ar: `خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَاَعْرِضْ عَنِ الْجَاهِلِينَ`, glossTr: `Affı ve kolaylığı esas al, iyiliği emret ve cahillerden yüz çevir.`, glossEn: `Be gracious, enjoin what is right, and turn away from the ignorant.` },
-          { ref: 'Şûrâ 42:40', ar: `وَجَزٰٓؤُا سَيِّئَةٍ سَيِّئَةٌ مِثْلُهَا فَمَنْ عَفَا وَاَصْلَحَ فَاَجْرُهُ عَلَى اللّٰهِ اِنَّهُ لَا يُحِبُّ الظَّالِمِينَ`, glossTr: `Bir kötülüğün karşılığı ona denk bir kötülüktür; fakat kim affeder ve arayı düzeltirse mükâfatı Allah'a aittir. Allah zalimleri sevmez.`, glossEn: `The reward of an evil is an evil like it; but whoever pardons and reconciles, their reward is with Allah. He does not like the wrongdoers.` },
-        ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (3:134): âyette tarif edilenler, öfkelendiklerinde öfkelerine göre davranmayıp onu tutan kimselerdir; "güçlü, insanları alt eden değil, öfkelendiğinde kendine hâkim olandır" hadisi aktarılır. Kendilerine haksızlık edenleri bağışlayıp kin tutmamak en üstün davranış sayılır. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (3:134): those described restrain their anger rather than act on it, citing the hadith "the strong is he who controls himself when angry." Forgiving those who wronged them and holding no rancor is deemed the most excellent conduct. (Summary of the tafsir.)`,
-        commentary: {
-          sourceTr: `Bediüzzaman · Uhuvvet Risalesi (Mektubat, 22. Mektup)`,
-          sourceEn: `Bediüzzaman · Treatise on Brotherhood (Mektubat, 22nd Letter)`,
-          introTr: `Bediüzzaman Said Nursi, Uhuvvet Risalesi'nde mü'minler arası kin ve öfkeyi (çapa âyeti Hucurât 49:10; ayrıca Âl-i İmrân 3:134 ve Fussilet 41:34) şu çerçevede ele alır:`,
-          introEn: `Bediüzzaman Said Nursi, in his Treatise on Brotherhood (anchored on Q 49:10; also Q 3:134 and Q 41:34), treats rancor and anger among believers as follows:`,
-          pointsTr: [
-            `Bir mü'mine kusuru yüzünden kin beslemek haksızlıktır: onun sevgiye lâyık pek çok sıfatını (iman, İslâmiyet) tek bir kusur uğruna mahkûm etmek zulümdür.`,
-            `Adâvet (düşmanlık) ile muhabbet, nur ile zulmet gibi zıttır; ikisi bir kalpte gerçek anlamıyla birlikte bulunamaz.`,
-            `Kin ve öfke en çok onu tutanın kendisine zarar verir; kişi "nefsini bir azab-ı elîmde bırakır."`,
-            `Düşmanlık edilecekse düşmanlığın kendisine edilmelidir: "Adâvet etmek istersen kalbindeki adâvete adâvet et, onun ref'ine (kaldırılmasına) çalış."`,
-            `Kötülüğe kötülükle karşılık husumeti artırır; iyilikle karşılık ise pişmanlık doğurur ve düşmanı dosta çevirir.`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (68:4): âyet Peygamber'in (s.a.v.) olağanüstü ahlâkını över; Hz. Âişe'den nakledilen \"onun ahlâkı Kur'an'dı\" sözüyle, onun Kur'an'ın öğretilerini bizzat yaşadığı vurgulanır. Metin ayrıca hayâ, yumuşaklık ve affetme gibi vasıfları ve \"ben ancak güzel ahlâkı tamamlamak için gönderildim\" rivayetini aktarır. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (68:4): the verse praises the Prophet's exceptional character, citing ʿĀʾisha's report that \"his character was the Qurʾān,\" i.e. he embodied its teachings. It also lists traits such as modesty, gentleness, and pardoning, and the report \"I have only been sent to perfect righteous behavior.\" (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Lem'alar, On Birinci Lem'a, On Birinci Nükte, Üçüncü Mesele",
+          "sourceEn": "Bediüzzaman · Lem'alar, Eleventh Flash, Eleventh Point, Third Matter",
+          "introTr": "Bediüzzaman, Kur'an'ın bildirdiği güzel ahlâkın örneği olarak Peygamber'i gösterir:",
+          "introEn": "Bediüzzaman points to the Prophet as the exemplar of the noble character the Qur'an sets forth:",
+          "pointsTr": [
+            "\"Rivayat-ı sahiha ile […] sahabe-i güzin, Hazret-i Peygamber aleyhissalâtü vesselâmı tarif ettikleri zaman ‘Hulukuhu’l-Kur’an’ diye tarif ediyorlardı.\"",
+            "\"Yani Kur’an’ın beyan ettiği mehasin-i ahlâkın misali, Muhammed aleyhissalâtü vesselâmdır.\""
           ],
-          pointsEn: [
-            `Holding rancor against a believer for a fault is unjust: to condemn his many lovable qualities (faith, Islam) for a single flaw is a wrong.`,
-            `Enmity and love are opposites like darkness and light; the two cannot truly coexist in one heart.`,
-            `Rancor and anger harm most the one who holds them; a person thereby "leaves his own soul in a painful torment."`,
-            `If one must be hostile, be hostile to the hostility itself: "If you wish to feel enmity, feel it toward the enmity in your heart, and strive to remove it."`,
-            `Repaying evil with evil increases the feud; repaying it with good produces remorse and turns an enemy into a friend.`,
+          "pointsEn": [
+            "\"Through sound narrations […] the choice Companions, when they described the Prophet, described him as ‘his character was the Qur’an.’\"",
+            "\"That is, the exemplar of the excellent character the Qur’an sets forth is Muhammad.\""
           ],
-          noteTr: `Alıntılar birincil metinden (Mektubat, 22. Mektup, Birinci Mebhas) doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.`,
-          noteEn: `The quotations are verified from the primary text (Mektubat, 22nd Letter, First Topic). This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration.`,
-        },
+          "noteTr": "Bu Lem’a’nın kendi serlevha âyetleri Âl-i İmrân 3:164, Tevbe 9:128-129 ve Âl-i İmrân 3:31’dir; temanın ikinci çapası Ahzâb 33:21 orada geçmez. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "The epigraph verses of this Flash are Âl-i İmrân 3:164, Tevbe 9:128-129 and Âl-i İmrân 3:31; Ahzâb 33:21, the theme’s second anchor, does not appear there. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
       },
       {
-        titleTr: 'Tevazu ve kibirden sakınma',
-        titleEn: 'Humility and shunning arrogance',
-        verses: [
-          { ref: 'Lokmân 31:18-19', ar: `وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِي الْاَرْضِ مَرَحاً اِنَّ اللّٰهَ لَا يُحِبُّ كُلَّ مُخْتَالٍ فَخُورٍ وَاقْصِدْ فِي مَشْيِكَ وَاغْضُضْ مِنْ صَوْتِكَ اِنَّ اَنْكَرَ الْاَصْوَاتِ لَصَوْتُ الْحَمِيرِ`, glossTr: `İnsanlara küçümseyerek yüz çevirme, yeryüzünde böbürlenerek yürüme; Allah kendini beğenmiş övüngeni sevmez. Yürüyüşünde ölçülü ol, sesini kıs; seslerin en çirkini eşeklerin sesidir.`, glossEn: `Do not turn your nose up at people, nor walk pridefully; Allah does not like the arrogant boaster. Be moderate in your pace and lower your voice, for the ugliest of voices is the braying of donkeys.` },
-          { ref: 'Furkân 25:63', ar: `وَعِبَادُ الرَّحْمٰنِ الَّذِينَ يَمْشُونَ عَلَى الْاَرْضِ هَوْناً وَاِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَاماً`, glossTr: `Rahmân'ın kulları yeryüzünde alçakgönüllülükle yürür; cahiller kendilerine laf attığında "selâm" deyip geçerler.`, glossEn: `The servants of the Most Compassionate walk on the earth humbly, and when the foolish address them, they say "peace."` },
-          { ref: 'İsrâ 17:37', ar: `وَلَا تَمْشِ فِي الْاَرْضِ مَرَحاً اِنَّكَ لَنْ تَخْرِقَ الْاَرْضَ وَلَنْ تَبْلُغَ الْجِبَالَ طُولاً`, glossTr: `Yeryüzünde böbürlenerek yürüme; sen ne yeri yarabilir ne de boyca dağlara erişebilirsin.`, glossEn: `Do not walk on the earth arrogantly; you can neither crack the earth nor reach the mountains in height.` },
+        "titleTr": "Sabır",
+        "titleEn": "Patience",
+        "verses": [
+          {
+            "ref": "Bakara 2:153",
+            "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ",
+            "glossTr": "Ey iman edenler! Sabır ve namaz ile yardım isteyin; Allah sabredenlerle beraberdir.",
+            "glossEn": "O believers! Seek help through patience and prayer; Allah is with those who are patient."
+          },
+          {
+            "ref": "Âl-i İmrân 3:200",
+            "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+            "glossTr": "Ey iman edenler! Sabredin, sabırda birbirinizle yarışın, sebat edin ve Allah'a karşı sorumluluğunuzun bilincinde olun ki kurtuluşa eresiniz.",
+            "glossEn": "O believers! Patiently endure, persevere, stand on guard, and be mindful of Allah, so you may be successful."
+          },
+          {
+            "ref": "Zümer 39:10",
+            "ar": "قُلْ يَا عِبَادِ الَّذِينَ اٰمَنُوا اتَّقُوا رَبَّكُمْ لِلَّذِينَ اَحْسَنُوا فِي هٰذِهِ الدُّنْيَا حَسَنَةٌ وَاَرْضُ اللّٰهِ وَاسِعَةٌ اِنَّمَا يُوَفَّى الصَّابِرُونَ اَجْرَهُمْ بِغَيْرِ حِسَابٍ",
+            "glossTr": "Bu dünyada iyilik edenlere iyilik vardır; Allah'ın arzı geniştir ve sabredenlere ecirleri hesapsız ödenir.",
+            "glossEn": "The doers of good in this world have good; God's earth is spacious, and the patient are given their reward without limit."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (31:18): insanlarla konuşurken kibirle yüz çevirmemek, onlara yumuşak ve güler yüzle davranmak gerektiği belirtilir. Yeryüzünde kasılarak, kibir ve inatla yürümek de yasaklanır; çünkü "Allah kendini beğenmiş hiçbir övüngeni sevmez." (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (31:18): one is not to turn the face away in arrogance while speaking, but to be gentle and greet people cheerfully. Walking boastfully and stubbornly is forbidden, for "Allah does not like any arrogant boaster." (Summary of the tafsir.)`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (2:153): sabır ve namaz, musibetlerin etkisini hafifletmede en güzel yardımcılardır. Metin sabrı üçe ayırır: haramlardan kaçınmak, zorluğuna rağmen ibadetleri yerine getirmek ve sıkıntılara sebatla dayanmak. \"Allah sabredenlerle beraberdir\" ifadesiyle metanet gösterenlere ilâhî desteğin eşlik ettiği vurgulanır. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (2:153): patience and prayer are the best aids to ease afflictions. It divides patience into three: abstaining from the forbidden, performing worship despite difficulty, and enduring hardship steadfastly. \"Allah is with those who are patient\" signals divine support for those who stay composed. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Yirmi Birinci Söz, Birinci Makam, Üçüncü İkaz",
+          "sourceEn": "Bediüzzaman · Sözler, Twenty-First Word, First Station, Third Warning",
+          "introTr": "Bediüzzaman sabrı üçe ayırır; insana verilmiş bir kuvvet olarak anlatır:",
+          "introEn": "Bediüzzaman divides patience in three and describes it as a strength given to the human being:",
+          "pointsTr": [
+            "\"Sen üç sabır ile mükellefsin. Birisi: Taat üstünde sabırdır. Birisi: Masiyetten sabırdır. Diğeri: Musibete karşı sabırdır.\"",
+            "\"Cenab-ı Hakk’ın sana verdiği sabır kuvvetini, eğer yanlış yolda dağıtmazsan her meşakkate ve her musibete kâfi gelebilir ve o kuvvetle dayan.\""
+          ],
+          "pointsEn": [
+            "\"You are charged with three patiences: one is patience in worship; one is patience in abstaining from sin; the other is patience against affliction.\"",
+            "\"If you do not squander on wrong paths the strength of patience God has given you, it can suffice for every hardship and every affliction; endure by that strength.\""
+          ],
+          "noteTr": "Aynı ikaz Psikoloji & Nefs sayfasında da anılır; orada aceleciliğin kaynağı, burada sabrın üç kısmı bakımından okunur. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "The same warning is also cited on the Psychology and the Self page; there it is read for the source of haste, here for the three kinds of patience. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
       },
       {
-        titleTr: 'Söz ahlâkı — gıybet ve güzel söz',
-        titleEn: 'The ethics of speech — backbiting and kind words',
-        verses: [
-          { ref: 'Hucurât 49:11', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسٰٓى اَنْ يَكُونُوا خَيْراً مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسٰٓى اَنْ يَكُنَّ خَيْراً مِنْهُنَّ وَلَا تَلْمِزُوا اَنْفُسَكُمْ وَلَا تَنَابَزُوا بِالْاَلْقَابِ`, glossTr: `Ey iman edenler! Bir topluluk başkalarıyla alay etmesin (belki onlar daha hayırlıdır); ne erkekler ne de kadınlar; birbirinizi karalamayın ve kötü lakaplarla çağırmayın.`, glossEn: `O believers! Let no group ridicule others (they may be better), neither men nor women; do not defame one another nor call each other by offensive nicknames.` },
-          { ref: 'Hucurât 49:12', ar: `يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اجْتَنِبُوا كَثِيراً مِنَ الظَّنِّ اِنَّ بَعْضَ الظَّنِّ اِثْمٌ وَلَا تَجَسَّسُوا وَلَا يَغْتَبْ بَعْضُكُمْ بَعْضاً اَيُحِبُّ اَحَدُكُمْ اَنْ يَأْكُلَ لَحْمَ اَخِيهِ مَيْتاً فَكَرِهْتُمُوهُ`, glossTr: `Zannın çoğundan sakının (bazı zan günahtır); birbirinizin kusurunu araştırmayın (tecessüs) ve gıybet etmeyin. Biriniz ölmüş kardeşinin etini yemek ister mi? Bundan tiksinirsiniz.`, glossEn: `Avoid much suspicion (some suspicion is sin); do not spy, nor backbite one another. Would any of you like to eat the flesh of his dead brother? You would despise it.` },
-          { ref: 'Bakara 2:83', ar: `وَاِذْ اَخَذْنَا مِيثَاقَ بَنِي اِسْرَائِلَ لَا تَعْبُدُونَ اِلَّا اللّٰهَ وَبِالْوَالِدَيْنِ اِحْسَاناً وَذِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينِ وَقُولُوا لِلنَّاسِ حُسْناً`, glossTr: `İsrâiloğulları'ndan alınan misakta, yalnız Allah'a kulluk, ana-babaya ve akrabaya iyilikle birlikte "insanlara güzel söz söyleyin" emri de yer alır.`, glossEn: `In the covenant taken from the Children of Israel, alongside worshipping God alone and kindness to parents and kin, comes the command "speak kindly to people."` },
+        "titleTr": "Sıdk (doğruluk) ve emanet",
+        "titleEn": "Truthfulness and trust",
+        "verses": [
+          {
+            "ref": "Tevbe 9:119",
+            "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَكُونُوا مَعَ الصَّادِقِينَ",
+            "glossTr": "Ey iman edenler! Allah'a karşı sorumlu olun ve doğrularla (sâdıklarla) beraber olun.",
+            "glossEn": "O believers! Be mindful of Allah and be with the truthful."
+          },
+          {
+            "ref": "Mü'minûn 23:8",
+            "ar": "وَالَّذِينَ هُمْ لِاَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ",
+            "glossTr": "(O mü'minler) emanetlerine ve verdikleri sözlere riayet edenlerdir.",
+            "glossEn": "And those who are true to their trusts and covenants."
+          },
+          {
+            "ref": "Ahzâb 33:70",
+            "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ وَقُولُوا قَوْلاً سَدِيداً",
+            "glossTr": "Ey iman edenler! Allah'a karşı sorumlu olun ve dosdoğru söz söyleyin.",
+            "glossEn": "O believers! Be mindful of Allah, and say what is right."
+          }
         ],
-        tafsirTr: `Muhtasar İbn Kesîr metninde (49:12): asılsız zandan sakınmak gerekir; Hz. Ömer'in "kardeşinin sözüne, iyi bir mazeret bulabildiğin sürece kötü anlam yükleme" sözü ile Peygamber'in "zandan sakının, çünkü zan sözlerin en yalanıdır" uyarısı aktarılır. Gıybet "kardeşini hoşlanmayacağı şekilde anmak" diye tanımlanır; ölü etini yeme benzetmesiyle ondan tiksinilmesi gerektiği anlatılır. (Tefsir özeti.)`,
-        tafsirEn: `The abridged Ibn Kathīr (49:12): avoid baseless suspicion, citing ʿUmar's counsel never to assume ill of a brother's word while a good excuse can be found, and the Prophet's warning "beware of suspicion, for it is the worst of false tales." Backbiting is defined as "mentioning about your brother what he dislikes," the dead-flesh simile teaching one to loathe it. (Summary of the tafsir.)`,
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (9:119): doğruluk kurtuluşa götüren yoldur; \"Doğruluğa sarılın, çünkü doğruluk iyiliğe, iyilik cennete götürür; yalan günaha, günah ateşe götürür\" rivayeti aktarılır. Geri bırakılan Ka'b b. Mâlik'in, elli günlük zorlu boykota rağmen mazeret uydurmayıp doğruyu söylemesi ve bunun affına vesile olması örnek verilir. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (9:119): truthfulness is the path to salvation, citing \"Hold to truth, for truth leads to righteousness and righteousness to Paradise; lying leads to sin and sin to the Fire.\" It gives the example of Kaʿb ibn Mālik, who despite a fifty-day boycott chose honesty over a fabricated excuse, which led to his forgiveness. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Hutbe-i Şamiye, Üçüncü Kelime",
+          "sourceEn": "Bediüzzaman · Hutbe-i Şamiye (The Damascus Sermon), Third Word",
+          "introTr": "Bediüzzaman doğruluğu iyi huylardan biri değil, hepsini birbirine bağlayan temel sayar:",
+          "introEn": "Bediüzzaman treats truthfulness not as one virtue among others but as the foundation binding them all:",
+          "pointsTr": [
+            "\"Sıdk, İslâmiyet’in üssü’l-esasıdır ve ulvi seciyelerinin rabıtasıdır.\"",
+            "\"Riyakârlık, fiilî bir nevi yalancılıktır.\" Yani yalan yalnız sözde değil, davranışta da olur."
+          ],
+          "pointsEn": [
+            "\"Truthfulness is the very foundation of Islam, the bond of its lofty virtues.\"",
+            "\"Hypocrisy is a kind of lying in deed.\" That is, a lie can be told by conduct as well as by speech."
+          ],
+          "noteTr": "Hutbe-i Şamiye müstakil bir risaledir; bazı dijital nüshalarda Mektubat menüsü altında listelense de Mektubat’ın bir parçası değildir, künye buna göre verilmiştir. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "Hutbe-i Şamiye is a standalone treatise; although some digital editions list it under a Mektubat menu, it is not part of Mektubat, and the citation reflects that. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
       },
+      {
+        "titleTr": "Öfkeyi yenmek, af ve hilm",
+        "titleEn": "Restraining anger, pardon, and forbearance",
+        "verses": [
+          {
+            "ref": "Âl-i İmrân 3:134",
+            "ar": "اَلَّذِينَ يُنْفِقُونَ فِي السَّرٓاءِ وَالضَّرٓاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّٰهُ يُحِبُّ الْمُحْسِنِينَ",
+            "glossTr": "Onlar bollukta da darlıkta da infak eden, öfkelerini yutan ve insanları affedenlerdir; Allah iyilik edenleri sever.",
+            "glossEn": "Those who spend in prosperity and adversity, restrain their anger, and pardon others; and Allah loves the good-doers."
+          },
+          {
+            "ref": "A'râf 7:199",
+            "ar": "خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَاَعْرِضْ عَنِ الْجَاهِلِينَ",
+            "glossTr": "Affı ve kolaylığı esas al, iyiliği emret ve cahillerden yüz çevir.",
+            "glossEn": "Be gracious, enjoin what is right, and turn away from the ignorant."
+          },
+          {
+            "ref": "Şûrâ 42:40",
+            "ar": "وَجَزٰٓؤُا سَيِّئَةٍ سَيِّئَةٌ مِثْلُهَا فَمَنْ عَفَا وَاَصْلَحَ فَاَجْرُهُ عَلَى اللّٰهِ اِنَّهُ لَا يُحِبُّ الظَّالِمِينَ",
+            "glossTr": "Bir kötülüğün karşılığı ona denk bir kötülüktür; fakat kim affeder ve arayı düzeltirse mükâfatı Allah'a aittir. Allah zalimleri sevmez.",
+            "glossEn": "The reward of an evil is an evil like it; but whoever pardons and reconciles, their reward is with Allah. He does not like the wrongdoers."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (3:134): âyette tarif edilenler, öfkelendiklerinde öfkelerine göre davranmayıp onu tutan kimselerdir; \"güçlü, insanları alt eden değil, öfkelendiğinde kendine hâkim olandır\" hadisi aktarılır. Kendilerine haksızlık edenleri bağışlayıp kin tutmamak en üstün davranış sayılır. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (3:134): those described restrain their anger rather than act on it, citing the hadith \"the strong is he who controls himself when angry.\" Forgiving those who wronged them and holding no rancor is deemed the most excellent conduct. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Uhuvvet Risalesi (Mektubat, 22. Mektup)",
+          "sourceEn": "Bediüzzaman · Treatise on Brotherhood (Mektubat, 22nd Letter)",
+          "introTr": "Bediüzzaman Said Nursi, Uhuvvet Risalesi'nde mü'minler arası kin ve öfkeyi (çapa âyeti Hucurât 49:10; ayrıca Âl-i İmrân 3:134 ve Fussilet 41:34) şu çerçevede ele alır:",
+          "introEn": "Bediüzzaman Said Nursi, in his Treatise on Brotherhood (anchored on Q 49:10; also Q 3:134 and Q 41:34), treats rancor and anger among believers as follows:",
+          "pointsTr": [
+            "Bir mü'mine kusuru yüzünden kin beslemek haksızlıktır: onun sevgiye lâyık pek çok sıfatını (iman, İslâmiyet) tek bir kusur uğruna mahkûm etmek zulümdür.",
+            "Adâvet (düşmanlık) ile muhabbet, nur ile zulmet gibi zıttır; ikisi bir kalpte gerçek anlamıyla birlikte bulunamaz.",
+            "Kin ve öfke en çok onu tutanın kendisine zarar verir; kişi \"nefsini bir azab-ı elîmde bırakır.\"",
+            "Düşmanlık edilecekse düşmanlığın kendisine edilmelidir: \"Adâvet etmek istersen kalbindeki adâvete adâvet et, onun ref'ine (kaldırılmasına) çalış.\"",
+            "Kötülüğe kötülükle karşılık husumeti artırır; iyilikle karşılık ise pişmanlık doğurur ve düşmanı dosta çevirir."
+          ],
+          "pointsEn": [
+            "Holding rancor against a believer for a fault is unjust: to condemn his many lovable qualities (faith, Islam) for a single flaw is a wrong.",
+            "Enmity and love are opposites like darkness and light; the two cannot truly coexist in one heart.",
+            "Rancor and anger harm most the one who holds them; a person thereby \"leaves his own soul in a painful torment.\"",
+            "If one must be hostile, be hostile to the hostility itself: \"If you wish to feel enmity, feel it toward the enmity in your heart, and strive to remove it.\"",
+            "Repaying evil with evil increases the feud; repaying it with good produces remorse and turns an enemy into a friend."
+          ],
+          "noteTr": "Alıntılar birincil metinden (Mektubat, 22. Mektup, Birinci Mebhas) doğrulanmıştır. Bu, âyetler üzerine modern bir tefsir/risale okumasıdır (beşerî yorum katmanı); Kur'an'ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotations are verified from the primary text (Mektubat, 22nd Letter, First Topic). This is a modern Risale/tafsir reading of the verses (a human interpretive layer), not identical with the Qur'an's certain declaration."
+        }
+      },
+      {
+        "titleTr": "Tevazu ve kibirden sakınma",
+        "titleEn": "Humility and shunning arrogance",
+        "verses": [
+          {
+            "ref": "Lokmân 31:18-19",
+            "ar": "وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِي الْاَرْضِ مَرَحاً اِنَّ اللّٰهَ لَا يُحِبُّ كُلَّ مُخْتَالٍ فَخُورٍ وَاقْصِدْ فِي مَشْيِكَ وَاغْضُضْ مِنْ صَوْتِكَ اِنَّ اَنْكَرَ الْاَصْوَاتِ لَصَوْتُ الْحَمِيرِ",
+            "glossTr": "İnsanlara küçümseyerek yüz çevirme, yeryüzünde böbürlenerek yürüme; Allah kendini beğenmiş övüngeni sevmez. Yürüyüşünde ölçülü ol, sesini kıs; seslerin en çirkini eşeklerin sesidir.",
+            "glossEn": "Do not turn your nose up at people, nor walk pridefully; Allah does not like the arrogant boaster. Be moderate in your pace and lower your voice, for the ugliest of voices is the braying of donkeys."
+          },
+          {
+            "ref": "Furkân 25:63",
+            "ar": "وَعِبَادُ الرَّحْمٰنِ الَّذِينَ يَمْشُونَ عَلَى الْاَرْضِ هَوْناً وَاِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَاماً",
+            "glossTr": "Rahmân'ın kulları yeryüzünde alçakgönüllülükle yürür; cahiller kendilerine laf attığında \"selâm\" deyip geçerler.",
+            "glossEn": "The servants of the Most Compassionate walk on the earth humbly, and when the foolish address them, they say \"peace.\""
+          },
+          {
+            "ref": "İsrâ 17:37",
+            "ar": "وَلَا تَمْشِ فِي الْاَرْضِ مَرَحاً اِنَّكَ لَنْ تَخْرِقَ الْاَرْضَ وَلَنْ تَبْلُغَ الْجِبَالَ طُولاً",
+            "glossTr": "Yeryüzünde böbürlenerek yürüme; sen ne yeri yarabilir ne de boyca dağlara erişebilirsin.",
+            "glossEn": "Do not walk on the earth arrogantly; you can neither crack the earth nor reach the mountains in height."
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (31:18): insanlarla konuşurken kibirle yüz çevirmemek, onlara yumuşak ve güler yüzle davranmak gerektiği belirtilir. Yeryüzünde kasılarak, kibir ve inatla yürümek de yasaklanır; çünkü \"Allah kendini beğenmiş hiçbir övüngeni sevmez.\" (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (31:18): one is not to turn the face away in arrogance while speaking, but to be gentle and greet people cheerfully. Walking boastfully and stubbornly is forbidden, for \"Allah does not like any arrogant boaster.\" (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Sözler, Yirmi Altıncı Söz'ün Zeyli, Üçüncü Hatve",
+          "sourceEn": "Bediüzzaman · Sözler, Addendum to the Twenty-Sixth Word, Third Step",
+          "introTr": "Bediüzzaman tevazuyu, iyilikleri Allah'ın ihsanı bilmek üzerinden açıklar:",
+          "introEn": "Bediüzzaman explains humility through knowing one's good qualities as gifts bestowed by God:",
+          "pointsTr": [
+            "\"Nefsin muktezası, daima iyiliği kendinden bilip fahir ve ucbe girer.\"",
+            "\"Bu hatvede nefsinde yalnız kusuru ve naksı ve aczi ve fakrı görüp bütün mehasin ve kemalâtını, Fâtır-ı Zülcelal tarafından ona ihsan edilmiş nimetler olduğunu anlayıp, fahir yerinde şükür ve temeddüh yerinde hamdetmektir.\""
+          ],
+          "pointsEn": [
+            "\"The soul’s disposition is always to credit good to itself and so fall into vainglory and conceit.\"",
+            "\"At this step one sees in oneself only fault, defect, powerlessness and poverty, understands that all one’s virtues and perfections are gifts bestowed by the Glorious Originator, and so gives thanks in place of vainglory and praise in place of self-extolling.\""
+          ],
+          "noteTr": "Aynı hatveden farklı bir cümle İnsan Yolculuğu sayfasında takvâ aşamasında kullanılır. Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır.",
+          "noteEn": "A different sentence from the same step is used on the Human Journey page at the stage of taqwa. The quotation is verified from the primary text. This is a human interpretive layer."
+        }
+      },
+      {
+        "titleTr": "Söz ahlâkı — gıybet ve güzel söz",
+        "titleEn": "The ethics of speech — backbiting and kind words",
+        "verses": [
+          {
+            "ref": "Hucurât 49:11",
+            "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسٰٓى اَنْ يَكُونُوا خَيْراً مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسٰٓى اَنْ يَكُنَّ خَيْراً مِنْهُنَّ وَلَا تَلْمِزُوا اَنْفُسَكُمْ وَلَا تَنَابَزُوا بِالْاَلْقَابِ",
+            "glossTr": "Ey iman edenler! Bir topluluk başkalarıyla alay etmesin (belki onlar daha hayırlıdır); ne erkekler ne de kadınlar; birbirinizi karalamayın ve kötü lakaplarla çağırmayın.",
+            "glossEn": "O believers! Let no group ridicule others (they may be better), neither men nor women; do not defame one another nor call each other by offensive nicknames."
+          },
+          {
+            "ref": "Hucurât 49:12",
+            "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اجْتَنِبُوا كَثِيراً مِنَ الظَّنِّ اِنَّ بَعْضَ الظَّنِّ اِثْمٌ وَلَا تَجَسَّسُوا وَلَا يَغْتَبْ بَعْضُكُمْ بَعْضاً اَيُحِبُّ اَحَدُكُمْ اَنْ يَأْكُلَ لَحْمَ اَخِيهِ مَيْتاً فَكَرِهْتُمُوهُ",
+            "glossTr": "Zannın çoğundan sakının (bazı zan günahtır); birbirinizin kusurunu araştırmayın (tecessüs) ve gıybet etmeyin. Biriniz ölmüş kardeşinin etini yemek ister mi? Bundan tiksinirsiniz.",
+            "glossEn": "Avoid much suspicion (some suspicion is sin); do not spy, nor backbite one another. Would any of you like to eat the flesh of his dead brother? You would despise it."
+          },
+          {
+            "ref": "Bakara 2:83",
+            "ar": "وَاِذْ اَخَذْنَا مِيثَاقَ بَنِي اِسْرَائِلَ لَا تَعْبُدُونَ اِلَّا اللّٰهَ وَبِالْوَالِدَيْنِ اِحْسَاناً وَذِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينِ وَقُولُوا لِلنَّاسِ حُسْناً",
+            "glossTr": "İsrâiloğulları'ndan alınan misakta, yalnız Allah'a kulluk, ana-babaya ve akrabaya iyilikle birlikte \"insanlara güzel söz söyleyin\" emri de yer alır.",
+            "glossEn": "In the covenant taken from the Children of Israel, alongside worshipping God alone and kindness to parents and kin, comes the command \"speak kindly to people.\""
+          }
+        ],
+        "tafsirTr": "Muhtasar İbn Kesîr metninde (49:12): asılsız zandan sakınmak gerekir; Hz. Ömer'in \"kardeşinin sözüne, iyi bir mazeret bulabildiğin sürece kötü anlam yükleme\" sözü ile Peygamber'in \"zandan sakının, çünkü zan sözlerin en yalanıdır\" uyarısı aktarılır. Gıybet \"kardeşini hoşlanmayacağı şekilde anmak\" diye tanımlanır; ölü etini yeme benzetmesiyle ondan tiksinilmesi gerektiği anlatılır. (Tefsir özeti.)",
+        "tafsirEn": "The abridged Ibn Kathīr (49:12): avoid baseless suspicion, citing ʿUmar's counsel never to assume ill of a brother's word while a good excuse can be found, and the Prophet's warning \"beware of suspicion, for it is the worst of false tales.\" Backbiting is defined as \"mentioning about your brother what he dislikes,\" the dead-flesh simile teaching one to loathe it. (Summary of the tafsir.)",
+        "commentary": {
+          "sourceTr": "Bediüzzaman · Mektubat, Yirmi İkinci Mektup, Hâtime (gıybet bahsi)",
+          "sourceEn": "Bediüzzaman · Mektubat, Twenty-Second Letter, Conclusion (on backbiting)",
+          "introTr": "Bu hâtime doğrudan Hucurât 49:12 üzerine kuruludur; Bediüzzaman gıybeti, düşmanlık ve haset sahiplerinin kullandığı bir silaha benzetir:",
+          "introEn": "This conclusion is built directly on Hucurât 49:12; Bediüzzaman likens backbiting to a weapon used by those given to enmity and envy:",
+          "pointsTr": [
+            "\"Gıybet, ehl-i adâvet ve hased ve inadın en çok istimal ettikleri alçak bir silahtır. İzzet-i nefis sahibi, bu pis silaha tenezzül edip istimal etmez.\"",
+            "Aynı yerde gıybetin tarifi de verilir: \"Gıybet edilen adam hazır olsa idi ve işitse idi, kerahet edip darılacaktı.\""
+          ],
+          "pointsEn": [
+            "\"Backbiting is a base weapon, most used by the people of enmity, envy and obstinacy. One who possesses self-respect does not stoop to use this filthy weapon.\"",
+            "The same passage also defines it: backbiting is what the person spoken of would have resented and been pained by, had he been present and heard it."
+          ],
+          "noteTr": "Alıntı birincil metinden doğrulanmıştır. Beşerî yorum katmanıdır; Kur’an’ın kesin beyanıyla özdeş değildir.",
+          "noteEn": "The quotation is verified from the primary text. This is a human interpretive layer, not identical with the Qur’an’s certain declaration."
+        }
+      }
     ],
-    assuranceTr: `Bu âyetler ahlâk ve karakter için kesin ölçüler koyar; tefsir ve ahlâk felsefesi katmanı, bu kesinliğin üzerine bina edilen beşerî anlama çabasıdır ve onun yerine geçmez. Bu seçki ahlâkın bütün konularını da tüketmez.`,
-    assuranceEn: `These verses set out firm measures for character and morals; the layer of exegesis and moral philosophy is a human effort to understand built upon that certainty, and does not replace it. This selection also does not exhaust every topic of ethics.`,
-    tafsirScopeTr: `Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin "tefsir" sekmesi, ör. quran.com/68/4 · quran.com/2/153 · quran.com/49/12; erişim: Eylül 2026); matbu baskı/çevirmen künyesi kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar "muhtasar İbn Kesîr metninde" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî bu turda eklenmemiştir.`,
-    tafsirScopeEn: `The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's "tafsir" tab, e.g. quran.com/68/4 · quran.com/2/153 · quran.com/49/12; accessed September 2026); no volume/page is given and attributions read "in the abridged Ibn Kathīr text." Al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added in this pass.`,
-    sourcesNoteTr: `Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî ahlâk düşüncesini ve tarihini incelemek için anılır. Akademik olmaları görüşlerini kesinleştirmez.`,
-    sourcesNoteEn: `The academic sources are cited not to confirm the Qur'an, but to study human moral thought and its history.`,
-    sources: [
-      { author: 'Bediüzzaman Said Nursi', work: `Uhuvvet Risalesi (Mektubat, 22. Mektup)`, pub: 'Risale-i Nur Külliyatı', year: '', id: 'birincil tefsir-risale metni',
-        noteTr: `BİRİNCİL TEFSİR-RİSALE: mü'minler arası kin ve öfkeyi Hucurât 49:10 ve Âl-i İmrân 3:134 ekseninde ele alan modern tefsir metni (beşerî yorum katmanı). TEMA 4'te işlenmiştir.`, noteEn: `PRIMARY RISALE/TAFSIR: a modern text on rancor and anger among believers, anchored on Q 49:10 and Q 3:134 (a human interpretive layer). Treated in Theme 4.` },
-      { author: 'Toshihiko Izutsu', work: 'Ethico-Religious Concepts in the Qur\'an', pub: 'McGill-Queen\'s University Press', year: '2002', id: 'ISBN 9780773524279',
-        noteTr: `YAKLAŞIM: Kur'an'ın ahlâk terimlerinin (birr, takvâ, sabr, zulm) semantik yapısını dilbilimsel inceleyen referans çalışma.`, noteEn: `APPROACH: a reference semantic-field study of the Qur'an's moral vocabulary (birr, taqwā, ṣabr, ẓulm).` },
-      { author: 'Majid Fakhry', work: 'Ethical Theories in Islam', pub: 'E. J. Brill', year: '1994', id: 'ISBN 9789004101074',
-        noteTr: `YAKLAŞIM: İslam ahlâk düşüncesinin kelâmî, felsefî ve tasavvufî ekollerini sistematik tasnif eden akademik kaynak.`, noteEn: `APPROACH: a systematic scholarly taxonomy of Islamic ethical schools (theological, philosophical, mystical).` },
-      { author: 'George F. Hourani', work: 'Reason and Tradition in Islamic Ethics', pub: 'Cambridge University Press', year: '1985', id: 'ISBN 9780521267120',
-        noteTr: `YAKLAŞIM: akıl-nakil ilişkisi ve ahlâkî bilginin kaynağı üzerine klasik dönem tartışmasını inceleyen makaleler.`, noteEn: `APPROACH: collected essays on reason vs. tradition as sources of moral knowledge in the classical period.` },
-      { author: 'İbn Miskeveyh (çev. Constantine K. Zurayk)', work: 'The Refinement of Character (Tehzîbü\'l-Ahlâk)', pub: 'American University of Beirut', year: '1968', id: 'birincil klasik metin (akademik çeviri)',
-        noteTr: `KLASİK METİN: İslam fazilet etiğinin (karakter terbiyesi) temel eseri, güvenilir akademik çeviriyle.`, noteEn: `CLASSICAL TEXT: a foundational work of Islamic virtue ethics (refinement of character) in a reliable scholarly translation.` },
-      { author: 'Mohamed Ahmed Sherif', work: 'Ghazali\'s Theory of Virtue', pub: 'State University of New York Press', year: '1975', id: 'ISBN 9780873952064',
-        noteTr: `YAKLAŞIM: Gazzâlî'nin felsefî, dinî-hukukî ve tasavvufî faziletleri birleştiren ahlâk nazariyesinin akademik tahlili.`, noteEn: `APPROACH: a scholarly analysis of al-Ghazālī's synthesis of philosophical, religious-legal, and mystical virtues.` },
-    ],
+    "assuranceTr": "Bu âyetler ahlâk ve karakter için kesin ölçüler koyar; tefsir ve ahlâk felsefesi katmanı, bu kesinliğin üzerine bina edilen beşerî anlama çabasıdır ve onun yerine geçmez. Bu seçki ahlâkın bütün konularını da tüketmez.",
+    "assuranceEn": "These verses set out firm measures for character and morals; the layer of exegesis and moral philosophy is a human effort to understand built upon that certainty, and does not replace it. This selection also does not exhaust every topic of ethics.",
+    "tafsirScopeTr": "Klasik tefsir notları, quran.com üzerinde yayımlanan İngilizce muhtasar (abridged) İbn Kesîr'e dayanır (her âyetin \"tefsir\" sekmesi, ör. quran.com/68/4 · quran.com/2/153 · quran.com/49/12; erişim: Eylül 2026); matbu baskı/çevirmen künyesi kesinleştirilemediğinden cilt/sayfa verilmemiş ve atıflar \"muhtasar İbn Kesîr metninde\" biçiminde yazılmıştır. Taberî, Zemahşerî, Râzî ve Kurtubî bu turda eklenmemiştir.",
+    "tafsirScopeEn": "The classical-exegesis notes rest on the English abridged Ibn Kathīr published on quran.com (each verse's \"tafsir\" tab, e.g. quran.com/68/4 · quran.com/2/153 · quran.com/49/12; accessed September 2026); no volume/page is given and attributions read \"in the abridged Ibn Kathīr text.\" Al-Ṭabarī, al-Zamakhsharī, al-Rāzī, and al-Qurṭubī were not added in this pass.",
+    "sourcesNoteTr": "Akademik kaynaklar, Kur'an'ı tasdik için değil; beşerî ahlâk düşüncesini ve tarihini incelemek için anılır. Akademik olmaları görüşlerini kesinleştirmez.",
+    "sourcesNoteEn": "The academic sources are cited not to confirm the Qur'an, but to study human moral thought and its history.",
+    "sources": [
+      {
+        "author": "Bediüzzaman Said Nursi",
+        "work": "Uhuvvet Risalesi (Mektubat, 22. Mektup)",
+        "pub": "Risale-i Nur Külliyatı",
+        "year": "",
+        "id": "birincil tefsir-risale metni",
+        "noteTr": "BİRİNCİL TEFSİR-RİSALE: mü'minler arası kin ve öfkeyi Hucurât 49:10 ve Âl-i İmrân 3:134 ekseninde ele alan modern tefsir metni (beşerî yorum katmanı). TEMA 4'te işlenmiştir.",
+        "noteEn": "PRIMARY RISALE/TAFSIR: a modern text on rancor and anger among believers, anchored on Q 49:10 and Q 3:134 (a human interpretive layer). Treated in Theme 4."
+      },
+      {
+        "author": "Toshihiko Izutsu",
+        "work": "Ethico-Religious Concepts in the Qur'an",
+        "pub": "McGill-Queen's University Press",
+        "year": "2002",
+        "id": "ISBN 9780773524279",
+        "noteTr": "YAKLAŞIM: Kur'an'ın ahlâk terimlerinin (birr, takvâ, sabr, zulm) semantik yapısını dilbilimsel inceleyen referans çalışma.",
+        "noteEn": "APPROACH: a reference semantic-field study of the Qur'an's moral vocabulary (birr, taqwā, ṣabr, ẓulm)."
+      },
+      {
+        "author": "Majid Fakhry",
+        "work": "Ethical Theories in Islam",
+        "pub": "E. J. Brill",
+        "year": "1994",
+        "id": "ISBN 9789004101074",
+        "noteTr": "YAKLAŞIM: İslam ahlâk düşüncesinin kelâmî, felsefî ve tasavvufî ekollerini sistematik tasnif eden akademik kaynak.",
+        "noteEn": "APPROACH: a systematic scholarly taxonomy of Islamic ethical schools (theological, philosophical, mystical)."
+      },
+      {
+        "author": "George F. Hourani",
+        "work": "Reason and Tradition in Islamic Ethics",
+        "pub": "Cambridge University Press",
+        "year": "1985",
+        "id": "ISBN 9780521267120",
+        "noteTr": "YAKLAŞIM: akıl-nakil ilişkisi ve ahlâkî bilginin kaynağı üzerine klasik dönem tartışmasını inceleyen makaleler.",
+        "noteEn": "APPROACH: collected essays on reason vs. tradition as sources of moral knowledge in the classical period."
+      },
+      {
+        "author": "İbn Miskeveyh (çev. Constantine K. Zurayk)",
+        "work": "The Refinement of Character (Tehzîbü'l-Ahlâk)",
+        "pub": "American University of Beirut",
+        "year": "1968",
+        "id": "birincil klasik metin (akademik çeviri)",
+        "noteTr": "KLASİK METİN: İslam fazilet etiğinin (karakter terbiyesi) temel eseri, güvenilir akademik çeviriyle.",
+        "noteEn": "CLASSICAL TEXT: a foundational work of Islamic virtue ethics (refinement of character) in a reliable scholarly translation."
+      },
+      {
+        "author": "Mohamed Ahmed Sherif",
+        "work": "Ghazali's Theory of Virtue",
+        "pub": "State University of New York Press",
+        "year": "1975",
+        "id": "ISBN 9780873952064",
+        "noteTr": "YAKLAŞIM: Gazzâlî'nin felsefî, dinî-hukukî ve tasavvufî faziletleri birleştiren ahlâk nazariyesinin akademik tahlili.",
+        "noteEn": "APPROACH: a scholarly analysis of al-Ghazālī's synthesis of philosophical, religious-legal, and mystical virtues."
+      }
+    ]
   },
 
   'sosyoloji-toplum': {

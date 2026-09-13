@@ -146,7 +146,15 @@
           "labelEn": "Time Dimensions — moment-stretch phenomenon",
           "href": "/arac/zaman-boyutlari"
         }
-      ]
+      ],
+      "risale": {
+        "sourceTr": "Bediüzzaman · Lem'alar, Yirmi Altıncı Lem'a (İhtiyarlar Risalesi), Sekizinci Rica",
+        "sourceEn": "Bediüzzaman · Lem'alar, Twenty-Sixth Flash (for the Elderly), Eighth Hope",
+        "quoteTr": "Ölüm; idam değil, firak değil belki hayat-ı ebediyenin mukaddimesidir, mebdeidir ve vazife-i hayat külfetinden bir paydostur, bir terhistir, bir tebdil-i mekândır.",
+        "quoteEn": "Death is not execution, not separation, but the preface and starting point of eternal life, a rest from the burden of life's duty, a discharge, a change of place.",
+        "noteTr": "Bediüzzaman burada ölümün NE OLDUĞUNU tanımlar: bir son değil, yer değiştirme. Metin mü'min için söylenir ve son nefeste iman üzere olmayı değil, ölümün mahiyetini konu edinir. Alıntı birincil metinden doğrulanmıştır; beşerî bir yorum katmanıdır, Kur'an'ın kesin beyanıyla özdeş değildir.",
+        "noteEn": "Here Bediüzzaman defines what death IS: not an end but a change of place. The passage is addressed to the believer and concerns the nature of death rather than dying upon faith at the final breath. The quotation is verified from the primary text; it is a human interpretive layer, not identical with the Qur'an's certain declaration."
+      }
     },
     {
       "id": "berzah-kabir",
