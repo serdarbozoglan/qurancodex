@@ -183,3 +183,61 @@ export const RISALE_ZAMAN = [
     noteEn: 'Here Bediüzzaman speaks of the density of reward and makes no claim about the structure of time. That limit should be kept when reading it alongside the Kadr 97:3 card.',
   },
 ];
+
+// ─── Risale-i Nur'da Peygamberler — /atlas/peygamber ─────────────────────────
+// Alıntılar iki birincil nüshadan (risaleinurenstitusu ve hizmetvakfi) okunarak
+// doğrulandı. §13.24 SINIRI: Yirminci Söz'ün İkinci Makamı'nda, mu'cize bahsinden
+// AYRI bir damar daha vardır; orada bazı âyetlerin şimendifer ve elektriğe remzen
+// işaret ettiği söylenir (s. 229-230, 237). Bu site "Kur'an teknolojiyi önceden
+// haber verdi" çerçevesini benimsemediği için o kısım ALINMADI; onun yerine
+// Bediüzzaman'ın aynı bölümdeki kendi reddi (s. 240) alındı.
+export const RISALE_PEYGAMBER = [
+  {
+    sourceTr: "Şualar · Yedinci Şuâ (Âyetü'l-Kübra), Birinci Makam, Sekizinci Mertebe",
+    sourceEn: "Şualar · Seventh Ray (The Supreme Sign), First Station, Eighth Degree",
+    quoteTr: "Nev-i beşerin en nuranî ve en mükemmeli olan umum peygamberler (aleyhimüsselâm) bil'icma' beraber Lâ ilâhe illâ Hû deyip zikrediyorlar […] ve beşeri hayvaniyet mertebesinden melekiyet derecesine çıkarmak için, onları iman-ı billâha davet ile ders veriyorlar gördü.",
+    quoteEn: 'He saw that all the prophets, the most luminous and most perfect of humankind, by unanimity together recite Lā ilāha illā Hū […] and teach by calling people to belief in God, in order to raise man from the rank of animality to the degree of angelicity.',
+    noteTr: 'Peygamberliğin vazifesini tanımlar: insanı hayvaniyet mertebesinden melekiyet derecesine çıkarmak. Risalenin seyyahı peygamberleri topluca bir meclis olarak dinler.',
+    noteEn: 'It defines the prophetic office as raising the human being from the rank of animality to the degree of angelicity. The traveller of the treatise hears the prophets collectively, as one assembly.',
+  },
+  {
+    sourceTr: 'Sözler · Yirminci Söz, İkinci Makam, Mukaddeme',
+    sourceEn: 'Sözler · Twentieth Word, Second Station, Introduction',
+    quoteTr: "Evet, mu'cizât-ı enbiyâyı zikretmesiyle fen ve san'at-ı beşeriyenin nihayet hududunu çiziyor, en ileri gàyâtına parmak basıyor, en nihayet hedefleri tâyin ediyor; beşerin arkasına dest-i teşviki vurup, o gàyeye sevk ediyor.",
+    quoteEn: "By mentioning the prophets' miracles it draws the ultimate boundary of human science and art, points to their furthest goals, fixes their final targets; it puts the hand of encouragement on man's back and drives him toward that goal.",
+    noteTr: "Mu'cizeleri bir ufuk olarak okur: sınır, insanın önündeki hedefi gösterir. Metin bunu Hz. Îsâ'nın şifası için açıkça söyler: çizilen hudut, tıbbın bugünkü terakkisinden çok ileridedir.",
+    noteEn: 'It reads the miracles as a horizon: the boundary marks a goal set before humankind. The text says this explicitly for the healing of Jesus: the boundary drawn lies far ahead of the medicine of the day.',
+  },
+  {
+    sourceTr: 'Sözler · Yirminci Söz, İkinci Makam, İki mühim suâle karşı iki mühim cevap, Birincisi',
+    sourceEn: 'Sözler · Twentieth Word, Second Station, Two Answers to Two Important Questions, the First',
+    quoteTr: "Zîrâ, Kur'ân'ın vazife-i asliyesi daire-i Rubûbiyetin kemâlât ve şuûnâtını ve daire-i ubûdiyetin vezâif ve ahvâlini tâlim etmektir. Öyle ise, şu havârik-ı beşeriyenin o iki dairede hakları yalnız bir zayıf remz, bir hafif işaret ancak düşer.",
+    quoteEn: "For the Qur'an's essential duty is to teach the perfections and states of the sphere of Lordship and the duties and conditions of the sphere of worship. Therefore these human marvels can claim, within those two spheres, only a faint allusion, a slight indication.",
+    noteTr: "Müellif, medeniyet harikalarını açıklamayı Kur'an'ın aslî vazifesi saymaz; onlara ancak zayıf bir remz payı tanır. Teknolojiyi önceden haber verme çerçevesini benimsememek bu sayfanın editoryal tercihidir.",
+    noteEn: 'The author does not count explaining the marvels of civilization among the Qur\'an\'s essential duties; he allows them only the share of a faint allusion. Not adopting the frame in which the Qur\'an foretells technology is this page\'s editorial choice.',
+  },
+  {
+    sourceTr: "Sözler · Yirmi Beşinci Söz, Birinci Şule, İkinci Şuâ, Beşinci Lem'a, Dördüncü Işık, İkinci Misal",
+    sourceEn: 'Sözler · Twenty-Fifth Word, First Beam, Second Ray, Fifth Flash, Fourth Light, Second Example',
+    quoteTr: "Kur'an'da çok tekrar edilen kıssa-i Musa aleyhisselâmın cümleleri ve cüzleridir ki her bir cümlesi, hattâ her bir cüzü, bir düstur-u küllînin ucu olarak gösterilmiş ve o düsturu ifade ediyor.",
+    quoteEn: "The clauses and parts of the story of Mūsā, so often repeated in the Qur'an: each clause, indeed each part, is shown as the tip of a universal principle and expresses that principle.",
+    noteTr: "Hz. Mûsâ kıssasının tekrarını îcaz sayar: her cüz, küllî bir düsturun ucudur. Atlasın kıssa tekrarlarını okuma biçimiyle birlikte düşünülebilir.",
+    noteEn: 'He counts the repetition of the story of Mūsā as concision: each fragment is the tip of a universal principle. It can be read alongside how this atlas treats repeated narratives.',
+  },
+  {
+    sourceTr: 'Mektubat · Yirmi Üçüncü Mektup, sekizinci mesele',
+    sourceEn: 'Mektubat · Twenty-Third Letter, eighth matter',
+    quoteTr: "Hem Hazret-i Yusuf'un âlî sıddıkıyetini gösteriyor ve diyor: Dünyanın en parlak ve en sürurlu haleti dahi ona gaflet vermiyor, onu meftun etmiyor, yine âhireti istiyor.",
+    quoteEn: "It shows Yūsuf's lofty truthfulness, saying: even the world's most brilliant and joyful state gives him no heedlessness, does not infatuate him; still he asks for the hereafter.",
+    noteTr: "Hz. Yûsuf kıssası en büyük dünyevî sevinç ânında âhiret talebiyle biter; Bediüzzaman bunu sıddıkıyetin ölçüsü sayar. Mektupta bu bahis numaralı bir başlık taşımaz, yazarın yedinci meseleye eklediği sekizinci meseledir.",
+    noteEn: 'The story of Yūsuf ends, at its moment of greatest worldly joy, with a request for the hereafter; Bediüzzaman takes this as the measure of truthfulness. In the letter this passage carries no numbered heading: it is an eighth matter the author adds to the seventh.',
+  },
+  {
+    sourceTr: 'Sözler · Yirminci Söz, İkinci Makam, Elhâsıl',
+    sourceEn: 'Sözler · Twentieth Word, Second Station, Conclusion',
+    quoteTr: "[…] bütün enbiyânın pederi ve dîvân-ı nübüvvetin fâtihası olan Hazret-i Âdem Aleyhisselâm […] hâtem-i dîvân-ı nübüvvet; ve bütün enbiyânın mu'cizeleri onun dâvâ-i risâletine birtek mu'cize hükmünde olan enbiyânın serveri […]",
+    quoteEn: '[…] Ādam, the father of all the prophets and the opening of the court of prophethood […] the seal of the court of prophethood, the chief of the prophets, for whose claim to messengership the miracles of all the prophets count as a single miracle […]',
+    noteTr: "Nübüvveti tek bir divan sayar: Hz. Âdem onun fâtihası, Hz. Muhammed hâtemidir. Atlasın nesep zinciriyle birlikte okunabilecek bir çerçevedir.",
+    noteEn: 'He treats prophethood as a single court: Ādam its opening and Muhammad its seal. It is a frame that can be read alongside the genealogical chain of this atlas.',
+  },
+];

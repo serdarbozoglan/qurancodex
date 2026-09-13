@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import ToolHero from '../components/ToolHero';
+import RisaleNotes from '../components/RisaleNotes';
+import { RISALE_PEYGAMBER } from '../data/risaleNotes';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, TRANSITION, CLOSE_BTN, SEMANTIC } from '../tokens';
 import ProphetMap from './ProphetMap';
@@ -1723,6 +1726,23 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
         pointerEvents: 'none',
       }} />
 
+      <ToolHero
+        language={language}
+        ar={"اِنَّا اَرْسَلْنَاكَ بِالْحَقِّ بَشِيراً وَنَذِيراً وَاِنْ مِنْ اُمَّةٍ اِلَّا خَلَا فِيهَا نَذِيرٌ"}
+        trTr="Biz seni müjdeleyici ve uyarıcı olarak hak ile gönderdik; kendisine bir uyarıcı gelip geçmemiş hiçbir ümmet yoktur."
+        trEn="We have sent you with the truth as a bringer of good tidings and a warner, and there is no community but that a warner has passed among it."
+        refTr="Fâtır 35:24"
+        refEn="Fāṭir 35:24"
+        whisperTr="Âyet, kendisine bir uyarıcı gelip geçmemiş hiçbir ümmet bulunmadığını bildirir."
+        whisperEn="The verse states that there is no community among which a warner has not passed."
+        eyebrowTr="PEYGAMBER ATLASI · NESEP, KAVİM, MUCİZE"
+        eyebrowEn="PROPHETS ATLAS · LINEAGE, PEOPLE, MIRACLE"
+        titleTr="Peygamber Atlası"
+        titleEn="Prophets Atlas"
+        subtitleTr="25 peygamber: nesep zinciri, gönderildikleri kavim ve zaman-mekân haritası."
+        subtitleEn="Twenty-five prophets: the chain of lineage, the peoples they were sent to, and a map of time and place."
+      />
+
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
@@ -3356,6 +3376,20 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           to   { opacity: 1; transform: scale(1); }
         }
       `}</style>
+
+      {/* Risale-i Nur'da Peygamberler — beşerî yorum katmanı.
+          §13.24: Yirminci Söz'ün İkinci Makamı'nda teknolojiye remzen işaret eden
+          AYRI bir damar da var (şimendifer, elektrik); bu sayfa o çerçeveyi
+          benimsemediği için o kısım alınmadı, onun yerine müellifin aynı
+          bölümdeki kendi reddi kullanıldı. */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '48px 24px 8px' }}>
+        <RisaleNotes
+          items={RISALE_PEYGAMBER}
+          language={language}
+          introTr="Bediüzzaman Said Nursi nübüvveti tek bir divan sayar ve peygamberlerin mucizelerini, insanın önüne konmuş bir ufuk olarak okur. Alıntılar birincil metinden doğrulanmıştır ve âyetlerin kesin beyanının yerine geçmez."
+          introEn="Bediüzzaman Said Nursi treats prophethood as a single court and reads the miracles of the prophets as a horizon set before humankind. The quotations are verified from the primary texts and do not stand in place of the certain declaration of the verses."
+        />
+      </div>
 
       {/* #203+#204 (2026-07-16) — CrossToolCTA + SourcesCitation */}
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '32px 24px 48px', width: '100%' }}>
