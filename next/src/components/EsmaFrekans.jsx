@@ -234,6 +234,9 @@ function Hero({ tr }) {
       padding: '40px 24px 60px',
       position: 'relative',
       overflow: 'hidden',
+      // Fâtiha hero'suyla aynı sıcak altın üst-gradyan (2026-09-13, kullanıcı:
+      // "Fatiha'daki background daha açık renk"). Esma daha soluktu.
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.08) 0%, transparent 100%)',
     }}>
       {/* Geometrik altıgen desen — Fâtiha hero'suyla aynı arka plan (2026-09-13,
           kullanıcı isteği: Esmâ hero'sunda desen yoktu). */}
