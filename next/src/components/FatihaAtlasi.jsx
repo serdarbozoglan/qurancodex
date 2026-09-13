@@ -13,6 +13,12 @@ import useTabParam from '../hooks/useTabParam';
 import CrossToolCTA from './CrossToolCTA';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import fatihaDataStatic from '../../public/fatiha-atlasi.json';
+import { ToolTabGlow } from './ToolTabGlow';
+import { tabIcon } from './tabIcons';
+
+// Tab ikonları (KuranRenkleri standardı) — TABS_TR/EN ile aynı sırada.
+// Besmele, Halka Yapısı, Kelime Seçimi, Gramer, Bakara Çapaları, Âlimler.
+const FATIHA_TAB_ICONS = ['book', 'route', 'compare', 'list', 'map', 'folder'];
 
 // ── Reveal — scroll-triggered fade-up, IntersectionObserver via framer-motion ──
 function Reveal({ children, delay = 0 }) {
@@ -684,13 +690,15 @@ export default function FatihaAtlasi({ onClose }) {
                 fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
                 textTransform: 'uppercase', letterSpacing: '0.08em',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
-                background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
-                border: 'none', cursor: 'pointer',
-                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                whiteSpace: 'nowrap', transition: 'all 0.15s',
+                background: 'none', border: 'none', cursor: 'pointer',
+                borderBottom: 'none', position: 'relative',
+                whiteSpace: 'nowrap', transition: 'color 0.15s',
+                display: 'flex', alignItems: 'center', gap: '8px',
               }}
             >
-              {label}
+              <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tabIcon(FATIHA_TAB_ICONS[i])}</span>
+              <span>{label}</span>
+              {activeTab === i && <ToolTabGlow />}
             </button>
           ))}
         </div>

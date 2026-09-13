@@ -12,6 +12,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+import { ToolTabGlow } from './ToolTabGlow';
 import useTabParam from '../hooks/useTabParam';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
@@ -234,7 +235,8 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
     gap: '6px',
     padding: '10px 14px',
     border: 'none',
-    borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+    borderBottom: 'none',
+    position: 'relative',
     background: 'transparent',
     color: active ? COLORS.gold : COLORS.silver,
     fontSize: '0.78rem',
@@ -284,6 +286,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
           >
             {tab.icon}
             {language === 'tr' ? tab.labelTr : tab.labelEn}
+            {activeTab === i && <ToolTabGlow />}
           </button>
         ))}
       </div>
