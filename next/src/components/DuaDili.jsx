@@ -642,32 +642,32 @@ const RISALE_POINTS = [
     sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
     quoteTr: 'Cevap vermek ayrıdır, kabul etmek ayrıdır. Her dua için cevap vermek var; fakat kabul etmek, hem ayn-ı matlubu vermek Cenab-ı Hakk\'ın hikmetine tabidir.',
     quoteEn: 'Answering is one thing, granting is another. Every prayer receives an answer; but granting it, giving the very thing asked for, is subject to God\'s wisdom.',
-    noteTr: 'Duanın karşılıksız kalması diye bir şey yoktur; karşılığın ne olacağı hikmete bırakılmıştır.',
-    noteEn: 'No prayer goes unanswered; what form the answer takes is left to divine wisdom.',
+    noteTr: 'Her dua bir karşılık görür; karşılığın ne olacağını hikmet belirler.',
+    noteEn: 'Every prayer receives an answer, and the form it takes is left to divine wisdom.',
   },
   {
     sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
     sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
     quoteTr: 'Hem dua bir ubudiyettir. Ubudiyet ise semeratı uhreviyedir. Dünyevî maksatlar ise o nevi dua ve ibadetin vakitleridir. O maksatlar, gayeleri değil.',
     quoteEn: 'Prayer is an act of worship, and the fruits of worship belong to the hereafter. Worldly aims are the occasions of such prayer, not its purposes.',
-    noteTr: 'Dua yalnızca bir talep aracı değil, aynı zamanda kulluktur; dünyevî maksatlar ibadetin asıl gayesi değildir.',
-    noteEn: 'Prayer is not merely a means of request but an act of worship; worldly aims are not the true purpose of that worship.',
+    noteTr: 'Dua bir ibadettir; dünyevî maksatlar bu ibadetin vaktidir, gayesi değildir.',
+    noteEn: 'Prayer is an act of worship; worldly aims mark its occasion rather than its purpose.',
   },
   {
     sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
     sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
     quoteTr: 'Eğer dua çok edildiği halde beliyyeler def\'olunmazsa denilmeyecek ki: "Dua kabul olmadı." Belki denilecek ki: "Duanın vakti, kaza olmadı."',
     quoteEn: 'If much is prayed and the afflictions are not lifted, one does not say "the prayer was not accepted," but "the time of the prayer has not yet run out."',
-    noteTr: 'Gecikme reddediş değildir; bu, sayfadaki cevap kalıplarının çerçevesiyle örtüşür.',
-    noteEn: 'Delay is not refusal, which matches the response patterns set out on this page.',
+    noteTr: 'Belalar sürüyorsa dua ve ibadetin vakti devam eder; bundan duanın kabul edilmediği sonucu çıkarılmaz.',
+    noteEn: 'While the affliction continues, the time of that prayer and worship continues; one does not conclude from this that the prayer was unaccepted.',
   },
   {
     sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
     sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
     quoteTr: 'Dördüncü nevi ki, en meşhurudur, bizim duamızdır. Bu da iki kısımdır: Biri, fiilî ve halî; diğeri, kalbî ve kālîdir. […] Hattâ çift sürmek hazine-i rahmet kapısını çalmaktır.',
     quoteEn: 'The fourth kind, the best known, is our own prayer. It has two parts: one active and by disposition, the other of the heart and in words. […] Even ploughing is a knocking at the door of the treasury of mercy.',
-    noteTr: 'Dua yalnız sözle değildir; hâl ve fiil de bir yakarış biçimidir.',
-    noteEn: 'Prayer is not only speech; disposition and action are themselves forms of supplication.',
+    noteTr: 'Sözle yapılan duanın yanında hâl ve fiille yapılan dua da vardır.',
+    noteEn: 'Alongside prayer in words there is prayer by disposition and by action.',
   },
   {
     sourceTr: "Mektubat · Yirmi Dördüncü Mektup'un Birinci Zeyli, Üçüncü Nükte",
@@ -703,8 +703,8 @@ function RisaleTab({ tr, isMobile }) {
         </p>
         <p style={{ color: COLORS.offWhite, fontSize: '0.96rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
           {tr
-            ? "Bediüzzaman Said Nursi duayı yalnız bir istek aracı olarak değil, kulluğun kendisi olarak ele alır. Aşağıdaki alıntılar birincil metinden doğrulanmıştır. Bu bölüm bir yorum katmanıdır; âyetlerin kesin beyanının yerine geçmez."
-            : 'Bediüzzaman Said Nursi treats prayer not merely as a means of request but as an act of worship in itself. The quotations below are verified from the primary texts. This section is a layer of interpretation and does not stand in place of the certain declaration of the verses.'}
+            ? "Bediüzzaman Said Nursi duayı bir ibadet olarak ele alır; dünyevî maksatları duanın vakti sayar, gayesi değil. Aşağıdaki alıntılar birincil metinden doğrulanmıştır. Bu bölüm bir yorum katmanıdır; âyetlerin kesin beyanının yerine geçmez."
+            : 'Bediüzzaman Said Nursi treats prayer as an act of worship and regards worldly aims as its occasion rather than its purpose. The quotations below are verified from the primary texts. This section is a layer of interpretation and does not stand in place of the certain declaration of the verses.'}
         </p>
       </div>
 

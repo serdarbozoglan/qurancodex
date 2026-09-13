@@ -1035,30 +1035,37 @@ export default function SurahComparator({ onClose }) {
 
       {/* ── LANDING ───────────────────────────────────────────────────── */}
       {!loading && view === 'landing' && (
+        <>
+        {/* Hero, 800px'lik landing kolonunun DIŞINDA dursun ki §13.18
+            zemini tam genişlikte aksın (kolon içindeyken 744px'e kırpılıyordu). */}
+        <div className="mq-box qc-hero-bg" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          textAlign: 'center', flexShrink: 0,
+        }}>
+          <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+            color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px',
+          }}>﷽</div>
+          <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
+            fontFamily: FONTS.quran, color: COLORS.gold,
+            '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
+            lineHeight: 2.1, margin: '0 auto 12px', maxWidth: '760px',
+          }}>
+            اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
+          </p>
+          <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, opacity: 0.95, fontSize: '1rem', lineHeight: 1.6, margin: '0 auto 6px', maxWidth: '600px' }}>
+            {language === 'tr'
+              ? '"Kur\'ân\'ı düşünmezler mi? Eğer o, Allah\'tan başkasının katından olsaydı, onda birçok çelişki bulurlardı."'
+              : '"Do they not reflect upon the Qur\'an? Had it been from other than Allah, they would have found in it much contradiction."'}
+          </p>
+          <p style={{ fontFamily: "'Inter', sans-serif", color: COLORS.silver, opacity: 0.7, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>— {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}</p>
+        </div>
         <div className="sc-landing-wrap" style={{ flex: 1, overflowY: 'auto', maxWidth: '800px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
 
           {/* Besmele + çapa âyet (2026-09-13, kullanıcı: Sûre DNA'da hero yoktu).
               Çapa Nisâ 4:82 — Kur'ân'ın iç tutarlılığı ("onda çok çelişki
               bulurlardı"): sûrelerin yapısal DNA'sını karşılaştırmanın zemini. */}
-          <div className="qc-hero-bg" style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <div className="mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
-              fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.2rem',
-              color: COLORS.gold, opacity: 0.82, lineHeight: 1.2, marginBottom: '24px',
-            }}>﷽</div>
-            <p dir="rtl" lang="ar" className="mq-fs qc-verse-breathe" style={{
-              fontFamily: FONTS.quran, color: COLORS.gold,
-              '--fs-d': 'clamp(1.7rem, 4.2vw, 2.6rem)', '--fs-m': 'clamp(1.7rem, 4.2vw, 2.6rem)',
-              lineHeight: 2.1, margin: '0 auto 12px', maxWidth: '760px',
-            }}>
-              اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
-            </p>
-            <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite, opacity: 0.95, fontSize: '1rem', lineHeight: 1.6, margin: '0 auto 6px', maxWidth: '600px' }}>
-              {language === 'tr'
-                ? '"Kur\'ân\'ı düşünmezler mi? Eğer o, Allah\'tan başkasının katından olsaydı, onda birçok çelişki bulurlardı."'
-                : '"Do they not reflect upon the Qur\'an? Had it been from other than Allah, they would have found in it much contradiction."'}
-            </p>
-            <p style={{ fontFamily: "'Inter', sans-serif", color: COLORS.silver, opacity: 0.7, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: 0 }}>— {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}</p>
-          </div>
 
           <p style={{ color: COLORS.silver, fontSize: '0.98rem', lineHeight: 1.8, marginBottom: '36px', maxWidth: '620px' }}>
             {language === 'tr'
@@ -1188,6 +1195,7 @@ export default function SurahComparator({ onClose }) {
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* ── RESULT ERROR FALLBACK ─────────────────────────────────────── */}
