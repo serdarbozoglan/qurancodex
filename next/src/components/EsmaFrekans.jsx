@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
+import { RISALE_ESMA } from '../data/risaleNotes';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
@@ -3858,72 +3859,6 @@ function ClosingReflection({ tr, language }) {
   );
 }
 
-// ─── EsmaSources — klasik esmâ-i hüsnâ literatürü (§13.21) ──────────────────
-// Sayfa 3800 satır boyunca yalnız BİR klasik müellif anıyordu; metodoloji
-// bölümü veri kaynağını (korpus, sayım yöntemi) anlatıyor ama esmânın kendi
-// ilim geleneğini göstermiyordu. Kaynak listesi bu boşluğu kapatır.
-//
-// ⚠ Liste GPT-5.2 hakemine doğrulatıldı (2026-08-07). İki aday ELENDİ, çünkü
-// iki bağımsız değerlendirme çelişti ve proje kuralı şüpheli atıfta yayın
-// yapmamayı emrediyor:
-//   · er-Râzî — "Levâmiu'l-beyyinât"  → nisbeti kesin bulunmadı
-//   · el-Kurtubî — "el-Esnâ"          → Gazâlî'nin eseriyle karışma şüphesi
-// Beyhakî'nin ölüm yeri hakem uyarısıyla Nîsâbûr → Beyhak olarak düzeltildi.
-// Eklenmesi önerilen İbn Berrecân ve İbnü'l-Arabî bilinçli olarak ALINMADI:
-// ikincisi kelâmî tartışma yükü taşıyor, bu sayfanın kapsamı değil.
-// ─── Risale-i Nur'da Esmâ ────────────────────────────────────────────────────
-// Alıntılar birincil metinden (Sözler / Mektubat / Lem'alar tam metin nüshaları)
-// doğrulanmıştır. Beşerî yorum katmanıdır; âyetin kesin beyanının yerine geçmez.
-const RISALE_ESMA = [
-  {
-    sourceTr: "Lem'alar · Otuzuncu Lem'a, Birinci-Altıncı Nükte",
-    sourceEn: "Lem'alar · Thirtieth Flash, First to Sixth Points",
-    quoteTr: 'İsm-i a\'zamın bu altı ismi ve altı nuru, kâinatı ve mevcudatı ayrı ayrı güzel renklerde, çeşit çeşit nakışlarda, başka başka ziynetlerde bulunan yaldızlı perdeler içinde mevcudatı sarmıştır.',
-    quoteEn: 'These six names and six lights of the Greatest Name have wrapped the universe in gilded veils of differing colours, varied embroideries and distinct adornments.',
-    noteTr: 'Otuzuncu Lem\'a altı ismi sırayla işler: Kuddûs (Zâriyât 51:48), Adl (Hicr 15:21), Hakem (Nahl 16:125), Ferd (İhlâs 112:1), Hayy (Rûm 30:50), Kayyûm (Bakara 2:255). Bu altılı, metinde Ali\'nin ism-i a\'zamı olarak anılır; herkes için geçerli bir liste diye sunulmaz.',
-    noteEn: 'The Thirtieth Flash treats six names in order: al-Quddūs (al-Dhāriyāt 51:48), al-ʿAdl (al-Ḥijr 15:21), al-Ḥakam (al-Naḥl 16:125), al-Fard (al-Ikhlāṣ 112:1), al-Ḥayy (al-Rūm 30:50) and al-Qayyūm (al-Baqara 2:255). The text names this set as ʿAlī\'s greatest name rather than a list valid for everyone.',
-  },
-  {
-    sourceTr: "Lem'alar · Otuzuncu Lem'a, Beşinci Nükte'nin Hâtimesi",
-    sourceEn: "Lem'alar · Thirtieth Flash, Conclusion of the Fifth Point",
-    quoteTr: 'İsm-i a\'zam herkes için bir olmaz, belki ayrı ayrı oluyor.',
-    quoteEn: 'The Greatest Name is not one and the same for everyone; rather it differs from person to person.',
-    noteTr: 'Metin bunun ardından farklı isimleri farklı kişilere nispet eder; böylece ism-i a\'zamı tek bir isimde sabitlemez.',
-    noteEn: 'The text then ascribes different names to different people, so it does not fix the greatest name to a single one.',
-  },
-  {
-    sourceTr: 'Sözler · Yirmi Dördüncü Söz, Birinci Dal',
-    sourceEn: 'Sözler · Twenty-Fourth Word, First Branch',
-    quoteTr: 'Kâinatın her bir âleminde, her bir taifesinde, esma-i hüsnadan bir ismin unvanı tecelli eder. O isim o dairede hâkimdir. Başka isimler orada ona tabidirler.',
-    quoteEn: 'In every world and every class of the universe one of the Beautiful Names is manifest as its title. That name rules in that sphere, and the other names are subordinate to it there.',
-    noteTr: 'Sayfadaki isim çiftleri ve sûre yoğunlukları bu okumayla birlikte düşünülebilir: hangi isim hangi bağlamda öne çıkıyor.',
-    noteEn: 'The name pairs and surah densities on this page can be read alongside this: which name comes to the fore in which context.',
-  },
-  {
-    sourceTr: 'Sözler · Yirmi Dördüncü Söz, Birinci Dal',
-    sourceEn: 'Sözler · Twenty-Fourth Word, First Branch',
-    quoteTr: 'Mesela, sana tecelli eden Hâlık isminin mahlukıyetindeki cüz\'î mertebesinden tut, tâ bütün kâinatın Hâlık\'ı olan mertebe-i kübra ve unvan-ı a\'zama kadar ne kadar perdeler bulunduğunu kıyas edebilirsin.',
-    quoteEn: 'From the particular degree of the name Creator as it appears in your own createdness, up to the greatest degree and supreme title of Creator of the whole universe, judge how many veils lie between.',
-    noteTr: 'Aynı ismin farklı varlıklarda farklı görünmesi, isme değil mertebeye bağlanır.',
-    noteEn: 'That the same name appears differently in different beings is attributed to degree, not to the name itself.',
-  },
-  {
-    sourceTr: 'Sözler · Yirmi Dördüncü Söz, İkinci Dal',
-    sourceEn: 'Sözler · Twenty-Fourth Word, Second Branch',
-    quoteTr: 'İnsan çendan bütün esmaya mazhar ve bütün kemalâta müstaiddir. […] Hem esmanın cilvelerinin renkleri, mazhara göre tenevvü ediyor, ayrı ayrı oluyor.',
-    quoteEn: 'Man is a locus of all the Names and capable of all perfections. […] And the colours of the Names\' manifestations vary according to the mirror that receives them.',
-    noteTr: 'İsimler insanda da görünür; görünen renk, aynanın kendisine göre değişir.',
-    noteEn: 'The names appear in the human being as well, and the colour seen varies with the mirror itself.',
-  },
-  {
-    sourceTr: 'Mektubat · Yirminci Mektup, İkinci Makam, Dördüncü Kelime',
-    sourceEn: 'Mektubat · Twentieth Letter, Second Station, Fourth Phrase',
-    quoteTr: 'Ehadiyet ise her bir şeyde, Hâlık-ı külli şey\'in ekser esması tecelli ediyor demektir.',
-    quoteEn: 'Oneness in particularity means that in each single thing most of the Names of the Creator of all things are manifested.',
-    noteTr: 'Metin bunu güneşin ışığı ile her su damlasındaki yansıma örneğiyle açıklar.',
-    noteEn: 'The text explains this with the light of the sun and its reflection in every drop of water.',
-  },
-];
 
 function RisaleEsma({ tr }) {
   return (

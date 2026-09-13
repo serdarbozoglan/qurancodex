@@ -1352,5 +1352,90 @@ const DISCIPLINE_SOURCE = {
 
 CONTENT_SOURCES.push(DISCIPLINE_SOURCE);
 
+// ─── Dua Dili ve Esmâ-i Hüsnâ sayfa içerikleri (2026-09-13) ──────────────────
+// Bu iki sayfa korpusta yalnız katalog künyesiyle (tool) duruyordu; peygamber
+// duaları, dua anatomisi, cevap kalıpları ve Risale-i Nur bölümleri /sor
+// tarafından hiç bilinmiyordu (§13.22, /alanlar ile aynı boşluk sınıfı).
+CONTENT_SOURCES.push({
+  type: 'dua-peygamber',
+  module: 'src/data/prophetPrayers.js',
+  extract: (mod) => mod.PROPHET_PROFILES,
+  buildItem: (p) => {
+    const extraTr = (p.extraDuas || []).map((d) => `${d.refTr}: ${d.trTr}`).join(' ');
+    const extraEn = (p.extraDuas || []).map((d) => `${d.refEn}: ${d.trEn}`).join(' ');
+    return {
+      id: `dua-peygamber:${p.id}`,
+      type: 'dua-peygamber',
+      subId: p.id,
+      route: '/arac/dua-dili',
+      titleTr: `${p.nameTr} duaları`,
+      titleEn: `Prayers of ${p.nameEn}`,
+      descTr: (p.profileTr || '').slice(0, 200),
+      descEn: (p.profileEn || '').slice(0, 200),
+      arabic: p.ar || '',
+      searchTextTr: `${p.nameTr}. ${p.profileTr}. ${(p.themesTr || []).join(', ')}. ${p.famousTr} ${extraTr} ${p.insightTr} ${p.responseTr}`.slice(0, 5000),
+      searchTextEn: `${p.nameEn}. ${p.profileEn}. ${(p.themesEn || []).join(', ')}. ${p.famousEn} ${extraEn} ${p.insightEn} ${p.responseEn}`.slice(0, 5000),
+    };
+  },
+});
+
+CONTENT_SOURCES.push({
+  type: 'risale-not',
+  module: 'src/data/risaleNotes.js',
+  extract: (mod) => [
+    ...mod.RISALE_POINTS.map((x, i) => ({ ...x, i, route: '/arac/dua-dili', konuTr: 'Dua', konuEn: 'Prayer' })),
+    ...mod.RISALE_ESMA.map((x, i) => ({ ...x, i: i + 100, route: '/arac/esma-frekans', konuTr: 'Esmâ-i Hüsnâ', konuEn: 'The Divine Names' })),
+  ],
+  buildItem: (x) => ({
+    id: `risale:${x.i}`,
+    type: 'risale-not',
+    subId: String(x.i),
+    route: x.route,
+    titleTr: `${x.konuTr} · ${x.sourceTr}`,
+    titleEn: `${x.konuEn} · ${x.sourceEn}`,
+    descTr: (x.noteTr || '').slice(0, 200),
+    descEn: (x.noteEn || '').slice(0, 200),
+    searchTextTr: `Risale-i Nur, ${x.konuTr}. ${x.sourceTr}. ${x.quoteTr} ${x.noteTr}`.slice(0, 5000),
+    searchTextEn: `Risale-i Nur, ${x.konuEn}. ${x.sourceEn}. ${x.quoteEn} ${x.noteEn}`.slice(0, 5000),
+  }),
+});
+
+CONTENT_SOURCES.push({
+  type: 'dua-dili-katman',
+  file: 'public/dua-dili.json',
+  // duaAnatomy ve responsePatterns birer NESNE; listeler içlerinde
+  // (`layers`/`examples`, `rows`). Doğrudan map edilemezler.
+  extract: (data) => [
+    ...(data.additionalProphets || []).map((x) => ({ kind: 'profil', x })),
+    ...(data.duaAnatomy?.layers || []).map((x) => ({ kind: 'anatomi', x })),
+    ...(data.duaAnatomy?.examples || []).map((x) => ({ kind: 'ornek', x })),
+    ...(data.responsePatterns?.rows || []).map((x, i) => ({ kind: 'cevap', x, i })),
+  ],
+  buildItem: ({ kind, x, i }) => {
+    const tr = [x.nameTr, x.titleTr, x.labelTr, x.prophetTr, x.profileTr, x.descTr, x.translationTr,
+      x.requestTr, x.insightTr, x.responseTr, x.timeTr, x.verseTr, x.exampleTr, x.notesTr, x.noteTr]
+      .filter(Boolean).join(' ');
+    const en = [x.nameEn, x.titleEn, x.labelEn, x.prophetEn, x.profileEn, x.descEn, x.translationEn,
+      x.requestEn, x.insightEn, x.responseEn, x.timeEn, x.verseEn, x.exampleEn, x.notesEn, x.noteEn]
+      .filter(Boolean).join(' ');
+    if (!tr && !en) return null;
+    // `responsePatterns.rows` kimlik alanı taşımıyor: satır sırası kullanılır.
+    const key = x.id || x.nameTr || x.titleTr || (x.prophetTr ? `${x.prophetTr}-${i}` : String(i));
+    return {
+      id: `dua-dili:${kind}:${key}`,
+      type: 'dua-dili-katman',
+      subId: String(x.id || key),
+      route: '/arac/dua-dili',
+      titleTr: x.nameTr || x.titleTr || x.labelTr || x.prophetTr || 'Dua Dili',
+      titleEn: x.nameEn || x.titleEn || x.labelEn || x.prophetEn || 'Language of Prayer',
+      descTr: (x.profileTr || x.descTr || '').slice(0, 200),
+      descEn: (x.profileEn || x.descEn || '').slice(0, 200),
+      arabic: x.arabic || '',
+      searchTextTr: tr.slice(0, 5000),
+      searchTextEn: en.slice(0, 5000),
+    };
+  },
+});
+
 // TOOL_CATALOG artık src/data/toolCatalog.js'te — tarayıcı tarafıyla paylaşılıyor.
 export { TOOL_CATALOG } from '../src/data/toolCatalog.js';

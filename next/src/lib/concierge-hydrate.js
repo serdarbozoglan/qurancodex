@@ -64,6 +64,12 @@ function buildUrl(item, lang = 'tr') {
     case 'alan-disiplin':
       // buildItem `route` üretir: /alanlar/<disiplin-id>
       return item.route ? `${base}${item.route}` : `${base}/alanlar`;
+    case 'dua-peygamber':
+    case 'dua-dili-katman':
+      return `${base}/arac/dua-dili`;
+    case 'risale-not':
+      // Dua Dili veya Esmâ-i Hüsnâ sayfası (buildItem route'u belirler)
+      return item.route ? `${base}${item.route}` : `${base}/arac/dua-dili`;
     case 'insan-yolculugu-stage':
       return `${base}/atlas/insan-yolculugu`;
     case 'munasebat':

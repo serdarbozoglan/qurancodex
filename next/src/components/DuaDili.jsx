@@ -8,6 +8,7 @@
 // Tab 4: SourcesCitation (Suyûtî, İbn Kayyim, Nevevî, Gazâlî, Râzî, Kurtubî)
 
 import { useEffect, useState } from 'react';
+import { RISALE_POINTS } from '../data/risaleNotes';
 import QuranDua from '../sections/QuranDua';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
@@ -631,61 +632,6 @@ function ResponseTab({ tr, isMobile }) {
   );
 }
 
-// ─── Tab 4: Sources ────────────────────────────────────────────────
-// ─── Risale-i Nur'da Dua ─────────────────────────────────────────────────────
-// Alıntılar birincil metinden (Sözler / Mektubat / Lem'alar tam metin nüshaları)
-// doğrulanarak alınmıştır. Bu bölüm beşerî bir yorum katmanıdır; Kur'an'ın kesin
-// beyanıyla özdeş değildir.
-const RISALE_POINTS = [
-  {
-    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
-    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
-    quoteTr: 'Cevap vermek ayrıdır, kabul etmek ayrıdır. Her dua için cevap vermek var; fakat kabul etmek, hem ayn-ı matlubu vermek Cenab-ı Hakk\'ın hikmetine tabidir.',
-    quoteEn: 'Answering is one thing, granting is another. Every prayer receives an answer; but granting it, giving the very thing asked for, is subject to God\'s wisdom.',
-    noteTr: 'Her dua bir karşılık görür; karşılığın ne olacağını hikmet belirler.',
-    noteEn: 'Every prayer receives an answer, and the form it takes is left to divine wisdom.',
-  },
-  {
-    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
-    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
-    quoteTr: 'Hem dua bir ubudiyettir. Ubudiyet ise semeratı uhreviyedir. Dünyevî maksatlar ise o nevi dua ve ibadetin vakitleridir. O maksatlar, gayeleri değil.',
-    quoteEn: 'Prayer is an act of worship, and the fruits of worship belong to the hereafter. Worldly aims are the occasions of such prayer, not its purposes.',
-    noteTr: 'Dua bir ibadettir; dünyevî maksatlar bu ibadetin vaktidir, gayesi değildir.',
-    noteEn: 'Prayer is an act of worship; worldly aims mark its occasion rather than its purpose.',
-  },
-  {
-    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
-    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
-    quoteTr: 'Eğer dua çok edildiği halde beliyyeler def\'olunmazsa denilmeyecek ki: "Dua kabul olmadı." Belki denilecek ki: "Duanın vakti, kaza olmadı."',
-    quoteEn: 'If much is prayed and the afflictions are not lifted, one does not say "the prayer was not accepted," but "the time of the prayer has not yet run out."',
-    noteTr: 'Belalar sürüyorsa dua ve ibadetin vakti devam eder; bundan duanın kabul edilmediği sonucu çıkarılmaz.',
-    noteEn: 'While the affliction continues, the time of that prayer and worship continues; one does not conclude from this that the prayer was unaccepted.',
-  },
-  {
-    sourceTr: 'Sözler · Yirmi Üçüncü Söz, Birinci Mebhas, Beşinci Nokta',
-    sourceEn: 'Sözler · Twenty-Third Word, First Topic, Fifth Point',
-    quoteTr: 'Dördüncü nevi ki, en meşhurudur, bizim duamızdır. Bu da iki kısımdır: Biri, fiilî ve halî; diğeri, kalbî ve kālîdir. […] Hattâ çift sürmek hazine-i rahmet kapısını çalmaktır.',
-    quoteEn: 'The fourth kind, the best known, is our own prayer. It has two parts: one active and by disposition, the other of the heart and in words. […] Even ploughing is a knocking at the door of the treasury of mercy.',
-    noteTr: 'Sözle yapılan duanın yanında hâl ve fiille yapılan dua da vardır.',
-    noteEn: 'Alongside prayer in words there is prayer by disposition and by action.',
-  },
-  {
-    sourceTr: "Mektubat · Yirmi Dördüncü Mektup'un Birinci Zeyli, Üçüncü Nükte",
-    sourceEn: 'Mektubat · Twenty-Fourth Letter, First Addendum, Third Point',
-    quoteTr: 'Dua-yı kavlî-i ihtiyarînin makbuliyeti, iki cihetledir. Ya aynı matlubu ile makbul olur veyahut daha evlâsı verilir.',
-    quoteEn: 'The acceptance of voluntary verbal prayer is twofold: either it is accepted with the very thing requested, or something better is given.',
-    noteTr: "İkinci Zeyl mevlid ve mi'râc bahsidir; dua meselesi Birinci Zeyl'dedir.",
-    noteEn: 'The Second Addendum treats the mawlid and the ascension; the discussion of prayer is in the First Addendum.',
-  },
-  {
-    sourceTr: "Lem'alar · Birinci Lem'a (Hz. Yûnus) ve İkinci Lem'a (Hz. Eyyûb)",
-    sourceEn: "Lem'alar · First Flash (Yūnus) and Second Flash (Ayyūb)",
-    quoteTr: "İşte biz, Hazret-i Yunus aleyhisselâmın birinci vaziyetinden yüz derece daha müthiş bir vaziyetteyiz. · Hazret-i Eyyüb aleyhisselâmın zahirî yara hastalıklarının mukabili, bizim bâtınî ve ruhî ve kalbî hastalıklarımız vardır.",
-    quoteEn: 'We are in a state a hundred times more fearful than that first state of Yūnus. · Corresponding to the outward wounds of Ayyūb, we have inward, spiritual and heart sicknesses.',
-    noteTr: "Hz. Yûnus ve Hz. Eyyûb'un duaları okuyucunun kendi hâli için bir şablon olarak okunur; bu iki risale Otuz Birinci Mektup'un ilk iki lem'asıdır.",
-    noteEn: 'The prayers of Yūnus and Ayyūb are read as a template for the reader\'s own condition; these two treatises are the first two flashes of the Thirty-First Letter.',
-  },
-];
 
 function RisaleTab({ tr, isMobile }) {
   return (
@@ -739,6 +685,7 @@ function RisaleTab({ tr, isMobile }) {
   );
 }
 
+// ─── Tab 4: Sources ────────────────────────────────────────────────
 function SourcesTab({ language, isMobile }) {
   return (
     <div className="mq-box" style={{

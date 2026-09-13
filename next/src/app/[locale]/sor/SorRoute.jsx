@@ -1679,6 +1679,9 @@ function AtlasCard({ atlas, delay, language }) {
     'atlas-kissa-scene': tr ? 'Kıssa sahnesi' : 'Story scene',
     'atlas-ahiret-yolculugu-stage': tr ? 'Ahiret aşaması' : 'Afterlife stage',
     'alan-disiplin': tr ? 'Alan sayfası' : 'Field page',
+    'dua-peygamber': tr ? 'Peygamber duası' : 'Prophetic prayer',
+    'risale-not': tr ? 'Risale-i Nur notu' : 'Risale-i Nur note',
+    'dua-dili-katman': tr ? 'Dua dili' : 'Language of prayer',
     'surah-summary': tr ? 'Sûre özet' : 'Sūra summary',
     'pericope': tr ? 'Pericope' : 'Pericope',
   }[atlas.type] || (tr ? 'Atlas' : 'Atlas');

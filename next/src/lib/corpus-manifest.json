@@ -65973,5 +65973,205 @@
     "hash": "92a0a1cfb2b36e55",
     "embeddedAt": "2026-09-13T14:09:38.140Z",
     "type": "alan-disiplin"
+  },
+  "dua-peygamber:ibrahim": {
+    "hash": "6df7f4cdbacdc471",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "dua-peygamber:eyyub": {
+    "hash": "d243c9707e65ef93",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "dua-peygamber:yusuf": {
+    "hash": "6b2f49e8d0f12f70",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "dua-peygamber:musa": {
+    "hash": "6256076cdcbc64aa",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "dua-peygamber:yunus": {
+    "hash": "d1ae9c21f7a3b00d",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "dua-peygamber:zekeriyya": {
+    "hash": "4e919c303758317e",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "dua-peygamber:muhammed": {
+    "hash": "efe34b0459d7cc1f",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-peygamber"
+  },
+  "risale:0": {
+    "hash": "42280b559995e4cc",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:1": {
+    "hash": "8f96d458751c071c",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:2": {
+    "hash": "caa945a4c0cb131c",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:3": {
+    "hash": "cee671114c53b8a4",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:4": {
+    "hash": "99bb9d09560f8f5d",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:5": {
+    "hash": "f24db7f03e6c5660",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:100": {
+    "hash": "db766a1e8114065b",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:101": {
+    "hash": "8cbe99c394bae6a4",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:102": {
+    "hash": "ce7c479195443082",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:103": {
+    "hash": "d01f64ac3c0abcb5",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:104": {
+    "hash": "8780fe05aed23a89",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "risale:105": {
+    "hash": "cbf04a2b062f52e9",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "risale-not"
+  },
+  "dua-dili:profil:adem": {
+    "hash": "7d075e6e29bf36fd",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:profil:nuh": {
+    "hash": "775ae1ad559fbded",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:profil:suleyman": {
+    "hash": "ec189352abd0be39",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:anatomi:nida": {
+    "hash": "5f15dd3dea34f884",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:anatomi:hacet": {
+    "hash": "91c0ca52393c1010",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:anatomi:gerekce": {
+    "hash": "f18f3d1a756e3cba",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:anatomi:isim": {
+    "hash": "1011c31c22bdb892",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:ornek:ibrahim-127": {
+    "hash": "21a1f575be3b4e6c",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:ornek:al-i-imran-8": {
+    "hash": "09c42a94a899c776",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:ornek:musa-taha-25-28": {
+    "hash": "734d39e7ff64d0f5",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:ornek:yunus-21-87": {
+    "hash": "1f178ce26ba9ed2d",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Âdem-0": {
+    "hash": "f3c94ec2beb25085",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Nûh-1": {
+    "hash": "18e944ad22bcf990",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. İbrahim-2": {
+    "hash": "38f1394a68440f3f",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Yûsuf-3": {
+    "hash": "01e381636ad7a13b",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Mûsâ-4": {
+    "hash": "fce77182d0bb64e0",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Süleyman-5": {
+    "hash": "c90c3933261eb4ae",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Eyyûb-6": {
+    "hash": "e2a8be7ad861d036",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Yûnus-7": {
+    "hash": "ed3371636c89200b",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Zekeriyyâ-8": {
+    "hash": "7a08e8e7e30d4cf8",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
+  },
+  "dua-dili:cevap:Hz. Muhammed ﷺ-9": {
+    "hash": "6bbffab51a1773af",
+    "embeddedAt": "2026-09-13T14:25:02.112Z",
+    "type": "dua-dili-katman"
   }
 }
