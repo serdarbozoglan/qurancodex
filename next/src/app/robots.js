@@ -30,7 +30,7 @@ export default function robots() {
         crawlDelay: 2,
       },
     ],
-    sitemap: 'https://qurancodex.com/sitemap.xml',
-    host: 'https://qurancodex.com',
+    sitemap: 'https://www.qurancodex.com/sitemap.xml',
+    host: 'https://www.qurancodex.com',
   };
 }

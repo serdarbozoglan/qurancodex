@@ -5,7 +5,8 @@
 // Inject pattern (page.js'te):
 //   <JsonLd schemas={[...buildBreadcrumb(...), buildArticle(...)]} />
 
-const BASE = 'https://qurancodex.com';
+// HOST: www ZORUNLU, gerekçesi src/app/sitemap.js'te yazılı (çıplak host 308).
+const BASE = 'https://www.qurancodex.com';
 
 // Breadcrumb segment label map (Türkçe + İngilizce)
 const SEGMENT_LABELS = {

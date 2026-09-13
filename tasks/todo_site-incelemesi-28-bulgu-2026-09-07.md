@@ -41,7 +41,7 @@ Kaynak raporda bu 6 bulguya kod verilmemiş.
 |---|---|---|---|
 | `site geneli` | Bazı atlaslar ve okuma sayfalarında ilk HTML yalnız başlık/özet veya yükleniyor gösteriyor; ana veri istemciye bağımlı. | Anlamlı ilk veri, açıklama ve bağlantıları SSR/SSG ile sun; grafikle birlikte erişilebilir veri listesi ver. | |
 | `site geneli` | Menü ve katalogdaki Fâtiha Atlası ve ek araçlar sitemapte bulunmuyor. | Tek route/katalog kaynağından iki dilde sitemap üret; yayın sonrası link kapsam testi uygula. | |
-| `site geneli` | HTTP yanıtı www alan adına yönleniyor; canonical ve sitemap ise www olmayan adresi tercih ediyor. | Tercih edilen hostu tekleştir; redirect, canonical, sitemap ve iç bağlantıları aynı200 URLde buluştur. | |
+| `site geneli` | HTTP yanıtı www alan adına yönleniyor; canonical ve sitemap ise www olmayan adresi tercih ediyor. | Tercih edilen hostu tekleştir; redirect, canonical, sitemap ve iç bağlantıları aynı200 URLde buluştur. | **KAPANDI (2026-09-13)** |
 | `/tr` | İlk ekranın çoğu atmosfer/animasyon; ana keşif önerisi aşağıda. | Mevcut altın-lacivert kimliği koru; ilk ekrana Oku / Bir örüntü keşfet / Konu ara kısa girişleri ekle. | |
 | `site geneli` | İngilizce Mesel Atlası motiflerinde, Tabiat Atlası hayvan adlarında ve İbadetler sayfasındaki bazı kaynak açıklamalarında Türkçe metin kalmış. | Yalnız arayüz sözlüğünü değil veri nesnelerinin tüm açıklayıcı alanlarını yerelleştir; özel isimler ile çeviri eksiklerini ayrı test et. | |
 | `/tr/oku/1` | Meal seçimi sonrası yeni çevirmen adı ile önceki metin geçici olarak birlikte görünüyor; veri gelince metin güncelleniyor. | Yeni çeviri yüklenene kadar açık yükleme durumu göster veya eski etiket/metni birlikte koru. | |

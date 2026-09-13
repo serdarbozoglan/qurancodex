@@ -11,7 +11,11 @@ import { statSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { TOOL_CATALOG } from '@/data/toolCatalog';
 
-const BASE = 'https://qurancodex.com';
+// HOST: www ZORUNLU. Vercel alan adı ayarı çıplak qurancodex.com'u www'ye
+// 308 ile yönlendiriyor; bu yüzden çıplak hostla üretilen her canonical ve
+// sitemap adresi 200 DÖNMEZ, yönlendirmeye düşer. Çelişki 2026-09-13'te
+// canlıda ölçüldü (çıplak 308, www 200) ve kod www'ye çekildi.
+const BASE = 'https://www.qurancodex.com';
 const LOCALES = ['tr', 'en'];
 
 // Build-time fallback — dosya bulunamazsa kullanılır (silent fallback, asla throw).

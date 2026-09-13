@@ -38,7 +38,7 @@ export async function pageMetadata({
     openGraph: {
       title: finalTitle,
       description: finalDesc,
-      url: `https://qurancodex.com${canonical}`,
+      url: `https://www.qurancodex.com${canonical}`,
       locale: isEn ? 'en_US' : 'tr_TR',
       type: 'website',
       siteName: 'QuranCodex',

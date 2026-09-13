@@ -35,7 +35,7 @@ const playfair = Playfair_Display({
 });
 
 export const sharedMetadata = {
-  metadataBase: new URL('https://qurancodex.com'),
+  metadataBase: new URL('https://www.qurancodex.com'),
   title: {
     default: "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
     template: '%s | QuranCodex',
@@ -81,8 +81,8 @@ const ORGANIZATION_JSONLD = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'QuranCodex',
-  url: 'https://qurancodex.com',
-  logo: 'https://qurancodex.com/logo-full.png',
+  url: 'https://www.qurancodex.com',
+  logo: 'https://www.qurancodex.com/logo-full.png',
   description: "Kur'an-ı Kerim'in Görünmeyen Mimarisi — interaktif görsellerle keşfedin.",
 };
 
@@ -90,7 +90,7 @@ const WEBSITE_JSONLD = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'QuranCodex',
-  url: 'https://qurancodex.com',
+  url: 'https://www.qurancodex.com',
   inLanguage: ['tr', 'en'],
 };
 
