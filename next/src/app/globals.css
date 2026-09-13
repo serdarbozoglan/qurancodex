@@ -1656,11 +1656,11 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
    "yaşayan metin" bookend'i. Hero zaten hareketli (harf-reveal + besmele nefesi
    + radial glow) olduğu icin conclusion'dan DAHA YUMUŞAK; harf-reveal bittikten
    sonra (~2.6s) baslar. Conclusion ile ayni 5.2s tempo. */
-.qc-verse-breathe-soft { animation: qc-verse-breathe-soft 5200ms ease-in-out 2600ms infinite; will-change: text-shadow; }
+.qc-verse-breathe-soft { animation: qc-verse-breathe-soft 5200ms ease-in-out infinite; text-shadow: 0 0 16px rgba(212,165,116,0.22); will-change: text-shadow; }
 @keyframes qc-verse-breathe-soft {
-  0%, 100% { text-shadow: 0 0 10px rgba(212,165,116,0.14); }
-  50%      { text-shadow: 0 0 22px rgba(212,165,116,0.5), 0 0 44px rgba(212,165,116,0.2); }
+  0%, 100% { text-shadow: 0 0 16px rgba(212,165,116,0.28); }
+  50%      { text-shadow: 0 0 38px rgba(212,165,116,1), 0 0 74px rgba(212,165,116,0.6), 0 0 128px rgba(212,165,116,0.3); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .qc-verse-breathe-soft { animation: none; text-shadow: 0 0 16px rgba(212,165,116,0.22); }
+  .qc-verse-breathe-soft { animation: none; text-shadow: 0 0 20px rgba(212,165,116,0.3); }
 }
