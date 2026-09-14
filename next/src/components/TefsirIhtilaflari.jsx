@@ -5,6 +5,22 @@
 // ayetleri) yorum ayrılıklarını, isimli alıntılarla karşılaştırır. Her alıntı
 // yayına girmeden önce birincil kaynaktan (tafsir.app, sunnah.com) bağımsız
 // doğrulandı; doğrulanamayan iddialar kapsam dışı bırakıldı (§13.30).
+//
+// 2026-09-14 — Sayfa İngilizceye açıldı: 190 Türkçe alana karşı yalnız 33
+// İngilizce alan vardı, yani İngilizce okur sekme değiştirdikçe Türkçe klasik
+// tefsir nesriyle karşılaşıyordu. Eksik 157 alan yazıldı ve gpt-6-astra hakem
+// turundan geçirildi; 19 bulgunun 18'i uygulandı, çoğu Türkçe asılda da
+// düzeltildi (muzâf hazfi terimi, Buhârî 4698'de susma gerekçesi, Buhârî 4538
+// isnad kolunun tekilliği, Tirmizî-Enes'in ayrı rivayet olması, "üzerine
+// gitmek" = إن تحمل عليه, Râzî'nin Zemahşerî'yi alıntılamasının bağımsız teyit
+// sayılamayacağı).
+//
+// UYGULANMAYAN TEK BULGU ve gerekçesi: hakem, Zemahşerî'nin muzâf hazfi
+// okumasını Mu'tezilî tenzih kaygısıyla ilişkilendiren bir açıklama istedi.
+// O gerekçe elde DOĞRULANMIŞ bir kaynakla desteklenmiyor ve önceki turlarda
+// tam bu tür kaynaksız saik atıfları eleştirilmişti. Not artık yalnız gramer
+// hamlesini betimliyor (düşürülmüş muzâf takdiri); saik iddiası UYDURULMADI.
+// Eklenecekse el-Keşşâf'ın ilgili pasajından birincil doğrulamayla girer.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
@@ -70,6 +86,12 @@ const SURAH_NAMES_TR = [
   'Kureyş', 'Mâûn', 'Kevser', 'Kâfirûn', 'Nasr',
   'Tebbet', 'İhlâs', 'Felak', 'Nâs',
 ];
+// Bu sayfanın verisi 2026-09-14'e kadar 190 Türkçe alana karşı yalnız 33
+// İngilizce alan taşıyordu: İngilizce okur, sekme değiştirdikçe Türkçe
+// klasik tefsir nesriyle karşılaşıyordu. Eksik 157 alan yazıldı; burada
+// yalnız SEÇİM yapılır. Arapça alıntılar (quoteAr) dile göre değişmez.
+const pick = (obj, base, tr) => (tr ? obj[base + 'Tr'] : (obj[base + 'En'] || obj[base + 'Tr']));
+
 function surahShortName(num) {
   return SURAH_NAMES_TR[num] || String(num);
 }
@@ -85,7 +107,7 @@ function useIsMobile() {
   return isMobile;
 }
 
-function ScholarTag({ scholarId, scholars, size = 'md' }) {
+function ScholarTag({ scholarId, scholars, size = 'md', tr = true }) {
   const s = scholars.find(x => x.id === scholarId);
   if (!s) return null;
   const color = SCHOLAR_COLORS[scholarId] || COLORS.silver;
@@ -99,7 +121,7 @@ function ScholarTag({ scholarId, scholars, size = 'md' }) {
       fontFamily: FONTS.body, fontWeight: 700, whiteSpace: 'nowrap',
     }}>
       <span style={{ width: 6, height: 6, borderRadius: '50%', background: color, flexShrink: 0 }} />
-      {s.nameTr}
+      {pick(s, 'name', tr)}
     </span>
   );
 }
@@ -116,7 +138,7 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
       borderRadius: 10,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
-        <ScholarTag scholarId={pos.scholarId} scholars={scholars} />
+        <ScholarTag scholarId={pos.scholarId} scholars={scholars} tr={tr} />
         {pos.confidence && (
           <span style={{
             fontSize: '0.64rem', fontFamily: FONTS.body, color: COLORS.textFaint || COLORS.silver,  letterSpacing: '0.06em', textTransform: 'uppercase',
@@ -133,16 +155,16 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
           {pos.quoteAr}
         </p>
       )}
-      {pos.quoteTr && (
+      {pick(pos, 'quote', tr) && (
         <p className="mq-fs" style={{
           fontFamily: FONTS.body, fontStyle: 'italic', color: COLORS.offWhite,
           '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.7, margin: '0 0 8px',
         }}>
-          {pos.quoteTr}
+          {pick(pos, 'quote', tr)}
         </p>
       )}
       {(tr ? pos.refTr : pos.refEn) && (
-        <p style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.85, margin: '0 0 6px' }}>
+        <p style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, margin: '0 0 6px' }}>
           {pos.refUrl ? (
             <a href={pos.refUrl} target="_blank" rel="noopener noreferrer"
               style={{ color: COLORS.silver, textDecoration: 'none', borderBottom: `1px dotted ${COLORS.silver}66` }}>
@@ -152,9 +174,9 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
           ) : (tr ? pos.refTr : pos.refEn)}
         </p>
       )}
-      {pos.noteTr && (
+      {pick(pos, 'note', tr) && (
         <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.83rem', '--fs-m': '0.8rem', color: COLORS.silver, lineHeight: 1.6, margin: 0 }}>
-          {pos.noteTr}
+          {pick(pos, 'note', tr)}
         </p>
       )}
     </div>
@@ -176,9 +198,9 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
           item={{
             id: `tefsir-ihtilaf:${c.id}`,
             type: 'tefsir-ihtilaf',
-            title: c.titleTr,
+            title: pick(c, 'title', tr),
             subtitle: `${surahShortName(parseInt(c.verseRef.split(':')[0], 10))} ${c.verseRef}`,
-            description: (c.introTr || '').slice(0, 240),
+            description: (pick(c, 'intro', tr) || '').slice(0, 240),
             url: `/${language}/arac/tefsir-ihtilaflari#${c.id}`,
           }}
           size="sm"
@@ -201,11 +223,11 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
           fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700,
           color: COLORS.offWhite, margin: '0 0 8px', lineHeight: 1.35,
         }}>
-          {c.titleTr}
+          {pick(c, 'title', tr)}
         </h3>
-        {c.introTr && (
-          <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.65, color: COLORS.silver, opacity: 0.9, margin: 0 }}>
-            {c.introTr}
+        {pick(c, 'intro', tr) && (
+          <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.65, color: COLORS.silver, margin: 0 }}>
+            {pick(c, 'intro', tr)}
           </p>
         )}
         <div style={{ marginTop: 12, display: 'flex', alignItems: 'center', gap: 6, color: COLORS.gold, fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
@@ -222,7 +244,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
               {(c.axes || []).map((axis, i) => (
                 <div key={i} style={{ borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 16 }}>
                   <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: 700, color: COLORS.silver, marginBottom: 12 }}>
-                    {axis.titleTr}
+                    {pick(axis, 'title', tr)}
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     {axis.positions.map((pos, j) => (
@@ -239,7 +261,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
   );
 }
 
-function ScholarProfileCard({ s, isMobile }) {
+function ScholarProfileCard({ s, isMobile, tr }) {
   const color = SCHOLAR_COLORS[s.id] || COLORS.silver;
   return (
     <div className="mq-box" style={{
@@ -248,20 +270,20 @@ function ScholarProfileCard({ s, isMobile }) {
       borderTop: `3px solid ${color}`, borderRadius: 12,
     }}>
       <div style={{ fontFamily: FONTS.display, fontSize: '1rem', fontWeight: 700, color: COLORS.offWhite, marginBottom: 2 }}>
-        {s.nameTr}
+        {pick(s, 'name', tr)}
       </div>
-      <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color, opacity: 0.9, marginBottom: 10 }}>
-        {s.deathH}/{s.deathM} · {s.ekolTr}
+      <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color, marginBottom: 10 }}>
+        {s.deathH}/{s.deathM} · {pick(s, 'ekol', tr)}
       </div>
       <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', marginBottom: 12 }}>
-        {s.eserTr}
+        {pick(s, 'eser', tr)}
       </div>
       <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, lineHeight: 1.6, marginBottom: 10 }}>
-        {s.hamleTr}
+        {pick(s, 'hamle', tr)}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: '0.74rem', fontFamily: FONTS.body, lineHeight: 1.5 }}>
-        <div style={{ color: CATEGORY.emerald }}>+ {s.gucTr}</div>
-        <div style={{ color: COLORS.silver, opacity: 0.85 }}>− {s.zayifTr}</div>
+        <div style={{ color: CATEGORY.emerald }}>+ {pick(s, 'guc', tr)}</div>
+        <div style={{ color: COLORS.silver }}>− {pick(s, 'zayif', tr)}</div>
       </div>
     </div>
   );
@@ -345,7 +367,7 @@ export default function TefsirIhtilaflari() {
           <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
             '--fs-d': '1.02rem', '--fs-m': '0.92rem', color: COLORS.offWhite,
-            maxWidth: 620, margin: '0 auto 10px', lineHeight: 1.7, opacity: 0.92,
+            maxWidth: 620, margin: '0 auto 10px', lineHeight: 1.7,
           }}>
             {tr
               ? '"Sana Kitab\'ı indiren O\'dur. Onun bazı ayetleri muhkemdir ki bunlar Kitab\'ın esasıdır. Diğerleri de müteşabihtir... Onun tevilini ancak Allah bilir. İlimde yüksek payeye erişenler ise: \'Ona inandık; hepsi Rabbimiz tarafındandır\' derler."'
@@ -359,12 +381,29 @@ export default function TefsirIhtilaflari() {
           <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
             '--fs-d': '0.98rem', '--fs-m': '0.88rem', color: COLORS.silver,
-            maxWidth: 640, margin: '0 auto', lineHeight: 1.75, opacity: 0.9,
+            maxWidth: 640, margin: '0 auto', lineHeight: 1.75,
           }}>
             {tr
               ? 'Bu ayet, müfessirlerin neden aynı ayeti farklı okuduğunu açıklayan klasik referans noktasıdır. Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar.'
               : 'This verse is the classical reference point for why exegetes read the same verse differently. Disagreement here is not treated as a flaw; it arises from the text\'s layered nature.'}
           </p>
+          {/* İKİNCİ DERECE ÇEVİRİ UYARISI (gpt-6-astra, 2026-09-14).
+              Bu sayfadaki alıntıların aslı ARAPÇADIR; sayfa onları Türkçeye
+              çevirmiş, İngilizce sürüm o Türkçeden üretilmiştir. İngilizce
+              okurun doğrudan Arapçadan alıntı okuduğunu sanmaması için bunu
+              sayfanın kendisi söylemeli. Türkçe sayfada gerekmez. */}
+          {!tr && (
+            <p className="mq-fs" style={{
+              fontFamily: FONTS.body, '--fs-d': '0.74rem', '--fs-m': '0.7rem',
+              color: SEMANTIC.textMuted, maxWidth: 640,
+              margin: '14px auto 0', lineHeight: 1.6,
+            }}>
+              A note on the quotations: their originals are in Arabic. This page
+              renders them in Turkish, and the English is translated from that
+              Turkish rendering. Where a quotation is decisive, check it against
+              the Arabic source given with it.
+            </p>
+          )}
         </div>
       </div>
       </CollapsibleHero>
@@ -404,18 +443,18 @@ export default function TefsirIhtilaflari() {
               {tr ? 'ANA METODOLOJİK İHTİLAF' : 'THE CORE METHODOLOGICAL DISAGREEMENT'}
             </div>
             <h2 className="mq-fs" style={{ textAlign: 'center', fontFamily: FONTS.display, '--fs-d': '1.7rem', '--fs-m': '1.4rem', color: COLORS.offWhite, margin: '0 0 16px' }}>
-              {data.methodology.titleTr}
+              {pick(data.methodology, 'title', tr)}
             </h2>
             <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.95rem', '--fs-m': '0.9rem', lineHeight: 1.75, color: COLORS.silver, marginBottom: 28 }}>
-              {data.methodology.introTr}
+              {pick(data.methodology, 'intro', tr)}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 24 }}>
               {data.methodology.positions.map((pos, i) => (
                 <PositionBlock key={i} pos={pos} scholars={data.scholars} tr={tr} isMobile={isMobile} />
               ))}
             </div>
-            <p className="mq-fs" style={{ fontFamily: FONTS.body, fontStyle: 'italic', '--fs-d': '0.88rem', '--fs-m': '0.85rem', lineHeight: 1.7, color: COLORS.silver, opacity: 0.85 }}>
-              {data.methodology.closingTr}
+            <p className="mq-fs" style={{ fontFamily: FONTS.body, fontStyle: 'italic', '--fs-d': '0.88rem', '--fs-m': '0.85rem', lineHeight: 1.7, color: COLORS.silver }}>
+              {pick(data.methodology, 'closing', tr)}
             </p>
           </div>
         )}
@@ -432,16 +471,16 @@ export default function TefsirIhtilaflari() {
         {activeTab === 2 && (
           <div className="mq-box" style={{ maxWidth: 1000, margin: '0 auto', '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: 14, marginBottom: 32 }}>
-              {data.scholars.map(s => <ScholarProfileCard key={s.id} s={s} isMobile={isMobile} />)}
+              {data.scholars.map(s => <ScholarProfileCard key={s.id} s={s} isMobile={isMobile} tr={tr} />)}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 24 }}>
               {data.observations.map((o, i) => (
                 <div key={i}>
                   <div style={{ fontFamily: FONTS.display, fontSize: '0.95rem', fontWeight: 700, color: COLORS.gold, marginBottom: 6 }}>
-                    {o.titleTr}
+                    {pick(o, 'title', tr)}
                   </div>
                   <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.7, color: COLORS.silver, margin: 0 }}>
-                    {o.textTr}
+                    {pick(o, 'text', tr)}
                   </p>
                 </div>
               ))}

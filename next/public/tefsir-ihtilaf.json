@@ -8,8 +8,14 @@
       "ekolTr": "Rivayet tefsiri, ehl-i hadîs",
       "eserTr": "Câmiu'l-beyân",
       "hamleTr": "Rivayetleri toplar, sonra gerekçeli tercih eder (“ve evlâ...”)",
-      "gucTr": "Rivayet arşivi eşsiz; tercihleri gerekçeli",
-      "zayifTr": "Belâgat teorisi yapmaz; ayrıştırmayı teorileştirmeden uygular"
+      "gucTr": "Rivayet arşivi çok geniş; tercihlerini gerekçesiyle birlikte verir",
+      "zayifTr": "Belâgat teorisi kurmaz; ayrıştırmayı teorileştirmeden uygular",
+      "nameEn": "Al-Ṭabarī",
+      "ekolEn": "Narration-based tafsīr, ahl al-ḥadīth",
+      "eserEn": "Jāmiʿ al-bayān",
+      "hamleEn": "Gathers the reports, then states a reasoned preference (\"and the better view is...\")",
+      "gucEn": "A very wide archive of reports; he gives his preferences with their grounds",
+      "zayifEn": "He builds no theory of rhetoric; he applies the analytic reading without theorising it"
     },
     {
       "id": "zemahseri",
@@ -19,8 +25,14 @@
       "ekolTr": "Mu'tezilî, belâgat merkezli",
       "eserTr": "el-Keşşâf",
       "hamleTr": "Mürekkeb temsil doktrini — meseli parçalamayı reddeder, kıssayı kıssaya benzetir",
-      "gucTr": "Belâgat analizinin zirvesi",
-      "zayifTr": "Kelâmî ön kabuller bazı yerlerde okumayı belirliyor"
+      "gucTr": "Belâgat çözümlemesi ayrıntılı ve tutarlı",
+      "zayifTr": "Kelâmî ön kabuller bazı yerlerde okumayı belirliyor",
+      "nameEn": "Al-Zamakhsharī",
+      "ekolEn": "Muʿtazilī, centred on rhetoric",
+      "eserEn": "Al-Kashshāf",
+      "hamleEn": "The doctrine of the composite likeness: he refuses to break a parable into parts and likens a whole scene to a whole scene",
+      "gucEn": "Detailed and consistent rhetorical analysis",
+      "zayifEn": "Theological commitments steer the reading in certain places"
     },
     {
       "id": "razi",
@@ -29,9 +41,15 @@
       "deathM": 1210,
       "ekolTr": "Eş'arî, kelâm-felsefe merkezli",
       "eserTr": "Mefâtîhu'l-gayb",
-      "hamleTr": "Tüm ihtimalleri sayar, sonra bağlamla eler; nadiren tek görüşte karar kılar",
-      "gucTr": "İtirazları en açık formüle eden; sistematik",
-      "zayifTr": "Ansiklopedik hacim, bazen tercihi gölgeliyor"
+      "hamleTr": "İhtimalleri sıralar, sonra bağlamla eler; kimi meselede tercihini açıkça bildirir, kimi meselede bildirmez",
+      "gucTr": "İtirazları ve muhtemel cevapları ayrı ayrı sıralar; tartışmayı madde madde kurar",
+      "zayifTr": "Ansiklopedik hacim, bazen tercihi gölgeliyor",
+      "nameEn": "Fakhr al-Dīn al-Rāzī",
+      "ekolEn": "Ashʿarī, centred on theology and philosophy",
+      "eserEn": "Mafātīḥ al-ghayb",
+      "hamleEn": "He lists the possibilities, then eliminates by context; in some questions he states his preference outright, in others he does not",
+      "gucEn": "He sets out the objections and the possible answers separately, building the discussion point by point",
+      "zayifEn": "The encyclopaedic bulk sometimes obscures which view he prefers"
     },
     {
       "id": "kurtubi",
@@ -42,18 +60,30 @@
       "eserTr": "el-Câmi' li-ahkâmi'l-Kur'ân",
       "hamleTr": "Fıkhî sonuç arar; azınlık görüşleri sadakatle kaydeder",
       "gucTr": "Uygulamaya dönük; ihtilaf kataloğu geniş",
-      "zayifTr": "Bazı rivayet atıfları basılı neşirle karşılaştırma ister"
+      "zayifTr": "Rivayet atıflarında kaynak yerleri her zaman ayrıntılı verilmez",
+      "nameEn": "Al-Qurṭubī",
+      "ekolEn": "Mālikī, centred on legal rulings",
+      "eserEn": "Al-Jāmiʿ li-aḥkām al-Qurʾān",
+      "hamleEn": "Looks for the legal outcome; records minority views faithfully",
+      "gucEn": "Oriented to practice; a wide catalogue of disagreement",
+      "zayifEn": "He does not always give detailed source references for the reports he cites"
     },
     {
       "id": "ibn-kesir",
       "nameTr": "İbn Kesîr",
       "deathH": 774,
       "deathM": 1373,
-      "ekolTr": "Selefî-rivayet",
+      "ekolTr": "Eserî, rivayet tefsiri",
       "eserTr": "Tefsîru'l-Kur'âni'l-Azîm",
       "hamleTr": "Merfû/mevkuf ayrımına titiz; hadis senedini açıkça sorgular",
       "gucTr": "Hadis kritiği güçlü; belirsizliği gizlemez",
-      "zayifTr": "Bazı yerde Taberî'nin rivayet yelpazesini daraltır"
+      "zayifTr": "Kimi yerde Taberî'nin aktardığı rivayet yelpazesinden daha dar bir seçki verir",
+      "nameEn": "Ibn Kathīr",
+      "ekolEn": "Traditionist (Atharī), narration-based tafsīr",
+      "eserEn": "Tafsīr al-Qurʾān al-ʿAẓīm",
+      "hamleEn": "Careful about the marfūʿ and mawqūf distinction; questions the chain of a ḥadīth openly",
+      "gucEn": "Strong ḥadīth criticism; does not hide uncertainty",
+      "zayifEn": "In places he gives a narrower selection than the range of reports al-Ṭabarī transmits"
     },
     {
       "id": "ibn-kayyim",
@@ -63,53 +93,80 @@
       "ekolTr": "Hanbelî, İbn Teymiyye ekolü",
       "eserTr": "el-Emsâl fi'l-Kur'ân (İ'lâmü'l-Muvakkı'în'den)",
       "hamleTr": "Emsâli kıyasın (analojik akıl yürütmenin) meşruiyet zemini yapar",
-      "gucTr": "Teolojik derinlik; ayetin ince ayrıntısını teze bağlıyor",
-      "zayifTr": "Müstakil eser statüsü tartışmalı; genel yöntemi sistematik değil"
+      "gucTr": "Emsâli kıyas tartışmasına bağlar; âyetin ayrıntısını bu çerçeveyle ilişkilendirir",
+      "zayifTr": "Müstakil eser statüsü tartışmalı; emsâli tek bir sistematik çerçevede toplamaz",
+      "nameEn": "Ibn Qayyim al-Jawziyya",
+      "ekolEn": "Ḥanbalī, the school of Ibn Taymiyya",
+      "eserEn": "Al-Amthāl fī al-Qurʾān (from Iʿlām al-muwaqqiʿīn)",
+      "hamleEn": "Makes the parables the ground on which analogical reasoning (qiyās) is legitimate",
+      "gucEn": "He ties the parables to the discussion of analogy, relating the detail of a verse to that frame",
+      "zayifEn": "Its status as an independent work is disputed; he does not gather the parables into a single systematic frame"
     },
     {
       "id": "ibn-asur",
       "nameTr": "İbn Âşûr",
       "deathH": 1393,
       "deathM": 1973,
-      "ekolTr": "Modern, belâgat + tarih",
+      "ekolTr": "Modern dönem Mâlikî müfessiri; belâgat ve dil ağırlıklı",
       "eserTr": "et-Tahrîr ve't-tenvîr",
-      "hamleTr": "Ayrıştırma = kemal; selefleriyle açıkça ayrışır",
+      "hamleTr": "Nûr 24:35 gibi yerlerde, bütünün bütüne teşbihi ile cüzlerin ayrı ayrı eşleşmesini bir arada kabul eder ve bunu kemalin en üst derecesi sayar; bu noktada seleflerinden ayrılır.",
       "gucTr": "Modern filolojik-tarihsel yöntem",
-      "zayifTr": "Bazı kimlik tercihleri çoğunluğa aykırı"
+      "zayifTr": "Kimi kimlik tayinlerinde çoğunluğun aktardığından farklı bir yol tutar",
+      "nameEn": "Ibn ʿĀshūr",
+      "ekolEn": "Modern-era Mālikī exegete, with a rhetorical and linguistic emphasis",
+      "eserEn": "Al-Taḥrīr wa-al-tanwīr",
+      "hamleEn": "At places such as Q 24:35 he accepts both the likening of one whole to another and the correspondence of the individual parts, and counts this the highest degree of perfection; here he parts from his predecessors.",
+      "gucEn": "Modern philological and historical method",
+      "zayifEn": "In some identifications he takes a different path from what the majority transmit"
     }
   ],
   "methodology": {
     "titleTr": "Ana Metodolojik İhtilaf: Mürekkeb mi, Müferrak mı?",
-    "introTr": "Kur'ân mesellerinin belkemiği bu sorudadır: bir mesel parçalarına ayrılıp her unsurun bir karşılığı aranarak mı okunmalı, yoksa bütün olarak tek bir manaya mı işaret eder?",
+    "introTr": "Kur'ân mesellerinin belkemiği bu sorudadır: bir mesel parçalarına ayrılıp her unsurun bir karşılığı aranarak mı okunmalı (müferrak teşbih), yoksa bütün olarak tek bir manaya mı işaret eder (mürekkeb teşbih)? Belâgatte temsîlî teşbih, benzetme yönü tek bir nitelikten değil birden çok unsurdan soyutlanan teşbihtir; bu yüzden tartışma doğrudan onun sınırları üzerinedir.",
     "positions": [
       {
         "scholarId": "zemahseri",
-        "stanceTr": "Mürekkeb — parçalama yasak",
+        "stanceTr": "Mürekkeb: bu iki temsilde parçalama yok",
         "quoteAr": "الصحيح الذي عليه علماء البيان لا يتخطونه: أنّ التمثيلين جميعاً من جملة التمثيلات المركبة دون المفرَّقة",
         "quoteTr": "“Beyân âlimlerinin benimsediği ve dışına çıkmadıkları doğru görüş şudur: bu iki temsil de mürekkeb temsiller cümlesindendir, müferrak olanlardan değil.”",
         "refTr": "el-Keşşâf, Bakara 2:19-20",
         "confidence": "confirmed",
-        "noteTr": "İki bağımsız taramada birebir doğrulandı. Zemahşerî bunu “erkekçe görüş, sağlam mezhep” diye niteler; kişiler kişiye değil, kıssa kıssaya benzetilmiştir der."
+        "noteTr": "İki bağımsız taramada birebir doğrulandı. Zemahşerî bu hükmü Bakara 2:17-20'deki İKİ TEMSİL (ateş ve sağanak) için verir ve 'erkekçe görüş, sağlam mezhep' diye niteler; kişiler kişiye değil, kıssa kıssaya benzetilmiştir der.",
+        "stanceEn": "Composite: no breaking into parts in these two likenesses",
+        "refEn": "Al-Kashshāf, Q 2:19-20",
+        "quoteEn": "\"The correct view, which the scholars of rhetoric hold and do not depart from, is that both of these likenesses belong to the class of composite likenesses, not to the analytic ones.\"",
+        "noteEn": "Verified word for word in two independent checks. Al-Zamakhsharī gives this ruling for the TWO LIKENESSES at Q 2:17-20, the fire and the downpour, and calls it the manly view and the sound school; he says it is not persons likened to a person but a scene likened to a scene."
       },
       {
         "scholarId": "ibn-asur",
-        "stanceTr": "Müferrak — parçalama, teşbihin zirvesi",
+        "stanceTr": "Cüzleri de eşleşen mürekkeb teşbih: kemalin zirvesi",
         "quoteAr": "هو تشبيه هيئة بهيئة هو أيضاً مفرَّق التشبيهات لأجزاء المركب المشبه مع أجزاء المركب المشبه به وذلك أقصى كمال التشبيه التمثيلي",
         "quoteTr": "“Bu, bir heyetin bir heyete teşbihidir; aynı zamanda müşebbeh mürekkebin cüzleriyle müşebbehün bihin cüzlerinin ayrı ayrı eşleştiği bir teşbihtir — ve bu, temsîlî teşbihin en yüksek kemal derecesidir.”",
         "refTr": "et-Tahrîr ve't-tenvîr, Nûr 24:35",
         "confidence": "confirmed",
-        "noteTr": "İki bağımsız incelemede tutarlı bulundu. Zemahşerî'nin “yapmayın” dediği şey, İbn Âşûr'a göre teşbihin zirvesidir."
+        "noteTr": "İki bağımsız incelemede tutarlı bulundu. Zemahşerî'nin “yapmayın” dediği şey, İbn Âşûr'a göre teşbihin zirvesidir.",
+        "stanceEn": "Composite simile whose individual elements also correspond: the summit of perfection",
+        "refEn": "Al-Taḥrīr wa-al-tanwīr, Q 24:35",
+        "quoteEn": "\"This is the likening of one whole to another whole; and at the same time it is a likeness in which the parts of the composite subject correspond one by one to the parts of the thing it is likened to, and this is the highest degree of perfection in representational likeness.\"",
+        "noteEn": "Found consistent in two independent checks. What al-Zamakhsharī says must not be done is, for Ibn ʿĀshūr, the summit of the likeness."
       },
       {
         "scholarId": "razi",
-        "stanceTr": "Sayar, taraf tutmaz",
-        "quoteTr": "Âyetü'n-Nûr'da (24:35) kayda geçmiş her ayrıştırma şemasını sıralar — Gazzâlî'ninkini, İbn Sînâ'nınkini, sûfîlerinkini, Mukātil'inkini — ama kendi tercihi hiçbiri değil, ayrıştırmayı hiç kullanmayan sade “hidâyet” okumasıdır.",
+        "stanceTr": "Şemaları sıralar, bu meselede tercihini ayrı bildirir",
+        "quoteTr": "Âyetü'n-Nûr'da (24:35) kayda geçmiş her ayrıştırma şemasını sıralar: Gazzâlî'ninkini, İbn Sînâ'nınkini, sûfîlerinkini, Mukātil'inkini. Âyetin açılışındaki 'nûr' lafzı için kendi tercihi ise 'hidâyet' okumasıdır.",
         "refTr": "Mefâtîhu'l-gayb, Nûr 24:35",
         "confidence": "confirmed",
-        "noteTr": "İki bağımsız taramada doğrulandı — dört isimli şema ve Râzî'nin kendi tercihi metinde net."
+        "noteTr": "İki bağımsız taramada doğrulandı: dört isimli şema ve Râzî'nin açılış lafzı için tercihi metinde nettir. Bu tercih, kandil temsilinin unsurları hakkında aktardığı açıklamaları geçersiz kılmaz.",
+        "stanceEn": "Lists the schemes, states his preference separately on this question",
+        "refEn": "Mafātīḥ al-ghayb, Q 24:35",
+        "quoteEn": "He lists every element-by-element scheme on record for the Light Verse (24:35): that of al-Ghazālī, of Ibn Sīnā, of the Sufis, of Muqātil. For the word 'light' in the opening of the verse, his own preference is the reading of guidance.",
+        "noteEn": "Verified in two independent checks: the four named schemes and al-Rāzī's preference for the opening phrase are explicit in the text. That preference does not cancel the explanations he transmits about the elements of the lamp image."
       }
     ],
-    "closingTr": "Doktrin zinciri belâgat literatüründe Cürcânî → Sekkâkî → Kazvînî üzerinden kodifiye edilir: Cürcânî “teşbih geneldir, temsil ondan daha özeldir” der; Sekkâkî, benzetme yönü birden çok şeyden soyutlanmışsa buna “temsil” denileceğini şart koşar; Kazvînî bu şartı sadeleştirir. Bu, mezhep sınırlarını kesen belâgî bir tartışmadır — Eş'arî Râzî ile modern İbn Âşûr taban tabana zıt, oysa ikisi de aynı kelâmî çizgide sayılabilir."
+    "closingTr": "Doktrin zinciri belâgat literatüründe Cürcânî → Sekkâkî → Kazvînî üzerinden kodifiye edilir: Cürcânî 'teşbih geneldir, temsil ondan daha özeldir' der; Sekkâkî, benzetme yönü birden çok şeyden soyutlanmışsa buna 'temsil' denileceğini şart koşar; Kazvînî bu şartı sadeleştirir. Tartışma mezhep sınırlarını keser: Eş'arî Râzî ile modern İbn Âşûr belirli âyetlerde farklı yollar tutar, oysa ikisi de aynı kelâmî çizgide sayılabilir.",
+    "titleEn": "The Main Methodological Disagreement: Composite or Element by Element?",
+    "introEn": "The backbone of the Quranic parables lies in this question: should a parable be broken into its parts, with a counterpart sought for each element (element-by-element simile, tashbīh mufarraq), or does it point as a whole to a single meaning (composite simile, tashbīh murakkab)? In rhetoric, a representational simile (tashbīh tamthīlī) is one whose point of likeness is abstracted not from a single quality but from several elements, which is why the debate bears directly on its limits.",
+    "closingEn": "The chain of doctrine is codified in the rhetorical literature through al-Jurjānī, al-Sakkākī and al-Qazwīnī: al-Jurjānī says that simile is the general term and representation the more specific one; al-Sakkākī stipulates that a simile is called representation when its point is abstracted from more than one thing; al-Qazwīnī simplifies that condition. The debate cuts across school boundaries: the Ashʿarī al-Rāzī and the modern Ibn ʿĀshūr take different paths on particular verses, although both can be counted on the same theological line."
   },
   "cases": [
     {
@@ -129,17 +186,21 @@
               "noteTr": "Düpedüz hidâyet okuması; ontoloji yok.",
               "refTr": "Câmiu'l-beyân, Nûr 24:35",
               "refEn": "Jāmiʿ al-bayān, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "The guide of those in the heavens and the earth: by His light they reach the truth.",
+              "noteEn": "A plain reading of guidance, with no ontology."
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "ذو نور السماوات، وصاحب نور السماوات",
               "quoteTr": "Göklerin nûru sahibi, göklerin nûrunun sahibi.",
               "confidence": "confirmed",
-              "noteTr": "Muzâf hazfi yoluyla mecaz — Mu'tezilî tenzîh kaygısı hazfi zorunlu kılıyor.",
+              "noteTr": "İfadeyi, düşürülmüş bir muzâf takdir ederek (hazfü'l-muzâf) okur.",
               "refTr": "el-Keşşâf, Nûr 24:35",
               "refEn": "al-Kashshāf, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "The owner of the light of the heavens, the possessor of the light of the heavens.",
+              "noteEn": "He reads the expression by supplying an omitted head noun in the genitive construction (ḥadhf al-muḍāf)."
             },
             {
               "scholarId": "razi",
@@ -149,7 +210,9 @@
               "noteTr": "Dört görüşü (münevvir/müdebbir/nâzım/hâdî) sıralar, hâdî'yi ayetin kendi kapanışıyla gerekçelendirerek seçer.",
               "refTr": "Mefâtîhu'l-gayb, Nûr 24:35",
               "refEn": "Mafātīḥ al-Ghayb, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "The nearest is the first view, because the closing words of the verse, \"God guides to His light whom He wills\", show that what is meant by light is guidance.",
+              "noteEn": "He lists four views (illuminator, disposer, orderer, guide) and chooses the guide, grounding the choice in the closing of the verse itself."
             },
             {
               "scholarId": "ibn-asur",
@@ -159,9 +222,12 @@
               "noteTr": "İki bağımsız incelemede tutarlı bulundu. Mecaz zorunludur çünkü Allah cisim/cevher/araz değildir; ilişki sebebiyyettir — Allah, ‘nûr’ denen her şeyin var edicisidir.",
               "refTr": "et-Tahrîr ve't-tenvîr, Nûr 24:35",
               "refEn": "al-Taḥrīr wa al-Tanwīr, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "To report of God that He is light is unavoidably to report the light in a figurative sense.",
+              "noteEn": "Found consistent in two independent checks. The figure is necessary because God is not a body, a substance or an accident; the relation is one of causation, in that God brings into being everything that is called light."
             }
-          ]
+          ],
+          "titleEn": "What does \"Allāhu nūru al-samāwāti wa-al-arḍ\" mean?"
         },
         {
           "titleTr": "“Nûrihî” zamiri kime dönüyor?",
@@ -173,7 +239,9 @@
               "noteTr": "İsnad zinciri tam metinden birebir doğrulandı: “حدثنا عبد الأعلى بن واصل... عن الربيع بن أنس، عن أبي العالية، عن أُبيّ بن كعب”.",
               "refTr": "Câmiu'l-beyân, Nûr 24:35",
               "refEn": "Jāmiʿ al-bayān, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "He transmits the irregular reading of Ubayy b. Kaʿb (\"the likeness of the light of the one who believes in Him\") through the chain al-Rabīʿ b. Anas from Abū al-ʿĀliya from Ubayy.",
+              "noteEn": "The chain was verified word for word against the full text: \"ḥaddathanā ʿAbd al-Aʿlā b. Wāṣil... ʿan al-Rabīʿ b. Anas, ʿan Abī al-ʿĀliya, ʿan Ubayy b. Kaʿb\"."
             },
             {
               "scholarId": "zemahseri",
@@ -183,7 +251,9 @@
               "noteTr": "Aynı kıraati bağımsız olarak nakleder.",
               "refTr": "el-Keşşâf, Nûr 24:35",
               "refEn": "al-Kashshāf, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "From Ubayy b. Kaʿb: the likeness of the light of the one who believes in Him.",
+              "noteEn": "He transmits the same reading independently."
             },
             {
               "scholarId": "ibn-kesir",
@@ -192,11 +262,16 @@
               "noteTr": "Râzî de ~10 yorumdan biri olarak bu okumayı listeler.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Nûr 24:35",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, An-Nur 24:35",
-              "refUrl": "https://quran.com/24/35"
+              "refUrl": "https://quran.com/24/35",
+              "quoteEn": "He transmits the same reading in a close variant (\"nūru man āmana billāh\"), also attributing it to Ibn ʿAbbās and Saʿīd b. Jubayr.",
+              "noteEn": "Al-Rāzī also lists this reading as one of about ten interpretations."
             }
-          ]
+          ],
+          "titleEn": "To whom does the pronoun in \"nūrihi\" refer?"
         }
-      ]
+      ],
+      "titleEn": "The Light Verse: What Does It Mean That God Is Light?",
+      "introEn": "The densest field of disagreement. They part on four separate axes; at least two were verified word for word against the full texts."
     },
     {
       "id": "ates-saganak",
@@ -214,7 +289,9 @@
               "noteTr": "Tabari 2:19'da bu soruyu açıkça sorup aynı şekilde cevaplıyor: “أهما مثلان للمنافقين أو أحدهما؟”",
               "refTr": "Câmiu'l-beyân, Bakara 2:17-20",
               "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:17-20",
-              "refUrl": "https://quran.com/2/17"
+              "refUrl": "https://quran.com/2/17",
+              "quoteEn": "\"Aw\" here works like \"wa\"; both likenesses are for the same hypocrites. He supports this with poetic witnesses (Tawba b. al-Ḥumayyir, Jarīr, Mutammim b. Nuwayra).",
+              "noteEn": "At 2:19 al-Ṭabarī asks this question outright and answers it the same way: \"a-humā mathalāni li-al-munāfiqīn aw aḥaduhumā?\""
             },
             {
               "scholarId": "zemahseri",
@@ -224,7 +301,9 @@
               "noteTr": "Taberî ile aynı tarafta: tek durum, iki bağımsız yeterli örnekleme.",
               "refTr": "el-Keşşâf, Bakara 2:17-20",
               "refEn": "al-Kashshāf, Al-Baqarah 2:17-20",
-              "refUrl": "https://quran.com/2/17"
+              "refUrl": "https://quran.com/2/17",
+              "quoteEn": "\"Aw is properly for making two things equal in respect of doubt... The two accounts are equal in that each is independent in the aspect it represents.\"",
+              "noteEn": "On the same side as al-Ṭabarī: a single condition, two independently sufficient illustrations."
             },
             {
               "scholarId": "ibn-kesir",
@@ -234,7 +313,9 @@
               "noteTr": "İki-alt-grup okumasını benimser — Taberî/Zemahşerî'nin tersi.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Bakara 2:17-20",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Al-Baqarah 2:17-20",
-              "refUrl": "https://quran.com/2/17"
+              "refUrl": "https://quran.com/2/17",
+              "quoteEn": "This is another parable God gives for another kind of hypocrite.",
+              "noteEn": "He adopts the two-subgroup reading, against al-Ṭabarī and al-Zamakhsharī."
             },
             {
               "scholarId": "razi",
@@ -243,9 +324,12 @@
               "noteTr": "Sayan konumdadır, savunan değil.",
               "refTr": "Mefâtîhu'l-gayb, Bakara 2:17-20",
               "refEn": "Mafātīḥ al-Ghayb, Al-Baqarah 2:17-20",
-              "refUrl": "https://quran.com/2/17"
+              "refUrl": "https://quran.com/2/17",
+              "quoteEn": "He frames it as \"the second question\": why was one of the two representations joined to the other with a particle of doubt? He lists four answers (including al-Zamakhsharī’s equality reading and the two-group reading) and commits to none.",
+              "noteEn": "He is enumerating, not defending."
             }
-          ]
+          ],
+          "titleEn": "The same group, or two subgroups? (how the particle \"aw\" is read)"
         },
         {
           "titleTr": "Ateş meselindeki münafıklar gerçekten iman etmiş miydi?",
@@ -258,9 +342,12 @@
               "noteTr": "Hiç iman etmediler kampını tercih eder — “nûr” yalnızca dünyevî bir sosyal fayda idi.",
               "refTr": "Câmiu'l-beyân, Bakara 2:17-20",
               "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:17-20",
-              "refUrl": "https://quran.com/2/17"
+              "refUrl": "https://quran.com/2/17",
+              "quoteEn": "The interpretation most fitting to the verse is what Qatāda and al-Ḍaḥḥāk said, and what ʿAlī b. Abī Ṭalḥa transmitted from Ibn ʿAbbās.",
+              "noteEn": "He prefers the camp that says they never believed: the light was only a worldly social benefit."
             }
-          ]
+          ],
+          "titleEn": "Had the hypocrites in the parable of the fire truly believed?"
         },
         {
           "titleTr": "Neden “nur”, neden “dav'” değil?",
@@ -273,11 +360,16 @@
               "noteTr": "İnce bir dilbilimsel gözlem — zayıf ışığı bile bırakmama.",
               "refTr": "el-Keşşâf, Bakara 2:17-20",
               "refEn": "al-Kashshāf, Al-Baqarah 2:17-20",
-              "refUrl": "https://quran.com/2/17"
+              "refUrl": "https://quran.com/2/17",
+              "quoteEn": "Mentioning nūr is more emphatic, because ḍawʾ conveys an excess... the aim is to remove the light at its root and erase it entirely.",
+              "noteEn": "A fine linguistic observation: not even a faint light is left."
             }
-          ]
+          ],
+          "titleEn": "Why \"nūr\" and not \"ḍawʾ\"?"
         }
-      ]
+      ],
+      "titleEn": "The One Who Kindled a Fire and the Downpour: One Parable or Two?",
+      "introEn": "Two parables of the hypocrites, one after the other. They part on three questions; all eight claims were verified."
     },
     {
       "id": "sivrisinek",
@@ -296,9 +388,12 @@
               "noteTr": "Üç rakip rivayet arasından, bağlamsal yakınlık gerekçesiyle “münafıklar 2:17-20'ye itiraz etti” rivayetini tercih eder.",
               "refTr": "Câmiu'l-beyân, Bakara 2:26",
               "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:26",
-              "refUrl": "https://quran.com/2/26"
+              "refUrl": "https://quran.com/2/26",
+              "quoteEn": "The nearest to correct and the most fitting to the truth is what Ibn Masʿūd and Ibn ʿAbbās said.",
+              "noteEn": "Among three competing reports he prefers, on grounds of contextual proximity, the one that the hypocrites objected to 2:17-20."
             }
-          ]
+          ],
+          "titleEn": "Which occasion of revelation?"
         },
         {
           "titleTr": "İmgenin küçüklüğü bir kusur mu?",
@@ -311,9 +406,12 @@
               "noteTr": "Tüm emsâl savunusunun en ekonomik cümlesi — imgenin bayağılığı, konu edilenin (putların) bayağılığının fonksiyonudur.",
               "refTr": "el-Keşşâf, Bakara 2:26",
               "refEn": "al-Kashshāf, Al-Baqarah 2:26",
-              "refUrl": "https://quran.com/2/26"
+              "refUrl": "https://quran.com/2/26",
+              "quoteEn": "The greatness or the lowliness of what is used in a parable is nothing other than what the condition of the one it is given for requires.",
+              "noteEn": "The most economical sentence in the whole defence of the parables: the lowliness of the image is a function of the lowliness of what is at issue, namely the idols."
             }
-          ]
+          ],
+          "titleEn": "Is the smallness of the image a flaw?"
         },
         {
           "titleTr": "“Fe-mâ fevkahâ” — daha büyük mü, daha küçük mü?",
@@ -326,7 +424,9 @@
               "noteTr": "“Ondan büyük olan” okumasını savunur; “küçük” okumasını sert reddeder.",
               "refTr": "Câmiu'l-beyân, Bakara 2:26",
               "refEn": "Jāmiʿ al-bayān, Al-Baqarah 2:26",
-              "refUrl": "https://quran.com/2/26"
+              "refUrl": "https://quran.com/2/26",
+              "quoteEn": "This is a statement contrary to the interpretation of the people of knowledge whose learning is accepted.",
+              "noteEn": "He defends the reading \"what is greater than it\" and firmly rejects the \"smaller\" reading."
             },
             {
               "scholarId": "zemahseri",
@@ -336,11 +436,16 @@
               "noteTr": "“Küçük/değersiz olan” okumasını önceliklendirir; “hacimce fazla” okumasını ikincil (“ve kīle”) sayar. Râzî de bu tarafı seçer.",
               "refTr": "el-Keşşâf, Bakara 2:26",
               "refEn": "al-Kashshāf, Al-Baqarah 2:26",
-              "refUrl": "https://quran.com/2/26"
+              "refUrl": "https://quran.com/2/26",
+              "quoteEn": "What surpasses it in the sense for which the parable is given, that is, in fewness and lowliness.",
+              "noteEn": "He gives priority to the reading \"smaller or lowlier\" and treats \"greater in size\" as secondary (\"wa-qīla\"). Al-Rāzī takes this side too."
             }
-          ]
+          ],
+          "titleEn": "\"Fa-mā fawqahā\": greater or smaller?"
         }
-      ]
+      ],
+      "titleEn": "The Parable of the Gnat: Is a Small Image a Defect?",
+      "introEn": "The answer to the objection the idolaters raised against the parables. They part on three questions."
     },
     {
       "id": "soluyan-kopek",
@@ -357,7 +462,8 @@
               "confidence": "confirmed",
               "refTr": "Câmiu'l-beyân, A'râf 7:175-176",
               "refEn": "Jāmiʿ al-bayān, Al-A'raf 7:175-176",
-              "refUrl": "https://quran.com/7/175"
+              "refUrl": "https://quran.com/7/175",
+              "quoteEn": "He transmits the attribution to Balʿam b. Bāʿūrāʾ, an Israelite of the time of Moses, through the chains of Ibn Masʿūd, Ibn ʿAbbās, Mujāhid and ʿIkrima."
             },
             {
               "scholarId": "kurtubi",
@@ -365,18 +471,22 @@
               "confidence": "confirmed",
               "refTr": "el-Câmi' li-ahkâmi'l-Kur'ân, A'râf 7:175-176",
               "refEn": "al-Jāmiʿ li-aḥkām al-Qurʾān, Al-A'raf 7:175-176",
-              "refUrl": "https://quran.com/7/175"
+              "refUrl": "https://quran.com/7/175",
+              "quoteEn": "He transmits the attribution to Umayya b. Abī al-Ṣalt (ʿAbdallāh b. ʿAmr, Zayd b. Aslam) and to Abū ʿĀmir b. Ṣayfī \"the Monk\" (Saʿīd b. al-Musayyab: \"nazalat fī Abī ʿĀmir... fa-kafara bi-al-Nabī\")."
             },
             {
               "scholarId": "taberi",
-              "quoteTr": "Kendi tercihinde hiçbirini isimlendirmez: “Sahih olan, Allah'ın dediğini demek ve tenzilin zahirini kabul etmektir” — meseleyi tip olarak okur, birey olarak değil.",
+              "quoteTr": "Kendi tercihinde hiçbirini isimlendirmez: 'Sahih olan, Allah'ın dediğini demek ve tenzilin zahirini kabul etmektir.' Kişinin kimliğini tayin etmez, vahyin verdiği nitelemeyle yetinir.",
               "confidence": "confirmed",
-              "noteTr": "Genel-okuma tercihi tam metinden doğrulandı.",
+              "noteTr": "Kimlik tayin etmeme tercihi tam metinden doğrulandı.",
               "refTr": "Câmiu'l-beyân, A'râf 7:175-176",
               "refEn": "Jāmiʿ al-bayān, Al-A'raf 7:175-176",
-              "refUrl": "https://quran.com/7/175"
+              "refUrl": "https://quran.com/7/175",
+              "quoteEn": "In his own preference he names no one: 'What is sound is to say what God said and to accept the apparent sense of the revelation.' He does not determine the individual's identity and confines himself to the description the revelation gives.",
+              "noteEn": "The preference for not determining an identity was verified against the full text."
             }
-          ]
+          ],
+          "titleEn": "Who is \"the man\"?"
         },
         {
           "titleTr": "Köpek neden soluyor? (vech-i şebeh)",
@@ -386,33 +496,42 @@
               "quoteAr": "كل شيء يلهث فإنما يلهث من إعياء أو عطش، إلا الكلب",
               "quoteTr": "Her şey yorgunluktan veya susuzluktan solur, köpek hariç.",
               "confidence": "confirmed",
-              "noteTr": "İbn Kuteybe'den nakil — köpek, dinlenmede de hastalıkta da solur; benzersiz bir yapısal özellik. (Not: “munkati'ul-fuâd” ifadesi kaynak metinde İbn Cüreyc'e aittir, bazı ikincil aktarımlarda İbn Abbâs'a yanlış atfedilir.)",
+              "noteTr": "İbn Kuteybe'den nakil. Kurtubî'nin aktardığı açıklamada köpeğin soluması yorgunluk ya da susuzluğa bağlı değildir. (Not: 'munkati'ul-fuâd' ifadesi kaynak metinde İbn Cüreyc'e aittir, bazı ikincil aktarımlarda İbn Abbâs'a yanlış atfedilir.)",
               "refTr": "el-Câmi' li-ahkâmi'l-Kur'ân, A'râf 7:175-176",
               "refEn": "al-Jāmiʿ li-aḥkām al-Qurʾān, Al-A'raf 7:175-176",
-              "refUrl": "https://quran.com/7/175"
+              "refUrl": "https://quran.com/7/175",
+              "quoteEn": "Everything pants from exhaustion or from thirst, except the dog.",
+              "noteEn": "Transmitted from Ibn Qutayba. In the explanation al-Qurṭubī reports, the dog's panting is not tied to exhaustion or thirst. (Note: the phrase 'munqaṭiʿ al-fuʾād' belongs to Ibn Jurayj in the source text, and is misattributed to Ibn ʿAbbās in some secondary transmissions.)"
             },
             {
               "scholarId": "zemahseri",
               "quoteAr": "سائر الحيوان لا يكون منه اللهث إلا إذا هيج، والكلب يتصل لهثه في الحالتين جميعاً",
-              "quoteTr": "Diğer hayvanlar ancak tahrik olunca solur; köpek ise iki halde de kesintisiz solur.",
+              "quoteTr": "Diğer hayvanlar ancak tahrik olunca solur; köpek ise iki hâlde de solar.",
               "confidence": "confirmed",
-              "noteTr": "Bu hâli “en aşağılık ve en zelil hâli” olarak niteler.",
+              "noteTr": "Zemahşerî bu hâli 'en aşağılık ve en zelil hâli' olarak niteler. Buradaki tasvir müfessirin temsil açıklamasıdır; bütün köpekler hakkında bir fizyoloji hükmü olarak okunmamalıdır.",
               "refTr": "el-Keşşâf, A'râf 7:175-176",
               "refEn": "al-Kashshāf, Al-A'raf 7:175-176",
-              "refUrl": "https://quran.com/7/175"
+              "refUrl": "https://quran.com/7/175",
+              "quoteEn": "Other animals pant only when provoked, whereas the dog pants in both states.",
+              "noteEn": "Al-Zamakhsharī calls this its most abject and most contemptible state. The description belongs to the exegete's account of the likeness and should not be read as a physiological ruling about dogs in general."
             },
             {
               "scholarId": "razi",
-              "quoteTr": "Üç ayrı vecih sıralar: (i) soluma fıtrîdir, ihtiyaçtan değil; (ii) süreklilik — hırs hiç kesilmez; (iii) değişmezlik — teşvik edilse de bırakılsa da aynı.",
+              "quoteTr": "Üç ayrı vecih sıralar: (i) soluma fıtrîdir, ihtiyaçtan değil; (ii) süreklilik, yani hırs hiç kesilmez; (iii) değişmezlik, yani üzerine gidilse de kendi hâline bırakılsa da aynı.",
               "confidence": "confirmed",
               "noteTr": "Üçü de Mefâtîhu'l-gayb 7:176'da doğrulandı.",
               "refTr": "Mefâtîhu'l-gayb, A'râf 7:175-176",
               "refEn": "Mafātīḥ al-Ghayb, Al-A'raf 7:175-176",
-              "refUrl": "https://quran.com/7/175"
+              "refUrl": "https://quran.com/7/175",
+              "quoteEn": "He lists three separate aspects: (i) the panting is innate, not from need; (ii) continuity, in that greed never lets up; (iii) invariance, in that it is the same whether you drive at it or leave it alone.",
+              "noteEn": "All three were verified in Mafātīḥ al-ghayb at 7:176."
             }
-          ]
+          ],
+          "titleEn": "Why does the dog pant? (the point of likeness)"
         }
-      ]
+      ],
+      "titleEn": "The Panting Dog: Who Is the Man, and Why Does It Pant?",
+      "introEn": "Two separate disagreements, one over identity and one over the point of likeness (wajh al-shabah)."
     },
     {
       "id": "seytan-baslari",
@@ -431,21 +550,28 @@
               "noteTr": "“تشبيه تخييلي” (imgesel/tehayyülî teşbih) terimini kullanır — benzetme görmeye değil, yerleşik zihinsel imgeye dayanır.",
               "refTr": "el-Keşşâf, Sâffât 37:65",
               "refEn": "al-Kashshāf, As-Saffat 37:65",
-              "refUrl": "https://quran.com/37/65"
+              "refUrl": "https://quran.com/37/65",
+              "quoteEn": "They were likened to them in ugliness, because in the eyes of those who find them ugly the devils are described as ugly in the extreme.",
+              "noteEn": "He uses the term \"tashbīh takhyīlī\", imaginative likeness: the comparison rests not on sight but on a settled mental image."
             },
             {
               "scholarId": "razi",
               "quoteAr": "هذا من باب التشبيه لا بالمحسوس بل بالمتخيل... كأنه قيل: إن أقبح الأشياء في الوهم والخيال هو رؤوس الشياطين",
               "quoteTr": "Bu, mahsûsa değil mutehayyele (hayalde kurulmuş olana) teşbih babındandır... sanki denmiştir ki: vehim ve hayalde en çirkin şey şeytanların başlarıdır.",
               "confidence": "confirmed",
-              "noteTr": "Mefâtîhu'l-gayb'da Zemahşerî'yi doğrudan alıntılayıp onaylar: “قال صاحب الكشاف...”. İki bağımsız kaynağın birbirini teyit ettiği güçlü bir örnek.",
+              "noteTr": "Mefâtîhu'l-gayb'da Zemahşerî'yi doğrudan alıntılayıp onaylar: 'قال صاحب الكشاف...'. Yani bu bir bağımsız teyit değil, açık bir benimsemedir.",
               "refTr": "Mefâtîhu'l-gayb, Sâffât 37:65",
               "refEn": "Mafātīḥ al-Ghayb, As-Saffat 37:65",
-              "refUrl": "https://quran.com/37/65"
+              "refUrl": "https://quran.com/37/65",
+              "quoteEn": "This belongs to the class of likening to what is imagined rather than to what is perceived... it is as if it were said: the ugliest thing in fancy and imagination is the heads of devils.",
+              "noteEn": "In Mafātīḥ al-ghayb he quotes al-Zamakhsharī directly and endorses him: 'qāla ṣāḥib al-Kashshāf...'. This is an explicit endorsement rather than an independent confirmation."
             }
-          ]
+          ],
+          "titleEn": "The solution: imaginative likeness"
         }
-      ]
+      ],
+      "titleEn": "\"The Heads of Devils\": Likening to Something Never Seen",
+      "introEn": "The most famous problem of classical rhetoric: how does a likeness work when the thing likened to has never been seen?"
     },
     {
       "id": "orumcek-agi",
@@ -464,11 +590,16 @@
               "noteTr": "Faydayı açıkça kabul eder. Çözüm kategoriktir: Kur'ân ağa “kötü ağ” değil, “en zayıf ev” diyor — ev barındırmalı, gölgelemeli, rüzgâr ve yağmurdan korumalı; ağ bunların hiçbirini yapmaz.",
               "refTr": "Mefâtîhu'l-gayb, Ankebût 29:41",
               "refEn": "Mafātīḥ al-Ghayb, Al-Ankabut 29:41",
-              "refUrl": "https://quran.com/29/41"
+              "refUrl": "https://quran.com/29/41",
+              "quoteEn": "There is a benefit for it in spinning it; without it, it could not hunt flies.",
+              "noteEn": "He grants the benefit outright. The solution is categorical: the Quran does not call the web a bad web but the frailest house. A house must shelter, give shade and protect from wind and rain; the web does none of these."
             }
-          ]
+          ],
+          "titleEn": "The objection and the answer"
         }
-      ]
+      ],
+      "titleEn": "The Spider's Web: How Is It the Frailest House When It Serves a Purpose?",
+      "introEn": "The web is genuinely useful to the spider; how does that square with the Quran calling it the frailest of houses?"
     },
     {
       "id": "guzel-agac",
@@ -484,10 +615,12 @@
               "quoteAr": "أخبروني عن شجرة تشبه... المسلم لا يتحاتّ ورقها",
               "quoteTr": "Bana öyle bir ağacı haber verin ki... Müslüman'a benzer, yaprağı dökülmez.",
               "confidence": "confirmed",
-              "noteTr": "Sahîh-i Buhârî, hadis no. 4698 (Ubeyd b. İsmâîl ← Ebû Üsâme ← Ubeydullah ← Nâfi' ← İbn Ömer zinciriyle). İbn Ömer içinden hurma olduğunu anlar ama en genç olduğu için susar; kimse bulamayınca Peygamber “O hurmadır” buyurur.",
+              "noteTr": "Sahîh-i Buhârî, hadis no. 4698 (Ubeyd b. İsmâîl ← Ebû Üsâme ← Ubeydullah ← Nâfi' ← İbn Ömer zinciriyle). İbn Ömer içinden hurma olduğunu anlar ama Ebû Bekir ile Ömer'in konuşmadığını görüp söylemekten çekinir; kimse bulamayınca Peygamber 'O hurmadır' buyurur.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, İbrâhîm 14:24-26",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Ibrahim 14:24-26",
-              "refUrl": "https://quran.com/14/24"
+              "refUrl": "https://quran.com/14/24",
+              "quoteEn": "Tell me of a tree that... resembles the Muslim, whose leaves do not fall.",
+              "noteEn": "Ṣaḥīḥ al-Bukhārī, ḥadīth no. 4698 (through the chain ʿUbayd b. Ismāʿīl from Abū Usāma from ʿUbaydallāh from Nāfiʿ from Ibn ʿUmar). Ibn ʿUmar realises it is the palm, but seeing that Abū Bakr and ʿUmar remained silent he hesitates to speak; when no one finds it, the Prophet says, 'It is the palm.'"
             },
             {
               "scholarId": "kurtubi",
@@ -497,33 +630,41 @@
               "noteTr": "Peygamber'in önce 14:24'ü okuyup sonra sorduğu bir versiyon.",
               "refTr": "el-Câmi' li-ahkâmi'l-Kur'ân, İbrâhîm 14:24-26",
               "refEn": "al-Jāmiʿ li-aḥkām al-Qurʾān, Ibrahim 14:24-26",
-              "refUrl": "https://quran.com/14/24"
+              "refUrl": "https://quran.com/14/24",
+              "quoteEn": "Al-Dāraquṭnī brought this out from Ibn ʿUmar.",
+              "noteEn": "A version in which the Prophet first recites 14:24 and then asks."
             },
             {
               "scholarId": "ibn-asur",
               "quoteAr": "وفي جامع الترمذي عن أنس بن مالك... رسول الله ﷺ قال «مثل كلمة طيبة كشجرة طيبة... قال: هي النخلة»",
               "quoteTr": "Tirmizî'nin Câmi'inde Enes b. Mâlik'ten... Resûlullah ﷺ dedi: ‘Güzel söz güzel ağaç gibidir... O hurmadır.’",
               "confidence": "confirmed",
-              "noteTr": "Aynı hadisi doğrudan 14:24'ün lafzına bağlayan bir versiyon.",
+              "noteTr": "Ayrı bir rivayettir ve doğrudan 14:24'ün lafzına bağlanır; İbn Ömer'in ağaç sorusu anlatısıyla aynı rivayet değildir.",
               "refTr": "et-Tahrîr ve't-tenvîr, İbrâhîm 14:24-26",
               "refEn": "al-Taḥrīr wa al-Tanwīr, Ibrahim 14:24-26",
-              "refUrl": "https://quran.com/14/24"
+              "refUrl": "https://quran.com/14/24",
+              "quoteEn": "In al-Tirmidhī's Jāmiʿ, from Anas b. Mālik... the Messenger of God said: 'A good word is like a good tree... It is the palm.'",
+              "noteEn": "A separate report, tied directly to the wording of 14:24; it is not the same report as the narrative of Ibn ʿUmar and the question about the tree."
             }
-          ]
+          ],
+          "titleEn": "Which tree? The ḥadīth of the palm"
         },
         {
           "titleTr": "“Kelime-i tayyibe” nedir?",
           "positions": [
             {
               "scholarId": "ibn-kesir",
-              "quoteTr": "Dört görüş bir arada aktarılır: şehâdet (İbn Abbâs, birincil), iman (Mücâhid), müminin kendisi (Atıyye el-Avfî, Rebî' b. Enes), salih söz+amel (Dahhâk, Saîd b. Cübeyr, İkrime, Katâde).",
+              "quoteTr": "İbrâhîm 14:24'ün tefsirinde 'kelime-i tayyibe' için dört görüş bir arada aktarılır: kelime-i şehâdet, imanın kendisi, müminin kendisi, ve salih söz ile amelin birlikte alınması.",
               "confidence": "partial",
-              "noteTr": "Dört kamp da kaynaklarda gerçekten var; hangi âlimin tam olarak hangi kampa girdiği bazı yerlerde belirsiz — genel bir liste olarak sunuluyor, tek tek isim eşleştirmesi kesin değil.",
+              "noteTr": "Dördü de İbn Kesîr'in bu âyet tefsirinde 'kelime-i tayyibe'nin karşılığı olarak sıralanır. Hangi âlimin tam olarak hangi görüşe girdiği kaynaklarda net değil; o yüzden isim eşleştirmesi verilmiyor. Ayrıca âyetteki AĞAÇ hakkındaki yorumlar ayrı bir kümedir ve bazı aktarımlarda bu dördüyle karışır.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, İbrâhîm 14:24-26",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Ibrahim 14:24-26",
-              "refUrl": "https://quran.com/14/24"
+              "refUrl": "https://quran.com/14/24",
+              "quoteEn": "In the commentary on Q 14:24, four views for the 'good word' are transmitted together: the testimony of faith, faith itself, the believer in person, and righteous word taken together with deed.",
+              "noteEn": "All four are listed in Ibn Kathīr's commentary on this verse as what the 'good word' stands for. Which scholar belongs to exactly which view is not clear in the sources, so no matching of names is given here. The interpretations of the TREE in the verse form a separate set, and some transmissions conflate them with these four."
             }
-          ]
+          ],
+          "titleEn": "What is the \"good word\"?"
         },
         {
           "titleTr": "“Şecere-i habîse” nedir?",
@@ -536,11 +677,16 @@
               "noteTr": "Hanzal (ebûcehil karpuzu) okuması baskın; ama İbn Kesîr bu rivayetin merfû mu mevkuf mu olduğunu açıkça sorguluyor — “lem yerfa'hu ğayru Hammâd b. Seleme” diyerek tekilliğine dikkat çekiyor.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, İbrâhîm 14:24-26",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Ibrahim 14:24-26",
-              "refUrl": "https://quran.com/14/24"
+              "refUrl": "https://quran.com/14/24",
+              "quoteEn": "I think he transmitted it as marfūʿ.",
+              "noteEn": "The reading of ḥanẓal, the colocynth, is dominant; but Ibn Kathīr openly questions whether this report is marfūʿ or mawqūf, noting its singularity with the remark \"lam yarfaʿhu ghayru Ḥammād b. Salama\"."
             }
-          ]
+          ],
+          "titleEn": "What is the \"bad tree\"?"
         }
-      ]
+      ],
+      "titleEn": "The Good Tree and the Bad Tree: Which Tree, Which Word?",
+      "introEn": "A rich web of disagreement, directly tied to a sound ḥadīth."
     },
     {
       "id": "yanan-bahce",
@@ -554,12 +700,14 @@
             {
               "scholarId": "ibn-kesir",
               "quoteAr": "حدثنا إبراهيم بن موسى، حدثنا هشام -هو ابن يوسف- عن ابن جريج، عن ابن أبي مليكة، عن ابن عباس",
-              "quoteTr": "İsnad: İbrâhîm b. Mûsâ ← Hişâm (İbn Yûsuf) ← İbn Cüreyc ← İbn Ebî Müleyke ← İbn Abbâs.",
+              "quoteTr": "İsnad kollarından biri: İbrâhîm b. Mûsâ ← Hişâm (İbn Yûsuf) ← İbn Cüreyc ← İbn Ebî Müleyke ← İbn Abbâs.",
               "confidence": "confirmed",
-              "noteTr": "Sahîh-i Buhârî, hadis no. 4538 (Kitâbü't-Tefsîr) — tam metinden doğrulandı.",
+              "noteTr": "Sahîh-i Buhârî, hadis no. 4538 (Kitâbü't-Tefsîr). İbn Cüreyc rivayeti ayrıca Ebû Bekir b. Ebî Müleyke → Ubeyd b. Umeyr kolundan da aktarır; burada verilen tek koldur.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Bakara 2:266",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Al-Baqarah 2:266",
-              "refUrl": "https://quran.com/2/266"
+              "refUrl": "https://quran.com/2/266",
+              "quoteEn": "One of the chains: Ibrāhīm b. Mūsā from Hishām (Ibn Yūsuf) from Ibn Jurayj from Ibn Abī Mulayka from Ibn ʿAbbās.",
+              "noteEn": "Ṣaḥīḥ al-Bukhārī, ḥadīth no. 4538 (Kitāb al-Tafsīr). Ibn Jurayj also transmits the report through the branch Abū Bakr b. Abī Mulayka to ʿUbayd b. ʿUmayr; only one branch is given here."
             },
             {
               "scholarId": "ibn-kesir",
@@ -569,21 +717,30 @@
               "noteTr": "Hz. Ömer sıkıştırınca (“Ayyu amel?”) — asıl yorumu (“lerâculin ğaniyyin ya'melu bi-tâatillâh...” — zengin bir adam Allah'a itaatle amel eder, sonra şeytan gelir...) bizzat ÖMER verir, İbn Abbâs değil. Popüler anlatımlarda bu cümle rutin olarak İbn Abbâs'a mal ediliyor — bu bir düzeltmedir.",
               "refTr": "Tefsîru'l-Kur'âni'l-Azîm, Bakara 2:266",
               "refEn": "Tafsīr al-Qurʾān al-ʿAẓīm, Al-Baqarah 2:266",
-              "refUrl": "https://quran.com/2/266"
+              "refUrl": "https://quran.com/2/266",
+              "quoteEn": "Ibn ʿAbbās can only say: 'A parable has been given for a deed.'",
+              "noteEn": "When ʿUmar presses him (\"ayyu ʿamal?\"), it is ʿUmar himself, not Ibn ʿAbbās, who supplies the actual interpretation (\"li-rajulin ghaniyyin yaʿmalu bi-ṭāʿat Allāh...\", a wealthy man acts in obedience to God, then Satan comes...). Popular retellings routinely assign this sentence to Ibn ʿAbbās; this is a correction."
             }
-          ]
+          ],
+          "titleEn": "Who is speaking in al-Bukhārī's own wording?"
         }
-      ]
+      ],
+      "titleEn": "The Burnt Garden: Who Said It, ʿUmar or Ibn ʿAbbās?",
+      "introEn": "A point in a famous report from the Companions that popular retellings frequently confuse."
     }
   ],
   "observations": [
     {
       "titleTr": "Mezhep, ihtilafı sanıldığı kadar belirlemiyor",
-      "textTr": "Bu tartışma çoğunlukla kelâmî değil, belâgî bir tartışma — mezhep sınırlarını keserek geçiyor. Aynı Eş'arî çizgideki Râzî ile modern İbn Âşûr, mürekkeb/müferrak meselesinde taban tabana zıt duruyor."
+      "textTr": "Bu tartışma çoğunlukla kelâmî değil, belâgî bir tartışma ve mezhep sınırlarını keserek geçiyor. Aynı Eş'arî çizgideki Râzî ile modern İbn Âşûr, belirli âyetlerde mürekkeb/müferrak meselesinde farklı yollar tutuyor.",
+      "titleEn": "School allegiance decides less of the disagreement than one expects",
+      "textEn": "This is for the most part a debate about rhetoric rather than theology, and it cuts across school boundaries. Al-Rāzī, of the same Ashʿarī line, and the modern Ibn ʿĀshūr take different paths on particular verses over the question of composite and element-by-element simile."
     },
     {
-      "titleTr": "Benzetme noktası (vech-i şebeh) daima tek ve keskin",
-      "textTr": "Köpek örneğinde mesele köpeğin necisliği değil, soluma davranışının uyarandan bağımsızlığı. Eşek örneğinde eşeğin aptallığı değil, “taşımak” fiilinin iki anlamı arasındaki uçurum. Benzetmeyi hayvanın tümüne yaymak, klasik tefsirlerin sık düştüğü değil, sıkça uyardığı bir yorum riskidir."
+      "titleTr": "Benzetme noktası (vech-i şebeh) belirlidir, imgenin tamamı değil",
+      "textTr": "Köpek örneğinde mesele köpeğin necisliği değil, temsilde vurgulanan soluma davranışı. Eşek örneğinde eşeğin aptallığı değil, 'taşımak' fiilinin iki anlamı arasındaki uçurum. Benzetme noktası tek bir unsurdan ibaret olmak zorunda değildir; mürekkeb temsilde birden çok unsurdan soyutlanabilir. Çıkarılamayacak sonuç şudur: benzetme, imgenin bütün özelliklerini benzetilene aktarmaz.",
+      "titleEn": "The point of likeness (wajh al-shabah) is specified, and is not the whole image",
+      "textEn": "In the case of the dog the issue is not that the animal is impure but the panting the likeness singles out. In the case of the donkey it is not that the animal is stupid but the gulf between the two senses of carrying. The point of likeness need not be a single feature; in a composite likeness it can be abstracted from several. What does not follow is that the comparison carries every property of the image over to what is likened."
     }
   ]
 }
