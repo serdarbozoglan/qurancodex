@@ -1803,7 +1803,34 @@ Sızıntı varsa **exit 1**. Yalnız ekrana çıkan alanlar taranır; `relatedTo
 > ⚠ İlk tarayıcım bu ayrımı yapmıyordu ve *"38/53 makale bozuk"* diye yanlış
 > alarm verdi; gerçek sayı **3**'tü. Tarayıcı yazarken de ölç, varsayma.
 
-### 13.28 Anasayfa Envanter Şeridi — Sayılar ELLE Güncellenir (2026-08-14+)
+### 13.28 Sayı Beyanları — TÜRETİLİR, ELLE YAZILMAZ (2026-08-14+)
+
+#### 13.28.0 İddia tutarlılığı kapısı: `audit-claims.mjs` (2026-09-13)
+
+**Bir veri dosyası `meta` içinde bir sayı ilan ediyorsa, o sayı dosyanın kendi
+içeriğinden türetilebilmelidir.** `scripts/audit-claims.mjs` 31 kuralla bunu
+kontrol eder ve `pre-push-guard`'ın dördüncü kapısıdır.
+
+```bash
+cd next && node scripts/audit-claims.mjs        # rapor
+cd next && node scripts/audit-claims.mjs --ci   # tutarsızlık varsa exit 1
+```
+
+Yeni bir veri dosyası `meta.totalX` ekliyorsa, betiğe türetme kuralı da
+eklenir. Kurallar AÇIK yazılır; "totalX herhalde x dizisidir" kestirmesi
+yasaktır, çünkü o varsayım sessizce yanlış eşleşme üretir.
+
+> **İlk koşuşunda gerçek bir hata yakaladı.** `kuran-sayilar.json` "70 âyet"
+> ilan ediyordu; ölçünce birincil referanslar 50, metinde geçen tüm âyetler 78
+> çıktı. Yani 70'i hiçbir tanım üretmiyordu ve o doğrulanamaz sayı sayfada,
+> araç kartında, katalogda ve sayfa açıklamasında dört yerde duruyordu.
+> Sayfayı yazan da bu kuralı savunan da aynı kişiydi; kapı tam bu yüzden var.
+
+**Kapsam dışı:** prozadaki iddialar ("klasik kaynaklarda kalıp tektir" gibi)
+makineyle doğrulanamaz. Onlar §13.24'ün hakem turunun işidir; nitekim o iddia
+aynı gün astra tarafından çürütüldü (Tâhâ 20:114 karşı örneği).
+
+#### 13.28.1 Anasayfa envanter şeridi
 
 **`next/src/sections/InventoryStrip.jsx`'teki üç sayı (araç, tefekkür yazısı,
 âyet) kaynaktan OTOMATİK okunmuyor — sunucu bileşeni derleme zamanında sabit
