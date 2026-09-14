@@ -333,8 +333,11 @@ export default function KuranSayilar() {
             color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.68rem',
             letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.8,
           }}>
-            {tr ? `${data.meta.totalNumbers} sayı · ${data.meta.totalVerses} âyet`
-                : `${data.meta.totalNumbers} numbers · ${data.meta.totalVerses} verses`}
+            {/* Sayılar veriden türetilir. Eskiden "70 âyet" yazıyordu ama o
+                sayı hiçbir şekilde yeniden üretilemiyordu: birincil referanslar
+                50, metinde geçen tüm âyetler 78. audit-claims.mjs yakaladı. */}
+            {tr ? `${data.meta.totalNumbers} sayı · ${data.meta.totalGroups} grup · ${data.meta.totalSources} kaynak`
+                : `${data.meta.totalNumbers} numbers · ${data.meta.totalGroups} groups · ${data.meta.totalSources} sources`}
           </span>
         ) : null}
       />

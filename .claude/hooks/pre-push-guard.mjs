@@ -47,6 +47,7 @@ process.stdin.on('end', () => {
     ['renk sistemi — §13.25', 'node scripts/audit-colors.mjs --ci'],
     ['iç mimari sızıntısı — §13.27', 'node scripts/audit-internal-leak.mjs --ci'],
     ['sayım & tutarlılık — B4', 'node scripts/audit-counts.mjs --ci'],
+    ['iddia tutarlılığı — §13.30', 'node scripts/audit-claims.mjs --ci'],
   ];
 
   const failures = [];

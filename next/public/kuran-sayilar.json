@@ -6,12 +6,12 @@
     "subtitleEn": "The numbers that occur in the text, and what they are said of",
     "totalGroups": 6,
     "totalNumbers": 50,
-    "totalVerses": 70,
     "sourceNoteTr": "Âyet metinleri ve mealleri sitenin âyet veri tabanından alınmış, her Arapça dize gösterim normalizasyonundan geçirilmiştir. Sayıların yerleri, Arapça sayı kelimeleri üzerinde harekeden bağımsız bir arama ile bulunmuştur.",
     "sourceNoteEn": "Verse texts and translations come from the site's own verse database, and every Arabic string has been passed through the display normalizer. The occurrences were located by a diacritic insensitive search over the Arabic numeral words.",
     "scopeNoteTr": "Bu sayfa Kur'an'da geçen sayıları ve neyin sayısı olduklarını gösterir. Harf ya da kelime sayımına dayanan sayısal örüntü iddialarına girmez; Kur'an'ın hakikati hiçbir hesabın sonucuna bağlı değildir.",
     "scopeNoteEn": "This page shows the numbers that occur in the Qur'an and what they are said of. It does not enter into claims of numerical patterning built on counts of letters or words; the truth of the Qur'an rests on no computation.",
-    "updated": "2026-09-13"
+    "updated": "2026-09-13",
+    "totalSources": 56
   },
   "intro": {
     "tr": "Kur'an sayı kullanır ve kullandığı yerlerde bunu dikkatle yapar. Bazı sayılar bir ölçüdür: yüz değnek, dört ay on gün, iki tam yıl. Bazıları bir haberdir: cehennemin yedi kapısı, Arş'ı taşıyan sekiz, ateşin başındaki on dokuz. Bazıları bir temsilin içinde durur: yedi başak, her başakta yüz dâne. Bu sayfa bu üç kullanımı ayırarak metnin sayılarını bir arada gösterir.\n\nMetnin kendi tutumu da kayda değer. Kehf 18:22 mağara ehlinin sayısı için üç ayrı rivayeti nakleder ve sayının bilgisini \"Onların sayılarını Rabbim daha iyi bilir\" diye Allah'a bırakır. \"Gayb hakkında atış\" kaydı ilk iki tahminin ardından gelir; üçüncü rivayet, yani yedi, bu kayıtla anılmaz ve Kurtubî yedi diyen bir grubun tam bu farkı delil saydığını nakleder. Müddessir 74:31 ateşin başındaki sayı için \"Onların sayısını inkârcılar için sadece bir imtihan yaptık\" der ve \"Rabbinin ordularını kendisinden başkası bilmez\" diye bağlar. Bu sayfa harf ve kelime sayımına dayanan örüntü tartışmalarına girmez; bu editoryal bir tercihtir, âyetler böyle bir yasak koymaz.",
