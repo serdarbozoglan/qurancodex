@@ -90,7 +90,7 @@ function Hero({ language, isMobile }) {
 
         <p style={{
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
-          textTransform: 'uppercase', opacity: 0.75, fontWeight: 700, margin: '0 0 14px',
+          textTransform: 'uppercase',  fontWeight: 700, margin: '0 0 14px',
         }}>{tr ? "ÜMMÜ'L-KİTÂB · KUR'ÂN'IN ÖZÜ" : "UMM AL-KITĀB · THE ESSENCE OF THE SCRIPTURE"}</p>
         <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
@@ -187,8 +187,12 @@ function PerspectiveCard({ p, accent, language, isMobile }) {
             ))}
           </div>
         )}
+        {/* Kaynak künyesi. Renk eskiden `${accent}95` idi: hex alfa 95 = 0.584
+            ve üç künye de 2.64 · 2.80 · 3.11 ölçülüyordu. Alfa metin rengine
+            uygulanmaz (§13.26 md.3). Aksan kimliği kesikli KENARLIKTA zaten
+            duruyor; künye metni standart ikincil token'a alındı. */}
         <p style={{
-          color: `${accent}95`, fontSize: '0.7rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5,
+          color: SEMANTIC.textMuted, fontSize: '0.7rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.5,
           borderTop: `1px dashed ${accent}30`, paddingTop: 8,
         }}>
           {p.citation}
@@ -435,7 +439,7 @@ function TabWordChoice({ data, language, isMobile }) {
             {g.perspectives.map((p, i) => <PerspectiveCard key={i} p={p} accent={accent} language={language} isMobile={isMobile} />)}
             {g.examples && (
               <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <div style={{ fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent, opacity: 0.85, marginBottom: 2 }}>
+                <div style={{ fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent,  marginBottom: 2 }}>
                   {tr ? 'Somut Örnekler' : 'Worked Examples'}
                 </div>
                 {g.examples.map((ex, ei) => (
@@ -479,7 +483,7 @@ function TabGrammar({ data, language, isMobile }) {
             {c.perspectives.map((p, i) => <PerspectiveCard key={i} p={p} accent={accent} language={language} isMobile={isMobile} />)}
             {(c.detailsTr || c.detailsEn) && (
               <div style={{ marginTop: 8, padding: '14px 18px', background: `${accent}0A`, border: `1px dashed ${accent}35`, borderRadius: 10 }}>
-                <div style={{ fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent, opacity: 0.85, marginBottom: 8 }}>
+                <div style={{ fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent,  marginBottom: 8 }}>
                   {tr ? 'Klasik Görüşlerin Ayrıntısı' : 'Detail of the Classical Opinions'}
                 </div>
                 <p style={{ color: COLORS.silver, fontSize: '0.84rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: '0 0 8px' }}>
@@ -492,7 +496,7 @@ function TabGrammar({ data, language, isMobile }) {
             )}
             {(c.storyTr || c.storyEn) && (
               <div style={{ marginTop: 8, padding: '14px 18px', background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${accent}`, borderRadius: 10 }}>
-                <div style={{ fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent, opacity: 0.85, marginBottom: 8 }}>
+                <div style={{ fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent,  marginBottom: 8 }}>
                   {tr ? 'Bir Kıssa' : 'A Story'}
                 </div>
                 <p style={{ color: COLORS.silver, fontSize: '0.84rem', lineHeight: 1.75, fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 8px' }}>

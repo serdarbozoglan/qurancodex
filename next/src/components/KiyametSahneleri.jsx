@@ -606,8 +606,7 @@ export default function KiyametSahneleri({ onClose }) {
           {/* Eyebrow */}
           <p style={{
             fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.3em',
-            textTransform: 'uppercase', color: GOLD, margin: '0 0 12px', fontFamily: FONTS.body,
-            opacity: 0.72,
+            textTransform: 'uppercase', color: GOLD, margin: '0 0 12px', fontFamily: FONTS.body, 
           }}>
             {language === 'tr' ? "KUR'AN'IN KIYAMET HARİTASI" : "THE QURAN'S MAP OF JUDGMENT"}
           </p>
@@ -815,7 +814,7 @@ function TabKronoloji({ data, language, isMobile }) {
       }}>
         <div style={{
           fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: GOLD, opacity: 0.85, fontWeight: 700,
+          color: GOLD,  fontWeight: 700,
           marginBottom: '12px', fontFamily: FONTS.body, textAlign: 'center',
         }}>
           {tr ? "7 FAZ · KOZMİK YIKIMDAN CENNET/CEHENNEM'E" : "7 PHASES · FROM COSMIC UNRAVELING TO PARADISE/HELL"}
@@ -920,7 +919,7 @@ function TabKronoloji({ data, language, isMobile }) {
         }}>
           <div style={{
             fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-            color: GOLD, opacity: 0.85, fontWeight: 700,
+            color: GOLD,  fontWeight: 700,
             marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
           }}>
             {tr ? "KIYAMET-YOĞUN SÛRELER · YOĞUNLUK ISI HARİTASI" : "JUDGMENT-DENSE SURAS · DENSITY HEATMAP"}
@@ -985,7 +984,7 @@ function TabKronoloji({ data, language, isMobile }) {
         marginBottom: '28px',
         maxWidth: '780px',
       }}>
-        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: GOLD, opacity: 0.85, margin: '0 0 12px', fontFamily: FONTS.body }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: GOLD,  margin: '0 0 12px', fontFamily: FONTS.body }}>
           {language === 'tr' ? "Eşrât-ı Sâat · Klasik 3 Aşama" : "Ashrāṭ al-Sāʿa · Three Classical Phases"}
         </p>
         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>

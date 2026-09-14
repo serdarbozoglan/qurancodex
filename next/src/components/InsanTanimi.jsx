@@ -99,7 +99,7 @@ export default function InsanTanimi({ onClose }) {
 
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "FIṬRAT + AKIL + İRADE + VAHY = İSTİKÂMET" : "FIṬRA + ʿAQL + IRĀDA + WAḤY = ISTIQĀMA"}
@@ -198,7 +198,7 @@ function EquationTab({ tr, isMobile, data }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "İNSAN DENKLEMİ · 4 ELEMENT" : "THE HUMAN EQUATION · 4 ELEMENTS"}
@@ -290,7 +290,7 @@ function EquationTab({ tr, isMobile, data }) {
         }} />
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.9, marginBottom: '10px',
+          color: COLORS.gold,  marginBottom: '10px',
           fontFamily: FONTS.body, fontWeight: 700, position: 'relative',
         }}>{tr ? "SONUÇ" : "RESULT"}</p>
         <div className="mq-fs" style={{
@@ -335,7 +335,7 @@ function ScholarsTab({ tr, isMobile, scholars }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "İNSAN TANIMINDA 6 SES" : "6 VOICES ON HUMAN NATURE"}
@@ -377,7 +377,7 @@ function ScholarsTab({ tr, isMobile, scholars }) {
               </div>
               <span style={{
                 fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: s.color, opacity: 0.7,
+                color: s.color, 
                 fontFamily: FONTS.body, fontWeight: 700, whiteSpace: 'nowrap',
               }}>{s.period}</span>
             </div>
@@ -400,7 +400,7 @@ function SourcesTab({ language, isMobile, sources }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 24px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {language === 'tr' ? "KUR'ÂN'DA İNSAN LİTERATÜRÜ" : "LITERATURE ON HUMAN NATURE IN THE QUR'ĀN"}

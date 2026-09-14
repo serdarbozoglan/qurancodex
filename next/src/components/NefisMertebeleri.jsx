@@ -650,7 +650,7 @@ function ComparisonMatrixTab({ language, isMobile, matrix }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "7 MERTEBE × 6 BOYUT KARŞILAŞTIRMA" : "7 STAGES × 6 DIMENSIONS COMPARISON"}
@@ -774,7 +774,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "KUR'ÂN'IN ÜÇ KELİMESİ · ÜÇ SAHNE" : "THE QUR'AN'S THREE WORDS · THREE SCENES"}
@@ -846,7 +846,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
             <div style={{ marginBottom: '16px', position: 'relative' }}>
               <div style={{
                 fontSize: '0.66rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-                color: v.colorHex, opacity: 0.72, marginBottom: '6px',
+                color: v.colorHex,  marginBottom: '6px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "SAHNE" : "SCENE"}</div>
               <p style={{

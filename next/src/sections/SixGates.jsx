@@ -287,7 +287,9 @@ function Gate({ gate, isMobile, language }) {
             fontFamily: FONTS.body,
             fontSize: '0.7rem',
             fontWeight: 500,
-            opacity: 0.95,
+            // `opacity: 0.95` kaldırıldı: görsel olarak fark etmiyordu ama
+            // §13.26 md.3'ü çiğniyor ve kırmızı kapının çipini 4.24'e
+            // düşürüyordu (ölçülen: "Sünnetullah").
           }}>
             {chip}
           </span>

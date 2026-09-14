@@ -48,7 +48,7 @@ const SURAS = [
     labelTr: 'Müddessir', labelEn: 'Al-Muddaththir',
     numTr: '74. Sûre', numEn: 'Surah 74',
     themeTr: 'Azap · Uyarı', themeEn: 'Punishment · Warning',
-    color: '#e74c3c', glow: 'rgba(231,76,60,0.12)', border: 'rgba(231,76,60,0.35)',
+    color: COLORS.softRed, glow: 'rgba(231,76,60,0.12)', border: 'rgba(231,76,60,0.35)',
     verse: 'سَأُصْلِيهِ سَقَرَ',
     verseRef: '74:26',
     harshLetters: ['ص', 'ق'],
@@ -355,7 +355,7 @@ function ComparisonCard({ t, language }) {
           onToggle={() => togglePlay('punishment')}
           labels={labels}
           language={language}
-          color="#e74c3c"
+          color={COLORS.softRed}
           glow="rgba(231,76,60,0.08)"
           border="rgba(231,76,60,0.30)"
           pattern={JAGGED_PATTERN}
@@ -1193,7 +1193,7 @@ export default function SoundArchitecture() {
                 <p style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.95rem', fontFamily: FONTS.display, fontWeight: 700, marginBottom: '4px' }}>
                   {language === 'tr' ? sura.labelTr : sura.labelEn}
                 </p>
-                <p style={{ color: isActive ? sura.color : COLORS.slate500, fontSize: '0.7rem', fontFamily: 'Inter, sans-serif' }}>
+                <p style={{ color: isActive ? sura.color : SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: 'Inter, sans-serif' }}>
                   {language === 'tr' ? sura.themeTr : sura.themeEn}
                 </p>
               </button>
@@ -1401,8 +1401,7 @@ export default function SoundArchitecture() {
                   href={`/${language}/oku/${surahNum}`}
                   style={{
                     fontSize: '0.72rem',
-                    color: activeSura.color,
-                    opacity: 0.75,
+                    color: activeSura.color, 
                     textDecoration: 'none',
                     fontFamily: 'Inter, sans-serif',
                     letterSpacing: '0.04em',

@@ -519,7 +519,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.75,
+        color: COLORS.gold, 
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -560,7 +560,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75,
+            color: COLORS.gold, 
           }}>
             {tr ? 'Daha Derine: Kıssa Yoğun Sûreler' : 'Go Deeper: Narrative-Rich Suras'}
           </span>
@@ -736,8 +736,7 @@ function HeroSection({ meta, language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', letterSpacing: '0.3em',
         color: COLORS.gold, textTransform: 'uppercase',
-        fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.75,
+        fontFamily: FONTS.body, fontWeight: 700, 
         marginBottom: '14px',
       }}>
         {language === 'tr' ? `TARİH & İNSAN · ${meta.totalMentioned} KAVİM` : `HISTORY & HUMAN · ${meta.totalMentioned} NATIONS`}
@@ -803,7 +802,11 @@ function HeroSection({ meta, language, isMobile }) {
             <div style={{ color: s.color, fontSize: '1.7rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
               {s.value}
             </div>
-            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px', lineHeight: 1.3 }}>
+            {/* Kart zemini `${s.color}10` ile renkli ve AÇIK; textFaint burada
+                beş etikette de AA altına düşüyordu (4.32-4.41, ölçülen).
+                CLAUDE.md §13.26'nın not ettiği tuzak: textFaint'in payı yalnız
+                saf zeminde geniştir. Yükseltilmiş kartta textMuted (5.68). */}
+            <div style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px', lineHeight: 1.3 }}>
               {language === 'tr' ? s.labelTr : s.labelEn}
             </div>
           </div>
@@ -1166,7 +1169,7 @@ function TabHelakDesen({ language, isMobile }) {
       }}>
         <div style={{
           fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.85, fontWeight: 700,
+          color: COLORS.gold,  fontWeight: 700,
           marginBottom: '14px', fontFamily: FONTS.body, textAlign: 'center',
         }}>
           {tr ? "HELAK FORMÜLÜ · 7 EVRE" : "DESTRUCTION FORMULA · 7 STAGES"}
@@ -1219,7 +1222,7 @@ function TabHelakDesen({ language, isMobile }) {
       }}>
         <div style={{
           fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, fontWeight: 700,
+          color: COLORS.gold,  fontWeight: 700,
           marginBottom: '12px', fontFamily: FONTS.body, textAlign: 'center',
         }}>
           {tr ? "HELAK BİÇİMLERİ · MOD İKONOGRAFİSİ" : "MODES OF DESTRUCTION · ICONOGRAPHY"}

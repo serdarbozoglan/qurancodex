@@ -131,18 +131,22 @@ export default function FatihaRingDiagram({ locale = 'tr' }) {
           textAlign: 'center',
           padding: '16px 20px',
           borderRadius: '14px',
-          border: `1px solid ${COLORS.gold}1f`,
-          background: `${COLORS.deepNavy}55`,
-          transition: 'opacity .25s',
-          opacity: cur ? 1 : 0.7,
+          // Boştaki panel geri çekilsin diye eskiden `opacity: 0.7` vardı ve bu
+          // İÇİNDEKİ METNİ de söndürüyordu: ipucu satırı 3.99 ölçüldü (AA altı).
+          // §13.26 md.3 metin rengine opaklık uygulanmasını yasaklar. Sönme
+          // artık ÇERÇEVEDE: zemin ve kenarlık zayıflar, metin tam opak kalır.
+          border: `1px solid ${COLORS.gold}${cur ? '1f' : '14'}`,
+          background: `${COLORS.deepNavy}${cur ? '55' : '33'}`,
+          transition: 'background .25s, border-color .25s',
         }}
       >
         {cur ? (
           <>
             <div style={{ fontFamily: FONTS.body, fontSize: '0.66rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 600 }}>
+              {/* §13.32: çıplak "1:5" yasak, sûre adı ile birlikte yazılır. */}
               {cur.pair === null
-                ? (tr ? `Eksen · 1:${cur.ayah}` : `Pivot · 1:${cur.ayah}`)
-                : `${cur.pos} ↔ ${mir.pos} · 1:${cur.ayah} ↔ 1:${mir.ayah}`}
+                ? (tr ? `Eksen · Fâtiha 1:${cur.ayah}` : `Pivot · Q 1:${cur.ayah}`)
+                : `${cur.pos} ↔ ${mir.pos} · ${tr ? 'Fâtiha' : 'Q'} 1:${cur.ayah} ↔ 1:${mir.ayah}`}
               {cur.clause && (
                 <span style={{ fontWeight: 400, letterSpacing: '0.06em', textTransform: 'none', color: SEMANTIC.textMuted }}>
                   {' '}({tr ? cur.clause.tr : cur.clause.en})

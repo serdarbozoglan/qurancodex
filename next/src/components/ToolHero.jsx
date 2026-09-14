@@ -79,7 +79,7 @@ export default function ToolHero({
 
       <p style={{
         color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
-        textTransform: 'uppercase', opacity: 0.75, fontFamily: FONTS.body,
+        textTransform: 'uppercase',  fontFamily: FONTS.body,
         fontWeight: 700, margin: '0 0 14px',
       }}>{tr ? eyebrowTr : eyebrowEn}</p>
 

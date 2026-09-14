@@ -138,7 +138,7 @@ export default function LivingPreservation() {
             />
 
             <p style={{
-              color: 'rgba(232,230,227,0.55)', fontSize: '0.82rem',
+              color: SEMANTIC.textMuted, fontSize: '0.82rem',
               fontFamily: FONTS.body, marginTop: '10px', lineHeight: 1.5,
             }}>
               {t(`livingPreservation.counters.${key}.description`)}
@@ -274,7 +274,10 @@ export default function LivingPreservation() {
               ].map((label, i, arr) => (
                 <span key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <span style={{
-                    fontSize: '0.68rem', fontWeight: 600, color: i === 0 ? COLORS.softEmerald : i === arr.length - 1 ? COLORS.gold : 'rgba(148,163,184,0.6)',
+                    // Aradaki halkalar uçlardan sönük dursun diye alfa gömülüydü;
+                    // "Sahabe" 3.06 ölçüldü. Hiyerarşi korunuyor ama sönme artık
+                    // AA'yı geçen bir TOKEN ile: textFaint (§13.26 md.3).
+                    fontSize: '0.68rem', fontWeight: 600, color: i === 0 ? COLORS.softEmerald : i === arr.length - 1 ? COLORS.gold : SEMANTIC.textFaint,
                     fontFamily: FONTS.body, whiteSpace: 'nowrap',
                   }}>
                     {label}

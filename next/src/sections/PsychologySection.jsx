@@ -7,7 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from '../components/icons';
-import { COLORS, FONTS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, FONTS, RADIUS, BREAKPOINT_MOBILE, SEMANTIC, CATEGORY } from '../tokens';
 import { routeForToolEvent } from '../lib/toolRoutes';
 
 // Parse references like "Yusuf, 12:84", "Tawba 9:128", or "12:84"
@@ -55,7 +55,10 @@ const MAIN_TABS = ['nefs', 'kalp', 'korku', 'savunma', 'yusuf', 'sosyal', 'aracl
 const APPENDIX_TABS = ['a', 'b', 'c'];
 
 const TAB_META = {
-  nefs:     { color: '#8B5CF6', dim: 'rgba(139,92,246,0.12)',  border: 'rgba(139,92,246,0.35)' },
+  // #8B5CF6 başlık metni olarak 4.16 ölçüldü (AA altı). tokens.js'teki
+  // CATEGORY.violet aynı takası zaten belgeliyor: "#8b5cf6 yerine #a78bfa,
+  // küçük metinde kontrast sınırdaydı". dim/border METİN DEĞİL, dokunulmadı.
+  nefs:     { color: CATEGORY.violet, dim: 'rgba(139,92,246,0.12)',  border: 'rgba(139,92,246,0.35)' },
   kalp:     { color: '#F43F5E', dim: 'rgba(244,63,94,0.12)',   border: 'rgba(244,63,94,0.35)'  },
   korku:    { color: '#F59E0B', dim: 'rgba(245,158,11,0.12)',  border: 'rgba(245,158,11,0.35)' },
   savunma:  { color: '#6366F1', dim: 'rgba(99,102,241,0.12)',  border: 'rgba(99,102,241,0.35)' },
@@ -376,7 +379,7 @@ function AppendixPanel() {
                 padding: '7px 16px', borderRadius: '8px', cursor: 'pointer',
                 border: `1px solid ${isActive ? col + '66' : 'rgba(255,255,255,0.07)'}`,
                 background: isActive ? col + '1a' : 'rgba(255,255,255,0.025)',
-                color: isActive ? col : '#64748b',
+                color: isActive ? col : SEMANTIC.textFaint,
                 fontFamily: "'Inter', sans-serif",
                 fontSize: '0.8rem', fontWeight: isActive ? 600 : 400,
                 transition: 'all 0.2s',
@@ -540,7 +543,7 @@ export default function PsychologySection() {
             border: 'none', borderRadius: '0',
             borderBottom: isActive ? `2px solid ${meta.color}` : '2px solid transparent',
             background: isActive ? meta.dim : 'transparent',
-            color: isActive ? meta.color : '#64748b',
+            color: isActive ? meta.color : SEMANTIC.textFaint,
             fontFamily: "'Inter', sans-serif",
             fontSize: '0.85rem', fontWeight: isActive ? 600 : 400,
             cursor: 'pointer', transition: 'all 0.2s',
@@ -568,7 +571,7 @@ export default function PsychologySection() {
                   e.currentTarget.style.color = '#94a3b8';
                 } else {
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#64748b';
+                  e.currentTarget.style.color = SEMANTIC.textFaint;
                 }
               }}
               aria-pressed={isActive}

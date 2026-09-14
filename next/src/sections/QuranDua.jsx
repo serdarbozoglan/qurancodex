@@ -119,7 +119,7 @@ export default function QuranDua() {
         <p style={{
           fontSize: '0.65rem', letterSpacing: '0.16em', textTransform: 'uppercase',
           color: COLORS.gold, fontFamily: "'Inter', sans-serif", fontWeight: 700,
-          marginBottom: '12px', opacity: 0.85,
+          marginBottom: '12px', 
         }}>
           {tr ? "Dilbilimsel Gözlemler: Dua Dilinin Üç Penceresi" : "Linguistic Observations: Three Windows into the Language of Prayer"}
         </p>
@@ -228,7 +228,7 @@ export default function QuranDua() {
         {/* Synthesis line — Pencere 1 sonu */}
         <p style={{
           marginTop: '14px', textAlign: 'center',
-          color: 'rgba(232,230,227,0.55)', fontSize: '0.78rem',
+          color: SEMANTIC.textMuted, fontSize: '0.78rem',
           fontFamily: "'Inter', sans-serif", fontStyle: 'italic',
           lineHeight: 1.6,
         }}>
@@ -259,7 +259,7 @@ export default function QuranDua() {
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
               color: '#a78bfa', fontWeight: 700, fontFamily: "'Inter', sans-serif",
-              marginBottom: '10px', opacity: 0.9,
+              marginBottom: '10px', 
             }}>
               {tr ? 'Pencere 2 · "Yâ" Edatının Yokluğu' : 'Window 2 · The Absence of "Yā"'}
             </div>
@@ -291,6 +291,8 @@ export default function QuranDua() {
           <div className="mq-box" style={{
             background: 'rgba(231,76,60,0.05)',
             border: '1px solid rgba(231,76,60,0.22)',
+            // Kenarlık METİN DEĞİL, ham kırmızı burada kalır. Bu kartın METİN
+            // renkleri #e74c3c iken 4.39 ölçülüyordu ve softRed'e alındı.
             borderTop: '2px solid #e74c3c',
             borderRadius: RADIUS.chip,
             '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "16px",
@@ -301,8 +303,8 @@ export default function QuranDua() {
           }}>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-              color: '#e74c3c', fontWeight: 700, fontFamily: "'Inter', sans-serif",
-              marginBottom: '10px', opacity: 0.9,
+              color: COLORS.softRed, fontWeight: 700, fontFamily: "'Inter', sans-serif",
+              marginBottom: '10px', 
             }}>
               {tr ? 'Pencere 3 · "Zalemnâ Enfusenâ": Pişmanlık Formülü' : 'Window 3 · "Ẓalamnā Anfusanā": Formula of Repentance'}
             </div>
@@ -312,14 +314,14 @@ export default function QuranDua() {
               <div>
                 <div dir="rtl" lang="ar" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: '1.25rem', color: '#e74c3c', textAlign: 'right',
+                  fontSize: '1.25rem', color: COLORS.softRed, textAlign: 'right',
                   lineHeight: 1.7,
                   textShadow: '0 0 14px rgba(231,76,60,0.18)',
                 }}>
                   رَبَّنَا ظَلَمْنَا أَنفُسَنَا
                 </div>
                 <div style={{
-                  fontSize: '0.68rem', color: '#e74c3c', fontWeight: 600,
+                  fontSize: '0.68rem', color: COLORS.softRed, fontWeight: 600,
                   fontFamily: "'Inter', sans-serif", textAlign: 'right',
                 }}>
                   ↳ {tr ? 'Hz. Âdem · A\'râf 7:23' : 'Hz. Adam · Al-Aʿrāf 7:23'}
@@ -328,14 +330,14 @@ export default function QuranDua() {
               <div>
                 <div dir="rtl" lang="ar" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: '1.25rem', color: '#e74c3c', textAlign: 'right',
+                  fontSize: '1.25rem', color: COLORS.softRed, textAlign: 'right',
                   lineHeight: 1.7,
                   textShadow: '0 0 14px rgba(231,76,60,0.18)',
                 }}>
                   رَبِّ إِنِّي ظَلَمْتُ نَفْسِي
                 </div>
                 <div style={{
-                  fontSize: '0.68rem', color: '#e74c3c', fontWeight: 600,
+                  fontSize: '0.68rem', color: COLORS.softRed, fontWeight: 600,
                   fontFamily: "'Inter', sans-serif", textAlign: 'right',
                 }}>
                   ↳ {tr ? 'Hz. Mûsâ · Kasas 28:16' : 'Hz. Moses · Al-Qaṣaṣ 28:16'}

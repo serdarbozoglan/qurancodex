@@ -155,8 +155,7 @@ export default function IblisSatan({ onClose }) {
           textTransform: 'uppercase',
           color: COLORS.gold,
           fontFamily: FONTS.body,
-          fontWeight: 700,
-          opacity: 0.75,
+          fontWeight: 700, 
           marginBottom: '18px',
         }}
       >
@@ -226,7 +225,7 @@ export default function IblisSatan({ onClose }) {
         }}
       >
         <div style={{
-          fontSize: '0.6rem', color: COLORS.gold, opacity: 0.75,
+          fontSize: '0.6rem', color: COLORS.gold, 
           letterSpacing: '0.25em', textTransform: 'uppercase',
           fontFamily: FONTS.body, fontWeight: 700,
           marginBottom: '10px',
@@ -408,7 +407,7 @@ export default function IblisSatan({ onClose }) {
             >
               <div style={{
                 fontSize: '0.62rem',
-                color: COLORS.gold, opacity: 0.75,
+                color: COLORS.gold, 
                 fontFamily: FONTS.body, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: '14px',
@@ -696,7 +695,7 @@ export default function IblisSatan({ onClose }) {
                       {/* Nuance */}
                       <div>
                         <p style={{
-                          color: COLORS.gold, opacity: 0.75,
+                          color: COLORS.gold, 
                           fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 600,
                           letterSpacing: '0.22em', textTransform: 'uppercase',
                           margin: '0 0 10px',
@@ -717,7 +716,7 @@ export default function IblisSatan({ onClose }) {
                       {/* Distinct chips */}
                       <div>
                         <p style={{
-                          color: COLORS.gold, opacity: 0.75,
+                          color: COLORS.gold, 
                           fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 600,
                           letterSpacing: '0.22em', textTransform: 'uppercase',
                           margin: '0 0 12px',
@@ -825,7 +824,7 @@ export default function IblisSatan({ onClose }) {
                   }}>
                     <span style={{
                       flexShrink: 0,
-                      color: COLORS.gold, opacity: 0.75,
+                      color: COLORS.gold, 
                       fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
                       letterSpacing: '0.18em',
                       minWidth: '92px',

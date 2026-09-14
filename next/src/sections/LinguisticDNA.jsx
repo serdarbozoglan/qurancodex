@@ -685,7 +685,11 @@ export default function LinguisticDNA() {
                   <span
                     aria-hidden="true"
                     className="font-body text-xs min-h-[44px] min-w-[44px] flex items-center justify-end px-1"
-                    style={{ color: `${group.color}80` }}
+                    /* `${group.color}80` = hex alfa 0.50; "▼ detay" 2.67 ölçüldü.
+                       Bu bir aç/kapa yardımcısı, devre dışı değil: §13.26 md.5'in
+                       3.0 tabanı burada geçmez, 4.5 gerekir. Aksan kimliği kartın
+                       kendi renginde zaten var; yardımcı metin token'a alındı. */
+                    style={{ color: SEMANTIC.textMuted }}
                   >
                     {isOpen
                       ? (language === 'tr' ? '▲ kapat' : '▲ close')

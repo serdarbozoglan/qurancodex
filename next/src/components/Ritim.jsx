@@ -98,7 +98,7 @@ export default function Ritim({ onClose }) {
         <div style={{
           fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, marginBottom: '14px',
+          color: COLORS.gold,  marginBottom: '14px',
         }}>
           {tr ? 'İMKÂNSIZ RİTİM · 16 VEZİN · SUİ GENERİS' : 'IMPOSSIBLE RHYTHM · 16 METERS · SUI GENERIS'}
         </div>

@@ -152,7 +152,7 @@ export default function SoundExtensions({ language, isMobile }) {
           <p style={{
             color: COLORS.gold, fontSize: '0.72rem',
             letterSpacing: '0.28em', textTransform: 'uppercase',
-            fontWeight: 700, opacity: 0.82, marginBottom: '14px',
+            fontWeight: 700,  marginBottom: '14px',
           }}>{tr ? 'DERİN İNCELEME · GENİŞLETİLMİŞ' : 'DEEP DIVE · EXTENDED'}</p>
           <h2 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -215,7 +215,7 @@ export default function SoundExtensions({ language, isMobile }) {
             <p style={{
               color: COLORS.gold, fontSize: '0.7rem',
               letterSpacing: '0.24em', textTransform: 'uppercase',
-              fontWeight: 700, opacity: 0.82, marginBottom: '10px',
+              fontWeight: 700,  marginBottom: '10px',
             }}>{tr ? 'FONETİK SPEKTRUM' : 'PHONETIC SPECTRUM'}</p>
             <h3 className="mq-fs" style={{
               fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -259,7 +259,7 @@ export default function SoundExtensions({ language, isMobile }) {
                   <div style={{
                     color: g.color, fontSize: '0.7rem',
                     letterSpacing: '0.14em', textTransform: 'uppercase',
-                    fontWeight: 700, marginBottom: '10px', opacity: 0.9,
+                    fontWeight: 700, marginBottom: '10px', 
                   }}>{tr ? g.groupTr : g.groupEn}</div>
                   <div style={{
                     display: 'flex', flexWrap: 'wrap', gap: '4px',
@@ -344,7 +344,7 @@ function SideCard({ side, language, label }) {
       <div style={{
         color: side.color, fontSize: '0.66rem',
         letterSpacing: '0.22em', textTransform: 'uppercase',
-        fontWeight: 700, marginBottom: '10px', opacity: 0.9,
+        fontWeight: 700, marginBottom: '10px', 
       }}>{label} · {tr ? side.surahTr : (side.surahEn ?? side.surahTr)}</div>
       <div style={{
         fontFamily: FONTS.quran, color: side.color,

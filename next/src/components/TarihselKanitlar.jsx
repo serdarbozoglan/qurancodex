@@ -247,7 +247,7 @@ export default function TarihselKanitlar({ onClose }) {
             <div style={{
               fontSize: '0.68rem', letterSpacing: '0.3em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
+              fontFamily: FONTS.body, fontWeight: 700, 
               marginBottom: '14px',
             }}>
               {tr ? 'ZAMANDA GÖMÜLÜ · METİNDE KAYITLI' : 'BURIED IN TIME · INSCRIBED IN TEXT'}
@@ -589,7 +589,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
             <div style={{
               fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
               color: COLORS.skyBlue, textTransform: 'uppercase',
-              fontFamily: FONTS.body, marginBottom: '8px', opacity: 0.9,
+              fontFamily: FONTS.body, marginBottom: '8px', 
             }}>{tr ? 'Klasik + Akademik Analiz' : 'Classical + Academic Analysis'}</div>
             <p style={{
               fontSize: '0.82rem', color: COLORS.offWhite,
@@ -607,7 +607,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
             <div style={{
               fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.85,
+              fontFamily: FONTS.body, marginBottom: '6px', 
             }}>{tr ? 'Kaynaklar' : 'Sources'}</div>
             <p style={{
               fontSize: '0.78rem', color: COLORS.silver,
@@ -630,7 +630,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
               <div style={{
                 fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
                 color: COLORS.gold, textTransform: 'uppercase',
-                fontFamily: FONTS.body, marginBottom: '4px', opacity: 0.85,
+                fontFamily: FONTS.body, marginBottom: '4px', 
               }}>{tr ? 'Nüans / Uyarı' : 'Nuance / Caveat'}</div>
               <p style={{
                 fontSize: '0.78rem', color: COLORS.offWhite,
@@ -910,7 +910,7 @@ function MethodologyTab({ intro, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', letterSpacing: '0.16em',
           color: COLORS.gold, textTransform: 'uppercase',
-          fontFamily: FONTS.body, fontWeight: 700, opacity: 0.85, marginBottom: '10px',
+          fontFamily: FONTS.body, fontWeight: 700,  marginBottom: '10px',
         }}>{tr ? 'Metodoloji Notu' : 'Methodological Note'}</div>
         <p style={{
           margin: 0, fontSize: '0.9rem', color: COLORS.offWhite,
@@ -928,7 +928,7 @@ function MethodologyTab({ intro, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', letterSpacing: '0.14em',
           color: COLORS.skyBlue, textTransform: 'uppercase',
-          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px', opacity: 0.9,
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px', 
         }}>{tr ? 'İddia Gücü Skalası' : 'Claim-Strength Scale'}</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {Object.entries(CONFIDENCE_META).map(([k, m]) => (

@@ -532,7 +532,7 @@ export default function ZamanBoyutlari({ onClose }) {
         }}>
           <div style={{
             fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, fontWeight: 700,
+            color: COLORS.gold,  fontWeight: 700,
             marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
           }}>
             {language === 'tr' ? "KUR'ÂN'DAKİ ZAMAN ÖLÇEĞİ · LOGARİTMİK GÖSTERİM" : "QUR'ĀNIC TIME SCALE · LOGARITHMIC PLOT"}
@@ -796,7 +796,7 @@ export default function ZamanBoyutlari({ onClose }) {
         }}>
           <div style={{
             fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-            color: '#a78bfa', opacity: 0.85, fontWeight: 700,
+            color: '#a78bfa',  fontWeight: 700,
             marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
           }}>
             {language === 'tr' ? "FUSSİLET 41:9-12 · 6 GÜN FORMÜLÜ" : "FUSSILAT 41:9-12 · 6-DAY FORMULA"}
@@ -1092,7 +1092,7 @@ export default function ZamanBoyutlari({ onClose }) {
           marginBottom: '24px',
           maxWidth: '780px',
         }}>
-          <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.85, margin: '0 0 12px', fontFamily: FONTS.body }}>
+          <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.gold,  margin: '0 0 12px', fontFamily: FONTS.body }}>
             {language === 'tr' ? "Zaman · Filozoflar ve Fizikçiler" : "Time · Philosophers and Physicists"}
           </p>
           <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
@@ -1713,8 +1713,7 @@ export default function ZamanBoyutlari({ onClose }) {
         <div style={{
           fontSize: '0.68rem', letterSpacing: '0.3em',
           color: COLORS.gold, textTransform: 'uppercase',
-          fontFamily: FONTS.body, fontWeight: 700,
-          opacity: 0.75,
+          fontFamily: FONTS.body, fontWeight: 700, 
           marginBottom: '14px',
         }}>
           {language === 'tr' ? 'KOZMOS · ZAMAN · ESNEKLİK' : 'COSMOS · TIME · ELASTICITY'}

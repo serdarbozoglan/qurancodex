@@ -1622,6 +1622,28 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
    > ⚠ Tarayıcı yazarken: color ve opacity **aynı satırda olmayabilir**. İlk
    > tarayıcım yalnız tek satıra bakıyordu ve 85 vakayı kaçırdı; stil nesnesinin
    > TAMAMINI (`style={{ … }}` bloğu) incele.
+   > **OPAKLIK BEŞ AYRI BİÇİMDE GİRER — beşini de ara (2026-09-14).** Yukarıdaki
+   > tarama yalnız ilk ikisini yakalıyordu ve "opaklık temizlendi" sanılmıştı;
+   > ölçüm kalan üçünü ortaya çıkardı:
+   > | # | biçim | örnek | bulunduğu yer |
+   > |---|---|---|---|
+   > | 1 | inline prop | `opacity: 0.72` | 276 blok / 73 dosya (eyebrow kalıbı) |
+   > | 2 | gömülü alfa | `rgba(148,163,184,0.6)`, `${COLORS.gold}C7` | dağınık |
+   > | 3 | **framer-motion hedefi** | `animate={{ opacity: 0.65 }}` | animasyon BİTER ve öge orada KALIR (EsmaFrekans, 3.66) |
+   > | 4 | **JS olay işleyicisi** | `e.currentTarget.style.opacity = '0.55'` | hover'dan sonra tabandan DAHA sönük kalıyordu (DesktopSidebarTOC) |
+   > | 5 | **Tailwind yardımcısı** | `text-silver/60`, `text-gold/50` | ~111 kullanım — HENÜZ TARANMADI |
+   >
+   > 3 ve 4 özellikle sinsi: kaynakta `opacity` bir stil nesnesinde görünmez,
+   > yalnız çalışan sayfada ortaya çıkar. `grep "opacity:"` bunları bulmaz;
+   > `animate={{`, `whileInView={{` ve `style.opacity =` ayrıca aranmalı.
+   >
+   > ⚠ **TOPLU TEMİZLİKTE `aria-hidden` ÖGELERİ DIŞARIDA BIRAK.** Bu maddenin
+   > kendi istisnası dekoratif ögedir; 276 bloklu süpürme iki filigranı da
+   > sildi (`RisaleNotes` köşe numarası `opacity: 0.07`, `IlkSonKelimeler`
+   > `0.12`) ve onlar tam opak olunca ekranda bağırıyordu. Geri alındı.
+   > Pratik işaret: **kaldırdığın opaklık ≤0.3 ise o metin değil, süstür** —
+   > durup ögeye bak. Tarayıcı `aria-hidden` taşıyan etiketi atlamalı.
+
 4. **Alfa token'ları metin rengi olarak kullanılamaz** (`silverAlpha70` = 4.23,
    `silverAlpha40` çok daha kötü). Bunlar zemin/kenarlık token'larıdır.
 5. **Kasıtlı sönük durum** (devre dışı, "bu öge burada yok" gibi) oran
@@ -1661,6 +1683,18 @@ cd next && node scripts/audit-contrast-settled.mjs /tr /tr/arac/mukattaa
 #     Yalnız ikinci geçişte de bildirilen bulgu GERÇEKTİR. Kasıtlı sönük
 #     hâller (devre dışı, aria-hidden) ayrı sayılır, çünkü onların tabanı 3.0.
 #     `--mobile` ile 390px'te koşar.
+#     Her satır artık EFEKTİF ZEMİNİ de yazar ("zemin 46,25,34"). Yerine
+#     koyacağın rengi O ZEMİNE göre hesapla; cosmic-black varsayma.
+#
+#   ⚠ 2026-09-14'te bu betiğin kendisinde bir hata bulundu ve düzeltildi:
+#     gezme döngüsü `document.body.scrollHeight`'i BAŞTA BİR KEZ okuyordu.
+#     Sayfa açıldıkça uzuyorsa döngü erken bitiyor, alt bölümlere hiç
+#     inilmiyor ve oralar SectionWrapper'ın `hidden` hâlinde (opacity 0.5,
+#     iç ögeyle çarpılınca 0.25) ölçülüp "GERÇEK ihlal" diye raporlanıyordu.
+#     Halka Kompozisyon'da 25 bulgunun 24'ü böyle doğmuştu; tam denetim aynı
+#     sayfada 1 diyordu. Yükseklik artık her adımda yeniden okunuyor.
+#     DERS: oturmuş denetim ile tam denetim aynı sayfa için çok farklı sayı
+#     veriyorsa, önce ARACI şüphelen — 24 sahte bulguyu "düzeltmek" üzereydim.
 cd next && node scripts/audit-contrast.mjs            # örneklem (12 rota, ~40 sn)
 cd next && node scripts/audit-contrast.mjs --full     # 70 rota × 2 dil (~4 dk)
 cd next && node scripts/audit-contrast.mjs --ci       # taban aşılırsa exit 1

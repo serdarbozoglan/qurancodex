@@ -138,6 +138,7 @@ export const COLORS = {
   navyTextSafe:        '#439cd6',   // 1a5276'nın metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.deniz)
   orchidLightTextSafe: '#b67ece',   // 8e44ad'nin metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.mesh)
   siennaTextSafe:      '#c7926b',   // a0785a'nın metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.tas)
+  maqtaTextSafe:       '#ffdce6',   // 7c3f58 maqta' karesinin üstündeki numara; eskiden aynı pembe 0.7 alfayla yazılıyordu ve 3.91'di (ImpossibleRhythm)
   tealBadgeSafe:       '#3BBBA8',   // 2ab5a0'ın 0.75 opaklıkta metin-güvenli hâli (IlkSonKelimeler themeColor)
   skyBadgeSafe:        '#63B0E3',   // 3498db'nin 0.75 opaklıkta metin-güvenli hâli (IlkSonKelimeler themeColor)
   violetBadgeSafe:     '#B698F9',   // 8b5cf6'nın 0.75 opaklıkta metin-güvenli hâli (IlkSonKelimeler themeColor)

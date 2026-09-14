@@ -64,8 +64,7 @@ export default function Footer() {
                 color: COLORS.offWhiteAlpha78,
                 letterSpacing: '0.28em',
                 textTransform: 'uppercase',
-                margin: 0,
-                opacity: 0.85,
+                margin: 0, 
               }}
             >
               {t('footer.tagline') || "Hidden Architecture of the Quran"}

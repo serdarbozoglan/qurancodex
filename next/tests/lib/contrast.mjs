@@ -185,6 +185,16 @@ export const CONTRAST_PROBE = `(() => {
       px: Math.round(px * 10) / 10,
       large,
       color: cs.color,
+      // Efektif zemin, bgOf'un çözdüğü hâliyle. İKİ İŞİ VAR:
+      //   1. Düzeltme yaparken hangi rengin yeteceğini zemin belirler; bu
+      //      alan olmadan oran elle yeniden hesaplanıyordu ve CLAUDE.md
+      //      §13.26'da belgelenen üç yanlış genellemenin sebebi buydu.
+      //   2. audit-contrast-settled.mjs tekilleştirme anahtarında f.bg
+      //      kullanıyordu ama alan yoktu: anahtar hep "undefined" oluyor ve
+      //      aynı renk/puntonun FARKLI zeminlerdeki bulguları tek kayda
+      //      çöküyordu. Alan eklendiğinde o anahtar kendiliğinden düzelir.
+      //   NOT: bu blok bir template literal İÇİNDEDİR; ters tırnak kullanma.
+      bg: bgKey,
       opacity: Math.round(chainOp * 100) / 100,
       sec: (el.closest('section[id],div[id]') || {}).id || '',
       text: txt,

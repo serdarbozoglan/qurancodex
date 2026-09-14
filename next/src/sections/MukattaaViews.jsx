@@ -143,7 +143,7 @@ export default function MukattaaViews() {
         <p className="mq-fs" style={{
           '--fs-d': '0.7rem', '--fs-m': '0.64rem',
           letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, margin: '0 0 10px',
+          color: COLORS.gold,  margin: '0 0 10px',
           fontFamily: FONTS.body, fontWeight: 600,
         }}>
           {tr ? 'Klasik Görüşler' : 'Classical Views'}

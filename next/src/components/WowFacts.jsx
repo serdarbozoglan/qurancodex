@@ -907,7 +907,10 @@ function TimelineVisual({ events, highlightIndex, labelTr, labelEn, language, ca
               }}>{i + 1}</span>
               <span style={{
                 fontSize: isHi ? '0.78rem' : '0.7rem',
-                color: isHi ? COLORS.offWhite : 'rgba(148,163,184,0.75)',
+                // Vurgulanmayan adımda alfa gömülüydü (0.75) ve "1:5" 4.41
+                // ölçülüyordu. Vurgu farkı zaten punto + kalınlık + offWhite
+                // ile taşınıyor; sönük hâl tam opak token'a alındı (§13.26 md.3).
+                color: isHi ? COLORS.offWhite : SEMANTIC.textMuted,
                 fontWeight: isHi ? 600 : 400,
                 fontFamily: FONTS.body,
                 whiteSpace: 'nowrap',

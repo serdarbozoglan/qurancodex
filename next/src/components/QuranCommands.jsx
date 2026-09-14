@@ -294,7 +294,7 @@ export default function QuranCommands({ onClose }) {
 
         {/* Eyebrow */}
         <div style={{ marginBottom: '12px' }}>
-          <span style={{ fontSize: '0.68rem', color: COLORS.gold, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, opacity: 0.75, fontFamily: "'Inter', sans-serif" }}>
+          <span style={{ fontSize: '0.68rem', color: COLORS.gold, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700,  fontFamily: "'Inter', sans-serif" }}>
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ · 5 HÜKÜM" : "QURAN COMMANDS · 5 RULINGS"}
           </span>
         </div>

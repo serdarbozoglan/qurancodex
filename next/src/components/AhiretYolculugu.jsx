@@ -616,8 +616,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
           className="mq-fs" style={{
             fontFamily: FONTS.body,
             '--fs-d': '0.72rem', '--fs-m': '0.65rem',
-            color: COLORS.gold,
-            opacity: 0.78,
+            color: COLORS.gold, 
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             fontWeight: 700,
@@ -646,8 +645,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             fontFamily: FONTS.display,
             fontStyle: 'italic',
             color: COLORS.gold,
-            '--fs-d': 'clamp(1.08rem, 1.85vw, 1.22rem)', '--fs-m': 'clamp(0.95rem, 3.2vw, 1.08rem)',
-            opacity: 0.95,
+            '--fs-d': 'clamp(1.08rem, 1.85vw, 1.22rem)', '--fs-m': 'clamp(0.95rem, 3.2vw, 1.08rem)', 
             margin: 0,
             lineHeight: 1.55,
             letterSpacing: '0.005em',
@@ -674,8 +672,7 @@ function IndexRail({ stages, activeIdx, onJump, tr }) {
         fontSize: '0.62rem',
         letterSpacing: '0.28em',
         textTransform: 'uppercase',
-        color: COLORS.gold,
-        opacity: 0.75,
+        color: COLORS.gold, 
         marginBottom: 18,
         fontWeight: 700,
       }}>{tr ? 'YOLCULUK' : 'THE JOURNEY'}</div>
@@ -761,8 +758,17 @@ function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, 
 
   return (
     <motion.article className="mq-box"
+      // Eskiden: whileInView={reducedMotion ? {} : {...}}. Bu dallanma ile
+      // hareket tercihi AÇIK kullanıcıda kartın gidecek bir hedefi kalmıyor ve
+      // `initial`de, yani KALICI %40 opaklıkta donuyordu. Ölçüldü: reduce
+      // modunda 22 kartın 22'si sönük, no-preference'ta 0. Aynı hata
+      // SectionWrapper'da da yaşanmış ve orada belgelenmişti.
+      // Çözüm aynı: OPAKLIK HER HÂLDE 1'e gider; vestibüler olan kısmı
+      // (kayma ve bulanıklık) tercihe göre atlanır.
       initial={{ opacity: 0.4, y: 16, filter: 'blur(3px)' }}
-      whileInView={reducedMotion ? {} : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+      whileInView={reducedMotion
+        ? { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0 } }
+        : { opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '400px 0px' }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       style={{
@@ -992,8 +998,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: COLORS.gold,
-            fontWeight: 700,
-            opacity: 0.8,
+            fontWeight: 700, 
             marginBottom: 12,
             padding: '6px 0',
             userSelect: 'none',
@@ -1015,8 +1020,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: COLORS.gold,
-            fontWeight: 700,
-            opacity: 0.8,
+            fontWeight: 700, 
             marginBottom: 12,
           }}>{tr ? 'Klasik Tefsir Çeşitliliği' : 'Classical Tafsir Plurality'}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -1069,11 +1073,11 @@ function StageBody({ stage, isMobile, tr, language, router }) {
           }} />
           <div style={{
             fontFamily: FONTS.body, fontSize: '0.6rem', letterSpacing: '0.2em',
-            textTransform: 'uppercase', color: COLORS.gold, opacity: 0.8, fontWeight: 700, marginBottom: 4,
+            textTransform: 'uppercase', color: COLORS.gold,  fontWeight: 700, marginBottom: 4,
           }}>{tr ? 'RİSALE-İ NUR' : 'RISALE-I NUR'}</div>
           <div style={{
             fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.08em',
-            color: COLORS.gold, opacity: 0.8, fontWeight: 600, marginBottom: 12,
+            color: COLORS.gold,  fontWeight: 600, marginBottom: 12,
           }}>{tr ? stage.risale.sourceTr : stage.risale.sourceEn}</div>
           <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
@@ -1109,8 +1113,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: COLORS.gold,
-            fontWeight: 700,
-            opacity: 0.8,
+            fontWeight: 700, 
             marginBottom: 12,
           }}>{tr ? 'Devamı için' : 'Continue with'}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

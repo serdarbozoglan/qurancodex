@@ -289,7 +289,10 @@ const TRANSFORMATION = [
       en: '"But yes — whoever submits his face to Allah while doing good..."',
       ref: 'Bakara 2:112',
     },
-    color: '#0D9E73',
+    // `color` bu aşamada ROZET METNİ olarak da kullanılıyor ("Mükemmellik") ve
+    // #0D9E73 kendi parıltısının üstünde 3.72 ölçüldü. softEmerald aynı zeminde
+    // 6.01. glow/border METİN DEĞİL, ton kimliği orada korunuyor.
+    color: COLORS.softEmerald,
     glow: 'rgba(13,158,115,0.12)',
     border: 'rgba(13,158,115,0.35)',
   },

@@ -107,8 +107,7 @@ export default function ReadingProgressCard() {
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               color: COLORS.gold,
-              fontWeight: 700,
-              opacity: 0.8,
+              fontWeight: 700, 
               marginBottom: 4,
             }}>
               {tr ? 'Kaldığın yerden devam et' : 'Continue reading'}

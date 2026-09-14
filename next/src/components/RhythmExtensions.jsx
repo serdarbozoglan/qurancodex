@@ -90,7 +90,7 @@ export default function RhythmExtensions({ language, isMobile }) {
           <p style={{
             color: COLORS.gold, fontSize: '0.72rem',
             letterSpacing: '0.28em', textTransform: 'uppercase',
-            fontWeight: 700, opacity: 0.82, marginBottom: '14px',
+            fontWeight: 700,  marginBottom: '14px',
           }}>{tr ? 'DERİN İNCELEME · VEZİN VE NAKARAT' : 'DEEP DIVE · METRE AND REFRAIN'}</p>
           <h2 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -200,8 +200,7 @@ export default function RhythmExtensions({ language, isMobile }) {
           }}>
             <div style={{
               color: COLORS.gold, fontSize: '0.7rem',
-              letterSpacing: '0.22em', textTransform: 'uppercase',
-              opacity: 0.85, marginBottom: '12px', fontWeight: 700,
+              letterSpacing: '0.22em', textTransform: 'uppercase',  marginBottom: '12px', fontWeight: 700,
             }}>{tr ? 'Nakarat' : 'Refrain'}</div>
             <div className="mq-fs" style={{
               fontFamily: FONTS.quran, color: COLORS.gold,

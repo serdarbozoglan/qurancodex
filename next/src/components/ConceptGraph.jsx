@@ -557,7 +557,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
             {/* Eyebrow */}
             <p style={{
-              color: COLORS.gold, opacity: 0.75,
+              color: COLORS.gold, 
               fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase',
               margin: '0 0 10px',
@@ -705,8 +705,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                       <p style={{
                         color: catColor,
                         fontSize: '0.66rem', letterSpacing: '0.2em',
-                        textTransform: 'uppercase', margin: 0, fontWeight: 700,
-                        opacity: 0.82,
+                        textTransform: 'uppercase', margin: 0, fontWeight: 700, 
                       }}>
                         {language === 'tr' ? label.tr : label.en}
                       </p>

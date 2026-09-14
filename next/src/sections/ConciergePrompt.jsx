@@ -240,7 +240,11 @@ export default function ConciergePrompt() {
               background: query.trim().length >= 3
                 ? `linear-gradient(135deg, ${COLORS.gold} 0%, ${COLORS.btnGoldMid} 100%)`
                 : `${COLORS.gold}22`,
-              color: query.trim().length >= 3 ? COLORS.btnGoldText : `${COLORS.gold}88`,
+              // Devre dışı hâl. §13.26 md.5 devre dışı ögelere 4.5 değil 3.0
+              // tabanı tanır, ama `${gold}88` (alfa 0.53) O TABANIN BİLE
+              // altındaydı: 2.91 ölçüldü. cc (0.80) ile 4.73 — sönük görünüm
+              // korunuyor, okunabilirlik tabanı aşılıyor.
+              color: query.trim().length >= 3 ? COLORS.btnGoldText : `${COLORS.gold}cc`,
               border: 'none',
               borderRadius: '999px',
               padding: '11px 18px',

@@ -1763,7 +1763,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           <div style={{
             color: COLORS.gold, fontSize: '0.72rem',
             fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase',
-            marginBottom: '16px', opacity: 0.75,
+            marginBottom: '16px', 
           }}>
             {tr('Anlatı Haritası', 'Narrative Map')}
           </div>
@@ -2422,7 +2422,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           <div style={{ marginBottom: '36px' }}>
             <div style={{
               color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
-              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.75,
+              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', 
             }}>
               {tr('Vahyin Pedagojik Tasarımı', 'The Pedagogical Design of Revelation')}
             </div>
@@ -2555,7 +2555,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                     <div style={{
                       color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
                       letterSpacing: '0.04em',
-                      marginBottom: '8px', opacity: 0.75,
+                      marginBottom: '8px', 
                     }}>
                       {tr('Hz. Muhammed (s.a.v.)\'in durumu', 'Prophet Muhammad\'s (s.a.v.) situation')}
                     </div>
@@ -2655,7 +2655,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           <div style={{ marginBottom: '28px' }}>
             <div style={{
               color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
-              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.75,
+              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', 
             }}>
               {tr("Kur'an'da İsmi Geçen 25 Peygamber", '25 Prophets Named in the Quran')}
             </div>
@@ -2809,7 +2809,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           <div style={{ marginBottom: '28px' }}>
             <div style={{
               color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
-              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.75,
+              letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '14px', 
             }}>
               {tr("Kur'an'da Geçen Soy Bağları", 'Lineage Confirmed by the Quran')}
             </div>

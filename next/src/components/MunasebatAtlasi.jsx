@@ -149,7 +149,7 @@ function Hero({ language, isMobile }) {
 
         <p style={{
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
-          textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
+          textTransform: 'uppercase',  fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? 'İLMÜ\'L-MÜNÂSEBÂT · TUTARLILIĞIN MİMARİSİ' : "ʿILM AL-MUNĀSABĀT · THE ARCHITECTURE OF COHERENCE"}</p>
         <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,

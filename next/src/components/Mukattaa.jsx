@@ -118,8 +118,7 @@ export default function Mukattaa({ onClose }) {
           fontWeight: 700,
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
-          color: COLORS.gold,
-          opacity: 0.75,
+          color: COLORS.gold, 
           marginBottom: '14px',
         }}>
           {tr ? 'DİLSEL DNA · 1.400 YIL · 14 HARF' : 'LINGUISTIC DNA · 1,400 YEARS · 14 LETTERS'}

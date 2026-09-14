@@ -742,7 +742,7 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
         <div style={{
           color: PURPLE_LIGHT, fontSize: '0.7rem',
           letterSpacing: '0.24em', textTransform: 'uppercase',
-          fontWeight: 700, opacity: 0.9, marginBottom: '10px',
+          fontWeight: 700,  marginBottom: '10px',
         }}>{language === 'tr' ? 'Bir Kez Anılan' : 'Named Once'}</div>
         <h3 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -1401,8 +1401,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       <div style={{
         fontSize: '0.68rem', letterSpacing: '0.3em',
         color: COLORS.gold, textTransform: 'uppercase',
-        fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.75,
+        fontFamily: FONTS.body, fontWeight: 700, 
         marginBottom: '14px',
       }}>
         {language === 'tr' ? `KEVNÎ AYETLER · ${counts.animals + counts.plants + counts.celestial}+ DELİL` : `COSMIC SIGNS · ${counts.animals + counts.plants + counts.celestial}+ PROOFS`}

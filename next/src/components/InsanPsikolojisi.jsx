@@ -100,8 +100,7 @@ export default function InsanPsikolojisi({ onClose }) {
           fontSize: '0.72rem',
           fontWeight: 700,
           letterSpacing: '0.3em',
-          textTransform: 'uppercase',
-          opacity: 0.75,
+          textTransform: 'uppercase', 
           margin: '0 0 14px',
         }}>
           {tr ? "İÇ HARİTA · NEFSİN GRAMERİ" : "INNER MAP · GRAMMAR OF THE NAFS"}
@@ -249,7 +248,7 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
       <div style={{ textAlign: 'center', marginBottom: '24px' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, fontWeight: 700,
+          color: COLORS.gold,  fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>{tr ? "KLASİK NEFS PSİKOLOJİSİ · 6 ULEMA" : "CLASSICAL PSYCHOLOGY OF THE SELF · 6 SCHOLARS"}</p>
         <h3 className="mq-fs" style={{
@@ -282,7 +281,7 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
               </div>
               <span style={{
                 fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: s.color, opacity: 0.9, fontWeight: 700,
+                color: s.color,  fontWeight: 700,
                 fontFamily: FONTS.body, whiteSpace: 'nowrap',
               }}>{s.period}</span>
             </div>
@@ -316,7 +315,7 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
       <div style={{ textAlign: 'center', marginBottom: '24px' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, fontWeight: 700,
+          color: COLORS.gold,  fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>{tr ? "PSİKOLOJİK DENGE DENKLEMİ · 4 ELEMENT" : "PSYCHOLOGICAL EQUILIBRIUM · 4 ELEMENTS"}</p>
         <h3 className="mq-fs" style={{
@@ -374,7 +373,7 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
         }} />
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.9, fontWeight: 700,
+          color: COLORS.gold,  fontWeight: 700,
           marginBottom: '8px', fontFamily: FONTS.body, position: 'relative',
         }}>{tr ? "SONUÇ" : "RESULT"}</p>
         <div className="mq-fs" style={{
@@ -421,7 +420,7 @@ function YusufIyilesmeArc({ tr, isMobile }) {
       <div style={{ textAlign: 'center', marginBottom: '24px' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, fontWeight: 700,
+          color: COLORS.gold,  fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>{tr ? "YÛSUF SÛRESİ · TRAVMA-İYİLEŞME ARC'I" : "SŪRAT YŪSUF · TRAUMA-HEALING ARC"}</p>
         <h3 className="mq-fs" style={{

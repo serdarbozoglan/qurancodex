@@ -137,7 +137,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             }} />
 
             <p style={{
-              color: COLORS.gold, opacity: 0.75,
+              color: COLORS.gold, 
               fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase',
               margin: '0 0 12px',
@@ -296,7 +296,7 @@ function SetDetail({ nset, isEn, isMobile }) {
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', marginBottom: '18px' }}>
         <div style={{ flex: 1 }}>
           <p style={{
-            color: color, opacity: 0.9,
+            color: color, 
             fontSize: '0.65rem', fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
             margin: 0,
@@ -415,7 +415,7 @@ function SetDetail({ nset, isEn, isMobile }) {
                 fontStyle: 'italic',
               }}>
                 <span style={{
-                  color: color, opacity: 0.9,
+                  color: color, 
                   fontSize: '0.62rem', fontWeight: 700,
                   letterSpacing: '0.2em', textTransform: 'uppercase',
                   marginRight: '8px',
@@ -436,7 +436,7 @@ function SetDetail({ nset, isEn, isMobile }) {
         borderLeft: `3px solid ${color}`,
       }}>
         <p style={{
-          color: color, opacity: 0.9,
+          color: color, 
           fontSize: '0.65rem', fontWeight: 700,
           letterSpacing: '0.24em', textTransform: 'uppercase',
           margin: '0 0 10px',

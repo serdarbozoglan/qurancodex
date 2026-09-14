@@ -321,8 +321,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
       {/* Header — Hero parity (alt-section level: H3 ölçeği biraz indirildi) */}
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
         <div style={{
-          color: COLORS.gold,
-          opacity: 0.75,
+          color: COLORS.gold, 
           fontSize: '0.75rem',
           fontWeight: 700,
           fontFamily: FONTS.body,

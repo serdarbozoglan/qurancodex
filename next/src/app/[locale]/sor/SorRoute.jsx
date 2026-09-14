@@ -384,7 +384,7 @@ function SorInner() {
                 background: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query
                   ? `linear-gradient(135deg, ${COLORS.gold} 0%, #b8860b 100%)`
                   : `${COLORS.gold}22`,
-                color: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? '#1c0f00' : `${COLORS.gold}88`,
+                color: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? '#1c0f00' : `${COLORS.gold}cc`,
                 border: 'none',
                 borderRadius: '999px',
                 padding: '9px 18px',
@@ -1960,7 +1960,7 @@ function FeedbackRow({ feedback, setFeedback, language, queryHash }) {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: feedback === 'up' ? COLORS.gold : `${COLORS.gold}88`,
+          color: feedback === 'up' ? COLORS.gold : `${COLORS.gold}cc`,
           transition: 'all 0.15s',
         }}
       >
@@ -1978,7 +1978,7 @@ function FeedbackRow({ feedback, setFeedback, language, queryHash }) {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: feedback === 'down' ? COLORS.gold : `${COLORS.gold}88`,
+          color: feedback === 'down' ? COLORS.gold : `${COLORS.gold}cc`,
           transition: 'all 0.15s',
         }}
       >

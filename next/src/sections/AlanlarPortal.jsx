@@ -18,7 +18,7 @@ export default function AlanlarPortal() {
       style={{ maxWidth: 1120, margin: '0 auto', width: '100%', padding: 'clamp(40px, 7vw, 64px) 20px', boxSizing: 'border-box' }}
     >
       <div style={{ textAlign: 'center', marginBottom: 30 }}>
-        <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.26em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.78, marginBottom: 12 }}>
+        <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.26em', textTransform: 'uppercase', color: COLORS.gold,  marginBottom: 12 }}>
           {tr ? 'Alanına Göre Keşfet' : 'Explore by Field'}
         </div>
         <h2 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700, fontSize: 'clamp(1.5rem, 4.4vw, 2.2rem)', lineHeight: 1.18, margin: '0 0 14px' }}>

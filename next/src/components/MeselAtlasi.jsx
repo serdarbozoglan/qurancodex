@@ -204,7 +204,7 @@ function Hero({ language, isMobile }) {
 
         <p style={{
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
-          textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
+          textTransform: 'uppercase',  fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? "İLMÜ'L-EMSÂL · KUR'ÂN'IN BENZETME DİLİ" : "ʿILM AL-AMTHĀL · THE QUR'AN'S LANGUAGE OF PARABLE"}</p>
         <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,

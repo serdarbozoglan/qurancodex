@@ -231,8 +231,7 @@ export default function TefekkurHighlight({ compact = false }) {
       <motion.div variants={fadeUpItem}>
         <span
           style={{
-            color: COLORS.gold,
-            opacity: 0.75,
+            color: COLORS.gold, 
             fontSize: '0.75rem',
             fontFamily: FONTS.body,
             textTransform: 'uppercase',
@@ -298,8 +297,7 @@ export default function TefekkurHighlight({ compact = false }) {
         }} />
         <span style={{
           fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-          color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body,
-          opacity: 0.85,
+          color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, 
         }}>
           {language === 'tr' ? 'Öne Çıkan Yazılar' : 'Featured Essays'}
         </span>
@@ -345,8 +343,7 @@ export default function TefekkurHighlight({ compact = false }) {
           }} />
           <span style={{
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-            color: COLORS.softGold, textTransform: 'uppercase', fontFamily: FONTS.body,
-            opacity: 0.85,
+            color: COLORS.softGold, textTransform: 'uppercase', fontFamily: FONTS.body, 
           }}>
             {language === 'tr' ? 'Altı Kategori' : 'Six Categories'}
           </span>

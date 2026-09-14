@@ -119,8 +119,7 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
         <ScholarTag scholarId={pos.scholarId} scholars={scholars} />
         {pos.confidence && (
           <span style={{
-            fontSize: '0.64rem', fontFamily: FONTS.body, color: COLORS.textFaint || COLORS.silver,
-            opacity: 0.75, letterSpacing: '0.06em', textTransform: 'uppercase',
+            fontSize: '0.64rem', fontFamily: FONTS.body, color: COLORS.textFaint || COLORS.silver,  letterSpacing: '0.06em', textTransform: 'uppercase',
           }}>
             {confLabel}
           </span>
@@ -401,7 +400,7 @@ export default function TefsirIhtilaflari() {
       <div style={{ flex: 1 }}>
         {activeTab === 0 && (
           <div className="mq-box" style={{ maxWidth: 780, margin: '0 auto', '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "24px", '--pl-m': "16px" }}>
-            <div style={{ textAlign: 'center', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body }}>
+            <div style={{ textAlign: 'center', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', color: COLORS.gold,  fontFamily: FONTS.body }}>
               {tr ? 'ANA METODOLOJİK İHTİLAF' : 'THE CORE METHODOLOGICAL DISAGREEMENT'}
             </div>
             <h2 className="mq-fs" style={{ textAlign: 'center', fontFamily: FONTS.display, '--fs-d': '1.7rem', '--fs-m': '1.4rem', color: COLORS.offWhite, margin: '0 0 16px' }}>

@@ -53,8 +53,7 @@ export default function AllTopics() {
       <motion.div variants={fadeUpItem}>
         <span
           style={{
-            color: COLORS.gold,
-            opacity: 0.75,
+            color: COLORS.gold, 
             fontSize: '0.75rem',
             fontFamily: FONTS.body,
             textTransform: 'uppercase',

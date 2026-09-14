@@ -54,7 +54,11 @@ const FASILA_SURAS = [
     labelTr: "Nebe' (78)",
     labelEn: "An-Naba' (78)",
     sound: '-ûn / -ân',
-    color: '#3498db',
+    // `color` bu kartta METİN rengi ("Baskın bitiş sesi: -ûn / -ân"). #3498db
+    // kendi 0.15 parıltısının üstünde 4.44 ölçüldü. Kardeş renkler (#2ecc71,
+    // altın) geçiyor, yalnız mavi sınırın altında kalıyordu; tokens.js'te bu iş
+    // için zaten skyBadgeSafe var (5.88). `glow`/`border` METİN DEĞİL, aynı.
+    color: COLORS.skyBadgeSafe,
     glow: 'rgba(52,152,219,0.15)',
     border: 'rgba(52,152,219,0.3)',
     examples: ['مُخْتَلِفُونَ', 'سَيَعْلَمُونَ', 'كَذَّابًا'],
@@ -780,7 +784,11 @@ export default function ImpossibleRhythm() {
                   : isMaqta
                   ? '1px solid rgba(180,80,120,0.4)'
                   : '1px solid rgba(148,163,184,0.25)';
-                const color = type === 'aa' ? 'rgba(10,10,26,0.75)' : isMaqta ? 'rgba(255,220,230,0.7)' : 'rgba(148,163,184,0.6)';
+                // Kare içindeki numara. Üç rengin üçünde de alfa gömülüydü ve
+                // §13.26 md.3'ü çiğniyordu; maqta' karesi 3.91 ölçüldü, gri
+                // kare kendi zemininde 3.23. Alfalar kaldırıldı: sırasıyla
+                // 8.81 · 6.14 · 6.54. Zeminler DEĞİŞMEDİ, yalnız metin opak.
+                const color = type === 'aa' ? COLORS.cosmicBlack : isMaqta ? COLORS.maqtaTextSafe : COLORS.silver;
                 // Visual separator before maqta' section — desktop only; mobile uses color cue.
                 const isMaqtaBoundary = !isMobile && maqtaStart && j === maqtaStart;
                 // Touch target: mobile'da 22→28px (≥WCAG min 24px görsel + tap area

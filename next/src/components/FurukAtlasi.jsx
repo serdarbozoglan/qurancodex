@@ -115,7 +115,7 @@ function Hero({ language, isMobile }) {
 
         <p style={{
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
-          textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
+          textTransform: 'uppercase',  fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? "İLMÜ'L-FÜRÛK · KELİME SEÇİMİNİN MİMARİSİ" : 'ʿILM AL-FURŪQ · THE ARCHITECTURE OF WORD CHOICE'}</p>
         <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
@@ -1112,7 +1112,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
               fontSize: '0.6rem', color: word.color,
               textTransform: 'uppercase', letterSpacing: '0.16em',
               fontWeight: 700, fontFamily: FONTS.body,
-              marginBottom: 4, opacity: 0.85,
+              marginBottom: 4, 
             }}>
               {tr ? 'Kelime İmzası' : 'Word Signature'}
             </div>

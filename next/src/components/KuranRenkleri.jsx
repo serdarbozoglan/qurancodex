@@ -212,7 +212,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
               marginBottom: '14px',
               boxShadow: `inset 0 0 20px ${renk.hexColor}10`,
             }}>
-              <p style={{ fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px', opacity: 0.78 }}>
+              <p style={{ fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.16em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 12px' }}>
                 {tr ? 'Örnek Ayet' : 'Key Verse'}
               </p>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.75rem', color: COLORS.gold, textAlign: 'right', direction: 'rtl', lineHeight: 2, margin: '0 0 12px' }} lang="ar" dir="rtl">
@@ -546,7 +546,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
     <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "12px", maxWidth: '1080px', margin: '0 auto' }}>
       {/* Section header */}
       <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '36px', '--mb-m': '24px' }}>
-        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700,  marginBottom: '10px' }}>
           {tr ? "Kur'ân'ın Renk Paleti" : "The Qur'anic Color Palette"}
         </div>
         <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.8rem, 3vw, 2.2rem)', '--fs-m': 'clamp(1.4rem, 5vw, 1.7rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
@@ -1141,7 +1141,7 @@ function TabBaglam({ language, isMobile }) {
                           }} />
                           <span style={{
                             fontSize: '0.78rem', fontWeight: 600,
-                            color: COLORS.gold, opacity: 0.85,
+                            color: COLORS.gold, 
                             letterSpacing: '0.04em',
                           }}>
                             {c.ref}
@@ -1306,7 +1306,7 @@ function TabCennet({ language, isMobile }) {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
           <span style={{
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
+            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body, 
           }}>
             {tr ? 'Palet' : 'Palette'}
           </span>
@@ -1377,7 +1377,7 @@ function TabCennet({ language, isMobile }) {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
           <span style={{
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
+            color: ACCENT, textTransform: 'uppercase', fontFamily: FONTS.body, 
           }}>
             {tr ? 'Ayet Analizleri' : 'Verse Analyses'}
           </span>
@@ -1576,7 +1576,7 @@ function TabKiyamet({ language, isMobile }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
           <span style={{
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.85,
+            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, 
           }}>
             {tr ? 'Beyaz vs Siyah' : 'White vs Black'}
           </span>
@@ -1626,7 +1626,7 @@ function TabKiyamet({ language, isMobile }) {
               {tr ? 'Yüzleri Ağarır' : 'Faces Turn White'}
             </div>
             <span style={{
-              fontSize: '0.75rem', color: COLORS.gold, opacity: 0.75,
+              fontSize: '0.75rem', color: COLORS.gold, 
               fontFamily: FONTS.body, fontWeight: 500, letterSpacing: '0.03em',
             }}>
               Âl-i İmrân 3:107
@@ -1677,7 +1677,7 @@ function TabKiyamet({ language, isMobile }) {
               {tr ? 'Yüzleri Kararır' : 'Faces Turn Black'}
             </div>
             <span style={{
-              fontSize: '0.75rem', color: COLORS.gold, opacity: 0.75,
+              fontSize: '0.75rem', color: COLORS.gold, 
               fontFamily: FONTS.body, fontWeight: 500, letterSpacing: '0.03em',
             }}>
               Zümer 39:60
@@ -1705,7 +1705,7 @@ function TabKiyamet({ language, isMobile }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
           <span style={{
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.85,
+            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, 
           }}>
             {tr ? 'Sinematik Sıra' : 'Cinematic Sequence'}
           </span>
@@ -1800,7 +1800,7 @@ function TabKiyamet({ language, isMobile }) {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
           <span style={{
             fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em',
-            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, opacity: 0.9,
+            color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, 
           }}>
             {tr ? '4 Sahne: Detay' : '4 Scenes: Detail'}
           </span>
@@ -1877,7 +1877,7 @@ function TabKiyamet({ language, isMobile }) {
               <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: s.hex, opacity: 0.8 }} />
               <span style={{
                 fontSize: '0.78rem', fontWeight: 600,
-                color: COLORS.gold, opacity: 0.82,
+                color: COLORS.gold, 
                 letterSpacing: '0.04em',
               }}>
                 {s.ref}
@@ -2130,7 +2130,7 @@ function TabDilbilim({ language, isMobile }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
                 <HapaxBadge />
                 <span style={{
-                  fontSize: '0.74rem', color: COLORS.gold, opacity: 0.82,
+                  fontSize: '0.74rem', color: COLORS.gold, 
                   fontFamily: FONTS.body, fontWeight: 600, letterSpacing: '0.04em',
                 }}>
                   {h.ref}
@@ -2371,7 +2371,7 @@ function TabDilbilim({ language, isMobile }) {
                 <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: row.hex, opacity: 0.8 }} />
                 <span style={{
                   fontSize: '0.74rem', fontWeight: 600,
-                  color: COLORS.gold, opacity: 0.82,
+                  color: COLORS.gold, 
                   letterSpacing: '0.04em',
                 }}>
                   {row.ref}
@@ -2803,8 +2803,7 @@ export default function KuranRenkleri({ onClose }) {
           <div style={{
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
-            fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.75,
+            fontFamily: FONTS.body, fontWeight: 700, 
             marginBottom: '14px',
           }}>
             {tr ? "KUR'AN'IN RENK PALETİ · 14 KELİME, 8 TON" : "THE QURAN'S COLOR PALETTE · 14 WORDS, 8 TONES"}
@@ -3129,7 +3128,7 @@ function ColorsClosing({ language, isMobile }) {
         maxWidth: '780px',
         marginInline: 'auto',
       }}>
-        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.softEmerald, opacity: 0.9, margin: '0 0 12px', fontFamily: FONTS.body }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.softEmerald,  margin: '0 0 12px', fontFamily: FONTS.body }}>
           {tr ? "Kelâmî Tartışma · Sıkça Sorulan" : "Theological Q · Frequently Asked"}
         </p>
         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
@@ -3166,7 +3165,7 @@ function ColorsClosing({ language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.75,
+        color: COLORS.gold, 
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -3213,7 +3212,7 @@ function ColorsClosing({ language, isMobile }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75,
+            color: COLORS.gold, 
           }}>
             {tr ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}
           </span>

@@ -96,16 +96,16 @@ export default function ProofSection({ locale = 'tr' }) {
     // v2.0 — eşleşme özeti (tüm çiftler bir arada, hover'a gerek yok).
     pairsTitle: tr ? 'Eşleşmeler bir arada' : 'The pairings at a glance',
     pairsInfo: [
-      { k: 'A ↔ A′', a: '1:2 ↔ 1:7',
+      { k: 'A ↔ A′', a: tr ? 'Fâtiha 1:2 ↔ 1:7' : 'Q 1:2 ↔ 1:7',
         t: tr ? 'Övgüyle açılış, 1:7\'nin son cümleciğinde gazaptan uzak kapanış: sûre aynı çerçevede başlayıp biter.'
               : 'Opens with praise and closes, in the last clause of 1:7, away from wrath: the sura begins and ends in the same frame.' },
-      { k: 'B ↔ B′', a: '1:3 ↔ 1:7',
+      { k: 'B ↔ B′', a: tr ? 'Fâtiha 1:3 ↔ 1:7' : 'Q 1:3 ↔ 1:7',
         t: tr ? 'Rahmet vurgusu, 1:7\'nin ilk cümleciğinde, nimet verilenlerin yolunda somutlaşır.'
               : 'The emphasis on mercy takes concrete form in the first clause of 1:7, the path of the favoured.' },
-      { k: 'C ↔ C′', a: '1:4 ↔ 1:6',
+      { k: 'C ↔ C′', a: tr ? 'Fâtiha 1:4 ↔ 1:6' : 'Q 1:4 ↔ 1:6',
         t: tr ? 'Din gününün sahibi ile doğru yola iletilme talebi: hesap ve hidayet.'
               : 'The Master of the Day and the plea for guidance: reckoning and the straight path.' },
-      { k: 'D', a: '1:5',
+      { k: 'D', a: tr ? 'Fâtiha 1:5' : 'Q 1:5',
         t: tr ? 'Eksen, eşsiz: dil kişisinin üçüncü şahıstan ikinci şahsa döndüğü nokta.'
               : 'The pivot, unpaired: where the grammatical person turns from third to second.' },
     ],
@@ -236,7 +236,7 @@ export default function ProofSection({ locale = 'tr' }) {
               }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '8px' }}>
                   <span style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem', color: isPivot ? COLORS.skyBlue : COLORS.gold, letterSpacing: '0.04em' }}>{pr.k}</span>
-                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: `${COLORS.silver}c0`, letterSpacing: '0.06em' }}>{pr.a}</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: SEMANTIC.textMuted, letterSpacing: '0.06em' }}>{pr.a}</span>
                 </div>
                 <p style={{ fontFamily: FONTS.body, fontSize: '0.86rem', lineHeight: 1.6, color: SEMANTIC.textMuted, margin: 0 }}>{pr.t}</p>
               </div>
@@ -293,7 +293,7 @@ export default function ProofSection({ locale = 'tr' }) {
                   letterSpacing: '0.06em',
                 }}
               >
-                {r.pos} · 1:{r.ayah}
+                {r.pos} · {tr ? 'Fâtiha' : 'Q'} 1:{r.ayah}
                 {r.clause && (
                   <span style={{
                     display: 'block',

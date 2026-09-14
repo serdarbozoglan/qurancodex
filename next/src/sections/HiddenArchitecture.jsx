@@ -285,8 +285,12 @@ export default function HiddenArchitecture() {
                 {language === 'tr' ? s.nameTr : s.nameEn}
                 {/* Referans sönük görünmeli ama okunmalı: opaklık yerine
                     SEMANTIC kademesi kullanılır (§13.26 md.3). 0.5 opaklıkta
-                    oran 2.4 ölçülmüştü. */}
-                <span style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', marginLeft: '6px' }}>
+                    oran 2.4 ölçülmüştü.
+                    2026-09-14: kademe seçmek tek başına yetmiyormuş. AKTİF
+                    hapın zemini `rgba(212,165,116,0.12)` ile açılıyor ve orada
+                    textMuted 4.37'ye düşüyor ("7 ayet"). Zemin değişince
+                    kademe de değişir; pasif hapta textMuted doğru kalıyor. */}
+                <span style={{ color: active ? SEMANTIC.textPrimary : SEMANTIC.textMuted, fontSize: '0.7rem', marginLeft: '6px' }}>
                   {language === 'tr' ? s.refTr : s.refEn}
                 </span>
               </button>
@@ -807,8 +811,7 @@ export default function HiddenArchitecture() {
                   fontSize: '11px',
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  opacity: 0.85,
+                  letterSpacing: '0.1em', 
                 }}>
                 {language === 'tr' ? 'Nur (Işık)' : 'Nur (Light)'}
               </text>

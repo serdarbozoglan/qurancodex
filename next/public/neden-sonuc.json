@@ -63,15 +63,16 @@
         "8:46",
         "3:200"
       ],
-      "note": "Bakara 2:153 'Allah sabredenlerle beraberdir': bu kalıp Kur'ân'da dört yerde geçer (Bakara 2:153, Bakara 2:249, Enfâl 8:46, Enfâl 8:66). Yardımın gecikebileceğini Bakara 2:214 açıkça söyler: peygamber ve yanındakiler 'Allah'ın yardımı ne zaman?' diyecek kadar sarsılır. Ankebût 29:69 aynı çabanın bir başka karşılığını verir: 'yollarımıza eriştireceğiz.' Zincir ahlâkî bir okumadır, mekanik bir garanti değildir."
+      "note": "Bakara 2:153 'Allah sabredenlerle beraberdir': bu kalıp Kur'ân'da dört yerde geçer (Bakara 2:153, Bakara 2:249, Enfâl 8:46, Enfâl 8:66). Yardımın gecikebileceğini Bakara 2:214 açıkça söyler: peygamber ve yanındakiler 'Allah'ın yardımı ne zaman?' diyecek kadar sarsılır. Ankebût 29:69 aynı çabanın bir başka karşılığını verir: 'yollarımıza eriştireceğiz.' Zincir ahlâkî bir okumadır, mekanik bir garanti değildir.",
+      "noteEn": "Q 2:153, 'God is with the patient': the formula occurs in four places (2:153, 2:249, 8:46, 8:66). That the help may be delayed is stated outright in Q 2:214, where the messenger and those with him are shaken enough to ask, 'When is God's help?' Q 29:69 gives another return for the same striving: 'We shall guide them to Our ways.' The chain is an ethical reading, not a mechanical guarantee."
     },
     {
       "id": "sukur-nimet",
       "category": "nefs",
       "titleTr": "Şükür → Nimet Artışı (Zeyd) / Küfür → Şiddetli Azap",
       "titleEn": "Gratitude → Increase of Blessing / Ingratitude → Severe Punishment",
-      "shortTr": "İbrâhim 14:7 explicit formül: 'şükrederseniz sizi artırırım; küfrederseniz azabım şiddetlidir.' Şükür pasif değil aktif bir nimet çekimi — kanuna dönüşmüş.",
-      "shortEn": "Ibrāhīm 14:7 is the explicit formula: 'if you are grateful, I will increase you; if you disbelieve, My punishment is severe.' Gratitude is not passive but an active attraction of blessing — codified as law.",
+      "shortTr": "İbrâhim 14:7 explicit formül: 'şükrederseniz sizi artırırım; küfrederseniz azabım şiddetlidir.' Şükür pasif değil aktif bir nimet çekimidir ve âyette bir kanuna bağlanmıştır.",
+      "shortEn": "Ibrāhīm 14:7 is the explicit formula: 'if you are grateful, I will increase you; if you disbelieve, My punishment is severe.' Gratitude is not passive but an active attraction of blessing, codified as law.",
       "steps": [
         {
           "stepTr": "Şükür (ilim + eylem)",
@@ -99,15 +100,16 @@
         "31:12",
         "76:3"
       ],
-      "note": "Şükür 'tanıma-onaylama-eyleme çevirme' üçlüsüdür (Râgıb Müfredât). Sözle şükür yetmez — nimeti doğru kullanmak da bir şükür şeklidir. Hz. Süleymân'ın 'nemliyi'nin ardından' 27:19'daki duası bu üçlünün örneği."
+      "note": "Şükür klasik tasnifte kalp, dil ve organlarla olmak üzere üç katmanlıdır; Râgıb'ın el-Müfredât'taki tarifinden hareketle 'tanıma, dile getirme, eyleme çevirme' diye de özetlenir. Sözle şükür tek başına yetmez; nimeti doğru kullanmak da bir şükür şeklidir. Neml 27:18-19'da karıncanın sözünü işiten Hz. Süleymân'ın gülümseyip ettiği dua bu şükür anlayışını örnekler.",
+      "noteEn": "In the classical account gratitude has three layers: of the heart, of the tongue and of the limbs; drawing on al-Rāghib's definition in al-Mufradāt it is also summarised as recognising, voicing and turning into deed. Words alone are not enough; using a blessing rightly is itself a form of gratitude. In Q 27:18-19 Solomon smiles at the ant's words and prays a prayer that illustrates this understanding of gratitude."
     },
     {
       "id": "tovbe-magfiret-yumusama",
       "category": "nefs",
       "titleTr": "Tövbe → Mağfiret → Kalp Yumuşaması",
       "titleEn": "Repentance → Forgiveness → Softening of the Heart",
-      "shortTr": "Tövbe sadece geçmişin silinmesi değil — yeni bir kalp durumuna açılıştır. Nûh 71:10-12 tövbenin ardından maddi + manevî berekete işaret eder.",
-      "shortEn": "Repentance is not merely the erasure of the past — it is an opening onto a new state of heart. Nūḥ 71:10-12 points to material + spiritual blessing following repentance.",
+      "shortTr": "Tövbe sadece geçmişin silinmesi değil, yeni bir kalp durumuna açılıştır. Nûh 71:10-12 tövbenin ardından maddi + manevî berekete işaret eder.",
+      "shortEn": "Repentance is not merely the erasure of the past but an opening onto a new state of heart. Nūḥ 71:10-12 points to material + spiritual blessing following repentance.",
       "steps": [
         {
           "stepTr": "İçten pişmanlık + istiğfar",
@@ -142,15 +144,16 @@
         "11:3",
         "3:135"
       ],
-      "note": "Bu zincir hem içsel (yumuşama) hem dışsal (bereket) sonuç verir. Modern psikolojide 'confession-catharsis' etkisiyle örtüşen sonuç. Klasik tefsir (İbn Kesîr) 'istiğfar rızkın en kısa yolu' hadisiyle destekler."
+      "note": "Bu zincir hem içsel (yumuşama) hem dışsal (bereket) bir ufuk çizer. Nûh 71:10-12'de istiğfar, Nûh'un kavmine hitabında yağmur, mal, evlât ve bahçe vaadiyle ilişkilendirilir; İbn Kesîr bu âyetleri istiğfar ile rızık arasındaki bağı anlatan rivayetlerle açıklar. Bu, her kişi için koşulsuz bir maddî sonuç garantisi değildir.",
+      "noteEn": "This chain opens both an inward horizon (softening) and an outward one (abundance). In Q 71:10-12, addressing his people, Noah links seeking forgiveness to the promise of rain, wealth, children and gardens; Ibn Kathīr explains these verses with reports on the link between seeking forgiveness and provision. This is not an unconditional guarantee of material return for every person."
     },
     {
       "id": "kibir-muhurleme-sapma",
       "category": "nefs",
       "titleTr": "Kibir → Kalp Mühürleme → Sapma",
       "titleEn": "Arrogance → Sealing of the Heart → Deviation",
-      "shortTr": "Şükrün karşıtı sadece 'küfür' değildir; asıl kilit 'kibir'dir. Kibir kalbi mühürler; mühürlenen kalp artık hakikat ışığını kaçırır — döngü kendini besler.",
-      "shortEn": "The opposite of gratitude is not merely 'kufr'; the true lock is 'arrogance.' Arrogance seals the heart; a sealed heart no longer registers the light of truth — the loop feeds itself.",
+      "shortTr": "Şükrün karşıtı sadece 'küfür' değildir; asıl kilit 'kibir'dir. Kibir kalbi mühürler; mühürlenen kalp artık hakikat ışığını kaçırır, döngü kendini besler.",
+      "shortEn": "The opposite of gratitude is not merely 'kufr'; the true lock is 'arrogance.' Arrogance seals the heart; a sealed heart no longer registers the light of truth, and the loop feeds itself.",
       "steps": [
         {
           "stepTr": "Kibir — 'ben yeterim' iddiası",
@@ -186,7 +189,8 @@
         "40:35",
         "96:6-7"
       ],
-      "note": "Bakara 2:7 'kalplerini + kulaklarını mühürledi' — teolojik zor bir ayet. Klasik yorum (Râzî): mühürleme kibrin doğal sonucu; Allah'ın 'aktif' bir cezası değil, insanın seçiminin kanunlaşmış hâli. Aynı formül 40:35 firavun-menfaat sınıfı için."
+      "note": "Bakara 2:7 'kalplerini ve kulaklarını mühürledi' der; teolojik olarak zor bir âyettir. Râzî bu mühürlemeyi tek bir izaha bağlamaz, farklı kelâmî açıklamaları karşılaştırır; müfessirler arasında mührü kibrin kazanılmış sonucu sayan okuma da vardır. Aynı fiil Mü'min 40:35'te her kibirli zorbanın kalbi için tekrarlanır.",
+      "noteEn": "Q 2:7 says that He has sealed their hearts and their hearing; it is a theologically difficult verse. Al-Rāzī does not tie the sealing to a single explanation but compares different theological accounts, and among the exegetes there is also a reading that takes the seal as the earned consequence of arrogance. The same verb returns in Q 40:35, of the heart of every arrogant tyrant."
     },
     {
       "id": "zulum-helak",
@@ -230,15 +234,16 @@
         "33:62",
         "28:59"
       ],
-      "note": "Hûd 11:117 kritik: 'Rabbin, halkı ıslâh edici iken kentleri zâlim yere helâk etmez.' Yani helâk zulme karşı bir 'refleks' değil, sistemik ısrarın kanıtlanması sonrası. Kavimler Atlası bu zincirin somut örneklerini gösterir."
+      "note": "Hûd 11:117 kritik: 'Rabbin, halkı ıslâh edici iken kentleri zulümle helâk edecek değildir.' Âyetin doğrudan söylediği, ıslâh eden bir halkın haksız yere helâk edilmeyeceğidir. Helâki 'ısrarın belirli bir eşiği aşması' gibi bir sürece bağlamak âyetin lafzı değil, ayrıca gerekçelendirilmesi gereken bir okumadır. Kavimler Atlası bu zincirin somut örneklerini gösterir.",
+      "noteEn": "Q 11:117 is decisive: 'Your Lord would not destroy the towns unjustly while their people were putting things right.' What the verse says outright is that a people setting things right will not be destroyed unjustly. Tying destruction to a process such as persistence crossing some threshold is not the wording of the verse but a reading that would need its own argument. The Nations Atlas shows the concrete cases of this chain."
     },
     {
       "id": "adalet-toplumun-ayakta",
       "category": "toplum",
       "titleTr": "Adalet → Toplumun Ayakta Kalması",
       "titleEn": "Justice → Society's Endurance",
-      "shortTr": "Zulmün karşıtı: adalet toplumu ayakta tutan omurga. Nisâ 4:135 'kendinize aleyhine bile olsa şahitlik edin' — adalet bireysel çıkarı aşan bir prensip.",
-      "shortEn": "The opposite of injustice: justice is the spine that keeps society upright. Nisāʾ 4:135: 'stand as witnesses to justice, even against yourselves' — justice as a principle transcending self-interest.",
+      "shortTr": "Zulmün karşıtı: adalet toplumu ayakta tutan omurga. Nisâ 4:135 'kendinize aleyhine bile olsa şahitlik edin' der; adalet bireysel çıkarı aşan bir prensiptir.",
+      "shortEn": "The opposite of injustice: justice is the spine that keeps society upright. Nisāʾ 4:135: 'stand as witnesses to justice, even against yourselves': justice is a principle that transcends self-interest.",
       "steps": [
         {
           "stepTr": "Adalet (kıst) — sürekli çaba",
@@ -274,7 +279,8 @@
         "57:25",
         "16:90"
       ],
-      "note": "Hadîd 57:25 'peygamberleri kitap ve terazi ile gönderdik ki insanlar adaleti ayakta tutsun' — adalet vahyin toplumsal amacı olarak sistemleştirilir. Bu zincir ideolojik değil işlevsel: adalet olmayan toplum sürdürülemez."
+      "note": "Hadîd 57:25 'peygamberleri kitap ve terazi ile gönderdik ki insanlar adaleti ayakta tutsun' der; âyet adaleti vahyin toplumsal amacı olarak koyar. Bu zincir ideolojik değil işlevsel: adalet olmayan toplum sürdürülemez.",
+      "noteEn": "Q 57:25, 'We sent Our messengers with the Book and the Balance so that people might uphold justice', sets justice out as the social purpose of revelation. The chain is functional rather than ideological: a society without justice cannot sustain itself."
     },
     {
       "id": "ifsat-deprem-kitlik",
@@ -317,7 +323,8 @@
         "2:11-12",
         "89:11-12"
       ],
-      "note": "Bu zincir modern çevre kriziyle bağlantılı olarak sıkça tartışılır (Seyyid Hüseyin Nasr 'Man and Nature', 1968). Kur'ân ekolojik krizi bir sonuç olarak — sebep insanın ahlâki-manevi ilişkisinin bozulması."
+      "note": "Nasr gibi çağdaş düşünürler (Man and Nature, 1968), insanın ahlâkî ve manevî ilişkilerindeki bozulmayı ekolojik krizle ilişkilendirir ve bu zinciri o çerçevede tartışır. Bu bir okuma önerisidir; deprem ya da kıtlığın ahlâkî kusurun zorunlu sonucu olduğu hükmü buradan çıkarılmaz.",
+      "noteEn": "Contemporary thinkers such as Nasr (Man and Nature, 1968) connect the breakdown of the human being's moral and spiritual relationships with the ecological crisis, and discuss this chain in that frame. It is a proposed reading; no ruling follows from it that earthquake or famine is the necessary consequence of moral failing."
     },
     {
       "id": "emanet-ihaneti-cokus",
@@ -361,15 +368,16 @@
         "63:3",
         "23:8"
       ],
-      "note": "Ahzâb 33:72 'emaneti göklere-yere-dağlara sunduk kabul etmediler, insan yüklendi' — emanet insanın en yüksek statüsü ve en yüksek yükü. Onun çözülmesi insanlığın kendi statüsünden düşmesidir."
+      "note": "Ahzâb 33:72 'emaneti göklere-yere-dağlara sunduk kabul etmediler, insan yüklendi' der; emanet insanın hem en yüksek statüsü hem en ağır yüküdür. Onun çözülmesi insanlığın kendi statüsünden düşmesidir.",
+      "noteEn": "Q 33:72, 'We offered the trust to the heavens, the earth and the mountains, and they declined it; the human being bore it', makes the trust both the highest standing of the human being and the heaviest burden. Its unravelling is a fall from that very standing."
     },
     {
       "id": "mizan-goklerin-durmasi",
       "category": "kozmik",
       "titleTr": "Mîzân (Denge) → Göklerin Ayakta Durması",
       "titleEn": "Balance (Mīzān) → The Heavens Standing Firm",
-      "shortTr": "Rahmân 55:7-9 en zarif kozmik zincir: gökleri Allah 'mîzân' ile dikti. Mîzânı bozan yalnızca dış afetler değil — insanın 'terazide taşkınlık' etmesi.",
-      "shortEn": "Al-Raḥmān 55:7-9 is the most elegant cosmic chain: God raised the heavens with 'mīzān.' What disrupts the mīzān is not only external catastrophe — but the human's 'transgression in the scale.'",
+      "shortTr": "Rahmân 55:7-9 en zarif kozmik zincir: gökleri Allah 'mîzân' ile dikti. Mîzânı bozan yalnızca dış afetler değil, insanın 'terazide taşkınlık' etmesi.",
+      "shortEn": "Al-Raḥmān 55:7-9 is the most elegant cosmic chain: God raised the heavens with 'mīzān.' What disrupts the mīzān is not only external catastrophe, but the human's 'transgression in the scale.'",
       "steps": [
         {
           "stepTr": "Göklere denge (mîzân) konur",
@@ -404,15 +412,16 @@
         "42:17",
         "83:1-3"
       ],
-      "note": "Bu zincir 'kozmoloji' + 'ahlâk' + 'ekonomi' üçünü tek prensiple bağlar. Terazi metaforu Kur'ân'ın en tekrarlı imgelerinden — Mutaffifîn (83), Hadîd (57), Rahmân (55) hepsi aynı temayı işler. Modern okumada 'evren + toplum + iş' ekosistem denklemi."
+      "note": "Bu zincir kozmolojiyi, ahlâkı ve iktisadı tek bir prensiple bağlar. Terazi imgesi Kur'ân'da birden çok bağlamda döner: Rahmân 55:7-9 onu göğün kurulmasıyla birlikte anar, Mutaffifîn 83:1-3 ölçüyü eksiltenleri ağır biçimde uyarır, Hadîd 57:25 ise kitap ile mizanı, insanların adaleti ayakta tutması amacıyla ilişkilendirir.",
+      "noteEn": "This chain binds cosmology, ethics and economics under a single principle. The image of the balance returns in more than one context: Q 55:7-9 names it alongside the raising of the sky, Q 83:1-3 warns severely against those who give short measure, and Q 57:25 links the Book and the Balance to the purpose that people uphold justice."
     },
     {
       "id": "amac-son-toplama",
       "category": "kozmik",
       "titleTr": "Kâinat Bir Amaçla → Sonu Geldiğinde Geri Toplama",
       "titleEn": "The Cosmos Has a Purpose → When Its End Comes, Recollection",
-      "shortTr": "Enbiyâ 21:104 kâinatın 'başlangıç-son' döngüsünü belirler: 'Semayı yazılar sayfası gibi düreriz — ilk yaratışa nasıl başladıysak öyle iade ederiz.' Kozmos bir hikâye, sonu var.",
-      "shortEn": "Anbiyāʾ 21:104 defines the cosmos's 'beginning-end' cycle: 'We shall roll up the sky like a scroll of writing — as We began the first creation, so We shall repeat it.' The cosmos is a story with an end.",
+      "shortTr": "Enbiyâ 21:104 kâinatın 'başlangıç-son' döngüsünü belirler: 'Semayı yazılar sayfası gibi düreriz, ilk yaratışa nasıl başladıysak öyle iade ederiz.' Kozmos bir hikâye, sonu var.",
+      "shortEn": "Anbiyāʾ 21:104 defines the cosmos's 'beginning-end' cycle: 'We shall roll up the sky like a scroll of writing, as We began the first creation, so We shall repeat it.' The cosmos is a story with an end.",
       "steps": [
         {
           "stepTr": "Yaratılış bir amaçla — abes değil",
@@ -448,7 +457,8 @@
         "39:67",
         "81:1-14"
       ],
-      "note": "Bu zincir Kur'ânî kozmolojinin döngüsel-teleolojik yapısını gösterir: Kur'ânî anlatı evreni başlangıcı, sonu ve amacı olan bir bütün olarak sunar. Big Bang, termodinamik ısı-ölümü ve eskatolojik yeniden yaratma ile kurulan paralellik çağdaş bir okumadır ve Kur'ânî bir öngörü iddiası taşımaz."
+      "note": "Bu zincir Kur'ânî kozmolojinin amaçlı yapısını gösterir: anlatı evreni, başlangıcı ve âhirete yönelen bir sonu olan bir bütün olarak sunar. Big Bang, termodinamik ısı ölümü ve eskatolojik yeniden yaratma ile kurulan paralellik çağdaş bir okumadır ve Kur'ânî bir öngörü iddiası taşımaz.",
+      "noteEn": "This chain shows the purposive shape of Quranic cosmology: the account presents the universe as a whole with a beginning and an end directed towards the hereafter. The parallel drawn with the Big Bang, thermodynamic heat death and eschatological re-creation is a contemporary reading and claims no Quranic prediction."
     }
   ]
 }

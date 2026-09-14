@@ -81,7 +81,7 @@ export default function MukattaaEvidence() {
         <p className="mq-fs" style={{
           '--fs-d': '0.7rem', '--fs-m': '0.64rem',
           letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, margin: '0 0 10px',
+          color: COLORS.gold,  margin: '0 0 10px',
           fontFamily: FONTS.body, fontWeight: 600,
         }}>
           {tr ? 'Sınama' : 'Testing'}
@@ -103,7 +103,7 @@ export default function MukattaaEvidence() {
           <p className="mq-fs" style={{
             '--fs-d': '0.7rem', '--fs-m': '0.64rem',
             letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, margin: '0 0 8px',
+            color: COLORS.gold,  margin: '0 0 8px',
             fontFamily: FONTS.body, fontWeight: 600,
           }}>
             {tr ? 'Metinden' : 'From the text'}
@@ -218,7 +218,7 @@ export default function MukattaaEvidence() {
           <p className="mq-fs" style={{
             '--fs-d': '0.7rem', '--fs-m': '0.64rem',
             letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, margin: '0 0 8px',
+            color: COLORS.gold,  margin: '0 0 8px',
             fontFamily: FONTS.body, fontWeight: 600,
           }}>{tr ? 'Ölçüm' : 'Measurement'}</p>
           <h3 className="mq-fs" style={{
@@ -376,8 +376,23 @@ export default function MukattaaEvidence() {
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
               lineHeight: 1.7, margin: '0 0 6px', maxWidth: '72ch',
             }}>
-              &ldquo;İşte bir şifre-i İlahiye olan surelerin başlarındaki huruf, bunun gibi daha beş altı lem&rsquo;a-i i&rsquo;caziyeyi gösterdikleriyle beraber; ilm-i esrar-ı huruf ulemasıyla evliyanın muhakkikleri şu mukattaattan çok esrar istihraç etmişler […] Onların esrarına ehil olmadığımız hem umuma göz görecek derecede ispat edemediğimiz için o kapıyı açamayız.&rdquo;
+              {/* Alıntı ESERİN KENDİ DİLİNDE Türkçedir. İngilizce sayfada
+                  çevrilmeden basılıyordu; okur için anlaşılmaz bir blok.
+                  Artık EN'de çeviri gösteriliyor, Türkçe aslı altında
+                  `lang="tr"` ile korunuyor (birincil kaynak silinmez). */}
+              {tr
+                ? '\u201Cİşte bir şifre-i İlahiye olan surelerin başlarındaki huruf, bunun gibi daha beş altı lem\u2019a-i i\u2019caziyeyi gösterdikleriyle beraber; ilm-i esrar-ı huruf ulemasıyla evliyanın muhakkikleri şu mukattaattan çok esrar istihraç etmişler […] Onların esrarına ehil olmadığımız hem umuma göz görecek derecede ispat edemediğimiz için o kapıyı açamayız.\u201D'
+                : '\u201CThese letters at the openings of the suras, which are a divine cipher, display five or six further flashes of inimitability besides this one; and the scholars of the science of letter-secrets, together with those among the friends of God who have attained deep realisation, have drawn many secrets out of these disjointed letters […] Since we are not qualified in their secrets, and since we cannot prove them to a degree that everyone can see, we cannot open that door.\u201D'}
             </p>
+            {!tr && (
+              <p lang="tr" className="mq-fs" style={{
+                '--fs-d': '0.74rem', '--fs-m': '0.7rem',
+                color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+                lineHeight: 1.65, margin: '0 0 6px', maxWidth: '72ch',
+              }}>
+                Turkish original: &ldquo;İşte bir şifre-i İlahiye olan surelerin başlarındaki huruf, bunun gibi daha beş altı lem&rsquo;a-i i&rsquo;caziyeyi gösterdikleriyle beraber; ilm-i esrar-ı huruf ulemasıyla evliyanın muhakkikleri şu mukattaattan çok esrar istihraç etmişler […] Onların esrarına ehil olmadığımız hem umuma göz görecek derecede ispat edemediğimiz için o kapıyı açamayız.&rdquo;
+              </p>
+            )}
             <p className="mq-fs" style={{
               '--fs-d': '0.68rem', '--fs-m': '0.64rem',
               color: SEMANTIC.textFaint, fontFamily: FONTS.body,
@@ -402,7 +417,7 @@ export default function MukattaaEvidence() {
           <p className="mq-fs" style={{
             '--fs-d': '0.7rem', '--fs-m': '0.64rem',
             letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75, margin: '0 0 8px',
+            color: COLORS.gold,  margin: '0 0 8px',
             fontFamily: FONTS.body, fontWeight: 600,
           }}>{tr ? 'Karşılaştırma' : 'Comparison'}</p>
           <h3 className="mq-fs" style={{

@@ -35,7 +35,7 @@ export default function RisaleNotes({ items, language, eyebrowTr, eyebrowEn, int
         <Ornament />
         <p style={{
           fontSize: '0.68rem', letterSpacing: '0.26em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.78, fontFamily: FONTS.body, fontWeight: 700,
+          color: COLORS.gold,  fontFamily: FONTS.body, fontWeight: 700,
           margin: '14px 0 12px',
         }}>
           {tr ? (eyebrowTr || 'BEŞERÎ YORUM KATMANI · RİSALE-İ NUR') : (eyebrowEn || 'HUMAN INTERPRETIVE LAYER · RISALE-I NUR')}
@@ -86,7 +86,7 @@ export default function RisaleNotes({ items, language, eyebrowTr, eyebrowEn, int
             {/* Künye */}
             <p style={{
               fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-              color: COLORS.gold, opacity: 0.82, fontFamily: FONTS.body, fontWeight: 700,
+              color: COLORS.gold,  fontFamily: FONTS.body, fontWeight: 700,
               margin: '0 46px 14px 0', lineHeight: 1.5,
             }}>
               {tr ? pt.sourceTr : pt.sourceEn}

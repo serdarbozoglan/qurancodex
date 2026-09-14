@@ -55,7 +55,7 @@ export default function Isimlendirme({ onClose }) {
     <p className="mq-fs" style={{
       '--fs-d': '0.7rem', '--fs-m': '0.64rem',
       letterSpacing: '0.22em', textTransform: 'uppercase',
-      color: COLORS.gold, opacity: 0.75, margin: '0 0 10px',
+      color: COLORS.gold,  margin: '0 0 10px',
       fontFamily: FONTS.body, fontWeight: 600,
     }}>{children}</p>
   );
@@ -242,7 +242,7 @@ export default function Isimlendirme({ onClose }) {
               }}>{tr ? c.k.nameTr : c.k.nameEn}</div>
               <div className="mq-fs" style={{
                 '--fs-d': '0.72rem', '--fs-m': '0.68rem',
-                color: c.renk, opacity: 0.9, fontFamily: FONTS.body,
+                color: c.renk,  fontFamily: FONTS.body,
                 letterSpacing: '0.1em', marginBottom: '14px',
               }}>{c.k.ref}</div>
               <p className="mq-fs" style={{
@@ -357,7 +357,7 @@ export default function Isimlendirme({ onClose }) {
                     }}>{k.ar}</span>
                     <span className="mq-fs" style={{
                       '--fs-d': '0.7rem', '--fs-m': '0.66rem',
-                      color: k.renk, opacity: 0.85, fontFamily: FONTS.body,
+                      color: k.renk,  fontFamily: FONTS.body,
                       fontWeight: 700, letterSpacing: '0.1em', whiteSpace: 'nowrap',
                       fontVariantNumeric: 'tabular-nums',
                     }}>{k.count} {tr ? 'âyet' : k.count === 1 ? 'verse' : 'verses'}</span>
@@ -373,7 +373,7 @@ export default function Isimlendirme({ onClose }) {
                   }}>{tr ? k.rolTr : k.rolEn}</p>
                   <div className="mq-fs" style={{
                     '--fs-d': '0.66rem', '--fs-m': '0.62rem',
-                    color: k.renk, opacity: 0.85, fontFamily: FONTS.body,
+                    color: k.renk,  fontFamily: FONTS.body,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
                     marginTop: '12px', fontWeight: 600,
                   }}>
@@ -544,7 +544,7 @@ export default function Isimlendirme({ onClose }) {
           }}>&quot;{tr ? fulan.tr : fulan.en}&quot;</p>
           <p className="mq-fs" style={{
             '--fs-d': '0.7rem', '--fs-m': '0.66rem',
-            color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body,
+            color: COLORS.gold,  fontFamily: FONTS.body,
             letterSpacing: '0.12em', margin: 0,
           }}>— {tr ? 'Furkān' : 'Al-Furqān'} {fulan.ref}</p>
         </div>

@@ -422,8 +422,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           <div style={{
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
-            fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.75,
+            fontFamily: FONTS.body, fontWeight: 700, 
             marginBottom: '14px',
           }}>
             {language === 'tr' ? 'İLAHÎ ÖRÜNTÜ · TARİHİN YASASI' : 'DIVINE PATTERN · LAW OF HISTORY'}
@@ -1359,8 +1358,7 @@ function FormulaBox({ formula, language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', letterSpacing: '0.22em',
         color: COLORS.gold, textTransform: 'uppercase',
-        fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.85, marginBottom: '10px', textAlign: 'center',
+        fontFamily: FONTS.body, fontWeight: 700,  marginBottom: '10px', textAlign: 'center',
       }}>
         {tr ? 'Formül · لن تجد لسنة الله تبديلا' : 'Formula · لن تجد لسنة الله تبديلا'}
       </div>
@@ -1481,7 +1479,7 @@ function FormulaBox({ formula, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
           color: COLORS.skyBlue, textTransform: 'uppercase',
-          fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.9,
+          fontFamily: FONTS.body, marginBottom: '6px', 
         }}>
           {tr ? 'Yapısal Not · Klasik Belâgat' : 'Structural Note · Classical Balāgha'}
         </div>
@@ -1554,8 +1552,7 @@ function KavimComparisonGrid({ patterns, language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', letterSpacing: '0.2em',
         color: COLORS.gold, textTransform: 'uppercase',
-        fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.85, marginBottom: '18px', textAlign: 'center',
+        fontFamily: FONTS.body, fontWeight: 700,  marginBottom: '18px', textAlign: 'center',
       }}>
         {tr ? 'Örüntü Panoraması: On Kavim, Tek Yasa' : 'Pattern Panorama: Ten Nations, One Law'}
       </div>
@@ -1666,7 +1663,7 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.18em',
             color: accent, textTransform: 'uppercase',
-            fontFamily: FONTS.body, marginBottom: '4px', opacity: 0.85,
+            fontFamily: FONTS.body, marginBottom: '4px', 
           }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -1763,7 +1760,7 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
           <div style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
             color: COLORS.gold, textTransform: 'uppercase',
-            fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.75,
+            fontFamily: FONTS.body, marginBottom: '6px', 
           }}>
             {tr ? 'Ayet Kaynakları' : 'Verse References'}
           </div>
@@ -1784,7 +1781,7 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
           <div style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
             color: COLORS.emerald, textTransform: 'uppercase',
-            fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.75,
+            fontFamily: FONTS.body, marginBottom: '6px', 
           }}>
             {tr ? 'İşleyen Kanunlar' : 'Laws in Play'}
           </div>

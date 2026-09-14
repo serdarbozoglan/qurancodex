@@ -20,10 +20,13 @@ import tecvidData from '../../public/tecvid-rehberi.json';
 // cleanArabicForDisplay ile alındığından KFGQPC'de tofu'suz render olur.
 const QFONT = FONTS.quran;
 
+// Renk açıklaması. Adlar iki dilde ayrı: İngilizce sayfada Türkçe
+// rozet dizisi basılıyordu.
 const LEGEND = [
-  ['Gunne', TAJWEED.gunne], ['Kalkale', TAJWEED.kalkale], ['Med', TAJWEED.med],
-  ['İdgâm', TAJWEED.idgam], ['İklâb', TAJWEED.iklab], ['İhfâ', TAJWEED.ihfa],
-  ['Dudak ihfâsı', TAJWEED.ihfasef], ['Sıla', TAJWEED.sila],
+  ['Gunne', 'Ghunna', TAJWEED.gunne], ['Kalkale', 'Qalqala', TAJWEED.kalkale],
+  ['Med', 'Madd', TAJWEED.med], ['İdgâm', 'Idghām', TAJWEED.idgam],
+  ['İklâb', 'Iqlāb', TAJWEED.iklab], ['İhfâ', 'Ikhfāʾ', TAJWEED.ihfa],
+  ['Dudak ihfâsı', 'Labial ikhfāʾ', TAJWEED.ihfasef], ['Sıla', 'Ṣila', TAJWEED.sila],
 ];
 
 const PLAY = 'M8 5v14l11-7z';
@@ -33,6 +36,12 @@ export default function TecvidRehberi() {
   const { language } = useLanguage();
   const isEn = language === 'en';
   const navTop = useNavbarOffset(0, 62);
+
+  // Veride her aile/kural için TR alanların yanında EN karşılıkları duruyor
+  // (`en`, `descEn`, `shortEn`, `defEn`). İngilizce sayfa bu tarihe kadar
+  // Türkçe metni basıyordu: okur için 34 satırlık anlaşılmaz bir blok.
+  // Arapça, ses, âyet ve renkler dile göre DEĞİŞMEZ; yalnız nesir seçilir.
+  const pick = (obj, trKey, enKey) => (isEn && obj[enKey]) || obj[trKey];
 
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -113,7 +122,7 @@ export default function TecvidRehberi() {
       }}>
         {/* ─── HERO ─── */}
         <header style={{ textAlign: 'center', padding: isMobile ? '40px 0 26px' : '56px 0 34px' }}>
-          <div style={{ fontSize: '0.72rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: gold, fontWeight: 600, opacity: 0.85 }}>
+          <div style={{ fontSize: '0.72rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: gold, fontWeight: 600 }}>
             {isEn ? 'Tajweed Guide · see it, hear it' : 'Tecvid Rehberi · gör ve dinle'}
           </div>
           <h1 style={{
@@ -141,7 +150,7 @@ export default function TecvidRehberi() {
             <div style={{ fontFamily: QFONT, direction: 'rtl', color: SEMANTIC.scriptureText, fontSize: 'clamp(2rem, 7vw, 2.9rem)', lineHeight: 1.9 }}>
               {data.hero.ar}
             </div>
-            <div style={{ fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: gold, opacity: 0.7, marginTop: 10 }}>
+            <div style={{ fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: gold,  marginTop: 10 }}>
               {isEn ? 'Bismillah · al-Fātiḥa 1:1' : 'Besmele · Fâtiha 1:1'}
             </div>
           </div>
@@ -151,7 +160,7 @@ export default function TecvidRehberi() {
             display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 8,
             maxWidth: 680, margin: '22px auto 0',
           }}>
-            {LEGEND.map(([name, color]) => (
+            {LEGEND.map(([nameTr, nameEn, color]) => { const name = isEn ? nameEn : nameTr; return (
               <div key={name} style={{
                 display: 'flex', alignItems: 'center', gap: 9, padding: '9px 12px',
                 background: SEMANTIC.surfaceRaised, border: `1px solid ${COLORS.glassBorderSoft}`,
@@ -160,7 +169,7 @@ export default function TecvidRehberi() {
                 <span style={{ width: 12, height: 12, borderRadius: '50%', flexShrink: 0, background: color, boxShadow: `0 0 10px 1px ${color}` }} />
                 {name}
               </div>
-            ))}
+            ); })}
           </div>
         </header>
 
@@ -181,7 +190,7 @@ export default function TecvidRehberi() {
                 fontFamily: FONTS.body, transition: `all ${TRANSITION.fast}`,
               }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: f.color }}>{f.glyph}</span>
-              {f.tr}
+              {pick(f, 'tr', 'en')}
               <span style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, fontVariantNumeric: 'tabular-nums' }}>{f.rules.length}</span>
             </button>
           ))}
@@ -197,11 +206,11 @@ export default function TecvidRehberi() {
                 background: COLORS.goldAlpha15, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: RADIUS.lg || 16,
               }}>{f.glyph}</div>
               <div>
-                <div style={{ fontSize: '0.7rem', letterSpacing: '0.2em', color: f.color, fontWeight: 700, opacity: 0.9 }}>
+                <div style={{ fontSize: '0.7rem', letterSpacing: '0.2em', color: f.color, fontWeight: 700 }}>
                   {String(i + 1).padStart(2, '0')} · {isEn ? 'FAMILY' : 'AİLE'}
                 </div>
-                <h2 style={{ fontFamily: FONTS.display, fontWeight: 700, color: SEMANTIC.textPrimary, fontSize: 'clamp(1.4rem, 3.4vw, 1.9rem)', margin: '4px 0 0' }}>{f.tr}</h2>
-                <p style={{ color: SEMANTIC.textMuted, fontSize: '0.94rem', margin: '6px 0 0', maxWidth: '62ch' }}>{f.desc}</p>
+                <h2 style={{ fontFamily: FONTS.display, fontWeight: 700, color: SEMANTIC.textPrimary, fontSize: 'clamp(1.4rem, 3.4vw, 1.9rem)', margin: '4px 0 0' }}>{pick(f, 'tr', 'en')}</h2>
+                <p style={{ color: SEMANTIC.textMuted, fontSize: '0.94rem', margin: '6px 0 0', maxWidth: '62ch' }}>{pick(f, 'desc', 'descEn')}</p>
               </div>
             </div>
 
@@ -214,17 +223,17 @@ export default function TecvidRehberi() {
                 }}>
                   <span style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: 4, background: r.color }} />
                   <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap' }}>
-                    <h3 style={{ fontFamily: FONTS.body, fontSize: '1.06rem', fontWeight: 700, color: r.color, margin: 0 }}>{r.tr}</h3>
+                    <h3 style={{ fontFamily: FONTS.body, fontSize: '1.06rem', fontWeight: 700, color: r.color, margin: 0 }}>{pick(r, 'tr', 'en')}</h3>
                     <span style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: SEMANTIC.textMuted }}>{r.ar}</span>
                   </div>
-                  <div style={{ fontSize: '0.82rem', color: SEMANTIC.textFaint, marginTop: 1 }}>{r.short}</div>
-                  <p style={{ fontSize: '0.9rem', color: SEMANTIC.textMuted, margin: '9px 0 6px' }}>{r.def}</p>
+                  <div style={{ fontSize: '0.82rem', color: SEMANTIC.textFaint, marginTop: 1 }}>{pick(r, 'short', 'shortEn')}</div>
+                  <p style={{ fontSize: '0.9rem', color: SEMANTIC.textMuted, margin: '9px 0 6px' }}>{pick(r, 'def', 'defEn')}</p>
                   {r.key && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.78rem', color: SEMANTIC.textFaint, marginBottom: 4 }}>
                       <span>{isEn ? 'Letters / cue' : 'Harf / ipucu'}</span>
                       {/[؀-ۿ]/.test(r.key)
                         ? <span style={{ fontFamily: FONTS.quran, direction: 'rtl', fontSize: '1.15rem', color: r.color }}>{r.key}</span>
-                        : <span style={{ color: SEMANTIC.textMuted }}>{r.key}</span>}
+                        : <span style={{ color: SEMANTIC.textMuted }}>{pick(r, 'key', 'keyEn')}</span>}
                     </div>
                   )}
                   <div style={{ marginTop: 6, borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>

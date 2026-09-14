@@ -12,7 +12,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 import useNavbarOffset from './useNavbarOffset';
 
 // CHAPTERS — homepage section order ile birebir uyumlu olmalı. Eksik bölüm
@@ -150,21 +150,22 @@ export default function DesktopSidebarTOC() {
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: COLORS.gold,
-          opacity: 0.75,
           marginBottom: '14px',
           fontFamily: FONTS.body,
           paddingLeft: '12px',
           background: 'transparent',
           border: 'none',
           cursor: 'pointer',
-          transition: 'opacity 0.18s, transform 0.18s',
+          // Hover artık YALNIZ konumu oynatıyor. Eskiden taban opaklık 0.75'ti
+          // ve mouseLeave onu 0.55'e indiriyordu: bir kez üstünden geçildikten
+          // sonra metin tabandan DAHA sönük kalıyordu. Opaklık metinden
+          // kaldırıldı (§13.26 md.3); altın zaten tam opak okunur.
+          transition: 'transform 0.18s',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.opacity = '1';
           e.currentTarget.style.transform = 'translateY(-1px)';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.opacity = '0.55';
           e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
@@ -209,7 +210,7 @@ export default function DesktopSidebarTOC() {
                 }}
                 onMouseLeave={e => {
                   if (!isActive) {
-                    e.currentTarget.style.color = 'rgba(232,230,227,0.55)';
+                    e.currentTarget.style.color = SEMANTIC.textMuted;
                     e.currentTarget.style.borderLeftColor = 'transparent';
                     e.currentTarget.style.transform = 'translateX(0)';
                   }

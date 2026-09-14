@@ -42,13 +42,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113003-2-4.mp3"
             }
-          ]
+          ],
+          "en": "Iẓhār",
+          "shortEn": "Clear pronunciation",
+          "defEn": "When one of the six throat letters follows a sākin nūn or a tanwīn, the nūn is pronounced clearly and unchanged."
         },
         {
           "tr": "İdgâm-ı meal-gunne",
           "ar": "إدغام",
           "short": "Gunneli katma",
-          "def": "ي ن م و harflerinden biri gelince nûn sonraki harfe katılır ve iki hareke gunne (geniz sesi) tutulur.",
+          "def": "Sonraki KELİMENİN başında ي ن م و harflerinden biri gelince nûn sonraki harfe katılır ve iki hareke gunne (geniz sesi) tutulur. Aynı kelimede karşılaşırsa (dünyâ, bünyân, sınvân, kınvân) idgâm yapılmaz, izhâr okunur.",
           "key": "ي ن م و",
           "color": "#4ade80",
           "examples": [
@@ -73,7 +76,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002005-2-4.mp3"
             }
-          ]
+          ],
+          "en": "Idghām with ghunna",
+          "shortEn": "Merging with ghunna",
+          "defEn": "When one of ي ن م و begins the NEXT WORD, the nūn merges into it and a two-count nasal sound (ghunna) is held. Within a single word (dunyā, bunyān, ṣinwān, qinwān) there is no idghām; the nūn is pronounced clearly."
         },
         {
           "tr": "İdgâm-ı bilâ-gunne",
@@ -104,7 +110,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-101007-2-4.mp3"
             }
-          ]
+          ],
+          "en": "Idghām without ghunna",
+          "shortEn": "Merging without ghunna",
+          "defEn": "When ل or ر follows, the nūn drops and merges fully into the next letter with no ghunna."
         },
         {
           "tr": "İklâb",
@@ -135,7 +144,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-096015-4-6.mp3"
             }
-          ]
+          ],
+          "en": "Iqlāb",
+          "shortEn": "Turning into mīm",
+          "defEn": "When ب follows, the nūn or tanwīn turns into a hidden mīm pronounced with a two-count ghunna."
         },
         {
           "tr": "İhfâ",
@@ -166,9 +178,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002025-9-11.mp3"
             }
-          ]
+          ],
+          "en": "Ikhfāʾ",
+          "shortEn": "Concealment",
+          "defEn": "When one of the remaining fifteen letters follows, the nūn is half hidden, neither fully clear nor fully merged, with ghunna held."
         }
-      ]
+      ],
+      "en": "Sākin nūn and tanwīn",
+      "descEn": "The four ways a sākin nūn or a tanwīn meets the letter that follows it."
     },
     {
       "tr": "Mîm-i sâkin",
@@ -205,7 +222,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-067012-3-5.mp3"
             }
-          ]
+          ],
+          "en": "Ikhfāʾ shafawī",
+          "shortEn": "Labial concealment",
+          "defEn": "When ب follows a sākin mīm, the lips close lightly and the mīm is concealed with a two-count ghunna."
         },
         {
           "tr": "İdgâm-ı şefevî",
@@ -236,13 +256,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-104008-1-3.mp3"
             }
-          ]
+          ],
+          "en": "Idghām shafawī",
+          "shortEn": "Two mīms merging",
+          "defEn": "When a voweled mīm follows a sākin mīm, the two are read as one doubled mīm with ghunna."
         },
         {
           "tr": "İzhâr-ı şefevî",
           "ar": "إظهار شفوي",
           "short": "Açık mîm",
-          "def": "ب ve م dışındaki harflerden önce sâkin mîm dudak kapanmadan açıkça okunur; özellikle و ve ف'de dikkat.",
+          "def": "Sâkin mîm, ب ve م dışındaki harflerden önce dudaklar kapatılarak, ihfâ ya da idgâm yapılmadan açıkça okunur; özellikle و ve ف'de dikkat gerekir.",
           "key": "م ب dışındaki tüm harfler",
           "color": "#d4a574",
           "examples": [
@@ -267,9 +290,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-105002-2-4.mp3"
             }
-          ]
+          ],
+          "en": "Iẓhār shafawī",
+          "shortEn": "Clear mīm",
+          "defEn": "Before any letter other than ب and م, a sākin mīm is pronounced clearly with the lips closed, without ikhfāʾ or idghām; particular care is needed with و and ف."
         }
-      ]
+      ],
+      "en": "Sākin mīm",
+      "descEn": "The three states of a mīm carrying sukūn."
     },
     {
       "tr": "Gunne",
@@ -306,7 +334,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-078002-1-2.mp3"
             }
-          ]
+          ],
+          "en": "Doubled nūn",
+          "shortEn": "Nūn ghunna",
+          "defEn": "A doubled nūn (نّ) is held for two counts with a full nasal sound."
         },
         {
           "tr": "Şeddeli mîm",
@@ -337,13 +368,18 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-078001-0-1.mp3"
             }
-          ]
+          ],
+          "en": "Doubled mīm",
+          "shortEn": "Mīm ghunna",
+          "defEn": "A doubled mīm (مّ) is held for two counts with the lips closed and a nasal sound."
         }
-      ]
+      ],
+      "en": "Ghunna",
+      "descEn": "The nasal sound of nūn and mīm."
     },
     {
       "tr": "Med · uzatma",
-      "desc": "Tabii ve fer'î uzatmalar; ölçüler öğrenilen rivayete göredir.",
+      "desc": "Tabii ve fer'î uzatmalar. Ölçüler öğrenilen rivayete ve tarike göre değişir; burada Hafs'ın Şâtıbiyye tariki esas alınmıştır ve ölçüler kendi içinde tutarlı uygulanır.",
       "glyph": "آ",
       "color": "#c084fc",
       "rules": [
@@ -376,13 +412,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-109003-2-3.mp3"
             }
-          ]
+          ],
+          "en": "Madd ṭabīʿī",
+          "shortEn": "Natural, 2 counts",
+          "defEn": "When no hamza or sukūn follows a letter of madd (ا و ي), the sound is prolonged two counts (one alif) by its own nature."
         },
         {
           "tr": "Medd-i muttasıl",
           "ar": "مد متصل",
-          "short": "Bitişik · 4–5",
-          "def": "Med harfi ile hemze aynı kelimede ise, yaygın Hafs rivayetinde 4–5 hareke uzatılır (vâcip).",
+          "short": "Bitişik · 4-5",
+          "def": "Med harfi ile hemze aynı kelimede ise, yaygın Hafs rivayetinde 4-5 hareke uzatılır (vâcip).",
           "key": "Med + ء (aynı kelime)",
           "color": "#c084fc",
           "examples": [
@@ -407,13 +446,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002022-10-11.mp3"
             }
-          ]
+          ],
+          "en": "Madd muttaṣil",
+          "shortEn": "Joined, 4 to 5",
+          "defEn": "When the letter of madd and the hamza fall in the same word, the common Ḥafṣ practice prolongs it 4 to 5 counts (obligatory)."
         },
         {
           "tr": "Medd-i munfasıl",
           "ar": "مد منفصل",
-          "short": "Ayrı · 4–5",
-          "def": "Med harfi bir kelimenin sonunda, hemze sonraki kelimenin başında ise 4–5 hareke uzatılır.",
+          "short": "Ayrı · 4-5",
+          "def": "Med harfi bir kelimenin sonunda, hemze sonraki kelimenin başında ise 4-5 hareke uzatılır.",
           "key": "Med + ء (kelime sonu)",
           "color": "#c084fc",
           "examples": [
@@ -438,7 +480,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-097001-0-2.mp3"
             }
-          ]
+          ],
+          "en": "Madd munfaṣil",
+          "shortEn": "Separate, 4 to 5",
+          "defEn": "When the letter of madd ends one word and the hamza begins the next, it is prolonged 4 to 5 counts."
         },
         {
           "tr": "Medd-i bedel",
@@ -469,13 +514,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002177-18-19.mp3"
             }
-          ]
+          ],
+          "en": "Madd badal",
+          "shortEn": "Hamza first, 2",
+          "defEn": "When a letter of madd follows a hamza, Ḥafṣ generally reads two counts."
         },
         {
           "tr": "Medd-i ârız",
           "ar": "مد عارض",
           "short": "Durakta · 2/4/6",
-          "def": "Kelime sonunda med varken durulursa, son harf sâkinleşir ve med 2, 4 ya da 6 hareke uzatılabilir.",
+          "def": "Med harfinden sonraki harf, vakıf sebebiyle sâkinleşirse med 2, 4 ya da 6 hareke uzatılabilir.",
           "key": "Sonda geçici sükûn",
           "color": "#c084fc",
           "examples": [
@@ -500,13 +548,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001004-2-3.mp3"
             }
-          ]
+          ],
+          "en": "Madd ʿāriḍ",
+          "shortEn": "At a stop, 2 / 4 / 6",
+          "defEn": "When the letter after a letter of madd becomes sākin because you stop there, the madd may be prolonged 2, 4 or 6 counts."
         },
         {
           "tr": "Medd-i lîn",
           "ar": "مد لين",
           "short": "Yumuşak · durakta",
-          "def": "Üstünlü harften sonra sâkin و/ي gelir ve durulursa, yumuşak bir uzatma yapılır (2/4/6).",
+          "def": "Üstünlü harften sonra sâkin و/ي (lîn harfi) gelir ve ondan sonraki harf vakıf sebebiyle sâkinleşirse, yumuşak bir uzatma yapılır (2, 4 ya da 6).",
           "key": "َ وْ / َ يْ",
           "color": "#c084fc",
           "examples": [
@@ -531,7 +582,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-106004-6-7.mp3"
             }
-          ]
+          ],
+          "en": "Madd līn",
+          "shortEn": "Soft, at a stop",
+          "defEn": "When a sākin و or ي (the letter of līn) follows a letter with fatḥa, and the letter after it becomes sākin because you stop there, a soft prolongation is made (2, 4 or 6)."
         },
         {
           "tr": "Medd-i lâzım (kelimî)",
@@ -562,13 +616,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-080033-2-3.mp3"
             }
-          ]
+          ],
+          "en": "Madd lāzim (word)",
+          "shortEn": "Sukūn in the word, 6",
+          "defEn": "When an original sukūn or shadda follows a letter of madd within the word, it is prolonged six counts; in the heavy form it becomes idghām."
         },
         {
           "tr": "Medd-i lâzım (harfî)",
           "ar": "مد لازم حرفي",
           "short": "Hurûf-i mukattaa · 6",
-          "def": "Sûre başı harflerindeki (ن ق ص ع س ل ك م) med + aslî sükûn 6 hareke okunur; ع'de 4 hareke seçeneği vardır.",
+          "def": "Sûre başı harflerinden ن ق ص س ل ك م hecelenişinde med harfi + aslî sükûn bulunur ve 6 hareke okunur. ع ayrıdır: hecelenişinde lîn harfi vardır ve burada esas alınan tarikte 4 ya da 6 hareke okunur.",
           "key": "ن ق ص ع س ل ك م",
           "color": "#c084fc",
           "examples": [
@@ -593,7 +650,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-019001-0-1.mp3"
             }
-          ]
+          ],
+          "en": "Madd lāzim (letter)",
+          "shortEn": "Disjointed letters, 6",
+          "defEn": "In the spelling of the opening letters ن ق ص س ل ك م there is a letter of madd followed by an original sukūn, read six counts. ع is different: its spelling contains a letter of līn, and in the ṭarīq followed here it is read four or six counts."
         },
         {
           "tr": "Medd-i ıvaz",
@@ -624,13 +684,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-100001-1-2.mp3"
             }
-          ]
+          ],
+          "en": "Madd ʿiwaḍ",
+          "shortEn": "Stop on fatḥatān, 2",
+          "defEn": "If you stop on a word ending in two fatḥas, the tanwīn turns into a two-count alif (tāʾ marbūṭa excepted)."
         },
         {
           "tr": "Sıla-i suğrâ",
           "ar": "صلة صغرى",
           "short": "Zamir he · 2",
-          "def": "İki harekeli harf arasındaki müfred müzekker zamir he'si, hemze gelmezse 2 hareke uzatılır.",
+          "def": "İki harekeli harf arasındaki müfred müzekker zamir he'si, geçişte (vasıl hâlinde) ve hemze gelmezse 2 hareke uzatılır. Hafs'ta 39:7 يَرْضَهُ'da sıla yapılmaz; 25:69 فِيهِ مُهَانًا'da ise istisnaen yapılır.",
           "key": "ـهُ / ـهِ",
           "color": "#f2d9a8",
           "examples": [
@@ -655,13 +718,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-084015-4-6.mp3"
             }
-          ]
+          ],
+          "en": "Ṣila ṣughrā",
+          "shortEn": "Pronoun hāʾ, 2",
+          "defEn": "The hāʾ of the third person masculine singular pronoun, standing between two voweled letters, is prolonged two counts when the recitation is joined and no hamza follows. In Ḥafṣ there is no ṣila in yarḍahu (39:7), while fīhi muhānan (25:69) takes it as an exception."
         },
         {
           "tr": "Sıla-i kübrâ",
           "ar": "صلة كبرى",
           "short": "Zamir he + hemze",
-          "def": "Zamir he'sinden sonra hemze gelirse, medd-i munfasıl ölçüsünde uzatılır.",
+          "def": "Diğer sıla şartları sağlanırken zamir he'sinden sonra hemze gelirse, medd-i munfasıl ölçüsünde uzatılır.",
           "key": "ـهُ / ـهِ + ء",
           "color": "#f2d9a8",
           "examples": [
@@ -686,13 +752,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002255-23-25.mp3"
             }
-          ]
+          ],
+          "en": "Ṣila kubrā",
+          "shortEn": "Pronoun hāʾ plus hamza",
+          "defEn": "When the other conditions for ṣila hold and a hamza follows the pronoun hāʾ, it is prolonged to the measure of madd munfaṣil."
         },
         {
           "tr": "Medd-i fark",
           "ar": "مد فرق",
           "short": "Soruyu ayırma · 6",
-          "def": "Soru hemzesini haber cümlesinden ayırmak için baştaki med 6 hareke uzatılır.",
+          "def": "Soru hemzesi, belirlilik takısının vasıl hemzesiyle karşılaşınca soruyu haberden ayırmak için ibdâl vechinde 6 hareke uzatılır; teshîl vechinde bu med yapılmaz.",
           "key": "آلذَّكَرَيْنِ",
           "color": "#c084fc",
           "examples": [
@@ -717,9 +786,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-010059-4-5.mp3"
             }
-          ]
+          ],
+          "en": "Madd farq",
+          "shortEn": "Marking a question, 6",
+          "defEn": "When the interrogative hamza meets the connecting hamza of the definite article, the ibdāl manner prolongs it six counts to mark the question off from a statement; in the tashīl manner this madd is not made."
         }
-      ]
+      ],
+      "en": "Madd, prolongation",
+      "descEn": "Natural and secondary prolongations. The counts vary with the riwāya and the ṭarīq being learned; the ṭarīq of al-Shāṭibiyya from Ḥafṣ is taken as the basis here, and the counts are applied consistently within it."
     },
     {
       "tr": "Kalkale",
@@ -756,7 +830,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-100005-0-1.mp3"
             }
-          ]
+          ],
+          "en": "Qalqala ṣughrā",
+          "shortEn": "Light bounce",
+          "defEn": "When ق ط ب ج د carry an original sukūn inside a word they are bounced lightly; the bounce does not turn into a vowel."
         },
         {
           "tr": "Kalkale-i kübrâ",
@@ -787,9 +864,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
             }
-          ]
+          ],
+          "en": "Qalqala kubrā",
+          "shortEn": "Strong at a stop",
+          "defEn": "When you stop on a qalqala letter at the end of a word, the bounce is made clear and strong."
         }
-      ]
+      ],
+      "en": "Qalqala",
+      "descEn": "The short bounce of five letters when they carry sukūn."
     },
     {
       "tr": "Kalın & ince",
@@ -826,7 +908,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-113001-3-4.mp3"
             }
-          ]
+          ],
+          "en": "Tafkhīm",
+          "shortEn": "Heavy pronunciation",
+          "defEn": "The istiʿlāʾ letters (خ ص ض غ ط ق ظ) are pronounced full and heavy; the degree varies with the vowel."
         },
         {
           "tr": "Terkîk",
@@ -857,13 +942,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001004-1-2.mp3"
             }
-          ]
+          ],
+          "en": "Tarqīq",
+          "shortEn": "Light pronunciation",
+          "defEn": "Most letters are pronounced light; alif follows what precedes it, while rāʾ and the lām of the divine name vary with context."
         },
         {
           "tr": "Râ'nın hükümleri",
           "ar": "أحكام الراء",
           "short": "Kalın / ince",
-          "def": "Râ üstün/ötrede kalın, esrede ince okunur; sâkin râ öncesindeki harekeye bağlıdır.",
+          "def": "Râ üstün/ötrede kalın, esrede ince okunur. Sâkin râ önceki harekeye bağlıdır; ancak kesranın aslî mi ârızî mi olduğu, araya sâkin harf girip girmediği ve sonrasında isti'lâ harfi bulunup bulunmadığı da belirleyicidir: مِرْصَاد'da râ, önündeki esreye rağmen kalın okunur.",
           "key": "ر",
           "color": "#E67E22",
           "examples": [
@@ -888,7 +976,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-002025-17-18.mp3"
             }
-          ]
+          ],
+          "en": "Rules of rāʾ",
+          "shortEn": "Heavy or light",
+          "defEn": "Rāʾ is heavy with fatḥa or ḍamma and light with kasra. A sākin rāʾ depends on the vowel before it, but so do whether that kasra is original or incidental, whether a sākin letter intervenes, and whether an istiʿlāʾ letter follows: in mirṣād the rāʾ is heavy despite the kasra before it."
         },
         {
           "tr": "Lafzatullah",
@@ -919,9 +1010,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110001-2-4.mp3"
             }
-          ]
+          ],
+          "en": "Lafẓ al-jalāla",
+          "shortEn": "The lām of the divine name",
+          "defEn": "The lām in the word Allah is heavy when the preceding letter carries fatḥa or ḍamma, and light when it carries kasra."
         }
-      ]
+      ],
+      "en": "Heavy and light",
+      "descEn": "Whether a letter, a rāʾ or a lām is pronounced full or thin."
     },
     {
       "tr": "Harflerin birleşmesi",
@@ -958,7 +1054,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-086001-0-1.mp3"
             }
-          ]
+          ],
+          "en": "Solar lām",
+          "shortEn": "Shamsī lām",
+          "defEn": "The lām of the definite article merges into one of the fourteen solar letters, and that letter is read doubled."
         },
         {
           "tr": "Lâm-ı kameriyye",
@@ -989,7 +1088,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-108001-2-3.mp3"
             }
-          ]
+          ],
+          "en": "Lunar lām",
+          "shortEn": "Qamarī lām",
+          "defEn": "The lām of the definite article is pronounced clearly before the lunar letters."
         },
         {
           "tr": "İdgâm-ı misleyn",
@@ -1020,7 +1122,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-017033-16-18.mp3"
             }
-          ]
+          ],
+          "en": "Idghām mithlayn",
+          "shortEn": "Identical letters",
+          "defEn": "When the first of two identical letters is sākin and the second voweled, they are generally read as a single doubled letter."
         },
         {
           "tr": "İdgâm-ı mütecâniseyn",
@@ -1051,7 +1156,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-010089-2-4.mp3"
             }
-          ]
+          ],
+          "en": "Idghām mutajānisayn",
+          "shortEn": "Shared articulation point",
+          "defEn": "Letters sharing an articulation point but differing in attributes merge in certain fixed combinations."
         },
         {
           "tr": "İdgâm-ı mütekâribeyn",
@@ -1082,7 +1190,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-077020-1-2.mp3"
             }
-          ]
+          ],
+          "en": "Idghām mutaqāribayn",
+          "shortEn": "Near articulation points",
+          "defEn": "Letters whose articulation points are close merge in certain combinations; not every near pair merges."
         },
         {
           "tr": "Hemze-i vasl",
@@ -1113,9 +1224,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-015046-0-1.mp3"
             }
-          ]
+          ],
+          "en": "Hamzat al-waṣl",
+          "shortEn": "Connecting hamza",
+          "defEn": "It is pronounced when you begin with the word and drops when the word is joined to the one before; its opening vowel depends on the word."
         }
-      ]
+      ],
+      "en": "Letters joining",
+      "descEn": "The definite article, the kinds of idghām, and the connecting hamza."
     },
     {
       "tr": "Vakf & vasl",
@@ -1127,7 +1243,7 @@
           "tr": "Vakf ve ibtidâ",
           "ar": "وقف وابتداء",
           "short": "Duruş ve başlama",
-          "def": "Mana bozulmadan durulup başlanır; secâvend işaretleri yol gösterir (م zorunlu, ج câiz…).",
+          "def": "Mana bozulmadan durulup başlanır; secâvend işaretleri yol gösterir (م vakf-ı lâzım, ج câiz…). Buradaki 'lâzım' fıkhî bir farzı değil, mananın korunması için gereken duruşu gösterir.",
           "key": "م ج لا",
           "color": "#f87171",
           "examples": [
@@ -1152,7 +1268,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001004-2-3.mp3"
             }
-          ]
+          ],
+          "en": "Waqf and ibtidāʾ",
+          "shortEn": "Stopping and starting",
+          "defEn": "You stop and start without spoiling the meaning; the sajāwand marks guide you (م for waqf lāzim, ج for permitted, and so on). 'Lāzim' here marks the stop needed to preserve the meaning, not a legal obligation."
         },
         {
           "tr": "Kelime sonunda vakf",
@@ -1183,13 +1302,16 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-110003-6-7.mp3"
             }
-          ]
+          ],
+          "en": "Stopping at word end",
+          "shortEn": "Sukūn, tāʾ, tanwīn",
+          "defEn": "At a stop the final vowel drops; tāʾ marbūṭa becomes a sākin hāʾ, and two fatḥas generally turn into a long alif."
         },
         {
           "tr": "Sekte",
           "ar": "سكت",
           "short": "Nefessiz duruş",
-          "def": "Hafs rivayetinde nefes almadan yapılan kısa duruş (18:1–2, 36:52, 75:27, 83:14).",
+          "def": "Hafs'ın Şâtıbiyye tarikinde nefes almadan yapılan kısa duruş (18:1-2, 36:52, 75:27, 83:14).",
           "key": "عِوَجًا قَيِّمًا",
           "color": "#A78BFA",
           "examples": [
@@ -1214,9 +1336,14 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-036052-5-7.mp3"
             }
-          ]
+          ],
+          "en": "Sakta",
+          "shortEn": "A pause without breath",
+          "defEn": "In the ṭarīq of al-Shāṭibiyya from Ḥafṣ, a brief pause made without taking a breath (18:1-2, 36:52, 75:27, 83:14)."
         }
-      ]
+      ],
+      "en": "Waqf and waṣl",
+      "descEn": "Stopping and starting without breaking the meaning."
     },
     {
       "tr": "Mahreç & sıfatlar",
@@ -1253,7 +1380,10 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-001002-0-1.mp3"
             }
-          ]
+          ],
+          "en": "Articulation points",
+          "shortEn": "Points of exit",
+          "defEn": "The letters issue from seventeen points across five regions: the mouth cavity, the throat, the tongue, the lips and the nose."
         },
         {
           "tr": "Sıfâtü'l-hurûf",
@@ -1284,7 +1414,11 @@
               "reciter": "Alafasy",
               "audio": "/tecvid-audio/alafasy-114004-2-3.mp3"
             }
-          ]
+          ],
+          "en": "Ṣifāt al-ḥurūf",
+          "shortEn": "Attributes of the letters",
+          "defEn": "Qualities such as hams and jahr, shidda and rikhwa; each letter is given its own attribute without exaggeration.",
+          "keyEn": "Hams · jahr · shidda · rikhwa"
         },
         {
           "tr": "İmâle",
@@ -1315,7 +1449,10 @@
               "reciter": "Minshawy",
               "audio": "/tecvid-audio/minshawy-011041-5-6.mp3"
             }
-          ]
+          ],
+          "en": "Imāla",
+          "shortEn": "Inclining the sound",
+          "defEn": "In Ḥafṣ, the fatḥa and alif of the word majrāhā in 11:41 are inclined towards kasra and yāʾ."
         },
         {
           "tr": "İşmâm",
@@ -1346,7 +1483,10 @@
               "reciter": "Minshawy",
               "audio": "/tecvid-audio/minshawy-012011-5-6.mp3"
             }
-          ]
+          ],
+          "en": "Ishmām",
+          "shortEn": "A sign with the lips",
+          "defEn": "In taʾmannā in 12:11 the lips are rounded slightly to indicate a hidden ḍamma; it cannot be learned by sound."
         },
         {
           "tr": "Teshîl",
@@ -1377,9 +1517,14 @@
               "reciter": "Minshawy",
               "audio": "/tecvid-audio/minshawy-041044-8-9.mp3"
             }
-          ]
+          ],
+          "en": "Tas-hīl",
+          "shortEn": "Easing the hamza",
+          "defEn": "In 41:44 the second hamza is eased into a sound between a full hamza and an alif; it is not dropped."
         }
-      ]
+      ],
+      "en": "Articulation points and attributes",
+      "descEn": "The foundations underneath every rule of tajwīd."
     }
   ]
 }

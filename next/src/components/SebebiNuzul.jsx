@@ -1856,7 +1856,7 @@ export default function SebebiNuzul({ onClose }) {
           {language === 'tr' ? <>Kur&apos;an <em style={{ fontStyle: 'normal', color: COLORS.gold }}>23 yılda</em> ayet ayet indi. Her ayetin bir <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iniş anı</em> var. Sebeb-i Nüzul bilmek, anlamı bağlamına yerleştirmektir.</> : <>The Quran descended <em style={{ fontStyle: 'normal', color: COLORS.gold }}>over 23 years</em>, verse by verse. Each verse has a <em style={{ fontStyle: 'normal', color: COLORS.gold }}>moment of descent</em>. To know its occasion is to place meaning in its context.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
-        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>
+        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700,  marginBottom: '14px' }}>
           {language === 'tr' ? "İNİŞ BAĞLAMI · VÂHİDÎ · SUYÛTÎ" : "OCCASION OF REVELATION · AL-WĀḤIDĪ · AL-SUYŪṬĪ"}
         </div>
         <h2 className="mq-fs" style={{ fontFamily: "'Playfair Display', serif", '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>

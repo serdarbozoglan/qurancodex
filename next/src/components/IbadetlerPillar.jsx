@@ -283,8 +283,7 @@ function PillarHero({ pillarData, language, isMobile }) {
         <p style={{
           textTransform: 'uppercase',
           letterSpacing: '0.3em',
-          color: COLORS.gold,
-          opacity: 0.75,
+          color: COLORS.gold, 
           fontSize: '0.72rem',
           marginBottom: '12px',
         }}>
@@ -430,7 +429,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
         <div style={{
           color: COLORS.gold, fontSize: '0.7rem',
           letterSpacing: '0.24em', textTransform: 'uppercase',
-          fontWeight: 700, opacity: 0.82,
+          fontWeight: 700, 
           marginBottom: '14px',
         }}>{language === 'tr' ? 'Bir Bakışta' : 'At a Glance'}</div>
 
@@ -488,8 +487,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
           }}>
             <div style={{
               color: COLORS.gold, fontSize: '0.72rem',
-              letterSpacing: '0.2em', textTransform: 'uppercase',
-              opacity: 0.85, fontWeight: 700,
+              letterSpacing: '0.2em', textTransform: 'uppercase',  fontWeight: 700,
             }}>{language === 'tr' ? 'Semantik Alan Haritası' : 'Semantic Field Map'}</div>
             <div style={{
               color: SEMANTIC.textMuted, fontSize: '0.75rem', fontStyle: 'italic',
@@ -742,8 +740,7 @@ function TabPasajlar({ data, language, isMobile }) {
           <h3 style={{
             textTransform: 'uppercase',
             letterSpacing: '0.2em',
-            color: COLORS.gold,
-            opacity: 0.8,
+            color: COLORS.gold, 
             fontSize: '0.72rem',
             marginBottom: '20px',
           }}>
@@ -759,8 +756,7 @@ function TabPasajlar({ data, language, isMobile }) {
           <h3 style={{
             textTransform: 'uppercase',
             letterSpacing: '0.2em',
-            color: COLORS.gold,
-            opacity: 0.8,
+            color: COLORS.gold, 
             fontSize: '0.72rem',
             marginBottom: '20px',
           }}>
@@ -1150,7 +1146,7 @@ function TabOzelNamazlar({ data, language, isMobile }) {
                 <div style={{
                   color: COLORS.gold, fontSize: '0.7rem',
                   letterSpacing: '0.16em', textTransform: 'uppercase',
-                  marginBottom: '10px', opacity: 0.85,
+                  marginBottom: '10px', 
                 }}>{language === 'tr' ? "Kur'ânî Çerçeve" : 'Qur\'anic Frame'}</div>
                 <ul style={{ margin: 0, paddingLeft: '20px', color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.75 }}>
                   {n.kuraniOzellikler.map((k, j) => <li key={j} style={{ marginBottom: '6px' }}>{k}</li>)}
@@ -1170,7 +1166,7 @@ function TabOzelNamazlar({ data, language, isMobile }) {
                 <div style={{
                   color: '#2ecc71', fontSize: '0.68rem',
                   letterSpacing: '0.18em', textTransform: 'uppercase',
-                  marginBottom: '6px', opacity: 0.9,
+                  marginBottom: '6px', 
                 }}>{language === 'tr' ? 'Sünnet-i Mütevâtire Tafsili' : 'Mutawātir Sunnah Detail'}</div>
                 <p style={{
                   color: COLORS.offWhite, fontSize: '0.88rem',
@@ -1420,7 +1416,7 @@ function TabInsanEtkisi({ data, language, isMobile }) {
                 <div style={{
                   color: COLORS.silver, fontSize: '0.68rem',
                   letterSpacing: '0.18em', textTransform: 'uppercase',
-                  marginBottom: '6px', opacity: 0.8,
+                  marginBottom: '6px', 
                 }}>{language === 'tr' ? 'Modern İzler' : 'Modern Traces'}</div>
                 <p style={{
                   color: COLORS.offWhite, fontSize: '0.87rem',

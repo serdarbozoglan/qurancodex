@@ -117,7 +117,7 @@ export default function DuaDili({ onClose }) {
 
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px', textAlign: 'center',
         }}>
           {tr ? "YAKARIŞIN MİMARİSİ · 4 KATMAN" : "ARCHITECTURE OF SUPPLICATION · 4 LAYERS"}
@@ -211,7 +211,7 @@ function ProphetsTab({ tr, isMobile }) {
         <div style={{ textAlign: 'center', marginBottom: '28px', marginTop: '8px' }}>
           <p style={{
             fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75,
+            color: COLORS.gold, 
             fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px',
           }}>
             {tr ? "4 EK PROFİL · TAMAMLANMIŞ ZİNCİR" : "4 ADDITIONAL PROFILES · COMPLETED CHAIN"}
@@ -286,7 +286,7 @@ function ProphetCard({ p, tr, isMobile }) {
           <p style={{
             fontFamily: FONTS.body, fontSize: '0.72rem',
             letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: COLORS.silver, margin: 0, opacity: 0.85,
+            color: COLORS.silver, margin: 0, 
           }}>
             {tr ? p.profileTr : p.profileEn}
           </p>
@@ -388,7 +388,7 @@ function AnatomyTab({ tr, isMobile }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "GRAMATİK KALIP · 4 KATMAN" : "GRAMMAR TEMPLATE · 4 LAYERS"}
@@ -547,7 +547,7 @@ function ResponseTab({ tr, isMobile }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "İSTEK → CEVAP → SÜRE · 10 PEYGAMBER" : "PETITION → RESPONSE → TIME · 10 PROPHETS"}
@@ -574,7 +574,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: COLORS.gold, opacity: 0.75, marginBottom: '4px',
+                color: COLORS.gold,  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "PEYGAMBER" : "PROPHET"}</div>
               <div style={{
@@ -591,7 +591,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#3498db', opacity: 0.85, marginBottom: '4px',
+                color: '#3498db',  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "TALEP" : "REQUEST"}</div>
               <div style={{
@@ -604,7 +604,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#2ecc71', opacity: 0.85, marginBottom: '4px',
+                color: '#2ecc71',  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "CEVAP" : "RESPONSE"}</div>
               <div style={{
@@ -617,7 +617,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#a78bfa', opacity: 0.85, marginBottom: '4px',
+                color: '#a78bfa',  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "SÜRE / EK" : "TIME / EXTRA"}</div>
               <div style={{
@@ -659,7 +659,7 @@ function SourcesTab({ language, isMobile }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 24px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {language === 'tr' ? "DUA LİTERATÜRÜ · KLASİK KAYNAKLAR" : "PRAYER LITERATURE · CLASSICAL SOURCES"}

@@ -235,8 +235,7 @@ export default function NedenSonuc() {
               letterSpacing: '0.24em',
               textTransform: 'uppercase',
               color: COLORS.gold,
-              fontWeight: 700,
-              opacity: 0.8,
+              fontWeight: 700, 
               fontFamily: FONTS.body,
             }}>
               {tr ? 'Kur\'ânî Prensip' : 'Quranic Principle'}
@@ -261,8 +260,7 @@ export default function NedenSonuc() {
             fontFamily: FONTS.body,
             fontSize: '0.76rem',
             letterSpacing: '0.04em',
-            color: COLORS.gold,
-            opacity: 0.75,
+            color: COLORS.gold, 
             margin: '0 0 20px',
           }}>
             {tr ? '— sünnetullah, Kur\'ân\'ın kozmik yasası' : '— sunnatullah, the Quran\'s cosmic law'}
@@ -696,12 +694,13 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                   lineHeight: 1.75,
                   color: COLORS.silver,
                   margin: '0 0 18px',
-                  opacity: 0.88,
+                  // `opacity: 0.88` kaldırıldı (§13.26 md.3). Eğik yazı + sol
+                  // kenarlık bu paragrafı zaten ayırıyor.
                   fontStyle: 'italic',
                   padding: '12px 16px',
                   borderLeft: `2px solid ${catColor}44`,
                 }}>
-                  {chain.note}
+                  {language === 'tr' ? chain.note : (chain.noteEn || chain.note)}
                 </p>
               )}
 

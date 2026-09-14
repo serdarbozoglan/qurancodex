@@ -40,8 +40,7 @@ export default function Conclusion() {
       <motion.div variants={fadeUpItem}>
         <span
           style={{
-            color: COLORS.gold,
-            opacity: 0.75,
+            color: COLORS.gold, 
             fontFamily: FONTS.body,
             fontSize: '0.75rem',
             fontWeight: 700,
@@ -160,8 +159,7 @@ export default function Conclusion() {
         <p style={{
           color: COLORS.gold, fontSize: '0.75rem',
           fontFamily: FONTS.body, fontWeight: 600,
-          letterSpacing: '0.2em', textTransform: 'uppercase',
-          opacity: 0.8,
+          letterSpacing: '0.2em', textTransform: 'uppercase', 
           margin: 0, position: 'relative', zIndex: 1,
         }}>
           {language === 'tr' ? "En'âm 6:155" : "Al-An'am 6:155"}

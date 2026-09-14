@@ -227,8 +227,7 @@ export default function KuranYeminleri({ onClose }) {
           <div style={{
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
-            fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.75,
+            fontFamily: FONTS.body, fontWeight: 700, 
             marginBottom: '14px',
           }}>
             {language === 'tr' ? `AKSÂMÜ'L-KUR'ÂN · ${meta.totalOaths} BİLEŞİK YEMİN` : `AQSĀM AL-QUR'ĀN · ${meta.totalOaths} COMPOUND OATHS`}
@@ -301,7 +300,10 @@ export default function KuranYeminleri({ onClose }) {
                 <div style={{ color: s.color, fontSize: '1.8rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
                   {s.value}
                 </div>
-                <div style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body, marginTop: '5px' }}>
+                {/* Renkli `${s.color}10` kart zemininde textFaint AA altına
+                    düşüyordu (4.32-4.45, ölçülen). Aynı tuzak Kavimler
+                    Atlası'nın istatistik kartlarında da vardı. */}
+                <div style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: FONTS.body, marginTop: '5px' }}>
                   {language === 'tr' ? s.labelTr : s.labelEn}
                 </div>
               </div>
@@ -931,7 +933,7 @@ function OathCard({ item, accent, language, compact = false }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '14px 0 0' }}>
               <div style={{
                 fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase',
-                letterSpacing: '0.14em', color: accent, fontFamily: FONTS.body, opacity: 0.85,
+                letterSpacing: '0.14em', color: accent, fontFamily: FONTS.body, 
               }}>
                 {language === 'tr' ? 'Bileşik Parçalar' : 'Compound Parts'}
               </div>
@@ -1047,7 +1049,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
             <div style={{
               fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase',
               letterSpacing: '0.14em', color: COLORS.gold,
-              fontFamily: FONTS.body, marginBottom: '10px', opacity: 0.75,
+              fontFamily: FONTS.body, marginBottom: '10px', 
             }}>
               {language === 'tr' ? 'Açıklama' : 'Explanation'}
             </div>
@@ -1290,7 +1292,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
             <div style={{ color: s.color, fontSize: s.small ? '1rem' : '1.6rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
               {s.value}
             </div>
-            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px' }}>
+            <div style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px' }}>
               {language === 'tr' ? s.labelTr : s.labelEn}
             </div>
           </div>
@@ -1612,8 +1614,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                         {/* Thematic */}
                         <div style={{
                           fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase',
-                          letterSpacing: '0.14em', color: COLORS.gold, fontFamily: FONTS.body,
-                          opacity: 0.75, marginBottom: '6px',
+                          letterSpacing: '0.14em', color: COLORS.gold, fontFamily: FONTS.body,  marginBottom: '6px',
                         }}>
                           {language === 'tr' ? 'Tema' : 'Theme'}
                         </div>
@@ -1730,7 +1731,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
               <div className="mq-box" style={{ '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "16px" }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', marginBottom: '14px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '0.7rem', fontWeight: 700, color: COLORS.gold, opacity: 0.85, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 700, color: COLORS.gold,  letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
                     {String(i + 1).padStart(2, '0')} · <LinkifyRefs text={ex.ref} />
                   </span>
                 </div>
@@ -1739,7 +1740,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                 </p>
                 <div className="g-1-2" style={{ display: 'grid',  gap: '12px', marginBottom: '16px' }}>
                   <div style={{ background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
-                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
+                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold,  marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? "Muksam Bihi · Yemin Objesi" : "Muqsam Bihi · The Oath-Object"}
                     </div>
                     <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
@@ -1756,7 +1757,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                   </div>
                 </div>
                 <div style={{ background: 'rgba(212,165,116,0.03)', borderLeft: `2px solid ${COLORS.gold}`, padding: '10px 14px', borderRadius: '4px' }}>
-                  <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
+                  <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold,  marginBottom: '6px', fontFamily: FONTS.body }}>
                     {language === 'tr' ? "Münâsebe · İbn Kayyim'in Çözümlemesi" : "Munāsaba · Ibn Qayyim's Reading"}
                   </div>
                   <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
@@ -1858,7 +1859,7 @@ function TabTahaddi({ language, isMobile }) {
     <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "12px", maxWidth: '1000px', margin: '0 auto' }}>
       {/* Section header */}
       <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '32px', '--mb-m': '24px' }}>
-        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700,  marginBottom: '10px' }}>
           {tr ? 'Yemin ↔ Tahaddi Paraleli' : 'The Oath–Challenge Parallel'}
         </div>
         <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.7rem, 3vw, 2.1rem)', '--fs-m': 'clamp(1.35rem, 5vw, 1.65rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
@@ -1892,7 +1893,7 @@ function TabTahaddi({ language, isMobile }) {
               {/* Header: ref + scope + period chip */}
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                  <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: accent, fontWeight: 700, opacity: 0.85 }}>
+                  <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: accent, fontWeight: 700 }}>
                     <LinkifyRefs text={v.ref} />
                   </div>
                   <div style={{ fontFamily: FONTS.display, fontSize: '1rem', color: COLORS.offWhite, fontWeight: 600 }}>
@@ -2058,7 +2059,7 @@ function TabKozmoloji({ language, isMobile }) {
     <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "12px", maxWidth: '1000px', margin: '0 auto' }}>
       {/* Section header */}
       <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '32px', '--mb-m': '24px' }}>
-        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700,  marginBottom: '10px' }}>
           {tr ? 'Yemin Edilen Kâinat' : 'The Cosmos Sworn By'}
         </div>
         <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.7rem, 3vw, 2.1rem)', '--fs-m': 'clamp(1.35rem, 5vw, 1.65rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
@@ -2089,7 +2090,7 @@ function TabKozmoloji({ language, isMobile }) {
               <div style={{ fontFamily: FONTS.display, fontSize: '1.05rem', color: COLORS.offWhite, fontWeight: 600 }}>
                 {tr ? it.themeTr : it.themeEn}
               </div>
-              <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.85 }}>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700 }}>
                 {it.ref}
               </div>
             </div>
@@ -2177,7 +2178,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.75,
+        color: COLORS.gold, 
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -2218,7 +2219,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75,
+            color: COLORS.gold, 
           }}>
             {tr ? 'Daha Derine: Yemin Yoğun Sûreler' : 'Go Deeper: Oath-Rich Suras'}
           </span>
@@ -2313,7 +2314,7 @@ function VakiaSpotlight({ language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           marginBottom: '14px',
         }}>
           {tr ? "Kur'an Kendi Yeminini Tefsir Ediyor" : "The Quran Interprets Its Own Oath"}
@@ -2444,7 +2445,7 @@ function YeminCevapReveal({ language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, 
           marginBottom: '12px',
         }}>
           {tr ? 'Yeminin Ardındaki Mesaj' : 'The Message Behind the Oath'}
@@ -2499,7 +2500,7 @@ function YeminCevapReveal({ language, isMobile }) {
                   <span style={{
                     fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
                     letterSpacing: '0.2em', textTransform: 'uppercase',
-                    color: COLORS.gold, opacity: 0.8,
+                    color: COLORS.gold, 
                     padding: '3px 8px',
                     background: COLORS.goldAlpha04,
                     border: `1px solid ${COLORS.goldAlpha25}`,
@@ -2644,8 +2645,7 @@ function YeminCevapReveal({ language, isMobile }) {
                       letterSpacing: '0.18em',
                       textTransform: 'uppercase',
                       display: 'block',
-                      marginBottom: '4px',
-                      opacity: 0.85,
+                      marginBottom: '4px', 
                     }}>
                       ✦ {tr ? 'İçgörü' : 'Insight'}
                     </span>

@@ -73,7 +73,10 @@ export default function ClusterWhisper({ tr, en, verse }) {
             &quot;{isTr ? verse.translationTr : verse.translationEn}&quot;
           </p>
           <p style={{
-            color: SEMANTIC.textMuted, fontFamily: FONTS.body,
+            // Bölüm gradyanının en açık durağı (75,60,55) üstünde textMuted 4.12
+            // ölçüldü. §13.26 md.1'in kendi yönergesi: ikinci kademe sınırdaysa
+            // textPrimary'ye çıkılır. Hiyerarşi punto + harf aralığı + büyük harfte.
+            color: SEMANTIC.textPrimary, fontFamily: FONTS.body,
             fontSize: '0.78rem', letterSpacing: '0.14em',
             textTransform: 'uppercase',
             margin: 0,

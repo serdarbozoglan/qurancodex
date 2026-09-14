@@ -151,7 +151,7 @@ export default function InsanYolculugu({ onClose }) {
             }} />
 
             <p style={{
-              color: COLORS.gold, opacity: 0.75,
+              color: COLORS.gold, 
               fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase',
               margin: '0 0 12px',
@@ -280,7 +280,7 @@ export default function InsanYolculugu({ onClose }) {
               }}>
                 <div style={{ position: 'sticky', top: `${navTop + 68}px` }}>
                   <p style={{
-                    color: COLORS.gold, opacity: 0.85,
+                    color: COLORS.gold, 
                     fontSize: '0.65rem', fontWeight: 700,
                     letterSpacing: '0.24em', textTransform: 'uppercase',
                     margin: '0 0 18px',
@@ -408,7 +408,7 @@ export default function InsanYolculugu({ onClose }) {
               maxWidth: '900px', margin: '0 auto', textAlign: 'center',
             }}>
               <p style={{
-                color: COLORS.gold, opacity: 0.75,
+                color: COLORS.gold, 
                 fontSize: '0.65rem', fontWeight: 700,
                 letterSpacing: '0.28em', textTransform: 'uppercase',
                 margin: '0 0 20px',
@@ -471,7 +471,7 @@ function StageDetail({ stage, isEn, isMobile }) {
         </span>
         <div style={{ flex: 1 }}>
           <p style={{
-            color: stage.color, opacity: 0.75,
+            color: stage.color, 
             fontSize: '0.65rem', fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
             margin: 0,
@@ -513,7 +513,7 @@ function StageDetail({ stage, isEn, isMobile }) {
       {stage.anchor && (
         <div style={{ ...GLASS_CARD, padding: '20px', marginBottom: '20px', borderLeft: `3px solid ${stage.color}` }}>
           <p style={{
-            color: stage.color, opacity: 0.75,
+            color: stage.color, 
             fontSize: '0.62rem', fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
             margin: '0 0 12px',
@@ -632,13 +632,13 @@ function StageDetail({ stage, isEn, isMobile }) {
           }} />
           <p style={{
             fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.8, fontWeight: 700, margin: '0 0 4px',
+            color: COLORS.gold,  fontWeight: 700, margin: '0 0 4px',
           }}>{isEn ? 'RISALE-I NUR' : 'RİSALE-İ NUR'}</p>
           {/* §13.26 md.3: altın metinde opaklık tabanı 0.75 — künye satırı 0.6'da
               ölçümde ihlal veriyordu, 0.8'e çekildi. */}
           <p style={{
             fontSize: '0.62rem', letterSpacing: '0.08em',
-            color: COLORS.gold, opacity: 0.8, fontWeight: 600, margin: '0 0 12px',
+            color: COLORS.gold,  fontWeight: 600, margin: '0 0 12px',
           }}>{isEn ? stage.risale.sourceEn : stage.risale.sourceTr}</p>
           <p style={{
             color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.78,
@@ -665,7 +665,7 @@ function StageDetail({ stage, isEn, isMobile }) {
           borderRadius: `0 ${RADIUS.md} ${RADIUS.md} 0`,
         }}>
           <p style={{
-            color: stage.color, opacity: 0.75,
+            color: stage.color, 
             fontSize: '0.62rem', fontWeight: 700,
             letterSpacing: '0.2em', textTransform: 'uppercase',
             margin: '0 0 4px',

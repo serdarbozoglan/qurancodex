@@ -202,7 +202,7 @@ export default function ElestirelCerceve() {
 
         <p style={{
           fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em',
-          textTransform: 'uppercase', color: SEMANTIC.textMuted, opacity: 0.82,
+          textTransform: 'uppercase', color: SEMANTIC.textMuted, 
           margin: '0 0 30px', fontWeight: 600,
         }}>— {tr ? anchor.refTr : anchor.refEn}</p>
 
@@ -220,7 +220,7 @@ export default function ElestirelCerceve() {
 
         <p style={{
           fontFamily: FONTS.body, fontSize: '0.7rem', letterSpacing: '0.3em',
-          textTransform: 'uppercase', color: COLORS.gold, opacity: 0.82,
+          textTransform: 'uppercase', color: COLORS.gold, 
           fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? meta.eyebrowTr : meta.eyebrowEn}</p>
 
@@ -251,7 +251,7 @@ export default function ElestirelCerceve() {
         }}>
           <div style={{
             fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, fontWeight: 700, opacity: 0.85, marginBottom: 14,
+            color: COLORS.gold, fontWeight: 700,  marginBottom: 14,
             fontFamily: FONTS.body,
           }}>
             {tr ? 'Duruşumuz' : 'Where We Stand'}

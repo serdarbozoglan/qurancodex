@@ -115,7 +115,7 @@ function HubHero({ hubData, language, isMobile }) {
       {(hero.eyebrowTr || hero.eyebrowEn) && (
         <p style={{
           textTransform: 'uppercase', letterSpacing: '0.32em',
-          color: COLORS.gold, opacity: 0.78,
+          color: COLORS.gold, 
           fontSize: '0.75rem', marginBottom: '14px',
         }}>{language === 'tr' ? hero.eyebrowTr : hero.eyebrowEn}</p>
       )}
@@ -185,8 +185,7 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
       <div>
         <div style={{
           color: COLORS.gold, fontSize: '0.72rem',
-          letterSpacing: '0.22em', textTransform: 'uppercase',
-          opacity: 0.85, marginBottom: '8px', fontWeight: 700,
+          letterSpacing: '0.22em', textTransform: 'uppercase',  marginBottom: '8px', fontWeight: 700,
         }}>{language === 'tr' ? 'Kök Kelime' : 'Root Word'}</div>
         <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -353,8 +352,7 @@ function PillarCard({ pillar, language, isMobile, router }) {
       {pillar.domain && (
         <div style={{
           color: COLORS.gold, fontSize: '0.68rem',
-          letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.75, marginBottom: '12px',
+          letterSpacing: '0.16em', textTransform: 'uppercase',  marginBottom: '12px',
         }}>{language === 'tr' ? pillar.domain : (pillar.domainEn ?? pillar.domain)}</div>
       )}
 
@@ -402,7 +400,7 @@ function FramingNote({ framingTr, framingEn, language, isMobile }) {
       <div style={{
         color: COLORS.gold, fontSize: '0.68rem',
         letterSpacing: '0.2em', textTransform: 'uppercase',
-        marginBottom: '10px', opacity: 0.85, fontWeight: 700,
+        marginBottom: '10px',  fontWeight: 700,
       }}>{language === 'tr' ? 'Bu HUB nedir, ne değildir?' : 'What this HUB is, and is not'}</div>
       <p style={{
         color: COLORS.offWhite, fontSize: '0.92rem',
@@ -502,7 +500,7 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
         <p style={{
           color: COLORS.gold, fontSize: '0.72rem',
           letterSpacing: '0.28em', textTransform: 'uppercase',
-          fontWeight: 700, opacity: 0.85, marginBottom: '10px',
+          fontWeight: 700,  marginBottom: '10px',
         }}>{tr ? 'YOLCULUK ÖNERİLERİ' : 'SUGGESTED JOURNEYS'}</p>
         <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -775,7 +773,7 @@ function ZamanEkseniSection({ data, language, isMobile }) {
               <div style={{
                 color: accent, fontSize: '0.7rem',
                 letterSpacing: '0.22em', textTransform: 'uppercase',
-                marginBottom: '8px', fontWeight: 700, opacity: 0.9,
+                marginBottom: '8px', fontWeight: 700, 
               }}>{isMedina ? (language === 'tr' ? 'Dönem 2' : 'Phase 2') : (language === 'tr' ? 'Dönem 1' : 'Phase 1')}</div>
               <h3 style={{
                 fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -987,7 +985,7 @@ function OrtakFormullerSection({ data, language, isMobile }) {
               <span style={{
                 color: COLORS.gold, fontSize: '0.7rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
-                fontWeight: 700, opacity: 0.85,
+                fontWeight: 700, 
               }}>{language === 'tr' ? f.occurrenceTr : (f.occurrenceEn ?? f.occurrenceTr)}</span>
             </div>
             {f.sampleRefs?.length > 0 && (

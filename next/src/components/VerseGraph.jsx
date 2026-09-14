@@ -1573,7 +1573,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
             backdropFilter: 'blur(14px)', pointerEvents: 'none', zIndex: 10,
             boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
           }}>
-            <div style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '10px', opacity: 0.85 }}>
+            <div style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '10px' }}>
               {language === 'tr' ? group.tr : group.en}
             </div>
             {group.surahs.map(s => {
@@ -2946,7 +2946,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           alignItems: 'center', justifyContent: 'center', gap: '8px',
           padding: '24px', overflowY: 'auto',
         }}>
-          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.75 }}>
+          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px' }}>
             {surahNameTr(filterSurah, language === 'en')}: {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%', maxWidth: '480px' }}>
@@ -3058,7 +3058,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
             }} />
 
             <p style={{
-              color: COLORS.gold, opacity: 0.75, fontSize: '0.68rem', fontWeight: 700,
+              color: COLORS.gold,  fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase', margin: '0 0 12px',
             }}>
               {language === 'tr' ? 'AYET HARİTASI · ANLAMIN AĞI' : 'VERSE MAP · THE WEB OF MEANING'}
@@ -3841,7 +3841,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
 
       {connections.length > 0 && (
         <div>
-          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.8 }}>
+          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             {language === 'tr' ? `En Benzer ${connections.length} Ayet` : `Top ${connections.length} Similar Verses`}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>

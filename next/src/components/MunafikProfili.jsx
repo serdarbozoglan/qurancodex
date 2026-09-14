@@ -390,11 +390,14 @@ export default function MunafikProfili({ onClose }) {
             margin: '0 auto 36px',
             maxWidth: '700px',
             textAlign: 'center',
-            opacity: 0.88,
+            // `opacity: 0.88` KAPSAYICIDA duruyordu ve içindeki softRed vurgusuyla
+            // çarpılıp 4.25 veriyordu (§13.26 md.7: kapsayıcı opaklığı metnin
+            // kendi rengiyle çarpılır). Paragrafın sakin tonu zaten italik +
+            // display fontu + punto ile taşınıyor.
           }}>
             {language === 'tr'
-              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>inkârı imanla maskelemek</em>. Kur&apos;an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
-              : <>Not denying belief but <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>masking denial with belief</em>. The Quran sets this type apart from every other sinner.</>}
+              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: COLORS.softRed }}>inkârı imanla maskelemek</em>. Kur&apos;an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
+              : <>Not denying belief but <em style={{ fontStyle: 'normal', color: COLORS.softRed }}>masking denial with belief</em>. The Quran sets this type apart from every other sinner.</>}
           </p>
 
           {/* Filigree divider */}
@@ -409,8 +412,7 @@ export default function MunafikProfili({ onClose }) {
           <div style={{
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.softRed, textTransform: 'uppercase',
-            fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.85,
+            fontFamily: FONTS.body, fontWeight: 700, 
             marginBottom: '14px',
             textAlign: 'center',
           }}>
@@ -1182,8 +1184,7 @@ function SurahDistributionTab({ dist, language, isMobile }) {
         <div style={{
           fontSize: '0.66rem', letterSpacing: '0.2em',
           color: COLORS.gold, textTransform: 'uppercase',
-          fontFamily: FONTS.body, fontWeight: 700,
-          opacity: 0.85, marginBottom: '20px',
+          fontFamily: FONTS.body, fontWeight: 700,  marginBottom: '20px',
         }}>
           {tr ? `Ayet Sayısı · Toplam ${dist.totalCount}` : `Verse Count · Total ${dist.totalCount}`}
         </div>
@@ -1278,7 +1279,7 @@ function SurahDistributionTab({ dist, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
           color: COLORS.skyBlue, textTransform: 'uppercase',
-          fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.9,
+          fontFamily: FONTS.body, marginBottom: '6px', 
         }}>
           {tr ? 'Bağlam Notu' : 'Contextual Note'}
         </div>
@@ -1352,8 +1353,7 @@ function KissaCard({ kissa, index, language, isMobile }) {
           <div style={{
             fontSize: '0.62rem', letterSpacing: '0.18em',
             color: accent, textTransform: 'uppercase',
-            fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.85, marginBottom: '4px',
+            fontFamily: FONTS.body, fontWeight: 700,  marginBottom: '4px',
           }}>
             {kissa.year}
           </div>
@@ -1387,7 +1387,7 @@ function KissaCard({ kissa, index, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
           color: COLORS.gold, textTransform: 'uppercase',
-          fontFamily: FONTS.body, marginBottom: '8px', opacity: 0.75,
+          fontFamily: FONTS.body, marginBottom: '8px', 
         }}>
           {tr ? 'Olay' : 'Event'}
         </div>
@@ -1412,7 +1412,7 @@ function KissaCard({ kissa, index, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
           color: COLORS.gold, textTransform: 'uppercase',
-          fontFamily: FONTS.body, marginBottom: '8px', opacity: 0.9,
+          fontFamily: FONTS.body, marginBottom: '8px', 
         }}>
           {tr ? 'Kur\'ânî Yanıt' : 'Qur\'anic Response'}
         </div>

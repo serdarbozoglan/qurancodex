@@ -99,8 +99,7 @@ export default function RecentBookmarksStrip() {
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: COLORS.gold,
-          fontWeight: 700,
-          opacity: 0.75,
+          fontWeight: 700, 
           fontFamily: FONTS.body,
         }}>
           {tr ? 'Son Yer İmlerin' : 'Your Recent Bookmarks'}
@@ -172,8 +171,7 @@ export default function RecentBookmarksStrip() {
                   fontSize: '0.62rem',
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: COLORS.gold,
-                  opacity: 0.75,
+                  color: COLORS.gold, 
                   fontFamily: FONTS.body,
                   fontWeight: 700,
                   marginBottom: 2,

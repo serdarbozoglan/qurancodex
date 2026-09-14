@@ -91,14 +91,25 @@ for (const route of ROUTES) {
     await page.waitForTimeout(1500);
 
     // 1) BİRİNCİ GEÇİŞ: tüm reveal'ları tetikle ve tamamlat
-    const height = await page.evaluate(() => document.body.scrollHeight);
+    //
+    // YÜKSEKLİK HER ADIMDA YENİDEN OKUNUR. Eskiden döngü başında bir kez
+    // ölçülüyordu ve bu SESSİZ BİR HATAYDI: SectionWrapper'ın `hidden` hâli
+    // `opacity: 0.5` (bilinçli — bölüm asla bomboş görünmesin diye), iç ögeler
+    // de 0.5 ile çarpılınca 0.25. Sayfa açıldıkça uzuyorsa eski yükseklikte
+    // döngü erken bitiyor, alt bölümlere HİÇ inilmiyor ve oralar `hidden`
+    // hâlinde ölçülüp "gerçek ihlal" diye raporlanıyordu. Halka Kompozisyon'da
+    // 25 bulgunun 24'ü böyle doğdu; tam denetim aynı sayfada 1 diyordu.
     const seenFirst = new Map();
-    for (let y = 0; y < height; y += 700) {
+    let y = 0;
+    for (let guard = 0; guard < 400; guard++) {
       await page.evaluate(yy => window.scrollTo(0, yy), y);
       await page.waitForTimeout(650);
       for (const f of await page.evaluate(CONTRAST_PROBE)) {
         seenFirst.set(`${f.color}|${f.px}|${f.bg}|${f.opacity}`, f);
       }
+      const h = await page.evaluate(() => document.body.scrollHeight);
+      if (y + 700 >= h) break;
+      y += 700;
     }
     const raw = [...seenFirst.values()].filter(f => f.px < 24);
 
@@ -108,12 +119,16 @@ for (const route of ROUTES) {
 
     // 3) İKİNCİ GEÇİŞ: her şey oturmuşken yeniden ölç
     const seenSecond = new Map();
-    for (let y = 0; y < height; y += 700) {
-      await page.evaluate(yy => window.scrollTo(0, yy), y);
+    let y2 = 0;
+    for (let guard = 0; guard < 400; guard++) {
+      await page.evaluate(yy => window.scrollTo(0, yy), y2);
       await page.waitForTimeout(500);
       for (const f of await page.evaluate(CONTRAST_PROBE)) {
         seenSecond.set(`${f.color}|${f.px}|${f.bg}|${f.opacity}`, f);
       }
+      const h = await page.evaluate(() => document.body.scrollHeight);
+      if (y2 + 700 >= h) break;
+      y2 += 700;
     }
     const settledFindings = [...seenSecond.values()].filter(f => f.px < 24);
 
@@ -131,7 +146,7 @@ for (const route of ROUTES) {
     console.log(`\n── ${route}`);
     console.log(`   ham: ${raw.length}  |  GERÇEK: ${real.length}  |  artefakt: ${artifact.length}  |  kasıtlı sönük: ${dim.length}`);
     for (const x of real.sort((a, b) => parseFloat(a.ratio) - parseFloat(b.ratio))) {
-      console.log(`   ✗ ${String(x.ratio).padStart(5)}  ${x.color} @${x.opacity}  "${(x.text || '').slice(0, 46)}"`);
+      console.log(`   ✗ ${String(x.ratio).padStart(5)}  ${x.color} @${x.opacity}  zemin ${x.bg}  "${(x.text || '').slice(0, 46)}"`);
     }
   } catch (e) {
     console.log(`\n── ${route}\n   HATA: ${e.message.slice(0, 80)}`);

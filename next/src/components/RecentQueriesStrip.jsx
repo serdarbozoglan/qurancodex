@@ -56,8 +56,7 @@ export default function RecentQueriesStrip() {
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: COLORS.gold,
-          fontWeight: 700,
-          opacity: 0.75,
+          fontWeight: 700, 
           fontFamily: FONTS.body,
         }}>
           {tr ? 'Son Soruların' : 'Your Recent Questions'}

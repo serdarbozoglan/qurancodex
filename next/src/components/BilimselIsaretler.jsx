@@ -186,7 +186,7 @@ export default function BilimselIsaretler({ onClose }) {
             <div style={{
               fontSize: '0.68rem', letterSpacing: '0.3em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
+              fontFamily: FONTS.body, fontWeight: 700, 
               marginBottom: '14px',
             }}>{tr ? 'ÂYÂT-I KEVNİYYE · TABİAT İŞARETLERİ' : 'ĀYĀT KAWNIYYA · SIGNS OF NATURE'}</div>
             <h2 className="mq-fs" style={{
@@ -476,7 +476,7 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
             <div style={{
               fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.85,
+              fontFamily: FONTS.body, marginBottom: '6px', 
             }}>{tr ? 'Kaynaklar' : 'Sources'}</div>
             <p style={{
               fontSize: '0.78rem', color: COLORS.silver,
@@ -583,7 +583,7 @@ function BucaillismTab({ intro, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', letterSpacing: '0.14em',
           color: COLORS.skyBlue, textTransform: 'uppercase',
-          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px', opacity: 0.9,
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px', 
         }}>{tr ? 'Sorumlu Okuma İlkeleri' : 'Principles of Responsible Reading'}</div>
         <ul style={{
           margin: 0, paddingLeft: '20px',

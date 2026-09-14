@@ -183,7 +183,7 @@ export default function RetorikSorular({ onClose }) {
             <div style={{
               fontSize: '0.68rem', letterSpacing: '0.3em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
+              fontFamily: FONTS.body, fontWeight: 700, 
               marginBottom: '14px',
             }}>{tr ? "BELÂGAT · CÜRCÂNÎ'DEN NEUWIRTH'E" : "BALĀGHA · FROM AL-JURJĀNĪ TO NEUWIRTH"}</div>
             <h2 className="mq-fs" style={{

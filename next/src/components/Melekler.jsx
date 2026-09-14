@@ -618,7 +618,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
         marginBottom: '24px',
         maxWidth: '780px',
       }}>
-        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: GOLD, opacity: 0.85, margin: '0 0 12px', fontFamily: FONTS.body }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: GOLD,  margin: '0 0 12px', fontFamily: FONTS.body }}>
           {tr ? "Vahyin Dört Katmanı" : "Four Levels of Revelation"}
         </p>
         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
@@ -1441,7 +1441,7 @@ export default function Melekler({ onClose }) {
           }} />
 
           {/* Eyebrow */}
-          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.3em', color: COLORS.gold, opacity: 0.75, margin: '0 0 12px' }}>
+          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.3em', color: COLORS.gold,  margin: '0 0 12px' }}>
             {tr ? "KUR'AN'DA MELEKLER · GÖRÜNMEYEN ELÇİLER" : 'ANGELS IN THE QURAN · UNSEEN MESSENGERS'}
           </p>
 

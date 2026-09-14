@@ -131,7 +131,7 @@ export default function KitapKavrami() {
 
           <div style={{
             fontSize: '0.7rem', letterSpacing: '0.3em', color: COLORS.gold,
-            textTransform: 'uppercase', fontWeight: 700, opacity: 0.75, marginBottom: '14px',
+            textTransform: 'uppercase', fontWeight: 700,  marginBottom: '14px',
             fontFamily: FONTS.body,
           }}>{tr ? "KUR'ÂN KENDİNİ TANIMLAR" : 'THE QURAN NAMES ITSELF'}</div>
           <h1 className="mq-fs" style={{
@@ -154,7 +154,7 @@ export default function KitapKavrami() {
             ].map((s, i) => (
               <div key={i} style={{ padding: '0 clamp(16px, 4vw, 30px)', borderLeft: i > 0 ? `1px solid ${COLORS.gold}26` : 'none', textAlign: 'center' }}>
                 <div style={{ fontFamily: FONTS.display, fontSize: '1.7rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1 }}>{s.n}</div>
-                <div style={{ fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: COLORS.silver, marginTop: '8px', opacity: 0.8 }}>{s.l}</div>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: COLORS.silver, marginTop: '8px' }}>{s.l}</div>
               </div>
             ))}
           </div>
@@ -175,8 +175,7 @@ export default function KitapKavrami() {
             letterSpacing: '0.24em',
             textTransform: 'uppercase',
             color: COLORS.gold,
-            fontWeight: 700,
-            opacity: 0.8,
+            fontWeight: 700, 
             marginBottom: 12,
             fontFamily: FONTS.body,
           }}>
@@ -360,8 +359,7 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
           fontSize: '0.72rem',
           fontWeight: 600,
           letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          opacity: 0.85,
+          textTransform: 'uppercase', 
         }}>
           <span>{expanded ? (tr ? 'Kapat' : 'Close') : (tr ? 'Detaylı Anlam' : 'Detailed Meaning')}</span>
           <span style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▾</span>

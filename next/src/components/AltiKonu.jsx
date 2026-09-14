@@ -180,7 +180,7 @@ export default function AltiKonu({ onClose }) {
           gerçek bir derinleştirme (bkz. dosya başındaki not). */}
       <div className="mq-box" style={{ maxWidth: 900, margin: '0 auto', '--pt-d': "8px", '--pt-m': "8px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "44px", '--pl-d': "32px", '--pl-m': "16px" }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <div style={{ fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.78, fontFamily: FONTS.body, marginBottom: 8 }}>
+          <div style={{ fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold,  fontFamily: FONTS.body, marginBottom: 8 }}>
             {tr ? 'AYET ZEMİNİ · KAYNAKLAR' : 'VERSE FOUNDATION · SOURCES'}
           </div>
           <h2 className="mq-fs" style={{ fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite, '--fs-d': '1.7rem', '--fs-m': '1.4rem', margin: 0 }}>

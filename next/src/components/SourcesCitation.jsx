@@ -25,8 +25,7 @@ export default function SourcesCitation({ language, isMobile: _isMobile, sources
           fontWeight: 700,
           letterSpacing: '0.24em',
           textTransform: 'uppercase',
-          color: COLORS.gold,
-          opacity: 0.75,
+          color: COLORS.gold, 
         }}>
           {tr ? 'Klasik Kaynaklar' : 'Classical Sources'}
         </span>

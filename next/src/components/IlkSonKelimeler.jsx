@@ -375,7 +375,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               <span style={{
                 fontSize: '0.64rem', fontFamily: FONTS.body, fontWeight: 700,
                 letterSpacing: '0.3em', textTransform: 'uppercase',
-                color: COLORS.gold, opacity: 0.75, whiteSpace: 'nowrap',
+                color: COLORS.gold,  whiteSpace: 'nowrap',
               }}>
                 {language === 'tr' ? '114 Sûrenin Tamamı' : 'All 114 Surahs'}
               </span>
@@ -520,8 +520,7 @@ function Card({ surah, onClick, selected, language }) {
           marginLeft: 'auto',
           marginRight: '28px',
           fontSize: '0.56rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-          color: revColor,
-          opacity: 0.85,
+          color: revColor, 
           fontWeight: 700,
         }}>
           {isMedeni
@@ -735,7 +734,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
             <div style={{
               fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
-              color: COLORS.gold, opacity: 0.75, marginBottom: '10px',
+              color: COLORS.gold,  marginBottom: '10px',
             }}>
               {tr ? 'Bu Sûre Şu Spotlight\'larda' : 'Featured in Spotlights'}
             </div>
@@ -767,7 +766,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
                   <span style={{
                     fontSize: '0.58rem', fontFamily: FONTS.body, fontWeight: 700,
                     letterSpacing: '0.18em', textTransform: 'uppercase',
-                    color: COLORS.gold, opacity: 0.75,
+                    color: COLORS.gold, 
                   }}>
                     {tr ? sp.categoryLabelTr : sp.categoryLabelEn}
                   </span>
@@ -778,7 +777,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
                     {tr ? sp.titleTr : sp.titleEn}
                   </span>
                   <span style={{
-                    fontSize: '0.7rem', color: COLORS.gold, opacity: 0.75,
+                    fontSize: '0.7rem', color: COLORS.gold, 
                     fontWeight: 600, letterSpacing: '0.02em',
                   }}>
                     {tr ? 'Spotlight\'a Git →' : 'Go to Spotlight →'}
@@ -989,7 +988,7 @@ function CinematicHero({ language }) {
         <div style={{
           fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, marginBottom: '14px',
+          color: COLORS.gold,  marginBottom: '14px',
         }}>
           {tr ? 'Münâsebât-ı Süver · 114 Mührün Şifresi' : 'Munāsabāt al-Suwar · The Cipher of 114 Seals'}
         </div>
@@ -1075,7 +1074,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           <span style={{
             fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.8,
+            color: COLORS.gold, 
             flexShrink: 0,
           }}>
             {tr ? 'Çekirdek Örnek' : 'Canonical Example'}
@@ -1129,7 +1128,7 @@ function ClosingSynthesis({ language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.75,
+        color: COLORS.gold, 
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -1175,7 +1174,7 @@ function ClosingSynthesis({ language, isMobile }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.75,
+            color: COLORS.gold, 
           }}>
             {tr ? 'Daha Derine: İlgili Araçlar' : 'Go Deeper: Related Tools'}
           </span>
@@ -1308,7 +1307,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
         <div style={{
           fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, marginBottom: '8px',
+          color: COLORS.gold,  marginBottom: '8px',
         }}>
           {tr ? 'Çapraz Okuma' : 'Cross Reading'}
         </div>
@@ -1507,7 +1506,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
         <div style={{
           fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75, marginBottom: '12px',
+          color: COLORS.gold,  marginBottom: '12px',
         }}>
           {tr ? "Mushaf'ın Açılış-Kapanış Mimarisinden" : "From the Mushaf's Opening-Closing Architecture"}
         </div>
@@ -1596,7 +1595,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
                 <span style={{
                   fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
                   letterSpacing: '0.22em', textTransform: 'uppercase',
-                  color: it.themeColor, opacity: 0.75,
+                  color: it.themeColor, 
                 }}>
                   {tr ? it.tagTr : it.tagEn}
                 </span>
@@ -1732,8 +1731,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
             fontWeight: 700,
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: COLORS.gold,
-            opacity: 0.85,
+            color: COLORS.gold, 
           }}>
             <span>{tr ? 'Saklı Detay' : 'Hidden Detail'}</span>
             <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none"
@@ -1958,7 +1956,7 @@ function SpotlightSurahPanel({ surah, language, side }) {
       {surah.translit && (
         <div style={{
           fontSize: '0.72rem',
-          color: COLORS.offWhite, opacity: 0.7,
+          color: COLORS.offWhite, 
           fontStyle: 'italic',
           marginBottom: '4px',
           letterSpacing: '0.01em',
@@ -2172,7 +2170,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
     }}>
       {/* Section header */}
       <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '18px', '--mb-m': '14px' }}>
-        <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '6px' }}>
+        <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700,  marginBottom: '6px' }}>
           {tr ? '114 Sûrenin Kök Spektrumu' : 'Root Spectrum of 114 Surahs'}
         </div>
         <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: '0 auto', opacity: 0.8, lineHeight: 1.4, maxWidth: '620px' }}>

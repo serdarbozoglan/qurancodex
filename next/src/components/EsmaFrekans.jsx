@@ -92,7 +92,11 @@ function FiligreeDivider({ delay = 0, mt = 0, mb = 0 }) {
 // ── Styles ────────────────────────────────────────────────────────────────────
 
 const sectionLabel = {
-  color: `${COLORS.gold}C7`,
+  // Hex alfa C7 = 0.78 idi ve metin rengine alfa uygulanmaz (§13.26 md.3).
+  // Tek başına sınırı geçiyordu ama üstüne bir kapsayıcı opaklığı binince
+  // 4.39'a düşüyordu; bu stil sayfada onlarca yerde kullanıldığı için
+  // tabanı tam opak tutmak tek güvenli hâl.
+  color: COLORS.gold,
   fontSize: '0.7rem',
   fontFamily: FONTS.body,
   fontWeight: 600,
@@ -577,9 +581,12 @@ function Hero({ tr }) {
         {/* Scroll cue — animasyonlu interaktif. Bouncing arrow + lower text,
             hover ile alpha artar; click ile sayfanın bir sonraki section'ına
             smooth scroll. */}
+        {/* `animate={{ opacity: 0.65 }}` kalıcı bir metin opaklığıydı: animasyon
+            biter ve düğme 0.65'te kalırdı (ölçülen 3.66). §13.26 md.3 bunu
+            yasaklar; sönük görünüm artık RENK token'ıyla veriliyor. */}
         <motion.button
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.65 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 2 }}
           onClick={() => {
             const next = document.querySelector('#esma-manifesto') || document.querySelectorAll('section')[1];
@@ -595,11 +602,11 @@ function Hero({ tr }) {
             border: 'none',
             cursor: 'pointer',
             padding: '8px 16px',
-            color: COLORS.silver,
-            transition: 'opacity 0.25s, color 0.25s',
+            color: SEMANTIC.textMuted,
+            transition: 'color 0.25s',
           }}
-          onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.gold; }}
-          onMouseLeave={e => { e.currentTarget.style.opacity = '0.65'; e.currentTarget.style.color = COLORS.silver; }}
+          onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; }}
+          onMouseLeave={e => { e.currentTarget.style.color = SEMANTIC.textMuted; }}
           aria-label={tr ? 'Keşfetmeye başla' : 'Start exploring'}
         >
           <span style={{
@@ -1307,7 +1314,9 @@ function FreqBar({ item, max, tr, rank }) {
       transition={{ duration: 0.4, delay: rank * 0.02 }}
       style={{ display: 'grid', gridTemplateColumns: '24px 110px 1fr 70px', gap: '12px', alignItems: 'center' }}
     >
-      <span style={{ color: COLORS.slate500 || 'rgba(148,163,184,0.5)', fontSize: '0.7rem', fontFamily: FONTS.body, textAlign: 'right' }}>
+      {/* Sıra numarası. slate500 METİN rengi olarak 4.21 ölçüldü; §13.25 md.2
+          ham paleti rol yerine kullanmayı zaten yasaklıyor. */}
+      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, textAlign: 'right' }}>
         {rank}
       </span>
       <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 600 }}>
@@ -2945,7 +2954,8 @@ function NamesAtlas({ data, tr }) {
           ...sectionLabel,
           margin: '0 0 12px',
           fontSize: '0.62rem',
-          opacity: 0.85,
+          // `opacity: 0.85` kaldırıldı: sectionLabel'ın altın rengine zaten
+          // alfa gömülüydü, ikisi çarpılınca 4.39 ölçüldü (§13.26 md.3).
         }}>
           {search || filter !== 'all'
             ? (tr

@@ -331,7 +331,7 @@ export default function KuranSayilar() {
         chip={data ? (
           <span style={{
             color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.68rem',
-            letterSpacing: '0.12em', textTransform: 'uppercase', opacity: 0.8,
+            letterSpacing: '0.12em', textTransform: 'uppercase', 
           }}>
             {/* Sayılar veriden türetilir. Eskiden "70 âyet" yazıyordu ama o
                 sayı hiçbir şekilde yeniden üretilemiyordu: birincil referanslar
@@ -368,7 +368,7 @@ export default function KuranSayilar() {
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{
             margin: '0 0 6px', color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700,
-            fontSize: '0.68rem', letterSpacing: '0.26em', textTransform: 'uppercase', opacity: 0.8,
+            fontSize: '0.68rem', letterSpacing: '0.26em', textTransform: 'uppercase', 
           }}>
             {tr ? 'BÜYÜKLÜK EKSENİ' : 'MAGNITUDE AXIS'}
           </p>
@@ -504,7 +504,7 @@ export default function KuranSayilar() {
 
                       <p style={{
                         margin: '0 0 14px', color: COLORS.silver, fontFamily: FONTS.body,
-                        fontSize: '0.7rem', letterSpacing: '0.13em', textTransform: 'uppercase', opacity: 0.8,
+                        fontSize: '0.7rem', letterSpacing: '0.13em', textTransform: 'uppercase', 
                       }}>
                         {it.verseUrl ? (
                           <a href={it.verseUrl} target="_blank" rel="noopener noreferrer"
@@ -562,7 +562,7 @@ export default function KuranSayilar() {
                         }}>
                           <p style={{
                             margin: '0 0 7px', color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700,
-                            fontSize: '0.62rem', letterSpacing: '0.15em', textTransform: 'uppercase', opacity: 0.82,
+                            fontSize: '0.62rem', letterSpacing: '0.15em', textTransform: 'uppercase', 
                           }}>
                             {tr ? 'KLASİK TEFSİR' : 'CLASSICAL EXEGESIS'}
                           </p>
@@ -580,7 +580,7 @@ export default function KuranSayilar() {
                         }}>
                           <p style={{
                             margin: '0 0 6px', color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700,
-                            fontSize: '0.62rem', letterSpacing: '0.13em', textTransform: 'uppercase', opacity: 0.82,
+                            fontSize: '0.62rem', letterSpacing: '0.13em', textTransform: 'uppercase', 
                           }}>
                             {tr ? it.risale.sourceTr : it.risale.sourceEn}
                           </p>

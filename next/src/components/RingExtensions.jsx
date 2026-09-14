@@ -235,7 +235,7 @@ export default function RingExtensions({ language, isMobile }) {
           <p style={{
             color: COLORS.gold, fontSize: '0.72rem',
             letterSpacing: '0.28em', textTransform: 'uppercase',
-            fontWeight: 700, opacity: 0.82, marginBottom: '14px',
+            fontWeight: 700,  marginBottom: '14px',
           }}>{tr ? 'DERİN İNCELEME · HALKA ÖRNEKLERİ' : 'DEEP DIVE · RING EXAMPLES'}</p>
           <h2 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
@@ -299,7 +299,7 @@ export default function RingExtensions({ language, isMobile }) {
               <div style={{
                 color: COLORS.silver, fontSize: '0.78rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
-                marginBottom: '18px', opacity: 0.8,
+                marginBottom: '18px', 
               }}>{ADDITIONAL_RINGS[activeRing].structure}</div>
               <ol style={{
                 margin: 0, paddingLeft: '20px',
@@ -466,7 +466,7 @@ export default function RingExtensions({ language, isMobile }) {
           <div style={{
             color: COLORS.gold, fontSize: '0.72rem',
             letterSpacing: '0.22em', textTransform: 'uppercase',
-            fontWeight: 700, marginBottom: '12px', opacity: 0.85,
+            fontWeight: 700, marginBottom: '12px', 
           }}>{tr ? 'AKADEMİK ÇERÇEVE' : 'ACADEMIC FRAME'}</div>
           <p style={{
             color: COLORS.offWhite, opacity: 0.92,

@@ -511,8 +511,7 @@ function AyahPlayStrip({ verses, playingVerseId, onSelect, dayMode, language, cu
             <Fragment key={`${g.surah}-${g.verses[0].id}`}>
               <span style={{
                 fontFamily: FONTS.body, fontSize: '0.66rem', color: muted,
-                letterSpacing: '0.08em', textTransform: 'uppercase',
-                opacity: 0.9, whiteSpace: 'nowrap', textAlign: 'right',
+                letterSpacing: '0.08em', textTransform: 'uppercase',  whiteSpace: 'nowrap', textAlign: 'right',
               }}>
                 {(language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[g.surah - 1]}
               </span>
@@ -3315,8 +3314,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         <div className="mq-box mq-fs" style={{
           fontFamily: currentFont,
           '--fs-d': '1.65rem', '--fs-m': '1.4rem',
-          color: C.gold,
-          opacity: 0.78,
+          color: C.gold, 
           letterSpacing: '0.02em',
           lineHeight: 1.4,
           ...SURAH_ROW_RESET,
@@ -3366,8 +3364,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           letterSpacing: '0.04em',
           ...SURAH_ROW_RESET,
           '--mb-d': '0px', '--mb-m': '0px',
-          lineHeight: 1.5,
-          opacity: 0.92,
+          lineHeight: 1.5, 
         }}>
           النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
         </div>
@@ -3400,8 +3397,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         <div className="mq-box mq-fs" style={{
           fontFamily: "'Inter', sans-serif",
           '--fs-d': '0.95rem', '--fs-m': '0.85rem',
-          color: C.gold,
-          opacity: 0.78,
+          color: C.gold, 
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
           fontWeight: 600,
@@ -3434,8 +3430,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           color: dayMode ? '#5a4a32' : C.muted,
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          fontWeight: 500,
-          opacity: 0.92,
+          fontWeight: 500, 
           lineHeight: 1.5,
         }}>
           {contentLang === 'tr' ? `Nüzul ${nuzulRank}` : `Revelation ${nuzulRank}`} · {periodLabel} · {ayahCount} {contentLang === 'tr' ? 'ayet' : 'verses'} · {rukuCount} {contentLang === 'tr' ? 'rukû' : 'rukūʿ'}
