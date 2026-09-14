@@ -18,6 +18,10 @@
 // OKUMA ÖNERİSİDİR, "Farrin'in kitabındaki şema budur" iddiası değil.
 // ProofSection'daki metin bunu açıkça belirtir.
 //
+// Dizide YEDİ KONUM, ALTI ÂYET vardır: 1:7 iki cümleciğe ayrılır ve B' ile A'
+// aynı âyetin iki yarısıdır. `clause` alanı bunu işaretler; konum numarası ile
+// âyet numarasını karıştırmamak için ekrana da yazılır.
+//
 // §13.15 — Arapça metin HAFIZADAN YAZILMADI. `public/verse-graph-bgem3.json`
 // içinden mekanik olarak çekildi (node -e ile `cleanArabicForDisplay`
 // üzerinden doğrulandı, 2026-08-14).
@@ -40,9 +44,11 @@ export const FATIHA_RING = [
     ar: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
     theme: { tr: 'Doğru yola iletme', en: 'Guidance to the path' } },
   { pos: 'B\'', ayah: 7, pair: 'B',
+    clause: { tr: 'ilk cümlecik', en: 'first clause' },
     ar: 'صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْ',
     theme: { tr: 'Nimet verilenlerin yolu', en: 'Path of the favoured' } },
   { pos: 'A\'', ayah: 7, pair: 'A',
+    clause: { tr: 'son cümlecik', en: 'last clause' },
     ar: 'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضّٓالِّينَ',
     theme: { tr: 'Gazaptan uzak kapanış', en: 'Closing away from wrath' } },
 ];

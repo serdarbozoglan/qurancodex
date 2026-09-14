@@ -87,7 +87,7 @@ export default function FatihaRingDiagram({ locale = 'tr' }) {
               key={`${r.pos}-${r.ayah}`}
               tabIndex={0}
               role="button"
-              aria-label={`${r.pos} — 1:${r.ayah} ${tr ? r.theme.tr : r.theme.en}`}
+              aria-label={`${r.pos} 1:${r.ayah}${r.clause ? ` (${tr ? r.clause.tr : r.clause.en})` : ''} ${tr ? r.theme.tr : r.theme.en}`}
               style={{ cursor: 'pointer', outline: 'none' }}
               onMouseEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
@@ -143,6 +143,11 @@ export default function FatihaRingDiagram({ locale = 'tr' }) {
               {cur.pair === null
                 ? (tr ? `Eksen · 1:${cur.ayah}` : `Pivot · 1:${cur.ayah}`)
                 : `${cur.pos} ↔ ${mir.pos} · 1:${cur.ayah} ↔ 1:${mir.ayah}`}
+              {cur.clause && (
+                <span style={{ fontWeight: 400, letterSpacing: '0.06em', textTransform: 'none', color: SEMANTIC.textMuted }}>
+                  {' '}({tr ? cur.clause.tr : cur.clause.en})
+                </span>
+              )}
             </div>
             <div lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.35rem', color: COLORS.gold, lineHeight: 2, marginTop: '8px' }}>
               {cur.ar}

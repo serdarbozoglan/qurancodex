@@ -461,8 +461,8 @@
   },
   "livingPreservation": {
     "badge": "Living Preservation",
-    "title": "The Only Unchanged Text on Earth",
-    "intro": "The Quran read in Mecca, Medina, Istanbul, Cairo and Jakarta is the same text; the consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages, all reading the same text. Variations among the ten canonical readings (qirāʾāt) belong to the oral recitation tradition.",
+    "title": "One Text Across the World",
+    "intro": "The Quran read in Mecca, Medina, Istanbul, Cairo and Jakarta is the same text; in the Hafs muṣḥafs printed in those cities the consonantal skeleton (rasm) is identical, letter for letter. 1.8 billion Muslims, different denominations, different countries, different languages, all reading the same text. Among the ten canonical readings (qirāʾāt), some differences rest on the oral recitation tradition and some on the rasm differences documented among the regional codices ʿUthmān had copied.",
     "counters": {
       "years": {
         "label": "Years Preserved",
@@ -470,24 +470,24 @@
       },
       "sanaa": {
         "label": "EARLIEST CARBON DATE",
-        "description": "Sana'a parchment: 578-669 CE (95% confidence). The Prophet's own era.",
-        "note": "Carbon dating applies to the parchment; ink is typically written later. Sadeghi & Bergmann (2010), University of Arizona AMS lab."
+        "description": "Sana'a parchment: 578-669 CE (95% confidence). A range that partly overlaps the Prophet's lifetime.",
+        "note": "Carbon dating applies to the parchment and does not date the writing; ink is typically applied later. In the Ṣanʿāʾ palimpsest examined by Sadeghi and Bergmann the upper text belongs to the ʿUthmānic tradition, while the erased lower text is classified by the researchers as a text type distinct from it. Sadeghi & Bergmann (2010), University of Arizona AMS lab."
       },
       "variation": {
-        "label": "Rasm (Consonant) Variation",
-        "description": "The consonantal skeleton is fixed across all copies",
-        "note": "Vocalization/reading differences exist among the ten canonical qirāʾāt; these are part of oral tradition, not textual corruption."
+        "label": "Rasm Variation Among Hafs Printings",
+        "description": "The consonantal skeleton is identical across the Hafs muṣḥafs printed worldwide",
+        "note": "This count applies to the Ḥafṣ ʿan ʿĀṣim muṣḥafs printed most widely today, which go back in common to the 1924 Cairo Amīriyya edition and the Medina printings that follow it. The regional codices ʿUthmān had copied do carry documented rasm differences among them, including the presence or absence of a letter or a word; these are recorded in the classical rasm literature (Abū ʿAmr al-Dānī, al-Muqniʿ fī maʿrifat marsūm maṣāḥif ahl al-amṣār). The Warsh and Qālūn muṣḥafs printed today follow the Medinan tradition. Among the ten canonical qirāʾāt, some differences rest on the oral recitation and some on these documented rasm differences."
       }
     },
     "written": {
       "title": "Written Preservation",
-      "description": "Over 40 scribes recorded revelations during the Prophet's lifetime. Under Abu Bakr, the first complete compilation was assembled. Under Uthman, a single standardized text was created and distributed to multiple cities."
+      "description": "The sources name more than forty scribes who recorded the revelation during the Prophet's lifetime. Under Abu Bakr, the first complete compilation was assembled. Under Uthman, a single standardized text was created and distributed to multiple cities."
     },
     "oral": {
       "title": "Living Preservation",
-      "description": "There are millions of huffaz worldwide, people who have memorized the entire Quran; estimates range between 3 and 10 million, and no precise demographic data exists. Each hafiz learns from a teacher, who learned from theirs, in an unbroken chain reaching back to the Prophet Muhammad (pbuh)."
+      "description": "There are millions of huffaz worldwide, people who have memorized the entire Quran; estimates range between 3 and 10 million, and no precise demographic data exists. A hafiz learns from a teacher, who learned from theirs; the certified (ijāza) chains of this transmission can be traced back to the Prophet Muhammad (pbuh)."
     },
-    "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could reconstruct it letter by letter. This is true of no other book in existence.",
+    "experiment": "A thought experiment: if every written copy of the Quran vanished overnight, huffaz could transmit its recitation again in full. No other text is known to rest on a living chain of memorization at this scale.",
     "birmingham": {
       "title": "Birmingham Manuscript",
       "description": "2015: The parchment of a manuscript at the University of Birmingham was carbon-dated to 568-645 CE, a range that overlaps with the Prophet Muhammad's (pbuh) lifetime. (Note: the date is of the parchment; the ink was typically applied later and has not been separately analyzed.)"
@@ -880,7 +880,7 @@
     "sections": {
       "nefs": {
         "title": "Map of the Self (Nafs)",
-        "intro": "The Quran describes the inner world of the human being through the concept of \"nafs\". The nafs is not a single static thing; it transforms and develops through stages, a journey. The Quran named these stages fourteen centuries ago; modern psychology describes the same experience in its own language. Academic nuance: only three stages are explicitly named in the Quran: ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). Mulhima and rāḍiya/marḍiyya are advanced stations elaborated by the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi) from Quranic categories. The full seven-station system (rāḍiya, marḍiyya and ṣāfiya separated) is presented in the Stages of the Soul Atlas; this page uses the popular five-stage summary.",
+        "intro": "The Quran describes the inner world of the human being through the concept of \"nafs\". The nafs is not a single static thing; its states change. Interpretive resemblances can be drawn between the Quran's descriptions of the nafs and certain concepts of modern psychology; this is not a claim of equivalence. Academic nuance: the Quran gives the nafs three attributes by name: ammāra (Yusuf 12:53), lawwāma (Qiyāma 75:2), muṭmaʾinna (Fajr 89:27). The words rāḍiya and marḍiyya also occur, in Fajr 89:28, but there as states of the muṭmaʾinna nafs; turning them, along with mulhima, into separate ascending stations is an interpretation of the Sufi tradition (Najm al-Dīn Kubrā, Said Nursi). The full seven-station system (rāḍiya, marḍiyya and ṣāfiya separated) is presented in the Stages of the Soul Atlas; this page uses the popular five-stage summary.",
         "items": [
           {
             "id": "emmare",
@@ -1261,7 +1261,7 @@
       },
       "modern": {
         "title": "Key Differences with Modern Psychology",
-        "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions; they are differences of complementarity and depth. The Quran had long defined dimensions that modern psychology could not see or recognized late.",
+        "intro": "The Quran and modern psychology study the same human being, but from different frameworks. These differences are not contradictions; they are differences of question and of method. Psychology can investigate religious experience; as a matter of method it does not adjudicate the metaphysical truth of the relationship with the Lord. The Quran places that dimension at its centre from the outset.",
         "items": [
           {
             "id": "nefs_ego",
@@ -1396,7 +1396,7 @@
       },
       "c": {
         "title": "Psychological Mechanisms",
-        "intro": "Some fundamental mechanisms that modern psychology discovered in the laboratory had already been defined in the Quran through concrete examples and systematic frameworks.",
+        "intro": "Interpretive parallels can be drawn between some mechanisms modern psychology describes in the laboratory and the pictures the Quran draws through concrete human stories. The pairing here is one reading; it claims no priority or discovery.",
         "items": [
           {
             "id": "bilissel_carpitma",

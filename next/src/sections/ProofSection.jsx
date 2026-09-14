@@ -60,8 +60,8 @@ export default function ProofSection({ locale = 'tr' }) {
     eyebrow: tr ? 'Bir örüntü, kanıt değil' : 'A pattern, not a proof',
     title: tr ? 'Fâtiha\'yı bir de ortadan okuyun' : 'Read al-Fātiḥa from the middle',
     lead: tr
-      ? 'Yedi âyet düz bir liste gibi değil. İlk âyetle son âyet, ikinciyle altıncı, üçüncüyle beşinci aynı temayı taşıyor; ortada eşi olmayan tek bir âyet kalıyor. Aşağıdaki şema bu eşleşmeyi gösteriyor. Sayfanın tamamında anlattığımız "mimari" tam olarak bu.'
-      : 'The seven verses are more than a flat list. The first pairs with the last, the second with the sixth, the third with the fifth, leaving one verse in the middle with no counterpart. The diagram below shows that pairing; this is precisely the "architecture" the rest of the page talks about.',
+      ? 'Fâtiha yedi âyettir. Aşağıdaki şema besmele dışındaki altı âyeti alıyor ve sonuncusunu iki cümleciğe bölerek yedi konuma yayıyor. Bu konumların ilki sonuncusuyla, ikincisi altıncısıyla, üçüncüsü beşincisiyle aynı temayı taşıyor; ortada eşi olmayan tek bir konum kalıyor. Sayfanın tamamında anlattığımız "mimari" tam olarak bu.'
+      : 'Al-Fātiḥa has seven verses. The diagram below takes the six other than the basmala and splits the last of them into two clauses, spreading them across seven positions. Of those positions the first carries the same theme as the last, the second as the sixth, the third as the fifth, leaving one position in the middle with no counterpart. This is precisely the "architecture" the rest of the page talks about.',
     steps: [
       {
         n: '01',
@@ -74,8 +74,8 @@ export default function ProofSection({ locale = 'tr' }) {
         n: '02',
         h: tr ? 'Metinde nerede?' : 'Where is it in the text?',
         p: tr
-          ? 'Şemadaki her düğüm gerçek bir âyet. Besmele (1:1) dışarıda tutuldu; Farrin de kendi analizinde Besmele\'yi sûrenin yapısına saymaz. 1:7 tek âyettir ama iki cümlecikten oluşur; eşlemede B\' ve A\' bu iki cümleciktir. Arapça metin âyet grafiğinden alındı, elle yazılmadı.'
-          : 'Every node in the diagram is an actual verse. The basmala (1:1) is left out; Farrin himself does not count it as part of the sura\'s structure in his own analysis. 1:7 is a single verse but contains two clauses; in this mapping B\' and A\' are those two clauses. The Arabic is taken from the verse graph, not typed from memory.',
+          ? 'Şemadaki her düğüm gerçek bir âyet. Numaralandırma, yaygın mushafların kullandığı Kûfî sayımdır: besmele orada 1:1\'dir ve şemada dışarıda tutuldu; Farrin de kendi analizinde Besmele\'yi sûrenin yapısına saymaz. 1:7 tek âyettir ama iki cümlecikten oluşur; eşlemede B\' ve A\' bu iki cümleciktir. Arapça metin âyet grafiğinden alındı, elle yazılmadı.'
+          : 'Every node in the diagram is an actual verse. The numbering is the Kūfan counting used by the common muṣḥafs: there the basmala is 1:1, and it is left out of the diagram; Farrin himself does not count it as part of the sura\'s structure in his own analysis. 1:7 is a single verse but contains two clauses; in this mapping B\' and A\' are those two clauses. The Arabic is taken from the verse graph, not typed from memory.',
       },
       {
         n: '03',
@@ -97,11 +97,11 @@ export default function ProofSection({ locale = 'tr' }) {
     pairsTitle: tr ? 'Eşleşmeler bir arada' : 'The pairings at a glance',
     pairsInfo: [
       { k: 'A ↔ A′', a: '1:2 ↔ 1:7',
-        t: tr ? 'Övgüyle açılış, gazaptan uzak kapanış: sûre aynı çerçevede başlayıp biter.'
-              : 'Opens with praise, closes away from wrath: the sura begins and ends in the same frame.' },
+        t: tr ? 'Övgüyle açılış, 1:7\'nin son cümleciğinde gazaptan uzak kapanış: sûre aynı çerçevede başlayıp biter.'
+              : 'Opens with praise and closes, in the last clause of 1:7, away from wrath: the sura begins and ends in the same frame.' },
       { k: 'B ↔ B′', a: '1:3 ↔ 1:7',
-        t: tr ? 'Rahmet vurgusu, nimet verilenlerin yolunda somutlaşır.'
-              : 'The emphasis on mercy takes concrete form in the path of the favoured.' },
+        t: tr ? 'Rahmet vurgusu, 1:7\'nin ilk cümleciğinde, nimet verilenlerin yolunda somutlaşır.'
+              : 'The emphasis on mercy takes concrete form in the first clause of 1:7, the path of the favoured.' },
       { k: 'C ↔ C′', a: '1:4 ↔ 1:6',
         t: tr ? 'Din gününün sahibi ile doğru yola iletilme talebi: hesap ve hidayet.'
               : 'The Master of the Day and the plea for guidance: reckoning and the straight path.' },
@@ -266,7 +266,7 @@ export default function ProofSection({ locale = 'tr' }) {
           letterSpacing: '0.24em', textTransform: 'uppercase',
           color: `${COLORS.gold}cc`, textAlign: 'center', margin: '0 0 20px',
         }}>
-          {tr ? 'Yedi âyet, sırasıyla; eksende 1:5' : 'The seven verses, in order; 1:5 at the axis'}
+          {tr ? 'Yedi konum, altı âyet; eksende Fâtiha 1:5' : 'Seven positions, six verses; Q 1:5 at the axis'}
         </div>
         {/* Âyet listesi 980px kapsayıcıdan DAR: RTL metin sağa yaslandığı için
             geniş kapsayıcıda etiket ile âyet arasında kocaman boşluk kalıyordu
@@ -277,7 +277,7 @@ export default function ProofSection({ locale = 'tr' }) {
               key={`v-${r.pos}`}
               style={{
                 display: 'grid',
-                gridTemplateColumns: '56px 1fr',
+                gridTemplateColumns: '88px 1fr',
                 gap: '16px',
                 alignItems: 'baseline',
                 padding: '13px 0',
@@ -294,6 +294,17 @@ export default function ProofSection({ locale = 'tr' }) {
                 }}
               >
                 {r.pos} · 1:{r.ayah}
+                {r.clause && (
+                  <span style={{
+                    display: 'block',
+                    fontSize: '0.66rem',
+                    fontWeight: 400,
+                    letterSpacing: '0.02em',
+                    color: SEMANTIC.textMuted,
+                  }}>
+                    {tr ? r.clause.tr : r.clause.en}
+                  </span>
+                )}
               </span>
               <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', color: r.pair === null ? COLORS.gold : COLORS.offWhite, lineHeight: 2 }}>
                 {r.ar}

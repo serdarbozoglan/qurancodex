@@ -200,8 +200,12 @@ const FACTS = [
     surahRef: 'El-Fâtiha · 1',
     titleTr: 'Fâtiha\'nın Dönüm Noktası: 1:5',
     titleEn: 'The Turning Point of Al-Fatiha: 1:5',
-    bodyTr: 'Fâtiha yedi âyettir; dördüncü âyeti "Mâliki yevmi\'d-dîn"dir (hesap gününün sahibi). Sûrenin dönüm noktası ise beşinci âyet "İyyâke na\'budu ve iyyâke nesta\'în" (yalnız sana kulluk eder, yalnız senden yardım isteriz): bu âyetten öncesi Allah\'a hamd ve övgü, sonrası kuldan gelen istektir.',
-    bodyEn: 'Al-Fatiha has seven verses; its fourth is "Māliki yawmi\'d-dīn" (Master of the Day of Judgment). The turning point is the fifth verse, "Iyyāka naʿbudu wa iyyāka nastaʿīn" (You alone we worship, You alone we ask for help): before it comes praise of God, after it the servant\'s petition.',
+    // "Hafs sayımı" demek teknik olarak yanlıştı (gpt-6-astra, 2026-09-14):
+    // kıraat rivayeti ile âyet sayım geleneği aynı şey değildir. Besmeleyi
+    // Fâtiha'nın birinci âyeti sayan gelenek KÛFÎ sayımdır; yaygın Hafs
+    // baskıları bu sayımı kullanır.
+    bodyTr: 'Fâtiha yedi âyettir. Yaygın mushafların kullandığı Kûfî sayımda besmele birinci âyettir ve dördüncü âyet "Mâliki yevmi\'d-dîn"dir (hesap gününün sahibi). Sûrenin dönüm noktası ise beşinci âyet "İyyâke na\'budu ve iyyâke nesta\'în" (yalnız sana kulluk eder, yalnız senden yardım isteriz): bu âyetten öncesi Allah\'a hamd ve övgü, sonrası kuldan gelen istektir.',
+    bodyEn: 'Al-Fatiha has seven verses. In the Kūfan counting used by the common muṣḥafs the basmala is the first verse and the fourth is "Māliki yawmi\'d-dīn" (Master of the Day of Judgment). The turning point is the fifth verse, "Iyyāka naʿbudu wa iyyāka nastaʿīn" (You alone we worship, You alone we ask for help): before it comes praise of God, after it the servant\'s petition.',
     wowTr: 'Dördüncü âyet mülkü anar; beşinci âyet övgüden isteğe geçer.',
     wowEn: 'The fourth verse names sovereignty; the fifth turns from praise to petition.',
     explore: 'Ancak sana kulluk',
@@ -210,8 +214,8 @@ const FACTS = [
       value: 7,
       suffixTr: 'ayet',
       suffixEn: 'verses',
-      labelTr: 'Merkez tam ortada; yapısal denge',
-      labelEn: 'Center at the exact middle; structural balance',
+      labelTr: 'Kûfî sayımda yedi âyet; dönüm noktası beşincisi',
+      labelEn: 'Seven verses in the Kūfan count; the fifth is the turning point',
     },
   },
   {

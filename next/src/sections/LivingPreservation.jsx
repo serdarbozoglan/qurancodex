@@ -34,6 +34,12 @@ const ParchmentIcon = () => (
 const COUNTERS = [
   { key: 'years', target: 1400, prefix: '', suffix: '+', locale: false, color: COLORS.softEmerald, glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', Icon: ClockIcon },
   { key: 'sanaa', target: 578, prefix: 'MS ', suffix: '', locale: false, color: COLORS.gold, glow: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', Icon: ParchmentIcon },
+  // Sayaç 0'dır ama KAPSAMI etiketle sınırlanır: dünyada basılan Hafs
+  // mushafları arasında rasm aynıdır. Kapsamsız "tüm mushaflarda 0" hâli
+  // gpt-6-astra hakem turunda aşırı bulundu ve haklıydı: basılı Verş ve Kālûn
+  // mushafları Medine bölge mushafının rasmını izler (her ikisi de Nâfi'
+  // el-Medenî'nin râvîsidir) ve Hafs rasmından belgeli birkaç yerde ayrılır.
+  // Etiket ile not birlikte okunmalı.
   { key: 'variation', target: 0, prefix: '', suffix: '', locale: false, color: COLORS.skyBlue, glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.3)', Icon: ZeroIcon },
 ];
 

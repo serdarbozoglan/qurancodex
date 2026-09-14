@@ -371,7 +371,7 @@ function ReaderCard({ reader, isMobile, language, isHighlighted }) {
       </div>
       {/* Sahabi */}
       <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 6px' }}>
-        <span style={{ color: COLORS.offWhite }}>{language === 'tr' ? 'Sahâbî:' : 'Companion:'}</span> {reader.sahabi}
+        <span style={{ color: COLORS.offWhite }}>{language === 'tr' ? 'Senedin ulaştığı sahâbî:' : 'Chain reaches back to:'}</span> {reader.sahabi}
       </p>
       {/* Note */}
       <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.5, margin: '0 0 5px' }}>
@@ -426,6 +426,28 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
         highlightedImam={highlighted}
         onRawiClick={setActiveTab ? () => setActiveTab(2) : undefined}
       />
+
+      {/* Şema üç düzeyi ayırır (sahâbî · imam · râvî) ama zinciri KISALTIR:
+          sahâbî ile imam arasındaki aracı hocalar çizilmez, râvînin altındaki
+          tarik katmanı hiç gösterilmez. Okur "her imam doğrudan bir sahâbîden
+          aldı" sanmasın diye bu not zorunlu (C04).
+          DİKKAT: burada bir ara sürüm "hiçbir imam doğrudan bir sahâbîden almış
+          değildir" diyordu. Bu evrensel olumsuzlama YANLIŞTIR ve gpt-6-astra
+          hakem turunda yakalandı: İbn Kesîr'in Abdullah b. es-Sâib'den,
+          Ebû Ca'fer'in sahâbîlerden okuduğu nakledilir. Not artık genelleme
+          yapmıyor, yalnızca şemanın kısaltma olduğunu söylüyor.
+          AÇIK KALAN: hakem ikinci turda Âsım, Nâfi' ve Ebû Amr zincirlerinin
+          her birinin kaynağıyla ayrı ayrı açıklanmasını istedi. Bu veri elde
+          doğrulanmış hâlde yok; tarik verisinde olduğu gibi UYDURULMADI.
+          Eklenecekse İbnü'l-Cezerî, en-Neşr'den birincil doğrulamayla girer. */}
+      <p style={{
+        fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver,
+        lineHeight: 1.6, margin: '-8px 0 24px', maxWidth: 760,
+      }}>
+        {language === 'tr'
+          ? 'Şema üç düzeyi ayrı gösterir: kıraat imamı, onun râvîsi ve imamın senedinin ulaştığı sahâbî. Çizgiler tam isnadı göstermez, özetler: sahâbî ile imam arasındaki aracı hocalar burada kısaltılmıştır. Kimi imamın bir sahâbîden doğrudan okuduğu nakledilir (İbn Kesîr ile Abdullah b. es-Sâib gibi), kimi imamın senedi ise tâbiîn kuşakları üzerinden uzanır; her imamın kendi kaynaklarındaki zinciri ayrıdır. Râvînin altında zincir tarik adı verilen kollarla sürer; bu katman şemada gösterilmiyor.'
+          : 'The diagram keeps three levels apart: the qirāʾa imam, his rāwī, and the Companion his chain reaches back to. The lines do not show the full isnād; they summarise it, and the intermediate teachers between the Companion and the imam are compressed here. Some imams are reported to have read directly to a Companion (Ibn Kathīr to ʿAbdallāh b. al-Sāʾib, for instance), while other chains run through generations of tābiʿūn; each imam has his own chain in the sources. Below the rāwī the chain continues in branches called ṭuruq (sing. ṭarīq); that layer is not drawn here.'}
+      </p>
 
       <div className="g-1-2" style={{
         display: 'grid',

@@ -462,7 +462,7 @@
   "livingPreservation": {
     "badge": "Yaşayan Koruma",
     "title": "Dünya Çapında Tek Metin",
-    "intro": "Mekke'de, Medine'de, İstanbul'da, Kahire'de ve Jakarta'da okunan Kur'an aynı metindir; konsonant iskelet (rasm) harf harf aynıdır. 1,8 milyar Müslüman, farklı mezhep, farklı ülke, farklı dil; hepsi aynı metni okuyor. On kanonik kıraat (qirâʾât) arasındaki farklar okuyuş geleneğine özgüdür.",
+    "intro": "Mekke'de, Medine'de, İstanbul'da, Kahire'de ve Jakarta'da okunan Kur'an aynı metindir; bu şehirlerde basılan Hafs mushaflarında konsonant iskelet (rasm) harf harf aynıdır. 1,8 milyar Müslüman, farklı mezhep, farklı ülke, farklı dil; hepsi aynı metni okuyor. On kanonik kıraat (qirâʾât) arasındaki farkların bir kısmı okuyuş geleneğine, bir kısmı da Hz. Osman'ın çoğalttığı bölge mushaflarında belgelenmiş rasm farklılıklarına dayanır.",
     "counters": {
       "years": {
         "label": "Yıldır Korunuyor",
@@ -470,24 +470,24 @@
       },
       "sanaa": {
         "label": "EN ERKEN KARBON TARİHİ",
-        "description": "Sana'a parşömeni: MS 578-669 (%95 güven). Hz. Peygamber'in yaşadığı dönem.",
-        "note": "Karbon tarihleme parşömene aittir; mürekkebin yazım tarihi genellikle daha sonradır. Sadeghi & Bergmann (2010), Arizona Üniversitesi AMS lab."
+        "description": "Sana parşömeni: MS 578-669 (%95 güven). Hz. Peygamber'in hayatıyla kısmen örtüşen bir aralık.",
+        "note": "Karbon tarihleme parşömene aittir, metnin yazım tarihini vermez; mürekkebin yazımı genellikle daha sonradır. Sadeghi ve Bergmann'ın incelediği Sana palimpsestinde üst metin Osmanî gelenektedir; silinmiş alt metin ise araştırmacılarca Osmanî metin tipinden farklı sınıflandırılır. Sadeghi & Bergmann (2010), Arizona Üniversitesi AMS lab."
       },
       "variation": {
-        "label": "Rasm (Konsonant) Varyasyonu",
-        "description": "Konsonant iskelet tüm mushaflarda sabittir",
-        "note": "On kanonik kıraat arasında vokalizasyon/okuyuş farkları mevcuttur; bunlar sözlü geleneğin bir parçasıdır, metin bozulması değildir."
+        "label": "Hafs Baskıları Arasında Rasm Farkı",
+        "description": "Dünyada basılan Hafs mushaflarında konsonant iskelet aynıdır",
+        "note": "Bu sayım, dünyada en yaygın basılan Hafs an Âsım mushafları içindir; bunların ortak dayanağı 1924 Kahire Emîriyye baskısı ve onu izleyen Medine baskılarıdır. Hz. Osman'ın çoğalttığı bölge mushafları arasında ise belgelenmiş rasm farklılıkları vardır; bir harfin ya da kelimenin bulunup bulunmaması türünden farklar da bunlara dahildir ve klasik rasm literatüründe kayıtlıdır (Ebû Amr ed-Dânî, el-Muknî fî ma'rifeti mersûmi mesâhifi ehli'l-emsâr). Bugün basılan Verş ve Kālûn mushafları Medine geleneğini izler; on kanonik kıraat arasındaki farkların bir kısmı sözlü okuyuşa, bir kısmı da bu belgeli rasm farklılıklarına dayanır."
       }
     },
     "written": {
       "title": "Yazılı Koruma",
-      "description": "Hz. Muhammed (s.a.v.) döneminde 40'tan fazla katip vahiyleri anlık olarak kaydetti. Hz. Ebu Bekir döneminde ilk kapsamlı derleme bir araya getirildi. Hz. Osman döneminde tek bir standart metin oluşturularak birden fazla şehre dağıtıldı."
+      "description": "Kaynaklarda Hz. Muhammed (s.a.v.) döneminde vahyi kaydeden kırktan fazla kâtibin adı sayılır. Hz. Ebu Bekir döneminde ilk kapsamlı derleme bir araya getirildi. Hz. Osman döneminde tek bir standart metin oluşturularak birden fazla şehre dağıtıldı."
     },
     "oral": {
       "title": "Canlı Koruma",
-      "description": "Dünya çapında milyonlarca hafız var, yani Kur'an'ın tamamını ezbere bilen insan; tahminler 3 ile 10 milyon arasında değişir, kesin demografik veri yoktur. Her hafız hocasından öğrenir, o da kendi hocasından; kesintisiz bir zincir Hz. Muhammed'e (s.a.v.) kadar uzanır."
+      "description": "Dünya çapında milyonlarca hafız var, yani Kur'an'ın tamamını ezbere bilen insan; tahminler 3 ile 10 milyon arasında değişir, kesin demografik veri yoktur. Hafız hocasından öğrenir, o da kendi hocasından; bu aktarımın icazetle belgelenen zincirleri Hz. Muhammed'e (s.a.v.) kadar takip edilebilir."
     },
-    "experiment": "Teorik bir deney: Dünyadaki tüm mushaflar bir anda yok olsa, hafızlar Kur'an'ı harf harf yeniden yazabilir. Bu ölçekte canlı bir ezber zincirine dayanan başka bir metin bilinmiyor.",
+    "experiment": "Teorik bir deney: Dünyadaki tüm mushaflar bir anda yok olsa, hafızlar Kur'an'ın okuyuşunu eksiksiz yeniden aktarabilir. Bu ölçekte canlı bir ezber zincirine dayanan başka bir metin bilinmiyor.",
     "birmingham": {
       "title": "Birmingham El Yazması",
       "description": "2015: Birmingham Üniversitesi'nde bulunan el yazmasının parşömeni karbon-14 testiyle MS 568-645 aralığına tarihlendi; bu aralık Hz. Muhammed'in (s.a.v.) yaşadığı dönemle örtüşüyor. (Not: Tarih parşömene aittir; mürekkebin yazım tarihi bundan genellikle sonradır ve ayrıca analiz edilmemiştir.)"
@@ -880,7 +880,7 @@
     "sections": {
       "nefs": {
         "title": "Nefsin Haritası",
-        "intro": "Kur'an, insanın iç dünyasını \"nefis\" kavramıyla tanımlar. Nefis tek bir şey değil, aşamalar boyunca dönüşen ve gelişen bir varlıktır; bir yolculuk. Kur'an bu aşamaları on dört asır önce adlandırmıştır; modern psikoloji aynı deneyimi kendi diliyle tarif eder. Akademik nüans: Kur'an'da yalnızca üç nefs aşaması ismen geçer: emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Mülhime ile râdıye ve mardıyye, tasavvuf geleneğinin (Necmeddin Kübra, Said Nursi) Kur'ânî kategorilerden türettiği ileri makamlardır. Tam yedi makamlı sistem (râdıye, mardıyye ve sâfiye ayrı) için bkz. Nefs Mertebeleri Atlası; burada popüler beşli özet sunulmuştur.",
+        "intro": "Kur'an, insanın iç dünyasını \"nefis\" kavramıyla tanımlar. Nefis tek bir şey değil, hâlleri değişen bir varlıktır. Kur'an'daki nefis tasvirleriyle modern psikolojinin bazı kavramları arasında yorum düzeyinde benzerlikler kurulabilir; bu bir eşdeğerlik iddiası değildir. Akademik nüans: Kur'an nefse üç sıfatı ismen verir: emmâre (Yûsuf 12:53), levvâme (Kıyâmet 75:2), mutmainne (Fecr 89:27). Râdıye ve mardıyye kelimeleri de Fecr 89:28'de geçer, ama orada mutmainne nefsin hâli olarak; mülhime ile birlikte bunların ayrı ayrı basamaklara dönüştürülmesi tasavvuf geleneğinin yorumudur (Necmeddin Kübra, Said Nursi). Tam yedi makamlı sistem (râdıye, mardıyye ve sâfiye ayrı) için bkz. Nefs Mertebeleri Atlası; burada popüler beşli özet sunulmuştur.",
         "items": [
           {
             "id": "emmare",
@@ -1261,7 +1261,7 @@
       },
       "modern": {
         "title": "Modern Psikoloji ile Temel Farklar",
-        "intro": "Kur'an ve modern psikoloji aynı insanı inceler, ama farklı çerçevelerden. Bu farklar çelişki değil, tamamlayıcılık ve derinlik farkıdır. Modern psikolojinin göremediği ya da geç fark ettiği boyutları Kur'an çoktan tanımlamıştı.",
+        "intro": "Kur'an ve modern psikoloji aynı insanı inceler, ama farklı çerçevelerden. Bu farklar çelişki değil, soru ve yöntem farkıdır. Psikoloji dinî deneyimi araştırabilir; ilâhî ilişkinin metafizik doğruluğunu ise yöntemi gereği hükme bağlamaz. Kur'an bu boyutu en baştan merkezine alır.",
         "items": [
           {
             "id": "nefs_ego",
@@ -1396,7 +1396,7 @@
       },
       "c": {
         "title": "Psikolojik Mekanizmalar",
-        "intro": "Modern psikolojinin laboratuvarda keşfettiği bazı temel mekanizmalar, Kur'an'da somut örnekler ve sistematik çerçeveler aracılığıyla çoktan tanımlanmıştı.",
+        "intro": "Modern psikolojinin laboratuvarda tarif ettiği bazı mekanizmalarla, Kur'an'ın somut insan hikâyeleriyle çizdiği tablolar arasında yorumlayıcı paralellikler kurulabilir. Buradaki eşleştirme bir okuma önerisidir; öncelik ya da keşif iddiası taşımaz.",
         "items": [
           {
             "id": "bilissel_carpitma",

@@ -29,10 +29,10 @@
     {
       "id": "sabir-yardim-zafer",
       "category": "nefs",
-      "titleTr": "Sabır → İlâhî Yardım → Zafer",
-      "titleEn": "Patience → Divine Help → Victory",
-      "shortTr": "Kur'ân'ın en tekrarlı ahlâki zinciri. Sabır tek başına değil — Allah'ın yardımını çeken bir kanaldır; yardım da nihayette zaferi mühürler.",
-      "shortEn": "The Quran's most-repeated ethical chain. Patience is not alone — it is the channel that draws divine help; the help ultimately seals victory.",
+      "titleTr": "Sabır → İlâhî Yardım → Üstün Gelme Ümidi",
+      "titleEn": "Patience → Divine Help → Hope of Prevailing",
+      "shortTr": "Kur'ân'ın tekrar tekrar kurduğu ahlâkî zincir: sabır, Allah'ın yardımını çeken bir kanaldır. Vaadin sınırını Kur'ân aynı pasajda koyar; Âl-i İmrân 3:139 'üstün gelecek olan sizsiniz' derken 3:140 'o günleri insanlar arasında döndürür dururuz' der. Zafer bu dünyada istisnasız ve peşin bir karşılık değildir; her hâlde emredilen sabrın kendisidir.",
+      "shortEn": "An ethical chain the Quran builds again and again: patience is the channel that draws divine help. The Quran sets the limit of the promise in the same passage; Q 3:139 says 'you will be uppermost' while Q 3:140 says 'these days We alternate among the people'. Victory is not an exceptionless or immediate return in this world; patience is what is commanded in every case.",
       "steps": [
         {
           "stepTr": "Sabır (sabr) — sıkışıklıkta direniş",
@@ -47,21 +47,23 @@
           "whyEn": "'God is with the patient' (2:153) — this companionship draws divine help."
         },
         {
-          "stepTr": "Sonuç: apaçık zafer",
-          "stepEn": "Outcome: clear victory",
-          "verse": "29:69",
-          "whyTr": "Yardım gelince zafer onun tabii sonucudur; sabır bu bekleyişin ta kendisidir (bkz. Nisâ 4:104).",
-          "whyEn": "Once help arrives, victory naturally follows; patience is the waiting itself (cf. An-Nisa 4:104)."
+          "stepTr": "Sonuç: üstün gelme, şartıyla birlikte",
+          "stepEn": "Outcome: prevailing, with its condition",
+          "verse": "3:139",
+          "whyTr": "Âl-i İmrân 3:139 vaadi şartıyla verir: 'Eğer inanmışsanız, üstün gelecek olan sizsiniz.' Hemen ardından gelen 3:140 sınırı koyar: o günler insanlar arasında döndürülür.",
+          "whyEn": "Q 3:139 gives the promise with its condition: 'you will be uppermost if you are believers'. The very next verse, Q 3:140, sets the limit: these days are alternated among the people."
         }
       ],
       "verses": [
         "2:153",
         "2:214",
+        "3:139",
+        "3:140",
         "29:69",
         "8:46",
         "3:200"
       ],
-      "note": "Bakara 2:153 'Allah sabredenlerle beraberdir' — bu formül Kur'ân'ın 8+ yerinde tekrar eder. Yardımın gelmesi zaman alır (Nisâ 4:104) — sabır tam da bu bekleyişin kendisidir."
+      "note": "Bakara 2:153 'Allah sabredenlerle beraberdir': bu kalıp Kur'ân'da dört yerde geçer (Bakara 2:153, Bakara 2:249, Enfâl 8:46, Enfâl 8:66). Yardımın gecikebileceğini Bakara 2:214 açıkça söyler: peygamber ve yanındakiler 'Allah'ın yardımı ne zaman?' diyecek kadar sarsılır. Ankebût 29:69 aynı çabanın bir başka karşılığını verir: 'yollarımıza eriştireceğiz.' Zincir ahlâkî bir okumadır, mekanik bir garanti değildir."
     },
     {
       "id": "sukur-nimet",

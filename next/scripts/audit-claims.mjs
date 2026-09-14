@@ -110,6 +110,27 @@ try {
   const bad = refs.filter(r => !/^1:[2-7][abc]?$/.test(r));
   check('fatiha-atlasi · halka düğümleri 1:2-1:7 aralığında', bad.length, 0,
     bad.length ? `aralık dışı: ${bad.join(', ')} (besmele 1:1'dir, halkada yer almaz)` : '');
+
+  // Ref'in doğru aralıkta olması, o düğümde DOĞRU âyetin durduğunu göstermez:
+  // "1:2" etiketli bir düğüm besmele metnini taşıyabiliyordu ve üstteki kontrol
+  // bunu göremiyordu. Her düğümün Arapçası, atıf yaptığı âyetin bir parçası mı,
+  // onu da doğrula.
+  const strip = (s) => s
+    .normalize('NFD')
+    .replace(/[̀-ًͯ-ٰٟۖ-ۭ]/g, '')
+    .replace(/[آأإٱ]/g, 'ا')
+    .replace(/\s+/g, '');
+  const verses = Object.fromEntries(
+    readJson('public/verse-graph-bgem3.json')
+      .filter((v) => v.surah === 1)
+      .map((v) => [v.id, strip(v.arabic)]),
+  );
+  const mismatched = fa.ringStructure.nodes.filter((n) => {
+    const verse = verses[`1:${String(n.ref).match(/^1:(\d+)/)?.[1]}`];
+    return !verse || !verse.includes(strip(n.ar));
+  });
+  check('fatiha-atlasi · her halka düğümünün Arapçası kendi âyetinden', mismatched.length, 0,
+    mismatched.length ? `metni ref'iyle uyuşmayan düğüm: ${mismatched.map((n) => `${n.pos} (${n.ref})`).join(', ')}` : '');
 } catch (e) { console.log('  ! fatiha halkası kontrol edilemedi:', e.message); }
 
 console.log('');
