@@ -284,7 +284,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
         <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '0.95rem', display: 'block' }}>
           {SURAH_NAMES_TR[value]}
         </span>
-        <span style={{ color: color + '80', fontSize: '0.68rem', display: 'block', fontFamily: "'Amiri', serif", direction: 'rtl' }}>
+        <span style={{ color: color, fontSize: '0.68rem', display: 'block', fontFamily: "'Amiri', serif", direction: 'rtl' }}>
           {SURAH_NAMES_AR[value]}
         </span>
       </div>

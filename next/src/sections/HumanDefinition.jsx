@@ -367,7 +367,7 @@ export default function HumanDefinition() {
       {/* Methodology note */}
       <motion.p
         variants={fadeUpItem}
-        className="text-silver/40 text-xs font-body leading-relaxed max-w-3xl mb-12 flex gap-2"
+        className="text-silver text-xs font-body leading-relaxed max-w-3xl mb-12 flex gap-2"
       >
         <span className="flex-shrink-0 mt-0.5">ℹ</span>
         <span>{tr('methodologyNote')}</span>
@@ -452,7 +452,7 @@ export default function HumanDefinition() {
         <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-2">
           {tr('termsSubtitle')}
         </p>
-        <p className="text-silver/40 text-[0.7rem] font-body italic mb-8">
+        <p className="text-silver text-[0.7rem] font-body italic mb-8">
           {tr('termsSourceNote')}
         </p>
 
@@ -494,7 +494,7 @@ export default function HumanDefinition() {
                     <span className="font-display text-xl font-bold" style={{ color: term.color }}>
                       {lang === 'tr' ? term.term : term.termEn}
                     </span>
-                    <span className="text-silver/40 text-xs font-body">
+                    <span className="text-silver text-xs font-body">
                       {term.count} {tr('termsCountLabel')}
                     </span>
                   </div>
@@ -502,7 +502,7 @@ export default function HumanDefinition() {
                     {lang === 'tr' ? term.meaningTr : term.meaningEn}
                   </p>
                 </div>
-                <span className="text-silver/30 text-sm flex-shrink-0">
+                <span className="text-silver text-sm flex-shrink-0">
                   {openTerm === i ? '▲' : '▼'}
                 </span>
               </div>
@@ -529,7 +529,7 @@ export default function HumanDefinition() {
                           {lang === 'tr' ? term.contextTr : term.contextEn}
                         </p>
                         {term.rootNoteTr && (
-                          <p className="text-silver/40 text-xs font-body flex gap-1.5 mt-2 italic">
+                          <p className="text-silver text-xs font-body flex gap-1.5 mt-2 italic">
                             <span className="flex-shrink-0">ℹ</span>
                             <span>{lang === 'tr' ? term.rootNoteTr : term.rootNoteEn}</span>
                           </p>
@@ -552,7 +552,7 @@ export default function HumanDefinition() {
                         <p className="text-off-white/80 text-sm font-body italic leading-relaxed mb-1">
                           {lang === 'tr' ? term.verse.tr : term.verse.en}
                         </p>
-                        <p className="text-silver/40 text-xs font-body">{term.verse.ref}</p>
+                        <p className="text-silver text-xs font-body">{term.verse.ref}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -634,11 +634,11 @@ export default function HumanDefinition() {
           <p className="text-off-white/80 text-base italic font-body mb-1">
             {tr('muminHeaderTr')}
           </p>
-          <p className="text-silver/40 text-xs font-body">{tr('muminHeaderRef')}</p>
+          <p className="text-silver text-xs font-body">{tr('muminHeaderRef')}</p>
         </div>
 
         {/* 7 traits — card grid */}
-        <p className="text-silver/40 text-xs font-body mb-5">{tr('muminClickHint')}</p>
+        <p className="text-silver text-xs font-body mb-5">{tr('muminClickHint')}</p>
 
         {/* Cards 1–6: 3-column grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
@@ -670,7 +670,7 @@ export default function HumanDefinition() {
                   <span
                     className="text-xs font-body"
                     style={{
-                      color: openTrait === i ? 'rgba(212,165,116,0.8)' : COLORS.silverAlpha40,
+                      color: openTrait === i ? COLORS.gold : SEMANTIC.textFaint,
                       letterSpacing: '0.03em',
                       transition: 'color 0.25s',
                     }}
@@ -836,7 +836,7 @@ export default function HumanDefinition() {
           {tr('oppositionIntro')}
         </p>
         <p
-          className="text-silver/40 text-xs font-body italic mb-8"
+          className="text-silver text-xs font-body italic mb-8"
           style={{ borderLeft: `2px solid ${COLORS.glassBorder}`, paddingLeft: '0.75rem' }}
         >
           {tr('oppositionNote')}
@@ -1171,14 +1171,14 @@ export default function HumanDefinition() {
                   <p className="text-silver/55 text-xs font-body italic leading-relaxed mb-1">
                     {lang === 'tr' ? stage.verse.tr : stage.verse.en}
                   </p>
-                  <p className="text-silver/30 text-xs font-body">{stage.verse.ref}</p>
+                  <p className="text-silver text-xs font-body">{stage.verse.ref}</p>
                 </div>
               </div>
 
               {/* Transition trigger below card (except last) */}
               {i < TRANSFORMATION.length - 1 && (
                 <div className="flex items-center justify-center gap-2 mt-3" style={{
-                  color: TRANSFORMATION[i + 1].color + '80',
+                  color: TRANSFORMATION[i + 1].color,
                   fontSize: '0.65rem', fontFamily: FONTS.body, fontWeight: 600,
                 }}>
                   <span>{i === 0 ? (lang === 'tr' ? 'Kalbin tasdiki' : "Heart's affirmation") : (lang === 'tr' ? 'İhlas & murâkabe' : 'Sincerity & vigilance')}</span>

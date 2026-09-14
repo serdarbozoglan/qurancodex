@@ -1241,8 +1241,8 @@ function ResponseView({ data, language, feedback, setFeedback }) {
           margin: 0,
         }}>
           {tr
-            ? 'Bu sonuçlar ilgili ayetleri, sayfaları ve kaynakları gösterir; fıkhî bir hüküm ya da fetva değildir. Sistem yorum katmaz, kaynaklara yönlendirir. Amel ve uygulama için ehil bir âlime danışınız.'
-            : 'These results point to relevant verses, pages and sources; they are not a legal ruling or fatwa. The system adds no interpretation, it guides you to sources. For practice and application, consult a qualified scholar.'}
+            ? 'Bu sonuçlar ilgili ayetleri, sayfaları ve kaynakları gösterir; fıkhî bir hüküm ya da fetva değildir. Listenin başındaki ve sonundaki cümleler otomatik üretilir; kaynak metnin kendisi değildir, dinî yorum içerebilir, hatalı olabilir ya da kaynakların söylemediği bir sonuca varabilir. Onları kaynakların yerine koymayın, kaynak metinlerle doğrulayın. Amel ve uygulama için ehil bir âlime danışınız.'
+            : 'These results point to relevant verses, pages and sources; they are not a legal ruling or fatwa. The lines opening and closing the list are generated automatically; they are not source text, they may contain religious interpretation, they may be wrong, and they may reach a conclusion the sources do not state. Do not take them in place of the sources; check them against the source texts. For practice and application, consult a qualified scholar.'}
         </p>
       </div>
 

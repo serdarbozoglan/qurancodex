@@ -157,7 +157,7 @@ export const HOME_CARDS = [
     verseAr:     'وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ',
     verseTrans:  { tr: 'Kullarım Beni sorarsa, Ben yakınım. Bana dua edenin duasına icabet ederim.', en: 'When My servants ask about Me, I am near; I respond to the call of the caller.' },
     verseRef:    { tr: 'Bakara 2:186', en: 'al-Baqara 2:186' },
-    blurb:       { tr: 'Kur\'an\'da dua tek bir edebî formüle sığmaz; birden çok gramatik kalıba dağılır: Fâtiha\'daki "iyyâke na\'budu" (yalnızca Sana ibadet ederiz), Mü\'min 40:60\'taki "Bana dua edin" emri, Bakara 2:186\'daki "icabet ederim" vaadi. Yakarış bu kalıpların içinde şekillenir.', en: 'Prayer in the Quran does not fit a single literary formula; it spreads across several grammatical templates: "iyyāka naʿbudu" in al-Fātiḥa (You alone we worship), the command "Call upon Me" in al-Muʾmin 40:60, the promise "I respond" in al-Baqara 2:186. Supplication takes shape inside these templates.' },
+    blurb:       { tr: 'Bu sayfa Kur\'an dualarını dört cihetten okur: çağrı, talep, gerekçe, isimle kapatma. Dördü her duada birden bulunmaz. Fâtiha 1:5 kulluğu ve yardım dileğini ifade eder; Mü\'min 40:60 dua etmeyi emreder, Bakara 2:186 duaya karşılık verileceğini bildirir.', en: 'This page reads Qur\'anic prayers along four aspects: the call, the request, the ground, and the closing with a divine name. Not every prayer carries all four. Q 1:5 expresses worship and the plea for help; Q 40:60 commands that one pray, and Q 2:186 announces that prayer is answered.' },
     cta:         { tr: 'Dua kalıplarını gör', en: 'See the patterns of prayer' },
     kicker:      { tr: '10 tematik dua · 1 ortak gramatik yapı', en: '10 thematic duʿās · 1 shared grammatical structure' },
   },

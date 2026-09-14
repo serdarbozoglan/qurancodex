@@ -1576,6 +1576,23 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
 | İkincil | `SEMANTIC.textMuted` | `#94a3b8` | 7.65 |
 | **Üçüncül** | **`SEMANTIC.textFaint`** | **`#7e8fa6`** | **5.94** (14 Ağustos: `#70829c`'ten açıldı, bkz. tokens.js yorumu) |
 
+> ⚠ **BU ORANLAR YALNIZ COSMIC-BLACK İÇİNDİR. Yükseltilmiş kart zemininde
+> üçü de kayar ve `textFaint` AA'yı KIRAR.** 2026-09-13'te ölçüldü:
+> `textFaint` koyu zeminde 5.94 verirken açık bir kartın üstünde **3.99**'a,
+> `textMuted` 7.65'ten **4.12**'ye düşüyor. Yani "üç kademeden birini seç"
+> kuralı, zemin açıldıkça yanlış güven veriyor: kademeyi seçmek tek başına
+> yetmez, ZEMİNLE BİRLİKTE ölçmek gerekir.
+>
+> Pratik sonuç: `surfaceRaised` ya da altın tonlu bir kart üstünde
+> **`textFaint` küçük metin için kullanılamaz**, bir üst kademeye (`textMuted`)
+> çıkılır; `textMuted` de sınırdaysa `textPrimary`'ye. Ölçülen örnekler:
+> Halka Kompozisyon'un pasif sekme etiketleri ve Kavimler Atlası'nın
+> "Arkeolojik örtüşme" rozeti, ikisi de `textFaint` ile 3.99-4.41 verdi.
+>
+> Doğrulama: `node scripts/audit-contrast-settled.mjs <rota>` — oranı zemini
+> çözen probe hesaplar, elle cosmic-black varsayma (aynı turda tam bu varsayım
+> yüzünden "anasayfada gerçek kusur yok" diye yanlış rapor verildi).
+
 #### Mutlak kurallar
 
 1. **Metin rengi bu üç token'dan biridir.** Dördüncü, daha sönük bir kademe

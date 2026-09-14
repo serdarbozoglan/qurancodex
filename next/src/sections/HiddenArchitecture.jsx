@@ -283,7 +283,10 @@ export default function HiddenArchitecture() {
                 }}
               >
                 {language === 'tr' ? s.nameTr : s.nameEn}
-                <span style={{ opacity: 0.5, fontSize: '0.7rem', marginLeft: '6px' }}>
+                {/* Referans sönük görünmeli ama okunmalı: opaklık yerine
+                    SEMANTIC kademesi kullanılır (§13.26 md.3). 0.5 opaklıkta
+                    oran 2.4 ölçülmüştü. */}
+                <span style={{ color: SEMANTIC.textMuted, fontSize: '0.7rem', marginLeft: '6px' }}>
                   {language === 'tr' ? s.refTr : s.refEn}
                 </span>
               </button>
@@ -296,14 +299,14 @@ export default function HiddenArchitecture() {
           <p className="text-silver/70 text-sm mb-4 font-body leading-relaxed max-w-3xl">
             {language === 'tr' ? surah.introTr : surah.introEn}
           </p>
-          <p className="text-silver/40 text-xs text-center mb-5 font-body">
+          <p className="text-silver text-xs text-center mb-5 font-body">
             {language === 'tr'
               ? 'Bir çifte ya da merkeze tıkla, açıklamasını gör'
               : 'Click a pair or the center to see its explanation'}
           </p>
 
           {activeSurah === 'fatiha' && (
-            <p className="text-silver/40 text-xs mb-5 font-body italic max-w-3xl leading-relaxed">
+            <p className="text-silver text-xs mb-5 font-body italic max-w-3xl leading-relaxed">
               {language === 'tr'
                 ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfadaki âyet numaraları (1:2, 1:3 …) Şafiî sayımını izler; ama Bismillah\'ın kendisi bu halka şemasının bir pozisyonu DEĞİL: Farrin\'in kendi analizi de Bismillah\'ı sûrenin yapısına saymaz. Son âyet (1:7) iki cümleciğe ayrılır; B\' ve A\' aynı âyetin iki yarısıdır (yedi konum, altı âyet).'
                 : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. The verse numbers here (1:2, 1:3, …) follow the Shāfiʿī count; but Bismillah itself is not a position in this ring: Farrin\'s own analysis likewise does not count it as part of the sura\'s structure. The final verse (1:7) is split into two clauses; B\' and A\' are the two halves of the same verse (seven positions, six verses).'}
@@ -334,7 +337,7 @@ export default function HiddenArchitecture() {
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: '0.72rem', fontWeight: 700,
               fontFamily: "'Inter', sans-serif",
-              color: isActive ? color.text : 'rgba(255,255,255,0.4)',
+              color: isActive ? color.text : SEMANTIC.textMuted,
               flexShrink: 0, transition: 'all 0.25s',
             };
 
@@ -348,7 +351,7 @@ export default function HiddenArchitecture() {
             const arStyle = {
               fontFamily: FONTS.quran,
               fontSize: '1.2rem',
-              color: isActive ? color.text : 'rgba(232,230,227,0.4)',
+              color: isActive ? color.text : SEMANTIC.textMuted,
               marginTop: '6px', lineHeight: 2,
               textAlign: 'right',
               transition: 'color 0.25s',

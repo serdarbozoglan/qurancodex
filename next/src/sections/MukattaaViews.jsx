@@ -242,7 +242,7 @@ export default function MukattaaViews() {
                   </div>
                   <div className="mq-fs" style={{
                     '--fs-d': '0.68rem', '--fs-m': '0.64rem',
-                    color: g.renk, opacity: 0.85, fontFamily: FONTS.body,
+                    color: g.renk, fontFamily: FONTS.body,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
                     marginTop: '12px', fontWeight: 600,
                   }}>

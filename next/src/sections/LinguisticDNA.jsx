@@ -785,7 +785,7 @@ export default function LinguisticDNA() {
           boxShadow: '0 0 60px rgba(212,165,116,0.1), inset 0 1px 0 rgba(212,165,116,0.08)',
         }}
       >
-        <p className="text-silver/40 text-xs uppercase tracking-[0.3em] font-body mb-3">
+        <p className="text-silver text-xs uppercase tracking-[0.3em] font-body mb-3">
           {language === 'tr' ? 'Büyük Örüntü' : 'The Grand Pattern'}
         </p>
         <p className="font-display text-3xl md:text-4xl font-bold text-off-white mb-3">
@@ -828,7 +828,7 @@ export default function LinguisticDNA() {
               %<AnimatedCounter target={86} />
             </div>
           </div>
-          <div className="flex justify-between text-silver/30 text-xs font-body mt-1">
+          <div className="flex justify-between text-silver text-xs font-body mt-1">
             <span>0%</span>
             <span>100%</span>
           </div>
@@ -874,7 +874,7 @@ export default function LinguisticDNA() {
             )}
             <p className="text-silver/65 text-sm font-body leading-relaxed">{language === 'en' && d.descEn ? d.descEn : d.desc}</p>
             {d.footnote && (
-              <p className="text-silver/40 text-xs font-body mt-3 pt-3 leading-relaxed" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+              <p className="text-silver text-xs font-body mt-3 pt-3 leading-relaxed" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                 <span className="text-gold/50 mr-1">ℹ</span>
                 {language === 'en' && d.footnoteEn ? d.footnoteEn : d.footnote}
               </p>

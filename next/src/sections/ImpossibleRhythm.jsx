@@ -594,7 +594,7 @@ export default function ImpossibleRhythm() {
 
                 <button
                   onClick={() => { setDiscoveryStep(0); setSuiGenerisOpen(false); }}
-                  className="mt-5 text-silver/30 text-xs font-body hover:text-silver/60 transition-colors"
+                  className="mt-5 text-silver text-xs font-body hover:text-silver/60 transition-colors"
                 >
                   {language === 'tr' ? '↺ Baştan başla' : '↺ Start over'}
                 </button>

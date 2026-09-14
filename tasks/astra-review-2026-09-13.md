@@ -342,3 +342,37 @@ Mebhas'ındaki 28 harf yarılanması ve "beş yüz dört ihtimal" hesabı, 25. S
 "iki yüz ihtimal" versiyonu, 1. Şuâ'nın hesab-ı cifrî ile kurulan Benî İsrâil
 rivayeti ve Rumûzât-ı Semâniye'nin tamamı. Sayfa bu katmanı zaten karantinada
 tutuyor; kaynak Bediüzzaman olunca kural gevşetilmedi.
+
+## 17. Editoryal tutarsızlıklar (dış değerlendirme üzerine)
+
+**4 bulgu**, hepsi uygulandı. Biri, bir düzeltmemin yerine YENİ bir aşırı iddia
+koyduğunu gösterdi.
+
+Bir dış değerlendirme iki tutarsızlık bildirdi; ikisi de doğru çıktı ve
+ikisinde de bildirilenden fazlası vardı.
+
+- **Fâtiha halkası.** Bildirilen: "yedi âyet deniyor ama düzen besmeleyi dışarıda
+  bırakıyor." Ölçünce daha ciddi bir hata çıktı: **ilk üç düğümün referansı bir
+  kayıktı.** "Âlemlerin Rabbi"ne 1:1 deniyordu, Hafs'ta 1:1 besmeledir ve o âyet
+  1:2'dir. Dosya ilk iki düğümde besmelesiz, kalanında Hafs numaralandırması
+  kullanıyormuş. Düzeltildi. Hakem ayrıca 7 âyet / 10 düğüm ilişkisinin
+  yazılmasını istedi: artık "besmele dışındaki altı âyet, bazıları cümleciklere
+  bölünerek on düğümde gösterilir; a, b, c bu sayfanın bölüm işaretleridir"
+  deniyor.
+- **Dua kartı.** Bildirilen çelişki doğruydu: üstte "birden çok gramatik kalıba
+  dağılır", altındaki etikette "1 ortak gramatik yapı". Ben etiketi doğru kabul
+  edip açıklamayı "kalıp tektir ve dört katmanlıdır" diye düzelttim. **Hakem bu
+  düzeltmeyi reddetti ve haklıydı:** o iddia kaynaklandırılmamış ve evrensel
+  biçimiyle yanlış, çünkü Tâhâ 20:114'teki "Rabbim, ilmimi artır" duasında ne
+  ayrı gerekçe ne isimle kapanış var. Ayrıca verdiğim üç örnek dört katmanlı dua
+  örneği değil: Mü'min 40:60 dua etmeyi EMREDER, Bakara 2:186 karşılık
+  verileceğini BİLDİRİR. Hem kart hem sayfanın kendi girişi yeniden yazıldı:
+  artık "dört cihetten çözümlenir, dördü her duada birden bulunmaz" deniyor ve
+  İbn Kayyim ile Suyûtî'nin bir dua âdâbı anlattığı, zorunlu bir gramer şeması
+  koymadığı yazılı.
+- **/sor feragatnamesi.** Sayfa "Sistem yorum katmaz, kaynaklara yönlendirir"
+  diyordu. Ölçüldü: sistem liste başına ve sonuna cümle üretiyor ve bunlar yorum
+  taşıyor. Ölçülen örnek kapanış: "Sabır, vaat edilen ilahi yardımın eşiğinde
+  duran ruhsal bir duruştur." İlk düzeltmem "özetlemek için üretilir" diyordu;
+  hakem bunun yetmediğini, üretilen cümlelerin dinî yorum içerebileceğinin ve
+  hatalı olabileceğinin açıkça yazılması gerektiğini söyledi. Eklendi.

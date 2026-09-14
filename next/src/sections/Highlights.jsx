@@ -302,7 +302,6 @@ export default function Highlights() {
                       fontWeight: 700,
                       color: theme.color,
                       letterSpacing: '0.12em',
-                      opacity: 0.6,
                     }}>
                       {String(index + 1).padStart(2, '0')}
                     </span>

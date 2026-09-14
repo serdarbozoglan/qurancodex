@@ -143,7 +143,7 @@ export default function MukattaaEvidence() {
                   letterSpacing: '0.12em', marginBottom: '10px',
                 }}>
                   {tr ? k.nameTr : k.nameEn}
-                  <span style={{ opacity: 0.55, fontWeight: 500 }}> · {k.ref}</span>
+                  <span style={{ color: SEMANTIC.textMuted, fontWeight: 500 }}> · {k.ref}</span>
                 </div>
                 {/* Arapça bu kartın ASIL içeriği — belirgin şekilde büyük.
                     Metin public/mukattaa.json'dan gelir; §13.15 normalizasyonu
@@ -191,7 +191,7 @@ export default function MukattaaEvidence() {
                   letterSpacing: '0.12em', marginBottom: '10px',
                 }}>
                   {tr ? k.nameTr : k.nameEn}
-                  <span style={{ opacity: 0.55, fontWeight: 500 }}> · {k.ref}</span>
+                  <span style={{ color: SEMANTIC.textMuted, fontWeight: 500 }}> · {k.ref}</span>
                 </div>
                 <div dir="rtl" lang="ar" className="mq-fs" style={{
                   '--fs-d': '1.65rem', '--fs-m': '1.4rem',
@@ -288,7 +288,9 @@ export default function MukattaaEvidence() {
                 background: COLORS.glassBgFaint,
                 borderLeftWidth: '2px', borderLeftStyle: 'solid',
                 borderLeftColor: f.mimNun >= 70 ? f.renk : 'rgba(255,255,255,0.12)',
-                opacity: f.mimNun >= 70 ? 1 : 0.72,
+                // Sönüklük TEK yerde: metin rengi zaten textFaint'e düşüyor.
+                // Kartın ayrıca 0.72 opaklık alması ikisini çarpıyordu ve
+                // oran 3.52'ye iniyordu (§13.26 md.7, ölçüldü).
               }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '10px' }}>
                   <span dir="rtl" lang="ar" className="mq-fs" style={{

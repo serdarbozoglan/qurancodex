@@ -51,11 +51,29 @@ export const CONTRAST_PROBE = `(() => {
   // (2026-08-13: ilk sürüm bunu yapmıyordu ve "ÖNE ÇIKAN" rozeti — altın
   //  gradyan üstünde koyu metin, yani YÜKSEK kontrast — ratio 1 diye
   //  raporlanıyordu. Klasik yanlış pozitif.)
+  // ÖGENİN ÜSTÜNE GERÇEKTEN BOYANMAYAN ATA ZEMİN SAYILMAZ (2026-09-13).
+  // Mutlak konumlandırılmış bir etiket, kutusu 2px olan bir eksen çubuğunun
+  // DOM çocuğu olabilir ama görsel olarak onun dışına taşar ve sayfa zemininde
+  // durur. Eski davranışta o çubuğun altın gradyanı zemin sanılıyor, altın
+  // etiket altın zemine ölçülüyor ve oran 1 çıkıyordu. Ölçülen örnek:
+  // /tr/arac/zaman-boyutlari, 2px'lik logaritmik eksen üstündeki altı etiket,
+  // altısı da yanlış pozitifti.
+  const paintsOver = (ancestor, el) => {
+    if (ancestor === el) return true;
+    const a = ancestor.getBoundingClientRect();
+    const e = el.getBoundingClientRect();
+    if (!a.width || !a.height) return false;
+    const T = 1; // yuvarlama payı
+    return a.left - T <= e.left && a.right + T >= e.right
+        && a.top - T <= e.top && a.bottom + T >= e.bottom;
+  };
   const bgOf = (el) => {
     const stack = [];
     let n = el, gradient = false, gradStops = null, unresolved = false;
     while (n && n !== document.documentElement.parentNode) {
       const cs = getComputedStyle(n);
+      const isRootNode = n === document.documentElement || n === document.body;
+      if (!isRootNode && !paintsOver(n, el)) { n = n.parentElement; continue; }
       // html/body ATLANIR: ikisi de sitenin ambiyans dokusunu taşıyor
       // (grain %2.8, filigran %1.5, radyal parıltı %2.8) — bunlar zemini
       // ölçülemez yapmaz, cosmic-black sayılır. Bu istisna olmadan HER öge

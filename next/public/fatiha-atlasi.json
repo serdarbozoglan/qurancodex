@@ -6,8 +6,8 @@
     "note": "Fâtiha sûresinin çok katmanlı edebi ve tefsirî analizi — İlahî Söz (Nouman Ali Khan & Sharif Randhawa), Molla Fenârî'nin Aynü'l-A'yân'ı, İmam Mâtürîdî, Fahreddin er-Râzî, Sadreddin Konevî ve Bediüzzaman Said Nursi'den derlenmiştir."
   },
   "ringStructure": {
-    "introTr": "Fâtiha'nın 7 âyeti rastgele dizilmiş değildir. İlahî Söz'e göre sûre, birbirini ayna gibi yansıtan iki yarıya ayrılır — ilki Allah hakkında, ikincisi kul hakkında — ve tam ortada, ikisini birbirine bağlayan tek bir âyet durur.",
-    "introEn": "Al-Fātiḥa's 7 verses are not arranged at random. According to Divine Speech, the surah splits into two mirroring halves — the first about God, the second about the servant — joined at the center by a single pivotal verse.",
+    "introTr": "Fâtiha'nın 7 âyeti rastgele dizilmiş değildir. İlahî Söz'e göre sûre, birbirini ayna gibi yansıtan iki yarıya ayrılır — ilki Allah hakkında, ikincisi kul hakkında — ve tam ortada, ikisini birbirine bağlayan tek bir âyet durur. Fâtiha yedi âyettir. Bu halkada besmele dışındaki altı âyet, bazıları cümleciklere bölünerek on düğümde gösterilir; a, b, c harfleri âyet numarası değil, bu sayfanın bölüm işaretleridir.",
+    "introEn": "Al-Fātiḥa's 7 verses are not arranged at random. According to Divine Speech, the surah splits into two mirroring halves — the first about God, the second about the servant — joined at the center by a single pivotal verse. Al-Fātiḥa has seven verses. This ring shows the six verses other than the basmala, some of them divided into clauses, across ten nodes; the letters a, b and c are this page's own section marks, not verse numbers.",
     "citationTr": "Nouman Ali Khan · Sharif Randhawa, İlahî Söz — Kur'an'ın Edebî Dilini Keşfetmek (Timaş Yayınları) (2016), 15. Bölüm \"Sûre 1: Açılış\" — yapı şeması kitabın kendi analizidir, isimli bir klasik veya çağdaş kaynağa atfedilmez.",
     "citationEn": "Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), Chapter 15, \"Sura 1, The Opening\" — the structural diagram is the authors' own analysis, not attributed to a named classical or academic source.",
     "firstHalfLabelTr": "Birinci Yarı — Allah Hakkında",
@@ -17,7 +17,7 @@
     "nodes": [
       {
         "pos": "A",
-        "ref": "1:1",
+        "ref": "1:2",
         "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ",
         "labelTr": "Âlemlerin Rabbi",
         "labelEn": "Lord of all Peoples",
@@ -25,7 +25,7 @@
       },
       {
         "pos": "B",
-        "ref": "1:2a",
+        "ref": "1:3a",
         "ar": "اَلرَّحْمٰنِ",
         "labelTr": "Rahmân",
         "labelEn": "The All-Merciful",
@@ -33,7 +33,7 @@
       },
       {
         "pos": "B'",
-        "ref": "1:2b",
+        "ref": "1:3b",
         "ar": "الرَّح۪يمِ",
         "labelTr": "Rahîm",
         "labelEn": "The Ever-Merciful",
