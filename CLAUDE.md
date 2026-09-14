@@ -1638,6 +1638,12 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
 #### Denetim
 
 ```bash
+cd next && node scripts/audit-contrast-settled.mjs /tr /tr/arac/mukattaa
+#   ↑ BİR BULGUYU DÜZELTMEDEN ÖNCE BUNU KOŞTUR. Sayfayı iki kez gezer:
+#     birinci geçiş reveal'ları tetikler, ikinci geçiş oturmuş hâlde ölçer.
+#     Yalnız ikinci geçişte de bildirilen bulgu GERÇEKTİR. Kasıtlı sönük
+#     hâller (devre dışı, aria-hidden) ayrı sayılır, çünkü onların tabanı 3.0.
+#     `--mobile` ile 390px'te koşar.
 cd next && node scripts/audit-contrast.mjs            # örneklem (12 rota, ~40 sn)
 cd next && node scripts/audit-contrast.mjs --full     # 70 rota × 2 dil (~4 dk)
 cd next && node scripts/audit-contrast.mjs --ci       # taban aşılırsa exit 1
@@ -1683,6 +1689,23 @@ deniyordu, sayfadaki öge 8.81'di). Yeni anahtar `renk|punto|efektif zemin|
 opaklık`: ölçüt "kaç ayrı DÜZELTME gerekiyor".
 
 Birikimli etki (örneklem, 12 sayfa): **383 → 88 → 70**.
+
+⚠ **Ham sayının ne kadarı gerçek, sayfadan sayfaya DEĞİŞİR — genelleme yapma.**
+2026-09-13'te aynı turda üç kez yanlış genelleme yapıldı: önce "büyük kısmı
+animasyon artefaktı", sonra (Dua Dili ölçülüp) "hayır hepsi gerçek renk
+sorunu", sonra (anasayfada elle bakılıp) "anasayfada hepsi artefakt". Üçü de
+yanlıştı. Ölçülen gerçek dağılım örneği: anasayfa 12 ham → 5 gerçek,
+Halka Kompozisyon 4 ham → 4 gerçek, Mukattaa 7 ham → 6 gerçek.
+`audit-contrast-settled.mjs` bu ayrımı otomatik yapar; elle kestirmeye çalışma.
+
+⚠ **ORANI KENDİN HESAPLAMA, probe'a bırak.** Aynı turda efektif zemini elle
+bulmaya çalışan bir yardımcı yazıldı ve iki yönde de uydurma bulgu üretti:
+altın düğme üstündeki koyu metni cosmic-black'e ölçüp "1.04" dedi, sonra ata
+zincirindeki ilk gradyanı (dekoratif bir katman) zemin sanıp altın metne
+"oran 1" dedi. Ayrıca cosmic-black varsayımı, yükseltilmiş kart zeminlerinde
+yanlıştır: `SEMANTIC.textMuted` koyu zeminde 7.65 verirken açık bir kartın
+üstünde 4.12'ye düşer ve AA'yı KIRAR. Zemin çözümlemesi `tests/lib/contrast.mjs`
+içindedir ve doğrulanmıştır; yeniden yazma, çağır.
 
 ⚠ **Sayı bir MANDAL, kusur envanteri değil.** Kalan bulguların önemli kısmı
 hâlâ reveal geçiş hâlleri; ön-bekleme 0/600/1200 ms denendi, sayı 28-34
