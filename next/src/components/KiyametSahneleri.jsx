@@ -655,7 +655,7 @@ export default function KiyametSahneleri({ onClose }) {
           thisTr="Kıyametin 7 fazlı sahnesi — sûr, haşr, mîzân."
           thisEn="The 7 phases of Doomsday — the trumpet, the gathering, the scales."
           neighbors={[
-            { href: `/${language}/arac/ahiret-yolculugu`, labelTr: 'Ahiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
+            { href: `/${language}/atlas/ahiret-yolculugu`, labelTr: 'Âhiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
             { href: `/${language}/arac/cennet-cehennem`, labelTr: 'Cennet & Cehennem', labelEn: 'Paradise & Hell', noteTr: 'nihai varış: cennet ve cehennem', noteEn: 'the final destinations: paradise and hell' },
           ]}
         />

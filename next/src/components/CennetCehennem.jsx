@@ -384,7 +384,7 @@ export default function CennetCehennem({ onClose }) {
             thisEn="The journey's two final destinations — 9 levels of paradise, 7 of hell, al-Aʿrāf."
             neighbors={[
               { href: `/${language}/arac/kiyamet`, labelTr: 'Kıyâmet Sahneleri', labelEn: 'Doomsday Scenes', noteTr: 'yolculuğun başlangıcı, kıyamet sahneleri', noteEn: "the journey's beginning: doomsday scenes" },
-              { href: `/${language}/arac/ahiret-yolculugu`, labelTr: 'Ahiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, labelTr: 'Âhiret Yolculuğu', labelEn: 'The Afterlife Journey', noteTr: 'ölümden ebediyete tüm yolculuk', noteEn: 'the whole journey from death to eternity' },
             ]}
           />
 
