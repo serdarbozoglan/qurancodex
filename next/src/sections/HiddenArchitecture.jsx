@@ -891,21 +891,21 @@ export default function HiddenArchitecture() {
                   }}/>
                   <span style={{
                     fontSize: '13px', fontWeight: 700, letterSpacing: '0.06em',
-                    color: isActive ? layer.color : 'rgba(148,163,184,0.3)',
+                    color: isActive ? layer.color : SEMANTIC.textFaint,
                     fontFamily: "'Inter', sans-serif", minWidth: '24px', transition: 'color 0.25s',
                   }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span style={{
                     fontSize: '15px', fontWeight: isActive ? 600 : 400, flexGrow: 1,
-                    color: isActive ? '#e8e6e3' : 'rgba(148,163,184,0.5)',
+                    color: isActive ? '#e8e6e3' : SEMANTIC.textFaint,
                     fontFamily: "'Inter', sans-serif", transition: 'color 0.25s',
                   }}>
                     {language === 'tr' ? layer.nameTr : layer.nameEn}
                   </span>
                   <span style={{
                     fontSize: '12px',
-                    color: isActive ? layer.color + 'cc' : 'rgba(148,163,184,0.22)',
+                    color: isActive ? layer.color + 'cc' : SEMANTIC.textFaint,
                     fontFamily: "'Inter', sans-serif", transition: 'color 0.25s',
                   }}>
                     {language === 'tr' ? layer.subTr : layer.subEn}
@@ -945,7 +945,7 @@ export default function HiddenArchitecture() {
                   <p style={{ fontSize: '14px', color: SEMANTIC.textMuted, fontFamily: "'Inter', sans-serif", marginBottom: '6px' }}>
                     {language === 'tr' ? 'Bir katman seçin' : 'Select a layer'}
                   </p>
-                  <p style={{ fontSize: '12px', color: 'rgba(148,163,184,0.22)', fontFamily: "'Inter', sans-serif" }}>
+                  <p style={{ fontSize: '12px', color: SEMANTIC.textFaint, fontFamily: "'Inter', sans-serif" }}>
                     {language === 'tr'
                       ? 'Her katman bu ayetin farklı bir boyutunu açar'
                       : 'Each layer reveals a different dimension of this verse'}
@@ -990,7 +990,7 @@ export default function HiddenArchitecture() {
 
                     {/* Concepts */}
                     <div style={{ marginBottom: '22px' }}>
-                      <p style={{ fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.3)', marginBottom: '10px', fontFamily: "'Inter', sans-serif" }}>
+                      <p style={{ fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: SEMANTIC.textFaint, marginBottom: '10px', fontFamily: "'Inter', sans-serif" }}>
                         {language === 'tr' ? 'Anahtar Kavramlar' : 'Key Concepts'}
                       </p>
                       {(language === 'tr' ? layer.conceptsTr : layer.conceptsEn).map((c, ci) => (

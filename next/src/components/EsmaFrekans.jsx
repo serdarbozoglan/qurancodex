@@ -3740,7 +3740,7 @@ function ClosingReflection({ tr, language }) {
             burada kapanıyor. */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 0.9, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '300px 0px' }}
           transition={{ duration: 0.9, delay: 0.2 }}
           style={{
