@@ -406,23 +406,32 @@ export default function Hero() {
             margin: isMobile
               ? (language === 'en' ? '65px auto 8px' : '140px auto 8px')
               : '0 auto 30px',
-            opacity: 0.6,
+            // Opaklık KALDIRILDI (§13.26 md.3): 0.6'da oran 3.39 ölçülmüştü ve
+            // ipucu halkanın alt yayına bindiği için ayrıca okunmuyordu.
+            // Sönüklük yukarıdaki COLORS.silver kademesinden geliyor.
           }}
           {...entrance(
             { opacity: 0 },
-            { opacity: 0.6 },
+            { opacity: 1 },
             { duration: 0.8, delay: showIntro ? 4.2 : 1.3 }
           )}
         >
           {language === 'tr'
-            ? (isMobile ? 'Halkaya dokun — sûreyi aç' : 'Arkada dönen halka: 114 sûre — üstüne gel, keşfet')
-            : (isMobile ? 'Tap the ring — open the sura' : 'The turning ring: 114 suras — hover to explore')}
+            ? (isMobile ? 'Halkaya dokun, sûreyi aç' : 'Arkada dönen halka: 114 sûre. Üstüne gel, keşfet')
+            : (isMobile ? 'Tap the ring, open the sura' : 'The turning ring: 114 suras. Hover to explore')}
         </motion.p>
 
-        {/* Mobil CTA — navbar "Kur'an'ı Oku" mobilde hamburger'da gizli olduğu
-            için hero'da 2 net aksiyon (GPT-5.2 review A3). Desktop'ta chevron
-            scroll-cue yeterli; butonlar yalnız mobilde. Tap hedefi ≥44px. */}
-        {isMobile && (
+        {/* Giriş yolları — ARTIK HER GENİŞLİKTE (2026-09-13).
+            Önceki karar "desktop'ta chevron scroll-cue yeterli, butonlar yalnız
+            mobilde" idi. Ölçüm bu varsayımın tutmadığını gösterdi: masaüstünde
+            ilk ekranda navbar dışında TEK bağlantı vardı ve ilk araç kartı
+            1847px aşağıdaydı, yani iki ekrandan fazla. Mobil ironik biçimde
+            daha iyiydi, çünkü iki CTA oradaydı. İki bağımsız dış değerlendirme
+            de aynı şeyi bildirdi: yeni ziyaretçi nereden başlayacağını
+            bilmiyor. Chevron "kaydır" der, "buradan başla" demez.
+            Üç yol: Oku (metne git) · Sor (konu ara) · Keşfet (örüntüye bak).
+            Tap hedefi ≥44px. */}
+        {true && (
           <motion.div
             style={{
               display: 'flex',
@@ -462,6 +471,21 @@ export default function Hero() {
               }}
             >
               {language === 'tr' ? "Kur'an'ı Oku" : 'Read the Qur’an'}
+            </Link>
+            <Link
+              href={`/${language}/sor`}
+              style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                minHeight: '44px', padding: '11px 20px',
+                background: 'transparent',
+                border: `1px solid ${COLORS.gold}2e`,
+                borderRadius: '999px',
+                color: COLORS.offWhite,
+                fontFamily: FONTS.body, fontSize: '0.86rem', fontWeight: 600,
+                letterSpacing: '0.03em', textDecoration: 'none',
+              }}
+            >
+              {language === 'tr' ? 'Bir konu ara' : 'Search a topic'}
             </Link>
             <button
               onClick={scrollToScene2}
