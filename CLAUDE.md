@@ -2715,3 +2715,57 @@ Pilot 1'in sonucunda ortaya çıkan "minimum kart" formatı tüm Katman A/B/C ka
 ### 17.4 Çalışma Kuralı — Push Onayı
 
 Bu yeniden yapılandırma boyunca her commit local'de kalır. **Main'e push sadece kullanıcı explicit onayıyla** (her push ayrı onay). Vercel auto-deploy + chunk hash mismatch + user stale tab 404 riski (memory: `feedback_local_test_first.md`).
+
+
+### 13.36 Mobil Duzen Taramasi ve Hero Cipalari (2026-09-15) — ENFORCE ALWAYS
+
+**Her arayuz degisikligi MOBILDE DE olculur; masaustu viewport'lari yetmez.**
+Bu gun hero'daki bes masaustu olcumu temizken kullanicinin iPhone'unda ayet
+halkanin yayini kesiyor, CTA tarayici cubugunun altinda kaliyordu.
+
+Kapi: `node scripts/audit-mobile-layout.mjs [rota...]` (audit:live icinde).
+390x734'te (iPhone gorunur alani, svh) yatay tasma, ekran disina kirpilan
+metin, cakisan blok metinler ve ikinci satira saran navbar arar. sr-only
+ogeler, kapali `<details>` icerigi ve yatay kaydirilabilir kapsayicilar
+olcum disi (ilk surum bunlari saymis, 14 bulgunun 4'u yanlis alarmdi).
+2026-09-15 tabani: **154 rota, 0 bulgu.**
+
+**Mobil test icin GERCEK gorunur yuksekligi kullan (390x734, 430x818), tam
+ekran yuksekligini degil.** `100svh` zaten cubugu duser; 844 ile test edip
+ustune %12 pay bicmek cift sayimdir ve "sigmiyor" diye sahte bulgu uretir.
+
+**Hero (anasayfa) — mobil kompozisyon:** halka merkezi USTTEN sabit
+(`cy = 118 + 0.44W`, HeroRing), yaricap 0.44W ve daire sekli DEGISMEZ.
+Icerik blogu (besmele + ayet + meal + referans) CSS'te ayni merkeze ortalanir
+(`.qc-hero-besmele { --mt-m: calc(44vw - 91px) }`); istatistik, ipucu ve CTA
+halkanin altinda. Masaustu dali (`H/2 + 16`) ve `--*-d` degerleri ayri;
+**mobil (`--*-m`) degerleri inline'da DEGIL `globals.css`'te durur** ki
+masaustu icin "biraz asagi al" istendiginde mobil bir daha birlikte kaymasin.
+Neden merkez H/2 olamaz: iOS'ta cubuk acilip kapaninca gorunur yukseklik
+~110px degisir; H/2'ye bagli halka ~55px oynar, ustten sabit metin oynamaz;
+hicbir bosluk ayari iki durumda birden dogru olamaz. Olculdu.
+
+**Olcum betigi formulu YENIDEN YAZMAZ, bilesenden okur.** HeroRing gercek
+geometriyi `canvas.dataset.ring` (cx,cy,Rx,Ry) olarak yazar. Betik kendi
+formuluyle hesapladiginda bilesendeki degisiklik sayilara hic yansimadi ve
+bir tur bosa gitti.
+
+**Dev sunucusunun CSS'i bayat olabilir (Turbopack).** `globals.css`'e eklenen
+sinif tarayiciya ulasmadiysa once sunulan CSS chunk'ini `grep` et; sinif yoksa
+`.next/dev` silinip sunucu yeniden baslatilir. Bu gun bir tur CSS degisikligi
+hic uygulanmadan "ise yaramiyor" sanildi.
+
+**Inline `minHeight`/`--fs-m` sinif kuralini ezer.** Mobil degeri CSS'ten
+vermek icin ayni ozelligin inline'dan KALDIRILMASI gerekir (WordHeatmap
+`minHeight: 0`, Hero `--fs-m`).
+
+**Sabit `top: '110px'` sticky sekme cubugu KALMADI** (§13.31 Mek. 2): alti
+bilesende `calc(var(--qc-nav-h, 84px) + 48px)`'e cevrildi. Mobilde navbar 84,
+ToolHeader 48 -> 132; 110'a yapisan cubuk basligin 22px ustune biniyordu.
+Modal doneminden kalma `position:absolute; top: 96` cip satiri (KuranRetorigi)
+tam sayfa rotada belgenin tepesine yerlesiyordu; akisa alindi.
+
+**ToolHeader rozeti mobilde gizli**: sarmayan uzun EN rozet sticky satiri
+belgeden genis yapip sayfayi yatay kaydiriyordu (/en/arac/sayilar, 439px).
+Sticky kokte `overflowX: clip` emniyeti var (overflow bu ogenin kendisinde,
+sticky'yi bozan ATA'daki overflow'dur).
