@@ -1328,6 +1328,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   });
   const [showReciterPicker, setShowReciterPicker] = useState(false);
   const [mealLoading, setMealLoading] = useState(false);
+  // Secilen mealin yuklenememesi AYRI bir durumdur ve sessiz kalmamalidir.
+  // Bkz. asagidaki `effectiveMealId` yorumu.
+  const [mealFailedId, setMealFailedId] = useState(null);
+  // Meal onbellegi bir ref'te tutulur (buyuk Map'ler, gereksiz render olmasin
+  // diye). Ama ref DOLDUGUNDA da bir render gerekir, yoksa ekran eski metinde
+  // kalir. `mealCacheTick` bu koprudur: onbellege her yazistan sonra artar.
+  const [mealCacheTick, setMealCacheTick] = useState(0);
+  const bumpMealCache = useCallback(() => setMealCacheTick(t => t + 1), []);
   const mealCacheRef = useRef(new Map()); // key: "mealId:surahNum" → Map<ayah, text>
 
   // ── Bookmarks (max 7) — intentional, manual ──────────────────────────────────
@@ -1865,6 +1873,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         const entries = JSON.parse(cached);
         const map = new Map(entries);
         mealCacheRef.current.set(cacheKey, map);
+        bumpMealCache();
         return;
       }
     } catch { /* ignore parse/quota errors */ }
@@ -1878,12 +1887,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           map.set(v.verse_number, v.translation?.text || '');
         }
         mealCacheRef.current.set(cacheKey, map);
+        bumpMealCache();
         try {
           localStorage.setItem(lsKey, JSON.stringify([...map]));
         } catch { /* ignore quota errors */ }
+        setMealFailedId(null);
         setMealLoading(false);
       })
-      .catch(() => setMealLoading(false));
+      .catch(() => { setMealFailedId(selectedMealId); setMealLoading(false); });
   }, [selectedMealId, selectedSurah]);
 
   // Besmele meali her surenin başlığında Fatiha 1:1'in GERÇEK çevirisiyle
@@ -1903,6 +1914,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const cached = localStorage.getItem(lsKey);
       if (cached) {
         mealCacheRef.current.set(cacheKey, new Map(JSON.parse(cached)));
+        bumpMealCache();
         return;
       }
     } catch { /* ignore parse/quota errors */ }
@@ -1913,17 +1925,61 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           map.set(v.verse_number, v.translation?.text || '');
         }
         mealCacheRef.current.set(cacheKey, map);
+        bumpMealCache();
         try { localStorage.setItem(lsKey, JSON.stringify([...map])); } catch { /* ignore quota errors */ }
       })
       .catch(() => {});
   }, [selectedMealId]);
 
   // Get translation text for a verse based on selected meal author
+  // ─── GÖSTERİLEN METNİN SAHİBİ ────────────────────────────────────────────
+  //
+  // 2026-09-14'te ölçüldü: meal yazarı değiştirilince `getTranslation` seçilen
+  // yazarın önbelleği henüz yokken SESSİZCE YEREL MEÂLE düşüyordu. İki ayrı
+  // sorun doğuruyordu ve ikisi de aynı kökten:
+  //
+  //   1. YANIP SÖNME — seçim ile fetch arasında okur BAŞKA BİR ÇEVİRİYİ
+  //      görüyor, sonra metin ikinci kez değişiyordu.
+  //   2. SESSİZ YANLIŞ ATIF — fetch başarısız olursa (çevrimdışı kullanıcı,
+  //      upstream düşük) bu düşüş KALICI oluyordu: başlık "M. Okuyan" derken
+  //      gövdede başka bir çevirmenin metni duruyordu. Ölçülen: api 424
+  //      dönerken başlık "Meali kapat (M. Okuyan)", gövde yerel meâl.
+  //      Bir âlimin meâlini başkasına atfetmek kozmetik bir kusur değildir.
+  //
+  // Çözüm: metnin sahibi ile ETİKET aynı kaynaktan gelir. `effectiveMealId`
+  // gerçekten gösterilebilen yazardır; etiketler de ondan türetilir. Seçilen
+  // yazar hazır değilse ÖNCEKİ yazarın metni kalır (kendi adıyla), yerel
+  // meâle düşülmez.
+  const lastReadyMealRef = useRef(selectedMealId);
+  const mealReady = (authorId, surah) => {
+    if (authorId === 'local' || authorId === 'en_local') return true;
+    return mealCacheRef.current.has(`${authorId}:${surah}`);
+  };
+  const effectiveMealId = mealReady(selectedMealId, selectedSurah)
+    ? selectedMealId
+    : (mealReady(lastReadyMealRef.current, selectedSurah) ? lastReadyMealRef.current : 'local');
+  useEffect(() => {
+    if (mealReady(selectedMealId, selectedSurah)) lastReadyMealRef.current = selectedMealId;
+  });
+
+  // Secilen meal yuklenemedi ve ekranda BASKA bir cevirmenin metni duruyorsa,
+  // bunu soyleyen kisa not. Etiket zaten dogru yazari gosteriyor; bu not
+  // "neden istedigim degisiklik olmadi" sorusunu cevaplar.
+  // Iki AYRI durum, iki ayri mesaj (gpt-6-astra: beklerken "yuklenemedi"
+  // demek erken):
+  //   · bekliyor  → secilen yazar henuz hazir degil, fetch suruyor
+  //   · basarisiz → fetch bitti ve olmadi; ekranda BASKA yazarin metni var
+  const mealPendingName = (mealLoading && effectiveMealId !== selectedMealId)
+    ? (MEAL_AUTHORS.find(a => a.id === selectedMealId)?.label || null)
+    : null;
+  const mealFallbackNote = (!mealLoading && mealFailedId && mealFailedId === selectedMealId && effectiveMealId !== selectedMealId)
+    ? (MEAL_AUTHORS.find(a => a.id === mealFailedId)?.label || null)
+    : null;
+
   const getTranslation = (verse) => {
-    if (selectedMealId === 'en_local') return verse.english || cleanTr(verse.turkish) || '';
-    if (selectedMealId !== 'local') {
-      const cacheKey = `${selectedMealId}:${verse.surah}`;
-      const cache = mealCacheRef.current.get(cacheKey);
+    if (effectiveMealId === 'en_local') return verse.english || cleanTr(verse.turkish) || '';
+    if (effectiveMealId !== 'local') {
+      const cache = mealCacheRef.current.get(`${effectiveMealId}:${verse.surah}`);
       if (cache) return cache.get(verse.ayah) || cleanTr(verse.turkish) || verse.english || '';
     }
     return language === 'tr' ? (cleanTr(verse.turkish) || verse.english || '') : (verse.english || cleanTr(verse.turkish) || '');
@@ -1942,7 +1998,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return getTranslation(fv) || (contentLang === 'tr' ? fallbackTr : fallbackEn);
   };
 
-  const selectedMealAuthor = MEAL_AUTHORS.find(a => a.id === selectedMealId) || MEAL_AUTHORS[0];
+  // Etiket, SEÇİLEN değil GÖSTERİLEN yazardır — aksi hâlde metin bir kişinin,
+  // adı başkasının olur (yukarıdaki nota bakın).
+  const selectedMealAuthor = MEAL_AUTHORS.find(a => a.id === effectiveMealId) || MEAL_AUTHORS[0];
 
   // Stable Escape handler — mounted once, reads from overlayStateRef (no stale closure)
   useEffect(() => {
@@ -6139,6 +6197,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {language === 'tr' ? 'Meal yükleniyor…' : 'Loading…'}
             </div>
           )}
+          {/* HATA SESSİZ KALMAZ. Eskiden yükleme başarısız olunca ekranda
+              yerel meâl kalıyor ama başlıkta seçilen yazarın adı yazıyordu;
+              okur farkı anlayamıyordu. Artık hangi metni okuduğu söylenir. */}
+          {!mealLoading && mealFailedId === selectedMealId && effectiveMealId !== selectedMealId && (
+            <div style={{ padding: '8px 14px', borderTop: `1px solid ${dropC.divider}`, fontSize: '0.72rem', color: dropC.textMuted, lineHeight: 1.5 }}>
+              {language === 'tr'
+                ? `Seçtiğiniz meâl şu anda yüklenemedi. Ekranda ${selectedMealAuthor.label} meâli gösteriliyor.`
+                : `The selected translation could not be loaded. ${selectedMealAuthor.label}'s translation is displayed.`}
+            </div>
+          )}
         </div>
       )}
 
@@ -7367,6 +7435,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         {language === 'tr' ? 'Meal' : 'Translation'}
                       </span>
                       <span style={{ fontWeight: 600 }}>{selectedMealAuthor.label}</span>
+                      {mealPendingName && (
+                        <span style={{ fontSize: '0.62rem', fontWeight: 400 }}>
+                          {language === 'tr'
+                            ? `(${mealPendingName} meâli yükleniyor)`
+                            : `(loading ${mealPendingName}'s translation)`}
+                        </span>
+                      )}
+                      {mealFallbackNote && (
+                        <span style={{ fontSize: '0.62rem', fontWeight: 400 }}>
+                          {language === 'tr'
+                            ? `(${mealFallbackNote} meâli yüklenemedi)`
+                            : `(${mealFallbackNote}'s translation could not be loaded)`}
+                        </span>
+                      )}
                       <span style={{
                         fontSize: '0.6rem',
                         opacity: 0.75,
