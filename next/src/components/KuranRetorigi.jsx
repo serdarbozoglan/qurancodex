@@ -206,9 +206,13 @@ export default function KuranRetorigi({ onClose }) {
         overflowX: 'auto',
         scrollbarWidth: 'none',
         position: 'sticky',
-        top: '110px',
+        // 110px SABITTI (§13.31 Mek. 2). Navbar mobilde 84px, ToolHeader 48px:
+        // 84+48 = 132 iken 110'a yapisan sekme cubugu ToolHeader basliginin
+        // 22px USTUNE biniyordu (390px'te olculdu: baslik y=95..120, sekme
+        // y=104..136). Olculen navbar yuksekligi + 48.
+        top: 'calc(var(--qc-nav-h, 84px) + 48px)',
         zIndex: 20,
-        scrollMarginTop: '120px',
+        scrollMarginTop: 'calc(var(--qc-nav-h, 84px) + 58px)',
       }}>
         {TABS.map((tab, i) => (
           <button
@@ -426,7 +430,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
   );
 
   return (
-    <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
+    <div className="qc-retorik-panel" style={{ display: 'flex', flex: 1, minHeight: 0 }}>
 
       {/* ── SOL SIDEBAR ──────────────────────────────── */}
       {!isMobile && (
@@ -463,9 +467,12 @@ function TabKategoriler({ data, tr, isMobile, language }) {
       {/* ── MOBİL CHIP ROW ───────────────────────────── */}
       {isMobile && (
         <div style={{
-          position: 'absolute',
-          top: 54 + 42,
-          left: 0, right: 0,
+          // position:absolute; top:96 IDI -- modal doneminden kalma (54px baslik
+          // + 42). Tam sayfa rotada konumlu bir atasi olmadigi icin BELGENIN
+          // tepesine (y=96) yerlesiyor, ToolHeader'in ustune biniyor ve sayfa
+          // kaydirilinca iceriginden kopuyordu (390px'te olculdu). Artik akis
+          // icinde, icerigin ustunde durur; kapsayici mobilde sutun (CSS).
+          position: 'relative',
           zIndex: 10,
           background: 'rgba(8,9,26,0.95)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,

@@ -1882,7 +1882,7 @@ export default function SebebiNuzul({ onClose }) {
         backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
         position: 'sticky',
-        top: '110px',
+        top: 'calc(var(--qc-nav-h, 84px) + 48px)' /* 110px sabitti, §13.31 Mek. 2 -- olculen navbar + 48 */,
         zIndex: 20,
         scrollMarginTop: '120px',
       }}>

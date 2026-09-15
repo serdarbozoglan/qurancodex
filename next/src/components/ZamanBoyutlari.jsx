@@ -559,7 +559,14 @@ export default function ZamanBoyutlari({ onClose }) {
             const minLog = 0, maxLog = 7.5;
             const range = maxLog - minLog;
             return (
-              <div className="mq-box" style={{ position: 'relative', paddingTop: '14px', '--pb-d': '90px', '--pb-m': '80px' }}>
+              <div className="mq-box" style={{
+                position: 'relative',
+                // 14 -> 40: eksenin USTUNE yazilan etiketler (ad + ayet
+                // referansi, ~34px) 18px yukaridan basliyor ve kapsayicinin
+                // ustunden tasip onceki paragrafin son satirina biniyordu
+                // (390px'te olculdu: paragraf alti y=1090, etiket ustu y=1081).
+                paddingTop: '40px', '--pb-d': '90px', '--pb-m': '80px',
+              }}>
                 {/* Axis */}
                 <div style={{
                   position: 'relative', height: '2px',

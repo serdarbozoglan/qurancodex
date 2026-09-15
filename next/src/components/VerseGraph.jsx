@@ -1529,7 +1529,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
       {/* Click hint — auto-dismisses after 4s */}
       <div style={{
-        position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+        // Mobilde 24px degil 76px: alt sabit cubuktaki gorunum dugmeleri
+        // ("Anlam Kumeleri / Ilmi Gruplar") de bottom ~24'te duruyor ve ipucu
+        // ilk 4 saniye tam onlarin USTUNE biniyordu (390px'te olculdu:
+        // ipucu y=676..710, dugmeler y=674..710).
+        position: 'absolute', bottom: W < 780 ? '76px' : '24px', left: '50%', transform: 'translateX(-50%)',
         zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
         borderRadius: RADIUS.pillSm, padding: '6px 18px', color: SEMANTIC.textMuted, fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
@@ -2243,7 +2247,11 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 
       {/* Auto-dismissing hint badge */}
       <div style={{
-        position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
+        // Mobilde 24px degil 76px: alt sabit cubuktaki gorunum dugmeleri
+        // ("Anlam Kumeleri / Ilmi Gruplar") de bottom ~24'te duruyor ve ipucu
+        // ilk 4 saniye tam onlarin USTUNE biniyordu (390px'te olculdu:
+        // ipucu y=676..710, dugmeler y=674..710).
+        position: 'absolute', bottom: W < 780 ? '76px' : '24px', left: '50%', transform: 'translateX(-50%)',
         zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
         borderRadius: RADIUS.pillSm, padding: '6px 16px', color: SEMANTIC.textFaint, fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',

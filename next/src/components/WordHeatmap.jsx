@@ -994,8 +994,13 @@ export default function WordHeatmap({ onClose }) {
                 </div>
               )}
 
-              {/* Grid — fills remaining height */}
-              <div style={{ flex: 1, minHeight: 0, position: 'relative' }}>
+              {/* Grid — fills remaining height.
+                  Mobilde kalan yukseklik SIFIRA dusuyordu (390px'te olculdu:
+                  kapsayici y=708..708): ustundeki cip paneli tum alani aliyor,
+                  grid absolute/inset:0 oldugu icin hic gorunmuyor ve ortalanan
+                  bilgi karti ("114 sure · 6.236 ayet") ciplerin USTUNE tasiyordu.
+                  Mobil alt siniri CSS'te (.qc-heat-grid, §14.2). */}
+              <div className="qc-heat-grid" style={{ flex: 1, position: 'relative' }}>
                 <div style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gridTemplateRows: 'repeat(12, 1fr)', gap: '3px' }}>
                   {Array.from({ length: 114 }, (_, i) => i + 1).map(surah => {
                     const count = searchTerm ? (freqMap[surah] || 0) : 0;

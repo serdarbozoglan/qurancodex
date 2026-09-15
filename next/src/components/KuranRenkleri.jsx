@@ -2930,7 +2930,7 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ── Tab bar — §13.19 compliant (opaque bg, top:110, isolation) ── */}
         <div style={{
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: 'calc(var(--qc-nav-h, 84px) + 48px)' /* 110px sabitti, §13.31 Mek. 2 -- olculen navbar + 48 */, zIndex: 20,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',

@@ -1612,7 +1612,7 @@ export default function DogaAtlasi({ onClose }) {
         {/* Tab bar — sticky, UPPERCASE pattern (site-wide consistency) */}
         <div className="mq-box" id="kevni-tab-bar" style={{
           position: 'sticky',
-          top: '110px',
+          top: 'calc(var(--qc-nav-h, 84px) + 48px)' /* 110px sabitti, §13.31 Mek. 2 -- olculen navbar + 48 */,
           zIndex: 20,
           display: 'flex',
           gap: '2px',

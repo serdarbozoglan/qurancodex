@@ -294,7 +294,11 @@ function ProphetCard({ p, tr, isMobile }) {
         <span style={{
           padding: '4px 10px', fontSize: '0.7rem', fontWeight: 700,
           background: `${p.colorHex}22`, color: p.colorHex,
-          borderRadius: RADIUS.chip, whiteSpace: 'nowrap',
+          borderRadius: RADIUS.chip,
+          // nowrap KALDIRILDI: EN rozet metni uzun ("10+ supplications ...")
+          // ve sarmayinca kartin sag kenarindan ~100px tasiyordu (390px'te
+          // olculdu, x=123..492). Artik sarar; genisligi kartin yarisiyla sinirli.
+          maxWidth: '52%', textAlign: 'right', lineHeight: 1.35, flexShrink: 0,
         }}>
           {tr ? p.countTr : p.countEn}
         </span>

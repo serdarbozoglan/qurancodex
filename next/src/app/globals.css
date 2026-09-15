@@ -1888,3 +1888,19 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
     font-size: 0.94em;
   }
 }
+
+/* Kelime isi haritasi: 10x12 hucreli grid mobilde en az genislik*1.1 kadar
+   yer alir; aksi halde flex:1 kalan yuksekligi 0'a duser ve harita kaybolur
+   (2026-09-15, /graf/kelime-isi 390px). */
+/* min-height inline'dan CSS'e: inline `minHeight: 0` sinif kuralini eziyordu
+   (ilk deneme tam bu yuzden ise yaramadi, olculdu: minH=0px). */
+.qc-heat-grid { min-height: 0; }
+@media (max-width: 639.98px) {
+  .qc-heat-grid { min-height: calc(100vw * 1.1); }
+}
+
+/* Kur'an Retorigi paneli: masaustunde sidebar + icerik yan yana, mobilde
+   cip satiri + icerik alt alta (2026-09-15). */
+@media (max-width: 639.98px) {
+  .qc-retorik-panel { flex-direction: column; }
+}

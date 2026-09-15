@@ -51,6 +51,10 @@ export default function ToolHeader({
         display: 'flex',
         alignItems: 'center',
         flexShrink: 0,
+        // Emniyet: bu satirin icerigi ne olursa olsun sayfa govdesi yatay
+        // kaymaz. (overflow bu ogenin KENDISINDE; sticky'yi bozan durum
+        // ATA'daki overflow'dur, §13.31 Mek. 4.)
+        overflowX: 'clip',
       }}
     >
       {/* v2.0 — Navbar full-width'e geçtiği için (max-w-[1720px] + px-5 lg:px-10)
@@ -96,7 +100,13 @@ export default function ToolHeader({
           </>
         )}
         {chip && (
-          <span style={{ flexShrink: 0 }}>
+          /* Rozet mobilde GIZLI (2026-09-15). Rozet sarmaz ve kucultulemez
+             (flexShrink 0); EN'de "50 numbers · 6 groups · 56 sources" gibi
+             uzun bir rozet ikon+baslikla birlikte 390px'e sigmiyor ve bu
+             sticky satir belgeyi YATAY KAYDIRILABILIR hale getiriyordu
+             (/en/arac/sayilar: scrollWidth 439). Rozet katalog ozetidir,
+             mobilde vazgecilebilir; masaustunde aynen durur. */
+          <span className="hidden sm:inline" style={{ flexShrink: 0 }}>
             {chip}
           </span>
         )}
