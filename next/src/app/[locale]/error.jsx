@@ -58,7 +58,7 @@ export default function LocaleError({ error, reset }) {
       }}>
         {reloading
           ? (tr ? 'Yeni bir sürüm yayına girmiş. Güncel hâli getiriyoruz.'
-                : 'A new version went live. Fetching the current one.')
+                : 'A new version is available. Reloading the page.')
           : (tr ? 'Beklenmedik bir durum oldu. Yeniden denemek çoğu zaman yeterli oluyor.'
                 : 'Something unexpected happened. Trying again usually works.')}
       </p>
@@ -84,7 +84,7 @@ export default function LocaleError({ error, reset }) {
               color: SEMANTIC.textMuted, font: 'inherit', fontWeight: 600, letterSpacing: '0.06em',
             }}
           >
-            {tr ? 'Bize bildir' : 'Tell us'}
+            {tr ? 'Bize bildir' : 'Report an issue'}
           </button>
         </div>
       )}

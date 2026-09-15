@@ -144,7 +144,7 @@ export default function Hero() {
         // kirilma noktasina alindi (max-sm = <640px, .mq-box ile ayni esik).
         // NOT: denetim yalniz paddingTop'i sayiyordu; justifyContent da AYNI
         // kaymayi uretiyor, o yuzden ikisi birden tasindi.
-        className="qc-hero-scene relative z-10 flex flex-col items-center px-6 justify-center max-sm:justify-start max-sm:pt-[76px]"
+        className="qc-hero-scene relative z-10 flex flex-col items-center px-6 justify-center max-sm:justify-start"
         // 100svh — tam viewport, peek yok. 92svh denendi (2026-06-16) ama
         // mobile'da sahne 2 title'ının ("KUR'AN-I K...") üst kısmı sızıp
         // truncation/bug izlenimi veriyordu. Chevron tek başına yeterli
@@ -177,11 +177,13 @@ export default function Hero() {
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
-          className="mq-box mq-fs" style={{
+          className="mq-box mq-fs qc-hero-besmele" style={{
             position: 'relative',
             display: 'inline-block',
             fontFamily: FONTS.bismillah,
-            '--fs-d': '2.6rem', '--fs-m': '2.2rem',
+            // Mobil punto 2.2 -> 1.62rem: besmele+ayet blogu halkanin ust
+            // yayina giriyordu; halkaya DOKUNULMADAN kazanilan yer burasi.
+            '--fs-d': '2.6rem', '--fs-m': '1.5rem',
             color: COLORS.gold,
             // 1 idi: glif kutudan 2px tasip alt kavisi kirpik gorunuyordu.
             lineHeight: 1.12,
@@ -189,8 +191,17 @@ export default function Hero() {
             // Mobile'da Arapça'yı biraz aşağı almak için artırıldı (2026-09).
             // Besmele azicik asagi: ust +12/+8, alt -12/-8. Toplam yukseklik
             // sabit kaldigi icin altindaki hicbir sey oynamaz.
-            '--mt-d': '60px', '--mt-m': '60px',
-            '--mb-d': '32px', '--mb-m': '12px',
+            // MOBIL DEGERLER GERI ALINDI (2026-09-15). Masaustunde "biraz
+            // asagi al" istendiginde mobil degerler de birlikte indirilmisti
+            // (mt-m 40->60, mb-m 24->12) ve mobilde hic olculmemisti. Net etki:
+            // ayet mobilde ~16px asagi kaydi ve IKINCI SATIRI halkanin ust
+            // yayini kesti (430x932: halka ustu 311, ayet alti 325).
+            // Mobilde halka W*0.44 ile GENISLIGE bagli; ekran daraldikca yay
+            // yukari cikar, yani kucuk telefonlarda hata daha da buyuyor.
+            // Mobil kenarlar CSS'te (.qc-hero-besmele): ekran yuksekligine
+            // baglanmali, sabit piksel kucuk telefonlarda tasiyor.
+            '--mt-d': '60px',
+            '--mb-d': '32px',
           }}
           initial={(showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
           animate={reduced ? false : (showIntro
@@ -269,12 +280,18 @@ export default function Hero() {
             fontFamily: FONTS.quran,
             '--fs-d': 'clamp(1.6rem, 3.4vw, 2.5rem)', '--fs-m': 'clamp(1.5rem, 6.6vw, 2.1rem)',
             color: COLORS.gold,
-            lineHeight: 2.1,
+            // Satir yuksekligi mobilde CSS'ten kisilir (.qc-hero-verse, --lh).
+            // Mobilde ayet IKI satira siginiyor ve 2.1'lik satir kutusu blogu
+            // ~119px yapiyor; bu haliyle ikinci satir halkanin ust yayina
+            // giriyor. Masaustunde tek satir oldugu icin 2.1 korunur.
+            lineHeight: 'var(--qc-verse-lh, 2.1)',
             // Mobilde alt boşluk: Arapça âyet halkanın ÜSTÜNDE, altındaki metin
             // bloğu halkanın ortasına insin (kullanıcı: "metni aşağı al").
             // §16.6 — kenar dallanmasi CSS'e alindi (.mq-box).
             // Ayet de azicik asagi, ayni mantik: ust +12/+8, alt -12/-8.
-            '--mt-d': '12px', '--mt-m': '8px', '--mb-d': '12px', '--mb-m': '84px',
+            // mt-m 0 idi, 8px yapilmisti -- geri alindi (yukaridaki gerekce).
+            // Mobil kenarlar CSS'te (.qc-hero-verse).
+            '--mt-d': '12px', '--mb-d': '12px',
             '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             maxWidth: '920px',
             // 2026-08-13 — dekoratif glow kaldırıldı (bkz. PortalCard notu).
@@ -330,11 +347,13 @@ export default function Hero() {
         {/* v2.0 — çeviri iki AYETE karşılık iki satıra bölündü (Arapça'da
             verse1 · verse2 olduğu gibi) ve punto büyütüldü. */}
         <motion.p
-          className="mq-fs" style={{
+          className="mq-fs qc-hero-meal" style={{
             color: 'rgba(232,230,227,0.94)',
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            '--fs-d': 'clamp(1.2rem, 2.2vw, 1.55rem)', '--fs-m': '1.04rem',
+            // Mobil punto CSS'te (.qc-hero-meal): EN meal 4 satir, TR 2 satir;
+            // dil bazli mobil ayar gerekiyor.
+            '--fs-d': 'clamp(1.2rem, 2.2vw, 1.55rem)',
             lineHeight: 1.7,
             margin: '0 auto 12px',
             // Mobilde dar elipsin içinde kalsın diye daraltıldı → daha çok satıra
@@ -352,10 +371,11 @@ export default function Hero() {
         </motion.p>
 
         <motion.p
-          className="mq-fs mq-box max-sm:max-w-[250px]" style={{
+          className="mq-fs mq-box max-sm:max-w-[250px] qc-hero-ref" style={{
             color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
-            '--fs-d': '0.84rem', '--fs-m': '0.66rem',
+            // Mobil punto CSS'te (.qc-hero-ref).
+            '--fs-d': '0.84rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             // Mobilde dairenin içinde kalsın → daha çok satıra sarsın.
@@ -383,7 +403,7 @@ export default function Hero() {
             Bismillah + âyet + çeviri hiyerarşisini bozmamak için bir başlık
             değil, âyetin altında duran sessiz tek satır olarak eklendi. */}
         <motion.p
-          className="mq-box max-sm:max-w-[270px] sm:max-w-[560px]"
+          className="mq-box max-sm:max-w-[270px] sm:max-w-[560px] qc-hero-stat"
           style={{
             fontFamily: FONTS.body,
             // v2.0 — 0.8rem çok küçüktü (~12.8px); okunur boyuta çıkarıldı.
@@ -393,7 +413,9 @@ export default function Hero() {
             letterSpacing: '0.02em',
             lineHeight: 1.6,
             // §16.6 — kenar VE maxWidth CSS'e alindi (bkz. yukaridaki not).
-            '--mt-d': '-14px', '--mt-m': '0', '--mb-d': '18px', '--mb-m': '12px',
+            // Mobil ust kenar CSS'te (.qc-hero-stat): mobilde bu satir halkanin
+            // ALTINA iner, halkanin icinde yalniz besmele+ayet+meal+referans kalir.
+            '--mt-d': '-14px', '--mb-d': '18px', '--mb-m': '12px',
             '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             // .55 → 3.02, AA'nın çok altı. Ölçülen eşik: silver .75.
           }}
@@ -411,7 +433,7 @@ export default function Hero() {
         {/* v2.0 — halka etkileşim ipucu (affordance). Arkadaki halkanın canlı
             veri olduğunu ve hover/dokunma ile keşfedilebileceğini söyler. */}
         <motion.p
-          className="mq-box"
+          className="mq-box qc-hero-hint"
           style={{
             fontFamily: FONTS.body,
             fontSize: '0.68rem',
@@ -429,7 +451,10 @@ export default function Hero() {
             // Halkanın metni (çeviri/referans/açıklama) HİÇ oynamaz.
             // §16.6 — kenar CSS'e alindi. Mobil ust bosluk DILE bagli kalir;
             // dil viewport'a bagli degil, o yuzden kayma uretmez.
-            '--mt-d': '0', '--mt-m': language === 'en' ? '65px' : '140px',
+            // Mobil ust bosluk CSS'te (.qc-hero-hint): ekran yuksekligine
+            // bagli, dil farki html[lang] ile. Sabit 140px kucuk telefonlarda
+            // CTA'yi ekranin altindan tasiriyordu.
+            '--mt-d': '0',
             '--mb-d': '30px', '--mb-m': '8px',
             '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             // Opaklık KALDIRILDI (§13.26 md.3): 0.6'da oran 3.39 ölçülmüştü ve
@@ -459,6 +484,7 @@ export default function Hero() {
             Tap hedefi ≥44px. */}
         {true && (
           <motion.div
+            className="qc-hero-cta"
             style={{
               display: 'flex',
               gap: '10px',
@@ -470,7 +496,7 @@ export default function Hero() {
               // diye ölçülü boşluk (aşırı 150px taşmaya yol açıyordu).
               // İpucu 44px aşağı alındı; CTA sabit kalsın diye üst boşluk
               // 72→28 (44px) düşürüldü — net CTA konumu değişmez.
-              margin: '28px 0 0',
+              // Ust bosluk CSS'te (.qc-hero-cta): mobilde ekrana gore olcekli.
               pointerEvents: 'auto', // kap none; CTA'lar tıklanabilir kalsın
             }}
             {...entrance(

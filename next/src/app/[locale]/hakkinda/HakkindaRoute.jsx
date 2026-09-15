@@ -165,7 +165,9 @@ export default function HakkindaRoute() {
               olmali. Form sol alttaki dugmede duruyordu ve baska hicbir
               yerden erisilemiyordu. */}
           <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.92rem', lineHeight: 1.7, maxWidth: '68ch', margin: '22px 0 0' }}>
-            {isEn ? 'Spotted an error, or a verse that renders wrong? ' : 'Bir hata ya da yanlış görünen bir âyet fark ettiyseniz '}
+            {isEn
+              ? 'If you notice an error on the site or a verse that is not displayed correctly, '
+              : 'Sitede bir hata fark ettiyseniz veya bir âyetin düzgün görüntülenmediğini gördüyseniz '}
             <button
               type="button"
               onClick={() => window.dispatchEvent(new CustomEvent('qc:feedback-open'))}

@@ -1809,3 +1809,82 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .qc-feedback-fab { width: 42px; padding: 0; }
   .qc-feedback-fab__label { display: none; }
 }
+
+
+
+/* ─── MOBIL HERO DIKEY RITMI (2026-09-15) ────────────────────────────────────
+   Bu blok, mobil kenar degerlerini inline stilden CSS'e TASIR; DEGERLER
+   2026-09-14 oncesindeki calisan haliyle BIREBIR AYNIDIR.
+   Neden tasindi: masaustunde "biraz asagi al" istendiginde mobil degerler de
+   birlikte indirilmis (besmele ust 40->60, alt 24->12; ayete +8px ust) ve
+   mobilde hic olculmemisti. Net etki: ayet ~16px asagi kaydi ve IKINCI SATIRI
+   halkanin ust yayini kesti (430x932'de birebir uretildi, kullanici bildirdi).
+   Degerler CSS'te durunca masaustu (--*-d) ile mobil (--*-m) bir daha yanlislikla
+   birlikte degistirilemez -- masaustu ayari mobili etkilemez.
+   MASAUSTU DEGERLERI BU BLOKTA YOK; onlar inline --*-d olarak duruyor. */
+@media (max-width: 639.98px) {
+  /* Halka: ustu y=118, merkezi 118 + 0.44·W (HeroRing). Icerik blogu
+     (besmele + ayet + meal + referans, ~242px) o merkeze ortalanir:
+     besmele ustu = merkez - 121 = 118 + 44vw - 121; sutun 88'de basladigi
+     icin kenar = 44vw - 91px. EN mealde satir sayisi fazla (blok ~295px),
+     blok 26px yukari alinir ki referans satiri alt yaydan tasmasin. */
+  .qc-hero-scene   { padding-top: 76px; }
+  .qc-hero-besmele { --mt-m: calc(44vw - 91px); --mb-m: 10px; }
+  html[lang="en"] .qc-hero-besmele { --mt-m: calc(44vw - 117px); }
+  .qc-hero-verse   { --mt-m: 0; --mb-m: 18px; }
+  .qc-hero-meal    { --fs-m: 1.04rem; }
+  .qc-hero-ref     { --fs-m: 0.66rem; }
+  /* EN: meal 4 satir + referans 2 satir olunca blok 75px uzuyor ve halkaya
+     sigmiyor. Yalniz EN mobilde meal bir tik kucuk (3 satir), referans daha
+     dar harf araligiyla TEK satir. TR'ye dokunulmaz. */
+  html[lang="en"] .qc-hero-meal { --fs-m: 0.92rem; }
+  html[lang="en"] .qc-hero-ref  { --fs-m: 0.6rem; letter-spacing: 0.1em !important; }
+}
+/* 375 ve alti (iPhone SE/mini): halka capi 330px'e iniyor, EN blogu icin
+   bir tik daha yer gerekiyor -- meal biraz daha kucuk, ayet alti daha dar. */
+@media (max-width: 380px) {
+  .qc-hero-verse { --mb-m: 15px; }
+  html[lang="en"] .qc-hero-meal    { --fs-m: 0.86rem; }
+  html[lang="en"] .qc-hero-verse   { --mb-m: 12px; }
+  /* Besmele daha dar olunca ust yaya yakin bolgede daha cok yer acilir;
+     blok da 7px asagi alinir (ust/alt pay dengelenir). */
+  html[lang="en"] .qc-hero-besmele { --fs-m: 1.3rem; --mt-m: calc(44vw - 110px); }
+}
+@media (max-width: 639.98px) {
+  /* Istatistik satiri ve ipucu halkanin ALTINDA; CTA onlarin altinda. */
+  .qc-hero-stat    { --mt-m: 72px; }
+  .qc-hero-hint    { --mt-m: 10px; }
+  html[lang="en"] .qc-hero-hint { --mt-m: 10px; }
+  .qc-hero-cta     { margin-top: 20px; }
+  .qc-hero-cta { gap: 8px; }
+  .qc-hero-cta > * {
+    font-size: 0.74rem !important;
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    white-space: nowrap;
+  }
+}
+/* Masaustunde CTA ust boslugu: inline `margin`den CSS'e alindi, deger AYNI. */
+.qc-hero-cta { margin: 28px 0 0; }
+
+/* ─── Dar telefonlarda navbar TEK SATIR kalsin (2026-09-15) ───────────────────
+   Olculdu (375x812): kapsayicinin ic genisligi 335px, iki grubun toplami
+   321px + 16px bosluk = 337px -- yani yalnizca 2 PIKSEL tasiyordu ve
+   `flex-wrap` emniyet agi devreye girip navbari 84px'ten 132px'e cikariyordu
+   (§13.13'te bu sarma bilincli bir emniyet agi olarak eklenmisti; burada
+   tasmanin kendisini kaldiriyoruz). 48px'lik bu fazlalik hero icerigini
+   asagi itiyor ve "Kesfe Basla" dugmesi ekranin altinda kaliyordu.
+   375, iPhone SE ve 13 mini genisligi -- yaygin bir cihaz sinifi.
+   Iki kucuk kaldirac yetiyor: yatay dolgu ve kelime markasinin harf araligi.
+   Amblem ve yazi GORUNUR kalir (1024-1179 bandindaki gibi gizlemeye gerek yok). */
+@media (max-width: 400px) {
+  nav[aria-label="Main navigation"] > div { padding-left: 14px; padding-right: 14px; }
+}
+@media (max-width: 380px) {
+  nav[aria-label="Main navigation"] .nav-wordmark {
+    letter-spacing: 0.08em;
+    font-size: 0.94em;
+  }
+}

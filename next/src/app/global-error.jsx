@@ -69,7 +69,7 @@ export default function GlobalError({ error, reset }) {
           <p style={{ color: SEMANTIC.textMuted, fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '48ch', margin: 0 }}>
             {reloading
               ? (tr ? 'Yeni bir sürüm yayına girmiş. Güncel hâli getiriyoruz.'
-                    : 'A new version went live. Fetching the current one.')
+                    : 'A new version is available. Reloading the page.')
               : (tr ? 'Beklenmedik bir durum oldu. Yeniden denemek çoğu zaman yeterli oluyor.'
                     : 'Something unexpected happened. Trying again usually works.')}
           </p>

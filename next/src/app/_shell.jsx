@@ -94,6 +94,35 @@ const WEBSITE_JSONLD = {
   inLanguage: ['tr', 'en'],
 };
 
+
+// ─── Eski sekme kurtarma betigi (2026-09-15) ─────────────────────────────────
+// Yeni surum yayina girince parca (chunk) dosyalarinin adlari degisir; acik
+// duran sekme 404 alir, sayfa hidrate olmaz, hicbir dugme calismaz. React
+// tarafindaki hata siniri bunu KURTARAMAZ (sinir da bir chunk; olculdu).
+// O yuzden betik SATIR ICI olmali. Ama React 19, bilesen agacinda ham <script>
+// gorunce dev'de uyari basiyor (next/script da altta ayni elemani uretiyor).
+// Cozum: betik bir sarmalayicinin innerHTML'i olarak basilir -- SSR HTML'ine
+// aynen girer ve tarayici ayristirirken calistirir; React ise hidrasyonda
+// script elemanini hic olusturmaz, uyari da cikmaz. Tek seferlik (isaret
+// sessionStorage'da), sunucu gercekten bozuksa donguye girmez.
+const CHUNK_RELOAD_HTML = '<script>' + `(function(){try{
+var K='qc:chunk-reload',bad=false;
+addEventListener('error',function(e){
+  var t=e&&e.target;if(!t||t===window)return;
+  var u=t.src||t.href||'';if(u.indexOf('/_next/static/')<0)return;
+  bad=true;
+  try{if(sessionStorage.getItem(K)==='1')return;sessionStorage.setItem(K,'1');}catch(x){return;}
+  location.reload();
+},true);
+/* Isareti YALNIZ hatasiz bir yuklemeden sonra temizle. Kosulsuz temizlemek
+   dongu korumasini isaretsiz birakiyordu: 'load' olayi, betikler 404 olsa
+   BILE tetikleniyor (olculdu), yani sayfa hala bozukken hak yenileniyor ve
+   sonsuz yenileme dongusu olusuyordu. */
+addEventListener('load',function(){setTimeout(function(){
+  if(!bad){try{sessionStorage.removeItem(K);}catch(x){}}
+},0);});
+}catch(x){}})();` + '</script>';
+
 export default function Shell({ lang = 'tr', children }) {
   return (
     <html lang={lang} className={`${inter.variable} ${playfair.variable}`}>
@@ -124,39 +153,10 @@ export default function Shell({ lang = 'tr', children }) {
             sayfasi acilacagina) bagli, burada bilinemez — ama HOST sabit. */}
         <link rel="preconnect" href="https://kuran.hayrat.com.tr" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://kuran.hayrat.com.tr" />
-        {/* ─── Eski sekme kurtarma (2026-09-15) ─────────────────────────────
-            Yeni bir surum yayina girince parca (chunk) dosyalarinin adlari
-            degisir. O an ACIK duran bir sekme artik var olmayan dosyalari
-            ister, 404 alir ve sayfa hidrate olmaz: kullanici gorunuste normal
-            bir sayfaya bakar ama hicbir dugme calismaz. Ne uyari gorur, ne de
-            kendiliginden duzelir.
-            Bunu React tarafindaki bir hata siniri KURTARAMAZ -- olculdu:
-            chunk'lar 404 olunca React hic yuklenmedigi icin sinir da hic
-            calismiyor, cunku sinirin kendisi de bir chunk. O yuzden bu betik
-            SATIR ICI: belgeyle birlikte gelir, hicbir dosyaya bagli degildir.
-            Tek seferliktir (isaret sessionStorage'da, sekmeye ozel): sunucu
-            gercekten bozuksa sonsuz yenileme dongusune girmemeli. */}
-        <script
-          dangerouslySetInnerHTML={{ __html: `(function(){try{
-var K='qc:chunk-reload',bad=false;
-addEventListener('error',function(e){
-  var t=e&&e.target;if(!t||t===window)return;
-  var u=t.src||t.href||'';if(u.indexOf('/_next/static/')<0)return;
-  bad=true;
-  try{if(sessionStorage.getItem(K)==='1')return;sessionStorage.setItem(K,'1');}catch(x){return;}
-  location.reload();
-},true);
-/* Isareti YALNIZ hatasiz bir yuklemeden sonra temizle. Kosulsuz temizlemek
-   dongu korumasini isaretsiz birakiyordu: 'load' olayi, betikler 404 olsa
-   BILE tetikleniyor (olculdu), yani sayfa hala bozukken hak yenileniyor ve
-   sonsuz yenileme dongusu olusuyordu. */
-addEventListener('load',function(){setTimeout(function(){
-  if(!bad){try{sessionStorage.removeItem(K);}catch(x){}}
-},0);});
-}catch(x){}})();` }}
-        />
+
       </head>
       <body>
+        <div hidden aria-hidden="true" dangerouslySetInnerHTML={{ __html: CHUNK_RELOAD_HTML }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}

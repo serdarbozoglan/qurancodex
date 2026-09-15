@@ -64,7 +64,25 @@ export default function HeroRing({ className }) {
       // Mobilde halka merkezi AŞAĞI kayar: Arapça besmele+âyet halkanın ÜSTÜNDE
       // (dışında) kalsın, halka yalnız çeviri→ipucu bloğunu sarsın (kullanıcı
       // 2026-09 direktifi). Masaüstünde tam ekran merkez.
-      cx = W / 2; cy = H / 2 + (W < 620 ? 34 : 16);
+      cx = W / 2;
+      // MASAUSTU: DEGISMEDI -- ekran merkezi (+16).
+      //
+      // MOBIL CIPA DEGISIKLIGI (2026-09-15). Halkanin BOYUTU ve SEKLI aynen
+      // duruyor (yaricap yine 0.44·W, yine tam daire); degisen yalniz dikey
+      // CIPASI.
+      // Sorun: cy = H/2 + 34 halkayi EKRAN YUKSEKLIGINE bagliyordu, metin ise
+      // ustten sabit basliyor. iOS Safari'de ust+alt cubuk acilip kapandikca
+      // gorunur yukseklik ~110px degisiyor, yani halka ~55px oynarken metin
+      // yerinde kaliyor. Olculdu: ayni telefonda (390 genislik) cubuk acikken
+      // halkanin ustu 229, kapaliyken 284 -- ayetin alti 248. Yani bir durumda
+      // ayet yayin icinde kaliyor, otekinde kalmiyor. Hicbir bosluk ayari
+      // ikisini birden duzeltemez; cipa degismeden bu kusur kapanmaz.
+      // Cozum: mobilde merkez ayetin hemen altina sabitlenir -> halka ile metin
+      // birlikte hareket eder, iki durumda da ayni gorunur.
+      // Mobilde halkanin USTU y=118'de sabit (navbar 84 + pay); merkez =
+      // 118 + yaricap. Icerik (besmele+ayet+meal+referans) CSS'te ayni
+      // merkeze gore konumlanir: .qc-hero-besmele --mt-m = calc(44vw - ...).
+      cy = W < 620 ? 118 + W * 0.44 : H / 2 + 16;
       // Halka MOBİLDE bir DİKEY ELİPS'tir, masaüstünde tam daire.
       // Sebep (2026-09, kullanıcı "yanlardan truncated"): metin sütunu DAR ama
       // UZUN. Simetrik bir daire ya ekran genişliğinden taşar (yanları kırpılır)
@@ -79,6 +97,11 @@ export default function HeroRing({ className }) {
       Rx = mob ? W * 0.44 : Math.min(W, H) * 0.41;
       Ry = mob ? W * 0.44 : Math.min(W, H) * 0.41;
       R = Math.max(Rx, Ry); // geriye dönük (tooltip yarıçap referansı vb.)
+      // Gercek geometriyi DOM'a yaz: olcum betikleri formulu YENIDEN YAZMASIN.
+      // 2026-09-15'te tam bu yuzden bir tur bosa gitti -- betik kendi
+      // formuluyle hesapliyordu ve bilesende yapilan degisiklik sayilara hic
+      // yansimiyordu. Test cizileni olcmeli, tahmini degil.
+      canvas.dataset.ring = [cx, cy, Rx, Ry].map(n => Math.round(n)).join(',');
       pts = []; segs = []; cloud = [];
       const CLN = mob ? 14 : 26;
       for (let ci = 0; ci < CLN; ci++) {
