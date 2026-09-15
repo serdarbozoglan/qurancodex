@@ -20,6 +20,8 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { execSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -48,12 +50,36 @@ process.stdin.on('end', () => {
     ['iç mimari sızıntısı — §13.27', 'node scripts/audit-internal-leak.mjs --ci'],
     ['sayım & tutarlılık — B4', 'node scripts/audit-counts.mjs --ci'],
     ['iddia tutarlılığı — §13.30', 'node scripts/audit-claims.mjs --ci'],
+    // 2026-09-15 — kullanıcı: "CLAUDE.md'de olup hook'ta olması faydalı olacak
+    // her şeyi hook'a çevir". Mekanik olarak ölçülebilen her kural burada.
+    ['düzen kalıpları (isMobile/minmax) — §14.2', 'node scripts/audit-layout-patterns.mjs --ci'],
+    ['humanizer, mekanik — §13.34', 'node scripts/audit-humanizer.mjs --ci'],
+    ['çıplak âyet referansı — §13.32', 'node scripts/audit-verse-refs.mjs --ci'],
+    ['Arapça JSON problem karakter — §13.15', 'node scripts/audit-arabic-json.mjs --ci'],
+    ['/hakkinda son güncelleme tarihi — §13.33', 'node scripts/audit-hakkinda-date.mjs --ci'],
   ];
+
+  // Sunucu isteyen denetimler (kontrast, SSR, bağlantı, dil, MOBİL düzen) ve
+  // astra hakem turu hook içinde koşamaz; onun yerine DAMGA istenir:
+  // "bu ağaç üzerinde koştu" kanıtı. Yalnız ilgili yollar değiştiyse.
+  const changed = (() => {
+    try {
+      const { execSync } = require('node:child_process');
+      let base = ''; try { base = execSync('git rev-parse --abbrev-ref --symbolic-full-name @{u}', { cwd: nextDir, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); } catch { base = 'HEAD~1'; }
+      const a = execSync(`git diff --name-only ${base} -- .`, { cwd: nextDir, stdio: ['ignore', 'pipe', 'ignore'] }).toString();
+      const b = execSync('git status --porcelain -- .', { cwd: nextDir, stdio: ['ignore', 'pipe', 'ignore'] }).toString().replace(/^.{3}/gm, '');
+      return (a + '\n' + b).split('\n').map(x => x.trim()).filter(Boolean);
+    } catch { return []; }
+  })();
+  const uiChanged = changed.some(f => /(^|\/)src\/(components|sections|app)\/|globals\.css|src\/tokens\.js/.test(f));
+  const contentChanged = changed.some(f => /(^|\/)(src\/(i18n|data|app|components|sections)\/|public\/[^/]+\.json)/.test(f));
+  if (uiChanged) checks.push(['canlı denetim damgası (kontrast·SSR·bağlantı·dil·MOBİL) — §13.36', 'node scripts/live-stamp.mjs --check']);
+  if (contentChanged) checks.push(['astra hakem damgası — §13.24', 'node scripts/astra-review.mjs --check']);
 
   const failures = [];
   for (const [label, cmd] of checks) {
     try {
-      execSync(cmd, { cwd: nextDir, stdio: 'pipe', timeout: 60_000 });
+      execSync(cmd, { cwd: nextDir, stdio: 'pipe', timeout: 120_000 });
     } catch (e) {
       const out = (e.stdout?.toString() || '') + (e.stderr?.toString() || '');
       failures.push(`✗ ${label}\n${out.trim().slice(-1200)}`);
@@ -74,9 +100,9 @@ process.stdin.on('end', () => {
   }
 
   console.error(
-    '✓ renk sistemi (§13.25) + iç mimari sızıntısı (§13.27) kontrolleri geçti.\n' +
-    "⚠ Bu hook'un KAPSAMADIĞI, elle doğrulanması gereken iki şey:\n" +
-    '  · Kontrast (§13.26) — sunucu gerektirir, otomatik çalışmadı:\n' +
+    `✓ ${checks.length} push-öncesi kontrol geçti (renk, iç sızıntı, sayım, iddia, düzen, humanizer, âyet ref, Arapça JSON, tarih${uiChanged ? ', canlı damga' : ''}${contentChanged ? ', astra damgası' : ''}).\n` +
+    "⚠ Elle gözden geçirilecekler:\n" +
+    '  · Kontrast tam tarama (§13.26) uzun sürer; örneklem audit:live içinde:\n' +
     '      node scripts/audit-contrast.mjs --ci\n' +
     '  · Yeni bir sayfa/bileşen eklendiyse CLAUDE.md §13.0 kontrol listesi\n' +
     '    (kategori renkleri AA\'ya tabi mi, isMobile düzen için kullanılmış mı,\n' +

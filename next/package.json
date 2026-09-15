@@ -13,8 +13,8 @@
     "embed:build": "node scripts/build-corpus.mjs && node scripts/build-embeddings.mjs && node scripts/reencode-embeddings.mjs",
     "embed:check": "node scripts/build-corpus.mjs --stats && node scripts/build-embeddings.mjs --check-only",
     "audit:layout": "node scripts/audit-layout-patterns.mjs --ci",
-    "audit:static": "node scripts/audit-colors.mjs --ci && node scripts/audit-claims.mjs --ci && node scripts/audit-counts.mjs --ci && node scripts/audit-internal-leak.mjs --ci && node scripts/audit-layout-patterns.mjs --ci",
-    "audit:live": "node scripts/audit-links.mjs --ci && node scripts/audit-i18n-leak.mjs --ci && node scripts/audit-ssr.mjs --ci && node scripts/audit-contrast.mjs --ci && node scripts/audit-mobile-layout.mjs",
+    "audit:static": "node scripts/audit-colors.mjs --ci && node scripts/audit-claims.mjs --ci && node scripts/audit-counts.mjs --ci && node scripts/audit-internal-leak.mjs --ci && node scripts/audit-layout-patterns.mjs --ci && node scripts/audit-humanizer.mjs --ci && node scripts/audit-verse-refs.mjs --ci && node scripts/audit-arabic-json.mjs --ci && node scripts/audit-hakkinda-date.mjs --ci",
+    "audit:live": "node scripts/audit-links.mjs --ci && node scripts/audit-i18n-leak.mjs --ci && node scripts/audit-ssr.mjs --ci && node scripts/audit-contrast.mjs --ci && node scripts/audit-mobile-layout.mjs && node scripts/live-stamp.mjs",
     "audit": "npm run audit:static && npm run audit:live"
   },
   "dependencies": {

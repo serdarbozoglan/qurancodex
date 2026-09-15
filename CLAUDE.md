@@ -2769,3 +2769,46 @@ tam sayfa rotada belgenin tepesine yerlesiyordu; akisa alindi.
 belgeden genis yapip sayfayi yatay kaydiriyordu (/en/arac/sayilar, 439px).
 Sticky kokte `overflowX: clip` emniyeti var (overflow bu ogenin kendisinde,
 sticky'yi bozan ATA'daki overflow'dur).
+
+
+### 13.37 Push Kapisi = Hook (2026-09-15) — CLAUDE.md'de olan, hook'ta ZORUNLU
+
+Kullanici: "CLAUDE.md'de olup hook'ta olmasi faydali olacak her seyi hook'a
+cevir; mobil testi CLAUDE.md'ye ragmen atlarsa engellesin." Mekanik olarak
+olculebilen her kural artik `.claude/hooks/pre-push-guard.mjs`te; `git push`
+denemesinde kosar, biri kirmiziysa push ENGELLENIR (exit 2).
+
+| kontrol | betik | kural |
+|---|---|---|
+| renk sistemi | audit-colors | §13.25 |
+| ic mimari sizintisi | audit-internal-leak | §13.27 |
+| sayim & tutarlilik | audit-counts | §13.28 |
+| iddia tutarliligi | audit-claims | §13.28.0 |
+| duzen kaliplari (isMobile/minmax) | audit-layout-patterns | §14.2 |
+| humanizer, MEKANIK (tire, satis sifati, emoji, "asil soru") | audit-humanizer | §13.34 |
+| ciplak ayet referansi | audit-verse-refs | §13.32 |
+| public/*.json Arapca problem karakter | audit-arabic-json | §13.15 |
+| /hakkinda son guncelleme = bugun | audit-hakkinda-date | §13.33 |
+
+Diff tabanli olanlar (humanizer, ayet ref, Arapca JSON) yalniz DEGISEN
+satir/dosyaya bakar: gecmis birikim degil, yeni giren borc yakalanir.
+
+**Sunucu isteyenler DAMGA ile.** Kontrast, SSR, baglanti, dil sizintisi ve
+mobil duzen hook icinde kosamaz. `npm run audit:live` zincirinin sonunda
+`live-stamp.mjs` `src/`nin git agac ozetini damgalar
+(`tests/__baseline__/live-stamp.json`). Hook, UI dosyasi degistiyse
+(`src/components|sections|app`, `globals.css`, `tokens.js`) damganin HEAD'deki
+`src/` agaciyla AYNI olmasini ve calisma agacinin temiz olmasini ister; yani
+"son degisiklikten SONRA canli denetimler kostu" kaniti. Akis:
+  commit -> `npm run audit:live` (hepsi yesilse damga yazilir) -> push.
+Damgadan sonra src/ye dokunursan damga dusur; yeniden kosarsin.
+
+**Astra hakem turu da damgali (§13.24).** Icerik yollari (`src/i18n|data|app|
+components|sections`, `public/*.json`) degistiyse `tests/__baseline__/
+astra-stamp.json` bu agaca ait olmali. `node scripts/astra-review.mjs
+<paket.md>` paketi gpt-6-astra'ya gonderir, yaniti basar ve damgalar; hakem
+bulgulari uygulanip yeni commit atildiysa `--stamp` ile yenilenir. Anahtar
+repo disindaki `.env`den okunur, ASLA basilmaz.
+
+Humanizer'in kendisi (skill) hook'lanamaz; hook yalniz mekanik izlerini
+yakalar. Skill gecisi hala zorunludur (§13.34).
