@@ -172,8 +172,12 @@ export const COLORS = {
   //   outerBg (#f4f0e0) lands at ~%5 — sweet spot of the JND range.
   paperCream:        '#f9f5e8',                // main bg (page interior)
   paperCreamDim:     'rgba(244,241,234,0.98)', // footerBg (slightly warmer for visual layering)
-  paperGold:         '#9a6f10',                // primary gold (badges, attribution)
-  paperGoldAlpha18:  'rgba(154,111,16,0.18)',  // footerBorder
+  // 2026-09-14: #9a6f10 idi ve gunduz temasinin UC zemininde de AA altindaydi
+  // (paperCream 4.14, outerBg 3.95, olculen kart 4.00). Ton korunarak
+  // koyulastirildi: #8a6300 ayni uc zeminde 4.98 / 4.76 / 4.81.
+  // Olcum: /tr/oku gunduz modunda "Sure 1" etiketi 3.99 veriyordu.
+  paperGold:         '#8a6300',                // primary gold (badges, attribution)
+  paperGoldAlpha18:  'rgba(138,99,0,0.18)',     // footerBorder — paperGold ile ayni aile
   paperInk:          '#1a0e00',                // Arabic text — near-black with brown warmth
   paperInkLight:     '#4a2800',                // Arabic active/spotlight
   // Translation tone — user explicitly asked for "more clearly black", so

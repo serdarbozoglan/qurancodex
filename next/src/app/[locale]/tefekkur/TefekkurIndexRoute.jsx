@@ -2,33 +2,44 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { renderInlineMarkdown } from '@/components/tefekkur/inlineMarkdown';
 import { COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../../../tokens';
 import ToolHeader from '../../../components/ToolHeader';
 
-export default function TefekkurIndexRoute() {
+// `indexData` SUNUCUDAN prop olarak gelir (bkz. page.js).
+//
+// İKİ SEBEP üst üste binip sayfayı boşaltıyordu; ölçülen SSR kapsamı %1'di,
+// yani 36.808 karakterlik tefekkür indeksinin tamamı sunucu çıktısında yoktu:
+//   1. veri burada `fetch('/tefekkur/_index.json')` ile çekiliyordu,
+//   2. `useSearchParams()` statik render'da CSR bailout tetikler ve sayfa
+//      `<Suspense fallback={null}>` içinde olduğu için HTML BOŞ kalıyordu.
+// Kod tabanı ikinci tuzağı zaten biliyor: LanguageContext.jsx'in başlık
+// yorumunda "useSearchParams static generation'da CSR bailout tetikler"
+// yazıyor ve orada `window.location.search` tercih edilmiş. Aynı çözüm.
+export default function TefekkurIndexRoute({ indexData = null }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const searchParams = useSearchParams();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(indexData);
   // Initial category from ?cat=<id> query (homepage TefekkurHighlight deep-link),
   // fallback 'all'. Re-syncs whenever the query changes.
-  const initialCat = searchParams.get('cat') || 'all';
-  const [activeCategory, setActiveCategory] = useState(initialCat);
+  const [activeCategory, setActiveCategory] = useState('all');
 
+  // `?cat=` derin bağlantısı mount sonrası okunur. useSearchParams yerine
+  // window.location.search: ilkinin SSR'ı boşaltan CSR bailout'u var.
   useEffect(() => {
-    const q = searchParams.get('cat');
+    const q = new URLSearchParams(window.location.search).get('cat');
     if (q) setActiveCategory(q);
-  }, [searchParams]);
+  }, []);
 
   useEffect(() => {
+    if (indexData) return;   // sunucudan geldi
     fetch('/tefekkur/_index.json')
       .then(r => r.json())
       .then(setData)
       .catch(err => console.error('[Tefekkür] index load failed:', err));
-  }, []);
+  }, [indexData]);
 
   // Sıralama (2026-08-13). Önceden HİÇ sıralama yoktu — kartlar
   // _index.json'daki ham dizi sırasında, yani "eklenme sırasına" göre

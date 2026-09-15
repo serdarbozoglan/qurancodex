@@ -132,7 +132,7 @@ export default function MushafInlineView({ language, selectedSurah, isMobile, da
   // kendi baskı süslemesini zaten taşıyor, bu ikinci katman siteyle görsel
   // tutarlılık sağlıyor (kullanıcı talebi 2026-08-25: "bizim normal kitap
   // modumuzdaki belirlenen çerçevenin içine yerleştireceksin").
-  const frameOuter = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+  const frameOuter = dayMode ? 'rgba(138,99,0,0.65)' : 'rgba(232,181,71,0.55)';
   const frameInner = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
   const frameDouble = `inset 0 0 0 1px ${frameOuter}, inset 0 0 0 3px ${pageBg || theme.rowBg}, inset 0 0 0 4px ${frameInner}`;
 

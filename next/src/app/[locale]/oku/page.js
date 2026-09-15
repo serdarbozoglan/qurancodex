@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
+import PageHeading from '@/components/PageHeading';
 import ReadingModeRoute from './ReadingModeRoute';
 
 // 2026-08-14 (Z3e1): tek dilli `title`/`description` kullanılıyordu, bu yüzden
@@ -35,6 +36,16 @@ export default async function Page({ params }) {
             description: locale === 'en' ? DESC_EN : DESC_TR,
           }),
         ]}
+      />
+      {/* PageHeading 2026-09-14'te EKLENDI. ReadingModeRoute'un basligindaki
+          yorum "SEO sinyalleri (PageHeading H1 + JsonLd) page.js server'da
+          kalir" diyordu ama PageHeading bu sayfaya HIC eklenmemisti: sitenin
+          amiral gemisi sayfasinin sunucu ciktisinda H1 yoktu. ReadingMode'un
+          ssr:false olmasi dogru bir karar (21 SSR-guvensiz durum), ama o karar
+          H1'i de goturuyordu. */}
+      <PageHeading
+        title={locale === 'en' ? TITLE_EN : TITLE_TR}
+        description={locale === 'en' ? DESC_EN : DESC_TR}
       />
       <ReadingModeRoute />
     </>

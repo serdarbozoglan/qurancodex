@@ -1,9 +1,10 @@
-import { Suspense } from 'react';
 import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import PageHeading from '@/components/PageHeading';
 import TefekkurIndexRoute from './TefekkurIndexRoute';
+// Tefekkur indeksi SUNUCUDA cozulur: ilk HTML'de iceriginin %1'i vardi.
+import indexData from '../../../../public/tefekkur/_index.json';
 
 const PATH = '/tefekkur';
 const TITLE_TR = 'Tefekkür';
@@ -28,9 +29,7 @@ export default async function Page({ params }) {
         ]}
       />
       <PageHeading title={title} description={desc} />
-      <Suspense fallback={null}>
-        <TefekkurIndexRoute />
-      </Suspense>
+      <TefekkurIndexRoute indexData={indexData} />
     </>
   );
 }

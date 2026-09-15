@@ -30,7 +30,7 @@ export default function ReadingModeSkeleton() {
       `}</style>
       <div
         className="rm-skeleton-header"
-        style={{ flexShrink: 0, borderBottom: '1px solid rgba(154,111,16,0.12)' }}
+        style={{ flexShrink: 0, borderBottom: '1px solid rgba(138,99,0,0.12)' }}
       />
       <div style={{
         flex: 1, display: 'flex', flexDirection: 'column',
@@ -38,8 +38,8 @@ export default function ReadingModeSkeleton() {
       }}>
         <div style={{
           width: '48px', height: '48px', borderRadius: '999px',
-          border: '3px solid rgba(154,111,16,0.15)',
-          borderTopColor: 'rgba(154,111,16,0.55)',
+          border: '3px solid rgba(138,99,0,0.15)',
+          borderTopColor: 'rgba(138,99,0,0.55)',
           animation: 'rm-skeleton-spin 0.9s linear infinite',
         }} />
         <style>{`@keyframes rm-skeleton-spin { to { transform: rotate(360deg); } }`}</style>

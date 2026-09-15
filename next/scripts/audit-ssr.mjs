@@ -28,7 +28,8 @@ const MIN = parseFloat((args.find(a => a.startsWith('--min=')) || '--min=0.45').
 const given = args.filter(a => !a.startsWith('--'));
 
 const ROUTES = given.length ? given : [
-  '/tr', '/tr/alanlar', '/tr/araclar', '/tr/hakkinda', '/tr/sor',
+  '/tr', '/tr/alanlar', '/tr/hakkinda', '/tr/sor', '/tr/kaynakca',
+  '/tr/tefekkur', '/tr/oku', '/tr/kutuphanem',
   '/tr/arac/mukattaa', '/tr/arac/ritim', '/tr/arac/koruma-zinciri',
   '/tr/arac/esma-frekans', '/tr/arac/dua-dili', '/tr/arac/sayilar',
   '/tr/arac/kiyamet', '/tr/arac/cennet-cehennem', '/tr/arac/iblis-seytan',
@@ -50,6 +51,15 @@ const visibleFromHtml = (html) => html
   .trim();
 
 const { chromium } = await import('playwright');
+// GEREKCELI MUAFIYET. Kalici kirmizi bir kapi okunmaz hale gelir; bu yuzden
+// bilincli kararlar BURADA, gerekcesiyle listelenir. Listeye eklemek icin
+// sart: (1) ssr:false'un teknik sebebi gercek olmali, (2) sayfanin H1'i ve
+// JSON-LD'si SUNUCUDA bulunmali, (3) sebep koda da yazilmis olmali.
+const EXEMPT = {
+  '/tr/oku': 'ReadingMode 21 SSR-guvensiz durum tasiyor (window/localStorage dogrudan); ssr:false bilincli. H1 + JSON-LD page.js icinde sunucuda.',
+  '/en/oku': 'ayni sebep',
+};
+
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
 const page = await ctx.newPage();
@@ -73,10 +83,14 @@ console.log('\n─── SSR KAPSAMI (ilk HTML / hidrasyon sonrası) ───�
 console.log('  rota'.padEnd(40), 'ilk HTML'.padStart(9), 'DOM'.padStart(8), 'oran'.padStart(7));
 rows.sort((a, b) => a.ratio - b.ratio);
 for (const x of rows) {
-  const flag = x.ratio < MIN ? ' ✗' : '';
+  const flag = x.ratio < MIN ? (EXEMPT[x.r] ? ' ○ muaf' : ' ✗') : '';
   console.log('  ' + x.r.padEnd(38), String(x.ssr).padStart(9), String(x.dom).padStart(8),
               (x.ratio * 100).toFixed(0).padStart(6) + '%' + flag + (x.err ? '  ' + x.err : ''));
 }
-const bad = rows.filter(x => x.ratio < MIN);
-console.log(`\n  eşik: %${(MIN * 100).toFixed(0)} · eşiğin altında: ${bad.length}/${rows.length}\n`);
+const bad = rows.filter(x => x.ratio < MIN && !EXEMPT[x.r]);
+const exempt = rows.filter(x => x.ratio < MIN && EXEMPT[x.r]);
+console.log(`\n  eşik: %${(MIN * 100).toFixed(0)} · eşiğin altında: ${bad.length}/${rows.length}` +
+            (exempt.length ? ` · muaf: ${exempt.length}` : '') + '\n');
+for (const x of exempt) console.log(`  ○ ${x.r}: ${EXEMPT[x.r]}`);
+if (exempt.length) console.log('');
 if (bad.length && CI) process.exit(1);

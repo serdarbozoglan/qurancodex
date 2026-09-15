@@ -183,7 +183,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
   const pageBg = dayMode ? COLORS.paperCream : COLORS.cosmicBlack;
   // Kitap modunun ayet-rozeti rengiyle BİREBİR aynı olsun diye — bu dosyanın
   // kendi `C.ayahNum`'u (gündüz '#b45309') Kitap modunun altınından
-  // (COLORS.paperGold '#9a6f10') FARKLI bir hex'ti; kullanıcı 2026-08-26
+  // (COLORS.paperGold) FARKLI bir hex'ti; kullanıcı 2026-08-26
   // "aynı renk mi" diye defalarca sordu, ölçünce gerçekten farklı çıktı.
   // Rozetler artık `C.ayahNum` değil bu kanonik değeri kullanır.
   const badgeGold = dayMode ? COLORS.paperGold : COLORS.gold;

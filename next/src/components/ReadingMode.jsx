@@ -3268,7 +3268,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       background: C.bg,
       boxShadow: isMobile
         ? `inset 0 0 0 1px ${dayMode ? 'rgba(122,82,21,0.22)' : 'rgba(200,185,165,0.22)'}`
-        : `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`,
+        : `inset 0 0 0 1px ${dayMode ? 'rgba(138,99,0,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`,
       pointerEvents: 'none',
       // Metnin ARKASINDA kalmalı — pozitif/0 z-index'li konumlu bir katman
       // akıştaki kardeş metinlerin ÜSTÜNE boyanır ve yazıyı örterdi.
@@ -4507,8 +4507,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '5px', flexShrink: 0,
                     padding: '3px 12px', borderRadius: RADIUS.pill, cursor: 'pointer',
-                    background: dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.12)',
-                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.35)' : 'rgba(212,165,116,0.35)'}`,
+                    background: dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.12)',
+                    border: `1px solid ${dayMode ? 'rgba(138,99,0,0.35)' : 'rgba(212,165,116,0.35)'}`,
                     color: gold, fontSize: '0.74rem', fontWeight: 600, whiteSpace: 'nowrap',
                     fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
                   }}
@@ -4641,11 +4641,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     display: 'flex', alignItems: 'center', gap: '10px',
                     width: '100%', padding: '9px 12px', textAlign: 'left',
                     background: dropC.itemBgActive,
-                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.18)' : COLORS.goldAlpha15}`,
+                    border: `1px solid ${dayMode ? 'rgba(138,99,0,0.18)' : COLORS.goldAlpha15}`,
                     borderLeft: `3px solid ${gold}`, borderRadius: RADIUS.md,
                     cursor: 'pointer', transition: 'background 0.12s',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.14)' : 'rgba(212,165,116,0.14)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.14)' : 'rgba(212,165,116,0.14)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = dropC.itemBgActive; }}
                 >
                   <svg aria-hidden="true" width="13" height="16" viewBox="0 0 14 18" fill="none" style={{ flexShrink: 0 }}>
@@ -5298,10 +5298,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 width: '40px', height: '22px', borderRadius: '11px', cursor: 'pointer', position: 'relative', flexShrink: 0,
                 background: showTranslation
-                  ? (dayMode ? 'rgba(154,111,16,0.25)' : 'rgba(200,185,165,0.72)')
+                  ? (dayMode ? 'rgba(138,99,0,0.25)' : 'rgba(200,185,165,0.72)')
                   : (dayMode ? 'rgba(0,0,0,0.12)' : COLORS.glassBorder),
                 border: `1px solid ${showTranslation
-                  ? (dayMode ? 'rgba(154,111,16,0.5)' : 'rgba(212,165,116,0.7)')
+                  ? (dayMode ? 'rgba(138,99,0,0.5)' : 'rgba(212,165,116,0.7)')
                   : (dayMode ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.15)')}`,
                 transition: `all ${TRANSITION.base}`,
               }}
@@ -6507,7 +6507,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 return (
                   <button key={`s-${surah}`}
                     onClick={() => { changeSurah(surah); close(); }}
-                    style={{ ...srRow, background: isActive ? (dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.10)') : 'transparent' }}
+                    style={{ ...srRow, background: isActive ? (dayMode ? 'rgba(138,99,0,0.12)' : 'rgba(212,165,116,0.10)') : 'transparent' }}
                     onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = itemBgHover; }}
                     onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                   >
@@ -6568,13 +6568,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     width: 'calc(100% - 24px)',
                     boxSizing: 'border-box',
                     borderBottom: 'none',
-                    background: dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)',
-                    border: `1px solid ${dayMode ? 'rgba(154,111,16,0.18)' : COLORS.goldAlpha15}`,
+                    background: dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.08)',
+                    border: `1px solid ${dayMode ? 'rgba(138,99,0,0.18)' : COLORS.goldAlpha15}`,
                     borderLeft: `3px solid ${gold}`,
                     borderRadius: RADIUS.chip,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.16)' : 'rgba(212,165,116,0.14)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.16)' : 'rgba(212,165,116,0.14)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.08)'; }}
                 >
                   <div style={srIcon}>
                     <svg aria-hidden="true" width="12" height="14" viewBox="0 0 14 18" fill="none">
@@ -6716,8 +6716,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                     width: 'calc(100% - 32px)', margin: '8px 16px 4px',
                     padding: '10px 16px',
-                    background: dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.04)',
-                    border: `1px dashed ${dayMode ? 'rgba(154,111,16,0.22)' : COLORS.goldAlpha20}`,
+                    background: dayMode ? 'rgba(138,99,0,0.06)' : 'rgba(212,165,116,0.04)',
+                    border: `1px dashed ${dayMode ? 'rgba(138,99,0,0.22)' : COLORS.goldAlpha20}`,
                     borderRadius: RADIUS.chip,
                     color: dayMode ? 'rgba(80,50,20,0.72)' : 'rgba(200,185,165,0.78)',
                     fontFamily: 'Inter, sans-serif',
@@ -6728,11 +6728,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     transition: 'background 0.15s, color 0.15s',
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.08)';
+                    e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.12)' : 'rgba(212,165,116,0.08)';
                     e.currentTarget.style.color = gold;
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(212,165,116,0.04)';
+                    e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.06)' : 'rgba(212,165,116,0.04)';
                     e.currentTarget.style.color = dayMode ? 'rgba(80,50,20,0.72)' : 'rgba(200,185,165,0.78)';
                   }}
                 >
@@ -6903,7 +6903,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <div className="mq-box" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "40px", '--pl-m': "16px",
-              borderBottom: `1px solid ${dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.1)'}`,
+              borderBottom: `1px solid ${dayMode ? 'rgba(138,99,0,0.15)' : 'rgba(212,165,116,0.1)'}`,
               flexShrink: 0,
             }}>
               <div>
@@ -6919,7 +6919,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 style={{
                   padding: '6px 14px', borderRadius: RADIUS.md, cursor: 'pointer',
                   background: 'transparent',
-                  border: `1px solid ${dayMode ? 'rgba(154,111,16,0.22)' : COLORS.goldAlpha20}`,
+                  border: `1px solid ${dayMode ? 'rgba(138,99,0,0.22)' : COLORS.goldAlpha20}`,
                   color: dayMode ? C.muted : 'rgba(200,185,165,0.65)',
                   fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.05em',
                 }}
@@ -6965,7 +6965,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </p>
 
               {/* Divider */}
-              <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
+              <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(138,99,0,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
 
               {/* Salavat */}
               <div style={{ fontSize: '0.57rem', color: dayMode ? C.muted : 'rgba(200,185,165,0.45)', letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '14px' }}>
@@ -6989,7 +6989,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </p>
 
               {/* Divider */}
-              <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
+              <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(138,99,0,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
 
               {/* Hatim Duası */}
               <div style={{ fontSize: '0.57rem', color: dayMode ? C.muted : 'rgba(200,185,165,0.45)', letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '14px' }}>
@@ -7025,7 +7025,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </p>
 
               {/* Divider */}
-              <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
+              <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(138,99,0,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
 
               {/* Extended dua for parents and believers */}
               <div className="mq-fs" style={{
@@ -7048,8 +7048,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* Fatiha suggestion */}
               <div style={{
                 padding: '12px 16px', borderRadius: RADIUS.chip,
-                background: dayMode ? 'rgba(154,111,16,0.07)' : 'rgba(212,165,116,0.06)',
-                border: `1px solid ${dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.12)'}`,
+                background: dayMode ? 'rgba(138,99,0,0.07)' : 'rgba(212,165,116,0.06)',
+                border: `1px solid ${dayMode ? 'rgba(138,99,0,0.15)' : 'rgba(212,165,116,0.12)'}`,
                 display: 'flex', alignItems: 'center', gap: '10px',
               }}>
                 <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -7279,7 +7279,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   boxShadow: showPageFrame
                     ? (isMobile
                         ? `inset 0 0 0 1px ${dayMode ? 'rgba(122,82,21,0.22)' : 'rgba(200,185,165,0.22)'}`
-                        : `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`)
+                        : `inset 0 0 0 1px ${dayMode ? 'rgba(138,99,0,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`)
                     : 'none',
                   background: C.bg,
                   borderRadius: showPageFrame ? '6px' : 0,
@@ -7705,7 +7705,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 // gece temasından bağımsız hep krem çerçeve.
                 const isImageModeL = ENABLE_MUSHAF_IMAGE_MODE && mushafMode;
                 const frameDayL = dayMode || isImageModeL;
-                const frameOuterL = frameDayL ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                const frameOuterL = frameDayL ? 'rgba(138,99,0,0.65)' : 'rgba(232,181,71,0.55)';
                 const frameInnerL = frameDayL ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
                 const colBgL = isImageModeL ? COLORS.paperCream : C.bg;
                 const frameDoubleL = showPageFrame
@@ -8266,7 +8266,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 // karanlık bir odada açık bir kitap okumak gibi.
                 const isImageMode = ENABLE_MUSHAF_IMAGE_MODE && mushafMode;
                 const frameDay = dayMode || isImageMode;
-                const frameOuter = frameDay ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                const frameOuter = frameDay ? 'rgba(138,99,0,0.65)' : 'rgba(232,181,71,0.55)';
                 const frameInner = frameDay ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
                 const colBg = isImageMode ? COLORS.paperCream : C.bg;
                 const frameDouble = showPageFrame
@@ -8527,7 +8527,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     // kutusunu sarıyor (frameOuter/Inner formülü dıştaki ile
                     // AYNI, sadece bu iç kapsamda yeniden hesaplandı çünkü
                     // dıştaki IIFE'nin lokal değişkenine buradan erişilemiyor).
-                    const innerFrameOuter = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                    const innerFrameOuter = dayMode ? 'rgba(138,99,0,0.65)' : 'rgba(232,181,71,0.55)';
                     const innerFrameInner = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
                     const innerFrameDouble = showPageFrame
                       ? `inset 0 0 0 1px ${innerFrameOuter}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${innerFrameInner}`
@@ -10331,17 +10331,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           // brown/deep-gold toward a warm-cream amber) so the tab reads as
           // an inviting control rather than a recessed brown groove.
           const defaultBg = enabled
-            ? (dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(232,181,71,0.22)')
+            ? (dayMode ? 'rgba(138,99,0,0.18)' : 'rgba(232,181,71,0.22)')
             : 'transparent';
           const defaultColor = enabled
-            ? (dayMode ? 'rgba(154,111,16,0.88)' : 'rgba(244,206,131,0.95)')
+            ? (dayMode ? 'rgba(138,99,0,0.88)' : 'rgba(244,206,131,0.95)')
             : 'transparent';
           const defaultBorder = enabled
-            ? (dayMode ? 'rgba(154,111,16,0.45)' : 'rgba(232,181,71,0.55)')
+            ? (dayMode ? 'rgba(138,99,0,0.45)' : 'rgba(232,181,71,0.55)')
             : 'transparent';
           const defaultShadow = enabled
             ? (dayMode
-                ? `0 2px 8px rgba(154,111,16,0.14), inset 0 0 0 1px rgba(232,181,71,0.20)`
+                ? `0 2px 8px rgba(138,99,0,0.14), inset 0 0 0 1px rgba(232,181,71,0.20)`
                 : `0 2px 12px rgba(0,0,0,0.40), inset 0 0 0 1px rgba(244,206,131,0.18)`)
             : 'none';
           return (
@@ -10372,9 +10372,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 // Hover bumps to a brighter, saturated amber — one step
                 // louder than the already-lightened default so the affordance
                 // is unmistakable on mouseover.
-                e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(232,181,71,0.38)';
+                e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.32)' : 'rgba(232,181,71,0.38)';
                 e.currentTarget.style.color = gold;
-                e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(232,181,71,0.75)';
+                e.currentTarget.style.borderColor = dayMode ? 'rgba(138,99,0,0.7)' : 'rgba(232,181,71,0.75)';
                 // Subtle parallax — glyph nudges in the page-turn direction.
                 // RTL: left=next → glyph slides left; right=prev → glyph slides right.
                 const glyph = e.currentTarget.querySelector('span[data-rm-page-glyph]');
@@ -11753,13 +11753,13 @@ function VerseCompareModal({
                   <>
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
                       position: 'absolute', inset: 0, borderRadius: RADIUS.full,
-                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      border: `1.5px solid ${dayMode ? 'rgba(138,99,0,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       pointerEvents: 'none',
                     }} />
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
                       position: 'absolute', inset: 0, borderRadius: RADIUS.full,
-                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      border: `1.5px solid ${dayMode ? 'rgba(138,99,0,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       animationDelay: '0.8s',
                       pointerEvents: 'none',
@@ -11791,16 +11791,16 @@ function VerseCompareModal({
                     background: audioFailed
                       ? (dayMode ? 'rgba(100,116,139,0.08)' : 'rgba(100,116,139,0.10)')
                       : audioPlaying
-                        ? (dayMode ? 'rgba(154,111,16,0.22)' : 'rgba(212,165,116,0.24)')
-                        : (dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.10)'),
+                        ? (dayMode ? 'rgba(138,99,0,0.22)' : 'rgba(212,165,116,0.24)')
+                        : (dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.10)'),
                     border: `1px solid ${audioFailed
                       ? (dayMode ? 'rgba(100,116,139,0.25)' : 'rgba(100,116,139,0.3)')
                       : audioPlaying
-                        ? (dayMode ? 'rgba(154,111,16,0.6)' : 'rgba(212,165,116,0.7)')
-                        : (dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)')}`,
+                        ? (dayMode ? 'rgba(138,99,0,0.6)' : 'rgba(212,165,116,0.7)')
+                        : (dayMode ? 'rgba(138,99,0,0.32)' : 'rgba(212,165,116,0.32)')}`,
                     color: audioFailed
                       ? (dayMode ? 'rgba(0,0,0,0.35)' : 'rgba(148,163,184,0.5)')
-                      : (dayMode ? '#9a6f10' : COLORS.gold),
+                      : (dayMode ? COLORS.paperGold : COLORS.gold),
                     cursor: audioFailed ? 'not-allowed' : 'pointer',
                     opacity: audioFailed ? 0.55 : 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -11810,16 +11810,16 @@ function VerseCompareModal({
                     if (audioFailed) return;
                     e.currentTarget.style.transform = 'scale(1.07)';
                     if (!audioPlaying) {
-                      e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(212,165,116,0.18)';
-                      e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.5)' : 'rgba(212,165,116,0.55)';
+                      e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.18)' : 'rgba(212,165,116,0.18)';
+                      e.currentTarget.style.borderColor = dayMode ? 'rgba(138,99,0,0.5)' : 'rgba(212,165,116,0.55)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (audioFailed) return;
                     e.currentTarget.style.transform = 'scale(1)';
                     if (!audioPlaying) {
-                      e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.10)';
-                      e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)';
+                      e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.10)';
+                      e.currentTarget.style.borderColor = dayMode ? 'rgba(138,99,0,0.32)' : 'rgba(212,165,116,0.32)';
                     }
                   }}
                 >
@@ -11944,13 +11944,13 @@ function VerseCompareModal({
                   <>
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
                       position: 'absolute', inset: 0, borderRadius: RADIUS.full,
-                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      border: `1.5px solid ${dayMode ? 'rgba(138,99,0,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       pointerEvents: 'none',
                     }} />
                     <span aria-hidden className="rm-audio-pulse-ring" style={{
                       position: 'absolute', inset: 0, borderRadius: RADIUS.full,
-                      border: `1.5px solid ${dayMode ? 'rgba(154,111,16,0.7)' : 'rgba(212,165,116,0.9)'}`,
+                      border: `1.5px solid ${dayMode ? 'rgba(138,99,0,0.7)' : 'rgba(212,165,116,0.9)'}`,
                       animation: 'rm-audio-pulse 1.6s ease-out infinite',
                       animationDelay: '0.8s',
                       pointerEvents: 'none',
@@ -11974,16 +11974,16 @@ function VerseCompareModal({
                     background: audioFailed
                       ? (dayMode ? 'rgba(100,116,139,0.08)' : 'rgba(100,116,139,0.10)')
                       : audioPlaying
-                        ? (dayMode ? 'rgba(154,111,16,0.22)' : 'rgba(212,165,116,0.24)')
-                        : (dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.10)'),
+                        ? (dayMode ? 'rgba(138,99,0,0.22)' : 'rgba(212,165,116,0.24)')
+                        : (dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.10)'),
                     border: `1px solid ${audioFailed
                       ? (dayMode ? 'rgba(100,116,139,0.25)' : 'rgba(100,116,139,0.3)')
                       : audioPlaying
-                        ? (dayMode ? 'rgba(154,111,16,0.6)' : 'rgba(212,165,116,0.7)')
-                        : (dayMode ? 'rgba(154,111,16,0.32)' : 'rgba(212,165,116,0.32)')}`,
+                        ? (dayMode ? 'rgba(138,99,0,0.6)' : 'rgba(212,165,116,0.7)')
+                        : (dayMode ? 'rgba(138,99,0,0.32)' : 'rgba(212,165,116,0.32)')}`,
                     color: audioFailed
                       ? (dayMode ? 'rgba(0,0,0,0.35)' : 'rgba(148,163,184,0.5)')
-                      : (dayMode ? '#9a6f10' : COLORS.gold),
+                      : (dayMode ? COLORS.paperGold : COLORS.gold),
                     cursor: audioFailed ? 'not-allowed' : 'pointer',
                     opacity: audioFailed ? 0.55 : 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',

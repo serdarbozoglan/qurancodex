@@ -365,8 +365,8 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                 aria-label={language === 'tr' ? 'Tefsir kaynağını seç' : 'Select tafsir source'}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '6px',
-                  background: dayMode ? 'rgba(154,111,16,0.08)' : 'rgba(212,165,116,0.08)',
-                  border: `1px solid ${dayMode ? 'rgba(154,111,16,0.28)' : 'rgba(212,165,116,0.24)'}`,
+                  background: dayMode ? 'rgba(138,99,0,0.08)' : 'rgba(212,165,116,0.08)',
+                  border: `1px solid ${dayMode ? 'rgba(138,99,0,0.28)' : 'rgba(212,165,116,0.24)'}`,
                   color: C.gold, fontFamily: 'inherit', fontSize: 'inherit',
                   fontWeight: 'inherit', letterSpacing: 'inherit',
                   textTransform: 'uppercase', padding: '3px 10px',
@@ -374,12 +374,12 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                   transition: 'background 0.15s, border-color 0.15s',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.18)' : 'rgba(212,165,116,0.18)';
-                  e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.50)' : 'rgba(212,165,116,0.48)';
+                  e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.18)' : 'rgba(212,165,116,0.18)';
+                  e.currentTarget.style.borderColor = dayMode ? 'rgba(138,99,0,0.50)' : 'rgba(212,165,116,0.48)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.08)' : 'rgba(212,165,116,0.08)';
-                  e.currentTarget.style.borderColor = dayMode ? 'rgba(154,111,16,0.28)' : 'rgba(212,165,116,0.24)';
+                  e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.08)' : 'rgba(212,165,116,0.08)';
+                  e.currentTarget.style.borderColor = dayMode ? 'rgba(138,99,0,0.28)' : 'rgba(212,165,116,0.24)';
                 }}
               >
                 <span>{source.shortName}</span>
@@ -410,13 +410,13 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                         style={{
                           display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
                           gap: '2px', width: '100%', padding: '8px 12px',
-                          background: active ? (dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.10)') : 'transparent',
+                          background: active ? (dayMode ? 'rgba(138,99,0,0.12)' : 'rgba(212,165,116,0.10)') : 'transparent',
                           border: 'none', borderRadius: '6px',
                           textAlign: 'left', cursor: 'pointer',
                           color: C.text,
                           fontFamily: FONTS.body,
                         }}
-                        onMouseEnter={e => { if (!active) e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.06)' : 'rgba(255,255,255,0.04)'; }}
+                        onMouseEnter={e => { if (!active) e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.06)' : 'rgba(255,255,255,0.04)'; }}
                         onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent'; }}
                       >
                         <span style={{
