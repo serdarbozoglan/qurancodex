@@ -751,7 +751,7 @@ function ComparisonMatrixTab({ language, isMobile, matrix }) {
       }}>
         <div style={{
           fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          color: '#e74c3c', fontWeight: 700, marginBottom: '8px',
+          color: COLORS.red, fontWeight: 700, marginBottom: '8px',
           fontFamily: FONTS.body,
         }}>{tr ? "AKADEMİK NOT" : "ACADEMIC NOTE"}</div>
         <p style={{

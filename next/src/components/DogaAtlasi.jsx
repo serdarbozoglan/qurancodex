@@ -23,18 +23,18 @@ const ANIMAL_CONTEXT_COLORS = {
   'haram-helal':     COLORS.softRed,
   'cennet-cehennem': '#22c55e',
   'sure-adi':        '#fbbf24',
-  'mecaz':           '#60a5fa',
-  'hapax':           '#a78bfa',
+  'mecaz':           COLORS.idgam,
+  'hapax':           COLORS.purple,
 };
 
 const PLANT_CONTEXT_COLORS = {
   'cennet': '#22c55e',
   'cehennem': COLORS.softRed,
   'dunya': COLORS.gold,
-  'yemin': '#a78bfa',
+  'yemin': COLORS.purple,
   'kissa': '#14b8a6',
-  'mecaz': '#60a5fa',
-  'hapax': '#a78bfa',
+  'mecaz': COLORS.idgam,
+  'hapax': COLORS.purple,
 };
 
 // ── Filter option lists ───────────────────────────────────────────────────────
@@ -721,8 +721,8 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
   }
   const letters = Object.keys(groups).sort((a, b) => a.localeCompare(b, language === 'tr' ? 'tr' : 'en'));
 
-  const PURPLE = '#a78bfa';
-  const PURPLE_LIGHT = '#c084fc';
+  const PURPLE = COLORS.purple;
+  const PURPLE_LIGHT = COLORS.med;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

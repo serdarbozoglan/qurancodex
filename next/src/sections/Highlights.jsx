@@ -123,7 +123,7 @@ function SolarLunarConverter({ accent }) {
 // as a curated collection rather than a flat list.
 const CARD_THEMES = [
   {
-    color: '#A78BFA', // violet — brain/neuroscience
+    color: COLORS.purple, // violet — brain/neuroscience
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/>
@@ -132,7 +132,7 @@ const CARD_THEMES = [
     ),
   },
   {
-    color: '#F472B6', // pink — fingerprint
+    color: COLORS.rose, // pink — fingerprint
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4"/>
@@ -155,7 +155,7 @@ const CARD_THEMES = [
     ),
   },
   {
-    color: '#60A5FA', // blue — word/map
+    color: COLORS.idgam, // blue — word/map
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
         <rect x="2" y="14" width="4" height="8" rx="1"/>

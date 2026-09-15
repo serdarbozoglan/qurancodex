@@ -47,10 +47,10 @@ const normalizeAr = cleanArabicForDisplay;
 // ── Kategori → renk eşleşmesi (semantik) ─────────────────────────────────────
 const CATEGORY_COLORS = {
   secilmis:        COLORS.gold,        // seçilmiş, alemlerin kadınlarına üstün kılınanlar
-  'peygamber-esi': '#a78bfa',          // peygamber eşi — purple (ortaklık)
-  anne:            '#2ecc71',          // anne — emerald (yaşam)
-  hukumdar:        '#e67e22',          // hükümdar — turuncu (otorite)
-  'karsi-ornek':   '#DE734F',          // karşıt örnek (Lût/Nuh eşi) — coral (uyarı)
+  'peygamber-esi': COLORS.purple,          // peygamber eşi — purple (ortaklık)
+  anne:            COLORS.softEmerald,          // anne — emerald (yaşam)
+  hukumdar:        COLORS.orange,          // hükümdar — turuncu (otorite)
+  'karsi-ornek':   COLORS.coralBright,          // karşıt örnek (Lût/Nuh eşi) — coral (uyarı)
   diger:           COLORS.silver,      // diğer
 };
 

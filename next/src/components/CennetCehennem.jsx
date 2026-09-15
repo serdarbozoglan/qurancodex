@@ -21,10 +21,10 @@ import useTabParam from '../hooks/useTabParam';
 import cennetCehennemDataStatic from '../../public/cennet-cehennem.json';
 
 // ── Color system ──────────────────────────────────────────────────────────────
-const CENNET   = { accent: '#2BA47D', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
-const CEHENNEM = { accent: '#DE734F', bg: 'rgba(153,60,29,0.12)',   border: 'rgba(216,90,48,0.28)' };
+const CENNET   = { accent: COLORS.emeraldBright, bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
+const CEHENNEM = { accent: COLORS.coralBright, bg: 'rgba(153,60,29,0.12)',   border: 'rgba(216,90,48,0.28)' };
 const ARAF     = { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28 };
-const HAPAX    = '#a78bfa';
+const HAPAX    = COLORS.purple;
 const GOLD     = COLORS.softGold;
 
 // ── Reusable components ───────────────────────────────────────────────────────
@@ -1550,7 +1550,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
   // Classical descending order (varies by source; using İbn Kesîr al-Bidāya order)
   const ORDER = ['cehennem', 'leza', 'sair', 'sakar', 'cahim', 'hutame', 'haviye'];
   const list = ORDER.map(id => names.find(n => n.id === id)).filter(Boolean);
-  const shades = ['#e74c3c', '#c0392b', '#a63030', '#8B0000', '#6d0000', '#500000', '#2d0000'];
+  const shades = [COLORS.red, '#c0392b', '#a63030', '#8B0000', '#6d0000', '#500000', '#2d0000'];
 
   return (
     <div className="mq-box" style={{
@@ -1562,7 +1562,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
     }}>
       <div style={{
         fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-        color: '#e74c3c',  fontWeight: 700,
+        color: COLORS.red,  fontWeight: 700,
         marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
       }}>
         {tr ? "CEHENNEMİN 7 İSMİ · İNEN DAİRELER" : "THE 7 NAMES OF HELL · DESCENDING CIRCLES"}

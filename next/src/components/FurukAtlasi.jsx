@@ -36,11 +36,11 @@ function surahRefLabel(ref) {
 
 
 const CONTEXT_COLORS = {
-  negative: '#e74c3c',
-  positive: '#2ecc71',
+  negative: COLORS.red,
+  positive: COLORS.softEmerald,
   neutral:  '#95a5a6',
   divine:   '#9b59b6',
-  ritual:   '#c9a227',
+  ritual:   COLORS.royalGold,
 };
 
 const CONTEXT_LABELS = {
@@ -1472,9 +1472,9 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
 function TabSources({ sources, totalGroups, language, isMobile }) {
   const tr = language === 'tr';
   const ROLE_COLORS = {
-    'Kurucu': '#e74c3c', 'Founder': '#e74c3c',
-    'Geliştirici': '#3498db', 'Developer': '#3498db',
-    'Çağdaş': '#2ecc71', 'Contemporary': '#2ecc71',
+    'Kurucu': COLORS.red, 'Founder': COLORS.red,
+    'Geliştirici': COLORS.skyBlue, 'Developer': COLORS.skyBlue,
+    'Çağdaş': COLORS.softEmerald, 'Contemporary': COLORS.softEmerald,
   };
 
   return (

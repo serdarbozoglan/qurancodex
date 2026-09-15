@@ -36,7 +36,7 @@ const BG_GRADIENT =
  * @param {string} args.title       Latin title (locale-resolved).
  * @param {string} args.subtitle    One-line descriptor below the title.
  * @param {string} args.glyph       Arabic glyph (RTL, single short word/phrase).
- * @param {string} args.accentColor Hex (e.g. '#60a5fa') — drives glyph + line.
+ * @param {string} args.accentColor Hex (e.g. COLORS.idgam) — drives glyph + line.
  * @returns {ImageResponse}
  */
 export function toolOgCard({ category, title, subtitle, glyph, accentColor }) {

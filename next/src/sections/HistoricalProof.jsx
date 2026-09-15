@@ -324,10 +324,10 @@ export default function HistoricalProof() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? '↗ KUR’AN’DA KAVİMLER: ATLASI AÇ' : '↗ PEOPLES IN THE QUR’AN: OPEN THE ATLAS'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
                 ? 'Âd · Semûd · Lût kavmi · Medyen · Sebeʾ · Firavun: kavimlerin akıbeti, helak ve kurtuluş kalıpları'
                 : 'ʿĀd · Thamūd · the people of Lot · Madyan · Sabaʾ · Pharaoh: the fate of nations, patterns of destruction and salvation'}

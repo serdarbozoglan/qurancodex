@@ -26,15 +26,15 @@ import nuanslarDataStatic from '../../public/yakin-anlamli-nuanslar.json';
 
 const CATEGORY_COLORS = {
   'iç-dünya':      '#F286A8',
-  'insan-tanımı':  '#3498db',
-  'bilgi':         '#c9a96e',
-  'duygu':         '#f472b6',
-  'ilahi-lütuf':   '#4ade80',
-  'yönlenme':      '#a78bfa',
-  'ilahi-isim':    '#d4a574',
-  'duruş':         '#22d3ee',
+  'insan-tanımı':  COLORS.skyBlue,
+  'bilgi':         COLORS.softGold,
+  'duygu':         COLORS.rose,
+  'ilahi-lütuf':   COLORS.gunne,
+  'yönlenme':      COLORS.purple,
+  'ilahi-isim':    COLORS.gold,
+  'duruş':         COLORS.color,
   'erdem':         '#fdba74',
-  'ahiret':        '#e74c3c',
+  'ahiret':        COLORS.red,
 };
 
 export default function YakinAnlamliNuanslar({ onClose }) {

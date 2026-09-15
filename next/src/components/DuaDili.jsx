@@ -591,7 +591,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#3498db',  marginBottom: '4px',
+                color: COLORS.skyBlue,  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "TALEP" : "REQUEST"}</div>
               <div style={{
@@ -604,7 +604,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#2ecc71',  marginBottom: '4px',
+                color: COLORS.softEmerald,  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "CEVAP" : "RESPONSE"}</div>
               <div style={{
@@ -617,7 +617,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: '#a78bfa',  marginBottom: '4px',
+                color: COLORS.purple,  marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "SÜRE / EK" : "TIME / EXTRA"}</div>
               <div style={{

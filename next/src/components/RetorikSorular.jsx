@@ -125,7 +125,7 @@ export default function RetorikSorular({ onClose }) {
 
   const activeAile = activeFamilyId === 'istifham' ? null : aileler.aileler.find(a => a.id === activeFamilyId);
   const FAMILY_TABS = [
-    { id: 'istifham', color: '#c9a227', titleTr: 'İstifhâm', titleEn: 'Istifhām' },
+    { id: 'istifham', color: COLORS.royalGold, titleTr: 'İstifhâm', titleEn: 'Istifhām' },
     ...aileler.aileler.map(a => ({ id: a.id, color: a.color, titleTr: a.titleTr.split(' —')[0], titleEn: a.titleEn.split(' —')[0] })),
   ];
 

@@ -286,9 +286,9 @@ export default function KuranYeminleri({ onClose }) {
           }}>
             {[
               { value: meta.totalOaths, labelTr: 'Bileşik Yemin', labelEn: 'Compound Oaths', color: COLORS.gold },
-              { value: meta.surahsWithOaths, labelTr: 'Yemin İçeren Sûre', labelEn: 'Surahs with Oaths', color: '#2ecc71' },
-              { value: meta.maxOathsInSurah, labelTr: `${meta.maxOathsSurahName} Sûresi`, labelEn: `Surah ${meta.maxOathsSurahName}`, color: '#e74c3c' },
-              { value: `${meta.meccanCount}/${meta.surahsWithOaths}`, labelTr: 'Mekkî Sûre', labelEn: 'Meccan Surahs', color: '#3498db' },
+              { value: meta.surahsWithOaths, labelTr: 'Yemin İçeren Sûre', labelEn: 'Surahs with Oaths', color: COLORS.softEmerald },
+              { value: meta.maxOathsInSurah, labelTr: `${meta.maxOathsSurahName} Sûresi`, labelEn: `Surah ${meta.maxOathsSurahName}`, color: COLORS.red },
+              { value: `${meta.meccanCount}/${meta.surahsWithOaths}`, labelTr: 'Mekkî Sûre', labelEn: 'Meccan Surahs', color: COLORS.skyBlue },
             ].map((s, i) => (
               <div key={i} style={{
                 background: `${s.color}10`,
@@ -869,7 +869,7 @@ function OathCard({ item, accent, language, compact = false }) {
               {language === 'tr' ? item.subjectTr : item.subjectEn}
             </span>
             {isCompound && (
-              <span style={{ padding: '2px 8px', background: 'rgba(167,139,250,0.12)', border: `1px solid rgba(167,139,250,0.35)`, borderRadius: RADIUS.lg, color: '#a78bfa', fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+              <span style={{ padding: '2px 8px', background: 'rgba(167,139,250,0.12)', border: `1px solid rgba(167,139,250,0.35)`, borderRadius: RADIUS.lg, color: COLORS.purple, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                 {language === 'tr' ? `🔗 Bileşik · ${item.compoundParts.length} öğe` : `🔗 Compound · ${item.compoundParts.length} parts`}
               </span>
             )}
@@ -1280,9 +1280,9 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
       <div className="g-2-4" style={{ display: 'grid',  gap: '12px', marginBottom: '20px' }}>
         {[
           { value: sorted.length, labelTr: 'Sûre', labelEn: 'Surahs', color: COLORS.gold },
-          { value: total, labelTr: 'Bileşik Yemin', labelEn: 'Compound Oaths', color: '#3498db' },
-          { value: sorted[0]?.[0], labelTr: 'En Çok Yemin', labelEn: 'Most Oaths', color: '#2ecc71', small: true },
-          { value: sorted[0]?.[1].count, labelTr: `${sorted[0]?.[0]} Yemini`, labelEn: `${sorted[0]?.[0]} Oaths`, color: '#e74c3c' },
+          { value: total, labelTr: 'Bileşik Yemin', labelEn: 'Compound Oaths', color: COLORS.skyBlue },
+          { value: sorted[0]?.[0], labelTr: 'En Çok Yemin', labelEn: 'Most Oaths', color: COLORS.softEmerald, small: true },
+          { value: sorted[0]?.[1].count, labelTr: `${sorted[0]?.[0]} Yemini`, labelEn: `${sorted[0]?.[0]} Oaths`, color: COLORS.red },
         ].map((s, i) => (
           <div key={i} style={{
             background: `${s.color}10`, border: `1px solid ${s.color}25`,
@@ -1333,7 +1333,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
                 </div>
                 {meta.medinanCount > 0 && (
                   <div style={{
-                    flex: 1, background: '#2ecc71',
+                    flex: 1, background: COLORS.softEmerald,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: COLORS.cosmicBlack, fontSize: '0.72rem', fontWeight: 800, fontFamily: FONTS.body,
                   }}>
@@ -2586,7 +2586,7 @@ function YeminCevapReveal({ language, isMobile }) {
                     <span style={{
                       fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
                       letterSpacing: '0.2em', textTransform: 'uppercase',
-                      color: '#2ecc71',
+                      color: COLORS.softEmerald,
                       padding: '3px 8px',
                       background: 'rgba(46,204,113,0.08)',
                       border: '1px solid rgba(46,204,113,0.25)',
@@ -2608,7 +2608,7 @@ function YeminCevapReveal({ language, isMobile }) {
                     className="mq-fs" style={{
                       fontFamily: FONTS.quran,
                       '--fs-d': 'clamp(1.05rem, 1.85vw, 1.4rem)', '--fs-m': 'clamp(0.95rem, 3.8vw, 1.2rem)',
-                      color: '#2ecc71',
+                      color: COLORS.softEmerald,
                       lineHeight: 2.1,
                       margin: '0 0 14px',
                       textShadow: '0 0 16px rgba(46,204,113,0.18)',

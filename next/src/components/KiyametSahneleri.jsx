@@ -39,16 +39,16 @@ const KIYAMET_TAB_ICONS = ['clock','bookOpen','star','scale','book','list'];
 // Aynı ton ailesi korunarak açıldı; bg/border (düşük alfa, metin değil)
 // dokunulmadı.
 const PHASE_COLORS = {
-  1: { accent: '#D4786F', bg: 'rgba(192,57,43,0.10)',  border: 'rgba(192,57,43,0.28)' },
-  2: { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)', border: 'rgba(184,134,11,0.28)' },
-  3: { accent: '#5A9E8A', bg: 'rgba(29,122,95,0.10)',  border: 'rgba(29,122,95,0.28)'  },
-  4: { accent: '#828CDC', bg: 'rgba(59,75,200,0.10)',  border: 'rgba(59,75,200,0.28)'  },
-  5: { accent: '#A384D2', bg: 'rgba(123,79,191,0.10)', border: 'rgba(123,79,191,0.28)' },
-  6: { accent: '#2BA47D', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)' },
-  7: { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)', border: 'rgba(184,134,11,0.28)' },
+  1: { accent: COLORS.rustTextSafe, bg: 'rgba(192,57,43,0.10)',  border: 'rgba(192,57,43,0.28)' },
+  2: { accent: COLORS.btnGoldMid, bg: 'rgba(184,134,11,0.10)', border: 'rgba(184,134,11,0.28)' },
+  3: { accent: COLORS.sageTextSafe, bg: 'rgba(29,122,95,0.10)',  border: 'rgba(29,122,95,0.28)'  },
+  4: { accent: COLORS.indigoTextSafe, bg: 'rgba(59,75,200,0.10)',  border: 'rgba(59,75,200,0.28)'  },
+  5: { accent: COLORS.orchidTextSafe, bg: 'rgba(123,79,191,0.10)', border: 'rgba(123,79,191,0.28)' },
+  6: { accent: COLORS.emeraldBright, bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)' },
+  7: { accent: COLORS.btnGoldMid, bg: 'rgba(184,134,11,0.10)', border: 'rgba(184,134,11,0.28)' },
 };
 
-const HAPAX_COLOR = '#a78bfa';
+const HAPAX_COLOR = COLORS.purple;
 const GOLD = COLORS.gold;
 
 // Soft-gold note boxes (semantic "annotation" role).

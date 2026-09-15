@@ -970,18 +970,18 @@ function TabSorular({ data, tr, isMobile }) {
 
   const TYPE_COLORS = {
     erotema: COLORS.gold,
-    irsad:   '#3498db',
-    tevbih:  '#2ecc71',
-    taaccub: '#c084fc',
+    irsad:   COLORS.skyBlue,
+    tevbih:  COLORS.softEmerald,
+    taaccub: COLORS.med,
   };
   const TYPE_LABELS_TR = { erotema: 'İstifhâm-ı İnkârî', irsad: 'İstifhâm-ı İrşâdî', tevbih: 'İstifhâm-ı Tevbîhî', taaccub: 'İstifhâm-ı Taaccübî' };
   const TYPE_LABELS_EN = { erotema: 'Istifhām Inkārī', irsad: 'Istifhām Irshādī', tevbih: 'Istifhām Tawbīkhī', taaccub: 'Istifhām Taʿajjubī' };
 
-  const PATTERN_COLORS = { 've-ma-edrake': '#D85A30', 'efela-takılun': '#14b8a6', eleyse: '#8b5cf6' };
+  const PATTERN_COLORS = { 've-ma-edrake': COLORS.coral, 'efela-takılun': '#14b8a6', eleyse: '#8b5cf6' };
   const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse / E-lem' };
   const PATTERN_LABELS_EN = { 've-ma-edrake': 'Wa Ma Adraka', 'efela-takılun': 'Afala Taʿqilun', eleyse: 'Alaysa / A-lam' };
 
-  const ADDRESS_COLORS = { humanity: COLORS.gold, mushrikeen: '#e74c3c', prophet: '#c084fc', 'ehl-i-kitap': '#14b8a6', munafikun: COLORS.slate500 };
+  const ADDRESS_COLORS = { humanity: COLORS.gold, mushrikeen: COLORS.red, prophet: COLORS.med, 'ehl-i-kitap': '#14b8a6', munafikun: COLORS.slate500 };
   const ADDRESS_LABELS_TR = { humanity: 'İnsanlık', mushrikeen: 'Müşrik', prophet: 'Peygamber', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafık' };
   const ADDRESS_LABELS_EN = { humanity: 'Humanity', mushrikeen: 'Polytheist', prophet: 'Prophet', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrite' };
 
@@ -1139,17 +1139,17 @@ function TabSorular({ data, tr, isMobile }) {
 }
 function TabSureHaritasi({ data, tr, isMobile }) {
   const [_hoveredSurah, _setHoveredSurah] = useState(null);
-  const TYPE_COLORS = { erotema: COLORS.gold, irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
+  const TYPE_COLORS = { erotema: COLORS.gold, irsad: COLORS.skyBlue, tevbih: COLORS.softEmerald, taaccub: COLORS.med };
 
   return (
     <div className="mq-box" style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', '--pt-d': "28px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
       {/* ── BÖLÜM 1: MUHATAP × TİP MATRİSİ ─────────────── */}
       {(() => {
-        const TYPE_COLORS = { erotema: COLORS.gold, irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
+        const TYPE_COLORS = { erotema: COLORS.gold, irsad: COLORS.skyBlue, tevbih: COLORS.softEmerald, taaccub: COLORS.med };
         const TYPE_LABELS_TR = { erotema: 'İstifhâm-ı İnkârî', irsad: 'İstifhâm-ı İrşâdî', tevbih: 'İstifhâm-ı Tevbîhî', taaccub: 'İstifhâm-ı Taaccübî' };
         const TYPE_LABELS_EN = { erotema: 'Istifhām Inkārī', irsad: 'Istifhām Irshādī', tevbih: 'Istifhām Tawbīkhī', taaccub: 'Istifhām Taʿajjubī' };
-        const ADDR_COLORS = { humanity: COLORS.gold, mushrikeen: '#e74c3c', 'ehl-i-kitap': '#14b8a6', munafikun: COLORS.slate500, prophet: '#a78bfa' };
+        const ADDR_COLORS = { humanity: COLORS.gold, mushrikeen: COLORS.red, 'ehl-i-kitap': '#14b8a6', munafikun: COLORS.slate500, prophet: COLORS.purple };
         const ADDR_LABELS_TR = { humanity: 'Tüm İnsanlık', mushrikeen: 'Müşrikler', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafıklar', prophet: 'Hz. Peygamber' };
         const ADDR_LABELS_EN = { humanity: 'All Humanity', mushrikeen: 'Polytheists', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrites', prophet: 'The Prophet' };
         const types = ['erotema', 'irsad', 'tevbih', 'taaccub'];
@@ -1247,7 +1247,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
               borderRadius: '0 6px 6px 0',
             }}>
               <p style={{ color: `${COLORS.silver}90`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.7 }}>
-                <span style={{ color: '#a78bfa', fontWeight: 600 }}>
+                <span style={{ color: COLORS.purple, fontWeight: 600 }}>
                   {tr ? 'Hz. Peygamber\'e yönelen sorular:' : 'Questions to the Prophet:'}
                 </span>
                 {tr
@@ -1341,7 +1341,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
         </div>
         {/* Taaccüb analiz notu */}
         <div style={{ background: 'rgba(167,139,250,0.08)', borderLeft: `3px solid #c084fc`, padding: '10px 14px', borderRadius: 6, fontSize: '0.82rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.65 }}>
-          <span style={{ color: '#c084fc', fontWeight: 600, marginRight: 6 }}>
+          <span style={{ color: COLORS.med, fontWeight: 600, marginRight: 6 }}>
             {tr ? 'İstifhâm-ı Taaccübî:' : 'Istifhām Taʿajjubī:'}
           </span>
           {tr ? data.comparativeAnalysis.taaccubNoteTr : data.comparativeAnalysis.taaccubNoteEn}

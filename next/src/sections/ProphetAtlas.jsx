@@ -1386,7 +1386,7 @@ const PROPHETS = [
     subtitleTr: '950 yıllık davet: bir gemi, bir tufan, yeniden başlangıç',
     subtitleEn: '950 years of calling: one ark, one flood, a new beginning',
     mentions: 43,
-    color: '#f472b6', glow: 'rgba(244,114,182,0.65)', // TODO: tokenize — prophet-chart pink
+    color: COLORS.rose, glow: 'rgba(244,114,182,0.65)', // TODO: tokenize — prophet-chart pink
     surahs: [
       { s:54, phaseTr:'Nuh\'un kavminin inkârı', phaseEn:"Noah's People Deny" },
       { s:7,  phaseTr:'Kavmiyle tartışma', phaseEn:'Debate with His People' },
@@ -1425,7 +1425,7 @@ const PROPHETS = [
     subtitleTr: 'Sodom ve Gomorra\'nın sesi; üç meleğin misafir olduğu peygamber',
     subtitleEn: "The voice of Sodom and Gomorrah; the prophet who hosted three angels",
     mentions: 27,
-    color: '#f87171', glow: 'rgba(248,113,113,0.65)', // TODO: tokenize — prophet-chart red/warning
+    color: COLORS.kalkale, glow: 'rgba(248,113,113,0.65)', // TODO: tokenize — prophet-chart red/warning
     surahs: [
       { s:7,  phaseTr:'Kavminin sapkınlığı: ilk uyarı', phaseEn:"His People's Deviance: First Warning" },
       { s:26, phaseTr:'Peygamberliğin ilanı & red', phaseEn:'Declaration of Prophethood & Rejection' },
@@ -1471,7 +1471,7 @@ const PROPHETS = [
     subtitleTr: '30\'dan fazla sûrede: Kur\'an\'ın en geniş kapsamlı peygamber kıssası',
     subtitleEn: 'Across more than 30 surahs: the most expansive prophet narrative in the Quran',
     mentions: 136,
-    color: '#60a5fa', glow: 'rgba(96,165,250,0.65)', // TODO: tokenize — prophet-chart blue
+    color: COLORS.idgam, glow: 'rgba(96,165,250,0.65)', // TODO: tokenize — prophet-chart blue
     surahs: [
       { s:54, phaseTr:'İlk uyarı', phaseEn:'First Warning' },
       { s:7,  phaseTr:'Mısır\'da 9 mucize', phaseEn:'9 Miracles in Egypt' },
@@ -1493,7 +1493,7 @@ const PROPHETS = [
     subtitleTr: 'Zebûr, zafer ve dağların tesbihine katılan ses',
     subtitleEn: 'The Psalter, victory, and the voice joined by mountains in praise',
     mentions: 16,
-    color: '#22d3ee', glow: 'rgba(34,211,238,0.65)', // TODO: tokenize — prophet-chart cyan/psalms
+    color: COLORS.color, glow: 'rgba(34,211,238,0.65)', // TODO: tokenize — prophet-chart cyan/psalms
     surahs: [
       { s:2,  phaseTr:'Câlût\'a karşı zafer + hükümdarlık', phaseEn:'Victory Over Goliath + Kingship' },
       { s:4,  phaseTr:'Zebûr\'un verilişi', phaseEn:'The Giving of the Psalter' },

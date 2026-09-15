@@ -55,7 +55,7 @@ const BASE    = '[\u0600-\u063F\u0641-\u064A\u066E\u066F\u0671-\u06D3\u06D5]'; /
 const makeWaqfSpan = (dayMode) => (m) =>
   `<span style="display:inline-block;font-size:0.85em;font-weight:400;line-height:1;` +
   `position:relative;top:-0.15em;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;">${m}</span>`;
 
 // Vakıf işaretleri:
@@ -84,7 +84,7 @@ const WAQF_TA_RE = /ۜ/gu;
 const makeWaqfTaSpan = (dayMode) => () =>
   `<span dir="ltr" style="display:inline-block;width:0;line-height:0;overflow:visible;` +
   `font-size:0.45em;position:relative;top:-1.7em;transform:translateX(-0.3em);` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;">ط</span>`;
 
 
@@ -99,7 +99,7 @@ const makeSektaWrap = (dayMode) => (_m) =>
   `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">سكتة</span></span>`;
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
 // Eşleşme: ا + (hareke*) + ل + (hareke*) + ل (şedde dahil) + (hareke*) + ه + (hareke*)
@@ -154,7 +154,7 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
 
 // U+06EB (ARABIC EMPTY CENTRE HIGH STOP): KFGQPC tarafından "مد" annotation olarak
@@ -167,12 +167,12 @@ const MED_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06E
 // Waqf-only mode (tajweed off) keeps the letter at default color and relies on
 // the 'مد' annotation alone.
 const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
-  const tint = colorize ? (dayMode ? '#d946ef' : '#c084fc') : 'inherit';
+  const tint = colorize ? (dayMode ? '#d946ef' : COLORS.med) : 'inherit';
   return (
     `<span style="display:inline-block;position:relative;line-height:1;color:${tint};">${letter}` +
     `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
     `font-size:0.5em;font-weight:400;line-height:1;` +
-    `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
+    `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
     `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`
   );
 };
@@ -187,7 +187,7 @@ const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-0.7em;left:-0.4em;` +
   `font-size:0.55em;font-weight:400;line-height:1;` +
-  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : '#f87171'};` +
+  `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">نِ</span></span>`;
 
 // NOT: Maddah curve (U+0653) tek başına kırmızı yapılamadı (Fatiha 1:7 testi
@@ -276,13 +276,13 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
     med:       '#d946ef',  // magenta — med
     sila:      '#92400e',  // amber-800 (koyu kahverengi) — sıla; yeşil/mavi/mor spektrumundan ayrı
   } : {
-    qalqala:   '#f87171',  // coral kırmızı   — kalkale
-    gunne:     '#4ade80',  // parlak yeşil    — gunne / idgam-ı misleyn / idgam meağunne
-    idgamBila: '#60a5fa',  // açık mavi       — idgam bilağunne
-    iklab:     '#f472b6',  // pembe           — iklab
-    ihfa:      '#22d3ee',  // cyan             — ihfa-i aslî
-    ihfaSef:   '#38bdf8',  // sky mavi        — ihfa-i şefevî (dudak ihfası)
-    med:       '#c084fc',  // leylak          — med
+    qalqala:   COLORS.kalkale,  // coral kırmızı   — kalkale
+    gunne:     COLORS.gunne,  // parlak yeşil    — gunne / idgam-ı misleyn / idgam meağunne
+    idgamBila: COLORS.idgam,  // açık mavi       — idgam bilağunne
+    iklab:     COLORS.rose,  // pembe           — iklab
+    ihfa:      COLORS.color,  // cyan             — ihfa-i aslî
+    ihfaSef:   COLORS.ihfasef,  // sky mavi        — ihfa-i şefevî (dudak ihfası)
+    med:       COLORS.med,  // leylak          — med
     sila:      '#ffffff',  // amber-400 (parlak amber) — sıla; gece zemininde med moruyla net ayrı
   };
   const sp = (c, m) => `<span style="color:${c}">${m}</span>`;
@@ -968,7 +968,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
             <span style={{
               fontSize: '0.6rem', padding: '2px 6px', borderRadius: RADIUS.xs,
               background: 'rgba(46,204,113,0.12)', border: '1px solid rgba(46,204,113,0.3)',
-              color: '#2ecc71', fontFamily: currentFont, letterSpacing: '0.02em',
+              color: COLORS.softEmerald, fontFamily: currentFont, letterSpacing: '0.02em',
             }}>
               {language === 'tr' ? 'Secde' : 'Sajda'} ۩
             </span>
@@ -3703,7 +3703,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onMouseEnter={e => {
                 e.currentTarget.style.background = 'rgba(239,68,68,0.12)';
                 e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)';
-                e.currentTarget.style.color = '#f87171';
+                e.currentTarget.style.color = COLORS.kalkale;
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
@@ -4384,7 +4384,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   one would be a duplicate. */}
               {!isMobile && btn(false, onClose,
                 language === 'tr' ? 'Kapat' : 'Close', <CloseIcon size={isMobile ? 15 : 18} />,
-                e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelectorAll('span').forEach(s => { s.style.color = '#f87171'; }); },
+                e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.querySelectorAll('span').forEach(s => { s.style.color = COLORS.kalkale; }); },
                 e => {
                   e.currentTarget.style.background = navC.btnBg;
                   e.currentTarget.style.borderColor = navC.btnBorder;
@@ -4422,8 +4422,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           qalqala:'#dc2626', gunne:'#16a34a', idgamBila:'#2563eb', iklab:'#db2777',
           ihfa:'#ea580c',    ihfaSef:'#0284c7', med:'#d946ef',     sila:'#92400e',
         } : {
-          qalqala:'#f87171', gunne:'#4ade80', idgamBila:'#60a5fa', iklab:'#f472b6',
-          ihfa:'#22d3ee',    ihfaSef:'#38bdf8', med:'#c084fc',     sila:'#ffffff',
+          qalqala:COLORS.kalkale, gunne:COLORS.gunne, idgamBila:COLORS.idgam, iklab:COLORS.rose,
+          ihfa:COLORS.color,    ihfaSef:COLORS.ihfasef, med:COLORS.med,     sila:'#ffffff',
         };
         // Each rule: primary technical name + optional Turkish/colloquial reminder shown
         // in parentheses, lighter color, smaller font. Keeps chip compact while still
@@ -4603,7 +4603,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               style={{
                 flex: 1, padding: '6px 10px', borderRadius: RADIUS.sm,
                 background: dropC.inputBg, border: `1px solid ${dropC.inputBorder}`,
-                color: dayMode ? 'rgba(30,15,5,0.88)' : '#e2e8f0', fontSize: '16px', outline: 'none', boxSizing: 'border-box',
+                color: dayMode ? 'rgba(30,15,5,0.88)' : COLORS.slate200, fontSize: '16px', outline: 'none', boxSizing: 'border-box',
               }}
             />
             {isMobile && (
@@ -6089,7 +6089,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     background: 'none', border: 'none', color: dropC.textMuted, cursor: 'pointer',
                     padding: '10px 12px', transition: 'color 0.15s', flexShrink: 0,
                   }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#f87171'; }}
+                    onMouseEnter={e => { e.currentTarget.style.color = COLORS.kalkale; }}
                     onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
                   >
                     ✕
@@ -6831,7 +6831,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         {text.slice(0, idx)}
                         <mark style={{
                           background: dayMode ? 'rgba(180,130,40,0.2)' : 'rgba(212,165,116,0.3)',
-                          color: dayMode ? 'rgba(100,60,10,0.95)' : '#f0d898',
+                          color: dayMode ? 'rgba(100,60,10,0.95)' : COLORS.arabicBright,
                           borderRadius: '2px', padding: '0 1px',
                         }}>
                           {text.slice(idx, idx + qNorm.length)}
@@ -7689,7 +7689,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             background: isActive ? C.activeHighlight : 'transparent',
                             boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
                             // Secde âyeti — yeşil kenar rayı (Diyanet yan-kenar işareti muadili).
-                            borderLeft: `3px solid ${isSajdaTr ? (dayMode ? '#1a7a4c' : '#2ecc71') : (isActive ? C.activeBorder : 'transparent')}`,
+                            borderLeft: `3px solid ${isSajdaTr ? (dayMode ? '#1a7a4c' : COLORS.softEmerald) : (isActive ? C.activeBorder : 'transparent')}`,
                             transition: 'all 0.18s',
                           }}
                           onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
@@ -8083,7 +8083,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                           verticalAlign: '-0.25em', margin: '0 8px', // ortalama yerine baseline'a göre indirildi — 'middle' harekeler dahil satır ortasına hizalıyordu, rozet havada duruyormuş gibi görünüyordu (2026-08-23)
                                           width: '1.4em', height: '1.4em',
                                           textAlign: 'center', borderRadius: RADIUS.full,
-                                          border: `1px solid ${isSajdaPiece ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
+                                          border: `1px solid ${isSajdaPiece ? (dayMode ? '#155f3b' : COLORS.softEmerald) : C.gold + 'aa'}`,
                                           boxShadow: isSajdaPiece
                                             ? `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
                                             : `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${C.gold}44`,
@@ -8205,7 +8205,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           {isSajdaBook && (
                             <span style={{
                               fontSize: '0.48em', lineHeight: 1,
-                              color: dayMode ? '#1a7a4c' : '#2ecc71',
+                              color: dayMode ? '#1a7a4c' : COLORS.softEmerald,
                               fontFamily: currentFont,
                               letterSpacing: '0.02em',
                             }}>سجدة</span>
@@ -8408,15 +8408,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       flexShrink: 0, width: '34px', height: '34px', borderRadius: RADIUS.pill,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.14)',
-                      border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
-                      color: dayMode ? '#1a7a4c' : '#2ecc71',
+                      border: `1.5px solid ${dayMode ? '#1a7a4c' : COLORS.softEmerald}`,
+                      color: dayMode ? '#1a7a4c' : COLORS.softEmerald,
                       fontFamily: currentFont, fontSize: '1.05rem',
                     }}>۩</span>
                     <div>
                       <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: dayMode ? COLORS.paperInkSoft : SEMANTIC.textPrimary, fontWeight: 500 }}>
                         {language === 'tr' ? 'Bu sayfada secde âyeti var' : 'This page contains a prostration verse'}
                       </div>
-                      <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', color: dayMode ? '#1a7a4c' : '#2ecc71', fontWeight: 600, marginTop: '2px' }}>
+                      <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', color: dayMode ? '#1a7a4c' : COLORS.softEmerald, fontWeight: 600, marginTop: '2px' }}>
                         {(language === 'tr' ? SURAH_NAMES_TR : SURAH_NAMES_EN)[sajdaToastVerse.surah - 1]} {sajdaToastVerse.surah}:{sajdaToastVerse.ayah}
                       </div>
                     </div>
@@ -8764,7 +8764,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                           verticalAlign: '-0.25em', margin: '0 8px', // ortalama yerine baseline'a göre indirildi — 'middle' harekeler dahil satır ortasına hizalıyordu, rozet havada duruyormuş gibi görünüyordu (2026-08-23)
                                           width: '1.4em', height: '1.4em',
                                           textAlign: 'center', borderRadius: RADIUS.full,
-                                          border: `1px solid ${isSajdaPiece ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
+                                          border: `1px solid ${isSajdaPiece ? (dayMode ? '#155f3b' : COLORS.softEmerald) : C.gold + 'aa'}`,
                                           boxShadow: isSajdaPiece
                                             ? `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
                                             : `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${C.gold}44`,
@@ -8986,7 +8986,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               {isSajdaBook && isMobile && (
                                 <span style={{
                                   fontSize: '0.48em', lineHeight: 1,
-                                  color: dayMode ? '#1a7a4c' : '#2ecc71',
+                                  color: dayMode ? '#1a7a4c' : COLORS.softEmerald,
                                   fontFamily: currentFont,
                                   letterSpacing: '0.02em',
                                 }}>سجدة</span>
@@ -9910,7 +9910,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     // Secde âyeti — yeşil kenar rayı (Diyanet mushaf yan-kenar işareti muadili).
                     // Hem mobil hem masaüstünde: aktif/pasif ayrımından bağımsız, secde her zaman işaretli.
                     borderLeft: isSajda
-                      ? `4px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`
+                      ? `4px solid ${dayMode ? '#1a7a4c' : COLORS.softEmerald}`
                       : (isMobile ? 'none' : `3px solid ${isActive ? C.activeBorder : 'transparent'}`),
                     borderRight: isMobile && isActive && !isSajda ? `3px solid ${C.activeBorder}` : 'none',
                     cursor: 'pointer', transition: 'all 0.18s',
@@ -10244,7 +10244,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           fontSize: '1.2rem', padding: '2px 8px', borderRadius: RADIUS.xs,
                           background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
                           border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
-                          color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
+                          color: dayMode ? '#1a7a4c' : COLORS.softEmerald, fontFamily: currentFont,
                         }}>
                           سجدة
                         </span>
@@ -10593,7 +10593,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     width: '100%', height: '100%', borderRadius: RADIUS.full,
                     background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? gold : 'rgba(212,165,116,0.12)',
                     border: `1.5px solid ${isFailed ? 'rgba(100,116,139,0.2)' : isPlaying ? gold : 'rgba(212,165,116,0.35)'}`,
-                    color: isFailed ? COLORS.slate600 : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold,
+                    color: isFailed ? COLORS.slate600 : isPlaying ? (dayMode ? '#fff8ee' : COLORS.paperInk) : gold,
                     cursor: isFailed ? 'not-allowed' : 'pointer',
                     opacity: isFailed ? 0.5 : 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -10610,7 +10610,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     e.currentTarget.style.boxShadow = isPlaying ? `0 0 16px rgba(212,165,116,0.35)` : 'none';
                   }}
                 >
-                  <span style={{ color: isFailed ? COLORS.slate600 : isPlaying ? (dayMode ? '#fff8ee' : '#1a0e00') : gold }}>
+                  <span style={{ color: isFailed ? COLORS.slate600 : isPlaying ? (dayMode ? '#fff8ee' : COLORS.paperInk) : gold }}>
                     {isPlaying ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
                   </span>
                 </button>
@@ -10666,7 +10666,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   border: `1px solid ${dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'}`,
                   color: C.muted, transition: 'all 0.18s', '--fs-d': '0.9rem', '--fs-m': '0.75rem',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.style.color = '#f87171'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.style.color = COLORS.kalkale; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.muted; }}
               >
                 ✕
@@ -11255,7 +11255,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: `all ${TRANSITION.fast}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.18)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.45)'; e.currentTarget.style.color = '#f87171'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.18)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.45)'; e.currentTarget.style.color = COLORS.kalkale; }}
               onMouseLeave={e => { e.currentTarget.style.background = COLORS.glassBg; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = COLORS.silver; }}
             >
               <TrashIcon size={tbIcon - 2} />
@@ -11389,7 +11389,7 @@ function ConfirmDialog({ title, message, confirmLabel, cancelLabel, onConfirm, o
             background: 'rgba(231,76,60,0.18)',
             border: '1px solid rgba(231,76,60,0.35)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#f87171',
+            color: COLORS.kalkale,
             flexShrink: 0,
           }}>
             <WarningIcon size={18} />
@@ -12277,7 +12277,7 @@ function VerseCompareModal({
                     <p className="mq-fs" style={{
                       margin: 0,
                       '--fs-d': '0.92rem', '--fs-m': '0.84rem',
-                      color: '#e74c3c',
+                      color: COLORS.red,
                       fontStyle: 'italic',
                     }}>
                       {language === 'tr' ? 'Yüklenemedi. Bağlantıyı kontrol edip tekrar deneyin.' : 'Failed to load. Check your connection and try again.'}

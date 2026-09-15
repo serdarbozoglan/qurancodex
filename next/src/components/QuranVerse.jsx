@@ -198,7 +198,7 @@ export default function QuranVerse({
             }}
           >
             {isLoading
-              ? <span style={{ fontSize: '0.55rem', letterSpacing: '-0.02em', color: '#94a3b8' }}>···</span>
+              ? <span style={{ fontSize: '0.55rem', letterSpacing: '-0.02em', color: COLORS.silver }}>···</span>
               : isPlaying ? <PauseIcon /> : <PlayIcon />}
           </button>
         </>

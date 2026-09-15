@@ -72,45 +72,45 @@ function surahShortName(num) {
 }
 // ── Category / reliability / period metadata ──────────────────────────────────
 const CATEGORY_META = {
-  'event-response':     { tr: 'Olaya Cevap',       en: 'Event Response',        color: '#e67e22' },
-  'question-answer':    { tr: 'Soruya Cevap',       en: 'Question Answer',       color: '#3498db' },
-  'need-response':      { tr: 'İhtiyaca Cevap',     en: 'Need Response',         color: '#2ecc71' },
+  'event-response':     { tr: 'Olaya Cevap',       en: 'Event Response',        color: COLORS.orange },
+  'question-answer':    { tr: 'Soruya Cevap',       en: 'Question Answer',       color: COLORS.skyBlue },
+  'need-response':      { tr: 'İhtiyaca Cevap',     en: 'Need Response',         color: COLORS.softEmerald },
   'hypocrite-response': { tr: 'Münafık/Müşrik',     en: 'Hypocrite/Polytheist',  color: COLORS.softRed },
   'companion-case':     { tr: 'Sahabî Durumu',      en: 'Companion Case',        color: COLORS.violet },
-  'ahl-kitab':          { tr: 'Ehl-i Kitap',        en: 'People of the Book',    color: '#1abc9c' },
+  'ahl-kitab':          { tr: 'Ehl-i Kitap',        en: 'People of the Book',    color: COLORS.teal },
   'family-law':         { tr: 'Aile/Toplum Hukuku', en: 'Family/Social Law',     color: '#f39c12' },
-  'revelation-onset':   { tr: 'Vahyin Başlangıcı',  en: 'Onset of Revelation',   color: '#d4a574' },
+  'revelation-onset':   { tr: 'Vahyin Başlangıcı',  en: 'Onset of Revelation',   color: COLORS.gold },
   'mecca-persecution':  { tr: 'Mekke\'de Ezâ',      en: 'Persecution in Mecca',  color: COLORS.rustTextSafe },
   'treaty-context':     { tr: 'Anlaşma Bağlamı',    en: 'Treaty Context',        color: COLORS.orchidLightTextSafe },
 };
 
 const RELIABILITY_META = {
-  'sahih':    { tr: 'Sahih',     en: 'Authentic',  color: '#2ecc71' },
-  'hasan':    { tr: 'Hasen',     en: 'Good',       color: '#d4a574' },
-  'daif':     { tr: 'Zayıf',     en: 'Weak',       color: '#94a3b8' },
-  'disputed': { tr: 'İhtilâflı', en: 'Disputed',   color: '#e74c3c' },
-  'meşhur':   { tr: 'Meşhur',    en: 'Well-known', color: '#3498db' },
+  'sahih':    { tr: 'Sahih',     en: 'Authentic',  color: COLORS.softEmerald },
+  'hasan':    { tr: 'Hasen',     en: 'Good',       color: COLORS.gold },
+  'daif':     { tr: 'Zayıf',     en: 'Weak',       color: COLORS.silver },
+  'disputed': { tr: 'İhtilâflı', en: 'Disputed',   color: COLORS.red },
+  'meşhur':   { tr: 'Meşhur',    en: 'Well-known', color: COLORS.skyBlue },
 };
 
 const PERIOD_META = {
   'makki':  { tr: 'Mekkî',  en: 'Meccan',  color: '#f39c12' },
-  'madani': { tr: 'Medenî', en: 'Medinan', color: '#3498db' },
+  'madani': { tr: 'Medenî', en: 'Medinan', color: COLORS.skyBlue },
 };
 
 // ── Timeline tab constants (separate from SebebiNuzul's own period/category meta) ──
 const TPERIOD_META = {
   'erken-mekki': { tr: 'Erken Mekkî',  en: 'Early Meccan',  color: '#f39c12', years: '610–614 M' },
-  'mekki':       { tr: "Mekkî Dönem",  en: 'Meccan Period', color: '#e67e22', years: '614–622 M' },
-  'medeni':      { tr: "Medenî Dönem", en: 'Medinan Period', color: '#2ecc71', years: '622–632 M' },
+  'mekki':       { tr: "Mekkî Dönem",  en: 'Meccan Period', color: COLORS.orange, years: '614–622 M' },
+  'medeni':      { tr: "Medenî Dönem", en: 'Medinan Period', color: COLORS.softEmerald, years: '622–632 M' },
 };
 const TPERIOD_ORDER = ['erken-mekki', 'mekki', 'medeni'];
 
 const TCAT_META = {
-  vahiy:     { tr: 'Vahiy',     en: 'Revelation', color: '#d4a574', bg: 'rgba(212,165,116,0.15)' },
-  savas:     { tr: "Savaş",     en: 'Battle',      color: '#e74c3c', bg: 'rgba(231,76,60,0.15)'  },
-  hukuki:    { tr: 'Hukuki',    en: 'Legal',       color: '#3498db', bg: 'rgba(52,152,219,0.15)' },
+  vahiy:     { tr: 'Vahiy',     en: 'Revelation', color: COLORS.gold, bg: 'rgba(212,165,116,0.15)' },
+  savas:     { tr: "Savaş",     en: 'Battle',      color: COLORS.red, bg: 'rgba(231,76,60,0.15)'  },
+  hukuki:    { tr: 'Hukuki',    en: 'Legal',       color: COLORS.skyBlue, bg: 'rgba(52,152,219,0.15)' },
   kisisel:   { tr: "Kişisel",   en: 'Personal',    color: '#a29bfe', bg: 'rgba(162,155,254,0.15)'},
-  toplumsal: { tr: 'Toplumsal', en: 'Social',      color: '#2ecc71', bg: 'rgba(46,204,113,0.15)' },
+  toplumsal: { tr: 'Toplumsal', en: 'Social',      color: COLORS.softEmerald, bg: 'rgba(46,204,113,0.15)' },
   siyasi:    { tr: 'Siyasi',    en: 'Political',   color: '#00cec9', bg: 'rgba(0,206,201,0.15)'  },
 };
 
@@ -702,8 +702,8 @@ function TabArama({ data, language, isMobile }) {
       {/* Reliability filter */}
       <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
         {chipBtn(reliabilityFilter === 'all', () => setReliabilityFilter('all'), language === 'tr' ? 'Tüm Güvenilirlik' : 'All Reliability')}
-        {chipBtn(reliabilityFilter === 'sahih', () => setReliabilityFilter('sahih'), language === 'tr' ? 'Sahih' : 'Authentic', '#2ecc71')}
-        {chipBtn(reliabilityFilter === 'hasan', () => setReliabilityFilter('hasan'), language === 'tr' ? 'Hasen' : 'Good', '#d4a574')}
+        {chipBtn(reliabilityFilter === 'sahih', () => setReliabilityFilter('sahih'), language === 'tr' ? 'Sahih' : 'Authentic', COLORS.softEmerald)}
+        {chipBtn(reliabilityFilter === 'hasan', () => setReliabilityFilter('hasan'), language === 'tr' ? 'Hasen' : 'Good', COLORS.gold)}
         {chipBtn(reliabilityFilter === 'no-daif', () => setReliabilityFilter('no-daif'), language === 'tr' ? 'Zayıf Hariç' : 'Excl. Weak')}
       </div>
 

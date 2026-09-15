@@ -572,14 +572,14 @@ function TabGenel({ data, language, isMobile, pillarData }) {
 
 // Kategori renk map — semantik terimleri görsel olarak grupla
 const CATEGORY_STYLES = {
-  'core-name':   { color: '#d4a574', labelTr: 'Ana İsim',       labelEn: 'Core Name' },
-  'action':      { color: '#22d3ee', labelTr: 'Eylem',          labelEn: 'Action' },
+  'core-name':   { color: COLORS.gold, labelTr: 'Ana İsim',       labelEn: 'Core Name' },
+  'action':      { color: COLORS.color, labelTr: 'Eylem',          labelEn: 'Action' },
   'state':       { color: '#a855f7', labelTr: 'Hâl',            labelEn: 'State' },
   'inner-state': { color: '#8b5cf6', labelTr: 'İç Hâl',         labelEn: 'Inner State' },
-  'time':        { color: '#3498db', labelTr: 'Vakit',          labelEn: 'Time' },
-  'concept':     { color: '#94a3b8', labelTr: 'Kavram',         labelEn: 'Concept' },
-  'purpose':     { color: '#e8c98a', labelTr: 'Amaç',           labelEn: 'Purpose' },
-  'warning':     { color: '#e74c3c', labelTr: 'Uyarı',          labelEn: 'Warning' },
+  'time':        { color: COLORS.skyBlue, labelTr: 'Vakit',          labelEn: 'Time' },
+  'concept':     { color: COLORS.silver, labelTr: 'Kavram',         labelEn: 'Concept' },
+  'purpose':     { color: COLORS.goldBright, labelTr: 'Amaç',           labelEn: 'Purpose' },
+  'warning':     { color: COLORS.red, labelTr: 'Uyarı',          labelEn: 'Warning' },
 };
 
 // ─── Tab 2: Kur'ânî Semantik Alan ─────────────────────────────────────────
@@ -1164,7 +1164,7 @@ function TabOzelNamazlar({ data, language, isMobile }) {
                 marginBottom: '14px',
               }}>
                 <div style={{
-                  color: '#2ecc71', fontSize: '0.68rem',
+                  color: COLORS.softEmerald, fontSize: '0.68rem',
                   letterSpacing: '0.18em', textTransform: 'uppercase',
                   marginBottom: '6px', 
                 }}>{language === 'tr' ? 'Sünnet-i Mütevâtire Tafsili' : 'Mutawātir Sunnah Detail'}</div>

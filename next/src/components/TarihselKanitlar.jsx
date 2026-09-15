@@ -23,10 +23,10 @@ import tarihselDataStatic from '../../public/tarihsel-kanitlar.json';
 
 // ─── Confidence chip system ──────────────────────────────────────────────────
 const CONFIDENCE_META = {
-  kesin:      { tr: 'Kesin',      en: 'Certain',     color: '#1D9E75' },
-  guclu:      { tr: 'Güçlü',      en: 'Strong',      color: '#c9a227' },
-  muhtemel:   { tr: 'Muhtemel',   en: 'Probable',    color: '#3498db' },
-  tartismali: { tr: 'Tartışmalı', en: 'Contested',   color: '#94a3b8' },
+  kesin:      { tr: 'Kesin',      en: 'Certain',     color: COLORS.emerald },
+  guclu:      { tr: 'Güçlü',      en: 'Strong',      color: COLORS.royalGold },
+  muhtemel:   { tr: 'Muhtemel',   en: 'Probable',    color: COLORS.skyBlue },
+  tartismali: { tr: 'Tartışmalı', en: 'Contested',   color: COLORS.silver },
 };
 
 // ─── Category icons ─────────────────────────────────────────────────────────
@@ -282,7 +282,7 @@ export default function TarihselKanitlar({ onClose }) {
                 { value: meta.totalKanitlar, tr: 'kanıt', en: 'evidences', color: COLORS.gold },
                 { value: meta.totalCategories, tr: 'kategori', en: 'categories', color: COLORS.emerald },
                 { value: meta.totalScholars, tr: 'akademisyen', en: 'scholars', color: COLORS.skyBlue },
-                { value: timeline.length, tr: 'timeline', en: 'timeline', color: '#a78bfa' },
+                { value: timeline.length, tr: 'timeline', en: 'timeline', color: COLORS.purple },
               ].map((s, i) => (
                 <div className="mq-box" key={i} style={{
                   '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
@@ -804,10 +804,10 @@ function TimelineTab({ timeline, language, isMobile }) {
       <div style={{ marginTop: '20px', display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {[
           { color: COLORS.gold, tr: 'Kur\'ânî Kaynak', en: 'Qur\'anic Source' },
-          { color: '#a78bfa', tr: 'Tarihsel Olay', en: 'Historical Event' },
-          { color: '#e74c3c', tr: 'Sabai Olayı', en: 'Sabaic Event' },
-          { color: '#3498db', tr: 'Modern Keşif', en: 'Modern Discovery' },
-          { color: '#1D9E75', tr: 'Elyazması', en: 'Manuscript' },
+          { color: COLORS.purple, tr: 'Tarihsel Olay', en: 'Historical Event' },
+          { color: COLORS.red, tr: 'Sabai Olayı', en: 'Sabaic Event' },
+          { color: COLORS.skyBlue, tr: 'Modern Keşif', en: 'Modern Discovery' },
+          { color: COLORS.emerald, tr: 'Elyazması', en: 'Manuscript' },
         ].map((l, i) => (
           <span key={i} style={{
             fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body,

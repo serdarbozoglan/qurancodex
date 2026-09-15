@@ -23,7 +23,7 @@ import afterlifeDataStatic from '../../public/diyalog-afterlife.json';
 import megaDataStatic from '../../public/diyalog-mega.json';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
-const TEMPORAL = { ezel: '#9b59b6', dunya: '#3498db', ahiret: '#f39c12' };
+const TEMPORAL = { ezel: '#9b59b6', dunya: COLORS.skyBlue, ahiret: '#f39c12' };
 
 // Ekran okuyucu / klavye için görünmez metin-alternatifi stili (§16.12).
 // SVG ağ grafiği aria-hidden; veriye erişimin metin/klavye yolu bu listedir.
@@ -938,10 +938,10 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
   const [expandedId, setExpandedId] = useState(null);
 
   const CATEGORY_CONFIG = {
-    cennet:  { color: '#2ecc71', labelTr: 'CENNET DİYALOGLARI',  labelEn: 'PARADISE DIALOGUES' },
-    cehennem:{ color: '#e74c3c', labelTr: 'CEHENNEM DİYALOGLARI', labelEn: 'HELL DIALOGUES'     },
+    cennet:  { color: COLORS.softEmerald, labelTr: 'CENNET DİYALOGLARI',  labelEn: 'PARADISE DIALOGUES' },
+    cehennem:{ color: COLORS.red, labelTr: 'CEHENNEM DİYALOGLARI', labelEn: 'HELL DIALOGUES'     },
     araf:    { color: '#f39c12', labelTr: "A'RÂF",                labelEn: "A'RAF"               },
-    hesap:   { color: '#c9a227', labelTr: 'HESAP GÜNÜ',           labelEn: 'JUDGMENT DAY'        },
+    hesap:   { color: COLORS.royalGold, labelTr: 'HESAP GÜNÜ',           labelEn: 'JUDGMENT DAY'        },
   };
 
   const grouped = {};
@@ -1219,13 +1219,13 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
 
 function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
   const TYPE_CONFIG = {
-    divine:    { labelTr: 'İlahi',      labelEn: 'Divine',    color: '#c9a227' },
-    celestial: { labelTr: 'Semavi',     labelEn: 'Celestial', color: '#a78bfa' },
-    prophet:   { labelTr: 'Peygamber',  labelEn: 'Prophet',   color: '#2ecc71' },
-    adversary: { labelTr: 'Düşman',     labelEn: 'Adversary', color: '#e74c3c' },
+    divine:    { labelTr: 'İlahi',      labelEn: 'Divine',    color: COLORS.royalGold },
+    celestial: { labelTr: 'Semavi',     labelEn: 'Celestial', color: COLORS.purple },
+    prophet:   { labelTr: 'Peygamber',  labelEn: 'Prophet',   color: COLORS.softEmerald },
+    adversary: { labelTr: 'Düşman',     labelEn: 'Adversary', color: COLORS.red },
     antagonist:{ labelTr: 'Antagonist', labelEn: 'Antagonist',color: '#8e44ad' },
     afterlife: { labelTr: 'Ahiret',     labelEn: 'Afterlife', color: '#f39c12' },
-    group:     { labelTr: 'Topluluk',   labelEn: 'Group',     color: '#3498db' },
+    group:     { labelTr: 'Topluluk',   labelEn: 'Group',     color: COLORS.skyBlue },
   };
 
   const dialogueAxesCount = (speakerId) =>

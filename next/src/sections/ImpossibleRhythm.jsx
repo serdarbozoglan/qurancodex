@@ -68,7 +68,7 @@ const FASILA_SURAS = [
     labelTr: 'Mülk (67)',
     labelEn: 'Al-Mulk (67)',
     sound: '-îr',
-    color: '#2ecc71',
+    color: COLORS.softEmerald,
     glow: 'rgba(46,204,113,0.15)',
     border: 'rgba(46,204,113,0.3)',
     examples: ['قَدِيرٌ', 'خَبِيرٌ', 'بَصِيرٌ'],

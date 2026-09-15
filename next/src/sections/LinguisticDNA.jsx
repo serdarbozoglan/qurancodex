@@ -64,7 +64,7 @@ const GROUPS = [
     periodEn: 'Mixed',
     theme: 'Vahyin Hakikati & Sadakat Sınavı',
     themeEn: 'Truth of Revelation & Trial of Faith',
-    color: '#2ab5a0',
+    color: COLORS.tealDark,
     glowColor: 'rgba(42,181,160,0.12)',
     borderColor: 'rgba(42,181,160,0.35)',
     suras: [
@@ -472,7 +472,7 @@ export default function LinguisticDNA() {
               border: `1px solid ${COLORS.glassBorder}`,
             }}
           >
-            <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#2ab5a0' }} />
+            <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: COLORS.tealDark }} />
             <span className="text-silver">{language === 'tr' ? 'Mekkî-Medenî Karma' : 'Meccan-Medinan Mixed'}</span>
           </span>
           <span
@@ -751,7 +751,7 @@ export default function LinguisticDNA() {
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize,
-                    color: '#e8e6e3',
+                    color: COLORS.offWhite,
                     lineHeight: 1.1,
                     display: 'block',
                     marginBottom: '0.6rem',
@@ -765,7 +765,7 @@ export default function LinguisticDNA() {
                   className="font-body text-xs px-2.5 py-0.5 rounded-full mb-2"
                   style={{
                     background: 'rgba(212,165,116,0.12)',
-                    color: '#d4a574',
+                    color: COLORS.gold,
                     border: '1px solid rgba(212,165,116,0.3)',
                   }}
                 >
@@ -794,9 +794,9 @@ export default function LinguisticDNA() {
         </p>
         <p className="font-display text-3xl md:text-4xl font-bold text-off-white mb-3">
           {language === 'tr' ? (
-            <>29 Sûrenin <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} />&apos;inde</span></>
+            <>29 Sûrenin <span style={{ color: COLORS.gold }}><AnimatedCounter target={25} />&apos;inde</span></>
           ) : (
-            <>In <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} /></span> of 29 Suras</>
+            <>In <span style={{ color: COLORS.gold }}><AnimatedCounter target={25} /></span> of 29 Suras</>
           )}
         </p>
         <p className="text-silver text-lg md:text-xl font-body mb-7 max-w-3xl">
@@ -827,7 +827,7 @@ export default function LinguisticDNA() {
             {/* %86 label pinned at 86% */}
             <div
               className="absolute -top-6 font-body text-xs font-semibold"
-              style={{ left: '86%', transform: 'translateX(-50%)', color: '#d4a574' }}
+              style={{ left: '86%', transform: 'translateX(-50%)', color: COLORS.gold }}
             >
               %<AnimatedCounter target={86} />
             </div>
@@ -858,7 +858,7 @@ export default function LinguisticDNA() {
           >
             <span
               className="block font-body font-extrabold text-xl mb-2"
-              style={{ color: '#d4a574' }}
+              style={{ color: COLORS.gold }}
             >
               {d.num}
             </span>
@@ -869,7 +869,7 @@ export default function LinguisticDNA() {
                   <span key={j} className="font-body text-xs font-bold px-2 py-1 rounded" style={{
                     background: 'rgba(212,165,116,0.12)',
                     border: '1px solid rgba(212,165,116,0.3)',
-                    color: '#d4a574',
+                    color: COLORS.gold,
                     minWidth: '28px',
                     textAlign: 'center',
                   }}>{n}</span>

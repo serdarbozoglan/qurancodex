@@ -178,7 +178,7 @@ export default function ContrastDuo({ captionTr, captionEn, left, right, bridgeT
       {/* Top accent */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-        background: `linear-gradient(90deg, ${left?.accent || COLORS.purple}, ${COLORS.gold}, ${right?.accent || '#e74c3c'})`,
+        background: `linear-gradient(90deg, ${left?.accent || COLORS.purple}, ${COLORS.gold}, ${right?.accent || COLORS.red})`,
         opacity: 0.55,
       }} />
 

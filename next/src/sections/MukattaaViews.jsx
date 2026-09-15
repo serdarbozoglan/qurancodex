@@ -24,7 +24,7 @@ import data from '../../public/mukattaa.json';
 const GORUSLER = [
   {
     id: 'mutesabih',
-    renk: '#e8c98a',
+    renk: COLORS.goldBright,
     baslikTr: 'Müteşâbihtir: mânâsı Allah’a havale edilir',
     baslikEn: 'Mutashābih: its meaning is entrusted to Allah',
     kimTr: 'Hz. Ebû Bekir, Ömer, Osman, Ali ve İbn Mes‘ûd’dan nakledilir · Şa‘bî · Süfyân es-Sevrî · Rebî‘ b. Huseym · Kurtubî’nin tercihi',
@@ -36,7 +36,7 @@ const GORUSLER = [
   },
   {
     id: 'tehaddi',
-    renk: '#2ab5a0',
+    renk: COLORS.tealDark,
     baslikTr: 'Tehaddî: dilsel meydan okuma',
     baslikEn: 'Taḥaddī: a linguistic challenge',
     kimTr: 'Ferrâ ve Kutrub’a nisbet edilir · Zemahşerî · Râzî · İbn Teymiyye · modern dönemde Reşîd Rızâ, Mevdûdî, Seyyid Kutub',
@@ -108,7 +108,7 @@ const GORUSLER = [
   },
   {
     id: 'temsil',
-    renk: '#d4a574',
+    renk: COLORS.gold,
     baslikTr: 'Elifbânın bütününü temsil',
     baslikEn: 'Standing for the whole alphabet',
     kimTr: 'Klasikte Zemahşerî’nin işaret ettiği yön · modern dönemde yaygınlaştı',

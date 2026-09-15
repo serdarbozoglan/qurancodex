@@ -67,12 +67,12 @@ function OnIkiHileWidget({ language, isMobile }) {
             padding: '10px 12px',
             background: 'rgba(139,0,0,0.06)',
             border: `1px solid rgba(139,0,0,0.28)`,
-            borderLeft: `3px solid ${m.n <= 4 ? '#8b0000' : m.n <= 8 ? '#c0392b' : '#e67e22'}`,
+            borderLeft: `3px solid ${m.n <= 4 ? '#8b0000' : m.n <= 8 ? '#c0392b' : COLORS.orange}`,
             borderRadius: RADIUS.md,
           }}>
             <div style={{
               width: '24px', height: '24px', borderRadius: '50%',
-              background: m.n <= 4 ? '#8b0000' : m.n <= 8 ? '#c0392b' : '#A85C19',
+              background: m.n <= 4 ? '#8b0000' : m.n <= 8 ? '#c0392b' : COLORS.amberBadgeSafe,
               color: '#fff', fontSize: '0.7rem', fontWeight: 800,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontFamily: FONTS.body, flexShrink: 0,

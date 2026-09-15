@@ -123,15 +123,15 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
         panelBg: 'linear-gradient(180deg, #0f1530 0%, #0a1024 100%)',
         panelBorderTop: COLORS.softGoldAlpha35,
         panelBorderSide: 'rgba(255,255,255,0.07)',
-        textPrimary: '#e8e6e3',
+        textPrimary: COLORS.offWhite,
         textSecondary: '#cdc6bb',
-        textMuted: '#94a3b8',
+        textMuted: COLORS.silver,
         divider: 'rgba(255,255,255,0.08)',
         sectionLabel: COLORS.softGoldAlpha60,
         valueArabicBg: 'rgba(255,255,255,0.04)',
         gold: COLORS.softGold,
         goldSoft: 'rgba(212,165,116,0.18)',
-        emerald: '#2ecc71',
+        emerald: COLORS.softEmerald,
         emeraldSoft: 'rgba(46,204,113,0.12)',
         emeraldBorder: 'rgba(46,204,113,0.35)',
         chipBg: 'rgba(120,168,255,0.12)',
@@ -252,7 +252,7 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
               // SebebiNuzul.jsx): Mekkî = royal gold #c9a227, Medenî = emerald
               // #2ecc71. Day-mode emerald uses a slightly darker shade for
               // readable contrast on cream background.
-              color: isMakki(surah) ? '#c9a227' : (dayMode ? '#1a7a4c' : '#2ecc71'),
+              color: isMakki(surah) ? '#c9a227' : (dayMode ? '#1a7a4c' : COLORS.softEmerald),
               background: isMakki(surah) ? 'rgba(201,162,39,0.12)' : (dayMode ? 'rgba(26,122,76,0.10)' : 'rgba(46,204,113,0.12)'),
               border: `1px solid ${isMakki(surah) ? 'rgba(201,162,39,0.40)' : (dayMode ? 'rgba(26,122,76,0.40)' : 'rgba(46,204,113,0.40)')}`,
             }}>
@@ -462,7 +462,7 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
         {/* Close hint */}
         <p style={{
           textAlign: 'center', fontSize: '0.66rem',
-          color: '#334155', padding: '4px 0 16px', margin: 0,
+          color: COLORS.slate700, padding: '4px 0 16px', margin: 0,
         }}>
           Esc · {tr ? 'dışa tıklayarak kapat' : 'tap outside to close'}
         </p>
@@ -501,9 +501,9 @@ function Section({ title, children, C }) {
 // (#1f1908) for legibility; in night mode, light off-white. Non-primary
 // values use the muted color in both themes.
 function Field({ label, children, primary, C }) {
-  const labelColor = C ? C.textMuted : '#64748b';
-  const valuePrimary = C ? C.textPrimary : '#e8e6e3';
-  const valueMuted = C ? C.textMuted : '#94a3b8';
+  const labelColor = C ? C.textMuted : COLORS.slate500;
+  const valuePrimary = C ? C.textPrimary : COLORS.offWhite;
+  const valueMuted = C ? C.textMuted : COLORS.silver;
   const dividerColor = C ? C.divider : 'rgba(255,255,255,0.04)';
   return (
     <div style={{

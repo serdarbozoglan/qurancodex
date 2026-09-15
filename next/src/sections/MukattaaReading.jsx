@@ -76,7 +76,7 @@ export default function MukattaaReading() {
             {
               et: tr ? 'Okunur' : 'Read as',
               ar: 'الم', okunus: 'Elif · Lâm · Mîm',
-              renk: '#2ab5a0', cizik: false,
+              renk: COLORS.tealDark, cizik: false,
               not: tr ? 'harflerin adlarıyla' : 'by the names of the letters',
             },
           ].map((k) => (

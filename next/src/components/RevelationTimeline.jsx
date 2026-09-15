@@ -121,8 +121,8 @@ export default function RevelationTimeline({ onClose }) {
   const medeni = orderData?.filter(s => s.period === 'medeni') || [];
 
   const gold = COLORS.gold;
-  const mekiColor = '#c9a227';
-  const medeniColor = '#2ecc71';
+  const mekiColor = COLORS.royalGold;
+  const medeniColor = COLORS.softEmerald;
 
   const periodColor = (p) => p === 'mekki' ? mekiColor : medeniColor;
 

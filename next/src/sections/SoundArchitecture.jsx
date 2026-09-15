@@ -62,7 +62,7 @@ const SURAS = [
     labelTr: 'Meryem', labelEn: 'Maryam',
     numTr: '19. Sûre', numEn: 'Surah 19',
     themeTr: 'Rahmet · Huzur', themeEn: 'Mercy · Peace',
-    color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.35)',
+    color: COLORS.skyBlue, glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.35)',
     verse: 'وَحَنَانًا مِن لَّدُنَّا وَزَكَاةً وَكَانَ تَقِيًّا',
     verseRef: '19:13',
     harshLetters: ['د', 'ت', 'ق'],
@@ -76,7 +76,7 @@ const SURAS = [
     labelTr: 'Kâria', labelEn: "Al-Qari'a",
     numTr: '101. Sûre', numEn: 'Surah 101',
     themeTr: 'Kıyamet · Çarpış', themeEn: 'Apocalypse · Strike',
-    color: '#e67e22', glow: 'rgba(230,126,34,0.12)', border: 'rgba(230,126,34,0.35)',
+    color: COLORS.orange, glow: 'rgba(230,126,34,0.12)', border: 'rgba(230,126,34,0.35)',
     verse: 'الْقَارِعَةُ',
     verseRef: '101:1',
     harshLetters: ['ق', 'ر'],
@@ -90,7 +90,7 @@ const SURAS = [
     labelTr: 'Rahmân', labelEn: 'Ar-Rahman',
     numTr: '55. Sûre', numEn: 'Surah 55',
     themeTr: 'Nimet · Güzellik', themeEn: 'Blessing · Beauty',
-    color: '#2ecc71', glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.35)',
+    color: COLORS.softEmerald, glow: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.35)',
     verse: 'الرَّحْمَٰنُ عَلَّمَ الْقُرْآنَ',
     verseRef: '55:1-2',
     harshLetters: ['ق'],
@@ -401,8 +401,8 @@ function TajwidPanel({ t, language }) {
   const data = t('soundArchitecture.tajwid');
   const palette = [
     { color: COLORS.gold, border: 'rgba(212,165,116,0.35)', glow: 'rgba(212,165,116,0.06)' }, // tafhim — gold
-    { color: '#3498db', border: 'rgba(52,152,219,0.35)',  glow: 'rgba(52,152,219,0.06)'  }, // tarqiq — blue
-    { color: '#e67e22', border: 'rgba(230,126,34,0.35)',  glow: 'rgba(230,126,34,0.06)'  }, // qalqala — orange
+    { color: COLORS.skyBlue, border: 'rgba(52,152,219,0.35)',  glow: 'rgba(52,152,219,0.06)'  }, // tarqiq — blue
+    { color: COLORS.orange, border: 'rgba(230,126,34,0.35)',  glow: 'rgba(230,126,34,0.06)'  }, // qalqala — orange
   ];
 
   return (
@@ -687,7 +687,7 @@ function DiscoveryWidget({ t, language }) {
               <div key={i} style={{
                 width: '24px', height: '4px', borderRadius: '2px',
                 background: i < idx || (i === idx && revealed)
-                  ? (i < idx || picked === items[i].answer || (i === idx && picked === item.answer) ? '#2ecc71' : '#e74c3c')
+                  ? (i < idx || picked === items[i].answer || (i === idx && picked === item.answer) ? '#2ecc71' : COLORS.red)
                   : i === idx ? COLORS.gold : 'rgba(255,255,255,0.15)',
                 transition: 'background 0.3s',
               }} />
@@ -720,7 +720,7 @@ function DiscoveryWidget({ t, language }) {
                 fontFamily: FONTS.quran,
                 fontSize: 'clamp(1.3rem, 3vw, 1.9rem)',
                 lineHeight: 1.5,
-                color: revealed ? (isCorrect ? '#2ecc71' : '#e74c3c') : COLORS.gold,
+                color: revealed ? (isCorrect ? '#2ecc71' : COLORS.red) : COLORS.gold,
                 textAlign: 'right',
                 wordBreak: 'keep-all',
                 marginBottom: '6px',
@@ -767,7 +767,7 @@ function DiscoveryWidget({ t, language }) {
                         border: '1px solid rgba(231,76,60,0.35)',
                         borderRadius: RADIUS.lg,
                         padding: '11px 12px',
-                        color: '#e74c3c',
+                        color: COLORS.red,
                         fontSize: '0.95rem', fontFamily: FONTS.display,
                         fontWeight: 700, cursor: 'pointer',
                         transition: 'all 0.18s',
@@ -782,7 +782,7 @@ function DiscoveryWidget({ t, language }) {
                         border: '1px solid rgba(46,204,113,0.35)',
                         borderRadius: RADIUS.lg,
                         padding: '11px 12px',
-                        color: '#2ecc71',
+                        color: COLORS.softEmerald,
                         fontSize: '0.95rem', fontFamily: FONTS.display,
                         fontWeight: 700, cursor: 'pointer',
                         transition: 'all 0.18s',
@@ -803,7 +803,7 @@ function DiscoveryWidget({ t, language }) {
                     marginBottom: '14px',
                   }}>
                     <p style={{
-                      color: isCorrect ? '#2ecc71' : '#e74c3c',
+                      color: isCorrect ? '#2ecc71' : COLORS.red,
                       fontSize: '0.75rem', fontFamily: 'Inter, sans-serif',
                       fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase',
                       marginBottom: '8px',
@@ -1260,7 +1260,7 @@ export default function SoundArchitecture() {
             <div style={{ minWidth: '200px' }}>
               {/* Harsh letters */}
               <div style={{ marginBottom: '10px' }}>
-                <p style={{ color: '#e74c3c', fontSize: '0.65rem', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '6px' }}>
+                <p style={{ color: COLORS.red, fontSize: '0.65rem', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '6px' }}>
                   {language === 'tr' ? 'Sert ünsüzler' : 'Hard consonants'}
                 </p>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
@@ -1275,7 +1275,7 @@ export default function SoundArchitecture() {
                         padding: '2px 10px',
                         fontFamily: FONTS.quran,
                         fontSize: '1.2rem',
-                        color: hoveredLetter === l ? '#ff6b6b' : '#e74c3c',
+                        color: hoveredLetter === l ? '#ff6b6b' : COLORS.red,
                         lineHeight: 1.8,
                         cursor: 'pointer',
                         transition: `all ${TRANSITION.fast}`,
@@ -1287,7 +1287,7 @@ export default function SoundArchitecture() {
 
               {/* Soft letters */}
               <div style={{ marginBottom: '14px' }}>
-                <p style={{ color: '#2ecc71', fontSize: '0.65rem', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '6px' }}>
+                <p style={{ color: COLORS.softEmerald, fontSize: '0.65rem', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '6px' }}>
                   {language === 'tr' ? 'Yumuşak sesler' : 'Soft sounds'}
                 </p>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
@@ -1302,7 +1302,7 @@ export default function SoundArchitecture() {
                         padding: '2px 10px',
                         fontFamily: FONTS.quran,
                         fontSize: '1.2rem',
-                        color: hoveredLetter === l ? '#69db7c' : '#2ecc71',
+                        color: hoveredLetter === l ? '#69db7c' : COLORS.softEmerald,
                         lineHeight: 1.8,
                         cursor: 'pointer',
                         transition: `all ${TRANSITION.fast}`,

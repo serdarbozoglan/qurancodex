@@ -99,7 +99,7 @@ const SURAHS = {
 
 // ── Seven Layers prism data ──
 const RAY_Y     = [30, 82, 134, 185, 237, 289, 340];
-const RAY_COLORS = ['#E8A020','#1AAB80','#3B8FE0','#8B5CF6','#06B6D4','#F97316','#E8D070'];
+const RAY_COLORS = ['#E8A020','#1AAB80','#3B8FE0','#8B5CF6',COLORS.cyan,'#F97316','#E8D070'];
 const LABEL_Y   = [12, 64, 116, 167, 219, 271, 322];
 
 const NUR_LAYERS = [
@@ -156,7 +156,7 @@ const NUR_LAYERS = [
   {
     numTr: '05', nameTr: 'İç Dünya',   subTr: 'Psikolojik',
     numEn: '05', nameEn: 'Inner World', subEn: 'Psychological',
-    color: '#06B6D4',
+    color: COLORS.cyan,
     conceptsTr: ['Ruhun İç Işığı', 'Bilinç', 'Farkındalık', 'Nefs Tezkiyesi', 'Kalp Aynası'],
     conceptsEn: ['Inner Light of the Soul', 'Consciousness', 'Awareness', 'Purification of the Self', 'Mirror of the Heart'],
     scholarTr: 'İbn Kayyım el-Cevziyye', scholarEn: 'Ibn Qayyim Al-Jawziyyah',
@@ -610,10 +610,10 @@ export default function HiddenArchitecture() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? '↗ İLK VE SON KELİMELER: ATLASI AÇ' : '↗ FIRST AND LAST WORDS: OPEN THE ATLAS'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
                 ? '8 münâsebât spotlight · açılış kalıbı kategorileri · 114 sûre kelime kataloğu'
                 : '8 munāsabah spotlights · opening-pattern categories · 114-surah word catalog'}
@@ -800,7 +800,7 @@ export default function HiddenArchitecture() {
               {/* "Nur" label — Arabic on left, Latin on right, ABOVE the ray (no overlap) */}
               <text x="-74" y="118"
                 style={{
-                  fill: '#d4a574',
+                  fill: COLORS.gold,
                   fontSize: '20px',
                   fontFamily: FONTS.quran,
                   opacity: 0.95,
@@ -809,7 +809,7 @@ export default function HiddenArchitecture() {
               </text>
               <text x="-32" y="116"
                 style={{
-                  fill: '#d4a574',
+                  fill: COLORS.gold,
                   fontSize: '11px',
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 600,
@@ -1029,7 +1029,7 @@ export default function HiddenArchitecture() {
                       <p style={{ fontSize: '11px', fontWeight: 600, marginBottom: '10px', color: layer.color, fontFamily: "'Inter', sans-serif", letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                         {language === 'tr' ? layer.scholarTr : layer.scholarEn}
                       </p>
-                      <p style={{ fontSize: '14px', color: '#e8e6e3', fontStyle: 'italic', lineHeight: 1.85, fontFamily: "'Inter', sans-serif" }}>
+                      <p style={{ fontSize: '14px', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.85, fontFamily: "'Inter', sans-serif" }}>
                         &quot;{language === 'tr' ? layer.quoteTr : layer.quoteEn}&quot;
                       </p>
                       {(language === 'tr' ? layer.noteTr : layer.noteEn) && (

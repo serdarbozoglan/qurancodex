@@ -208,32 +208,32 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
     { author: 'el-Muhâsibî', workTr: 'er-Riâye li-Ḥuḳûḳillâh', workEn: 'al-Riʿāya li-Ḥuqūq Allāh', period: '781–857 (Basra)',
       insightTr: "Kalp muhâsebesinin (ölçme, tartma) çok aşamalı yöntemi. Modern CBT'nin öz-gözlem katmanına 12 asır önceden benzetilebilecek bir yaklaşım: durum, düşünce, duygu, tepki çerçevesi bu yönteme modern bir okumayla eşlenebilir. 'Riâye' (özen) klasik terimdir.",
       insightEn: "A multi-stage method of muḥāsaba (self-accounting). It can be likened to the self-observation layer in modern CBT some 12 centuries earlier: the situation, thought, emotion, response frame is a modern reading mapped onto this method. 'Riʿāya' (attentive care) is the classical term.",
-      color: '#3498db',
+      color: COLORS.skyBlue,
     },
     { author: 'el-Gazâlî', workTr: 'İhyâʾu ʿUlûmi\'d-Dîn (Rub\'u\'l-Mühlikât)', workEn: 'Iḥyāʾ ʿUlūm al-Dīn (Book of Destructive Vices)', period: '1058–1111 (Tûs)',
       insightTr: "Kalbin 4 boyutu modeli: akıl ve hikmet (melek), gazap (kelb), şehvet (hınzîr), kışkırtma ve hile (şeytan); bir iç ekosistem. Şifâʾ (kalp iyileşmesi) için 3 aşama: takvâ, teberri (uzaklaşma), teheccî (ışığa yönelme).",
       insightEn: "A four-dimensional model of the heart: intellect and wisdom (angel), rage (dog), desire (pig), instigation and guile (devil); an inner ecosystem. Three-stage healing (shifāʾ): taqwā, tabarrī (distancing), tahajjī (turning toward light).",
-      color: '#d4a574',
+      color: COLORS.gold,
     },
     { author: 'İbn Kayyim', workTr: 'Medâricu\'s-Sâlikîn', workEn: 'Madārij al-Sālikīn', period: '1292–1350 (Şâm)',
       insightTr: "Eserde işlenen 5 basamaklı bir iyileşme teması: tevbe, sabr, şükür, rızâ, itmi'nân. Modern pozitif psikolojinin 'flourishing' aşamalarına benzetilebilir bir çerçeve.",
       insightEn: "A five-stage healing theme found in the work: tawba, ṣabr, shukr, riḍā, iṭmiʾnān. A framework comparable to positive psychology's 'flourishing' stages.",
-      color: '#2ecc71',
+      color: COLORS.softEmerald,
     },
     { author: 'er-Râzî', workTr: 'Kitâbu\'n-Nefs ve\'r-Rûh', workEn: 'Kitāb al-Nafs wa al-Rūḥ', period: '1149–1209 (Rey)',
       insightTr: "Nefs psikolojisinin kelâmî sistematiği: kuvve-i akliyye, gadabiyye, şehvâniyye. İç güçler dengesi, Freud'un id/ego/süperego yapısına kavram düzeyinde benzetilebilir. Bu güçlerin kırılma noktalarını haritalayan erken bir düzenleyici teori.",
       insightEn: "Kalāmic systematization of nafs psychology: rational faculty, irascible faculty, appetitive faculty. The balance of inner faculties can be compared at a conceptual level to Freud's id/ego/superego. An early regulatory theory mapping the break-points of these faculties.",
-      color: '#a78bfa',
+      color: COLORS.purple,
     },
     { author: 'İbn Sînâ', workTr: 'Kitâbu\'n-Nefs (Şifâ)', workEn: 'Kitāb al-Nafs (al-Shifāʾ)', period: '980–1037 (Buhârâ)',
       insightTr: "İnsan nefsinin 5 içsel duyu (havâss-ı bâtına) analizi: hiss-i müşterek (ortak duyu), hayâl, vehm, hâfıza, müteḫayyile. Kognitif katmanların erken bir sistematik haritası; modern nörobilimin 'çalışma belleği' ve 'yürütücü işlev' kavramlarıyla benzer katmanlar tarif eder.",
       insightEn: "Ibn Sīnā's 5 inner senses (ḥawāss bāṭina) analysis: common sense (ḥiss mushtarak), imagination/representation (khayāl), estimation (wahm), memory (ḥāfiẓa), and cogitation (mutakhayyila). An early systematic map of cognitive layers; modern neuroscience's 'working memory' and 'executive function' describe similar strata.",
-      color: '#e67e22',
+      color: COLORS.orange,
     },
     { author: 'Mâverdî', workTr: 'Edebü\'d-Dünyâ ve\'d-Dîn', workEn: 'Adab al-Dunyā wa al-Dīn', period: '972–1058 (Basra/Bağdât)',
       insightTr: "Sosyal psikolojiye öncül sayılabilecek klasik bir ahlâk/edeb metni: birey ↔ toplum + öz ↔ ideal etkileşim çerçeveleri. Riyâset (liderlik), sadâkat, komşuluk gibi mikro-sosyal davranış kalıplarının Kur'ânî temellendirmesi.",
       insightEn: "A classical ethics/adab text that can be read as a precursor to social psychology: individual ↔ society and self ↔ ideal interaction frames. Qur'ānic grounding of micro-social behavior patterns like leadership (riyāsa), loyalty, neighborliness.",
-      color: '#94a3b8',
+      color: COLORS.silver,
     },
   ];
   return (
@@ -298,10 +298,10 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
 
 function PsikolojikDengeFormulaBox({ tr, isMobile }) {
   const inputs = [
-    { labelTr: 'HAVF', labelEn: 'KHAWF', descTr: 'Korku · Sığındırıcı direnç', descEn: 'Fear · Preservative resistance', color: '#3498db' },
+    { labelTr: 'HAVF', labelEn: 'KHAWF', descTr: 'Korku · Sığındırıcı direnç', descEn: 'Fear · Preservative resistance', color: COLORS.skyBlue },
     { labelTr: 'RECÂ', labelEn: 'RAJĀʾ', descTr: 'Ümit · İleriye çekici enerji', descEn: 'Hope · Forward-drawing energy', color: '#f59e0b' },
-    { labelTr: 'SABIR', labelEn: 'ṢABR', descTr: 'Direnç · Zamanla dinamiği tutma', descEn: 'Endurance · Holding dynamics over time', color: '#a78bfa' },
-    { labelTr: 'ŞÜKÜR', labelEn: 'SHUKR', descTr: 'Şükran · Bereketi çoğaltıcı akış', descEn: 'Gratitude · Blessing-multiplying flow', color: '#2ecc71' },
+    { labelTr: 'SABIR', labelEn: 'ṢABR', descTr: 'Direnç · Zamanla dinamiği tutma', descEn: 'Endurance · Holding dynamics over time', color: COLORS.purple },
+    { labelTr: 'ŞÜKÜR', labelEn: 'SHUKR', descTr: 'Şükran · Bereketi çoğaltıcı akış', descEn: 'Gratitude · Blessing-multiplying flow', color: COLORS.softEmerald },
   ];
   return (
     <div className="mq-box" style={{
@@ -402,10 +402,10 @@ function YusufIyilesmeArc({ tr, isMobile }) {
     // etiket/başlık metni için, rozet zemini/kenarlık `color` ile aynı kalır.
     { n: 1, tr: 'KAYIP', en: 'LOSS', descTr: 'Ailesinden kopuş, kıskançlıkla dışlanma (Yûsuf 12:8-10).', descEn: 'Rupture from family, exclusion through envy (Yūsuf 12:8-10).', color: '#c0392b', textColor: COLORS.rustTextSafe },
     { n: 2, tr: 'KUYU', en: 'THE WELL', descTr: 'İzole edilme, karanlık, ölüm eşiği. İlk travma (Yûsuf 12:15).', descEn: 'Isolation, darkness, threshold of death. First trauma (Yūsuf 12:15).', color: '#8b0000', textColor: COLORS.crimsonTextSafe },
-    { n: 3, tr: 'KÖLE', en: 'ENSLAVEMENT', descTr: 'Kimlik kaybı, meta olarak satılma (Yûsuf 12:19-20).', descEn: 'Loss of identity, sold as commodity (Yūsuf 12:19-20).', color: '#94a3b8' },
-    { n: 4, tr: 'İTHÂM', en: 'ACCUSATION', descTr: 'İftira, adaletsiz hüküm; kendi ahlâkına karşı saldırı (Yûsuf 12:25-26).', descEn: 'Slander, unjust ruling; an attack on one\'s own morality (Yūsuf 12:25-26).', color: '#a78bfa' },
-    { n: 5, tr: 'HAPİS', en: 'IMPRISONMENT', descTr: 'Sonuç: özgürlüğün alınması. Ama iç dünya derinleşir: rüyalar, bilgelik (Yûsuf 12:36).', descEn: 'Consequence: freedom taken. But the inner world deepens: dreams, wisdom (Yūsuf 12:36).', color: '#3498db' },
-    { n: 6, tr: 'KAVUŞMA + AF', en: 'REUNION + FORGIVENESS', descTr: 'Aile ile buluşma, kardeşleri affetme. Travma → bütünlük (Yûsuf 12:92, 100).', descEn: 'Reunion with family, forgiving the brothers. Trauma → wholeness (Yūsuf 12:92, 100).', color: '#2ecc71' },
+    { n: 3, tr: 'KÖLE', en: 'ENSLAVEMENT', descTr: 'Kimlik kaybı, meta olarak satılma (Yûsuf 12:19-20).', descEn: 'Loss of identity, sold as commodity (Yūsuf 12:19-20).', color: COLORS.silver },
+    { n: 4, tr: 'İTHÂM', en: 'ACCUSATION', descTr: 'İftira, adaletsiz hüküm; kendi ahlâkına karşı saldırı (Yûsuf 12:25-26).', descEn: 'Slander, unjust ruling; an attack on one\'s own morality (Yūsuf 12:25-26).', color: COLORS.purple },
+    { n: 5, tr: 'HAPİS', en: 'IMPRISONMENT', descTr: 'Sonuç: özgürlüğün alınması. Ama iç dünya derinleşir: rüyalar, bilgelik (Yûsuf 12:36).', descEn: 'Consequence: freedom taken. But the inner world deepens: dreams, wisdom (Yūsuf 12:36).', color: COLORS.skyBlue },
+    { n: 6, tr: 'KAVUŞMA + AF', en: 'REUNION + FORGIVENESS', descTr: 'Aile ile buluşma, kardeşleri affetme. Travma → bütünlük (Yûsuf 12:92, 100).', descEn: 'Reunion with family, forgiving the brothers. Trauma → wholeness (Yūsuf 12:92, 100).', color: COLORS.softEmerald },
   ];
   return (
     <div className="mq-box" style={{

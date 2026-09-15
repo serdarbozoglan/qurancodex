@@ -22,19 +22,19 @@ const RABBENA_DUAS = [
     ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً  إِنَّكَ أَنتَ الْوَهَّابُ',
     tr: 'Rabbimiz! Bizi doğru yola ilettikten sonra kalplerimizi saptırma; tarafından bize rahmet bağışla. Şüphesiz Sen, çok bağışlayansın.',
     en: 'Our Lord, do not let our hearts deviate after You have guided us, and grant us mercy from Your presence. Indeed, You are the Bestower.',
-    ref: 'Âl-i İmrân 3:8', color: '#3498db',
+    ref: 'Âl-i İmrân 3:8', color: COLORS.skyBlue,
   },
   {
     ar: 'رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
     tr: 'Rabbimiz! Üzerimize sabır yağdır, ayaklarımızı sabit kıl ve kâfir topluma karşı bize yardım et.',
     en: 'Our Lord, pour upon us patience, plant firmly our feet, and help us against the disbelieving people.',
-    ref: 'Bakara 2:250', color: '#2ecc71',
+    ref: 'Bakara 2:250', color: COLORS.softEmerald,
   },
   {
     ar: 'رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِّلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَّحِيمٌ',
     tr: "Rabbimiz! Bizi ve bizden önce iman etmiş kardeşlerimizi bağışla; iman edenlere karşı kalplerimizde kin bırakma. Rabbimiz! Şüphesiz Sen çok şefkatli, çok merhametlisin.",
     en: 'Our Lord, forgive us and our brothers who preceded us in faith; place no rancor in our hearts toward those who believe. Our Lord, indeed You are Most Compassionate, Most Merciful.',
-    ref: 'Haşr 59:10', color: '#a78bfa',
+    ref: 'Haşr 59:10', color: COLORS.purple,
   },
   {
     ar: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
@@ -48,13 +48,13 @@ const RABBENA_DUAS = [
     ar: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ',
     tr: 'Rabbimiz! Şüphesiz biz iman ettik; günahlarımızı bağışla ve bizi ateş azabından koru.',
     en: 'Our Lord, indeed we have believed; so forgive us our sins and protect us from the punishment of the Fire.',
-    ref: 'Âl-i İmrân 3:16', color: '#3498db',
+    ref: 'Âl-i İmrân 3:16', color: COLORS.skyBlue,
   },
   {
     ar: 'رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا  رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا  رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ  وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا  أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
     tr: 'Rabbimiz! Unutursak veya hata yaparsak bizi sorumlu tutma. Rabbimiz! Bizden öncekilere yüklediğin gibi bize de ağır bir yük yükleme. Rabbimiz! Bize gücümüzün yetmediği şeyleri yükleme. Bizi affet, bağışla ve bize merhamet et. Sen bizim Mevlâmızsın; kâfirler topluluğuna karşı bize yardım et.',
     en: 'Our Lord, do not hold us accountable if we forget or err. Our Lord, do not place upon us a burden like that which You placed on those before us. Our Lord, do not burden us with what we cannot bear. Pardon us, forgive us, and have mercy on us. You are our Protector — help us against the disbelieving people.',
-    ref: 'Bakara 2:286', color: '#a78bfa',
+    ref: 'Bakara 2:286', color: COLORS.purple,
     noteTr: "Kur'an'ın en kapsamlı duası: Bakara'nın son ayeti. Hata kabulü, taşınamaz yükten muafiyet, af, mağfiret, merhamet ve nusret talebi tek dua içinde. Hadiste 'Bakara'nın son iki ayetini geceleyin okuyana o iki ayet yeter' (Buhârî, Fedâilü'l-Kur'an 10).",
     noteEn: "The Qur'an's most comprehensive prayer: the closing verse of Al-Baqara. Acknowledgment of error, exemption from unbearable burden, pardon, forgiveness, mercy and victory, all in one prayer. Hadith: 'Whoever recites the last two verses of Al-Baqara at night, they will suffice him' (Bukhārī, Faḍāʾil al-Qurʾān 10).",
   },
@@ -142,13 +142,13 @@ export default function QuranDua() {
           }}>
             <div dir="rtl" lang="ar" style={{
               fontFamily: FONTS.quran,
-              fontSize: '2.2rem', color: '#3498db', textAlign: 'center',
+              fontSize: '2.2rem', color: COLORS.skyBlue, textAlign: 'center',
               lineHeight: 1.2, marginBottom: '6px',
               textShadow: '0 0 14px rgba(52,152,219,0.18)',
             }}>
               رَبِّ
             </div>
-            <div style={{ textAlign: 'center', color: '#3498db', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
+            <div style={{ textAlign: 'center', color: COLORS.skyBlue, fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? 'Rabbî · Rabbim' : 'Rabbī · my Lord'}
             </div>
             <div style={{ textAlign: 'center', color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
@@ -258,21 +258,21 @@ export default function QuranDua() {
           }}>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-              color: '#a78bfa', fontWeight: 700, fontFamily: "'Inter', sans-serif",
+              color: COLORS.purple, fontWeight: 700, fontFamily: "'Inter', sans-serif",
               marginBottom: '10px', 
             }}>
               {tr ? 'Pencere 2 · "Yâ" Edatının Yokluğu' : 'Window 2 · The Absence of "Yā"'}
             </div>
             <div dir="rtl" lang="ar" style={{
               fontFamily: FONTS.quran,
-              fontSize: '1.4rem', color: '#a78bfa', textAlign: 'right',
+              fontSize: '1.4rem', color: COLORS.purple, textAlign: 'right',
               lineHeight: 1.7, marginBottom: '4px',
               textShadow: '0 0 14px rgba(167,139,250,0.18)',
             }}>
               إِنِّي قَرِيبٌ
             </div>
             <div style={{
-              fontSize: '0.7rem', color: '#a78bfa', fontWeight: 600,
+              fontSize: '0.7rem', color: COLORS.purple, fontWeight: 600,
               fontFamily: "'Inter', sans-serif", textAlign: 'right', marginBottom: '10px',
             }}>
               ↳ {tr ? 'Bakara 2:186: "Ben yakınım"' : 'Al-Baqara 2:186: "I am near"'}
@@ -365,9 +365,9 @@ export default function QuranDua() {
       }}>
         {[
           { value: '40+',  labelTr: 'Rabbenâ Duası',         labelEn: 'Rabbanā Prayers',     color: COLORS.gold, subTr: 'çoğul · ümmet adına',  subEn: 'plural · for community' },
-          { value: '40+',  labelTr: 'Rabbî Duası',           labelEn: 'Rabbī Prayers',       color: '#3498db', subTr: 'tekil · kişisel başvuru', subEn: 'singular · personal' },
-          { value: '6',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: '#a78bfa', subTr: 'Hz. İbrahim · Hz. Eyyub · Hz. Yusuf · Hz. Mûsâ · Hz. Yunus · Hz. Zekeriyyâ', subEn: 'Abraham · Job · Joseph · Moses · Jonah · Zechariah' },
-          { value: '27',   labelTr: 'Dua İçeren Sûre',        labelEn: 'Surahs with Prayers', color: '#2ecc71', subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
+          { value: '40+',  labelTr: 'Rabbî Duası',           labelEn: 'Rabbī Prayers',       color: COLORS.skyBlue, subTr: 'tekil · kişisel başvuru', subEn: 'singular · personal' },
+          { value: '6',    labelTr: 'Peygamber Profili',      labelEn: 'Prophet Profiles',    color: COLORS.purple, subTr: 'Hz. İbrahim · Hz. Eyyub · Hz. Yusuf · Hz. Mûsâ · Hz. Yunus · Hz. Zekeriyyâ', subEn: 'Abraham · Job · Joseph · Moses · Jonah · Zechariah' },
+          { value: '27',   labelTr: 'Dua İçeren Sûre',        labelEn: 'Surahs with Prayers', color: COLORS.softEmerald, subTr: 'Mekkî · Medenî dengeli',   subEn: 'Meccan · Medinan balanced' },
         ].map((s, i) => (
           <div key={i} style={{
             background: `${s.color}10`,
@@ -628,7 +628,7 @@ export default function QuranDua() {
               translitEn: 'Adversity has touched me',
               descTr: 'Bakara 2:201\'de hâl zımnidir (insanın iki diyarda varoluşu). Hz. Eyyub\'un duasında ise açıktır: durumunu Allah\'a sunar; şikâyet etmeden, edep sınırları içinde.',
               descEn: 'In Al-Baqara 2:201 the state is implicit (humanity\'s existence across two realms). In Hz. Job\'s prayer it is explicit: he presents his condition to God; without complaint, within respectful bounds.',
-              color: '#3498db',
+              color: COLORS.skyBlue,
             },
             {
               labelTr: 'Talep', labelEn: 'Petition',
@@ -639,7 +639,7 @@ export default function QuranDua() {
               translitEn: 'Grant us good in this world and good in the Hereafter',
               descTr: '"Hasene" (iyilik) tanımlanmamıştır; kişiye ve duruma göre değişir. Açık uçlu talep, ilahî hikmete emanet.',
               descEn: '"Ḥasana" (good) is undefined; it varies by person and situation. An open-ended request, entrusted to divine wisdom.',
-              color: '#2ecc71',
+              color: COLORS.softEmerald,
             },
             {
               labelTr: 'Teveccüh', labelEn: 'Surrender',
@@ -650,7 +650,7 @@ export default function QuranDua() {
               translitEn: 'and protect us from the punishment of the Fire',
               descTr: '"Kınâ": koru demek. Talep biter, Allah\'ın koruyucu sıfatına teslim ile mühürlenir. Her duanın son nefesi.',
               descEn: '"Qinā" means "protect us." The petition ends, sealed by surrender to the protective attribute of God. The final breath of every prayer.',
-              color: '#a78bfa',
+              color: COLORS.purple,
             },
           ].map((stage, i) => (
             <div key={i} style={{
@@ -759,9 +759,9 @@ export default function QuranDua() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
           {[
             { color: COLORS.gold, labelTr: 'Câmi', labelEn: 'Comprehensive' },
-            { color: '#2ecc71', labelTr: 'Sabır', labelEn: 'Patience' },
-            { color: '#a78bfa', labelTr: 'Bağışlanma', labelEn: 'Forgiveness' },
-            { color: '#3498db', labelTr: 'İman', labelEn: 'Faith' },
+            { color: COLORS.softEmerald, labelTr: 'Sabır', labelEn: 'Patience' },
+            { color: COLORS.purple, labelTr: 'Bağışlanma', labelEn: 'Forgiveness' },
+            { color: COLORS.skyBlue, labelTr: 'İman', labelEn: 'Faith' },
           ].map(item => (
             <div key={item.color} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
               <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: 2, background: item.color, flexShrink: 0 }} />

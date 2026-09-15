@@ -30,12 +30,12 @@ const { fasila, fasilaTaban } = data;
 // ya da hepsini birden kabul etmeyi seçtiği için ölçütlere karşı sınanamaz;
 // onları buraya koymak yanıltıcı olurdu.
 const MATRIS_GORUSLER = [
-  { id: 'tehaddi', tr: 'Tehaddî',      en: 'Challenge',    renk: '#2ab5a0' },
+  { id: 'tehaddi', tr: 'Tehaddî',      en: 'Challenge',    renk: COLORS.tealDark },
   { id: 'tenbih',  tr: 'Tenbîh',       en: 'Attention',    renk: '#6fc98a' },
   { id: 'sureadi', tr: 'Sûre adı',     en: 'Sura name',    renk: '#7c9fe0' },
   { id: 'kasem',   tr: 'Kasem',        en: 'Oath',         renk: '#e07a7a' },
   { id: 'kisalt',  tr: 'Kısaltma',     en: 'Abbreviation', renk: '#c98ae0' },
-  { id: 'yarim',   tr: 'Elifbâ yarısı', en: 'Half the alphabet', renk: '#d4a574' },
+  { id: 'yarim',   tr: 'Elifbâ yarısı', en: 'Half the alphabet', renk: COLORS.gold },
 ];
 
 // Her ölçüt sayfada KURULMUŞ bir olguya dayanır — okuyucu yukarı çıkıp
@@ -245,7 +245,7 @@ export default function MukattaaEvidence() {
             gap: '10px', marginBottom: '20px',
           }}>
             {[
-              { v: `%${fasilaTaban.mukattaa.mimNun}`, l: tr ? 'mukattaa sûreleri (29)' : 'mukattaʿāt suras (29)', c: '#2ab5a0' },
+              { v: `%${fasilaTaban.mukattaa.mimNun}`, l: tr ? 'mukattaa sûreleri (29)' : 'mukattaʿāt suras (29)', c: COLORS.tealDark },
               { v: `%${fasilaTaban.digerleri.mimNun}`, l: tr ? 'diğer 85 sûre' : 'the other 85 suras', c: COLORS.textFaint },
               { v: `+${fasilaTaban.fark}`, l: tr ? 'puan fark' : 'point difference', c: COLORS.gold },
             ].map((k) => (

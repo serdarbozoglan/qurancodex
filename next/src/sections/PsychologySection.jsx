@@ -67,7 +67,7 @@ const TAB_META = {
   araclar:  { color: '#14B8A6', dim: 'rgba(20,184,166,0.12)',  border: 'rgba(20,184,166,0.35)' },
   anlam:    { color: '#A855F7', dim: 'rgba(168,85,247,0.12)',  border: 'rgba(168,85,247,0.35)' },
   modern:   { color: '#F97316', dim: 'rgba(249,115,22,0.12)',  border: 'rgba(249,115,22,0.35)' },
-  ekler:    { color: '#94A3B8', dim: 'rgba(148,163,184,0.10)', border: 'rgba(148,163,184,0.30)' },
+  ekler:    { color: COLORS.silver, dim: 'rgba(148,163,184,0.10)', border: 'rgba(148,163,184,0.30)' },
 };
 
 const TAB_ICONS = {
@@ -148,7 +148,7 @@ function AccordionItem({ item, accentColor }) {
       >
         <span style={{
           fontFamily: "'Inter', sans-serif", fontWeight: 600,
-          fontSize: '0.9rem', color: open ? '#e8e6e3' : '#94a3b8',
+          fontSize: '0.9rem', color: open ? '#e8e6e3' : COLORS.silver,
           lineHeight: 1.4, transition: 'color 0.2s',
         }}>
           {item.title}
@@ -156,7 +156,7 @@ function AccordionItem({ item, accentColor }) {
         <svg
           aria-hidden="true"
           width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke={open ? accentColor : '#64748b'} strokeWidth="2.5" strokeLinecap="round"
+          stroke={open ? accentColor : COLORS.slate500} strokeWidth="2.5" strokeLinecap="round"
           style={{ flexShrink: 0, transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s, stroke 0.2s' }}
         >
           <polyline points="6 9 12 15 18 9"/>
@@ -186,7 +186,7 @@ function AccordionItem({ item, accentColor }) {
                 }}>
                   <p style={{
                     fontFamily: FONTS.quran,
-                    fontSize: '1.5rem', color: '#d4a574',
+                    fontSize: '1.5rem', color: COLORS.gold,
                     lineHeight: 1.8, direction: 'rtl',
                     textAlign: 'right',
                     margin: '0 0 8px',
@@ -195,7 +195,7 @@ function AccordionItem({ item, accentColor }) {
                   </p>
                   <p style={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '0.82rem', color: '#94a3b8',
+                    fontSize: '0.82rem', color: COLORS.silver,
                     fontStyle: 'italic', margin: '0 0 4px',
                   }}>
                     {item.translation}
@@ -312,7 +312,7 @@ function TabCTA({ cfg, accentColor, language }) {
         <p style={{ color: accentColor, fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.08em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
           {language === 'tr' ? cfg.labelTr : cfg.labelEn}
         </p>
-        <p style={{ color: '#94a3b8', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", margin: 0, lineHeight: 1.45 }}>
+        <p style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", margin: 0, lineHeight: 1.45 }}>
           {language === 'tr' ? cfg.descTr : cfg.descEn}
         </p>
       </div>
@@ -335,7 +335,7 @@ function TabPanel({ tabKey, accentColor }) {
       {data.intro && (
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: '0.95rem', color: '#94a3b8',
+          fontSize: '0.95rem', color: COLORS.silver,
           lineHeight: 1.75, marginBottom: '22px',
           maxWidth: '760px',
         }}>
@@ -411,7 +411,7 @@ function AppendixPanel() {
               {ekData.intro && (
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: '0.95rem', color: '#94a3b8',
+                  fontSize: '0.95rem', color: COLORS.silver,
                   lineHeight: 1.75, marginBottom: '20px', maxWidth: '760px',
                 }}>
                   {ekData.intro}
@@ -526,7 +526,7 @@ export default function PsychologySection() {
             borderRadius: '10px',
             border: `1px solid ${isActive ? meta.color : 'rgba(255,255,255,0.06)'}`,
             background: isActive ? meta.dim : 'rgba(255,255,255,0.022)',
-            color: isActive ? meta.color : '#94a3b8',
+            color: isActive ? meta.color : COLORS.silver,
             fontFamily: "'Inter', sans-serif",
             fontSize: '0.78rem',
             fontWeight: isActive ? 600 : 500,
@@ -558,17 +558,17 @@ export default function PsychologySection() {
                 if (isActive) return;
                 if (isMobile) {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                  e.currentTarget.style.color = '#e8e6e3';
+                  e.currentTarget.style.color = COLORS.offWhite;
                 } else {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                  e.currentTarget.style.color = '#e8e6e3';
+                  e.currentTarget.style.color = COLORS.offWhite;
                 }
               }}
               onMouseLeave={e => {
                 if (isActive) return;
                 if (isMobile) {
                   e.currentTarget.style.background = 'rgba(255,255,255,0.022)';
-                  e.currentTarget.style.color = '#94a3b8';
+                  e.currentTarget.style.color = COLORS.silver;
                 } else {
                   e.currentTarget.style.background = 'transparent';
                   e.currentTarget.style.color = SEMANTIC.textFaint;
@@ -651,10 +651,10 @@ export default function PsychologySection() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? '↗ KUR’AN’DA İBLİS / ŞEYTAN: ATLASI AÇ' : '↗ IBLĪS / SHAYṬĀN IN THE QUR’AN: OPEN THE ATLAS'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
                 ? '7 sûre · vesvese · iğva · kibir · psikolojik saldırı kalıpları'
                 : '7 surahs · whispering · deception · arrogance · psychological attack patterns'}

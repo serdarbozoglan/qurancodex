@@ -637,7 +637,7 @@ export default function WordHeatmap({ onClose }) {
     return getMatchingVerses(verses, selectedSurah, resolvedTerm, language, isArabicSearch);
   }, [verses, selectedSurah, resolvedTerm, language, isArabicSearch]);
 
-  const gold = '#d4a574';
+  const gold = COLORS.gold;
 
   const handleSearch = (term, presetLabel = null) => {
     // Second click on active preset → deselect (toggle off)
@@ -726,7 +726,7 @@ export default function WordHeatmap({ onClose }) {
         background: 'rgba(6,8,20,0.97)', border: '1px solid rgba(212,165,116,0.3)',
         borderRadius: '7px', padding: '5px 11px', backdropFilter: 'blur(12px)',
         boxShadow: '0 6px 20px rgba(0,0,0,0.5)',
-        whiteSpace: 'nowrap', fontSize: '0.72rem', color: '#94a3b8',
+        whiteSpace: 'nowrap', fontSize: '0.72rem', color: COLORS.silver,
       }}>
         {hoverKalip.desc}
       </div>
@@ -744,7 +744,7 @@ export default function WordHeatmap({ onClose }) {
           boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
           maxWidth: '220px',
         }}>
-          <div style={{ color: '#94a3b8', fontSize: '0.65rem', marginBottom: '2px' }}>{tooltip.surah}. {SURAH_NAMES_TR[tooltip.surah - 1]}</div>
+          <div style={{ color: COLORS.silver, fontSize: '0.65rem', marginBottom: '2px' }}>{tooltip.surah}. {SURAH_NAMES_TR[tooltip.surah - 1]}</div>
           {tooltip.baseline
             ? <div style={{ color: 'rgba(52,152,219,0.85)', fontSize: '0.78rem', fontWeight: 600 }}>{surahVerseCounts[tooltip.surah] || 0} {language === 'tr' ? 'âyet' : 'verses'}</div>
             : tooltip.count > 0
@@ -810,7 +810,7 @@ export default function WordHeatmap({ onClose }) {
                   style={{
                     background: activePreset ? 'rgba(212,165,116,0.08)' : 'rgba(255,255,255,0.06)',
                     border: `1px solid ${activePreset ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.25)'}`,
-                    borderRadius: RADIUS.md, color: '#e8e6e3',
+                    borderRadius: RADIUS.md, color: COLORS.offWhite,
                     padding: hasArabic ? '6px 14px' : '7px 14px',
                     fontFamily: hasArabic ? FONTS.quran : undefined,
                     fontSize: hasArabic ? '1.25rem' : '0.88rem',
@@ -922,7 +922,7 @@ export default function WordHeatmap({ onClose }) {
                             background: isActive ? 'rgba(212,165,116,0.2)' : 'rgba(255,255,255,0.04)',
                             border: `1px solid ${isActive ? 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.08)'}`,
                             borderRadius: isKalip ? '10px' : '12px',
-                            color: isActive ? gold : '#94a3b8',
+                            color: isActive ? gold : COLORS.silver,
                             cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                             padding: isKalip ? '5px 12px' : '3px 10px',
                             textAlign: isKalip ? 'right' : 'left',
@@ -956,7 +956,7 @@ export default function WordHeatmap({ onClose }) {
 
           {/* Not found */}
           {!loading && searchTerm && totalOccurrences === 0 && (
-            <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', padding: '40px' }}>{language === 'tr' ? `"${searchTerm}" bulunamadı` : `"${searchTerm}" not found`}</div>
+            <div style={{ color: COLORS.slate500, fontSize: '0.85rem', textAlign: 'center', padding: '40px' }}>{language === 'tr' ? `"${searchTerm}" bulunamadı` : `"${searchTerm}" not found`}</div>
           )}
 
           {/* Grid — always visible when data is loaded (baseline or search mode) */}
@@ -986,7 +986,7 @@ export default function WordHeatmap({ onClose }) {
                       borderRadius: RADIUS.md, color: gold, cursor: 'pointer', padding: '4px 10px',
                       fontSize: '0.73rem', display: 'flex', alignItems: 'center', gap: '4px', transition: `all ${TRANSITION.fast}`,
                     }}>
-                      <span style={{ color: '#64748b', fontSize: '0.65rem' }}>{surah}.</span>
+                      <span style={{ color: COLORS.slate500, fontSize: '0.65rem' }}>{surah}.</span>
                       {SURAH_NAMES_TR[+surah - 1]}
                       <span style={{ background: 'rgba(212,165,116,0.2)', borderRadius: RADIUS.sm, padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>{count}</span>
                     </button>
@@ -1114,7 +1114,7 @@ export default function WordHeatmap({ onClose }) {
                     type="button"
                     aria-label={language === 'tr' ? 'Âyet panelini kapat' : 'Close verse panel'}
                     style={{ background: 'none', border: 'none', color: SEMANTIC.textFaint, cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
+                    onMouseEnter={e => e.currentTarget.style.color = COLORS.silver}
                     onMouseLeave={e => e.currentTarget.style.color = '#4a5568'}>✕</button>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -1132,7 +1132,7 @@ export default function WordHeatmap({ onClose }) {
                         disabled={versePage === 0}
                         type="button"
                         aria-label={language === 'tr' ? 'Önceki âyet sayfası' : 'Previous verse page'}
-                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === 0 ? '#2a3040' : '#94a3b8', cursor: versePage === 0 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>‹</button>
+                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === 0 ? '#2a3040' : COLORS.silver, cursor: versePage === 0 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>‹</button>
                       <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem', minWidth: '44px', textAlign: 'center' }}>
                         {versePage + 1} / {totalPages}
                       </span>
@@ -1141,7 +1141,7 @@ export default function WordHeatmap({ onClose }) {
                         disabled={versePage === totalPages - 1}
                         type="button"
                         aria-label={language === 'tr' ? 'Sonraki âyet sayfası' : 'Next verse page'}
-                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === totalPages - 1 ? '#2a3040' : '#94a3b8', cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>›</button>
+                        style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === totalPages - 1 ? '#2a3040' : COLORS.silver, cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>›</button>
                     </div>
                   )}
                 </div>

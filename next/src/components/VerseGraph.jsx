@@ -488,7 +488,7 @@ const SURAH_PAGES = [
 ];
 
 // Mekkî sûreler altın, Medenî sûreler zümrüt yeşili
-const MEKKI_COLOR  = '#c9a227';  // royal gold  (Mekke — çöl, kökler)
+const MEKKI_COLOR  = COLORS.royalGold;  // royal gold  (Mekke — çöl, kökler)
 const MEDENI_COLOR = '#1a7a4c';  // quranic green (Medine — medeniyet, büyüme)
 const MEDANI_SURAHS = new Set([
   2,3,4,5,8,9,13,22,24,33,47,48,49,55,57,58,59,60,61,62,63,64,65,66,76,98,99,110
@@ -690,7 +690,7 @@ const LINK_TIERS = [
 // tanımlıyor gibi VerseGraph da kendi 'rgba(212,165,116,...)' altınını
 // zaten `linkColor`'da kullanıyor — bkz. az yukarıdaki useCallback);
 // instanced versiyon aynı hex'i kullanır, tutarlılık için.
-const LINK_GOLD = '#d4a574';
+const LINK_GOLD = COLORS.gold;
 
 function tierForScore(score) {
   for (let i = 0; i < LINK_TIERS.length; i++) if (score < LINK_TIERS[i].max) return i;
@@ -960,7 +960,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
               onChange={e => setSearch(e.target.value)}
               onKeyDown={handleInputKey}
               placeholder={language === 'tr' ? 'Sûre adı veya numarası…' : 'Surah name or number…'}
-              style={{ width: '100%', padding: '5px 9px', borderRadius: RADIUS.sm, background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, color: '#e2e8f0', fontSize: '0.78rem', outline: 'none', boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '5px 9px', borderRadius: RADIUS.sm, background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, color: COLORS.slate200, fontSize: '0.78rem', outline: 'none', boxSizing: 'border-box' }}
             />
           </div>
           <div ref={listRef} style={{ maxHeight: '270px', overflowY: 'auto' }}>
@@ -3160,13 +3160,13 @@ function FullGraph({ verses, onBack, language, onClose }) {
           padding: '8px 12px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: '#c9a227', flexShrink: 0 }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: COLORS.royalGold, flexShrink: 0 }} />
             <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
               {language === 'tr' ? 'Mekkî' : 'Meccan'}
             </span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: '#2ecc71', flexShrink: 0 }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: COLORS.softEmerald, flexShrink: 0 }} />
             <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: 'Inter, sans-serif' }}>
               {language === 'tr' ? 'Medenî' : 'Medinan'}
             </span>
@@ -3364,7 +3364,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
 
   if (error) return (
     <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
-      <span style={{ color: '#e74c3c', fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
+      <span style={{ color: COLORS.red, fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
       <span style={{ color: SEMANTIC.textFaint, fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
     </div>
   );
@@ -3647,7 +3647,7 @@ function ShareModal({ node, language, onClose }) {
             <button onClick={nativeShare} style={{
               flex: 1, background: 'rgba(52,152,219,0.1)',
               border: '1px solid rgba(52,152,219,0.25)',
-              borderRadius: RADIUS.md, color: '#3498db',
+              borderRadius: RADIUS.md, color: COLORS.skyBlue,
               padding: '10px 16px', cursor: 'pointer', fontSize: '0.8rem', fontWeight: 600,
             }}>
               ↗ {language === 'tr' ? 'Paylaş' : 'Share'}
@@ -3737,7 +3737,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
               <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem' }}>{surahNameTr(node.surah, language === 'en')}</span>
-              <span style={{ color: '#c9a227', fontWeight: 800, fontSize: '1rem', letterSpacing: '0.02em' }}>{node.id}</span>
+              <span style={{ color: COLORS.royalGold, fontWeight: 800, fontSize: '1rem', letterSpacing: '0.02em' }}>{node.id}</span>
             </div>
             {connections.length > 0 && (
               <div style={{ marginTop: '5px' }}>
@@ -3792,13 +3792,13 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
             onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.12)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.5)'; }}
             onMouseLeave={e => { e.currentTarget.style.background = showContext ? 'rgba(52,152,219,0.08)' : 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = showContext ? 'rgba(52,152,219,0.4)' : 'rgba(52,152,219,0.2)'; }}
           >
-            <span style={{ color: '#3498db', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.06em' }}>
+            <span style={{ color: COLORS.skyBlue, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.06em' }}>
               {language === 'tr' ? 'Siyak-Sibak' : 'Context'}
             </span>
-            <span style={{ color: '#3498db', fontSize: '0.62rem', fontStyle: 'italic', fontWeight: 400 }}>
+            <span style={{ color: COLORS.skyBlue, fontSize: '0.62rem', fontStyle: 'italic', fontWeight: 400 }}>
               {language === 'tr' ? '(bağlam)' : ''}
             </span>
-            <span style={{ color: '#3498db', fontSize: '0.7rem', marginLeft: 'auto' }}>{showContext ? '▲' : '▼'}</span>
+            <span style={{ color: COLORS.skyBlue, fontSize: '0.7rem', marginLeft: 'auto' }}>{showContext ? '▲' : '▼'}</span>
           </button>
           {showContext && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '8px' }}>
@@ -3810,7 +3810,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.1)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.12)'; }}>
-                  <span style={{ color: '#3498db', fontSize: '0.72rem', marginRight: '8px' }}>{v.id}</span>
+                  <span style={{ color: COLORS.skyBlue, fontSize: '0.72rem', marginRight: '8px' }}>{v.id}</span>
                   <span style={{ color: '#b0c4d8', fontSize: '0.84rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{vt(v)}</span>
                 </button>
               ))}
@@ -3828,7 +3828,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.1)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.3)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'rgba(52,152,219,0.04)'; e.currentTarget.style.borderColor = 'rgba(52,152,219,0.12)'; }}>
-                  <span style={{ color: '#3498db', fontSize: '0.72rem', marginRight: '8px' }}>{v.id}</span>
+                  <span style={{ color: COLORS.skyBlue, fontSize: '0.72rem', marginRight: '8px' }}>{v.id}</span>
                   <span style={{ color: '#b0c4d8', fontSize: '0.84rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{vt(v)}</span>
                 </button>
               ))}
@@ -3869,7 +3869,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                   </div>
                   <span
                     title={language === 'tr' ? 'Kosinüs benzerlik skoru (0–1 arası, 1 = tam eşleşme)' : 'Cosine similarity score (0–1, where 1 = exact match)'}
-                    style={{ color: '#c9a227', fontSize: '0.8rem', fontWeight: 700, flexShrink: 0, cursor: 'help' }}
+                    style={{ color: COLORS.royalGold, fontSize: '0.8rem', fontWeight: 700, flexShrink: 0, cursor: 'help' }}
                   >{(c.score).toFixed(2)}</span>
                 </div>
                 {/* Progress bar — normalized to displayed range [0.45, 1.0] */}

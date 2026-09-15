@@ -1443,7 +1443,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
   const tr = language === 'tr';
   const items = [
     {
-      themeColor: '#2ecc71',      // emerald — eternal cycle
+      themeColor: COLORS.softEmerald,      // emerald — eternal cycle
       themeBg: 'rgba(46,204,113,0.05)',
       themeBorder: 'rgba(46,204,113,0.25)',
       headlineTr: 'Mushaf, kendi sonundan başına dönen bir halkadır.',
@@ -1454,7 +1454,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Mushaf Cycle',
     },
     {
-      themeColor: '#d4a574',      // gold — family signature
+      themeColor: COLORS.gold,      // gold — family signature
       themeBg: 'rgba(212,165,116,0.05)',
       themeBorder: 'rgba(212,165,116,0.28)',
       headlineTr: 'Yedi sûre aynı iki harfle, حم ile başlar ve hepsi ardışıktır.',
@@ -2085,19 +2085,19 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
   // geri kalanı silver/gri (default).
   const ROOT_FAMILIES = useMemo(() => [
     // Kur'ân'ın en çok tekrar eden anlam ekseni gruplamaları
-    { pattern: /^ح م د$/, colorTr: 'Hamd (övgü)', colorEn: 'Ḥamd (praise)', hex: '#D4A574' },
-    { pattern: /^ر ب ب$/, colorTr: 'Rabb (Rab)',  colorEn: 'Rabb (Lord)', hex: '#B8860B' },
+    { pattern: /^ح م د$/, colorTr: 'Hamd (övgü)', colorEn: 'Ḥamd (praise)', hex: COLORS.gold },
+    { pattern: /^ر ب ب$/, colorTr: 'Rabb (Rab)',  colorEn: 'Rabb (Lord)', hex: COLORS.btnGoldMid },
     { pattern: /^ا ل ه|^أ ل ه$/, colorTr: 'Ilâh (İlah)', colorEn: 'Ilāh (God)', hex: '#8B5CF6' },
     { pattern: /^ن ا س$/, colorTr: 'Nâs (insan)', colorEn: 'Nās (people)', hex: '#3B82F6' },
-    { pattern: /^ر ح م$/, colorTr: 'Rahm (rahmet)', colorEn: 'Raḥm (mercy)', hex: '#1D9E75' },
+    { pattern: /^ر ح م$/, colorTr: 'Rahm (rahmet)', colorEn: 'Raḥm (mercy)', hex: COLORS.emerald },
     { pattern: /^ذ ك ر$/, colorTr: 'Zikr (anma)', colorEn: 'Dhikr (remembrance)', hex: '#22C55E' },
     { pattern: /^ا م ن|^أ م ن$/, colorTr: 'Îmân (iman)', colorEn: 'Īmān (faith)', hex: '#14B8A6' },
-    { pattern: /^ع ب د$/, colorTr: 'ʿAbd (kulluk)', colorEn: 'ʿAbd (worship)', hex: '#C9A227' },
+    { pattern: /^ع ب د$/, colorTr: 'ʿAbd (kulluk)', colorEn: 'ʿAbd (worship)', hex: COLORS.royalGold },
     { pattern: /^ي و م$/, colorTr: 'Yevm (gün)', colorEn: 'Yawm (day)', hex: '#F97316' },
-    { pattern: /^ك ف ر$/, colorTr: 'Kufr (inkar)', colorEn: 'Kufr (denial)', hex: '#D85A30' },
+    { pattern: /^ك ف ر$/, colorTr: 'Kufr (inkar)', colorEn: 'Kufr (denial)', hex: COLORS.coral },
     { pattern: /^ص ل و$/, colorTr: 'Ṣalât (namaz)', colorEn: 'Ṣalāt (prayer)', hex: '#EAB308' },
-    { pattern: /^ع ل م$/, colorTr: 'ʿIlm (bilgi)', colorEn: 'ʿIlm (knowledge)', hex: '#3498DB' },
-    { pattern: /^س م ع|^ب ص ر$/, colorTr: 'Semī' + "'" + '-Basîr (duyu)', colorEn: 'Semīʿ-Baṣīr (senses)', hex: '#06B6D4' },
+    { pattern: /^ع ل م$/, colorTr: 'ʿIlm (bilgi)', colorEn: 'ʿIlm (knowledge)', hex: COLORS.skyBlue },
+    { pattern: /^س م ع|^ب ص ر$/, colorTr: 'Semī' + "'" + '-Basîr (duyu)', colorEn: 'Semīʿ-Baṣīr (senses)', hex: COLORS.cyan },
     { pattern: /^ح ك م$/, colorTr: 'Hukm (hüküm)', colorEn: 'Ḥukm (judgment)', hex: '#F59E0B' },
     { pattern: /^ه د ي$/, colorTr: 'Hidâyet', colorEn: 'Hidāya (guidance)', hex: '#10B981' },
   ], []);

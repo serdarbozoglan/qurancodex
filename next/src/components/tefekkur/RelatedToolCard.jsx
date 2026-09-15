@@ -6,11 +6,11 @@ import { COLORS, FONTS, RADIUS } from '../../tokens';
 const TOOL_META = {
   'concept-graph':  { labelTr: 'Kavram Grafiği', labelEn: 'Concept Graph', path: '/graf/kavram', accent: COLORS.purple, descTr: 'Kavramlar arası ağ', descEn: 'Concept network' },
   'verse-graph':    { labelTr: 'Ayet Grafiği',   labelEn: 'Verse Graph',   path: '/graf/ayet',   accent: COLORS.gold,   descTr: 'Ayet semantik haritası', descEn: 'Verse semantic map' },
-  'esma-frekans':   { labelTr: 'Esmâ-i Hüsnâ',  labelEn: 'The Beautiful Names',  path: '/arac/esma-frekans', accent: '#1D9E75', descTr: 'Allah\'ın kendini tanıtması', descEn: 'How God describes Himself' },
+  'esma-frekans':   { labelTr: 'Esmâ-i Hüsnâ',  labelEn: 'The Beautiful Names',  path: '/arac/esma-frekans', accent: COLORS.emerald, descTr: 'Allah\'ın kendini tanıtması', descEn: 'How God describes Himself' },
   'kissa-atlas':    { labelTr: 'Kıssa Atlası',   labelEn: 'Story Atlas',   path: '/atlas/kissa', accent: COLORS.gold,   descTr: 'Peygamber kıssaları', descEn: 'Prophet stories' },
-  'semantik-map':   { labelTr: 'Semantik Harita',labelEn: 'Semantic Map',  path: '/graf/semantik', accent: '#3498db', descTr: '20 küme', descEn: '20 clusters' },
+  'semantik-map':   { labelTr: 'Semantik Harita',labelEn: 'Semantic Map',  path: '/graf/semantik', accent: COLORS.skyBlue, descTr: '20 küme', descEn: '20 clusters' },
   'reading-mode':   { labelTr: 'Kur\'an\'ı Oku',  labelEn: 'Read Quran',    path: '/oku/1',       accent: COLORS.gold,   descTr: 'Reading Mode', descEn: 'Reading Mode' },
-  'munafik-profili':{ labelTr: 'Münafık Profili',labelEn: 'Hypocrite',     path: '/atlas/munafik', accent: '#e74c3c', descTr: '12 psikolojik özellik', descEn: '12 psychological traits' },
+  'munafik-profili':{ labelTr: 'Münafık Profili',labelEn: 'Hypocrite',     path: '/atlas/munafik', accent: COLORS.red, descTr: '12 psikolojik özellik', descEn: '12 psychological traits' },
   'nefs-mertebeleri': { labelTr: 'Nefs Mertebeleri', labelEn: 'Soul Stations', path: '/atlas/nefs-mertebeleri', accent: '#9b59b6', descTr: '7 mertebe', descEn: '7 stations' },
 };
 

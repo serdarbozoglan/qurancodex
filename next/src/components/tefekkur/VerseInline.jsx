@@ -52,7 +52,7 @@ export default function VerseInline({ ref, ar, isRange, noteTr, noteEn, language
           border: '1px solid rgba(29,158,117,0.40)',
           borderRadius: RADIUS.pillSm,
           fontSize: '0.74rem', fontWeight: 700,
-          color: '#1D9E75', fontFamily: FONTS.body,
+          color: COLORS.emerald, fontFamily: FONTS.body,
           letterSpacing: '0.04em',
         }}>
           {formatVerseRef(ref, language)}
@@ -119,7 +119,7 @@ export default function VerseInline({ ref, ar, isRange, noteTr, noteEn, language
           border: '1px solid rgba(29,158,117,0.40)',
           borderRadius: RADIUS.pillSm,
           fontSize: '0.7rem', fontWeight: 700,
-          color: '#1D9E75', fontFamily: FONTS.body,
+          color: COLORS.emerald, fontFamily: FONTS.body,
           letterSpacing: '0.04em',
         }}>
           {formatVerseRef(ref, language)}

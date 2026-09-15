@@ -90,13 +90,13 @@ function firstAyah(ref) {
 
 // ── Domain colour / label maps ───────────────────────────────────────────────
 const DOMAIN_COLORS = {
-  'water':            '#3498db',
-  'light-fire':       '#c9a227',
-  'plant-tree':       '#2ecc71',
-  'animal':           '#e67e22',
-  'human-senses':     '#e74c3c',
-  'society-city':     '#B17EC6',
-  'earth-rock':       '#A28F77',
+  'water':            COLORS.skyBlue,
+  'light-fire':       COLORS.royalGold,
+  'plant-tree':       COLORS.softEmerald,
+  'animal':           COLORS.orange,
+  'human-senses':     COLORS.red,
+  'society-city':     COLORS.violet,
+  'earth-rock':       COLORS.terracottaTextSafe,
   'afterlife-scenes': CATEGORY.rose,
 };
 

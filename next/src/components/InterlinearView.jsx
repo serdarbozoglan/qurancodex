@@ -58,7 +58,7 @@ const WORD_COLORS_DAY = [
 ];
 const WORD_COLORS_NIGHT = [
   '#fbbf24', // amber-400
-  '#60a5fa', // blue-400
+  COLORS.idgam, // blue-400
   '#34d399', // emerald-400
   '#d8b4fe', // violet-300  (lighter than 400 — better contrast on dark bg)
   '#fb923c', // orange-400
@@ -83,12 +83,12 @@ function getColors(dayMode) {
         verseBg: 'transparent',
         verseBgActive: 'rgba(212,165,116,0.07)',
         verseBgHover: 'rgba(255,255,255,0.03)',
-        borderActive: '#d4a574',
-        ayahNum: '#d4a574',
-        translit: '#475569',
+        borderActive: COLORS.gold,
+        ayahNum: COLORS.gold,
+        translit: COLORS.slate600,
         divider: 'rgba(255,255,255,0.05)',
         chipBg: 'transparent',
-        loadingText: '#64748b',
+        loadingText: COLORS.slate500,
         translation: '#cdc6bb',
         translationActive: COLORS.goldBright,
       };
@@ -402,7 +402,7 @@ export default function InterlinearView({
           fontSize: '0.9rem',
         }}
       >
-        <p style={{ margin: '0 0 12px', color: '#e74c3c' }}>
+        <p style={{ margin: '0 0 12px', color: COLORS.red }}>
           Kelime kelime verisi yüklenemedi.
         </p>
         <p style={{ margin: '0 0 12px', fontSize: '0.8rem' }}>{error}</p>
@@ -416,7 +416,7 @@ export default function InterlinearView({
             borderRadius: '6px',
             border: '1px solid rgba(212,165,116,0.4)',
             background: 'rgba(212,165,116,0.08)',
-            color: '#d4a574',
+            color: COLORS.gold,
             cursor: 'pointer',
             fontSize: '0.82rem',
             fontFamily: "'Inter', sans-serif",

@@ -32,7 +32,7 @@ const IconStar = () => (
 
 const QUESTION_TYPES = [
   {
-    id: 'erotema', pct: 40, color: '#d4a574', Icon: IconThink,
+    id: 'erotema', pct: 40, color: COLORS.gold, Icon: IconThink,
     nameTr: 'İstifhâm-ı İnkârî',
     nameEn: 'Istifhām Inkārī',
     aliasTr: 'Retorik Soru (Erotema)',
@@ -43,7 +43,7 @@ const QUESTION_TYPES = [
     exEn: '"Will you not use your reason?" — Afala taʿqilûn',
   },
   {
-    id: 'irshad', pct: 28, color: '#3498db', Icon: IconCompass,
+    id: 'irshad', pct: 28, color: COLORS.skyBlue, Icon: IconCompass,
     nameTr: 'İstifhâm-ı İrşâdî',
     nameEn: 'Istifhām Irshādī',
     aliasTr: 'İrşad / Yönlendirme',
@@ -54,7 +54,7 @@ const QUESTION_TYPES = [
     exEn: '"Who created the heavens and earth?" — Luqman 31:25',
   },
   {
-    id: 'tevbih', pct: 20, color: '#2ecc71', Icon: IconWarn,
+    id: 'tevbih', pct: 20, color: COLORS.softEmerald, Icon: IconWarn,
     nameTr: 'İstifhâm-ı Tevbîhî',
     nameEn: 'Istifhām Tawbīkhī',
     aliasTr: 'Tevbih / Kınama',
@@ -65,7 +65,7 @@ const QUESTION_TYPES = [
     exEn: '"What deceived you about your Generous Lord?" — Al-Infitar 82:6',
   },
   {
-    id: 'taaccub', pct: 12, color: '#a78bfa', Icon: IconStar,
+    id: 'taaccub', pct: 12, color: COLORS.purple, Icon: IconStar,
     nameTr: 'İstifhâm-ı Taaccübî',
     nameEn: 'Istifhām Taʿajjubī',
     aliasTr: 'Taaccüb / Hayret',
@@ -206,7 +206,7 @@ const FAMOUS_QUESTIONS = [
     en: 'Will you not use your reason?',
     refTr: 'Bakara 2:44',
     refEn: 'Al-Baqara 2:44',
-    type: 'erotema', color: '#d4a574',
+    type: 'erotema', color: COLORS.gold,
   },
   {
     ar: 'فَأَيْنَ تَذْهَبُونَ',
@@ -214,7 +214,7 @@ const FAMOUS_QUESTIONS = [
     en: 'Where then are you going?',
     refTr: 'Tekvir 81:26',
     refEn: 'At-Takwir 81:26',
-    type: 'taaccub', color: '#a78bfa',
+    type: 'taaccub', color: COLORS.purple,
   },
   {
     ar: 'مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ',
@@ -222,7 +222,7 @@ const FAMOUS_QUESTIONS = [
     en: 'What has deceived you about your Most Generous Lord?',
     refTr: 'İnfitar 82:6',
     refEn: 'Al-Infitar 82:6',
-    type: 'tevbih', color: '#2ecc71',
+    type: 'tevbih', color: COLORS.softEmerald,
   },
   {
     ar: 'أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ',
@@ -230,7 +230,7 @@ const FAMOUS_QUESTIONS = [
     en: 'Do they not reflect upon the Quran?',
     refTr: 'Nisa 4:82',
     refEn: "An-Nisa' 4:82",
-    type: 'erotema', color: '#d4a574',
+    type: 'erotema', color: COLORS.gold,
   },
   {
     ar: 'أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ',
@@ -238,7 +238,7 @@ const FAMOUS_QUESTIONS = [
     en: 'Did We not expand your chest for you?',
     refTr: 'İnşirah 94:1',
     refEn: 'Ash-Sharh 94:1',
-    type: 'irshad', color: '#3498db',
+    type: 'irshad', color: COLORS.skyBlue,
   },
   {
     ar: 'فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ',
@@ -246,7 +246,7 @@ const FAMOUS_QUESTIONS = [
     en: "Which of your Lord's favors will you deny?",
     refTr: 'Rahman 55:13',
     refEn: 'Ar-Rahman 55:13',
-    type: 'taaccub', color: '#a78bfa',
+    type: 'taaccub', color: COLORS.purple,
   },
 ];
 

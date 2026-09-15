@@ -242,7 +242,7 @@ export default function BugReportFab() {
                   justifyContent: 'center',
                   padding: '40px 24px',
                   textAlign: 'center',
-                  background: '#0a0a1a',
+                  background: COLORS.cosmicBlack,
                   color: COLORS.silver,
                   fontFamily: FONTS.body,
                 }}>

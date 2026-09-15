@@ -90,17 +90,17 @@ const MELEK_ICONS = {
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
-  vahiy:    { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)',  border: 'rgba(184,134,11,0.28)',  labelTr: 'Vahiy Meleği',    labelEn: 'Revelation',   icon: MELEK_ICONS.vahiy },
+  vahiy:    { accent: COLORS.btnGoldMid, bg: 'rgba(184,134,11,0.10)',  border: 'rgba(184,134,11,0.28)',  labelTr: 'Vahiy Meleği',    labelEn: 'Revelation',   icon: MELEK_ICONS.vahiy },
   yardim:   { accent: '#3B82F6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.28)',  labelTr: 'Yardım Meleği',   labelEn: 'Helper',       icon: MELEK_ICONS.yardim },
-  azap:     { accent: '#DE734F', bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment',   icon: MELEK_ICONS.azap },
-  koruyucu: { accent: '#2BA47D', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian',     icon: MELEK_ICONS.koruyucu },
-  kayit:    { accent: '#8F89D0', bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder',     icon: MELEK_ICONS.kayit },
+  azap:     { accent: COLORS.coralBright, bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment',   icon: MELEK_ICONS.azap },
+  koruyucu: { accent: COLORS.emeraldBright, bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian',     icon: MELEK_ICONS.koruyucu },
+  kayit:    { accent: COLORS.violetTextSafe, bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder',     icon: MELEK_ICONS.kayit },
   yuceltme: { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28, labelTr: 'Yüceltme Meleği', labelEn: 'Glorification', icon: MELEK_ICONS.yuceltme },
-  gizemlI:  { accent: '#8C919C', bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious',   icon: MELEK_ICONS.gizemlI },
-  hadis:    { accent: '#8C919C', bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source', icon: MELEK_ICONS.hadis },
+  gizemlI:  { accent: COLORS.slateTextSafe, bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious',   icon: MELEK_ICONS.gizemlI },
+  hadis:    { accent: COLORS.slateTextSafe, bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source', icon: MELEK_ICONS.hadis },
 };
 
-const HAPAX_COLOR = '#A78BFA';
+const HAPAX_COLOR = COLORS.purple;
 const GOLD = COLORS.softGold;
 
 // ── KanatMotif — hero'nun görsel imzası ──────────────────────────────────────
@@ -237,7 +237,7 @@ function QuranicBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.62rem', fontWeight: 700,
-      color: '#2BA47D',
+      color: COLORS.emeraldBright,
       background: 'rgba(29,158,117,0.10)',
       border: '1px solid rgba(29,158,117,0.25)',
       borderRadius: RADIUS.pillSm, padding: '1px 8px', whiteSpace: 'nowrap',
@@ -252,7 +252,7 @@ function HadithOnlyBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.62rem', fontWeight: 600,
-      color: '#8C919C',
+      color: COLORS.slateTextSafe,
       background: 'rgba(107,114,128,0.08)',
       border: '1px solid rgba(107,114,128,0.2)',
       borderRadius: RADIUS.pillSm, padding: '1px 8px', whiteSpace: 'nowrap',
@@ -264,10 +264,10 @@ function HadithOnlyBadge({ language }) {
 
 // Hadith grade sub-badge (Münâfık Profili 'mütefekkun aleyh' standartının melek sayfasına uygulanması)
 const HADITH_GRADE_META = {
-  'mutefekkun-aleyh': { color: '#2BA47D', tr: 'Mütefekkun Aleyh', en: 'Muttafaqun Alayh', noteTr: 'Buhârî + Müslim ortak', noteEn: 'Bukhari + Muslim agreed' },
+  'mutefekkun-aleyh': { color: COLORS.emeraldBright, tr: 'Mütefekkun Aleyh', en: 'Muttafaqun Alayh', noteTr: 'Buhârî + Müslim ortak', noteEn: 'Bukhari + Muslim agreed' },
   'sahih':            { color: '#3B82F6', tr: 'Sahih',            en: 'Sahih',           noteTr: 'Sahih kaynak',       noteEn: 'Sahih source' },
-  'hasen':            { color: '#B8860B', tr: 'Hasen',            en: 'Hasan',           noteTr: 'Hasen seviye',       noteEn: 'Hasan grade' },
-  'tartismali':       { color: '#DE734F', tr: 'Tartışmalı',       en: 'Disputed',        noteTr: 'Sened/sıhhati tartışmalı', noteEn: 'Chain/grade disputed' },
+  'hasen':            { color: COLORS.btnGoldMid, tr: 'Hasen',            en: 'Hasan',           noteTr: 'Hasen seviye',       noteEn: 'Hasan grade' },
+  'tartismali':       { color: COLORS.coralBright, tr: 'Tartışmalı',       en: 'Disputed',        noteTr: 'Sened/sıhhati tartışmalı', noteEn: 'Chain/grade disputed' },
 };
 
 function HadithGradeBadge({ grade, source, language }) {
@@ -441,7 +441,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
             {angel.arabicName}
           </p>
         ) : (
-          <p style={{ fontSize: '1rem', color: '#878E97', fontStyle: 'italic', margin: 0, flex: 1 }}>—</p>
+          <p style={{ fontSize: '1rem', color: COLORS.slateTextSoft, fontStyle: 'italic', margin: 0, flex: 1 }}>—</p>
         )}
         {angel.mentionCount > 0 && (
           <span style={{
@@ -591,11 +591,11 @@ function TabMelekler({ data, language, isMobile }) {
 
 // ── TAB 2: GÖREVLER ────────────────────────────────────────────────────────────
 const GOREV_COLORS = {
-  'vahiy-tasimak':   '#B8860B',
-  'can-almak':       '#DE734F',
-  'korunak-saglamak':'#2BA47D',
-  'kayit-tutmak':    '#8F89D0',
-  'azap-uygulamak':  '#DE734F',
+  'vahiy-tasimak':   COLORS.btnGoldMid,
+  'can-almak':       COLORS.coralBright,
+  'korunak-saglamak':COLORS.emeraldBright,
+  'kayit-tutmak':    COLORS.violetTextSafe,
+  'azap-uygulamak':  COLORS.coralBright,
   'savasta-yardim':  '#3B82F6',
   'tesbih-ibadet':   COLORS.softGold,
 };
@@ -734,7 +734,7 @@ function TabKissalar({ data, language, isMobile }) {
                       {tr ? k.titleTr : k.titleEn}
                     </p>
                     {!isOpen && (
-                      <p style={{ fontSize: '0.75rem', color: '#878E97', margin: 0, lineHeight: 1.4, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                      <p style={{ fontSize: '0.75rem', color: COLORS.slateTextSoft, margin: 0, lineHeight: 1.4, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                         {(tr ? k.anlatimTr : k.anlatimEn)?.split('.')[0] + '.'}
                       </p>
                     )}
@@ -853,7 +853,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
             {COMPARISON_ROWS.map((row, i) => (
               <tr key={i} style={{ borderBottom: `1px solid ${COLORS.glassBg}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
                 <td style={{ padding: '9px 12px', fontSize: '0.78rem', color: COLORS.offWhite, fontWeight: 500 }}>{tr ? row.konuTr : row.konuEn}</td>
-                <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: (tr ? row.quranTr : row.quranEn).startsWith('✓') ? '#2BA47D' : '#DE734F' }}>
+                <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: (tr ? row.quranTr : row.quranEn).startsWith('✓') ? '#2BA47D' : COLORS.coralBright }}>
                   {tr ? row.quranTr : row.quranEn}
                 </td>
                 <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: COLORS.silver }}>{tr ? row.hadisTr : row.hadisEn}</td>
@@ -979,7 +979,7 @@ function TabDilbilim({ data, language, isMobile }) {
               <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#8C919C' : COLORS.offWhite, margin: 0 }}>{n.nameTr}</p>
               <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}><LinkifyRefs text={n.ref} /></p>
               {n.isHadisConnection && (
-                <span style={{ fontSize: '0.6rem', color: '#8C919C', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
+                <span style={{ fontSize: '0.6rem', color: COLORS.slateTextSafe, background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
                   {tr ? 'tefsir' : 'tafsir'}
                 </span>
               )}
@@ -1163,7 +1163,7 @@ function HeroStats({ language }) {
   const stats = [
     {
       value: '2',
-      color: '#B8860B',
+      color: COLORS.btnGoldMid,
       labelTr: 'Kur\'an\'da İsimle Anılan Melek',
       labelEn: 'Angels Named in the Quran',
       refTr: 'Cebrail ve Mikail: Bakara 2:97-98',
@@ -1174,7 +1174,7 @@ function HeroStats({ language }) {
     },
     {
       value: '2',
-      color: '#8C919C',
+      color: COLORS.slateTextSafe,
       labelTr: 'İsimli ama Kimliği Tartışmalı',
       labelEn: 'Named but Identity Debated',
       refTr: 'Harut ve Marut: melek mi, değil mi?',
@@ -1185,7 +1185,7 @@ function HeroStats({ language }) {
     },
     {
       value: '1',
-      color: '#DE734F',
+      color: COLORS.coralBright,
       labelTr: 'Cehennemde İsmi Geçen Melek',
       labelEn: 'Angel Named in Hell',
       refTr: 'Malik: Zuhruf 43:77',
@@ -1196,7 +1196,7 @@ function HeroStats({ language }) {
     },
     {
       value: '19',
-      color: '#DE734F',
+      color: COLORS.coralBright,
       labelTr: 'Cehennem Bekçilerinin Sayısı',
       labelEn: 'Keepers of Hell',
       refTr: 'Müddessir 74:30',
@@ -1218,7 +1218,7 @@ function HeroStats({ language }) {
     },
     {
       value: '~90',
-      color: '#2BA47D',
+      color: COLORS.emeraldBright,
       labelTr: 'Melek Geçen Ayet Sayısı',
       labelEn: 'Verses Mentioning Angels',
       refTr: 'el-Melâike / Ruh / Cebrail dahil',

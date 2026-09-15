@@ -377,7 +377,7 @@ export default function QuranCommands({ onClose }) {
                   flexShrink: 0, padding: '6px 12px', borderRadius: RADIUS.pillSm,
                   border: `1px solid ${isActive ? cat.accent : 'rgba(255,255,255,0.1)'}`,
                   background: isActive ? cat.accent + '22' : 'transparent',
-                  color: isActive ? cat.accent : '#94a3b8',
+                  color: isActive ? cat.accent : COLORS.silver,
                   fontSize: '0.78rem', fontWeight: isActive ? 600 : 400,
                   cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                   fontFamily: "'Inter', sans-serif",
@@ -436,7 +436,7 @@ export default function QuranCommands({ onClose }) {
                 <span style={{
                   display: 'flex', alignItems: 'center', gap: '8px',
                   fontSize: '0.82rem', fontWeight: isActive ? 600 : 400,
-                  color: isActive ? cat.accent : '#94a3b8',
+                  color: isActive ? cat.accent : COLORS.silver,
                   lineHeight: 1.3,
                 }}>
                   <CategoryIcon id={cat.id} color={isActive ? cat.accent : SEMANTIC.textFaint} />
@@ -493,7 +493,7 @@ export default function QuranCommands({ onClose }) {
                     border: 'none', cursor: 'pointer',
                     fontSize: '0.78rem', fontWeight: 500,
                     background: filter === f.key ? accent : 'transparent',
-                    color: filter === f.key ? '#0d1b2a' : '#94a3b8',
+                    color: filter === f.key ? '#0d1b2a' : COLORS.silver,
                     transition: `all ${TRANSITION.fast}`,
                     fontFamily: "'Inter', sans-serif",
                   }}

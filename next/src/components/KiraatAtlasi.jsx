@@ -23,20 +23,20 @@ import kiraatDataStatic from '../../public/kiraat-atlasi.json';
 
 // ── City colour map ───────────────────────────────────────────────────────────
 const CITY_COLORS = {
-  medina:   '#2ecc71',
-  mecca:    '#c9a227',
-  kufa:     '#e67e22',
-  basra:    '#3498db',
+  medina:   COLORS.softEmerald,
+  mecca:    COLORS.royalGold,
+  kufa:     COLORS.orange,
+  basra:    COLORS.skyBlue,
   damascus: COLORS.violet,
 };
 
 // ── Diff type colour map ──────────────────────────────────────────────────────
 const DIFF_COLORS = {
-  vowel:          '#c9a227',
-  consonant:      '#e74c3c',
-  pronoun:        '#3498db',
+  vowel:          COLORS.royalGold,
+  consonant:      COLORS.red,
+  pronoun:        COLORS.skyBlue,
   'active-passive': COLORS.violet,
-  word:           '#2ecc71',
+  word:           COLORS.softEmerald,
 };
 
 const DIFF_LABELS_TR = {

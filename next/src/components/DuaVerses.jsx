@@ -397,7 +397,7 @@ export default function DuaVerses({ onClose }) {
         <p className="qc-verse-breathe" dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.7rem, 4.2vw, 2.6rem)', color: gold, lineHeight: 2.1, margin: '0 auto 12px', maxWidth: '780px', }}>
           وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ
         </p>
-        <p style={{ color: '#e8e6e3', fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>
+        <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>
           &quot;{language === 'tr' ? 'Kullarım sana benden sorduklarında, ben yakınım. Bana dua ettiğinde dua edenin duasına icabet ederim.' : "When My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls Me."}&quot;
         </p>
         <p style={{ color: silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px' }}>
@@ -407,7 +407,7 @@ export default function DuaVerses({ onClose }) {
         <div style={{ fontSize: '0.66rem', letterSpacing: '0.3em', color: gold, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif', fontWeight: 700,  marginBottom: '10px' }}>
           {language === 'tr' ? "DUA · MÜNÂCÂT · TAZARRU'" : "DUʿĀ · MUNĀJĀT · TAḌARRUʿ"}
         </div>
-        <h2 style={{ fontFamily: FONTS.display, fontSize: 'clamp(1.45rem, 3vw, 2rem)', fontWeight: 700, color: '#e8e6e3', margin: '0 auto 8px', lineHeight: 1.2, letterSpacing: '-0.01em', maxWidth: '760px' }}>
+        <h2 style={{ fontFamily: FONTS.display, fontSize: 'clamp(1.45rem, 3vw, 2rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 8px', lineHeight: 1.2, letterSpacing: '-0.01em', maxWidth: '760px' }}>
           {language === 'tr' ? "Kur'an'dan Dualar" : 'Supplications from the Quran'}
         </h2>
         <p style={{ fontFamily: FONTS.display, fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: gold, margin: 0, lineHeight: 1.5, fontStyle: 'italic', opacity: 0.92 }}>
@@ -432,7 +432,7 @@ export default function DuaVerses({ onClose }) {
           placeholder={language === 'tr' ? 'Ayet veya dua ara...' : 'Search verses or supplications...'}
           style={{
             background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(212,165,116,0.25)',
-            borderRadius: RADIUS.md, color: '#e8e6e3', padding: '8px 14px',
+            borderRadius: RADIUS.md, color: COLORS.offWhite, padding: '8px 14px',
             fontSize: '0.88rem', outline: 'none', width: '100%', boxSizing: 'border-box',
             fontFamily: 'Inter, sans-serif',
           }}
@@ -504,7 +504,7 @@ export default function DuaVerses({ onClose }) {
       <div style={{ flex: 1, overflowY: 'auto', padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {/* Content */}
         {loading && (
-          <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', padding: '60px' }}>
+          <div style={{ color: COLORS.slate500, fontSize: '0.85rem', textAlign: 'center', padding: '60px' }}>
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </div>
         )}

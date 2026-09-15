@@ -24,7 +24,7 @@ import { renderInlineMarkdown } from './inlineMarkdown';
 const TONES = {
   trigger:  { accent: COLORS.purple || '#8b5cf6', label: { tr: 'TETİK',  en: 'TRIGGER' } },
   state:    { accent: COLORS.gold,                label: { tr: 'HÂL',    en: 'STATE'   } },
-  outcome:  { accent: '#e74c3c',                  label: { tr: 'SONUÇ',  en: 'OUTCOME' } },
+  outcome:  { accent: COLORS.red,                  label: { tr: 'SONUÇ',  en: 'OUTCOME' } },
   default:  { accent: COLORS.silver,              label: null },
 };
 

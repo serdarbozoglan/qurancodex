@@ -80,7 +80,7 @@ const TABS = [
 
 function ModeIcon({ mode, color, size = 44 }) {
   const s = size;
-  const stroke = color || '#d4a574';
+  const stroke = color || COLORS.gold;
   switch (mode) {
     case 'flood':
       return (
@@ -481,7 +481,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               { value: meta.totalLiteralOccurrences, tr: 'lafzî ayet', en: 'literal verses', color: COLORS.gold },
               { value: meta.totalThematicCategories, tr: 'tematik kanun', en: 'thematic laws', color: COLORS.emerald },
               { value: scholarViews.length, tr: 'ulema', en: 'scholars', color: COLORS.skyBlue },
-              { value: data.kavimPatterns?.length ?? 0, tr: 'kavim', en: 'nations', color: '#a78bfa' },
+              { value: data.kavimPatterns?.length ?? 0, tr: 'kavim', en: 'nations', color: COLORS.purple },
             ].map((s, i) => (
               <div className="mq-box" key={i} style={{
                 '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
@@ -1716,8 +1716,8 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
         gap: '10px',
       }}>
         {[
-          { key: 'warning',   labelTr: 'Uyarı / Sebep',     labelEn: 'Warning / Cause',      body: tr ? pattern.warningTr : pattern.warningEn,     dot: '#c9a227' },
-          { key: 'rejection', labelTr: 'Yalanlama',         labelEn: 'Rejection',            body: tr ? pattern.rejectionTr : pattern.rejectionEn, dot: '#e67e22' },
+          { key: 'warning',   labelTr: 'Uyarı / Sebep',     labelEn: 'Warning / Cause',      body: tr ? pattern.warningTr : pattern.warningEn,     dot: COLORS.royalGold },
+          { key: 'rejection', labelTr: 'Yalanlama',         labelEn: 'Rejection',            body: tr ? pattern.rejectionTr : pattern.rejectionEn, dot: COLORS.orange },
           { key: 'outcome',   labelTr: 'Sonuç · Sünnetullah', labelEn: 'Outcome · Sunnatullāh', body: tr ? pattern.outcomeTr : pattern.outcomeEn,     dot: accent },
         ].map((stage) => (
           <div key={stage.key} style={{

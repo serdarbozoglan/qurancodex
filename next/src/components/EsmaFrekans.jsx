@@ -3274,7 +3274,7 @@ function VerseChipGrid({ ayetler, tr }) {
         );
       })}
       {error && (
-        <p style={{ flexBasis: '100%', color: '#e74c3c', fontSize: '0.78rem', margin: '8px 0 0', fontStyle: 'italic' }}>
+        <p style={{ flexBasis: '100%', color: COLORS.red, fontSize: '0.78rem', margin: '8px 0 0', fontStyle: 'italic' }}>
           {error}
         </p>
       )}

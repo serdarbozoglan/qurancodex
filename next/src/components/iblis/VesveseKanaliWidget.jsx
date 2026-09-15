@@ -16,7 +16,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'Şeytan Kur\'ân\'ın dosdoğru yolu üstüne oturarak insanı önden, arkadan, sağdan, soldan yaklaşır.',
       descEn: 'Iblis sits upon the straight path, approaching humans from before, behind, right, and left.',
       verseRef: 'A\'râf 7:16-17',
-      color: '#e67e22',
+      color: COLORS.orange,
     },
     {
       id: 'susleyerek',
@@ -24,7 +24,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'Günahı süsler, günaha yönelten şeyi güzel gösterir. "Amellerini süsledim."',
       descEn: 'He beautifies sin and adorns whatever leads to it. "I have beautified their deeds."',
       verseRef: 'Hicr 15:39',
-      color: '#a78bfa',
+      color: COLORS.purple,
     },
     {
       id: 'unutturmak',
@@ -32,7 +32,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'Zikri unutturur — Allah\'ı hatırlamayı zayıflatır. Nisyân (unutuş) şeytanın bir kanalıdır.',
       descEn: 'He causes forgetfulness of remembrance — weakening the recall of God. Nisyān (forgetting) is one of his channels.',
       verseRef: 'Kehf 18:63, Mücâdele 58:19',
-      color: '#3498db',
+      color: COLORS.skyBlue,
     },
     {
       id: 'kandirmak',
@@ -40,7 +40,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'Yalancı vaadler verir: "Ben senin dostunum." Elde etmeyeceği şeyi vaad eder.',
       descEn: 'He gives false promises: "I am your friend." He promises what he cannot deliver.',
       verseRef: 'Nisâ 4:120, İbrâhim 14:22',
-      color: '#C58080',
+      color: COLORS.crimsonTextSafe,
     },
     {
       id: 'vesvese-icten',
@@ -48,7 +48,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'İnsanların göğüslerine fısıldayan sinsi vesveseci — cin ve insanlardan olabilir. Zayıf anlarda saldırır.',
       descEn: 'The sly whisperer who whispers into human hearts — may be from jinn or humans. Attacks in moments of weakness.',
       verseRef: 'Nâs 114:4-6',
-      color: '#D4786F',
+      color: COLORS.rustTextSafe,
     },
   ];
 
@@ -113,7 +113,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
             }}>
               <div style={{
                 width: '22px', height: '22px', borderRadius: '50%',
-                background: p.color, color: '#0a0a1a',
+                background: p.color, color: COLORS.cosmicBlack,
                 fontSize: '0.7rem', fontWeight: 800,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: FONTS.body, flexShrink: 0,

@@ -79,7 +79,7 @@ const HUMAN_TERMS = [
     term: 'Benî Âdem',
     termEn: 'Banī Ādam',
     count: '~7',
-    color: '#c084fc',
+    color: COLORS.med,
     glow: 'rgba(192,132,252,0.10)',
     border: 'rgba(192,132,252,0.35)',
     meaningTr: 'Hz. Âdem\'in torunları: tarihsel süreklilik ve onur',

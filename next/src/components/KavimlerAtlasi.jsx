@@ -27,8 +27,8 @@ const KAVIM_TAB_ICONS = ['users','alert','layers','map','compare','book'];
 
 const HELAK_COLORS = {
   ruzgar:   '#93c5fd',
-  su:       '#3498db',
-  ses:      '#a78bfa',
+  su:       COLORS.skyBlue,
+  ses:      COLORS.purple,
   sarsinti: '#f39c12',
   // 14 Ağustos: tas/deniz/mesh/batirma metin olarak AA'yı geçmiyordu (1.a0785a
   // 4.14, 1a5276 2.04, 8e44ad 2.86, c0392b 3.11) — aynı ton ailesi korunarak
@@ -37,10 +37,10 @@ const HELAK_COLORS = {
   tas:      COLORS.siennaTextSafe,
   batirma:  COLORS.rustTextSafe,
   deniz:    COLORS.navyTextSafe,
-  golge:    '#b8860b',
+  golge:    COLORS.btnGoldMid,
   ates:     '#ff6348',
   mesh:     COLORS.orchidLightTextSafe,
-  kurtulan: '#2ecc71',
+  kurtulan: COLORS.softEmerald,
   gizemli:  SEMANTIC.textFaint,
 };
 
@@ -639,10 +639,10 @@ function HeroSection({ meta, language, isMobile }) {
   // orange = arkeoloji (toprak)  |  emerald = tek, doğrulanmış şablon
   const stats = [
     { value: meta.totalMentioned, labelTr: 'Kavim anılır', labelEn: 'Nations mentioned', color: COLORS.gold },
-    { value: `~${meta.firavunVerses}`, labelTr: 'Ayet Firavun kavmine', labelEn: 'Verses on Pharaoh', color: '#1abc9c' },
-    { value: meta.destructionTypes, labelTr: 'Farklı helak biçimi', labelEn: 'Destruction types', color: '#a78bfa' },
-    { value: meta.archaeologicalMatches, labelTr: 'Arkeolojik örtüşme', labelEn: 'Archaeological matches', color: '#e67e22' },
-    { value: meta.structuralPattern, labelTr: 'Universal şablon (7 evre)', labelEn: 'Universal pattern (7 stages)', color: '#2ecc71' },
+    { value: `~${meta.firavunVerses}`, labelTr: 'Ayet Firavun kavmine', labelEn: 'Verses on Pharaoh', color: COLORS.teal },
+    { value: meta.destructionTypes, labelTr: 'Farklı helak biçimi', labelEn: 'Destruction types', color: COLORS.purple },
+    { value: meta.archaeologicalMatches, labelTr: 'Arkeolojik örtüşme', labelEn: 'Archaeological matches', color: COLORS.orange },
+    { value: meta.structuralPattern, labelTr: 'Universal şablon (7 evre)', labelEn: 'Universal pattern (7 stages)', color: COLORS.softEmerald },
   ];
 
   return (
@@ -934,7 +934,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
             {nation.isRare && (
               <span style={{
                 background: 'rgba(167,139,250,0.15)', border: '1px solid rgba(167,139,250,0.3)',
-                color: '#a78bfa', fontSize: '0.62rem', padding: '1px 7px',
+                color: COLORS.purple, fontSize: '0.62rem', padding: '1px 7px',
                 borderRadius: RADIUS.chip, fontFamily: FONTS.body, fontWeight: 600,
                 letterSpacing: '0.05em',
               }}>
@@ -997,7 +997,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
             onClick={e => { e.stopPropagation(); onArchClick && onArchClick(nation.id); }}
             style={{
               background: 'rgba(26,188,156,0.12)', border: '1px solid rgba(26,188,156,0.25)',
-              color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
+              color: COLORS.teal, fontSize: '0.7rem', padding: '2px 8px',
               borderRadius: RADIUS.chip, fontFamily: FONTS.body,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
             }}
@@ -1191,7 +1191,7 @@ function TabHelakDesen({ language, isMobile }) {
             }}>
               <div style={{
                 width: '22px', height: '22px', borderRadius: '50%',
-                background: COLORS.gold, color: '#0a0a1a',
+                background: COLORS.gold, color: COLORS.cosmicBlack,
                 fontSize: '0.7rem', fontWeight: 800,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: FONTS.body,
@@ -1461,7 +1461,7 @@ const ARCH_CARDS_EN = [
 
 function StatusBadge({ status, label }) {
   const colors = {
-    confirmed: { bg: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', text: '#2ecc71' },
+    confirmed: { bg: 'rgba(46,204,113,0.12)', border: 'rgba(46,204,113,0.3)', text: COLORS.softEmerald },
     debated:   { bg: 'rgba(212,165,116,0.12)', border: 'rgba(212,165,116,0.3)', text: COLORS.gold },
     unknown:   { bg: 'rgba(100,116,139,0.12)', border: 'rgba(100,116,139,0.3)', text: COLORS.slate500 },
   };
@@ -1539,7 +1539,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
             {card.extra && (
               <div style={{
                 display: 'inline-block', background: 'rgba(26,188,156,0.1)', border: '1px solid rgba(26,188,156,0.25)',
-                color: '#1abc9c', fontSize: '0.7rem', padding: '2px 8px',
+                color: COLORS.teal, fontSize: '0.7rem', padding: '2px 8px',
                 borderRadius: RADIUS.chip, fontFamily: FONTS.body, marginBottom: '10px',
               }}>
                 {card.extra}
@@ -1697,25 +1697,25 @@ const TABLE_DATA = [
 
 // Bubble chart: one entry per helak type, nations listed as dots
 const HELAK_TYPES_TR = [
-  { type: 'su',       label: 'Su / Tufan',            color: '#3498db', nations: ['Nuh Kavmi', 'Sebe Kavmi'] },
+  { type: 'su',       label: 'Su / Tufan',            color: COLORS.skyBlue, nations: ['Nuh Kavmi', 'Sebe Kavmi'] },
   { type: 'deniz',    label: 'Deniz (Boğulma)',        color: '#1a5276', nations: ['Firavun Kavmi'] },
-  { type: 'ses',      label: 'Ses: Saika/Sayha',      color: '#a78bfa', nations: ['Semûd'] },
+  { type: 'ses',      label: 'Ses: Saika/Sayha',      color: COLORS.purple, nations: ['Semûd'] },
   { type: 'sarsinti', label: 'Sarsıntı: Rajfa',       color: '#f39c12', nations: ['Medyen'] },
   { type: 'ruzgar',   label: 'Rüzgar',                 color: COLORS.silver, nations: ['Âd'] },
   { type: 'tas',      label: 'Taş / Alt-Üst',          color: '#a0785a', nations: ['Lût Kavmi'] },
-  { type: 'golge',    label: 'Gölge Azabı',            color: '#b8860b', nations: ['Eyke Halkı'] },
+  { type: 'golge',    label: 'Gölge Azabı',            color: COLORS.btnGoldMid, nations: ['Eyke Halkı'] },
   { type: 'batirma',  label: 'Yere Batırma',           color: '#c0392b', nations: ['Karun (bireysel)'] },
   { type: 'ates',     label: 'Ateş Çukuru',            color: '#ff6348', nations: ['Ashâb-ı Uhdud'] },
   { type: 'mesh',     label: 'Mesh (Dönüşüm)',         color: '#8e44ad', nations: ['Ashâb-ı Sebt'] },
 ];
 const HELAK_TYPES_EN = [
-  { type: 'su',       label: 'Water / Flood',          color: '#3498db', nations: ["People of Noah", "People of Sheba"] },
+  { type: 'su',       label: 'Water / Flood',          color: COLORS.skyBlue, nations: ["People of Noah", "People of Sheba"] },
   { type: 'deniz',    label: 'Sea (Drowning)',          color: '#1a5276', nations: ["People of Pharaoh"] },
-  { type: 'ses',      label: 'Sound: Saika/Sayha',     color: '#a78bfa', nations: ["Thamud"] },
+  { type: 'ses',      label: 'Sound: Saika/Sayha',     color: COLORS.purple, nations: ["Thamud"] },
   { type: 'sarsinti', label: 'Earthquake: Rajfa',      color: '#f39c12', nations: ["Midian"] },
   { type: 'ruzgar',   label: 'Wind',                    color: COLORS.silver, nations: ["ʿAd"] },
   { type: 'tas',      label: 'Stones / Overturned',     color: '#a0785a', nations: ["People of Lot"] },
-  { type: 'golge',    label: 'Shade Punishment',        color: '#b8860b', nations: ["Companions of the Grove"] },
+  { type: 'golge',    label: 'Shade Punishment',        color: COLORS.btnGoldMid, nations: ["Companions of the Grove"] },
   { type: 'batirma',  label: 'Swallowed by Earth',      color: '#c0392b', nations: ["Qarun (individual)"] },
   { type: 'ates',     label: 'Fire Pit',                color: '#ff6348', nations: ["Companions of the Pit"] },
   { type: 'mesh',     label: 'Metamorphosis',           color: '#8e44ad', nations: ["People of the Sabbath"] },

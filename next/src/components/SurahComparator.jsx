@@ -411,7 +411,7 @@ function SimilarityGauge({ score }) {
   const arc = (score / 100) * circ * 0.75; // 270° arc
   const offset = circ * 0.125; // start from 135°
 
-  const color = score >= 65 ? '#34d399' : score >= 35 ? COLORS.gold : '#60a5fa';
+  const color = score >= 65 ? '#34d399' : score >= 35 ? COLORS.gold : COLORS.idgam;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>

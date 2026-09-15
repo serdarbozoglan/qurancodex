@@ -30,10 +30,10 @@ const RENKLER_TAB_ICONS = {
 const KURANI_COLORS = {
   // Cennet / kurtuluş
   beyazFildisi:   '#C8D6E5',  // Kurtulanların yüzü, dağ şeritleri, Hz. Musa'nın eli
-  yesilYaprak:    '#1D9E75',  // Cennet giysileri, koyu yeşil ağaç (accent + hex)
+  yesilYaprak:    COLORS.emerald,  // Cennet giysileri, koyu yeşil ağaç (accent + hex)
   yesilKoyu:      '#0F4C35',  // Cennet bahçeleri (Rahmân 55:64)
-  altin:          '#B8860B',  // Bilezikler (İnsan 76:21)
-  gumusGri:       '#64748B',  // Gümüş kaplar (İnsan 76:15)
+  altin:          COLORS.btnGoldMid,  // Bilezikler (İnsan 76:21)
+  gumusGri:       COLORS.slate500,  // Gümüş kaplar (İnsan 76:15)
 
   // Kıyâmet / cehennem
   kirmiziKan:     '#B91C1C',  // Gökyüzü kızıllığı, dağ şeritleri, Cehennem
@@ -107,11 +107,11 @@ const CONTEXT_BADGES = {
   // (swatch/hex gösterimi) dokunulmadan kalıyor.
   cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.06)',  color: COLORS.emeraldBright },
   kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: COLORS.softRed },
-  doga:     { labelTr: 'Tabiat',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
+  doga:     { labelTr: 'Tabiat',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: COLORS.idgam },
   kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: COLORS.gold },
   mucize:   { labelTr: 'Mucize',   labelEn: 'Miracle',   bg: COLORS.softGoldAlpha12,   color: COLORS.softGold },
   kozmik:   { labelTr: 'Kozmik',   labelEn: 'Cosmic',    bg: 'rgba(139,92,246,0.12)',  color: COLORS.purple },
-  cehennem: { labelTr: 'Cehennem', labelEn: 'Hell',      bg: 'rgba(239,68,68,0.12)',   color: '#f87171' },
+  cehennem: { labelTr: 'Cehennem', labelEn: 'Hell',      bg: 'rgba(239,68,68,0.12)',   color: COLORS.kalkale },
 };
 
 const FILTERS_CONFIG = [
@@ -1659,7 +1659,7 @@ function TabKiyamet({ language, isMobile }) {
             <div style={{
               width: '46px', height: '46px', margin: '0 auto 12px',
               borderRadius: '50%',
-              background: '#000000',
+              background: COLORS.paperSepia,
               border: '1px solid rgba(255,255,255,0.12)',
               boxShadow: `0 0 22px rgba(40,40,60,0.7), 0 0 0 4px rgba(0,0,0,0.4)`,
             }} />
@@ -2896,7 +2896,7 @@ export default function KuranRenkleri({ onClose }) {
             {[
               { ar: 'بِيضٌ',          label: tr ? 'Beyaz'    : 'White',     swatch: '#FFFFFF', borderRgba: 'rgba(255,255,255,0.30)', glow: 'rgba(255,255,255,0.22)', dotBorder: '1px solid rgba(255,255,255,0.40)' },
               { ar: 'حُمْرٌ',         label: tr ? 'Kırmızı'  : 'Red',       swatch: '#7F1D1D', borderRgba: 'rgba(185,28,28,0.40)',   glow: 'rgba(185,28,28,0.32)',   dotBorder: 'none' },
-              { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', swatch: '#000000', borderRgba: 'rgba(100,100,110,0.35)', glow: 'rgba(40,40,60,0.55)',     dotBorder: '1px solid rgba(255,255,255,0.10)' },
+              { ar: 'غَرَابِيبُ سُودٌ', label: tr ? 'Simsiyah' : 'Jet Black', swatch: COLORS.paperSepia, borderRgba: 'rgba(100,100,110,0.35)', glow: 'rgba(40,40,60,0.55)',     dotBorder: '1px solid rgba(255,255,255,0.10)' },
             ].map(p => (
               <div
                 key={p.ar}

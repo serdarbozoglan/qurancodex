@@ -316,7 +316,7 @@ export default function Navbar() {
             publishedDate: a.publishedDate || '',
             catLabelTr: cat?.labelTr || '',
             catLabelEn: cat?.labelEn || '',
-            accent: cat?.accent || '#d4a574',
+            accent: cat?.accent || COLORS.gold,
           };
         }));
       })
@@ -863,7 +863,7 @@ export default function Navbar() {
                 fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 600,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
-              onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+              onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.gold; }}}
               onMouseLeave={e => { if (!exploreOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
             >
               {language === 'tr' ? 'Keşfet' : 'Discover'}
@@ -968,14 +968,14 @@ export default function Navbar() {
                             padding: '9px 12px', borderRadius: '10px', border: 'none',
                             background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
                           }}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.si').style.color = '#d4a574'; e.currentTarget.querySelector('.sl').style.color = '#d4a574'; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = '#e8e6e3'; }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.si').style.color = COLORS.gold; e.currentTarget.querySelector('.sl').style.color = COLORS.gold; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.si').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.sl').style.color = COLORS.offWhite; }}
                         >
                           <span className="si" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>
                             <Icon size={16} />
                           </span>
                           <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
-                            <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                            <span className="sl" style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
                               {language === 'tr' ? item.titleTr : item.titleEn}
                             </span>
                             <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
@@ -1058,11 +1058,11 @@ export default function Navbar() {
                           textAlign: 'left',
                           transition: 'background 0.15s',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.pi').style.color = '#d4a574'; e.currentTarget.querySelector('.pl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.pi').style.color = 'rgba(212,165,116,0.6)'; e.currentTarget.querySelector('.pl').style.color = '#e8e6e3'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.pi').style.color = COLORS.gold; e.currentTarget.querySelector('.pl').style.color = COLORS.gold; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.pi').style.color = 'rgba(212,165,116,0.6)'; e.currentTarget.querySelector('.pl').style.color = COLORS.offWhite; }}
                       >
                         <span className="pi" style={{ color: 'rgba(212,165,116,0.6)', flexShrink: 0, transition: 'color 0.15s' }}>{path.icon}</span>
-                        <span className="pl" style={{ color: '#e8e6e3', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.2, transition: 'color 0.45s cubic-bezier(0.32,0.72,0,1)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <span className="pl" style={{ color: COLORS.offWhite, fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.2, transition: 'color 0.45s cubic-bezier(0.32,0.72,0,1)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {language === 'tr' ? path.labelTr : path.labelEn}
                         </span>
                       </button>
@@ -1098,7 +1098,7 @@ export default function Navbar() {
                             <FeaturedIbadetlerIcon size={20} />
                           </span>
                           <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
-                            <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                            <span style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                               {language === 'tr' ? FEATURED_EXPLORE_ITEM.titleTr : FEATURED_EXPLORE_ITEM.titleEn}
                             </span>
                             <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
@@ -1163,7 +1163,7 @@ export default function Navbar() {
                 fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 600,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
-              onMouseEnter={e => { if (!toolsOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+              onMouseEnter={e => { if (!toolsOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.gold; }}}
               onMouseLeave={e => { if (!toolsOpen) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
             >
               {language === 'tr' ? 'Araçlar' : 'Tools'}
@@ -1201,12 +1201,12 @@ export default function Navbar() {
                           padding: '9px 12px', borderRadius: '10px', border: 'none',
                           background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
                         }}
-                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.ti').style.color = '#d4a574'; e.currentTarget.querySelector('.tl').style.color = '#d4a574'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ti').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.tl').style.color = '#e8e6e3'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.10)'; e.currentTarget.querySelector('.ti').style.color = COLORS.gold; e.currentTarget.querySelector('.tl').style.color = COLORS.gold; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.ti').style.color = 'rgba(212,165,116,0.45)'; e.currentTarget.querySelector('.tl').style.color = COLORS.offWhite; }}
                       >
                         <span className="ti" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{tool.icon}</span>
                         <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
-                          <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
+                          <span className="tl" style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
                             {language === 'tr' ? tool.labelTr : tool.labelEn}
                           </span>
                           <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
@@ -1257,7 +1257,7 @@ export default function Navbar() {
                               <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <span style={{ color: COLORS.royalGold, flexShrink: 0 }}>{ft.icon}</span>
                                 <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
-                                  <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                  <span style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                                     {language === 'tr' ? ft.labelTr : ft.labelEn}
                                   </span>
                                   <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
@@ -1356,7 +1356,7 @@ export default function Navbar() {
               fontWeight: pathname.includes('/alanlar') ? 700 : 600,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
             }}
-            onMouseEnter={e => { if (!pathname.includes('/alanlar')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseEnter={e => { if (!pathname.includes('/alanlar')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.gold; }}}
             onMouseLeave={e => { if (!pathname.includes('/alanlar')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
           >
             {language === 'tr' ? 'Alanlar' : 'Fields'}
@@ -1376,7 +1376,7 @@ export default function Navbar() {
               fontWeight: pathname.includes('/arac/esma-frekans') ? 700 : 600,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
             }}
-            onMouseEnter={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseEnter={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.gold; }}}
             onMouseLeave={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
           >
             {language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}
@@ -1395,7 +1395,7 @@ export default function Navbar() {
               fontWeight: pathname.includes('/atlas/fatiha') ? 700 : 600,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
             }}
-            onMouseEnter={e => { if (!pathname.includes('/atlas/fatiha')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseEnter={e => { if (!pathname.includes('/atlas/fatiha')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.gold; }}}
             onMouseLeave={e => { if (!pathname.includes('/atlas/fatiha')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
           >
             {language === 'tr' ? 'Fâtiha' : 'Fātiḥa'}
@@ -1416,7 +1416,7 @@ export default function Navbar() {
                 fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 600,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
-              onMouseEnter={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+              onMouseEnter={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = COLORS.gold; }}}
               onMouseLeave={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
             >
               {language === 'tr' ? 'Tefekkür' : 'Reflections'}
@@ -1483,7 +1483,7 @@ export default function Navbar() {
                           background: cat.accent, flexShrink: 0, transition: 'box-shadow 0.45s cubic-bezier(0.32,0.72,0,1)',
                         }} />
                         <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
-                          <span style={{ color: '#e8e6e3', fontSize: '0.86rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                          <span style={{ color: COLORS.offWhite, fontSize: '0.86rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                             {language === 'tr' ? cat.labelTr : cat.labelEn}
                           </span>
                           <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
@@ -1519,11 +1519,11 @@ export default function Navbar() {
                     // Kategoriler — count'lar tefekkurStats'ten dinamik (fallback: 0).
                     // Önceden hardcoded'tı; gerçek JSON ile uyuşmuyordu (kullanıcı raporu 2026-06-16).
                     const tefekkurCategories = [
-                      { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikoloji ve iç dünya üzerine denemeler',   descEn: 'Essays on psychology and inner life' },
-                      { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',      descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma',         descEn: 'Reading Human, Universe & Quran' },
+                      { id: 'kavramsal',       accent: COLORS.skyBlue, labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikoloji ve iç dünya üzerine denemeler',   descEn: 'Essays on psychology and inner life' },
+                      { id: 'terminoloji',     accent: COLORS.gold, labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',      descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma',         descEn: 'Reading Human, Universe & Quran' },
                       { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',    descTr: 'Sûre tahlilleri ve yorum prensipleri',    descEn: 'Surah analyses & interpretation' },
                       { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',         descTr: 'Arapça kök etimolojisi',                  descEn: 'Arabic root etymology' },
-                      { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness',descTr: 'Epistemoloji ve metafizik',               descEn: 'Epistemology & metaphysics' },
+                      { id: 'idrak-suur',      accent: COLORS.emerald, labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness',descTr: 'Epistemoloji ve metafizik',               descEn: 'Epistemology & metaphysics' },
                       { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış',labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
                     ].map(c => ({ ...c, count: tefekkurStats.counts[c.id] || 0 }));
 
@@ -1576,7 +1576,7 @@ export default function Navbar() {
                               </svg>
                             </span>
                             <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
-                              <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                              <span style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                                 {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                               </span>
                               <span style={{ color: SEMANTIC.textMuted, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
@@ -1644,14 +1644,14 @@ export default function Navbar() {
                                 onMouseLeave={e => {
                                   e.currentTarget.style.background = 'transparent';
                                   const t = e.currentTarget.querySelector('.ftitle');
-                                  if (t) t.style.color = '#e8e6e3';
+                                  if (t) t.style.color = COLORS.offWhite;
                                   const arr = e.currentTarget.querySelector('.farr');
                                   if (arr) { arr.style.opacity = '0'; arr.style.transform = 'translateX(0)'; }
                                 }}
                               >
                                 <span style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1, minWidth: 0 }}>
                                   <span className="ftitle" style={{
-                                    color: '#e8e6e3', fontSize: '0.83rem',
+                                    color: COLORS.offWhite, fontSize: '0.83rem',
                                     fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.4,
                                     display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
                                     overflow: 'hidden',
@@ -1708,11 +1708,11 @@ export default function Navbar() {
                                 background: 'linear-gradient(135deg, rgba(212,165,116,0.20), rgba(212,165,116,0.05))',
                                 border: '1px solid rgba(212,165,116,0.30)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: '#d4a574', fontWeight: 700, fontSize: '0.9rem',
+                                color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem',
                                 fontFamily: FONTS.display, flexShrink: 0,
                               }}>F</span>
                               <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 }}>
-                                <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
+                                <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
                                   Felsufi
                                 </span>
                                 <span style={{ color: SEMANTIC.textMuted, fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
@@ -2082,7 +2082,7 @@ export default function Navbar() {
               borderRadius: RADIUS.full,
               background: 'rgba(255,255,255,0.08)',
               border: '1px solid rgba(255,255,255,0.12)',
-              color: '#e8e6e3',
+              color: COLORS.offWhite,
               cursor: 'pointer',
             }}
             aria-label={language === 'tr' ? 'Menüyü kapat' : 'Close menu'}
@@ -2123,7 +2123,7 @@ export default function Navbar() {
               margin: '24px 0 6px', padding: '0 4px',
             };
             const SECTION_HEADER_LABEL = {
-              color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
+              color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
               textTransform: 'uppercase', letterSpacing: '0.24em',
               fontFamily: "'Inter', sans-serif",
               whiteSpace: 'nowrap',
@@ -2150,7 +2150,7 @@ export default function Navbar() {
               width: '20px', height: '20px',
             };
             const ITEM_TITLE = {
-              color: '#e8e6e3', fontSize: '0.9rem',
+              color: COLORS.offWhite, fontSize: '0.9rem',
               fontFamily: "'Inter', sans-serif", fontWeight: 500,
               lineHeight: 1.3,
             };
@@ -2209,7 +2209,7 @@ export default function Navbar() {
               >
                 <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
                 <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                  <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                  <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                     {language === 'tr' ? titleTr : titleEn}
                   </span>
                   <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
@@ -2228,11 +2228,11 @@ export default function Navbar() {
             ];
 
             const tefekkurCategories = [
-              { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikoloji ve iç dünya üzerine denemeler',    descEn: 'Essays on psychology and inner life' },
-              { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',       descTr: "İnsan, Kâinat ve Kur'an'ı Okuma",          descEn: 'Reading Human, Universe & Quran' },
+              { id: 'kavramsal',       accent: COLORS.skyBlue, labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikoloji ve iç dünya üzerine denemeler',    descEn: 'Essays on psychology and inner life' },
+              { id: 'terminoloji',     accent: COLORS.gold, labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',       descTr: "İnsan, Kâinat ve Kur'an'ı Okuma",          descEn: 'Reading Human, Universe & Quran' },
               { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',     descTr: 'Sûre tahlilleri ve yorum prensipleri',     descEn: 'Surah analyses & interpretation' },
               { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',          descTr: 'Arapça kök etimolojisi',                   descEn: 'Arabic root etymology' },
-              { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik',                descEn: 'Epistemology & metaphysics' },
+              { id: 'idrak-suur',      accent: COLORS.emerald, labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik',                descEn: 'Epistemology & metaphysics' },
               { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
             ];
 
@@ -2272,14 +2272,14 @@ export default function Navbar() {
                     WebkitTapHighlightColor: 'transparent',
                   }}
                 >
-                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                  <span style={{ color: COLORS.gold, flexShrink: 0, display: 'inline-flex' }}>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="7" />
                       <path d="M21 21l-4.35-4.35" />
                     </svg>
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                       {language === 'tr' ? "Kur'an'a Sor" : 'Ask the Quran'}
                     </span>
                     <span style={ITEM_DESC}>
@@ -2302,13 +2302,13 @@ export default function Navbar() {
                     WebkitTapHighlightColor: 'transparent',
                   }}
                 >
-                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                  <span style={{ color: COLORS.gold, flexShrink: 0, display: 'inline-flex' }}>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
                     </svg>
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                       {language === 'tr' ? 'Kütüphanem' : 'My Library'}
                     </span>
                     <span style={ITEM_DESC}>
@@ -2330,14 +2330,14 @@ export default function Navbar() {
                     WebkitTapHighlightColor: 'transparent',
                   }}
                 >
-                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                  <span style={{ color: COLORS.gold, flexShrink: 0, display: 'inline-flex' }}>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10" />
                       <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
                     </svg>
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                       {language === 'tr' ? 'Alanlar' : 'Fields'}
                     </span>
                     <span style={ITEM_DESC}>
@@ -2359,13 +2359,13 @@ export default function Navbar() {
                     WebkitTapHighlightColor: 'transparent',
                   }}
                 >
-                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                  <span style={{ color: COLORS.gold, flexShrink: 0, display: 'inline-flex' }}>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                       {language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}
                     </span>
                     <span style={ITEM_DESC}>
@@ -2387,13 +2387,13 @@ export default function Navbar() {
                     WebkitTapHighlightColor: 'transparent',
                   }}
                 >
-                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                  <span style={{ color: COLORS.gold, flexShrink: 0, display: 'inline-flex' }}>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 3v18M5 8c2-2 5-2 7 0s5 2 7 0M5 16c2-2 5-2 7 0s5 2 7 0" />
                     </svg>
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                       {language === 'tr' ? 'Fâtiha' : 'Fātiḥa'}
                     </span>
                     <span style={ITEM_DESC}>
@@ -2426,7 +2426,7 @@ export default function Navbar() {
                     <FEATURED_EXPLORE_ITEM.icon size={18} />
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                       {language === 'tr' ? FEATURED_EXPLORE_ITEM.titleTr : FEATURED_EXPLORE_ITEM.titleEn}
                     </span>
                     <span style={ITEM_DESC}>
@@ -2611,7 +2611,7 @@ export default function Navbar() {
           // the Navbar row, zIndex 50 keeps the wrapper BELOW Navbar's z-9999
           // so the global nav stays visible/clickable over the tool route.
           position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
-          background: '#0a0a1a',
+          background: COLORS.cosmicBlack,
           overflowY: 'auto',
         }}>
           {/* Header — matches the OVERLAY_HEADER + OVERLAY_TITLE pattern
@@ -2636,7 +2636,7 @@ export default function Navbar() {
                 KavimlerAtlasi etc. use via OVERLAY_HEADER + OVERLAY_TITLE */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
               <span style={{
-                color: '#d4a574',
+                color: COLORS.gold,
                 fontSize: '0.9rem',
                 fontWeight: 700,
                 fontFamily: "'Inter', sans-serif",
@@ -2644,9 +2644,9 @@ export default function Navbar() {
               }}>
                 {language === 'tr' ? 'Peygamberler Atlası' : 'Prophets Atlas'}
               </span>
-              <span style={{ color: '#64748b', fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+              <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
               <span style={{
-                color: '#64748b',
+                color: COLORS.slate500,
                 fontSize: '0.78rem',
                 fontFamily: "'Inter', sans-serif",
                 whiteSpace: 'nowrap',
@@ -2663,17 +2663,17 @@ export default function Navbar() {
                 border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: RADIUS.full, width: '36px', height: '36px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', color: '#94a3b8',
+                cursor: 'pointer', color: COLORS.silver,
                 flexShrink: 0,
                 transition: `all ${TRANSITION.fast}`,
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                e.currentTarget.style.color = '#e8e6e3';
+                e.currentTarget.style.color = COLORS.offWhite;
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-                e.currentTarget.style.color = '#94a3b8';
+                e.currentTarget.style.color = COLORS.silver;
               }}
               aria-label={language === 'tr' ? 'Kapat' : 'Close'}
             >

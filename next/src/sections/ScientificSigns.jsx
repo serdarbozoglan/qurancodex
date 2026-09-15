@@ -596,10 +596,10 @@ export default function ScientificSigns() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {language === 'tr' ? '↗ ÂYÂT-I KEVNİYYE: ATLASI AÇ' : '↗ ĀYĀT KAWNIYYA: OPEN THE ATLAS'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {language === 'tr'
                 ? 'Kur’an’ın kevnî ayetleri: gök & yer · gece-gündüz · su & deniz · bitki, hayvan, dağlar: doğanın tam haritası'
                 : 'The Quran’s cosmic signs (āyāt kawniyya): sky & earth · night-day · water & seas · plants, animals, mountains: a full map of nature'}

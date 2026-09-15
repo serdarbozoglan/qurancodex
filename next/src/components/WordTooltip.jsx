@@ -90,7 +90,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
     gold:     '#8b6914',
     btnBg:    'rgba(139,105,20,0.08)',
   } : {
-    bg:       '#0d1b2a',
+    bg:       COLORS.deepNavy,
     border:   COLORS.goldAlpha25,
     shadow:   '0 10px 30px rgba(0,0,0,0.55)',
     text:     COLORS.offWhite,

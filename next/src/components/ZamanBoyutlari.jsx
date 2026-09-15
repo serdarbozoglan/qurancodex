@@ -73,7 +73,7 @@ const TIMELINE_DATA = [
     expandTr: "Bu gece zamanın niceliksel değil niteliksel aktığını gösterir; anlam yoğunluğu saat sayısından bağımsızdır. Gazâlî'nin İhyâ'da ibadetin iç/niteliksel boyutuna yaptığı vurguyla uyumlu bir okuyuş. (ℹ️ Tefsir görüşü)",
     expandEn: "This night shows time can flow qualitatively rather than quantitatively; density of meaning is independent of clock hours. A reading in line with al-Ghazali's emphasis in the Ihya on the inner, qualitative dimension of worship. (ℹ️ Exegetical view)",
     logValue: 0,
-    color: '#c9a227',
+    color: COLORS.royalGold,
   },
   {
     id: 'musa',
@@ -223,7 +223,7 @@ const LANG_CARDS = [
   },
   {
     id: 'future',
-    accentColor: '#e74c3c',
+    accentColor: COLORS.red,
     titleTr: 'Geleceğin Kesinliği',
     titleEn: 'The Certainty of the Future',
     bodyTr:
@@ -507,7 +507,7 @@ export default function ZamanBoyutlari({ onClose }) {
         id: 'ilahi',
         titleTr: 'İlahi Zaman Ölçeği',
         titleEn: 'Divine Time Scale',
-        accentColor: '#c9a227',
+        accentColor: COLORS.royalGold,
         ids: ['bin', 'yaratilis'],
       },
       {
@@ -549,12 +549,12 @@ export default function ZamanBoyutlari({ onClose }) {
 
           {(() => {
             const points = [
-              { id: 'kadr',      labelTr: 'Kadr',        labelEn: 'Qadr',        log: 0,    days: 1,        symbolTr: '1 gece',        symbolEn: '1 night',        color: '#c9a227' },
+              { id: 'kadr',      labelTr: 'Kadr',        labelEn: 'Qadr',        log: 0,    days: 1,        symbolTr: '1 gece',        symbolEn: '1 night',        color: COLORS.royalGold },
               { id: 'musa',      labelTr: '40 gece',     labelEn: '40 nights',   log: 1.6,  days: 40,       symbolTr: 'Musâ · A\'râf 7:142', symbolEn: 'Moses · 7:142', color: COLORS.gold },
-              { id: 'yaratilis', labelTr: '6 evre',      labelEn: '6 phases',    log: 3.5,  days: 3000,     symbolTr: 'Fussilet 41:9-12',  symbolEn: 'Fussilat 41:9-12', color: '#a78bfa' },
+              { id: 'yaratilis', labelTr: '6 evre',      labelEn: '6 phases',    log: 3.5,  days: 3000,     symbolTr: 'Fussilet 41:9-12',  symbolEn: 'Fussilat 41:9-12', color: COLORS.purple },
               { id: 'kehf',      labelTr: '309 yıl',     labelEn: '309 years',   log: 5.05, days: 112815,   symbolTr: 'Kehf 18:25',        symbolEn: 'Kahf 18:25',      color: '#e8c97a' },
-              { id: 'bin',       labelTr: '1 gün ilâhî', labelEn: '1 divine day', log: 5.56, days: 365250,   symbolTr: 'Hac 22:47',         symbolEn: 'Hajj 22:47',      color: '#d4a574' },
-              { id: 'elli',      labelTr: 'Meâric',      labelEn: 'al-Maʿārij',  log: 7.26, days: 18262500, symbolTr: 'Meâric 70:4',       symbolEn: 'Maʿārij 70:4',    color: '#e74c3c' },
+              { id: 'bin',       labelTr: '1 gün ilâhî', labelEn: '1 divine day', log: 5.56, days: 365250,   symbolTr: 'Hac 22:47',         symbolEn: 'Hajj 22:47',      color: COLORS.gold },
+              { id: 'elli',      labelTr: 'Meâric',      labelEn: 'al-Maʿārij',  log: 7.26, days: 18262500, symbolTr: 'Meâric 70:4',       symbolEn: 'Maʿārij 70:4',    color: COLORS.red },
             ];
             const minLog = 0, maxLog = 7.5;
             const range = maxLog - minLog;
@@ -796,7 +796,7 @@ export default function ZamanBoyutlari({ onClose }) {
         }}>
           <div style={{
             fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-            color: '#a78bfa',  fontWeight: 700,
+            color: COLORS.purple,  fontWeight: 700,
             marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
           }}>
             {language === 'tr' ? "FUSSİLET 41:9-12 · 6 GÜN FORMÜLÜ" : "FUSSILAT 41:9-12 · 6-DAY FORMULA"}
@@ -828,12 +828,12 @@ export default function ZamanBoyutlari({ onClose }) {
             }}>
               <div style={{
                 fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: '#3498db', fontWeight: 700, marginBottom: '6px',
+                color: COLORS.skyBlue, fontWeight: 700, marginBottom: '6px',
                 fontFamily: FONTS.body,
               }}>{language === 'tr' ? "YER" : "EARTH"}</div>
               <div style={{
                 fontFamily: FONTS.display, fontSize: '2.2rem',
-                color: '#3498db', fontWeight: 900, lineHeight: 1,
+                color: COLORS.skyBlue, fontWeight: 900, lineHeight: 1,
                 marginBottom: '4px',
               }}>2</div>
               <div style={{
@@ -880,12 +880,12 @@ export default function ZamanBoyutlari({ onClose }) {
             }}>
               <div style={{
                 fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: '#a78bfa', fontWeight: 700, marginBottom: '6px',
+                color: COLORS.purple, fontWeight: 700, marginBottom: '6px',
                 fontFamily: FONTS.body,
               }}>{language === 'tr' ? "GÖKLER" : "HEAVENS"}</div>
               <div style={{
                 fontFamily: FONTS.display, fontSize: '2.2rem',
-                color: '#a78bfa', fontWeight: 900, lineHeight: 1,
+                color: COLORS.purple, fontWeight: 900, lineHeight: 1,
                 marginBottom: '4px',
               }}>2</div>
               <div style={{

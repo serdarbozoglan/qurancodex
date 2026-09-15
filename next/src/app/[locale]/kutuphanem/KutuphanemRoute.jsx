@@ -353,7 +353,7 @@ function BookmarkRow({ item, tr, labels, onRemove }) {
         onMouseEnter={(e) => {
           e.currentTarget.style.background = 'rgba(231,76,60,0.15)';
           e.currentTarget.style.borderColor = 'rgba(231,76,60,0.6)';
-          e.currentTarget.style.color = '#e74c3c';
+          e.currentTarget.style.color = COLORS.red;
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.background = 'rgba(255,255,255,0.03)';

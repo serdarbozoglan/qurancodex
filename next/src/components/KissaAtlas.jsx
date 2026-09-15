@@ -611,7 +611,7 @@ export default function KissaAtlas({ onClose }) {
                     <p
                       title={language === 'tr' ? scene.titleTr : scene.titleEn}
                       style={{
-                        color: isActive ? prophet.color : '#cbd5e1',
+                        color: isActive ? prophet.color : COLORS.slate300,
                         fontSize: '0.84rem', fontWeight: isActive ? 700 : 500,
                         margin: '0 0 3px', lineHeight: 1.4,
                       }}>
@@ -1080,7 +1080,7 @@ export default function KissaAtlas({ onClose }) {
                                 }}>
                                   {s.order}
                                 </span>
-                                <span style={{ color: '#cbd5e1', fontSize: '0.82rem', fontWeight: 500 }}>
+                                <span style={{ color: COLORS.slate300, fontSize: '0.82rem', fontWeight: 500 }}>
                                   {language === 'tr' ? s.titleTr : s.titleEn}
                                 </span>
                                 <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginLeft: 'auto' }}>

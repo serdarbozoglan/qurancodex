@@ -13,11 +13,11 @@ import SeriesTimeline from '../../../../components/tefekkur/SeriesTimeline';
 import { renderInlineMarkdown } from '../../../../components/tefekkur/inlineMarkdown';
 
 const CATEGORY_LABELS = {
-  kavramsal:        { tr: 'Kavramsal Tahlil',         en: 'Conceptual Analysis',  accent: '#3498db' },
-  terminoloji:      { tr: 'Terminoloji Serisi',       en: 'Terminology Series',   accent: '#d4a574' },
-  'sure-hermenotik':{ tr: 'Sûre & Hermenötik',        en: 'Surah & Hermeneutics', accent: '#c9a227' },
+  kavramsal:        { tr: 'Kavramsal Tahlil',         en: 'Conceptual Analysis',  accent: COLORS.skyBlue },
+  terminoloji:      { tr: 'Terminoloji Serisi',       en: 'Terminology Series',   accent: COLORS.gold },
+  'sure-hermenotik':{ tr: 'Sûre & Hermenötik',        en: 'Surah & Hermeneutics', accent: COLORS.royalGold },
   semantik:         { tr: 'Semantik Seri',            en: 'Semantic Series',      accent: '#8b5cf6' },
-  'idrak-suur':     { tr: 'İdrak & Şuur',             en: 'Cognition & Consciousness', accent: '#1D9E75' },
+  'idrak-suur':     { tr: 'İdrak & Şuur',             en: 'Cognition & Consciousness', accent: COLORS.emerald },
   kozmoloji:        { tr: 'Kozmoloji & Yaratılış',    en: 'Cosmology & Creation', accent: '#9b59b6' },
 };
 

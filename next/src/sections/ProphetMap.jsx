@@ -258,7 +258,7 @@ const LAND_STYLE = {
 };
 
 // Gold palette — consistent with site's accent colors
-const GOLD = '#d4a574';
+const GOLD = COLORS.gold;
 const GOLD_LIGHT = '#f0c98a';
 const GOLD_GLOW = 'rgba(212,165,116,0.55)';
 
