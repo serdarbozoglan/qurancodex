@@ -3,6 +3,15 @@ import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import PageHeading from '@/components/PageHeading';
 import EsmaFrekansRoute from './EsmaFrekansRoute';
+// PROZAYI ureten bes veri SUNUCUDA cozulur (~50 KB gzip). En buyugu olan
+// esma-pairs-ayetler (tek basina 55 KB gzip, tam ayet metinleri) KASITLI
+// olarak disarida: metin uretmiyor, derin bir bolumu besliyor ve ilk
+// transferi uce katlamaya degmez.
+import esmaFrekans from '../../../../../public/esma-frekans.json';
+import esmaBeyanlari from '../../../../../public/esma-beyanlari.json';
+import esmaKokler from '../../../../../public/esma-kokler.json';
+import esmaTriples from '../../../../../public/esma-triples.json';
+import esmaHeatmap from '../../../../../public/esma-surah-heatmap.json';
 
 const PATH = '/arac/esma-frekans';
 const TITLE_TR = "Esmâ-i Hüsnâ — Allah'ın Kendini Tanıtması";
@@ -27,7 +36,7 @@ export default async function Page({ params }) {
         ]}
       />
       <PageHeading title={title} description={desc} />
-      <EsmaFrekansRoute />
+      <EsmaFrekansRoute initial={{ frekans: esmaFrekans, beyanlari: esmaBeyanlari, kokler: esmaKokler, triples: esmaTriples, heatmap: esmaHeatmap }} />
     </>
   );
 }

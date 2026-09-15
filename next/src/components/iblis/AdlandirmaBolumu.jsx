@@ -145,16 +145,21 @@ function SwitchStrip({ g, tr }) {
   );
 }
 
-export default function AdlandirmaBolumu({ language }) {
+// `initialData` SUNUCUDAN gelir. Eskiden veri burada fetch ediliyordu ve
+// `if (!d) return null` yuzunden bolumun TAMAMI ilk HTML'de YOKTU: olculdugunde
+// sayfanin ilk HTML'inde iceriginin %40'i vardi, eksik olan 73 satirin hepsi
+// bu bolumdu. Prop verilmezse eski fetch yolu calismaya devam eder.
+export default function AdlandirmaBolumu({ language, initialData = null }) {
   const tr = language === 'tr';
-  const [d, setD] = useState(null);
+  const [d, setD] = useState(initialData);
 
   useEffect(() => {
+    if (initialData) return;   // sunucudan geldi
     let alive = true;
     fetch('/iblis-adlandirma.json').then(r => r.json())
       .then(j => { if (alive) setD(j); }).catch(() => {});
     return () => { alive = false; };
-  }, []);
+  }, [initialData]);
 
   if (!d) return null;
   const m = d.meta;

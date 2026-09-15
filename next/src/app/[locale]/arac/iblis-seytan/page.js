@@ -3,6 +3,9 @@ import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import PageHeading from '@/components/PageHeading';
 import IblisSatanRoute from './IblisSatanRoute';
+// Adlandirma bolumunun verisi SUNUCUDA cozulur; istemcide fetch edildiginde
+// bolumun tamami ilk HTML'de eksik kaliyordu.
+import adlandirmaData from '../../../../../public/iblis-adlandirma.json';
 
 const PATH = '/arac/iblis-seytan';
 const TITLE_TR = 'İblîs & Şeytan';
@@ -27,7 +30,7 @@ export default async function Page({ params }) {
         ]}
       />
       <PageHeading title={title} description={desc} />
-      <IblisSatanRoute />
+      <IblisSatanRoute adlandirmaData={adlandirmaData} />
     </>
   );
 }

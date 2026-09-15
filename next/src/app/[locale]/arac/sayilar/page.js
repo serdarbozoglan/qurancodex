@@ -3,6 +3,8 @@ import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import PageHeading from '@/components/PageHeading';
 import KuranSayilarRoute from './KuranSayilarRoute';
+// Veri SUNUCUDA cozulur: ilk HTML'de sayfanin yalnizca %16'si vardi.
+import sayilarData from '../../../../../public/kuran-sayilar.json';
 
 const PATH = '/arac/sayilar';
 const TITLE_TR = "Kur'an'da Sayılar";
@@ -33,7 +35,7 @@ export default async function Page({ params }) {
         buildLearningResource({ locale, path: PATH, title, description: desc }),
       ]} />
       <PageHeading title={title} description={desc} />
-      <KuranSayilarRoute />
+      <KuranSayilarRoute initialData={sayilarData} />
     </>
   );
 }

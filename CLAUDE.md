@@ -2105,6 +2105,47 @@ bilinmeyen kapsam:** yalnız Tefekkür makaleleri (53 adet) ve birkaç statik
 sayfa (/sor, /kutuphanem, /hakkinda, /kaynakca) bu sweep'in dışında kaldı
 — iki-panelli yapıları yok, düşük risk ama doğrulanmadı.
 
+### 13.31b SSR Kapsamı — İSTEMCİDE FETCH EDİLEN VERİ SAYFAYI BOŞALTIR (2026-09-14)
+
+**Ölçülen sorun:** bir sayfanın içeriğinin ne kadarının SUNUCU çıktısında
+olduğu hiç ölçülmemişti. Ölçülünce 23 rotanın 6'sı eşiğin altında çıktı ve
+ikisi neredeyse tamamen boştu: `/tr/oku/tecvid` **%2**, `/tr/atlas/ibadetler`
+**%3**, `/tr/atlas/kavim` **%4**, `/tr/arac/sayilar` %16,
+`/tr/arac/iblis-seytan` %40, `/tr/arac/esma-frekans` %45.
+
+Gözle fark edilmez, çünkü tarayıcıda her şey normal görünür. Kaybeden arama
+motoru ve yavaş bağlantıdır.
+
+**Üç ayrı sebep vardı, üçü de ayrı ilaç ister:**
+
+| sebep | belirti | çözüm |
+|---|---|---|
+| `fetch('/x.json')` bir `useEffect` içinde | ilk HTML'de o bölümün TAMAMI yok (`if (!data) return null`) | veriyi `page.js`te **statik import** et, prop olarak geçir |
+| `dynamic(..., { ssr: false })` gereksiz yere | sayfanın tamamı istemcide | `window`/`Audio`/`document` erişimi **yalnız `useEffect` ve olay içindeyse** `ssr:false` GEREKSİZDİR, kaldır |
+| `ssr: false` HAKLI ama fazla geniş | SSR'ı bozan tek bir kütüphane yüzünden sayfanın tamamı kapalı | bozan parçayı **kendi dosyasına izole et**, yalnız onu `ssr:false` yap |
+
+Üçüncüsü en sinsisi: Kavimler Atlası `react-leaflet` modül düzeyinde `window`'a
+dokunduğu için tamamen kapatılmıştı. Gerekçe DOĞRUYDU, çözüm fazla genişti.
+Leaflet `KavimHaritasi.jsx`e alındı, veri (`data/kavimRegions.js`) leaflet
+İÇERMEYEN saf bir modüle taşındı (aksi hâlde statik import leaflet'i sunucuya
+geri sokar) ve atlasın metni %4'ten %103'e çıktı.
+
+**Her veriyi SSR'a taşıma.** Esmâ Frekans altı dosya çekiyordu; hepsi gzip
+~130 KB ve bunun 55 KB'i tek başına `esma-pairs-ayetler` (tam âyet metinleri,
+PROZA ÜRETMİYOR). Prozayı üreten beşi sunucuya alındı (~50 KB gzip), en
+pahalısı istemcide bırakıldı: %45 → %101, sayfa gzip 87 KB. Ölçüt "her şey
+sunucuda" değil, **bayt başına görünür metin**.
+
+**Denetim:** `node scripts/audit-ssr.mjs [--ci] [--min=0.45]` — ilk HTML'in
+görünür metnini hidrasyon sonrası DOM metnine oranlar. Sekme/akordeon arkası
+içerik ikisinde de yok, o yüzden karşılaştırma adildir. Oranın %100'ü aşması
+normaldir (HTML'de gizli öge metni de sayılır).
+
+⚠ Bu denetimi yazarken kendi ölçümüm iki kez yanılttı: (1) `text-transform:
+uppercase` `innerText`i büyütür, ham HTML'e karşı eşleşmez; (2) `&#x27;` gibi
+varlıklar çözülmeden karşılaştırılırsa her satır "eksik" görünür. İkisi de
+normalize edilmeli.
+
 ### 13.32 Ayet Referansı — ÇIPLAK NUMARA YASAK, Her Zaman Sûre Adı + Numara (ENFORCE ALWAYS) (2026-08-16+)
 
 **Bir ayet referansı ekrana yazılırken YALNIZ "2:153" gibi çıplak sûre

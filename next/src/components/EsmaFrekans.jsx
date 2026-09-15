@@ -107,16 +107,17 @@ const sectionLabel = {
 
 // ── Main component ─────────────────────────────────────────────────────────────
 
-export default function EsmaFrekans({ onClose }) {
+export default function EsmaFrekans({ onClose, initial = {} }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
 
-  const [data, setData] = useState(null);
-  const [beyanlari, setBeyanlari] = useState(null);
-  const [pairsData, setPairsData] = useState(null);
-  const [koklerData, setKoklerData] = useState(null);
-  const [triplesData, setTriplesData] = useState(null);
-  const [heatmapData, setHeatmapData] = useState(null);
+  // Bes veri sunucudan prop olarak gelir; pairs istemcide yuklenir (bkz. asagi).
+  const [data, setData] = useState(initial.frekans ?? null);
+  const [beyanlari, setBeyanlari] = useState(initial.beyanlari ?? null);
+  const [pairsData, setPairsData] = useState(initial.pairs ?? null);
+  const [koklerData, setKoklerData] = useState(initial.kokler ?? null);
+  const [triplesData, setTriplesData] = useState(initial.triples ?? null);
+  const [heatmapData, setHeatmapData] = useState(initial.heatmap ?? null);
 
   // Escape key
   useEffect(() => {
@@ -125,15 +126,21 @@ export default function EsmaFrekans({ onClose }) {
     return () => window.removeEventListener('keydown', handler);
   }, [onClose]);
 
-  // Load data
+  // Veri yukleme — BOLUNMUS, ve bolunme KASITLI.
+  //
+  // Alti dosyanin hepsi istemcide fetch ediliyordu; olculdugunde sayfanin ilk
+  // HTML'inde iceriginin %45'i vardi: 330 satirin 183'u, yani frekans analizi,
+  // metodoloji notu ve orutu anlatilari eksikti.
+  //
+  // Hepsini sunucuya tasimak da dogru degil: gzip toplami ~130 KB ve bunun
+  // 55 KB'i tek basina `esma-pairs-ayetler` (tam ayet metinleri). O dosya
+  // sayfanin derin bir bolumunu besliyor ve METIN uretmiyor; ilk transferi
+  // uce katlamaya degmez. O yuzden PROZAYI ureten besi sunucudan prop olarak
+  // gelir (~50 KB gzip), en pahalisi istemcide kalir.
   useEffect(() => {
-    fetch('/esma-frekans.json').then(r => r.json()).then(setData).catch(e => console.error('[EsmaFrekans]', e));
-    fetch('/esma-beyanlari.json').then(r => r.json()).then(setBeyanlari).catch(e => console.error('[EsmaBeyanlari]', e));
+    if (initial.pairs) return;
     fetch('/esma-pairs-ayetler.json').then(r => r.json()).then(setPairsData).catch(e => console.error('[EsmaPairs]', e));
-    fetch('/esma-kokler.json').then(r => r.json()).then(setKoklerData).catch(e => console.error('[EsmaKokler]', e));
-    fetch('/esma-triples.json').then(r => r.json()).then(setTriplesData).catch(e => console.error('[EsmaTriples]', e));
-    fetch('/esma-surah-heatmap.json').then(r => r.json()).then(setHeatmapData).catch(e => console.error('[EsmaHeatmap]', e));
-  }, []);
+  }, [initial.pairs]);
 
   return (
     <div style={{

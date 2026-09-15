@@ -2,6 +2,6 @@
 
 import KuranSayilar from '@/components/KuranSayilar';
 
-export default function KuranSayilarRoute() {
-  return <KuranSayilar />;
+export default function KuranSayilarRoute({ initialData }) {
+  return <KuranSayilar initialData={initialData} />;
 }

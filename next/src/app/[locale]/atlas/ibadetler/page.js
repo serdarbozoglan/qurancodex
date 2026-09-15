@@ -3,6 +3,12 @@ import { buildBreadcrumb, buildLearningResource } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import PageHeading from '@/components/PageHeading';
 import IbadetlerHubRoute from './IbadetlerHubRoute';
+// Veri SUNUCUDA cozulur. Eskiden IbadetlerHubRoute icinde
+// `fetch('/ibadetler/hub.json')` ile ISTEMCIDE cekiliyordu ve olculdugunde
+// sayfanin ilk HTML'inde iceriginin yalnizca %3'u vardi: arama motoru ve
+// yavas baglanti sekiz sutunun hicbirini gormuyordu. Statik import hem SSR'i
+// acar hem de ayri bir ag istegini ortadan kaldirir.
+import hubData from '../../../../../public/ibadetler/hub.json';
 
 const PATH = '/atlas/ibadetler';
 const TITLE_TR = "İbadetlerin Kur'ânî Mimarisi";
@@ -27,7 +33,7 @@ export default async function Page({ params }) {
         ]}
       />
       <PageHeading title={title} description={desc} />
-      <IbadetlerHubRoute />
+      <IbadetlerHubRoute hubData={hubData} />
     </>
   );
 }

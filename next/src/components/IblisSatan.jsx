@@ -53,7 +53,7 @@ function normalizeAr(s) {
 // Her karta `groups` eklendi — her grup başlıklı bir chip seti.
 // chip.muted === true: mat / soluk render (yokluk veya nüans).
 // ─────────────────────────────────────────────
-export default function IblisSatan({ onClose }) {
+export default function IblisSatan({ onClose, adlandirmaData = null }) {
   const { t, language } = useLanguage();
   const lang = language;
   const passageRefs = useRef({});
@@ -909,7 +909,7 @@ export default function IblisSatan({ onClose }) {
       <OnIkiHileWidget language={language} isMobile={isMobile} />
 
       {/* ═══ İKİ İSİM: İBLİS Mİ, ŞEYTAN MI ═══ */}
-      <AdlandirmaBolumu language={language} />
+      <AdlandirmaBolumu language={language} initialData={adlandirmaData} />
 
       {/* ─── Klasik Kaynaklar ─────────────────────────────── */}
       <SourcesCitation

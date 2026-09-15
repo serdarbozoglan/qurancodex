@@ -2,34 +2,22 @@
 import { useState, useEffect } from 'react';
 import IbadetlerHub from '@/components/IbadetlerHub';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { COLORS, FONTS } from '@/tokens';
 
-export default function IbadetlerHubRoute() {
+// `hubData` artik SUNUCUDAN prop olarak gelir (bkz. page.js). Eskiden burada
+// fetch ediliyordu; ilk HTML bos kaliyor ve kullanici once "Yukleniyor..."
+// goruyordu. Yukleniyor ekrani da bu yuzden kaldirildi: veri ilk render'da
+// hazir.
+export default function IbadetlerHubRoute({ hubData }) {
   const { language } = useLanguage();
-  const [hubData, setHubData] = useState(null);
+  // §14.1 — sunucuda ve istemcide ayni baslangic degeri; hidrasyon uyusmazligi
+  // olmasin diye olcum mount sonrasi yapilir.
   const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
-    setIsMobile(window.innerWidth < 640);
     const h = () => setIsMobile(window.innerWidth < 640);
+    h();
     window.addEventListener('resize', h);
-    fetch('/ibadetler/hub.json')
-      .then(r => r.json())
-      .then(setHubData)
-      .catch(err => console.error('[IbadetlerHubRoute] fetch failed:', err));
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  if (!hubData) return (
-    <div style={{
-      background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - var(--qc-nav-h, 84px))',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-    }}>
-      <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
-        {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
-      </div>
-    </div>
-  );
   return <IbadetlerHub hubData={hubData} language={language} isMobile={isMobile} />;
 }

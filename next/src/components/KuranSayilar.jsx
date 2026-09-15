@@ -268,24 +268,29 @@ function KehfArcs({ tr }) {
   );
 }
 
-export default function KuranSayilar() {
+// `initialData` SUNUCUDAN gelir (bkz. app/[locale]/arac/sayilar/page.js).
+// Eskiden veri yalnizca istemcide fetch ediliyordu ve olculdugunde sayfanin
+// ilk HTML'inde iceriginin %16'si vardi. Prop verilmezse eski fetch yolu
+// calismaya devam eder.
+export default function KuranSayilar({ initialData = null }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const navTop = useNavbarOffset(0, 62);
 
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(initialData);
   const [activeTab, setActiveTab] = useState(0);
   const [selectedId, setSelectedId] = useState(null);
   const cardRefs = useRef({});
 
   useEffect(() => {
+    if (initialData) return;   // sunucudan geldi, ag istegi gerekmez
     let alive = true;
     fetch('/kuran-sayilar.json')
       .then(r => r.json())
       .then(d => { if (alive) setData(d); })
       .catch(() => {});
     return () => { alive = false; };
-  }, []);
+  }, [initialData]);
 
   const nodes = useMemo(() => {
     if (!data) return [];

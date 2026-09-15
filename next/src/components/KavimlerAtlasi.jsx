@@ -2,12 +2,15 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { tabIcon } from './tabIcons';
-import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useTabParam from '../hooks/useTabParam';
+import dynamic from 'next/dynamic';
+import { NATION_REGIONS, STATUS_COLOR } from '../data/kavimRegions';
+// react-leaflet modul duzeyinde window'a dokunur; SSR'i bozan TEK parca budur.
+// Sayfanin geri kalani sunucuda render edilsin diye yalniz harita ssr:false.
+const KavimHaritasi = dynamic(() => import('./KavimHaritasi'), { ssr: false });
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
@@ -1572,120 +1575,6 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
 // ── Tab 3b: Bölge Haritası ────────────────────────────────────────────────────
 
 // Her bölge için: merkez koordinat, yaklaşık yarıçap (km→metre), renk, kaynak notu
-const NATION_REGIONS = [
-  {
-    id: 'nuh',
-    nameTr: "Nuh Kavmi",
-    nameEn: "People of Noah",
-    lat: 33.5, lon: 44.5,
-    radiusKm: 600,
-    color: '#3498db',
-    status: 'debated',
-    sourceTr: "Kaynak: Mezopotamya sel tabakaları (Woolley, 1929); Ryan-Pitman Karadeniz teorisi (1997). Merkez koordinat Irak/Güneydoğu Türkiye sınırına alındı.",
-    sourceEn: "Source: Mesopotamian flood layers (Woolley, 1929); Ryan-Pitman Black Sea theory (1997). Center coordinate placed at Iraq/SE Turkey border.",
-  },
-  {
-    id: 'ad',
-    nameTr: "Âd Kavmi",
-    nameEn: "People of ʿAd",
-    lat: 17.5, lon: 52.0,
-    radiusKm: 450,
-    color: '#e67e22',
-    status: 'debated',
-    sourceTr: "Kaynak: Kur'an 'Âd'ı Ahkâf (kum tepeleri) bölgesiyle ilişkilendirir (Ahkâf 46:21). Güney Arabistan, Umman/Yemen çölüne karşılık gelir.",
-    sourceEn: "Source: The Quran associates ʿAd with the Ahqaf region (sand dunes) (Al-Ahqaf 46:21). Southern Arabia corresponds to the Oman/Yemen desert.",
-  },
-  {
-    id: 'semud',
-    nameTr: "Semûd Kavmi",
-    nameEn: "People of Thamud",
-    lat: 26.8, lon: 37.9,
-    radiusKm: 200,
-    color: '#2ecc71',
-    status: 'confirmed',
-    sourceTr: "Kaynak: Kur'an Semûd'un Hicr'de (bugünkü Medain Salih) yaşadığını açıkça belirtir (Hicr 15:80). UNESCO 2008 Dünya Mirası.",
-    sourceEn: "Source: The Quran explicitly states Thamud lived in al-Hijr (modern Madain Salih) (Al-Hijr 15:80). UNESCO World Heritage 2008.",
-  },
-  {
-    id: 'lut',
-    nameTr: "Lût Kavmi",
-    nameEn: "People of Lot",
-    lat: 31.5, lon: 35.5,
-    radiusKm: 150,
-    color: '#9b59b6',
-    status: 'debated',
-    sourceTr: "Kaynak: Kur'an Lût'un şehrine 'Mütefike' der ve Ölü Deniz'e işaret eder (Necm 53:53). Tall el-Hammam kazıları (2021) olası lokasyon olarak önerilmiştir.",
-    sourceEn: "Source: The Quran calls Lot's city 'Al-Mu'tafikah' and references the Dead Sea region (An-Najm 53:53). Tall el-Hammam excavations (2021) proposed as a possible location.",
-  },
-  {
-    id: 'firavun',
-    nameTr: "Firavun Kavmi",
-    nameEn: "People of Pharaoh",
-    lat: 30.2, lon: 31.2,
-    radiusKm: 250,
-    color: '#f1c40f',
-    status: 'confirmed',
-    sourceTr: "Kaynak: Kur'an Mısır'ı ve Nil'i açıkça anar. Ramses II veya Merneptah dönemi (MÖ 13. yy) en güçlü adaylar olarak kabul edilir.",
-    sourceEn: "Source: The Quran explicitly names Egypt and the Nile. Ramses II or Merneptah's reign (13th century BCE) is considered the strongest candidate.",
-  },
-  {
-    id: 'medyen',
-    nameTr: "Medyen (Şuayb Kavmi)",
-    nameEn: "Midian (People of Shu'ayb)",
-    lat: 28.5, lon: 35.5,
-    radiusKm: 180,
-    color: '#1abc9c',
-    status: 'debated',
-    sourceTr: "Kaynak: Kur'an Medyen'i coğrafi bir yer olarak anar. Modern arkeoloji Kuzeybatı Arabistan / Akabe Körfezi bölgesiyle ilişkilendirir.",
-    sourceEn: "Source: The Quran names Midian as a geographical location. Modern archaeology associates it with northwestern Arabia / Gulf of Aqaba region.",
-  },
-  {
-    id: 'irem',
-    nameTr: "İrem / Âd (Ubar)",
-    nameEn: "Iram / ʿAd (Ubar)",
-    lat: 19.0, lon: 55.5,
-    radiusKm: 300,
-    color: '#e74c3c',
-    status: 'debated',
-    sourceTr: "Kaynak: 1992'de NASA uydu görüntüleriyle Umman'da 'Ubar' kalıntıları keşfedildi (Clapp, 1998). Özdeşleştirme tartışmalıdır.",
-    sourceEn: "Source: In 1992, NASA satellite imagery led to the discovery of 'Ubar' ruins in Oman (Clapp, 1998). The identification remains disputed.",
-  },
-  {
-    id: 'sebe',
-    nameTr: "Sebe Kavmi",
-    nameEn: "People of Sheba",
-    lat: 15.4, lon: 45.3,
-    radiusKm: 200,
-    color: '#27ae60',
-    status: 'confirmed',
-    sourceTr: "Kaynak: Kur'an Me'rib'i ve barajın yıkılmasını açıkça anar (Sebe 34:15-16). Me'rib Barajı kalıntıları Yemen'de arkeolojik olarak teyitlenmiştir.",
-    sourceEn: "Source: The Quran explicitly names Ma'rib and the collapse of its dam (Saba' 34:15-16). Ma'rib Dam ruins are archaeologically confirmed in Yemen.",
-  },
-  {
-    id: 'yunus-kavmi',
-    nameTr: "Yunus'un Kavmi (Ninova)",
-    nameEn: "People of Jonah (Nineveh)",
-    lat: 36.36, lon: 43.15,
-    radiusKm: 100,
-    color: '#3498db',
-    status: 'confirmed',
-    sourceTr: "Kaynak: Kur'an Yunus'u 100.000 kişilik bir şehre gönderir (Saffat 37:147). Ninova, bugünkü Musul yakınında; Asur başkenti olarak tarihen teyitlenmiştir.",
-    sourceEn: "Source: The Quran sends Jonah to a city of 100,000 (As-Saffat 37:147). Nineveh, near modern Mosul, is historically confirmed as the Assyrian capital.",
-  },
-  {
-    id: 'uhdud',
-    nameTr: "Ashâb-ı Uhdud (Necran, aday)",
-    nameEn: "Companions of the Pit (Najran, candidate)",
-    lat: 17.5, lon: 44.1,
-    radiusKm: 80,
-    color: '#dc2626',
-    status: 'debated',
-    sourceTr: "Kaynak: Klasik tefsirin en güçlü adayı MS 523 Necran katliamı; Yemen Hima yazıtları (Christian Robin, CNRS), Procopius ve Yuhanna Efesli olayı doğrular. Ancak Kur'an'ın doğrudan bu olaya işaret ettiği akademik açıdan kesin değildir.",
-    sourceEn: "Source: The strongest classical-tafsir candidate is the 523 CE Najran massacre; Hima inscriptions in Yemen (Christian Robin, CNRS), Procopius, and John of Ephesus confirm the event. Whether the Quranic verse refers directly to this event is, however, not academically settled.",
-  },
-];
-
-const STATUS_COLOR = { confirmed: '#2ecc71', debated: COLORS.gold };
 
 function TabHarita({ language, isMobile }) {
   const tr = language === 'tr';
@@ -1720,54 +1609,7 @@ function TabHarita({ language, isMobile }) {
 
       {/* Harita */}
       <div style={{ borderRadius: RADIUS.lg, overflow: 'hidden', border: `1px solid ${COLORS.glassBorder}`, marginBottom: '20px', height: isMobile ? '400px' : '480px' }}>
-        <MapContainer
-          center={[28, 40]}
-          zoom={isMobile ? 3 : 4}
-          style={{ width: '100%', height: '100%' }}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          />
-          {NATION_REGIONS.map(region => (
-            <Circle
-              key={region.id}
-              center={[region.lat, region.lon]}
-              radius={region.radiusKm * 1000}
-              pathOptions={{
-                color: region.color,
-                fillColor: region.color,
-                fillOpacity: region.status === 'confirmed' ? 0.18 : 0.10,
-                weight: region.status === 'confirmed' ? 2 : 1.5,
-                dashArray: region.status === 'debated' ? '6 4' : null,
-              }}
-              eventHandlers={{ click: () => setActiveRegion(region.id === activeRegion ? null : region.id) }}
-            >
-              <Popup>
-                <div style={{ fontFamily: "'Inter', sans-serif", minWidth: '180px' }}>
-                  <div style={{ fontWeight: 700, fontSize: '0.88rem', marginBottom: '4px', color: region.color }}>
-                    {tr ? region.nameTr : region.nameEn}
-                  </div>
-                  <div style={{
-                    display: 'inline-block', fontSize: '0.65rem', fontWeight: 600,
-                    padding: '1px 7px', borderRadius: RADIUS.chip, marginBottom: '6px',
-                    background: `${STATUS_COLOR[region.status]}20`,
-                    border: `1px solid ${STATUS_COLOR[region.status]}50`,
-                    color: STATUS_COLOR[region.status],
-                  }}>
-                    {region.status === 'confirmed'
-                      ? (tr ? 'Teyitli' : 'Confirmed')
-                      : (tr ? 'Tartışmalı' : 'Debated')}
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, lineHeight: 1.5 }}>
-                    {tr ? region.sourceTr : region.sourceEn}
-                  </div>
-                </div>
-              </Popup>
-            </Circle>
-          ))}
-        </MapContainer>
+        <KavimHaritasi tr={tr} isMobile={isMobile} activeRegion={activeRegion} setActiveRegion={setActiveRegion} />
       </div>
 
       {/* Metodoloji notu */}
