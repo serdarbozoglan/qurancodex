@@ -369,13 +369,18 @@ export default function InsanYolculugu({ onClose }) {
                     background: 'transparent',
                     border: `1px solid ${COLORS.glassBorderSoft}`,
                     borderRadius: RADIUS.md,
-                    color: activeIdx === 0 ? COLORS.silver : COLORS.gold,
+                    // Devre disi hali: METNE OPAKLIK UYGULANMAZ (§13.26 md.3).
+                    // Onceden silver@0.4 idi; cosmic-black uzerinde oran 2.13,
+                    // yani kasitli sonuk hallere taninan 3.0 tabanini bile
+                    // gecmiyordu (§13.26 md.5 -- bilgi tasiyan bir sonukluk
+                    // WCAG'in devre-disi muafiyetine girmez). Solukluk artik
+                    // kademeyle veriliyor: textFaint tam opaklikta 5.94.
+                    color: activeIdx === 0 ? COLORS.textFaint : COLORS.gold,
                     fontSize: '0.78rem',
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     fontWeight: 600,
                     cursor: activeIdx === 0 ? 'not-allowed' : 'pointer',
-                    opacity: activeIdx === 0 ? 0.4 : 1,
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                   }}
                 >← {isEn ? 'Previous' : 'Önceki'}</button>
@@ -387,13 +392,14 @@ export default function InsanYolculugu({ onClose }) {
                     background: 'transparent',
                     border: `1px solid ${COLORS.glassBorderSoft}`,
                     borderRadius: RADIUS.md,
-                    color: activeIdx === stages.length - 1 ? COLORS.silver : COLORS.gold,
+                    // Kardes "Onceki" dugmesiyle ayni gerekce (§13.26 md.3/md.5):
+                    // devre disi hali opaklikla degil kademeyle soluklastirilir.
+                    color: activeIdx === stages.length - 1 ? COLORS.textFaint : COLORS.gold,
                     fontSize: '0.78rem',
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     fontWeight: 600,
                     cursor: activeIdx === stages.length - 1 ? 'not-allowed' : 'pointer',
-                    opacity: activeIdx === stages.length - 1 ? 0.4 : 1,
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                   }}
                 >{isEn ? 'Next' : 'Sonraki'} →</button>
