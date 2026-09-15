@@ -317,6 +317,17 @@ export default function Footer() {
             <a href={`/${language}/hakkinda`} className="text-silver/80 hover:text-gold transition-colors">{language === 'en' ? 'About' : 'Hakkında'}</a>
             <span aria-hidden="true" className="text-gold/40" style={{ fontSize: '0.62rem' }}>✦</span>
             <a href={`/${language}/kaynakca`} className="text-silver/80 hover:text-gold transition-colors">{language === 'en' ? 'Bibliography' : 'Kaynakça'}</a>
+            <span aria-hidden="true" className="text-gold/40" style={{ fontSize: '0.62rem' }}>✦</span>
+            {/* Geri bildirim formu sol alttaki dugmede duruyordu ve baska
+                hicbir yerden erisilemiyordu. Ayni formu buradan da ac. */}
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('qc:feedback-open'))}
+              className="text-silver/80 hover:text-gold transition-colors"
+              style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', cursor: 'pointer', letterSpacing: 'inherit' }}
+            >
+              {language === 'en' ? 'Feedback' : 'Geri bildirim'}
+            </button>
           </nav>
         </div>
 

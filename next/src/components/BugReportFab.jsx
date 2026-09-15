@@ -55,7 +55,16 @@ export default function BugReportFab() {
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
 
-  const label = language === 'tr' ? 'Sorun bildir' : 'Report a bug';
+  // Formu BASKA YERLERDEN de acabilmek icin tek bir olay: Footer ve /hakkinda
+  // bu olayi gonderir. Tek erisim yolu sol alttaki dugme olmasin diye
+  // (kullanici: menude acik bir "Geri bildirim" satiri gorunsun).
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener('qc:feedback-open', onOpen);
+    return () => window.removeEventListener('qc:feedback-open', onOpen);
+  }, []);
+
+  const label = language === 'tr' ? 'Geri bildirim' : 'Feedback';
 
   // Google Form URL — placeholder ile başlar, i18n key üzerinden değiştirilir.
   // Prefill için query params destekli: ?entry.XXX=value formatı (kullanıcı form
@@ -73,41 +82,37 @@ export default function BugReportFab() {
         // Ezber alt sayfası açıkken gizlenir — tam genişlik sayfa bu FAB'ın
         // üstüne oturuyor ve ana butonu örtüyor (globals.css kuralı).
         data-fab="bug-report"
+        className="qc-feedback-fab"
         style={{
           position: 'fixed',
           bottom: 'max(20px, env(safe-area-inset-bottom, 20px))',
           left: '20px',
-          width: '42px',
-          height: '42px',
-          borderRadius: RADIUS.full,
           background: COLORS.cosmicBlackAlpha55,
           backdropFilter: 'blur(14px)',
           WebkitBackdropFilter: 'blur(14px)',
           border: `1px solid ${COLORS.goldAlpha25}`,
           color: COLORS.gold,
-          display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          padding: 0,
           zIndex: 50,
+          // Tek `display` (once iki tane vardi, JSX sonuncuyu tutuyordu).
           display: hifzSheetOpen ? 'none' : 'flex',
-          opacity: mounted ? 0.6 : 0,
+          // 0.6 IDI. Iki sorun birden: (1) dugme sayfa acilisinda fark
+          // edilmiyordu -- tek geri bildirim kanali gorunmez kaliyordu;
+          // (2) metin/ikon rengine opaklik uygulamak §13.26 md.3 ihlali.
+          opacity: mounted ? 1 : 0,
           transition: 'opacity 0.25s ease-out, background 0.2s, transform 0.25s ease-out',
           boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
         }}
         onMouseEnter={e => {
-          e.currentTarget.style.opacity = '1';
           e.currentTarget.style.background = 'rgba(212,165,116,0.18)';
           e.currentTarget.style.transform = 'translateY(-2px)';
         }}
         onMouseLeave={e => {
-          e.currentTarget.style.opacity = '0.6';
           e.currentTarget.style.background = COLORS.cosmicBlackAlpha55;
           e.currentTarget.style.transform = 'translateY(0)';
         }}
-        onFocus={e => { e.currentTarget.style.opacity = '1'; }}
-        onBlur={e => { e.currentTarget.style.opacity = '0.6'; }}
       >
         {/* Chat bubble + exclamation — "bir şey söyle" ikonu */}
         <svg
@@ -125,6 +130,11 @@ export default function BugReportFab() {
           <line x1="12" y1="9" x2="12" y2="12" strokeWidth="2.4" />
           <circle cx="12" cy="15" r="0.6" fill="currentColor" />
         </svg>
+        {/* Gorunur etiket. Ikon tek basina "yardim/sohbet" ile karisiyordu ve
+            ne demek oldugu yalniz hover ipucunda yaziyordu -- mobilde hover
+            yok, yani orada hic aciklanmiyordu. Mobilde etiket CSS ile gizlenir
+            (§14.2: duzen-kritik dallanma JS'e baglanmaz). */}
+        <span className="qc-feedback-fab__label">{label}</span>
       </button>
 
       {/* Modal */}

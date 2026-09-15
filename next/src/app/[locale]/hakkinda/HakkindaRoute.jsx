@@ -159,6 +159,22 @@ export default function HakkindaRoute() {
               language={language}
             />
           </div>
+
+          {/* Geri bildirim cagrisi. Sayfa sitenin sinirlarini ve yontemini
+              acikca anlatiyor; bir hata gorunce nereye yazilacagi da burada
+              olmali. Form sol alttaki dugmede duruyordu ve baska hicbir
+              yerden erisilemiyordu. */}
+          <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.92rem', lineHeight: 1.7, maxWidth: '68ch', margin: '22px 0 0' }}>
+            {isEn ? 'Spotted an error, or a verse that renders wrong? ' : 'Bir hata ya da yanlış görünen bir âyet fark ettiyseniz '}
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('qc:feedback-open'))}
+              style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', color: COLORS.gold, cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            >
+              {isEn ? 'tell us' : 'bize yazın'}
+            </button>
+            {isEn ? '. Every report is read.' : '. Gelen her bildirim okunuyor.'}
+          </p>
         </header>
 
         {SECTIONS.map((s) => (

@@ -1783,3 +1783,29 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   min-width: 0;
   overflow-wrap: anywhere;
 }
+
+/* ─── Geri bildirim dugmesi (2026-09-15) ──────────────────────────────────────
+   Masaustunde ikon + GORUNUR ETIKET tasiyan bir hap, mobilde yalniz ikon.
+   Once 42px'lik, opacity 0.6'li, etiketsiz bir daireydi: sayfa acilisinda fark
+   edilmiyor, ikonu "yardim/sohbet" ile karisiyor ve ne oldugu yalnizca hover
+   ipucunda yaziyordu -- mobilde hover olmadigi icin orada hic aciklanmiyordu.
+   Sitenin tek geri bildirim kanali buydu.
+   Boyut ve dolgu bilincli olarak CSS'te: JS `isMobile` dallanmasi ilk boyamada
+   masaustu dalini cizip mount sonrasi degisir ve CLS uretir (§14.2). */
+.qc-feedback-fab {
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px 0 12px;
+  border-radius: 999px;
+}
+.qc-feedback-fab__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 639.98px) {
+  .qc-feedback-fab { width: 42px; padding: 0; }
+  .qc-feedback-fab__label { display: none; }
+}
