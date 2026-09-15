@@ -136,6 +136,7 @@ export default function HifzPanel({
     <div
       role="region"
       aria-label={L.title}
+      className="mq-box"
       style={{
         position: 'fixed',
         zIndex: 201,
@@ -148,7 +149,12 @@ export default function HifzPanel({
             // `100vw` denendi: genişlik doğru ama kutu 3px sola taşıp sağda
             // 3px boşluk bırakıyordu (asimetrik). left/right:0 containing
             // block'u tam doldurur — her iki yanda eşit ~3px, taşma yok.
-            left: 0, right: 0, margin: isMobile ? 0 : '0 auto',
+            // §16.6 — kenar dallanmasi CSS'e alindi (.mq-box). Masaustunde
+            // yatayda `auto` ile ortalanir, mobilde her yon 0. Inline
+            // `paddingBottom` degismez: satir ici stil sinifi yener.
+            left: 0, right: 0,
+            '--mt-d': '0', '--mt-m': '0', '--mb-d': '0', '--mb-m': '0',
+            '--ml-d': 'auto', '--ml-m': '0', '--mr-d': 'auto', '--mr-m': '0',
             bottom: 0,
             width: isMobile ? 'auto' : '440px',
             borderRadius: `${RADIUS.xl} ${RADIUS.xl} 0 0`,
@@ -170,7 +176,10 @@ export default function HifzPanel({
 
   const rowStyle = {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-    gap: '12px', padding: isMobile ? '13px 16px' : '13px 18px',
+    gap: '12px',
+    // §16.6 — bkz. .mq-box; dolgu dallanmasi CLS uretiyordu.
+    '--pt-d': '13px', '--pt-m': '13px', '--pb-d': '13px', '--pb-m': '13px',
+    '--pl-d': '18px', '--pl-m': '16px', '--pr-d': '18px', '--pr-m': '16px',
     borderTop: `1px solid ${theme.border}`,
   };
   const rowLabel = {
@@ -333,7 +342,7 @@ export default function HifzPanel({
 
       {/* Yardım — ayrı yüzen kutu değil, sayfanın İÇİNDE */}
       {showHelp && (
-        <div style={{
+        <div className="mq-box" style={{
           ...rowStyle, display: 'block', maxHeight: '40vh', overflowY: 'auto',
           background: COLORS.goldAlpha04,
         }}>
@@ -347,7 +356,7 @@ export default function HifzPanel({
       )}
 
       {/* Tekrar sayısı */}
-      <div style={rowStyle}>
+      <div className="mq-box" style={rowStyle}>
         <span style={rowLabel}>{L.repeat}</span>
         <span style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
           {REPEAT_PRESETS.map(n => (
@@ -369,7 +378,7 @@ export default function HifzPanel({
       </div>
 
       {/* Otomatik ilerleme — anahtar */}
-      <div style={rowStyle}>
+      <div className="mq-box" style={rowStyle}>
         <span style={rowLabel}>{L.auto}</span>
         <button
           onClick={() => onAutoChange(!auto)}
@@ -394,7 +403,7 @@ export default function HifzPanel({
       </div>
 
       {/* Başlangıç âyeti — tıklanabilir; sûre + âyet birlikte seçilir. */}
-      <div style={{ ...rowStyle, flexWrap: 'wrap', rowGap: '10px' }}>
+      <div className="mq-box" style={{ ...rowStyle, flexWrap: 'wrap', rowGap: '10px' }}>
         <span style={rowLabel}>{L.startAt}</span>
         <button
           onClick={() => {

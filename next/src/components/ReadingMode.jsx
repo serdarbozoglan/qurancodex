@@ -11768,6 +11768,7 @@ function VerseCompareModal({
       aria-modal="true"
       aria-label={language === 'tr' ? 'Meal karşılaştırma' : 'Translation comparison'}
       onClick={onClose}
+      className="mq-box"
       style={{
         position: 'fixed', inset: 0,
         // iOS Safari: explicit dvh keeps the modal inside the *visible*
@@ -11780,9 +11781,12 @@ function VerseCompareModal({
         backdropFilter: 'blur(6px)',
         WebkitBackdropFilter: 'blur(6px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: isMobile
-          ? `max(12px, env(safe-area-inset-top, 12px)) 10px max(12px, env(safe-area-inset-bottom, 12px))`
-          : '32px',
+        // §16.6 — dolgu dallanmasi CSS'e alindi (.mq-box). Mobilde guvenli
+        // alan degerleri korunur; masaustunde her yon 32px.
+        '--pt-d': '32px', '--pt-m': 'max(12px, env(safe-area-inset-top, 12px))',
+        '--pb-d': '32px', '--pb-m': 'max(12px, env(safe-area-inset-bottom, 12px))',
+        '--pl-d': '32px', '--pl-m': '10px',
+        '--pr-d': '32px', '--pr-m': '10px',
         opacity: mounted ? 1 : 0,
         transition: 'opacity 0.2s ease-out',
       }}

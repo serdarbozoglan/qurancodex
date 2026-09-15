@@ -146,7 +146,7 @@ export default function AlanDetay({ slug }) {
 
             {/* ── Bölüm indeksi (numaralı, çapa-link) ────────────────────── */}
             {themes.length > 0 && (
-              <nav aria-label={tr ? 'Temalar' : 'Themes'} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 10, margin: '0 0 34px' }}>
+              <nav aria-label={tr ? 'Temalar' : 'Themes'} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(230px, 100%), 1fr))', gap: 10, margin: '0 0 34px' }}>
                 {themes.map((th, i) => (
                   <a
                     key={i}
@@ -288,7 +288,7 @@ export default function AlanDetay({ slug }) {
                     {tr ? content.sourcesNoteTr : content.sourcesNoteEn}
                   </p>
                 )}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 12 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 12 }}>
                   {content.sources.map((s, i) => (
                     <div key={i} className="alan-detay-src" style={{ position: 'relative', padding: '15px 16px 15px 40px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${COLORS.gold}20`, borderRadius: RADIUS.md }}>
                       <span aria-hidden="true" style={{ position: 'absolute', left: 15, top: 15, fontFamily: FONTS.display, fontWeight: 800, fontSize: '0.9rem', color: COLORS.gold, opacity: 0.78 }}>{i + 1}</span>
@@ -317,7 +317,7 @@ export default function AlanDetay({ slug }) {
                 ? `Bu kapıdan ${tools.length} araca ulaşılır; her biri sitenin ilgili derin sayfasına açılır.`
                 : `${tools.length} tools open from this gateway; each leads to the site's related in-depth page.`}
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(256px, 1fr))', gap: 14 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(256px, 100%), 1fr))', gap: 14 }}>
               {tools.map((t) => {
                 const kind = t.route.startsWith('/atlas/') ? 'Atlas' : t.route.startsWith('/graf/') ? (tr ? 'Graf' : 'Graph') : (tr ? 'Araç' : 'Tool');
                 return (

@@ -244,7 +244,7 @@ export default function ProofSection({ locale = 'tr' }) {
             return (
               <>
                 {/* 3 ayna çifti — üst satır */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '14px' }}>
                   {pairs.map((pr) => <Card key={pr.k} pr={pr} isPivot={false} />)}
                 </div>
                 {/* D ekseni — altta ORTALANMIŞ (diyagramdaki gibi tek/eşsiz) */}

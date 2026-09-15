@@ -1845,13 +1845,41 @@ Sızıntı varsa **exit 1**. Yalnız ekrana çıkan alanlar taranır; `relatedTo
 > ⚠ İlk tarayıcım bu ayrımı yapmıyordu ve *"38/53 makale bozuk"* diye yanlış
 > alarm verdi; gerçek sayı **3**'tü. Tarayıcı yazarken de ölç, varsayma.
 
+### 13.27b Denetim Kapıları — TEK KOMUT, VE TABAN GERÇEĞİN ÜSTÜNDE KALMAZ (2026-09-14)
+
+Kapı sayısı yediye çıktı ve hepsi ELLE koşuluyordu. Sonuç: biri aylardır
+KIRMIZIYDI ve kimse görmemişti (`audit-layout-patterns`, oturumdan önceki
+commit'te de aynı iki hatayı veriyordu). Bir kapı koşulmuyorsa yok demektir.
+
+```bash
+npm run audit          # ikisini sırayla
+npm run audit:static   # sunucu İSTEMEZ: colors · claims · counts · internal-leak · layout
+npm run audit:live     # çalışan sunucu İSTER: links · i18n-leak · ssr · contrast
+```
+
+Ayrım şart: canlı olanları sunucusuz koşmak sessizce yanıltıcı sonuç verir.
+
+**TABAN GERÇEĞİN ÜSTÜNDE KALIRSA KAPI İŞLEVSİZDİR.** Kontrast tabanı 114/109'da
+duruyordu, gerçek 4/7'ydi; renk tabanı 1144'tü, gerçek 1100. Bu aralık kadar
+yeni borç fark edilmeden girebilirdi. İş bitince taban İNDİRİLİR:
+`node scripts/audit-contrast.mjs --full --update` (ve `--mobile`, örneklem için
+bayraksız). ⚠ Güncelleme sürerken DERLEME YAPMA: sunucu `.next`ten okur, ölçüm
+karışır. Bu hata bu turda iki kez yapıldı.
+
+**Taban YÜKSELTİLMEZ.** `audit-layout-patterns` 10 tabanına karşı 19 veriyordu;
+8'i düzeltildi, 11 kaldı ve taban 10'da BIRAKILDI. Kalanlar `width`/`gap`
+dallanmaları ve kod tabanında bunun için bir yardımcı yok (`.mq-box` yalnız
+dolgu-kenar, `.mq-fs` yalnız yazı boyutu); yeni bir yardımcı sınıf icat etmek
+tasarım kararıdır. Kapı kırmızı kalır ve sayıyı söyler; borç aklanmaz.
+
 ### 13.28 Sayı Beyanları — TÜRETİLİR, ELLE YAZILMAZ (2026-08-14+)
 
 #### 13.28.0 İddia tutarlılığı kapısı: `audit-claims.mjs` (2026-09-13)
 
 **Bir veri dosyası `meta` içinde bir sayı ilan ediyorsa, o sayı dosyanın kendi
 içeriğinden türetilebilmelidir.** `scripts/audit-claims.mjs` 31 kuralla bunu
-kontrol eder ve `pre-push-guard`'ın dördüncü kapısıdır.
+kontrol eder. (2026-09-14: kapı sayısı yediye çıktı ve hepsi `npm run audit`
+altında toplandı; bkz. §13.27b.)
 
 ```bash
 cd next && node scripts/audit-claims.mjs        # rapor

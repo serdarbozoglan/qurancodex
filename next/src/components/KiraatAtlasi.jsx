@@ -1169,10 +1169,17 @@ function TabKanonizasyon({ data, isMobile, language }) {
 
               {/* Content card */}
               <div
+                className="mq-box"
                 style={{
                   width: isMobile ? '100%' : 'calc(50% - 28px)',
-                  marginRight: isMobile ? 0 : (isLeft ? 0 : undefined),
-                  marginLeft: isMobile ? 0 : (!isLeft ? 0 : undefined),
+                  // §16.6 — kenar dallanmasi CSS'e alindi. Masaustu degeri
+                  // `isLeft`e bagli kalir (zaman cizgisinin hangi yaninda),
+                  // mobilde her iki yan da 0 olur. `undefined` verilince
+                  // ozellik hic yazilmaz ve .mq-box'in `unset` yedegi calisir.
+                  '--mr-d': isLeft ? '0' : undefined,
+                  '--mr-m': '0',
+                  '--ml-d': !isLeft ? '0' : undefined,
+                  '--ml-m': '0',
                 }}
               >
                 <div

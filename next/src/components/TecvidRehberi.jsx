@@ -116,12 +116,17 @@ export default function TecvidRehberi() {
         homeLabelEn="Read Quran"
       />
 
-      <div style={{
+      <div className="mq-box" style={{
         width: '100%', maxWidth: 1120, margin: '0 auto',
-        padding: isMobile ? '0 16px 90px' : '0 24px 100px',
+        '--pt-d': '0', '--pt-m': '0',
+        '--pb-d': '100px', '--pb-m': '90px',
+        '--pl-d': '24px', '--pl-m': '16px',
+        '--pr-d': '24px', '--pr-m': '16px',
       }}>
         {/* ─── HERO ─── */}
-        <header style={{ textAlign: 'center', padding: isMobile ? '40px 0 26px' : '56px 0 34px' }}>
+        <header className="mq-box" style={{ textAlign: 'center',
+          '--pt-d': '56px', '--pt-m': '40px', '--pb-d': '34px', '--pb-m': '26px',
+          '--pl-d': '0', '--pl-m': '0', '--pr-d': '0', '--pr-m': '0' }}>
           <div style={{ fontSize: '0.72rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: gold, fontWeight: 600 }}>
             {isEn ? 'Tajweed Guide · see it, hear it' : 'Tecvid Rehberi · gör ve dinle'}
           </div>
@@ -141,11 +146,12 @@ export default function TecvidRehberi() {
           </p>
 
           {/* hero example */}
-          <div style={{
+          <div className="mq-box" style={{
             margin: '30px auto 0', maxWidth: 680,
             background: `linear-gradient(180deg, ${COLORS.goldAlpha15}, transparent 70%), ${SEMANTIC.surfaceRaised}`,
             border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: RADIUS.lg || 20,
-            padding: isMobile ? '22px 16px' : '28px 24px',
+            '--pt-d': '28px', '--pt-m': '22px', '--pb-d': '28px', '--pb-m': '22px',
+            '--pl-d': '24px', '--pl-m': '16px', '--pr-d': '24px', '--pr-m': '16px',
           }}>
             <div style={{ fontFamily: QFONT, direction: 'rtl', color: SEMANTIC.scriptureText, fontSize: 'clamp(2rem, 7vw, 2.9rem)', lineHeight: 1.9 }}>
               {data.hero.ar}
@@ -157,7 +163,7 @@ export default function TecvidRehberi() {
 
           {/* legend */}
           <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 8,
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(150px, 100%), 1fr))', gap: 8,
             maxWidth: 680, margin: '22px auto 0',
           }}>
             {LEGEND.map(([nameTr, nameEn, color]) => { const name = isEn ? nameEn : nameTr; return (
@@ -214,7 +220,7 @@ export default function TecvidRehberi() {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))', gap: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(330px, 100%), 1fr))', gap: 16 }}>
               {f.rules.map((r, ri) => (
                 <div key={ri} style={{
                   position: 'relative', overflow: 'hidden',
@@ -280,7 +286,9 @@ export default function TecvidRehberi() {
           background: 'rgba(8,10,18,0.94)', backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
           borderTop: `1px solid ${COLORS.glassBorder}`,
         }}>
-          <div style={{ maxWidth: 1120, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 14, height: 64, padding: isMobile ? '0 16px' : '0 24px' }}>
+          <div className="mq-box" style={{ maxWidth: 1120, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 14, height: 64,
+            '--pt-d': '0', '--pt-m': '0', '--pb-d': '0', '--pb-m': '0',
+            '--pl-d': '24px', '--pl-m': '16px', '--pr-d': '24px', '--pr-m': '16px' }}>
             <button type="button" onClick={stop} aria-label={isEn ? 'Stop' : 'Durdur'} style={{
               width: 42, height: 42, borderRadius: RADIUS.full, flexShrink: 0, cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${COLORS.gold}`,

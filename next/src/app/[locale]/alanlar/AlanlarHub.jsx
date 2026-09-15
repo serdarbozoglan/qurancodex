@@ -62,7 +62,7 @@ export default function AlanlarHub() {
       </div>
 
       <div style={{ maxWidth: 1160, margin: '0 auto', width: '100%', padding: 'clamp(26px, 4vw, 40px) 16px 64px', boxSizing: 'border-box' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(270px, 1fr))', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(270px, 100%), 1fr))', gap: 16 }}>
           {DISCIPLINES.map((d) => {
             const count = routesForDiscipline(d.id).length;
             return (

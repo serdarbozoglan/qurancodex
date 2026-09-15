@@ -26,7 +26,12 @@ import path from 'node:path';
 // (Melekler/CennetCehennem/KissaAtlas) ve tokens.js'e (`coralBright` vb.)
 // eklendi — token dışı 188'e çıkmıştı (yeni ham renkler), tokenlanınca
 // 182'ye düştü. `pre-push-guard.mjs` hook'u bunu canlı yakaladı.
-const BASELINE = { distinct: 182, occurrences: 1144 };
+// 2026-09-14: kontrast ve dil turlarinda 44 ham hex kullanimi token'a alindi
+// (Tailwind opaklik supurgesi, paperGold, SoundArchitecture, QuranDua,
+// EsmaFrekans, ReadingMode gunduz altini). Olculen deger 1100'e dustu ve
+// TABAN DA DUSURULDU: taban gercegin uzerinde kalirsa kapi islevsizdir,
+// 44 yeni ham renk eklenip fark edilmeden gecebilirdi.
+const BASELINE = { distinct: 182, occurrences: 1100 };
 
 const ROOT = path.resolve(process.cwd(), 'src');
 const TOKENS = path.join(ROOT, 'tokens.js');

@@ -2664,14 +2664,18 @@ export default function KuranRenkleri({ onClose }) {
     const active = activeTab === id;
     return {
       position: 'relative',
-      padding: isMobile ? '14px 16px' : '15px 22px',
+      // §16.6 — dolgu/yazi-boyutu dallanmasi ilk boyamada masaustu dalini cizer,
+      // mobil deger mount'tan SONRA gelir ve sekme seridi yeniden akar (CLS).
+      // Kirilma CSS'e alindi: .mq-box (dolgu) + .mq-fs (yazi boyutu).
+      '--pt-d': '15px', '--pt-m': '14px', '--pb-d': '15px', '--pb-m': '14px',
+      '--pl-d': '22px', '--pl-m': '16px', '--pr-d': '22px', '--pr-m': '16px',
       borderRadius: 0,
       border: 'none',
       background: active
         ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)`
         : 'transparent',
       color: active ? COLORS.gold : SEMANTIC.textFaint,
-      fontSize: isMobile ? '0.78rem' : '0.82rem',
+      '--fs-d': '0.82rem', '--fs-m': '0.78rem',
       fontWeight: active ? 700 : 500,
       letterSpacing: active ? '0.14em' : '0.12em',
       textTransform: 'uppercase',
@@ -2952,6 +2956,7 @@ export default function KuranRenkleri({ onClose }) {
               return (
                 <button
                   key={id}
+                  className="mq-box mq-fs"
                   style={tabStyle(id)}
                   onClick={() => {
                     setActiveTab(id);

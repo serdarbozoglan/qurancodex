@@ -778,9 +778,12 @@ function TabIstatistik({ data, language, isMobile }) {
     },
   ];
 
+  // §16.6 — dolgu dallanmasi ilk boyamada masaustu dalini cizer; mobilde
+  // mount sonrasi kayar (CLS). Kirilma .mq-box ile CSS'e alindi.
   const statCardStyle = {
     ...GLASS_CARD,
-    padding: isMobile ? '16px' : '20px 24px',
+    '--pt-d': '20px', '--pt-m': '16px', '--pb-d': '20px', '--pb-m': '16px',
+    '--pl-d': '24px', '--pl-m': '16px', '--pr-d': '24px', '--pr-m': '16px',
     textAlign: 'center',
   };
 
@@ -794,7 +797,7 @@ function TabIstatistik({ data, language, isMobile }) {
         marginBottom: '32px',
       }}>
         {heroStats.map((s, i) => (
-          <div key={i} style={statCardStyle}>
+          <div key={i} className="mq-box" style={statCardStyle}>
             <div className="mq-fs" style={{
               '--fs-d': '2rem', '--fs-m': '1.6rem',
               fontWeight: 800,

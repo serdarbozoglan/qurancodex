@@ -370,8 +370,10 @@ export default function HiddenArchitecture() {
                   alignItems: isMobile ? 'stretch' : 'center',
                   gap: isMobile ? '6px' : '10px',
                   '--mb-d': '10px', '--mb-m': '14px',
-                  paddingLeft: isMobile ? 0 : indent,
-                  paddingRight: isMobile ? 0 : indent,
+                  // §16.6 — dolgu dallanmasi ilk boyamada masaustu dalini cizer
+                  // ve mobilde mount sonrasi kayar (CLS). Kirilma CSS'e alindi.
+                  '--pl-d': indent, '--pl-m': '0',
+                  '--pr-d': indent, '--pr-m': '0',
                   opacity: isDimmed ? 0.22 : 1,
                   transition: 'opacity 0.3s, padding 0.3s',
                 }}
