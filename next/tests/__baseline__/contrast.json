@@ -18,7 +18,7 @@
   "at": "2026-09-15"
  },
  "full": {
-  "total": 2,
+  "total": 0,
   "perPage": {
    "/tr": 0,
    "/tr/alanlar": 0,
@@ -72,7 +72,7 @@
    "/tr/atlas/ibadetler/zikir": 0,
    "/tr/atlas/insan-psikolojisi": 0,
    "/tr/atlas/insan-tanimi": 0,
-   "/tr/atlas/insan-yolculugu": 1,
+   "/tr/atlas/insan-yolculugu": 0,
    "/tr/atlas/kadinlar": 0,
    "/tr/atlas/kavim": 0,
    "/tr/atlas/kiraat": 0,
@@ -149,7 +149,7 @@
    "/en/atlas/ibadetler/zikir": 0,
    "/en/atlas/insan-psikolojisi": 0,
    "/en/atlas/insan-tanimi": 0,
-   "/en/atlas/insan-yolculugu": 1,
+   "/en/atlas/insan-yolculugu": 0,
    "/en/atlas/kadinlar": 0,
    "/en/atlas/kavim": 0,
    "/en/atlas/kiraat": 0,
@@ -178,10 +178,10 @@
   "at": "2026-09-15"
  },
  "mobile-sample": {
-  "total": 3,
+  "total": 0,
   "perPage": {
-   "/tr": 2,
-   "/en": 1,
+   "/tr": 0,
+   "/en": 0,
    "/tr/atlas/kissa": 0,
    "/tr/graf/zaman": 0,
    "/tr/arac/dualar": 0,
@@ -196,9 +196,9 @@
   "at": "2026-09-15"
  },
  "mobile-full": {
-  "total": 5,
+  "total": 0,
   "perPage": {
-   "/tr": 2,
+   "/tr": 0,
    "/tr/alanlar": 0,
    "/tr/arac/alti-konu": 0,
    "/tr/arac/bilimsel-isaretler": 0,
@@ -250,7 +250,7 @@
    "/tr/atlas/ibadetler/zikir": 0,
    "/tr/atlas/insan-psikolojisi": 0,
    "/tr/atlas/insan-tanimi": 0,
-   "/tr/atlas/insan-yolculugu": 1,
+   "/tr/atlas/insan-yolculugu": 0,
    "/tr/atlas/kadinlar": 0,
    "/tr/atlas/kavim": 0,
    "/tr/atlas/kiraat": 0,
@@ -275,7 +275,7 @@
    "/tr/oku/tecvid": 0,
    "/tr/sor": 0,
    "/tr/tefekkur": 0,
-   "/en": 1,
+   "/en": 0,
    "/en/alanlar": 0,
    "/en/arac/alti-konu": 0,
    "/en/arac/bilimsel-isaretler": 0,
@@ -327,7 +327,7 @@
    "/en/atlas/ibadetler/zikir": 0,
    "/en/atlas/insan-psikolojisi": 0,
    "/en/atlas/insan-tanimi": 0,
-   "/en/atlas/insan-yolculugu": 1,
+   "/en/atlas/insan-yolculugu": 0,
    "/en/atlas/kadinlar": 0,
    "/en/atlas/kavim": 0,
    "/en/atlas/kiraat": 0,
