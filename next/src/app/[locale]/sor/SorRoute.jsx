@@ -249,13 +249,18 @@ function SorInner() {
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderBottom: `1px solid ${COLORS.gold}22`,
-          padding: '14px 24px',
+          padding: '14px 0',
         }}
       >
-          {/* Top row — sticky bar'ın TAM genişliğinde (860px kolonun DIŞINDA):
-            Anasayfa linki §13.17 HomeLinkPill gibi viewport'un tam sağında durur.
-            860 kutusunun içindeyken kolonun sağ kenarında kalıyordu. */}
-        <div style={{
+          {/* Top row — 860px kolonun DISINDA, ama viewport'un sonuna DA dayanmaz:
+            kapsayici navbar ile BIREBIR ayni (w-full max-w-[1720px] mx-auto
+            px-5 lg:px-10, Navbar.jsx:808). Boylece "Anasayfa" linkinin sag
+            kenari navbardaki "Kur'an'i Oku" butonunun sag kenariyla ayni
+            dikeye oturur. Onceden bar'in kendi 24px dolgusu kullaniliyordu
+            ve link genis ekranlarda navbardan ~84px daha saga tasiyordu
+            (kullanici 2026-09-15: "neden en saga dayali, ayni hizada degil").
+            Dolgu bar'dan alinip bu kapsayiciya verildi. */}
+        <div className="w-full max-w-[1720px] mx-auto px-5 lg:px-10" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -289,7 +294,10 @@ function SorInner() {
               fontWeight: 600,
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
-              padding: '2px 4px',
+              // Sag dolgu 0: linkin ZEMINI yok, goz METNIN sag kenarini
+              // navbar CTA'sinin kenariyla karsilastiriyor. 4px dolgu birakmak
+              // yaziyi o kenardan iceri kaydiriyordu.
+              padding: '2px 0',
               transition: 'color 0.15s',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; }}
@@ -301,8 +309,12 @@ function SorInner() {
         </div>
 
         <div style={{
-          maxWidth: '860px',
+          // 908 = 860 icerik + 2x24 dolgu (border-box): yatay dolgu bar'dan
+          // alinip buraya tasindi, kolonun GORUNUR genisligi 860'ta kaldi.
+          maxWidth: '908px',
           margin: '0 auto',
+          padding: '0 24px',
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           gap: '8px',

@@ -138,7 +138,13 @@ export default function Hero() {
           tarafta hem tıklanabilir hem scroll-cue rolü oynar. */}
       <div
         id="hero-scene-1"
-        className="relative z-10 flex flex-col items-center justify-center px-6"
+        // §16.6 — `justifyContent` ve `paddingTop` satir ici `isMobile ?` ile
+        // dallaniyordu: ilk boyamada masaustu dali cizilir, mobil deger
+        // mount'tan SONRA gelir ve sahne yeniden akar (CLS). Ikisi de Tailwind
+        // kirilma noktasina alindi (max-sm = <640px, .mq-box ile ayni esik).
+        // NOT: denetim yalniz paddingTop'i sayiyordu; justifyContent da AYNI
+        // kaymayi uretiyor, o yuzden ikisi birden tasindi.
+        className="qc-hero-scene relative z-10 flex flex-col items-center px-6 justify-center max-sm:justify-start max-sm:pt-[76px]"
         // 100svh — tam viewport, peek yok. 92svh denendi (2026-06-16) ama
         // mobile'da sahne 2 title'ının ("KUR'AN-I K...") üst kısmı sızıp
         // truncation/bug izlenimi veriyordu. Chevron tek başına yeterli
@@ -146,7 +152,7 @@ export default function Hero() {
         // 2026-09 — MOBİLDE ÜST-HİZALI (flex-start): Arapça âyetin konumu
         // çeviri uzunluğuna (TR/EN satır farkı) bağlı kalmasın, HER DİLDE
         // AYNI yerde dursun (kullanıcı: "TR sabit, EN'i aynı yere getir").
-        style={{ minHeight: '100svh', justifyContent: isMobile ? 'flex-start' : 'center', paddingTop: isMobile ? '76px' : undefined }}
+        style={{ minHeight: '100svh' }}
       >
         {/* v2.0 — canlı âyet halkası (arka katman, metnin arkasında). Merkez
             clear-zone kutsal metni korur; hover → sûre, tıkla → /oku/N. */}
@@ -161,21 +167,30 @@ export default function Hero() {
             Reverence sinyali; meta-discovery framing'i bozmadan ekler.
             2026-08-13: glow nabzı ve ışık süpürmesi kaldırıldı; yerine
             metnin kendisinin sağdan sola belirmesi geldi. Gerekçe aşağıda. */}
-        <motion.div className="mq-box"
+        {/* ÇİFT className HATASI DÜZELTİLDİ (2026-09-14): burada iki ayrı
+            className vardı ve React SONRAKİNİ alıyordu, yani mq-box sessizce
+            düşüyordu. Sonuç: aşağıdaki mt ve mb değişkenleri HİÇ uygulanmıyor,
+            besmele 60px/40px yerine 0 kenarla duruyordu.
+            NOT: bu yorumda yıldız-eğik çizgi dizisi KULLANILMAZ; JSX yorumunu
+            erken kapatır ve dosyayı bozar (tam bu satırda bir kez yaşandı). */}
+        <motion.div
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
-          className="mq-fs" style={{
+          className="mq-box mq-fs" style={{
             position: 'relative',
             display: 'inline-block',
             fontFamily: FONTS.bismillah,
             '--fs-d': '2.6rem', '--fs-m': '2.2rem',
             color: COLORS.gold,
-            lineHeight: 1,
+            // 1 idi: glif kutudan 2px tasip alt kavisi kirpik gorunuyordu.
+            lineHeight: 1.12,
             // Sahne 1 flex-center: marginTop sadece Navbar visual compensation.
             // Mobile'da Arapça'yı biraz aşağı almak için artırıldı (2026-09).
-            '--mt-d': '60px', '--mt-m': '40px',
-            '--mb-d': '52px', '--mb-m': '24px',
+            // Besmele azicik asagi: ust +12/+8, alt -12/-8. Toplam yukseklik
+            // sabit kaldigi icin altindaki hicbir sey oynamaz.
+            '--mt-d': '60px', '--mt-m': '60px',
+            '--mb-d': '32px', '--mb-m': '12px',
           }}
           initial={(showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
           animate={reduced ? false : (showIntro
@@ -250,14 +265,17 @@ export default function Hero() {
         <motion.p
           dir="rtl"
           lang="ar"
-          className="mq-fs qc-verse-breathe-soft" style={{
+          className="mq-fs qc-verse-breathe-soft mq-box qc-hero-verse" style={{
             fontFamily: FONTS.quran,
             '--fs-d': 'clamp(1.6rem, 3.4vw, 2.5rem)', '--fs-m': 'clamp(1.5rem, 6.6vw, 2.1rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             // Mobilde alt boşluk: Arapça âyet halkanın ÜSTÜNDE, altındaki metin
             // bloğu halkanın ortasına insin (kullanıcı: "metni aşağı al").
-            margin: isMobile ? '0 auto 92px' : '0 auto 24px',
+            // §16.6 — kenar dallanmasi CSS'e alindi (.mq-box).
+            // Ayet de azicik asagi, ayni mantik: ust +12/+8, alt -12/-8.
+            '--mt-d': '12px', '--mt-m': '8px', '--mb-d': '12px', '--mb-m': '84px',
+            '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             maxWidth: '920px',
             // 2026-08-13 — dekoratif glow kaldırıldı (bkz. PortalCard notu).
           }}
@@ -334,15 +352,18 @@ export default function Hero() {
         </motion.p>
 
         <motion.p
-          className="mq-fs" style={{
+          className="mq-fs mq-box max-sm:max-w-[250px]" style={{
             color: SEMANTIC.textMuted,
             fontFamily: FONTS.body,
             '--fs-d': '0.84rem', '--fs-m': '0.66rem',
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             // Mobilde dairenin içinde kalsın → daha çok satıra sarsın.
-            maxWidth: isMobile ? '250px' : undefined,
-            margin: isMobile ? '0 auto 16px' : '0 0 36px',
+            // §16.6 — kenar VE maxWidth dallanmasi CSS'e alindi. maxWidth
+            // denetimin saydigi kalipta degil ama AYNI kaymayi uretiyor;
+            // yarim tasima ise yaramaz, ikisi birden gitti.
+            '--mt-d': '0', '--mt-m': '0', '--mb-d': '36px', '--mb-m': '16px',
+            '--ml-d': '0', '--ml-m': 'auto', '--mr-d': '0', '--mr-m': 'auto',
             // .65 → 3.79, AA altı. Ölçülen eşik: silver .75.
           }}
           {...entrance(
@@ -362,6 +383,7 @@ export default function Hero() {
             Bismillah + âyet + çeviri hiyerarşisini bozmamak için bir başlık
             değil, âyetin altında duran sessiz tek satır olarak eklendi. */}
         <motion.p
+          className="mq-box max-sm:max-w-[270px] sm:max-w-[560px]"
           style={{
             fontFamily: FONTS.body,
             // v2.0 — 0.8rem çok küçüktü (~12.8px); okunur boyuta çıkarıldı.
@@ -370,8 +392,9 @@ export default function Hero() {
             color: COLORS.silver,
             letterSpacing: '0.02em',
             lineHeight: 1.6,
-            maxWidth: isMobile ? '270px' : '560px',
-            margin: isMobile ? '0 auto 12px' : '-14px auto 18px',
+            // §16.6 — kenar VE maxWidth CSS'e alindi (bkz. yukaridaki not).
+            '--mt-d': '-14px', '--mt-m': '0', '--mb-d': '18px', '--mb-m': '12px',
+            '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             // .55 → 3.02, AA'nın çok altı. Ölçülen eşik: silver .75.
           }}
           {...entrance(
@@ -388,6 +411,7 @@ export default function Hero() {
         {/* v2.0 — halka etkileşim ipucu (affordance). Arkadaki halkanın canlı
             veri olduğunu ve hover/dokunma ile keşfedilebileceğini söyler. */}
         <motion.p
+          className="mq-box"
           style={{
             fontFamily: FONTS.body,
             fontSize: '0.68rem',
@@ -403,9 +427,11 @@ export default function Hero() {
             // İpucu üst boşluğu EN'de 75px azaltılır (140→65); CTA ipucudan sonra
             // aktığı için ipucu+iki buton birlikte TR'nin TAM konumuna çıkar.
             // Halkanın metni (çeviri/referans/açıklama) HİÇ oynamaz.
-            margin: isMobile
-              ? (language === 'en' ? '65px auto 8px' : '140px auto 8px')
-              : '0 auto 30px',
+            // §16.6 — kenar CSS'e alindi. Mobil ust bosluk DILE bagli kalir;
+            // dil viewport'a bagli degil, o yuzden kayma uretmez.
+            '--mt-d': '0', '--mt-m': language === 'en' ? '65px' : '140px',
+            '--mb-d': '30px', '--mb-m': '8px',
+            '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             // Opaklık KALDIRILDI (§13.26 md.3): 0.6'da oran 3.39 ölçülmüştü ve
             // ipucu halkanın alt yayına bindiği için ayrıca okunmuyordu.
             // Sönüklük yukarıdaki COLORS.silver kademesinden geliyor.
@@ -523,7 +549,7 @@ export default function Hero() {
             // v2.0 — DEVAM göstergesi halkanın İÇİNE (alt yayının içine) taşındı.
             // Halka yüksekliği viewport'a bağlı olduğundan yüzde ile takip eder:
             // ring bottom ≈ ekran altından ~%12+14px yukarıda; %17 rahatça içeride.
-            bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : '11%',
+            bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : 'calc(11% - 6px)',
             left: 0,
             right: 0,
             justifyContent: 'center',

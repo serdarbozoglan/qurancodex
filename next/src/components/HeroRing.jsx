@@ -49,6 +49,8 @@ export default function HeroRing({ className }) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     let W = 0, H = 0, cx = 0, cy = 0, R = 0, Rx = 0, Ry = 0;
+    // Halka ici zemin gradyani — olculer degismedikce yeniden uretilmez.
+    let bgGrad = null, bgGradKey = '';
     let pts = [], segs = [], cloud = [];
     let hovSura = -1, mx = -9999, my = -9999;
     let rot = 0, t0 = performance.now(), raf = 0, visible = true;
@@ -102,6 +104,34 @@ export default function HeroRing({ className }) {
       if (!visible) { if (tip) tip.style.opacity = 0; return; }
       const dt = Math.min(now - t0, 50); t0 = now;
       ctx.clearRect(0, 0, W, H);
+
+      // katman 0 — HALKA İÇİ ZEMİN (2026-09-15, kullanıcı: "dairenin içinin
+      // background'u Kavram Ağı hero'sundaki gibi olsun"). Aynı altın radial
+      // glow (.qc-hero-bg) ama halkayla BİREBİR hizalı olsun diye CSS katmanı
+      // yerine canvas'a çiziliyor: cx/cy/R zaten burada hesaplanıyor, CSS'te
+      // aynı formülü (min(100vw,100svh)*0.41) tekrar etmek kaçınılmaz olarak
+      // kayardı. Dış durak saydam → halkanın kenarında sert disk kenarı yok.
+      // Merkez, halkanin GEOMETRIK merkezinden bir tik YUKARIDA (0.18·R):
+      // metin blogu (besmele + ayet) halkanin ust yarisinda duruyor, glow'un
+      // en parlak yeri oraya denk gelsin diye (kullanici: "ayetin oldugu
+      // kisimda cok fark edilmiyor"). Ayni sebeple alfalar yukseltildi.
+      // Gradyan nesnesi ONBELLEKTE: yalniz olculer degisince (resize) yeniden
+      // uretilir. Her karede createRadialGradient cagirmak bos yere cop ureten
+      // bir maliyetti; gradyanin kendisi cx/cy/R degismedikce aynidir.
+      const bgCy = cy - Ry * 0.18;
+      if (!bgGrad || bgGradKey !== W + 'x' + H) {
+        bgGrad = ctx.createRadialGradient(cx, bgCy, 0, cx, bgCy, Math.max(Rx, Ry) * 1.12);
+        bgGrad.addColorStop(0, 'rgba(212,165,116,0.24)');
+        bgGrad.addColorStop(0.42, 'rgba(212,165,116,0.14)');
+        bgGrad.addColorStop(0.78, 'rgba(212,165,116,0.05)');
+        bgGrad.addColorStop(1, 'rgba(212,165,116,0)');
+        bgGradKey = W + 'x' + H;
+      }
+      const bgG = bgGrad;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, Rx, Ry, 0, 0, 6.284);
+      ctx.fillStyle = bgG;
+      ctx.fill();
 
       // hover tespiti (açı + yarıçap) — rotasyon GÜNCELLENMEDEN önce, ki
       // "hover'da durdur" kararı bu karenin gerçek konumuna göre verilsin.
