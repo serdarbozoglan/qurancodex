@@ -19,7 +19,7 @@ import dogaDataStatic from '../../public/doga-atlasi.json';
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
   'delil':           '#f59e0b',
-  'kissa':           '#14b8a6',
+  'kissa':           COLORS.tealDark,
   'haram-helal':     COLORS.softRed,
   'cennet-cehennem': '#22c55e',
   'sure-adi':        '#fbbf24',
@@ -32,7 +32,7 @@ const PLANT_CONTEXT_COLORS = {
   'cehennem': COLORS.softRed,
   'dunya': COLORS.gold,
   'yemin': COLORS.purple,
-  'kissa': '#14b8a6',
+  'kissa': COLORS.tealDark,
   'mecaz': COLORS.idgam,
   'hapax': COLORS.purple,
 };

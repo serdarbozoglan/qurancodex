@@ -246,7 +246,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
   if (!open) return null;
 
   const C = dayMode ? {
-    bg:        '#faf6ed',
+    bg:        COLORS.paperCream,
     bgRaised:  'rgba(255,250,235,0.55)',
     border:    'rgba(180,140,80,0.22)',
     divider:   'rgba(180,140,80,0.14)',

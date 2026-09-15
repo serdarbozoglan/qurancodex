@@ -965,7 +965,7 @@ export default function ImpossibleRhythm() {
             {najmInfoOpen && (
               <div
                 className="absolute right-0 z-10 rounded-lg p-3 text-xs text-silver/80 font-body leading-relaxed"
-                style={{ background: '#1a2a3a', border: '1px solid rgba(212,165,116,0.25)', width: '260px', top: '28px' }}
+                style={{ background: COLORS.slate800, border: '1px solid rgba(212,165,116,0.25)', width: '260px', top: '28px' }}
               >
                 {language === 'tr'
                   ? <><strong style={{ color: COLORS.gold }}>&apos;-â&apos; grubuna dahil sesler:</strong> alif maqsura (ى) veya uzun alif (ا) ile biten ayetler. &apos;-nâ&apos;, &apos;-hâ&apos;, &apos;-râ&apos;, &apos;-yâ&apos; gibi uzun sesler bu gruba girmektedir.</>

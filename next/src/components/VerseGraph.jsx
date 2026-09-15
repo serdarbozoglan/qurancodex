@@ -21,9 +21,9 @@ import DataDictionary from './DataDictionary';
 // için kullanılır. Global tokens.js'e katılmadı çünkü sadece bu tool içinde
 // semantik anlam taşır (deep-space graph aesthetic).
 const SLATE = {
-  deepBg:   '#07091a',  // dropdown container bg, tooltip bg (deepest)
+  deepBg:   COLORS.cosmicBlack,  // dropdown container bg, tooltip bg (deepest)
   midBg:    '#0d1128',  // input dropdown bg, chip bg (mid)
-  muted:    '#4a5568',  // muted text — subtitle, meta, unselected node label
+  muted:    COLORS.slate600,  // muted text — subtitle, meta, unselected node label
   subtle:   '#2d3748',  // subtle text — footer domain, faint labels
 };
 
@@ -1859,7 +1859,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
           terimdi; grafikte bir çizginin ne anlama geldiğini doğrudan söyler. */}
       <div style={{
         display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px 10px',
-        marginBottom: '18px', color: '#7a8fa6', fontSize: '0.82rem',
+        marginBottom: '18px', color: COLORS.textFaint, fontSize: '0.82rem',
         fontVariantNumeric: 'tabular-nums',
       }}>
         <span><strong style={{ color: gold, fontWeight: 700 }}>{primaryCount}</strong> {language === 'tr' ? 'ayet' : 'verses'}</span>
@@ -1885,7 +1885,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
           {sectionLabel('Ana Temalar', 'Main Themes')}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {(language === 'tr' ? info.themes.tr : info.themes.en).map((t, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#8fa3b8', fontSize: '14px', lineHeight: 1.6 }}>
+              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: COLORS.silver, fontSize: '14px', lineHeight: 1.6 }}>
                 <span style={{ color: gold, opacity: 0.4, flexShrink: 0, marginTop: '4px', fontSize: '10px' }}>◆</span>
                 {t}
               </div>
@@ -1911,7 +1911,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
                 <div style={{ flex: 1, background: COLORS.glassBg, borderRadius: RADIUS.xs, height: '5px', overflow: 'hidden' }}>
                   <div style={{ height: '100%', background: `linear-gradient(to right, rgba(212,165,116,0.5), ${gold})`, width: `${pct}%`, borderRadius: RADIUS.xs }} />
                 </div>
-                <span style={{ color: '#8fa3b8', fontSize: '14px', whiteSpace: 'nowrap', minWidth: '80px', textAlign: 'right' }}>{s}. {surahNameTr(s, language === 'en')}</span>
+                <span style={{ color: COLORS.silver, fontSize: '14px', whiteSpace: 'nowrap', minWidth: '80px', textAlign: 'right' }}>{s}. {surahNameTr(s, language === 'en')}</span>
                 <span style={{ color: SEMANTIC.textFaint, fontSize: '13px', minWidth: '20px', textAlign: 'right' }}>{count}</span>
               </div>
                 );
@@ -3545,7 +3545,7 @@ function VerseAudioPlayer({ surah, ayah, language }) {
           <div style={{ color: error ? COLORS.slate600 : gold, fontSize: '0.75rem', fontWeight: 600 }}>
             {language === 'tr' ? reciter.labelTr : reciter.labelEn}
           </div>
-          <div style={{ color: '#7a90a8', fontSize: '0.68rem', marginTop: '1px' }}>
+          <div style={{ color: COLORS.textFaint, fontSize: '0.68rem', marginTop: '1px' }}>
             {error
               ? (language === 'tr' ? 'Ses yüklenemedi' : 'Could not load audio')
               : (playing

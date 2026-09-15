@@ -506,7 +506,7 @@ export default function HiddenArchitecture() {
                       {item.label}
                     </p>
                     <p style={{
-                      fontSize: '0.95rem', color: '#c8d4e0',
+                      fontSize: '0.95rem', color: COLORS.slate300,
                       lineHeight: 1.75, fontFamily: "'Inter', sans-serif",
                       margin: 0,
                     }}>

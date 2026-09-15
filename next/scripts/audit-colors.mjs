@@ -31,7 +31,19 @@ import path from 'node:path';
 // EsmaFrekans, ReadingMode gunduz altini). Olculen deger 1100'e dustu ve
 // TABAN DA DUSURULDU: taban gercegin uzerinde kalirsa kapi islevsizdir,
 // 44 yeni ham renk eklenip fark edilmeden gecebilirdi.
-const BASELINE = { distinct: 182, occurrences: 1100 };
+// 2026-09-15: iki ayri dilim.
+//   (a) Token'i ZATEN olan hex'lerin elle yazilmis halleri token'a baglandi --
+//       510 kullanim, tek piksel degismedi (deger tokens.js'in kendisinden
+//       okundu). 1100 -> 590.
+//   (b) En yakin token'dan CIE76 uzakligi <=3 olan, yani gozle ayirt
+//       EDILEMEYEN 20 renk birlestirildi -- 31 kullanim. 590 -> 559,
+//       token disi farkli renk 182 -> 167.
+// (b)'de "en yakin token" otomatik SECILMEDI: en yakin bazen rol olarak
+// yanlisti (genel bir griye heatmapFaint, ProphetMap'e paperInk). Dort
+// esleme bu yuzden elle elendi; biri (#0d9e73) otomatik olsa CATEGORY.emerald
+// ile eslesip COLORS.emerald diye yazilacak ve rengi gorunur sekilde
+// kaydiracakti. Esleme listesi acik yazilir, kestirme yapilmaz (§13.28.0).
+const BASELINE = { distinct: 167, occurrences: 559 };
 
 const ROOT = path.resolve(process.cwd(), 'src');
 const TOKENS = path.join(ROOT, 'tokens.js');

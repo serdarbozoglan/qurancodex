@@ -1327,7 +1327,7 @@ export default function SoundArchitecture() {
                     {infoOpen && (
                       <div style={{
                         position: 'absolute', right: 0, top: '20px', zIndex: 20,
-                        background: '#1a2a3a', border: '1px solid rgba(255,255,255,0.1)',
+                        background: COLORS.slate800, border: '1px solid rgba(255,255,255,0.1)',
                         borderRadius: RADIUS.md, padding: '10px', width: '210px',
                         fontSize: '0.7rem', color: COLORS.silver, fontFamily: 'Inter, sans-serif', lineHeight: 1.6,
                       }}>

@@ -154,7 +154,47 @@ for (const u of urls) {
       await collect();
       if (y > 40000) break;             // aşırı uzun sayfalarda emniyet
     }
-    const found = [...merged.values()];
+    // ── DOĞRULAMA GEÇİŞİ (2026-09-15) ──────────────────────────────────────
+    // Yukarıdaki tekilleştirme anahtarı ORANI içeriyor. Bu bilinçliydi ("kaç
+    // ayrı düzeltme gerekiyor" ölçülsün diye) ama bir yan etkisi vardı: gezme
+    // sırasında bir öge kaçınılmaz olarak bir kez yarı saydam yakalanıyor, o
+    // geçici ölçüm kendi anahtarıyla kayda çakılıyor ve öge daha sonra oturmuş
+    // hâlde ölçülüp eşiği GEÇSE bile o kayıt düşmüyordu. Sonuç: taban gerçeğin
+    // üstünde kalıyor ve kapı güvenilirliğini yitiriyordu — `audit-contrast`
+    // 2/5 derken `audit-contrast-settled` aynı sayfalarda GERÇEK 0 diyordu.
+    //
+    // Çözüm: bulgu çıkan sayfada sayfayı OTURT ve yeniden tara; yalnız ikinci
+    // geçişte de görünen bulgu gerçektir (settled denetimin ölçütüyle birebir).
+    // Temiz sayfada hiç koşmaz, o yüzden tam taramanın süresi pratikte değişmez.
+    let found = [...merged.values()];
+    if (found.length) {
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForTimeout(1800);
+      const second = new Map();
+      let y2 = 0;
+      for (let guard = 0; guard < 400; guard++) {
+        await page.evaluate((v) => window.scrollTo(0, v), y2);
+        await page.waitForTimeout(500);
+        for (const f of (await page.evaluate(CONTRAST_PROBE)).filter(isReal)) {
+          second.set(f.color + '|' + f.px + '|' + (f.text || ''), f);
+        }
+        const h = await page.evaluate(() => document.body.scrollHeight);
+        if (y2 + 700 >= h) break;
+        y2 += 700;
+      }
+      found = found.filter((f) => second.has(f.color + '|' + f.px + '|' + (f.text || '')));
+      // aria-hidden dekoratif öge kontrast ölçütünden MUAFTIR (§13.26 md.3).
+      if (found.length) {
+        const texts = found.map((f) => (f.text || '').trim().slice(0, 24));
+        const deco = await page.evaluate((ts) => ts.map((t) => {
+          if (!t) return false;
+          const el = [...document.querySelectorAll('*')]
+            .find((e) => e.children.length === 0 && (e.textContent || '').trim().includes(t));
+          return !!(el && el.closest('[aria-hidden="true"]'));
+        }), texts);
+        found = found.filter((_, i) => !deco[i]);
+      }
+    }
     perPage[u] = found.length;
     total += found.length;
     if (found.length) process.stdout.write(`   ${String(found.length).padStart(4)}  ${u}\n`);

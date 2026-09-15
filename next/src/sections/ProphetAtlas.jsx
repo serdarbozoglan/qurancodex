@@ -1529,7 +1529,7 @@ const PROPHETS = [
     subtitleTr: 'Balığın karnındaki zulumât duası; Ninova\'nın imana dönüşü',
     subtitleEn: "The prayer from the darkness within the whale; the conversion of Nineveh",
     mentions: 4,
-    color: '#14b8a6', glow: 'rgba(20,184,166,0.65)', // TODO: tokenize — prophet-chart teal/sea
+    color: COLORS.tealDark, glow: 'rgba(20,184,166,0.65)', // TODO: tokenize — prophet-chart teal/sea
     surahs: [
       { s:4,  phaseTr:'Vahyi alan peygamberler arasında', phaseEn:'Among Prophets Who Received Revelation' },
       { s:6,  phaseTr:'Seçilmişler zincirinde', phaseEn:'Within the Chain of the Chosen' },

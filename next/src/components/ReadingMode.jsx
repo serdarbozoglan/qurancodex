@@ -2741,7 +2741,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     // shifted the hue toward tan/buff, breaking the "single warm cream
     // family" feel. #f4f0e0 stays inside the same family and lands in the
     // 3-7% sweet spot for "two-layer" perception.
-    bg: COLORS.paperCream, outerBg: '#f4f0e0', gold: COLORS.paperGold,
+    bg: COLORS.paperCream, outerBg: COLORS.mushafPaperBg, gold: COLORS.paperGold,
     arabic: COLORS.paperInk, arabicActive: COLORS.paperInkLight,
     translation: COLORS.paperSepia, translationActive: COLORS.paperSepiaLight,
     bismillah: COLORS.paperRed,
@@ -2757,7 +2757,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     //   yanma etkisi azaltılmış.
     // translationActive #c4b59a: aktif meal metni de eşit şekilde dengelendi.
     bg: COLORS.cosmicBlack, outerBg: '#0f1f3a', gold: COLORS.gold,
-    arabic: '#b89660', arabicActive: '#caa870',
+    arabic: '#b89660', arabicActive: COLORS.softGold,
     translation: '#cab997', translationActive: '#deceab',
     // Bismillah in night mode: warm amber (#E8B547) — slightly brighter and
     // warmer than the standard gold so it reads as "honoured opening line"
@@ -2791,7 +2791,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     shadow: '0 8px 32px rgba(0,0,0,0.6)',
     divider: 'rgba(255,255,255,0.06)',
     text: '#a8b4c0',
-    textMuted: '#4a5568',
+    textMuted: COLORS.slate600,
     itemBgHover: 'rgba(255,255,255,0.04)',
     itemBgActive: 'rgba(212,165,116,0.1)',
     inputBg: 'rgba(255,255,255,0.06)',
@@ -6903,7 +6903,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               if (q && !hasAnyResult) {
                 return (
-                  <div style={{ textAlign: 'center', padding: '60px 24px', color: dayMode ? 'rgba(80,50,20,0.4)' : '#4a5568', fontSize: '0.9rem' }}>
+                  <div style={{ textAlign: 'center', padding: '60px 24px', color: dayMode ? 'rgba(80,50,20,0.4)' : COLORS.slate600, fontSize: '0.9rem' }}>
                     {language === 'tr' ? 'Sonuç bulunamadı' : 'No results found'}
                   </div>
                 );
@@ -11661,7 +11661,7 @@ function VerseCompareModal({
   // Theme — day/night aware, aligns with reading mode palette
   const C = dayMode ? {
     backdrop: 'rgba(20,12,4,0.55)',
-    bg: '#faf6ed',
+    bg: COLORS.paperCream,
     cardBg: '#fdfaf2',
     border: 'rgba(180,140,80,0.45)',
     text: '#1f1908',
@@ -11687,7 +11687,7 @@ function VerseCompareModal({
     text: COLORS.offWhite,
     textMuted: COLORS.silver,
     label: COLORS.gold,
-    arabic: '#f5f1e8',
+    arabic: COLORS.paperCream,
     gold: COLORS.gold,
     goldDeep: COLORS.gold,
     cardItemBg: 'rgba(255,255,255,0.03)',

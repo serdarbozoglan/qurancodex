@@ -2091,7 +2091,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
     { pattern: /^ن ا س$/, colorTr: 'Nâs (insan)', colorEn: 'Nās (people)', hex: '#3B82F6' },
     { pattern: /^ر ح م$/, colorTr: 'Rahm (rahmet)', colorEn: 'Raḥm (mercy)', hex: COLORS.emerald },
     { pattern: /^ذ ك ر$/, colorTr: 'Zikr (anma)', colorEn: 'Dhikr (remembrance)', hex: '#22C55E' },
-    { pattern: /^ا م ن|^أ م ن$/, colorTr: 'Îmân (iman)', colorEn: 'Īmān (faith)', hex: '#14B8A6' },
+    { pattern: /^ا م ن|^أ م ن$/, colorTr: 'Îmân (iman)', colorEn: 'Īmān (faith)', hex: COLORS.tealDark },
     { pattern: /^ع ب د$/, colorTr: 'ʿAbd (kulluk)', colorEn: 'ʿAbd (worship)', hex: COLORS.royalGold },
     { pattern: /^ي و م$/, colorTr: 'Yevm (gün)', colorEn: 'Yawm (day)', hex: '#F97316' },
     { pattern: /^ك ف ر$/, colorTr: 'Kufr (inkar)', colorEn: 'Kufr (denial)', hex: COLORS.coral },

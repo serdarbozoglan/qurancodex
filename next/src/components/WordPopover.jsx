@@ -101,7 +101,7 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
   const C = dayMode
     ? {
         backdrop: 'rgba(20,12,4,0.55)',
-        panelBg: '#faf6ed',
+        panelBg: COLORS.paperCream,
         panelBorderTop: 'rgba(180,140,80,0.45)',
         panelBorderSide: 'rgba(180,140,80,0.22)',
         textPrimary: '#1f1908',

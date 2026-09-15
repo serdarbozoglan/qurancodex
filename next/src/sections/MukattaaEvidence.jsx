@@ -483,7 +483,7 @@ export default function MukattaaEvidence() {
                         evet:   { t: tr ? 'evet' : 'yes',      c: '#6fc98a', b: 'rgba(111,201,138,0.12)' },
                         kismen: { t: tr ? 'kısmen' : 'partly', c: '#e8b860', b: 'rgba(232,184,96,0.12)' },
                         zayif:  { t: tr ? 'zayıf' : 'weak',    c: '#c99a6f', b: 'rgba(201,154,111,0.10)' },
-                        hayir:  { t: tr ? 'hayır' : 'no',      c: '#8c93a3', b: 'rgba(255,255,255,0.03)' },
+                        hayir:  { t: tr ? 'hayır' : 'no',      c: COLORS.slateTextSafe, b: 'rgba(255,255,255,0.03)' },
                       }[d];
                       return (
                         <td key={g.id} style={{

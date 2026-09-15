@@ -81,7 +81,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
   if (!word) return null;
 
   const C = dayMode ? {
-    bg:       '#fdfaed',
+    bg:       COLORS.mushafPaperBg,
     border:   'rgba(100,60,10,0.28)',
     shadow:   '0 10px 30px rgba(0,0,0,0.18)',
     text:     '#2a1a08',

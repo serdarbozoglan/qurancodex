@@ -1115,7 +1115,7 @@ export default function WordHeatmap({ onClose }) {
                     aria-label={language === 'tr' ? 'Âyet panelini kapat' : 'Close verse panel'}
                     style={{ background: 'none', border: 'none', color: SEMANTIC.textFaint, cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}
                     onMouseEnter={e => e.currentTarget.style.color = COLORS.silver}
-                    onMouseLeave={e => e.currentTarget.style.color = '#4a5568'}>✕</button>
+                    onMouseLeave={e => e.currentTarget.style.color = COLORS.slate600}>✕</button>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem' }}>

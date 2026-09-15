@@ -29,7 +29,7 @@ const RENKLER_TAB_ICONS = {
 // #2563EB — refactor ile 43 raw hex tekil semantik atıf noktasına indirildi.
 const KURANI_COLORS = {
   // Cennet / kurtuluş
-  beyazFildisi:   '#C8D6E5',  // Kurtulanların yüzü, dağ şeritleri, Hz. Musa'nın eli
+  beyazFildisi:   COLORS.slate300,  // Kurtulanların yüzü, dağ şeritleri, Hz. Musa'nın eli
   yesilYaprak:    COLORS.emerald,  // Cennet giysileri, koyu yeşil ağaç (accent + hex)
   yesilKoyu:      '#0F4C35',  // Cennet bahçeleri (Rahmân 55:64)
   altin:          COLORS.btnGoldMid,  // Bilezikler (İnsan 76:21)
@@ -1547,7 +1547,7 @@ function TabKiyamet({ language, isMobile }) {
       verseTr: "O gün kimi yüzler tozlanmış, kararma bürümüş.",
       verseEn: 'And some faces that Day will be covered with dust — darkness overwhelming them.',
       ref: 'Abese 80:40-41',
-      hex: '#374151',
+      hex: COLORS.slate700,
       noteTr: "Abese 80:38-41 dört sıfatla iki grubu karşılaştırır: parlak + gülen (kurtulanlar) vs tozlanmış + karartan (kayıp). Renk ve ışık Kur'an'ın kıyamet dilinde simetrik kullanılır.",
       noteEn: "Al-Abasa 80:38-41 contrasts two groups with four attributes: bright + laughing (saved) vs dusty + darkened (lost). Color and light are used symmetrically in the Quran's judgment language.",
     },
@@ -2196,7 +2196,7 @@ function TabDilbilim({ language, isMobile }) {
               numTr: '3', titleTr: 'Körlük: Perde', titleEn: 'Blindness: Veil',
               descTr: "Göz üzerinde perde; inkârcıların dünyadaki körlüğünün kıyamette somutlaşması.",
               descEn: "A veil over the eyes; the disbelievers' spiritual blindness made physical at judgment.",
-              color: '#374151',
+              color: COLORS.slate700,
             },
           ].map((v, i) => (
             <div key={i} style={{

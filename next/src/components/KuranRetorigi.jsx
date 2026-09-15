@@ -977,11 +977,11 @@ function TabSorular({ data, tr, isMobile }) {
   const TYPE_LABELS_TR = { erotema: 'İstifhâm-ı İnkârî', irsad: 'İstifhâm-ı İrşâdî', tevbih: 'İstifhâm-ı Tevbîhî', taaccub: 'İstifhâm-ı Taaccübî' };
   const TYPE_LABELS_EN = { erotema: 'Istifhām Inkārī', irsad: 'Istifhām Irshādī', tevbih: 'Istifhām Tawbīkhī', taaccub: 'Istifhām Taʿajjubī' };
 
-  const PATTERN_COLORS = { 've-ma-edrake': COLORS.coral, 'efela-takılun': '#14b8a6', eleyse: '#8b5cf6' };
+  const PATTERN_COLORS = { 've-ma-edrake': COLORS.coral, 'efela-takılun': COLORS.tealDark, eleyse: '#8b5cf6' };
   const PATTERN_LABELS_TR = { 've-ma-edrake': 'Ve Mâ Edrâke', 'efela-takılun': "Efela Ta'kılûn", eleyse: 'Eleyse / E-lem' };
   const PATTERN_LABELS_EN = { 've-ma-edrake': 'Wa Ma Adraka', 'efela-takılun': 'Afala Taʿqilun', eleyse: 'Alaysa / A-lam' };
 
-  const ADDRESS_COLORS = { humanity: COLORS.gold, mushrikeen: COLORS.red, prophet: COLORS.med, 'ehl-i-kitap': '#14b8a6', munafikun: COLORS.slate500 };
+  const ADDRESS_COLORS = { humanity: COLORS.gold, mushrikeen: COLORS.red, prophet: COLORS.med, 'ehl-i-kitap': COLORS.tealDark, munafikun: COLORS.slate500 };
   const ADDRESS_LABELS_TR = { humanity: 'İnsanlık', mushrikeen: 'Müşrik', prophet: 'Peygamber', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafık' };
   const ADDRESS_LABELS_EN = { humanity: 'Humanity', mushrikeen: 'Polytheist', prophet: 'Prophet', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrite' };
 
@@ -1149,7 +1149,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
         const TYPE_COLORS = { erotema: COLORS.gold, irsad: COLORS.skyBlue, tevbih: COLORS.softEmerald, taaccub: COLORS.med };
         const TYPE_LABELS_TR = { erotema: 'İstifhâm-ı İnkârî', irsad: 'İstifhâm-ı İrşâdî', tevbih: 'İstifhâm-ı Tevbîhî', taaccub: 'İstifhâm-ı Taaccübî' };
         const TYPE_LABELS_EN = { erotema: 'Istifhām Inkārī', irsad: 'Istifhām Irshādī', tevbih: 'Istifhām Tawbīkhī', taaccub: 'Istifhām Taʿajjubī' };
-        const ADDR_COLORS = { humanity: COLORS.gold, mushrikeen: COLORS.red, 'ehl-i-kitap': '#14b8a6', munafikun: COLORS.slate500, prophet: COLORS.purple };
+        const ADDR_COLORS = { humanity: COLORS.gold, mushrikeen: COLORS.red, 'ehl-i-kitap': COLORS.tealDark, munafikun: COLORS.slate500, prophet: COLORS.purple };
         const ADDR_LABELS_TR = { humanity: 'Tüm İnsanlık', mushrikeen: 'Müşrikler', 'ehl-i-kitap': 'Ehli Kitap', munafikun: 'Münafıklar', prophet: 'Hz. Peygamber' };
         const ADDR_LABELS_EN = { humanity: 'All Humanity', mushrikeen: 'Polytheists', 'ehl-i-kitap': 'People of Book', munafikun: 'Hypocrites', prophet: 'The Prophet' };
         const types = ['erotema', 'irsad', 'tevbih', 'taaccub'];
