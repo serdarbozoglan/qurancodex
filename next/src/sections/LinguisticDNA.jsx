@@ -288,7 +288,7 @@ export default function LinguisticDNA() {
     <SectionWrapper id="linguistic" dark={false} seam={false}>
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('linguisticDNA.badge')}
         </span>
       </motion.div>
@@ -356,7 +356,7 @@ export default function LinguisticDNA() {
 
       {/* ── 14 Letters Display ── */}
       <motion.div variants={fadeUpItem} className="mb-14">
-        <p className="text-silver/50 text-xs uppercase tracking-[0.25em] font-body text-center mb-5">
+        <p className="text-text-faint text-xs uppercase tracking-[0.25em] font-body text-center mb-5">
           {language === 'tr' ? 'Kur\'an\'da Kullanılan 14 Kesik Harf' : '14 Unique Letters Used in the Quran'}
         </p>
         {/* M-Y2: Mobile harf boyutu 3rem (48px ≥ touch target), gap daralt — 5 harf/satır × 3 satır */}
@@ -444,7 +444,7 @@ export default function LinguisticDNA() {
             );
           })}
         </div>
-        <p className="text-silver/60 text-sm font-body">
+        <p className="text-text-faint text-sm font-body">
           {language === 'tr'
             ? 'Arap alfabesinin tam yarısı · 29 sûrenin açılışında · 14 farklı kombinasyon'
             : 'Exactly half the Arabic alphabet · Open 29 chapters · 14 distinct combinations'}
@@ -456,7 +456,7 @@ export default function LinguisticDNA() {
         <h3 className="font-display text-2xl md:text-3xl font-bold text-off-white mb-2">
           {language === 'tr' ? '4 Harf Grubu, 4 Tematik Evren' : '4 Letter Groups, 4 Thematic Universes'}
         </h3>
-        <p className="text-silver/65 text-base font-body mb-4">
+        <p className="text-text-faint text-base font-body mb-4">
           {language === 'tr'
             ? 'Aynı harfle başlayan sûreler tesadüfen bir arada değildir; her grup kendi içinde tutarlı bir tema taşır.'
             : 'Suras sharing the same opening letters are not grouped by coincidence; each carries its own consistent theme.'}
@@ -473,7 +473,7 @@ export default function LinguisticDNA() {
             }}
           >
             <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#2ab5a0' }} />
-            <span className="text-silver/70">{language === 'tr' ? 'Mekkî-Medenî Karma' : 'Meccan-Medinan Mixed'}</span>
+            <span className="text-silver">{language === 'tr' ? 'Mekkî-Medenî Karma' : 'Meccan-Medinan Mixed'}</span>
           </span>
           <span
             className="flex items-center gap-1.5"
@@ -485,7 +485,7 @@ export default function LinguisticDNA() {
             }}
           >
             <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#e8b860' }} />
-            <span className="text-silver/70">{language === 'tr' ? 'Mekkî' : 'Meccan'}</span>
+            <span className="text-silver">{language === 'tr' ? 'Mekkî' : 'Meccan'}</span>
           </span>
         </div>
       </motion.div>
@@ -559,7 +559,7 @@ export default function LinguisticDNA() {
                     >
                       {group.arabic}
                     </span>
-                    <span className="text-silver/50 text-sm font-body tracking-wider">{language === 'en' && group.latinEn ? group.latinEn : group.latin}</span>
+                    <span className="text-text-faint text-sm font-body tracking-wider">{language === 'en' && group.latinEn ? group.latinEn : group.latin}</span>
                   </div>
                   <div className="text-right flex flex-col items-end gap-1">
                     <div>
@@ -569,7 +569,7 @@ export default function LinguisticDNA() {
                       >
                         {group.count}
                       </span>
-                      <span className="text-silver/50 text-xs font-body">
+                      <span className="text-text-faint text-xs font-body">
                         {language === 'tr' ? 'sûre' : 'suras'}
                       </span>
                     </div>
@@ -661,7 +661,7 @@ export default function LinguisticDNA() {
                         if (bullet.startsWith('→ not:') || bullet.startsWith('→ note:')) {
                           const text = bullet.replace(/^→ not(?:e)?:/, '').trim();
                           return (
-                            <li key={bi} className="font-body text-base leading-relaxed text-silver/60 pl-3">
+                            <li key={bi} className="font-body text-base leading-relaxed text-text-faint pl-3">
                               ✦ {text}
                             </li>
                           );
@@ -707,7 +707,7 @@ export default function LinguisticDNA() {
         <h3 className="font-display text-xl md:text-2xl font-bold text-off-white mb-1">
           {language === 'tr' ? 'Diğer 8 Sûre: Her Biri Kendine Özgü' : '8 Other Suras: Each Distinct'}
         </h3>
-        <p className="text-silver/65 text-base font-body mb-6">
+        <p className="text-text-faint text-base font-body mb-6">
           {language === 'tr'
             ? <>Standart grupların dışında kalan özel yapılar: hibrit kodlar, tek harfli açılışlar ve tekil istisnalar. Çoğunluğunda <span className="text-gold font-semibold">vahyin formülüne (Kitap, Kur&apos;ân, <span title="Zikir: Kur'an'ın kendine verdiği isimlerden biri; hatırlatma/öğüt. Hicr 15:9 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Şüphesiz Zikr'i biz indirdik)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Zikir</span>)</span> atıf gelir; Kalem (68) bu kalıbın dışında kalan dikkat çekici istisnadır.</>
             : <>Special structures outside the standard groups: hybrid codes, single-letter openings and singular exceptions. Most reference <span className="text-gold font-semibold">the formula of revelation (Book, Qur&apos;ān, <span title="Dhikr: one of the names the Quran gives itself; remembrance/reminder. Al-Hijr 15:9: 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Indeed, it is We who sent down the Dhikr)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Remembrance</span>)</span>; Al-Qalam (68) is the notable exception that breaks this pattern.</>}
@@ -837,7 +837,7 @@ export default function LinguisticDNA() {
             <span>100%</span>
           </div>
         </div>
-        <p className="text-silver/55 text-sm font-body italic max-w-3xl">
+        <p className="text-text-faint text-sm font-body italic max-w-3xl">
           {language === 'tr'
             ? 'Huruf-i mukattaa ile açılan 29 sûrenin 25\'inde tutarlı bir vahiy atfı örüntüsü var. Kur\'ân\'ın genelinde sûre açılışlarında vahiy atfı daha nadirdir; bu yoğunluk kayda değer.'
             : 'In 25 of the 29 muqaṭṭaʿāt-opening suras there is a consistent pattern of revelation reference. Such references are less frequent in sura openings overall; this density is notable.'}
@@ -876,10 +876,10 @@ export default function LinguisticDNA() {
                 ))}
               </div>
             )}
-            <p className="text-silver/65 text-sm font-body leading-relaxed">{language === 'en' && d.descEn ? d.descEn : d.desc}</p>
+            <p className="text-text-faint text-sm font-body leading-relaxed">{language === 'en' && d.descEn ? d.descEn : d.desc}</p>
             {d.footnote && (
               <p className="text-silver text-xs font-body mt-3 pt-3 leading-relaxed" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                <span className="text-gold/50 mr-1">ℹ</span>
+                <span aria-hidden="true" className="text-gold/50 mr-1">ℹ</span>
                 {language === 'en' && d.footnoteEn ? d.footnoteEn : d.footnote}
               </p>
             )}

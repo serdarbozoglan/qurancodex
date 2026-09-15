@@ -33,6 +33,7 @@ const CONTRAST_PAIRS = [
     notTr: "İki sûre de aynı 'قُلْ' emriyle başlar (109 ve 112; aralarında 110 ve 111 yer alır); fonetik seçim tema ile aynı yönde ilerler.",
     notEn: "Both surahs open with the same 'qul' imperative (109 and 112, with 110 and 111 between them); the phonetic choice moves with the theme.",
     kaynak: "Klasik fonetik: Zemahşerî, Keşşâf (Kâfirûn ↔ İhlâs mukâbelesi); modern akademik: Michael Sells, Approaching the Qur'an (Bab: Sound and Meaning).",
+    kaynakEn: "Classical phonetics: al-Zamakhshari, al-Kashshaf (on the pairing of al-Kafirun and al-Ikhlas); modern scholarship: Michael Sells, Approaching the Qur'an (chapter: Sound and Meaning).",
     claimType: 'tafsir_tradition',
     confidence: 'high',
   },
@@ -61,6 +62,7 @@ const CONTRAST_PAIRS = [
     notTr: "İki sûre birbirini takip etmez (89 · 93) ama her ikisi de günün geçişini (fecir-duhâ) yeminle anar; birinin sesi 'kabuk', diğerinin sesi 'iç'.",
     notEn: "The two surahs are not adjacent (89 · 93) but both invoke a moment of the day (dawn, forenoon); one's sound is 'shell', the other's 'core'.",
     kaynak: "Klasik retorik: Râzî, Fecr ve Duhâ girişleri; Elmalılı, aynı sûreler.",
+    kaynakEn: "Classical rhetoric: al-Razi on the openings of al-Fajr and al-Duha; Elmalili on the same suras.",
     claimType: 'tafsir_tradition',
     confidence: 'high',
   },
@@ -89,6 +91,7 @@ const CONTRAST_PAIRS = [
     notTr: "Zakkum ve Tûbâ Kur'ân'da cehennem ve cennet ağaçları için özel isim olarak geçer; fonetik zıtlık kelime seçimini pekiştirir.",
     notEn: "Zaqqūm and Ṭūbā appear in the Qur'an as proper names for the trees of Hell and Paradise; the phonetic contrast reinforces the lexical choice.",
     kaynak: "Klasik tefsir: Râzî, Vâkıa 56:52 ve Ra'd 13:29; Kurtubî, aynı ayetler.",
+    kaynakEn: "Classical tafsir: al-Razi on Q 56:52 and Q 13:29; al-Qurtubi on the same verses.",
     claimType: 'tafsir_tradition',
     confidence: 'high',
   },
@@ -117,6 +120,7 @@ const CONTRAST_PAIRS = [
     notTr: "Emir cümlesinin (Alak 96:1) sesi 'tehlike sinyali'; vaad cümlesinin (Nahl 16:97) sesi 'kucaklayış'. Fonetik seçim mesajın atmosferini kurar.",
     notEn: "The imperative sentence (Alaq 96:1) sounds like a 'danger signal'; the promise sentence (Naḥl 16:97) sounds like an 'embrace'. Phonetic choice builds the message's atmosphere.",
     kaynak: "Klasik retorik: Zemahşerî, Keşşâf, Alak ve Nahl girişleri; Râzî, aynı ayetler.",
+    kaynakEn: "Classical rhetoric: al-Zamakhshari, al-Kashshaf, on the openings of al-Alaq and al-Nahl; al-Razi on the same verses.",
     claimType: 'tafsir_tradition',
     confidence: 'high',
   },
@@ -326,7 +330,7 @@ function PairDisplay({ pair, language, isMobile }) {
         <p style={{
           color: COLORS.silver, fontSize: '0.75rem',
           fontStyle: 'italic', margin: 0,
-        }}>— {pair.kaynak}</p>
+        }}>&mdash; {language === 'tr' ? pair.kaynak : (pair.kaynakEn || pair.kaynak)}</p>
       </div>
     </div>
   );

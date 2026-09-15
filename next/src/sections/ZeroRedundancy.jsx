@@ -107,7 +107,7 @@ export default function ZeroRedundancy() {
     <SectionWrapper id="redundancy" dark={false}>
       {/* Section badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('zeroRedundancy.badge')}
         </span>
       </motion.div>
@@ -244,7 +244,7 @@ export default function ZeroRedundancy() {
             {t('zeroRedundancy.mosesTitle')}
           </h3>
           {language === 'en' && (
-            <span className="text-xs font-body text-silver/50 italic">
+            <span className="text-xs font-body text-text-faint italic">
               (AS) = <em>Alayhis Salaam</em>, peace be upon him
             </span>
           )}

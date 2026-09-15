@@ -65,19 +65,29 @@ const parseColor = s => {
   return m ? { rgb: [+m[1], +m[2], +m[3]], a: m[4] === undefined ? 1 : parseFloat(m[4]) } : null;
 };
 
-// Öge devre dışı/sönük bir durumda mı? §13.26 md.5 onlara 3.0 tabanı tanır.
-async function isDim(page, text) {
-  if (!text) return false;
+// Ögenin durumu: 'deco' | 'dim' | null
+//
+// İKİSİ AYRI ŞEYDİR ve 2026-09-14'e kadar aynı kovaya atılıyordu:
+//   · aria-hidden  → DEKORATİF. WCAG saf dekoratif içeriği kontrast
+//     ölçütünden muaf tutar, §13.26 md.3 de öyle. Taban YOKTUR.
+//   · disabled / aria-disabled → KASITLI SÖNÜK durum. Bilgi taşır, o yüzden
+//     §13.26 md.5 ona 3.0 tabanı koyar.
+// Karıştırılınca anasayfadaki aria-hidden besmele (süs) 2.88 ile "gerçek
+// ihlal" diye raporlanıyordu; oysa hiç ölçülmemeliydi.
+async function stateOf(page, text) {
+  if (!text) return null;
   return page.evaluate(t => {
     const el = [...document.querySelectorAll('*')]
       .find(e => e.children.length === 0 && (e.textContent || '').trim().includes(t.trim().slice(0, 24)));
-    if (!el) return false;
-    return !!(el.closest('[disabled]') || el.closest('[aria-disabled="true"]') || el.closest('[aria-hidden="true"]'));
+    if (!el) return null;
+    if (el.closest('[aria-hidden="true"]')) return 'deco';
+    if (el.closest('[disabled]') || el.closest('[aria-disabled="true"]')) return 'dim';
+    return null;
   }, text);
 }
 
 const browser = await chromium.launch();
-let grandReal = 0, grandArtifact = 0, grandDim = 0;
+let grandReal = 0, grandArtifact = 0, grandDim = 0, grandDeco = 0;
 
 for (const route of ROUTES) {
   const ctx = await browser.newContext({
@@ -133,18 +143,20 @@ for (const route of ROUTES) {
     const settledFindings = [...seenSecond.values()].filter(f => f.px < 24);
 
     // Kasıtlı sönük hâlleri ayır (§13.26 md.5: onlar için taban 3.0)
-    const real = [], dim = [];
+    const real = [], dim = [], deco = [];
     for (const f of settledFindings) {
       const r = parseFloat(f.ratio);
-      if (Number.isFinite(r) && r >= 3.0 && await isDim(page, f.text)) dim.push(f);
+      const st = await stateOf(page, f.text);
+      if (st === 'deco') deco.push(f);                                  // muaf
+      else if (st === 'dim' && Number.isFinite(r) && r >= 3.0) dim.push(f);
       else real.push(f);
     }
     const artifact = raw.filter(f =>
       !settledFindings.some(g => g.color === f.color && g.px === f.px && g.text === f.text));
 
-    grandReal += real.length; grandArtifact += artifact.length; grandDim += dim.length;
+    grandReal += real.length; grandArtifact += artifact.length; grandDim += dim.length; grandDeco += deco.length;
     console.log(`\n── ${route}`);
-    console.log(`   ham: ${raw.length}  |  GERÇEK: ${real.length}  |  artefakt: ${artifact.length}  |  kasıtlı sönük: ${dim.length}`);
+    console.log(`   ham: ${raw.length}  |  GERÇEK: ${real.length}  |  artefakt: ${artifact.length}  |  kasıtlı sönük: ${dim.length}  |  dekoratif: ${deco.length}`);
     for (const x of real.sort((a, b) => parseFloat(a.ratio) - parseFloat(b.ratio))) {
       console.log(`   ✗ ${String(x.ratio).padStart(5)}  ${x.color} @${x.opacity}  zemin ${x.bg}  "${(x.text || '').slice(0, 46)}"`);
     }
@@ -155,6 +167,7 @@ for (const route of ROUTES) {
 }
 
 await browser.close();
-console.log(`\n═══ TOPLAM  GERÇEK: ${grandReal}  |  artefakt: ${grandArtifact}  |  kasıtlı sönük: ${grandDim}`);
-console.log('   Yalnız GERÇEK satırları düzeltilir; artefaktlar ölçüm zamanlamasıdır,');
-console.log('   kasıtlı sönük olanlar §13.26 md.5 tabanını (3.0) geçiyorsa kusur değildir.');
+console.log(`\n═══ TOPLAM  GERÇEK: ${grandReal}  |  artefakt: ${grandArtifact}  |  kasıtlı sönük: ${grandDim}  |  dekoratif: ${grandDeco}`);
+console.log('   Yalnız GERÇEK satırları düzeltilir. Artefaktlar ölçüm zamanlamasıdır;');
+console.log('   kasıtlı sönük olanlar §13.26 md.5 tabanını (3.0) geçiyorsa kusur değil;');
+console.log('   aria-hidden dekoratif ögeler kontrast ölçütünden MUAFTIR.');

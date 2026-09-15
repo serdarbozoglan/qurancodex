@@ -196,7 +196,7 @@ export default function Highlights() {
     <SectionWrapper id="highlights" dark={true} className="section-seam-into-deep">
       {/* Section badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('highlights.badge')}
         </span>
       </motion.div>

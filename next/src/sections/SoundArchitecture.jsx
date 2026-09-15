@@ -1121,7 +1121,7 @@ export default function SoundArchitecture() {
     <SectionWrapper id="sounds" dark={false}>
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('soundArchitecture.badge')}
         </span>
       </motion.div>
@@ -1164,7 +1164,7 @@ export default function SoundArchitecture() {
 
       {/* ── 2. Four Sura Tabs ── */}
       <motion.div variants={fadeUpItem} className="mb-4">
-        <p className="text-silver/60 text-xs font-body mb-4 uppercase tracking-widest">
+        <p className="text-text-faint text-xs font-body mb-4 uppercase tracking-widest">
           {language === 'tr' ? 'Bir sûre seçin, ayeti duyun' : 'Select a surah and hear the verse'}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">

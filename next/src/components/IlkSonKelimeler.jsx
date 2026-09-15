@@ -1768,7 +1768,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
           color: SEMANTIC.textMuted,
           fontStyle: 'italic', letterSpacing: '0.02em',
         }}>
-          — {spotlight.sources.join(' · ')}
+          &mdash; {(language === 'tr' ? spotlight.sources : (spotlight.sourcesEn || spotlight.sources)).join(' · ')}
         </div>
       )}
     </div>

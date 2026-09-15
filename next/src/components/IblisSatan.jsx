@@ -350,7 +350,7 @@ export default function IblisSatan({ onClose }) {
       </motion.div>
 
       <motion.div initial="hidden" animate="visible" variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('iblisSatan.badge')}
         </span>
       </motion.div>
@@ -378,7 +378,7 @@ export default function IblisSatan({ onClose }) {
 
       {/* ─── Stats Banner ────────────────────────────────── */}
       <motion.div initial="hidden" animate="visible" variants={fadeUpItem} className="mb-5">
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('iblisSatan.statsTitle')}
         </span>
       </motion.div>
@@ -439,7 +439,7 @@ export default function IblisSatan({ onClose }) {
 
       {/* ─── 7 Surah Cards ──────────────────────────────── */}
       <motion.div initial="hidden" animate="visible" variants={fadeUpItem} className="mb-2">
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('iblisSatan.passagesTitle')}
         </span>
       </motion.div>
@@ -754,7 +754,7 @@ export default function IblisSatan({ onClose }) {
 
       {/* ─── Cross-tellings observations ─────────────────── */}
       <motion.div initial="hidden" animate="visible" variants={fadeUpItem} className="mb-2">
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('iblisSatan.observationsTitle')}
         </span>
       </motion.div>

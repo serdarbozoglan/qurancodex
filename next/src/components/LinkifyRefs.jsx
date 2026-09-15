@@ -1,4 +1,7 @@
-import { quranComUrl } from '../lib/surahNames';
+'use client';
+
+import { quranComUrl, localizeVerseRef } from '../lib/surahNames';
+import { useLanguageSafe } from '../i18n/LanguageContext';
 import { COLORS } from '../tokens';
 
 // Serbest metindeki "S:A" âyet referanslarını (ör. "Bakara 2:25", "83:18-21",
@@ -9,8 +12,15 @@ import { COLORS } from '../tokens';
 // dokunulmadan geçer. Geçersiz sûre numarası (1-114 dışı) linklenmez.
 const VERSE_RE = /\b(\d{1,3}):(\d{1,3})(?:[-–]\d{1,3})?/g;
 
+// §13.32 — sûre adı dile gore yazilir. Adlar veri dosyalarina ve bilesenlere
+// TURKCE gomuluydu ve Ingilizce sayfada da oyle basiliyordu ("Sura 42:7").
+// Dil BURADA cozulur: 62 cagri yerinin tek tek degistirilmesi gerekmesin ve
+// yeni bir cagri yeri eklendiginde kural kendiliginden uygulansin.
+// Ad, referansin KENDI SAYISINDAN uretilir; uydurma riski yoktur.
 export default function LinkifyRefs({ text, linkStyle }) {
+  const { language } = useLanguageSafe();
   if (text == null || typeof text !== 'string') return text ?? null;
+  text = localizeVerseRef(text, language);
   const parts = [];
   let last = 0;
   let m;

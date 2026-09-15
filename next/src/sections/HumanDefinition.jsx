@@ -328,7 +328,7 @@ export default function HumanDefinition() {
 
       {/* ── Badge + Title ── */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {tr('badge')}
         </span>
       </motion.div>
@@ -392,7 +392,7 @@ export default function HumanDefinition() {
             <p className="text-off-white text-sm font-body font-semibold mb-1">
               {t(`humanDefinition.stats.${key}.label`)}
             </p>
-            <p className="text-silver/50 text-xs font-body">
+            <p className="text-text-faint text-xs font-body">
               {t(`humanDefinition.stats.${key}.desc`)}
             </p>
             {key === 'total' && (
@@ -452,7 +452,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('termsTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-2">
+        <p className="text-text-faint text-sm font-body leading-relaxed max-w-3xl mb-2">
           {tr('termsSubtitle')}
         </p>
         <p className="text-silver text-[0.7rem] font-body italic mb-8">
@@ -525,7 +525,7 @@ export default function HumanDefinition() {
                       style={{ borderTop: `1px solid ${term.border}` }}
                     >
                       <div className="pt-4">
-                        <p className="text-silver/50 text-xs font-body uppercase tracking-[0.2em] mb-1">
+                        <p className="text-text-faint text-xs font-body uppercase tracking-[0.2em] mb-1">
                           {tr('termsNoteLabel')}
                         </p>
                         <p className="text-silver text-sm font-body leading-relaxed">
@@ -542,7 +542,7 @@ export default function HumanDefinition() {
                         className="rounded-lg p-4"
                         style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${term.border}` }}
                       >
-                        <p className="text-silver/50 text-xs font-body uppercase tracking-[0.2em] mb-2">
+                        <p className="text-text-faint text-xs font-body uppercase tracking-[0.2em] mb-2">
                           {tr('termsVerseLabel')}
                         </p>
                         <p
@@ -571,7 +571,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('muminTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-6">
+        <p className="text-text-faint text-sm font-body leading-relaxed max-w-3xl mb-6">
           {tr('muminIntro')}
         </p>
 
@@ -714,7 +714,7 @@ export default function HumanDefinition() {
                     className="overflow-hidden"
                   >
                     <div className="px-5 pb-5 pt-3" style={{ borderTop: '1px solid rgba(212,165,116,0.12)' }}>
-                      <p className="text-silver/60 text-sm font-body leading-relaxed italic">
+                      <p className="text-text-faint text-sm font-body leading-relaxed italic">
                         {lang === 'tr' ? trait.noteTr : trait.noteEn}
                       </p>
                     </div>
@@ -756,7 +756,7 @@ export default function HumanDefinition() {
                     <p className="text-gold font-body font-semibold text-sm">
                       {lang === 'tr' ? trait.traitTr : trait.traitEn}
                     </p>
-                    <p className="text-gold/50 text-xs font-body mt-0.5">
+                    <p className="text-gold text-xs font-body mt-0.5">
                       {lang === 'tr' ? 'Mü\'minun ' : 'Al-Muʾminun '}{trait.ref}
                     </p>
                   </div>
@@ -793,7 +793,7 @@ export default function HumanDefinition() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-5 pt-3" style={{ borderTop: `1px solid ${COLORS.goldAlpha15}` }}>
-                      <p className="text-silver/60 text-sm font-body leading-relaxed italic">
+                      <p className="text-text-faint text-sm font-body leading-relaxed italic">
                         {lang === 'tr' ? trait.noteTr : trait.noteEn}
                       </p>
                     </div>
@@ -806,7 +806,7 @@ export default function HumanDefinition() {
 
         {/* Verses 23:6-7 academic disclaimer */}
         <p
-          className="text-silver/45 text-xs font-body italic leading-relaxed mb-4"
+          className="text-text-faint text-xs font-body italic leading-relaxed mb-4"
           style={{ borderLeft: `2px solid ${COLORS.glassBgStrong}`, paddingLeft: '0.75rem' }}
         >
           {tr('muminVersesGapNote')}
@@ -824,7 +824,7 @@ export default function HumanDefinition() {
                 borderLeft: '3px solid rgba(212,165,116,0.5)',
               }}
             >
-              <p className="text-silver/75 text-xs font-body leading-relaxed">{wow}</p>
+              <p className="text-silver text-xs font-body leading-relaxed">{wow}</p>
             </div>
           ))}
         </div>
@@ -835,7 +835,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('oppositionTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-2">
+        <p className="text-text-faint text-sm font-body leading-relaxed max-w-3xl mb-2">
           {tr('oppositionIntro')}
         </p>
         <p
@@ -1008,7 +1008,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('istikaametTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-8">
+        <p className="text-text-faint text-sm font-body leading-relaxed max-w-3xl mb-8">
           {tr('istikaametIntro')}
         </p>
 
@@ -1027,13 +1027,13 @@ export default function HumanDefinition() {
           >
             {tr('istikaametVerse')}
           </p>
-          <p className="text-silver/60 text-sm font-body italic text-center mb-1">
+          <p className="text-text-faint text-sm font-body italic text-center mb-1">
             {tr('istikaametTr')}
           </p>
-          <p className="text-silver/35 text-xs font-body text-center mb-8">{tr('istikaametRef')}</p>
+          <p className="text-text-faint text-xs font-body text-center mb-8">{tr('istikaametRef')}</p>
 
           {/* Word analysis */}
-          <p className="text-silver/35 text-xs font-body text-center mb-5">
+          <p className="text-text-faint text-xs font-body text-center mb-5">
             {tr('istikaametClickHint')}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -1080,7 +1080,7 @@ export default function HumanDefinition() {
                     ? ISTIKAMET_WORDS[activeWord].tr
                     : ISTIKAMET_WORDS[activeWord].en}
                 </p>
-                <p className="text-silver/70 text-sm font-body leading-relaxed">
+                <p className="text-silver text-sm font-body leading-relaxed">
                   {lang === 'tr'
                     ? ISTIKAMET_WORDS[activeWord].noteTr
                     : ISTIKAMET_WORDS[activeWord].noteEn}
@@ -1091,7 +1091,7 @@ export default function HumanDefinition() {
         </div>
 
         {/* Hadith note */}
-        <p className="text-silver/60 text-sm font-body flex gap-2">
+        <p className="text-text-faint text-sm font-body flex gap-2">
           <span className="flex-shrink-0">ℹ</span>
           <span>
             <em>{tr('istikaametHadith')}</em>
@@ -1106,7 +1106,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('transformationTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-10">
+        <p className="text-text-faint text-sm font-body leading-relaxed max-w-3xl mb-10">
           {tr('transformationIntro')}
         </p>
 
@@ -1155,7 +1155,12 @@ export default function HumanDefinition() {
                 </div>
 
                 {/* Desc — flex-1 pushes verse to bottom */}
-                <p className="text-silver/60 text-xs font-body leading-relaxed mb-4 flex-1">
+                {/* Kartin zemini renkli ve acik (olculen 37,44,51). Burasi
+                    eskiden text-silver/60 ile 3.31 veriyordu; textFaint'e
+                    cevrilince 4.30 oldu, hala AA alti. CLAUDE.md 13.26'nin
+                    belgeledigi tuzak: textFaint'in payi yalniz saf zeminde
+                    genistir. textMuted burada 5.51. */}
+                <p className="text-silver text-xs font-body leading-relaxed mb-4 flex-1">
                   {lang === 'tr' ? stage.descTr : stage.descEn}
                 </p>
 
@@ -1171,7 +1176,7 @@ export default function HumanDefinition() {
                   >
                     {stage.verse.ar}
                   </p>
-                  <p className="text-silver/55 text-xs font-body italic leading-relaxed mb-1">
+                  <p className="text-text-faint text-xs font-body italic leading-relaxed mb-1">
                     {lang === 'tr' ? stage.verse.tr : stage.verse.en}
                   </p>
                   <p className="text-silver text-xs font-body">{stage.verse.ref}</p>
@@ -1194,7 +1199,7 @@ export default function HumanDefinition() {
         </div>
 
         {/* Hadith note */}
-        <p className="text-silver/60 text-sm font-body flex gap-2">
+        <p className="text-text-faint text-sm font-body flex gap-2">
           <span className="flex-shrink-0">ℹ</span>
           <span>{tr('transformationHadithNote')}</span>
         </p>

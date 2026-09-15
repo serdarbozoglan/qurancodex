@@ -315,18 +315,18 @@ export default function Footer() {
           </div>
           <nav className="flex items-center gap-4" style={{ fontSize: '0.82rem', letterSpacing: '0.04em' }}>
             <a href={`/${language}/hakkinda`} className="text-silver/80 hover:text-gold transition-colors">{language === 'en' ? 'About' : 'Hakkında'}</a>
-            <span className="text-gold/40" style={{ fontSize: '0.62rem' }}>✦</span>
+            <span aria-hidden="true" className="text-gold/40" style={{ fontSize: '0.62rem' }}>✦</span>
             <a href={`/${language}/kaynakca`} className="text-silver/80 hover:text-gold transition-colors">{language === 'en' ? 'Bibliography' : 'Kaynakça'}</a>
           </nav>
         </div>
 
         {/* Baseline — telif + iletişim (navigasyon yukarı taşındı) */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-silver/55 text-xs">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-text-faint text-xs">
           <p>© 2026 — {t('footer.copyright')}</p>
           <div className="flex items-center gap-2">
-            <span className="text-silver/70">qurancodex.com</span>
-            <span className="text-silver/25">·</span>
-            <a href="mailto:info@qurancodex.com" className="text-silver/60 hover:text-gold transition-colors">info@qurancodex.com</a>
+            <span className="text-silver">qurancodex.com</span>
+            <span aria-hidden="true" className="text-silver/25">·</span>
+            <a href="mailto:info@qurancodex.com" className="text-text-faint hover:text-gold transition-colors">info@qurancodex.com</a>
           </div>
         </div>
       </div>

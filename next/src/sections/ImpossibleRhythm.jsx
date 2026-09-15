@@ -237,7 +237,7 @@ export default function ImpossibleRhythm() {
 
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('impossibleRhythm.badge')}
         </span>
       </motion.div>
@@ -297,7 +297,7 @@ export default function ImpossibleRhythm() {
         }}
       >
         <span
-          className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] block mb-3"
+          className="text-gold text-xs font-body uppercase tracking-[0.25em] block mb-3"
           title={language === 'tr'
             ? "İ'câz: Kur'an'ın taklit edilemeyen edebî üstünlüğü. Klasik tefsirde sesin, mâna ve yapının kusursuz uyumu olarak tanımlanır."
             : "I'jāz: the inimitable literary excellence of the Quran. Classical exegesis defines it as the perfect coherence of sound, meaning, and structure."}
@@ -308,7 +308,7 @@ export default function ImpossibleRhythm() {
         <p className="text-off-white text-lg md:text-xl leading-relaxed font-display italic">
           {t('impossibleRhythm.ijaz.text')}
         </p>
-        <p className="text-silver/50 text-xs font-body mt-4 flex items-start gap-1.5">
+        <p className="text-text-faint text-xs font-body mt-4 flex items-start gap-1.5">
           <span style={{ fontSize: '0.8rem', lineHeight: 1 }}>ℹ</span>
           <span>
             {language === 'tr'
@@ -324,7 +324,7 @@ export default function ImpossibleRhythm() {
 
           {/* Verse display */}
           <div className="p-6 md:p-8 text-center" style={{ borderBottom: '1px solid transparent', backgroundImage: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.03) 100%)', paddingBottom: '2rem' }}>
-            <p className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] mb-4">
+            <p className="text-gold text-xs font-body uppercase tracking-[0.25em] mb-4">
               {language === 'tr' ? 'Aşağıdaki ayetleri inceleyin' : 'Examine the verses below'}
             </p>
             <p lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: COLORS.offWhite }}>
@@ -358,7 +358,7 @@ export default function ImpossibleRhythm() {
             </div>
             <Link
               href={`/${language}/oku/93`}
-              className="text-silver/50 hover:text-gold text-xs font-body inline-flex items-center gap-1 transition-colors"
+              className="text-text-faint hover:text-gold text-xs font-body inline-flex items-center gap-1 transition-colors"
               style={{ textDecoration: 'none' }}
               aria-label={language === 'tr' ? 'Duhâ sûresini oku' : 'Read Surah Ad-Duha'}
             >
@@ -420,7 +420,7 @@ export default function ImpossibleRhythm() {
                     <p className="text-off-white font-body font-semibold text-sm mb-1">
                       {language === 'tr' ? 'Hayır, şiir değil.' : 'No, this is not poetry.'}
                     </p>
-                    <p className="text-silver/70 text-sm font-body leading-relaxed">
+                    <p className="text-silver text-sm font-body leading-relaxed">
                       {language === 'tr'
                         ? 'Arap şiiri 16 kesin vezne (aruz) bağlıydı; her mısranın hece sayısı ve vurgu düzeni sabit olmalıydı. Duhâ bu vezinlerin hiçbirine uymuyor.'
                         : 'Arabic poetry followed 16 fixed meters; each line required a fixed syllable count and stress pattern. Ad-Duha matches none of them.'}
@@ -428,7 +428,7 @@ export default function ImpossibleRhythm() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-silver/60 text-sm font-body mb-4">
+                  <p className="text-text-faint text-sm font-body mb-4">
                     {language === 'tr' ? 'O halde düzyazı mıdır?' : 'Could it be prose, then?'}
                   </p>
                   <button
@@ -453,7 +453,7 @@ export default function ImpossibleRhythm() {
                     <p className="text-off-white font-body font-semibold text-sm mb-1">
                       {language === 'tr' ? 'Hayır, düzyazı da değil.' : 'No, this is not prose either.'}
                     </p>
-                    <p className="text-silver/70 text-sm font-body leading-relaxed">
+                    <p className="text-silver text-sm font-body leading-relaxed">
                       {language === 'tr'
                         ? 'Arap düzyazısı (nesir) ritimden tamamen bağımsızdır. Ama Duhâ\'da her ayet "-â" sesiyle bitiyor: وَالضُّحَىٰ، سَجَىٰ، قَلَىٰ. Ritim güçlü ve tutarlı, ama hiçbir vezin kuralını takip etmiyor.'
                         : 'Arabic prose (nathr) is completely free of rhythm. But in Ad-Duha, every verse ends with the "-ā" sound: وَالضُّحَىٰ، سَجَىٰ، قَلَىٰ. The rhythm is powerful and consistent, yet follows no metrical rule.'}
@@ -461,7 +461,7 @@ export default function ImpossibleRhythm() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-silver/60 text-sm font-body mb-4">
+                  <p className="text-text-faint text-sm font-body mb-4">
                     {language === 'tr' ? 'O halde şiir midir?' : 'Could it be poetry, then?'}
                   </p>
                   <button
@@ -483,13 +483,13 @@ export default function ImpossibleRhythm() {
                 <div className="flex flex-col sm:flex-row gap-3 mb-6">
                   <div className="flex-1 flex items-start gap-3 p-4 rounded-xl" style={{ background: 'rgba(231,76,60,0.07)', border: '1px solid rgba(231,76,60,0.2)' }}>
                     <span>✗</span>
-                    <p className="text-silver/70 text-sm font-body">
+                    <p className="text-silver text-sm font-body">
                       {language === 'tr' ? 'Şiir değil; hiçbir vezne uymuyor.' : 'Not poetry; it matches no meter.'}
                     </p>
                   </div>
                   <div className="flex-1 flex items-start gap-3 p-4 rounded-xl" style={{ background: 'rgba(231,76,60,0.07)', border: '1px solid rgba(231,76,60,0.2)' }}>
                     <span>✗</span>
-                    <p className="text-silver/70 text-sm font-body">
+                    <p className="text-silver text-sm font-body">
                       {language === 'tr' ? 'Düzyazı değil; güçlü bir ritmi var.' : 'Not prose; it is too rhythmic.'}
                     </p>
                   </div>
@@ -519,13 +519,13 @@ export default function ImpossibleRhythm() {
                     ✗ {language === 'tr' ? 'Düzyazı değil' : 'Not prose'}
                   </span>
                 </div>
-                <p className="text-gold/60 text-xs uppercase tracking-[0.3em] font-body mb-3">
+                <p className="text-gold text-xs uppercase tracking-[0.3em] font-body mb-3">
                   {language === 'tr' ? 'Dilbilimcilerin cevabı' : "Linguists' answer"}
                 </p>
                 <p className="font-display text-3xl md:text-4xl font-bold mb-4" style={{ color: COLORS.gold }}>
                   sui generis
                 </p>
-                <p className="text-silver/70 text-base font-body leading-relaxed max-w-xl mx-auto">
+                <p className="text-silver text-base font-body leading-relaxed max-w-xl mx-auto">
                   {language === 'tr'
                     ? 'Kendi kategorisini kuran bir eser: ne şiir ne düzyazı, kendine özgü bir form. Arap dili ve edebiyatı ölçütleriyle 1.400 yıldır bir benzeri yazılamadı.'
                     : 'A work that created its own category: neither poetry nor prose, a form of its own. By the standards of Arabic language and literature, no one has produced its equal in 1,400 years.'}
@@ -598,7 +598,7 @@ export default function ImpossibleRhythm() {
 
                 <button
                   onClick={() => { setDiscoveryStep(0); setSuiGenerisOpen(false); }}
-                  className="mt-5 text-silver text-xs font-body hover:text-silver/60 transition-colors"
+                  className="mt-5 text-silver text-xs font-body hover:text-text-faint transition-colors"
                 >
                   {language === 'tr' ? '↺ Baştan başla' : '↺ Start over'}
                 </button>
@@ -614,7 +614,7 @@ export default function ImpossibleRhythm() {
         <h3 className="font-display text-xl font-bold text-off-white mb-3">
           {t('impossibleRhythm.fasila.title')}
         </h3>
-        <p className="text-silver/75 text-sm leading-relaxed font-body max-w-3xl mb-6">
+        <p className="text-silver text-sm leading-relaxed font-body max-w-3xl mb-6">
           {t('impossibleRhythm.fasila.desc')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -679,7 +679,7 @@ export default function ImpossibleRhythm() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {language === 'tr' ? "Kevser Sûresi: '-ar' Fasılası" : "Al-Kawthar: '-ar' Fāṣila"}
         </h3>
-        <p className="text-silver/65 text-sm leading-relaxed font-body max-w-3xl mb-6">
+        <p className="text-text-faint text-sm leading-relaxed font-body max-w-3xl mb-6">
           {language === 'tr'
             ? "3 ayetin tamamı aynı '-ar' sesiyle biter. Kafiye zorunluluğu yok; ama ses örüntüsü anlamın doğal bir parçası gibi akar."
             : "All 3 verses end with the same '-ar' sound. No rhyme rule is imposed, yet the sonic pattern flows as a natural part of the meaning."}
@@ -975,7 +975,7 @@ export default function ImpossibleRhythm() {
           </div>
         </div>
 
-        <p className="text-silver/75 text-sm font-body leading-relaxed mt-3">
+        <p className="text-silver text-sm font-body leading-relaxed mt-3">
           {language === 'tr'
             ? "Son 6 ayet (57–62) birbirinden farklı seslerle biter; bu kasıtlı bir kapanış değişimidir. Klasik retorik bu bölüme maqta\u02BF (مقطع) adını verir."
             : "The final 6 verses (57–62) end with distinctly different sounds; a deliberate closing shift. Classical rhetoric calls this section the maqta\u02BF (مقطع)."}

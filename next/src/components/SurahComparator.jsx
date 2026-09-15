@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
+import { surahNameEn } from '../lib/surahNames';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -378,7 +379,7 @@ function SurahSelector({ value, onChange, placeholder, color, surahInfo, revOrde
                   <span style={{
                     width: '26px', height: '26px', borderRadius: RADIUS.full, flexShrink: 0,
                     background: value === n ? color + '30' : 'rgba(255,255,255,0.06)',
-                    color: value === n ? color : COLORS.slate600,
+                    color: value === n ? color : SEMANTIC.textFaint,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '0.7rem', fontWeight: 700,
                   }}>{n}</span>
@@ -1131,7 +1132,7 @@ export default function SurahComparator({ onClose }) {
                   : 'rgba(255,255,255,0.04)',
                 border: `1.5px solid ${canCompare ? 'rgba(150,170,255,0.3)' : 'rgba(255,255,255,0.08)'}`,
                 borderRadius: RADIUS.lg, cursor: canCompare ? 'pointer' : 'not-allowed',
-                color: canCompare ? COLORS.offWhite : COLORS.slate700,
+                color: canCompare ? COLORS.offWhite : SEMANTIC.textFaint,
                 fontSize: '0.92rem', fontWeight: canCompare ? 700 : 400,
                 transition: `all ${TRANSITION.base}`, letterSpacing: '0.04em',
                 fontFamily: "'Inter', sans-serif",
@@ -1140,7 +1141,7 @@ export default function SurahComparator({ onClose }) {
               onMouseLeave={e => { if (canCompare) { e.currentTarget.style.background = 'linear-gradient(135deg, #60a5fa22 0%, #a78bfa22 100%)'; e.currentTarget.style.borderColor = 'rgba(150,170,255,0.3)'; }}}
             >
               {canCompare
-                ? (language === 'tr' ? `${SURAH_NAMES_TR[surahA]} ile ${SURAH_NAMES_TR[surahB]}'ı Karşılaştır →` : `Compare ${SURAH_NAMES_TR[surahA]} and ${SURAH_NAMES_TR[surahB]} →`)
+                ? (language === 'tr' ? `${SURAH_NAMES_TR[surahA]} ile ${SURAH_NAMES_TR[surahB]}'ı Karşılaştır →` : `Compare ${surahNameEn(surahA)} and ${surahNameEn(surahB)} →`)
                 : (language === 'tr' ? 'İki sûre seçin' : 'Select two surahs')}
             </button>
           </div>

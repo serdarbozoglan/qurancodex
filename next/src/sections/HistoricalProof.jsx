@@ -50,7 +50,7 @@ export default function HistoricalProof() {
     <SectionWrapper id="history" dark={false} className="section-seam-into-black">
       {/* Section badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('historicalProof.badge')}
         </span>
       </motion.div>
@@ -142,14 +142,14 @@ export default function HistoricalProof() {
                       >
                         {story.title}
                       </h3>
-                      <p className="text-silver/70 text-sm font-body mt-1">
+                      <p className="text-silver text-sm font-body mt-1">
                         {story.subtitle}
                       </p>
                     </div>
 
                     {/* Expand indicator */}
                     <motion.span
-                      className="text-silver/60 text-xl flex-shrink-0"
+                      className="text-text-faint text-xl flex-shrink-0"
                       animate={{ rotate: isExpanded ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -227,7 +227,7 @@ export default function HistoricalProof() {
                                   {t('historicalProof.criticalNoteLabel') || 'Eleştirel Not'}
                                 </span>
                               </div>
-                              <p className="text-[0.82rem] font-body italic leading-[1.78] text-silver/60 m-0">
+                              <p className="text-[0.82rem] font-body italic leading-[1.78] text-text-faint m-0">
                                 {story.criticalNote}
                               </p>
                             </div>

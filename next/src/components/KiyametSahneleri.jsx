@@ -337,7 +337,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
           )}
           {scene.additionalRefs && scene.additionalRefs.length > 0 && (
             <p style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, margin: '8px 0 0', fontFamily: FONTS.body }}>
-              {language === 'tr' ? 'Ayrıca:' : 'Also:'} {scene.additionalRefs.join(' · ')}
+              {language === 'tr' ? 'Ayrıca:' : 'Also:'} <LinkifyRefs text={scene.additionalRefs.join(' · ')} />
             </p>
           )}
           {scene.linguisticNote && (

@@ -299,7 +299,7 @@ export default function QuranRhetoric() {
     <SectionWrapper id="rhetoric" dark={false} className="section-seam-into-black">
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {tr ? 'Kur’an’ın Retoriği' : 'The Quran’s Rhetoric'}
         </span>
       </motion.div>
@@ -354,7 +354,7 @@ export default function QuranRhetoric() {
           ? "Kur’an'da 1.200'ü aşkın soru yer alıyor. Bu sorular birer retorik araçtır: muhatabı suçlamaz, sonuca kendisinin ulaşmasını sağlar. Savunmak yerine düşündürür, cevap vermek yerine sorar. Dört farklı işlev üstlenen bu sorular, metnin ana ikna katmanlarından birini oluşturur."
           : "The Quran contains over 1,200 questions. These are rhetorical instruments: they do not accuse, they guide the reader to their own conclusions. Rather than defend, they provoke thought; rather than answer, they ask. Serving four distinct functions, these questions form one of the text’s main layers of persuasion."}
       </motion.p>
-      <motion.p variants={fadeUpItem} className="text-silver/50 text-sm italic mb-10">
+      <motion.p variants={fadeUpItem} className="text-text-faint text-sm italic mb-10">
         ℹ{' '}
         {tr
           ? 'Akademisyenler arasında farklı sayım metodolojileri bulunmakta; toplam soru sayısına dair tahminler ~800 ile ~1.200 arasında değişmektedir.'
@@ -635,7 +635,7 @@ export default function QuranRhetoric() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {tr ? 'Sûre Başına Soru Yoğunluğu' : 'Question Density by Surah'}
         </h3>
-        <p className="text-silver/60 text-sm mb-4">
+        <p className="text-text-faint text-sm mb-4">
           {tr
             ? '114 sûrenin tamamı; altın renk yoğunluğu soru sıklığını gösterir'
             : 'All 114 surahs; gold intensity indicates question frequency'}

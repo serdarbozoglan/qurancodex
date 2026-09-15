@@ -29,7 +29,8 @@
       "trShort": "Yalnız sana kulluk ederiz ve yalnız senden yardım dileriz.",
       "enShort": "You alone we worship, and You alone we ask for help."
     },
-    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts ('God and Man' bölümü, ʿabd/ʿibāda bağlamı)"
+    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, God and Man in the Koran (ʿabd/ʿibāda semantiği)",
+    "kaynakEn": "Al-Rāzī on Q 1:5 (a semantic study of iyyāka naʿbudu); Izutsu, God and Man in the Koran (on ʿabd and ʿibāda)"
   },
   "wowFacts": [
     {
@@ -40,7 +41,8 @@
       "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd: all from a single root (ʿ-b-d). It is not what is done but to whom it is done that defines it.",
       "claimType": "quran_semantic",
       "confidence": "high",
-      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts ('God and Man' bölümü)"
+      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, God and Man in the Koran",
+      "kaynakEn": "Muḥammad Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-mufahras (counts of root occurrences); Izutsu, God and Man in the Koran"
     },
     {
       "id": "wowfact-namaz-zekat-cifti",
@@ -50,7 +52,8 @@
       "descEn": "In the Qur'an the command to pray usually appears with the command to give zakat: 'aqīmu al-ṣalāt wa-ātū al-zakāt' repeats in classically some 25-30 locations. Inward worship (heart) and outward worship (wealth) do not part.",
       "claimType": "quran_explicit",
       "confidence": "high",
-      "kaynak": "Bakara 2:43, 2:83, 2:110, 2:177, 2:277, Nisa 4:77, Nur 24:56, ve devamı; Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti)"
+      "kaynak": "Bakara 2:43, 2:83, 2:110, 2:177, 2:277, Nisa 4:77, Nur 24:56, ve devamı; Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti)",
+      "kaynakEn": "Q 2:43, 2:83, 2:110, 2:177, 2:277, 4:77, 24:56, and further; Muḥammad Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-mufahras (identification of the formula)"
     },
     {
       "id": "wowfact-oruc-hac-vakti",
@@ -60,7 +63,8 @@
       "descEn": "The Qur'an names two time-bound acts of worship: Ramaḍān (Baqara 2:185) and the sacred months (Tawbah 9:36). Time is framed in the Qur'an as the container of servitude.",
       "claimType": "quran_explicit",
       "confidence": "high",
-      "kaynak": "Râzî, Bakara 2:185 tefsiri; Kurtubî, Tevbe 9:36 tefsiri"
+      "kaynak": "Râzî, Bakara 2:185 tefsiri; Kurtubî, Tevbe 9:36 tefsiri",
+      "kaynakEn": "Al-Rāzī on Q 2:185; al-Qurṭubī on Q 9:36"
     },
     {
       "id": "wowfact-tovbe-mercy",
@@ -70,7 +74,8 @@
       "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy): 'inna'llāha tawwābun raḥīm.' Alongside dhikr (2:152) and shukr (14:7), tāba belongs to a small family of verbs that carry this reciprocal structure; it is that family's clearest instance.",
       "claimType": "quran_semantic",
       "confidence": "high",
-      "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tevbesi ↔ kulun tevbesi)"
+      "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tevbesi ↔ kulun tevbesi)",
+      "kaynakEn": "Q 2:37 and Q 2:160; al-Rāzī on Q 2:37 (God's turning towards the servant and the servant's turning in repentance)"
     }
   ],
   "pillars": [
@@ -372,7 +377,8 @@
         "descEn": "Inward worship (prayer-heart) and outward worship (zakat-wealth) do not part. Where there is prayer, there is zakat: the heart's turning is confirmed also through wealth.",
         "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti); Râzî, Bakara 2:43 tefsiri",
         "claimType": "quran_explicit",
-        "confidence": "high"
+        "confidence": "high",
+        "kaynakEn": "Muḥammad Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-mufahras (identification of the formula); al-Rāzī on Q 2:43"
       },
       {
         "formulTr": "Sabır ve namazla yardım isteyin",
@@ -388,7 +394,8 @@
         "descEn": "The Qur'anic formula in hardship: patience (inner endurance) + prayer (turning). The formula's repetition marks emphasis, a memory corridor.",
         "kaynak": "Râzî, Bakara 2:45 ve 2:153 tefsiri (sabır-namaz beraberliği)",
         "claimType": "quran_explicit",
-        "confidence": "high"
+        "confidence": "high",
+        "kaynakEn": "Al-Rāzī on Q 2:45 and Q 2:153 (patience paired with prayer)"
       },
       {
         "formulTr": "Tevbe eden, iman eden, salih amel işleyen",
@@ -406,7 +413,8 @@
         "descEn": "Repentance is neither solitary nor passive: in the Qur'an it always comes as a triad: return (tawba) → faith → deed. When the heart renews, action renews.",
         "kaynak": "Râzî, Furkan 25:70 tefsiri (üçlü sıralamanın çözümlemesi)",
         "claimType": "quran_explicit",
-        "confidence": "high"
+        "confidence": "high",
+        "kaynakEn": "Al-Rāzī on Q 25:70 (an analysis of the threefold sequence)"
       },
       {
         "formulTr": "Rabbin için namaz kıl ve kurban kes",
@@ -421,7 +429,8 @@
         "descEn": "Prayer and naḥr (sacrifice) unite in a single verse. Classical exegesis reads this as the pairing of the ʿĪd al-Aḍḥā prayer with the sacrifice.",
         "kaynak": "Kurtubî, Kevser 108:2 tefsiri; Elmalılı, Kevser Sûresi (ihtilaf notu)",
         "claimType": "tafsir_tradition",
-        "confidence": "medium"
+        "confidence": "medium",
+        "kaynakEn": "Al-Qurṭubī on Q 108:2; Elmalılı on Sūrat al-Kawthar (a note on the disagreement)"
       }
     ]
   },

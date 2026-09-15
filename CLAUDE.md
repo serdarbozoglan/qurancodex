@@ -1631,11 +1631,19 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
    > | 2 | gömülü alfa | `rgba(148,163,184,0.6)`, `${COLORS.gold}C7` | dağınık |
    > | 3 | **framer-motion hedefi** | `animate={{ opacity: 0.65 }}` | animasyon BİTER ve öge orada KALIR (EsmaFrekans, 3.66) |
    > | 4 | **JS olay işleyicisi** | `e.currentTarget.style.opacity = '0.55'` | hover'dan sonra tabandan DAHA sönük kalıyordu (DesktopSidebarTOC) |
-   > | 5 | **Tailwind yardımcısı** | `text-silver/60`, `text-gold/50` | ~111 kullanım — HENÜZ TARANMADI |
+   > | 5 | **Tailwind yardımcısı** | `text-silver/60`, `text-gold/50` | 84 kullanım, 79'u çevrildi (2026-09-14) |
    >
    > 3 ve 4 özellikle sinsi: kaynakta `opacity` bir stil nesnesinde görünmez,
    > yalnız çalışan sayfada ortaya çıkar. `grep "opacity:"` bunları bulmaz;
    > `animate={{`, `whileInView={{` ve `style.opacity =` ayrıca aranmalı.
+   >
+   > **Tailwind biçiminin ölçülmüş eşikleri (cosmic-black / cam kart):**
+   > `text-off-white/*` hepsi geçer (en kötü 5.83). `text-silver/80` geçer
+   > (5.21 / 4.89), `/75` ve aşağısı kartta kırılır. `text-gold/70` ve üstü
+   > geçer, `/60` kartta 3.66. Çeviri kademeye göre yapılır:
+   > `silver/70-75 → text-silver`, `silver/35-65 → text-text-faint`,
+   > `gold/40-60 → text-gold`. Ayraç ve süsler (`|`, `·`, `✦`, `ℹ`) opaklığını
+   > KORUR ama `aria-hidden="true"` almak zorundadır (md.3 istisnası).
    >
    > ⚠ **TOPLU TEMİZLİKTE `aria-hidden` ÖGELERİ DIŞARIDA BIRAK.** Bu maddenin
    > kendi istisnası dekoratif ögedir; 276 bloklu süpürme iki filigranı da

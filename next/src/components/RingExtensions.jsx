@@ -489,9 +489,14 @@ export default function RingExtensions({ language, isMobile }) {
               </p>
             </div>
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}`, gridColumn: isMobile ? '1' : '1 / -1' }}>
-              <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Klasik: Biqâʿî · Suyûtî · Râzî</div>
-              <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
-                Munâsabât (ayet ilişkileri) klasik ilminin başeserleri: Biqâʿî&apos;nin Nazmü&apos;d-Dürer&apos;i (sûre içi düzeni), Suyûtî&apos;nin el-İtkân&apos;ı (Kur&apos;ân ilimleri), Râzî&apos;nin Mefâtîhu&apos;l-Ğayb&apos;ı (tefsir + ilişki analizi).
+              <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>
+                {tr ? 'Klasik: Biqâʿî · Suyûtî · Râzî' : 'Classical: al-Biqāʿī · al-Suyūṭī · al-Rāzī'}
+              </div>
+              {/* Bu kunye Ingilizce sayfada da Turkce basiliyordu. */}
+              <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
+                {tr
+                  ? 'Munâsabât (ayet ilişkileri) klasik ilminin başeserleri: Biqâʿî\u2019nin Nazmü\u2019d-Dürer\u2019i (sûre içi düzeni), Suyûtî\u2019nin el-İtkân\u2019ı (Kur\u2019ân ilimleri), Râzî\u2019nin Mefâtîhu\u2019l-Ğayb\u2019ı (tefsir + ilişki analizi).'
+                  : 'The major works of the classical science of munāsabāt, the relations between verses: al-Biqāʿī\u2019s Naẓm al-durar (order within a sura), al-Suyūṭī\u2019s al-Itqān (the Quranic sciences), and al-Rāzī\u2019s Mafātīḥ al-ghayb (tafsir together with the analysis of relations).'}
               </p>
             </div>
           </div>

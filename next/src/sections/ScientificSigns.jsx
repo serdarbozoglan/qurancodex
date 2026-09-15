@@ -110,7 +110,7 @@ export default function ScientificSigns() {
 
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('scientificSigns.badge')}
         </span>
       </motion.div>

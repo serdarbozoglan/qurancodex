@@ -61,6 +61,45 @@ export function surahName(surahNumber, locale) {
   return locale === 'en' ? surahNameEn(surahNumber) : surahNameTr(surahNumber);
 }
 
+/**
+ * "Şura 42:7" gibi bir referansın SÛRE ADINI hedef dile çevirir (§13.32).
+ *
+ * NEDEN VAR (2026-09-14): sûre adları veri dosyalarına ve bileşenlere TÜRKÇE
+ * gömülmüştü ve İngilizce sayfada da öyle basılıyordu ("Şura 42:7",
+ * "Tegabün 64:9"). Elle `refEn` yazmak 34 künyede hataya açıktı; ad, SAYIDAN
+ * deterministik olarak üretilir, sayı zaten referansın kendisindedir.
+ *
+ * Adı DEĞİŞTİRMEZ, yalnız baştaki ad parçasını dile göre yeniden yazar.
+ * İçinde "S:A" bulunmayan metin aynen döner (hadis künyesi vb. bozulmasın).
+ * Birden çok referans taşıyan metinlerde ("Şura 42:7 · Tegabün 64:9") her
+ * parça ayrı ayrı ele alınır.
+ */
+export function localizeVerseRef(text, locale) {
+  if (typeof text !== 'string' || locale !== 'en') return text;
+  return text
+    .split(/(\s+·\s+)/)
+    .map((part) => {
+      const m = part.match(/^(.*?)(\b\d{1,3}):(\d{1,3}(?:[-\u2013]\d{1,3})?)(.*)$/);
+      if (!m) return part;
+      const [, prefix, sNum, ayahPart, suffix] = m;
+      const n = parseInt(sNum, 10);
+      if (n < 1 || n > 114) return part;
+      // Ön ek yalnız harf ve noktalamadan oluşmalı; değilse dokunma.
+      if (!/^[\p{L}'\u2019\u02bf\u02be.\-\s]*$/u.test(prefix)) return part;
+      // "krş.", "bkz.", "cf." gibi KISALTMALAR sûre adı değildir ve korunur;
+      // ad, sayıdan hemen önceki kısaltma-olmayan sözcüklerdir.
+      const words = prefix.trim().split(/\s+/).filter(Boolean);
+      let cut = 0;
+      while (cut < words.length && /\.$/.test(words[cut])) cut++;
+      const ABBR = { 'krş.': 'cf.', 'bkz.': 'see', 'krs.': 'cf.' };
+      const lead = words.slice(0, cut).map((w) => ABBR[w.toLowerCase()] || w).join(' ');
+      const nameWords = words.slice(cut);
+      const name = nameWords.length ? surahNameEn(n) : '';
+      return (lead ? lead + ' ' : '') + (name ? name + ' ' : '') + sNum + ':' + ayahPart + suffix;
+    })
+    .join('');
+}
+
 // ─── Sûre adı takma adları ──────────────────────────────────────────────────
 // Halk arasında yaygın alternatif okunuşlar → resmî ad. Anahtar ve değer
 // NORMALİZE edilmiş biçimde (küçük harf, kesme/tire yok) tutulur; arama

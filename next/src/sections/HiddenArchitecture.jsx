@@ -214,7 +214,7 @@ export default function HiddenArchitecture() {
 
       {/* ── Section header ── */}
       <motion.div variants={fadeUpItem}>
-        <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">
+        <span className="text-gold text-xs font-body uppercase tracking-[0.3em]">
           {t('hiddenSymmetry.badge')}
         </span>
       </motion.div>
@@ -300,7 +300,7 @@ export default function HiddenArchitecture() {
 
         {/* ── Mirror diagram ── */}
         <div className="max-w-3xl mx-auto">
-          <p className="text-silver/70 text-sm mb-4 font-body leading-relaxed max-w-3xl">
+          <p className="text-silver text-sm mb-4 font-body leading-relaxed max-w-3xl">
             {language === 'tr' ? surah.introTr : surah.introEn}
           </p>
           <p className="text-silver text-xs text-center mb-5 font-body">
@@ -522,8 +522,8 @@ export default function HiddenArchitecture() {
               <span key={i} className="text-xs font-body" style={{ color: c.text }}>
                 {['A', 'B', 'C'][i]} = {['A', 'B', 'C'][i]}&apos;
               </span>
-            )).reduce((acc, el, i) => i === 0 ? [el] : [...acc, <span key={`sep-${i}`} className="text-silver/20">|</span>, el], [])}
-            <span className="text-silver/20">|</span>
+            )).reduce((acc, el, i) => i === 0 ? [el] : [...acc, <span key={`sep-${i}`} aria-hidden="true" className="text-silver/20">|</span>, el], [])}
+            <span aria-hidden="true" className="text-silver/20">|</span>
             <span className="text-xs font-body text-gold">D = {language === 'tr' ? 'Merkez' : 'Center'}</span>
           </div>
         </div>
@@ -551,7 +551,7 @@ export default function HiddenArchitecture() {
         className="glass-card-strong p-8 md:p-10 mb-10"
         style={{ borderLeft: '4px solid rgba(212,165,116,0.5)' }}
       >
-        <p className="text-gold/60 text-xs uppercase tracking-[0.3em] mb-5 font-body">
+        <p className="text-gold text-xs uppercase tracking-[0.3em] mb-5 font-body">
           {language === 'tr' ? 'Akademik Referans' : 'Academic Reference'}
         </p>
         <div className="flex items-start gap-5 mb-5">
@@ -627,7 +627,7 @@ export default function HiddenArchitecture() {
       <motion.div variants={fadeUpItem} className="mb-10">
         <div className="flex items-center gap-4">
           <div className="flex-1 h-px" style={{ background: 'rgba(212,165,116,0.15)' }} />
-          <span className="text-gold/40 text-xs font-body uppercase tracking-[0.3em] px-4">
+          <span className="text-gold text-xs font-body uppercase tracking-[0.3em] px-4">
             {t('sevenLayers.badge')}
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(212,165,116,0.15)' }} />
@@ -644,7 +644,7 @@ export default function HiddenArchitecture() {
       </motion.p>
 
       {/* Academic disclaimer — 7-layer taxonomy is a modern construct */}
-      <motion.p variants={fadeUpItem} className="text-silver/45 text-xs leading-relaxed max-w-3xl mb-6 font-body italic">
+      <motion.p variants={fadeUpItem} className="text-text-faint text-xs leading-relaxed max-w-3xl mb-6 font-body italic">
         {language === 'tr'
           ? 'ℹ Bu 7 katmanlı yorum, Râzî–Gazâlî–İbn Arabî geleneğini modern fizik, psikoloji ve felsefe perspektifleriyle harmanlayan çağdaş bir okumadır. Klasik tefsirin standart taksonomisi 4 katmandır: zâhir (literal), bâtın (ezoterik), hadd (sınır/hudud), muttala\' (yüksek makam); İbn Mes\'ûd rivayetine dayanır.'
           : 'ℹ This 7-layer reading is a modern synthesis blending the Rāzī–Ghazālī–Ibn Arabi tradition with contemporary perspectives from physics, psychology, and philosophy. The standard classical taxonomy is 4-layer: ẓāhir (literal), bāṭin (esoteric), ḥadd (limits), muṭṭalaʿ (highest), based on a tradition reported from Ibn Masʿūd.'}

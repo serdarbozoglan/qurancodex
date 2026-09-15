@@ -141,3 +141,11 @@ export function useLanguage() {
   if (!context) throw new Error('useLanguage must be used within a LanguageProvider');
   return context;
 }
+
+// Saglayici DISINDA da guvenli okuma. LinkifyRefs gibi 60+ yerde kullanilan
+// dusuk seviyeli yardimcilar diline gore davranmali ama bir sayfayi
+// dusurememelidir; saglayici yoksa Turkce varsayilir.
+export function useLanguageSafe() {
+  const context = useContext(LanguageContext);
+  return context || { language: 'tr' };
+}

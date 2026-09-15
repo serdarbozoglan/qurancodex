@@ -217,7 +217,7 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
           <div style={{
             color: COLORS.silver, fontSize: '0.75rem',
             fontStyle: 'italic', marginTop: '14px',
-          }}>— {abdCore.kaynak}</div>
+          }}>&mdash; {language === 'tr' ? abdCore.kaynak : (abdCore.kaynakEn || abdCore.kaynak)}</div>
         )}
       </div>
 
@@ -1008,7 +1008,7 @@ function OrtakFormullerSection({ data, language, isMobile }) {
               lineHeight: 1.75, margin: '0 0 10px',
             }}>{language === 'tr' ? f.descTr : (f.descEn ?? f.descTr)}</p>
             {f.kaynak && (
-              <div style={{ color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic' }}>— {f.kaynak}</div>
+              <div style={{ color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic' }}>&mdash; {language === 'tr' ? f.kaynak : (f.kaynakEn || f.kaynak)}</div>
             )}
           </div>
         ))}
@@ -1056,8 +1056,8 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
               {w.kaynak && (
                 <div style={{
                   color: COLORS.silver, fontSize: '0.72rem',
-                  fontStyle: 'italic', opacity: 0.85,
-                }}>— {w.kaynak}</div>
+                  fontStyle: 'italic',
+                }}>&mdash; {language === 'tr' ? w.kaynak : (w.kaynakEn || w.kaynak)}</div>
               )}
             </div>
           );
