@@ -66,6 +66,51 @@ export default function BugReportFab() {
 
   const label = language === 'tr' ? 'Geri bildirim' : 'Feedback';
 
+  // ── GENISLEME DAVRANISI (2026-09-16, kullanici: "her yerde bu kadar buyuk
+  // ve goze carpinca iyi mi?" -> hayir). Dugmenin isi BULUNABILIR olmak,
+  // dikkat cekmek degil. Varsayilan: yalniz ikon. Etiket yalniz
+  //   (a) hover/klavye odaginda,
+  //   (b) ILK ziyarette anasayfada 6 sn (localStorage tek sefer)
+  // acilir. Okuma modu ve tefekkur makalelerinde asagi kaydirirken tamamen
+  // geri cekilir, durunca doner: ayetin yaninda sessiz kalir.
+  const [expanded, setExpanded] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    if (!mounted) return;
+    const isHome = /^\/(tr|en)\/?$/.test(window.location.pathname);
+    let seen = true;
+    try { seen = localStorage.getItem('qc:feedback-intro') === '1'; } catch { /* ozel sekme */ }
+    if (isHome && !seen) {
+      setExpanded(true);
+      const t = setTimeout(() => {
+        setExpanded(false);
+        try { localStorage.setItem('qc:feedback-intro', '1'); } catch { /* yoksay */ }
+      }, 6000);
+      return () => clearTimeout(t);
+    }
+  }, [mounted]);
+  useEffect(() => {
+    const quiet = /\/(oku|tefekkur)(\/|$)/.test(window.location.pathname);
+    if (!quiet) return;
+    // Okuma modu pencereyi degil KENDI kapsayicisini kaydirir (window.scrollY
+    // hic degismez; olculdu). Bu yuzden capture ile her kaydirma olayi
+    // dinlenir ve hedefin scrollTop'u okunur.
+    // Baslangic 0: ilk olay tek seferde 0'dan 268'e gelebiliyor (olculdu,
+    // tarayici kaydirmayi tek olayda birlestiriyor); -1 ile baslayip ilk
+    // olayi "referans" sayinca hic gizlenmiyordu.
+    let lastY = 0, timer = null;
+    const onScroll = (e) => {
+      const t = e.target;
+      const y = (t === document || t === window) ? window.scrollY : (t.scrollTop ?? 0);
+      if (y > lastY + 4 && y > 120) setHidden(true);
+      else if (y < lastY - 4) setHidden(false);
+      lastY = y;
+      clearTimeout(timer); timer = setTimeout(() => setHidden(false), 1400);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    return () => { window.removeEventListener('scroll', onScroll, { capture: true }); clearTimeout(timer); };
+  }, []);
+
   // Google Form URL — placeholder ile başlar, i18n key üzerinden değiştirilir.
   // Prefill için query params destekli: ?entry.XXX=value formatı (kullanıcı form
   // yaratıp field ID'lerini verdikten sonra buraya eklenir).
@@ -82,7 +127,12 @@ export default function BugReportFab() {
         // Ezber alt sayfası açıkken gizlenir — tam genişlik sayfa bu FAB'ın
         // üstüne oturuyor ve ana butonu örtüyor (globals.css kuralı).
         data-fab="bug-report"
+        data-expanded={expanded ? '1' : '0'}
         className="qc-feedback-fab"
+        onMouseOver={() => setExpanded(true)}
+        onMouseOut={() => setExpanded(false)}
+        onFocus={() => setExpanded(true)}
+        onBlur={() => setExpanded(false)}
         style={{
           position: 'fixed',
           bottom: 'max(20px, env(safe-area-inset-bottom, 20px))',
@@ -102,17 +152,13 @@ export default function BugReportFab() {
           // edilmiyordu -- tek geri bildirim kanali gorunmez kaliyordu;
           // (2) metin/ikon rengine opaklik uygulamak §13.26 md.3 ihlali.
           opacity: mounted ? 1 : 0,
-          transition: 'opacity 0.25s ease-out, background 0.2s, transform 0.25s ease-out',
+          // Sessiz sayfalarda asagi kaydirirken ekran disina cekilir.
+          transform: hidden ? 'translateY(calc(100% + 28px))' : undefined,
+          transition: 'opacity 0.25s ease-out, background 0.2s, transform 0.3s ease-out',
           boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
         }}
-        onMouseEnter={e => {
-          e.currentTarget.style.background = 'rgba(212,165,116,0.18)';
-          e.currentTarget.style.transform = 'translateY(-2px)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.background = COLORS.cosmicBlackAlpha55;
-          e.currentTarget.style.transform = 'translateY(0)';
-        }}
+        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.18)'; }}
+        onMouseLeave={e => { e.currentTarget.style.background = COLORS.cosmicBlackAlpha55; }}
       >
         {/* Chat bubble + exclamation — "bir şey söyle" ikonu */}
         <svg

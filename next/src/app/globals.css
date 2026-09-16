@@ -1784,19 +1784,19 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   overflow-wrap: anywhere;
 }
 
-/* ─── Geri bildirim dugmesi (2026-09-15) ──────────────────────────────────────
-   Masaustunde ikon + GORUNUR ETIKET tasiyan bir hap, mobilde yalniz ikon.
-   Once 42px'lik, opacity 0.6'li, etiketsiz bir daireydi: sayfa acilisinda fark
-   edilmiyor, ikonu "yardim/sohbet" ile karisiyor ve ne oldugu yalnizca hover
-   ipucunda yaziyordu -- mobilde hover olmadigi icin orada hic aciklanmiyordu.
-   Sitenin tek geri bildirim kanali buydu.
-   Boyut ve dolgu bilincli olarak CSS'te: JS `isMobile` dallanmasi ilk boyamada
-   masaustu dalini cizip mount sonrasi degisir ve CLS uretir (§14.2). */
+/* ─── Geri bildirim dugmesi (2026-09-15, 2026-09-16 sessizlestirildi) ─────────
+   Varsayilan yalniz ikon (42px daire); etiket hover/odakta ve ilk ziyarette
+   anasayfada 6 sn acilir (JS: data-expanded). Genislik gecisle animasyonlanir
+   ki acilma "zipla" degil "uza" olsun. Kalici bulunabilirlik Footer ve
+   /hakkinda baglantilarinda; dugme okumaya rakip olmamali. */
 .qc-feedback-fab {
-  gap: 8px;
+  gap: 0;
   height: 42px;
-  padding: 0 14px 0 12px;
+  width: 42px;
+  padding: 0;
   border-radius: 999px;
+  overflow: hidden;
+  transition: width 0.28s ease, gap 0.28s ease, padding 0.28s ease, opacity 0.25s ease-out, background 0.2s, transform 0.3s ease-out;
 }
 .qc-feedback-fab__label {
   font-size: 0.72rem;
@@ -1804,10 +1804,22 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.28s ease, opacity 0.2s ease;
 }
+.qc-feedback-fab[data-expanded="1"] {
+  width: auto;
+  gap: 8px;
+  padding: 0 14px 0 12px;
+}
+.qc-feedback-fab[data-expanded="1"] .qc-feedback-fab__label { max-width: 160px; opacity: 1; }
 @media (max-width: 639.98px) {
-  .qc-feedback-fab { width: 42px; padding: 0; }
-  .qc-feedback-fab__label { display: none; }
+  /* Mobilde hover yok; ilk-ziyaret acilisi burada da calisir, sonra ikon. */
+  .qc-feedback-fab[data-expanded="1"] { padding: 0 12px 0 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qc-feedback-fab, .qc-feedback-fab__label { transition: none; }
 }
 
 
