@@ -180,7 +180,7 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
             </div>
             {turkishShownToEnglish && (
               <div style={{ fontSize: '0.62rem', color: C.translit, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '3px' }}>
-                Turkish
+                Meaning in Turkish
               </div>
             )}
           </div>

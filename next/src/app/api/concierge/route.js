@@ -74,7 +74,7 @@ function buildDegradedResult(grouped, lang, reason) {
   // "doğrudan eşleşmeler" belirsizdi. Hitap her cümlede aynı (siz).
   out.intro = embedDown
     ? (tr
-        ? 'Anlam araması şu an kapalı; aşağıda aramanızla kelime olarak eşleşen âyetler ve içerikler var. Rehber notları da bu sırada çalışmıyor.'
+        ? 'Anlam araması şu an kapalı; aşağıda aradığınız kelimelerle eşleşen âyetler ve içerikler var. Rehber notları da bu sırada çalışmıyor.'
         : 'Semantic search is off right now; below are the verses and content that match your words. Guided notes are paused as well.')
     : personal
       ? (tr
