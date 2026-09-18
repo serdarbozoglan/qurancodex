@@ -1023,7 +1023,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
                   }}
                   title={w.en || ''}
                 >
-                  {cleanArabic(w.ar)}
+                  {w.ar}
                 </span>
                 {i < corpusWords.length - 1 ? ' ' : ''}
               </span>
@@ -9988,7 +9988,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // (cleanArabic → applyTajweed/wrapWaqfOnly pipeline)
                         // for book-mode-identical rendering: same font, same
                         // Allah highlight, same waqf marks, same tajweed coloring.
-                        const corpusWords = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
+                        // ⚠ §13.15 — EKRANA ÇIKAN ARAPÇA KANONİK KAYNAKTAN GELİR.
+                        // corpus/*.json kelime ANLAMLARI için kullanılır; içindeki
+                        // `ar` alanı BAŞKA bir imlâ taşıyor ve ASCII yer tutucularla
+                        // bozuk: ölçüldü (2026-09-18) `@` 3.988, `.` 995, `_#` 495,
+                        // `"` 66 kez. `_#` aslında tatweel+hemze (U+0640 U+0654);
+                        // cleanArabic bu ASCII'leri attığı için 102:8'de
+                        // `لَتُسْـَٔلُنَّ` → `لَتُسَْلُنَّ` oluyor, yani hemze kayboluyor
+                        // ve `س` üzerinde sükûn ile üstün üst üste biniyor (kullanıcı
+                        // raporu). 295 âyette aynı kayıp vardı.
+                        // Çözüm: kelime METNİ bizim âyetimizden bölünür (Kitap modu
+                        // zaten böyle yapıyor), corpus yalnız anlam/çeviri verir.
+                        // Kelime sayıları uyuşmazsa (406/6229 âyet) eşleme
+                        // pozisyonel olarak kayacağından anlam BAĞLANMAZ; metin yine
+                        // doğru çıkar.
+                        const corpusRaw = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
+                        const ourWordList = corpusRaw ? cleanArabic(verse.arabic).trim().split(/\s+/).filter(Boolean) : null;
+                        const corpusWords = ourWordList
+                          ? ourWordList.map((ar, wi) => {
+                              const meta = corpusRaw.length === ourWordList.length ? corpusRaw[wi] : null;
+                              return { ...(meta || {}), ar, idx: meta ? meta.idx : wi, _noMeta: !meta };
+                            })
+                          : null;
                         const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
                         if (corpusWords) {
                           return (
@@ -10006,21 +10027,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         // hover. Re-tapping the same word closes it; tapping another
                                         // word replaces the anchor. The richer ActiveWord overlay is
                                         // accessed from the tooltip CTAs.
-                                        const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                        if (w._noMeta) return;   // eşleşme kaydı: anlam gösterme
+                                        const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
                                         setHoveredWord(prev => prev && prev.word?.arabic === wordMeta.arabic
                                           ? null
                                           : { word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                         return;
                                       }
                                       setHoveredWord(null);
+                                      if (w._noMeta) return;   // eşleşme kaydı: panel açma
                                       setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah });
                                     }}
                                     onMouseEnter={isMobile ? undefined : (e) => {
                                       e.currentTarget.style.background = 'rgba(212,165,116,0.14)';
+                                      if (w._noMeta) return;   // eşleşme kaydı: anlam gösterme
                                       // Map corpus shape → WordTooltip shape: corpus uses
                                       // {ar, tr, ...} whereas WordTooltip expects
                                       // {arabic, tr, en, ...}. Build a thin adapter on the fly.
-                                      const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                      const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
                                       setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                     }}
                                     onMouseLeave={isMobile ? undefined : (e) => {
@@ -10042,7 +10066,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       } : {}),
                                     }}
                                   >
-                                    {cleanArabic(w.ar)}
+                                    {w.ar}
                                   </span>
                                   {i < corpusWords.length - 1 ? ' ' : ''}
                                 </span>
@@ -10178,7 +10202,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // (cleanArabic → applyTajweed/wrapWaqfOnly pipeline)
                         // for book-mode-identical rendering: same font, same
                         // Allah highlight, same waqf marks, same tajweed coloring.
-                        const corpusWords = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
+                        // ⚠ §13.15 — EKRANA ÇIKAN ARAPÇA KANONİK KAYNAKTAN GELİR.
+                        // corpus/*.json kelime ANLAMLARI için kullanılır; içindeki
+                        // `ar` alanı BAŞKA bir imlâ taşıyor ve ASCII yer tutucularla
+                        // bozuk: ölçüldü (2026-09-18) `@` 3.988, `.` 995, `_#` 495,
+                        // `"` 66 kez. `_#` aslında tatweel+hemze (U+0640 U+0654);
+                        // cleanArabic bu ASCII'leri attığı için 102:8'de
+                        // `لَتُسْـَٔلُنَّ` → `لَتُسَْلُنَّ` oluyor, yani hemze kayboluyor
+                        // ve `س` üzerinde sükûn ile üstün üst üste biniyor (kullanıcı
+                        // raporu). 295 âyette aynı kayıp vardı.
+                        // Çözüm: kelime METNİ bizim âyetimizden bölünür (Kitap modu
+                        // zaten böyle yapıyor), corpus yalnız anlam/çeviri verir.
+                        // Kelime sayıları uyuşmazsa (406/6229 âyet) eşleme
+                        // pozisyonel olarak kayacağından anlam BAĞLANMAZ; metin yine
+                        // doğru çıkar.
+                        const corpusRaw = wordMode ? (corpusBySurah[verse.surah]?.verses?.[String(verse.ayah)] || null) : null;
+                        const ourWordList = corpusRaw ? cleanArabic(verse.arabic).trim().split(/\s+/).filter(Boolean) : null;
+                        const corpusWords = ourWordList
+                          ? ourWordList.map((ar, wi) => {
+                              const meta = corpusRaw.length === ourWordList.length ? corpusRaw[wi] : null;
+                              return { ...(meta || {}), ar, idx: meta ? meta.idx : wi, _noMeta: !meta };
+                            })
+                          : null;
                         const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
                         if (corpusWords) {
                           return (
@@ -10196,21 +10241,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         // hover. Re-tapping the same word closes it; tapping another
                                         // word replaces the anchor. The richer ActiveWord overlay is
                                         // accessed from the tooltip CTAs.
-                                        const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                        if (w._noMeta) return;   // eşleşme kaydı: anlam gösterme
+                                        const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
                                         setHoveredWord(prev => prev && prev.word?.arabic === wordMeta.arabic
                                           ? null
                                           : { word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                         return;
                                       }
                                       setHoveredWord(null);
+                                      if (w._noMeta) return;   // eşleşme kaydı: panel açma
                                       setActiveWord({ word: w, surah: verse.surah, ayah: verse.ayah });
                                     }}
                                     onMouseEnter={isMobile ? undefined : (e) => {
                                       e.currentTarget.style.background = 'rgba(212,165,116,0.14)';
+                                      if (w._noMeta) return;   // eşleşme kaydı: anlam gösterme
                                       // Map corpus shape → WordTooltip shape: corpus uses
                                       // {ar, tr, ...} whereas WordTooltip expects
                                       // {arabic, tr, en, ...}. Build a thin adapter on the fly.
-                                      const wordMeta = { arabic: cleanArabic(w.ar), tr: w.tr, en: w.en || w.tr };
+                                      const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
                                       setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                     }}
                                     onMouseLeave={isMobile ? undefined : (e) => {
@@ -10232,7 +10280,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       } : {}),
                                     }}
                                   >
-                                    {cleanArabic(w.ar)}
+                                    {w.ar}
                                   </span>
                                   {i < corpusWords.length - 1 ? ' ' : ''}
                                 </span>
