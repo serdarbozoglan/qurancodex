@@ -13,6 +13,7 @@
 //   - fetva_talebi → normal pipeline + response header disclaimer
 // ────────────────────────────────────────────────────────────────────────────
 
+import { addSpend } from './concierge-spend';
 import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
@@ -134,6 +135,9 @@ export async function runLLMClassifier(query, lang) {
     system: CLASSIFIER_SYSTEM,
     messages: [{ role: 'user', content: `Query (${lang}): "${query}"` }],
   });
+  // Bu katman da ücretli bir çağrı: günlük dolar sayacına yazılır, yoksa
+  // tavan yalnız ana çağrıyı sayar ve gerçek harcamanın altında kalır.
+  await addSpend(response.usage);
 
   const text = response.content?.[0]?.text?.trim() || '';
   const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
@@ -178,6 +182,7 @@ export async function runQueryRewrite(query, lang) {
     system: REWRITE_SYSTEM,
     messages: [{ role: 'user', content: `Original (${lang}): "${query}"` }],
   });
+  await addSpend(response.usage);
 
   const text = response.content?.[0]?.text?.trim() || '';
   const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);

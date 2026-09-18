@@ -36,7 +36,23 @@ export function loadCorpus() {
   if (!fs.existsSync(CORPUS_PATH)) {
     throw new Error(`Corpus not found at ${CORPUS_PATH}. Run \`npm run embed:build\`.`);
   }
-  const raw = JSON.parse(fs.readFileSync(CORPUS_PATH, 'utf8'));
+  const text = fs.readFileSync(CORPUS_PATH, 'utf8');
+  // ⚠ GIT LFS İŞARETÇİSİ — 2026-09-18'de ÜRETİMDE bulundu ve /sor'u tamamen
+  // durdurmuştu. Bu dosya (183 MB) LFS ile izleniyor; yapı ortamı LFS içeriğini
+  // çekmezse dosyanın yerinde şu üç satır durur:
+  //     version https://git-lfs.github.com/spec/v1
+  //     oid sha256:...  /  size ...
+  // JSON.parse bunu görünce `Unexpected token 'v', "version ht"...` atıyor ve
+  // istek 500'e düşüyordu — hem anlam hem anahtar kelime aramasında, yani
+  // kullanıcı hiçbir sonuç alamıyordu. Artık AÇIK bir hata veriyoruz; çağıran
+  // taraf bunu yakalayıp sonuçsuz ama çalışan bir yanıt döndürebilsin.
+  if (text.startsWith('version https://git-lfs')) {
+    const err = new Error('Corpus embeddings dosyası Git LFS işaretçisi olarak geldi; '
+      + 'yapı ortamında LFS içeriği çekilmemiş.');
+    err.code = 'CORPUS_LFS_POINTER';
+    throw err;
+  }
+  const raw = JSON.parse(text);
   const items = raw.items.map(item => {
     const out = { ...item };
     if (Array.isArray(item.embTrArr) && item.embTrArr.length > 0) {

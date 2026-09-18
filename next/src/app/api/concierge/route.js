@@ -12,6 +12,7 @@ import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
 import { consumeBudget, checkRateLimitKv } from '@/lib/concierge-budget';
+import { peekSpend, addSpend } from '@/lib/concierge-spend';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
 import { logQuery, getResponseCache, setResponseCache, getItemQualityScores } from '@/lib/concierge-kv';
 
@@ -174,9 +175,15 @@ export async function POST(request) {
     // Anthropic çağırıyor. Tavan dolduysa istek reddedilmez — LLM'siz
     // anahtar kelime moduna düşer. Kullanıcı sonuç alır, fatura büyümez.
     const budget = await consumeBudget(ip);
-    const degraded = !budget.ok;
+    // DOLAR TAVANI (kullanıcı direktifi 2026-09-18: "5 $ geçmesin günlük
+    // toplam bütçe"). Çağrı sayısı tavanı bir TAHMİNE dayanıyordu; bu ise
+    // gerçekleşen jeton kullanımını sayar. İkisi birlikte çalışır: hangisi
+    // önce dolarsa LLM atlanır ve düşük kapasite moduna geçilir.
+    const spend = await peekSpend();
+    const degraded = !budget.ok || !spend.ok;
     if (degraded) {
-      console.warn(`[concierge] budget exhausted (${budget.reason}) — degrading to keyword. global=${budget.globalUsed}/${budget.limit} ip=${budget.ipUsed}/${budget.ipLimit}`);
+      console.warn(`[concierge] bütçe doldu — anahtar kelime moduna düşülüyor. `
+        + `harcama=$${spend.spent.toFixed(3)}/${spend.cap} çağrı=${budget.globalUsed}/${budget.limit} ip=${budget.ipUsed}/${budget.ipLimit}`);
     }
 
     // 0c. Guardrails — 3-katmanlı adaptive pipeline
@@ -269,10 +276,25 @@ export async function POST(request) {
     // 2. Search — mode branch
     const t1 = Date.now();
     let grouped;
-    if (effectiveMode === 'keyword') {
-      grouped = conciergeKeywordSearch(effectiveQuery, lang);
-    } else {
-      grouped = conciergeSearch(queryEmb, lang);
+    try {
+      if (effectiveMode === 'keyword') {
+        grouped = conciergeKeywordSearch(effectiveQuery, lang);
+      } else {
+        grouped = conciergeSearch(queryEmb, lang);
+      }
+    } catch (err) {
+      // Arama korpusu yüklenemedi (ör. Git LFS içeriği yapı ortamında
+      // çekilmemiş — 2026-09-18'de üretimde tam olarak bu oldu ve her sorgu
+      // ham bir ayrıştırma hatasıyla 500 dönüyordu). Ziyaretçiye teknik hata
+      // değil, ne olduğunu söyleyen bir yanıt verilir.
+      console.error('[concierge] arama korpusu yüklenemedi:', err?.code || '', err?.message);
+      return Response.json({
+        error: 'search_unavailable',
+        message: lang === 'tr'
+          ? 'Arama şu an kullanılamıyor. Kısa süre sonra tekrar deneyin.'
+          : 'Search is unavailable right now. Please try again shortly.',
+        timings,
+      }, { status: 503 });
     }
     timings.search = Date.now() - t1;
 
@@ -306,11 +328,14 @@ export async function POST(request) {
     const t2 = Date.now();
     let parsed, usage = null;
     if (degraded || embedFailed) {
-      parsed = buildDegradedResult(grouped, lang, embedFailed ? 'embed_unavailable' : budget.reason);
+      parsed = buildDegradedResult(grouped, lang,
+        embedFailed ? 'embed_unavailable' : (!spend.ok ? 'daily_usd_cap' : budget.reason));
       timings.claude = 0;
     } else {
       ({ parsed, usage } = await runConcierge({ query: effectiveQuery, grouped, lang }));
       timings.claude = Date.now() - t2;
+      // Gerçekleşen maliyeti günlük sayaca ekle (tahmin değil, ölçüm).
+      await addSpend(usage);
     }
 
     // 4. Hydrate with full item details (halisinasyon guard)
@@ -368,6 +393,13 @@ export async function POST(request) {
         budget: budget.enabled
           ? { used: budget.globalUsed, limit: budget.limit, reason: budget.reason || null }
           : null,
+        // Günlük DOLAR tavanı. `enforced:false` ise KV bağlı değil ve tavan
+        // uygulanmıyor demektir — bu, dışarıdan görülebilir olmalı.
+        spend: {
+          capUsd: spend.cap,
+          spentUsd: Number((spend.spent || 0).toFixed(4)),
+          enforced: spend.enabled !== false,
+        },
       },
     };
 

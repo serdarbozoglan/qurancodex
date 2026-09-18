@@ -163,10 +163,29 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
           {word.translit}
         </div>
       )}
-      {/* Translation */}
-      <div style={{ textAlign: 'center', fontSize: '0.9rem', color: C.tr, fontWeight: 500, lineHeight: 1.4, marginBottom: word.read_url ? '10px' : 0 }}>
-        {word.tr || word.en || (language === 'tr' ? '(anlam yok)' : '(no translation)')}
-      </div>
+      {/* Translation.
+          Kelime anlamlarının tamamına yakını yalnız TÜRKÇE (2026-09-18'de
+          ölçüldü: 77.783 kelimenin 29'unda İngilizce karşılık var). Önceden
+          İngilizce arayüzde Türkçe anlam, İngilizceymiş gibi gösteriliyordu.
+          Artık dili olmayan karşılık ETİKETLENİR: okuyucu neye baktığını bilir.
+          (Dilbilgisi açıklaması İngilizce mevcut, onda böyle bir sorun yok.) */}
+      {(() => {
+        const en = language !== 'tr';
+        const text = en ? (word.en || word.tr) : (word.tr || word.en);
+        const turkishShownToEnglish = en && !word.en && !!word.tr;
+        return (
+          <div style={{ textAlign: 'center', marginBottom: word.read_url ? '10px' : 0 }}>
+            <div style={{ fontSize: '0.9rem', color: C.tr, fontWeight: 500, lineHeight: 1.4 }}>
+              {text || (en ? '(no translation)' : '(anlam yok)')}
+            </div>
+            {turkishShownToEnglish && (
+              <div style={{ fontSize: '0.62rem', color: C.translit, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '3px' }}>
+                Turkish
+              </div>
+            )}
+          </div>
+        );
+      })()}
       {/* Audio button */}
       {word.read_url && (
         <button

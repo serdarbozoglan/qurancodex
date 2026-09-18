@@ -10041,7 +10041,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         // word replaces the anchor. The richer ActiveWord overlay is
                                         // accessed from the tooltip CTAs.
                                         if (w._noMeta) return;   // eşleşme kaydı: anlam gösterme
-                                        const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
+                                        const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en };
                                         setHoveredWord(prev => prev && prev.word?.arabic === wordMeta.arabic
                                           ? null
                                           : { word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
@@ -10057,7 +10057,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       // Map corpus shape → WordTooltip shape: corpus uses
                                       // {ar, tr, ...} whereas WordTooltip expects
                                       // {arabic, tr, en, ...}. Build a thin adapter on the fly.
-                                      const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
+                                      const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en };
                                       setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                     }}
                                     onMouseLeave={isMobile ? undefined : (e) => {
@@ -10262,7 +10262,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                         // word replaces the anchor. The richer ActiveWord overlay is
                                         // accessed from the tooltip CTAs.
                                         if (w._noMeta) return;   // eşleşme kaydı: anlam gösterme
-                                        const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
+                                        const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en };
                                         setHoveredWord(prev => prev && prev.word?.arabic === wordMeta.arabic
                                           ? null
                                           : { word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
@@ -10278,7 +10278,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                       // Map corpus shape → WordTooltip shape: corpus uses
                                       // {ar, tr, ...} whereas WordTooltip expects
                                       // {arabic, tr, en, ...}. Build a thin adapter on the fly.
-                                      const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en || w.tr };
+                                      const wordMeta = { arabic: w.ar, tr: w.tr, en: w.en };
                                       setHoveredWord({ word: wordMeta, anchorRect: e.currentTarget.getBoundingClientRect() });
                                     }}
                                     onMouseLeave={isMobile ? undefined : (e) => {
