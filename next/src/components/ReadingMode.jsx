@@ -1547,6 +1547,122 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return out;
   }, [wordMode, _wordSurahData]);
 
+  // ── Sûre açılış kartı — TEK KAYNAK (2026-09-18) ───────────────────────
+  // Bu kart hem sûrenin başında hem de âyet modunda akışa eklenen SONRAKİ
+  // sûrelerin başında kullanılır. Önce akış başlıkları için ayrı, küçük bir
+  // blok yazılmıştı; kullanıcı haklı olarak "mevcut formatla alakası yok"
+  // dedi. Tek kaynak: ikisi birebir aynı görünür.
+  const renderSurahOpeningCard = (sn) => {
+    const arName = SURAH_NAMES_AR[sn - 1];
+    const trName = SURAH_NAMES_TR[sn - 1];
+    const ayahCount = SURAH_AYAH_COUNTS[sn - 1] || 0;
+    const rukuCount = SURAH_RUKU_COUNTS[sn - 1] || 0;
+    const nuzulRank = SURAH_NUZUL_ORDER[sn - 1] || 0;
+    const isMadani = MADANI_SURAHS.has(sn);
+    const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+    const periodTr = isMadani ? 'Medenî' : 'Mekkî';
+    const periodEn = isMadani ? 'Madani' : 'Makki';
+    const ayahWord = ayahCount === 1 ? 'آيَة'
+      : ayahCount === 2 ? 'آيَتَان'
+      : ayahCount <= 10 ? 'آيَات'
+      : 'آيَة';
+    // Besmele meali seçili meal yazarının dilinden gelir — sabit
+    // TR/EN dizeleri yerine ortak yardımcı kullanılır (yukarıdaki
+    // eşdeğer blokla aynı: `const bismillahMeal = getBesmeleMeal()`).
+    const bismillahMeal = getBesmeleMeal();
+
+    const arBlock = (
+      <div>
+        {renderSurahCardAr(sn)}
+        {sn !== 9 && sn !== 1 && (
+          <div className="mq-box" style={{
+            textAlign: 'center', direction: 'rtl',
+            fontFamily: currentFont,
+            fontSize: `${arabicFontSize}rem`,
+            color: C.bismillah,
+            // Kitap moduyla aynı besmele başlangıcı — bkz. aynı
+            // değerin kullanıldığı diğer modlar.
+            // Dolgu değişkenleri KALITSAL: sarmalayıcının --pt-d:50px /
+              // --pb-d:66px değerleri bu satıra da uygulanıp besmeleyi
+              // 85px'lik satırdan 201px'e şişiriyor, ızgara satırını
+              // uzatıyor ve ilk âyeti 116px aşağı itiyordu (ölçüldü
+              // 2026-08-26: besmele→ilk âyet 122.8px). Sıfırla.
+              '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
+              // Kitap moduyla AYNI besmele başlangıcı. -36px, satırın miras
+              // aldığı dolguyu telafi ederken doğruydu; dolgu sıfırlanınca
+              // besmeleyi kutuya yapıştırdı (ölçüldü: kitap 42.6px'e karşı
+              // bu modlarda 26.6px). Telafisiz değere çekildi.
+              '--mt-d': '-20px', '--mt-m': '-12px',
+            '--mb-d': '6px', '--mb-m': '4px',
+            lineHeight: 1.9,
+          }}>
+            {BISMILLAH_AR}
+          </div>
+        )}
+      </div>
+    );
+
+    const enName = SURAH_NAMES_EN[sn - 1] || '';
+    const nameForHero = contentLang === 'en' ? enName : trName;
+    const heroDisplay = nameForHero;
+    const trBlock = (
+      <div lang={contentLang}>
+        <div className={showTranslation ? 'qc-meal-surah-card--dup' : undefined}>
+          {renderSurahCardTr(sn)}
+        </div>
+        {sn !== 9 && sn !== 1 && (
+          <div className="mq-box" style={{
+            textAlign: 'center',
+            // Kitap modundaki besmele meali ile aynı yazı tipi ve
+            // punto — bkz. Kırık Meal'deki aynı blok.
+            fontFamily: "'Lora', Georgia, serif",
+            fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
+            fontStyle: 'italic',
+            fontWeight: 500,
+            color: C.bismillah,
+            // Kitap moduyla aynı besmele başlangıcı — bkz. Kırık
+            // Meal'deki aynı blok (margin collapse notu orada).
+            '--mt-d': '33px', '--mt-m': '24px',
+            '--mb-d': '6px', '--mb-m': '4px',
+            lineHeight: 1.7,
+            padding: '0 12px',
+          }}>
+            {bismillahMeal}
+          </div>
+        )}
+      </div>
+    );
+
+    if (showTranslation && !isMobile) {
+      return (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          // bkz. kelime-meali başlığındaki aynı not (108px cilt boşluğu).
+          gap: '108px',
+          position: 'relative',
+          zIndex: 1,
+        }}>
+          {trBlock}
+          {arBlock}
+        </div>
+      );
+    }
+    if (showTranslation && isMobile) {
+      return (
+        <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+          {arBlock}
+          {trBlock}
+        </div>
+      );
+    }
+    return (
+      <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
+        {arBlock}
+      </div>
+    );
+  };
+
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const _audioRef = useRef(null);
   const containerRef = useRef(null);
@@ -9809,117 +9925,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                    bismillah
                 When meal is off: Arabic-only, centered (single column).
                 Mobile + meal on: stacked (Arabic first, then Turkish). */}
-            {surahVerses.length > 0 && (() => {
-              const sn = selectedSurah;
-              const arName = SURAH_NAMES_AR[sn - 1];
-              const trName = SURAH_NAMES_TR[sn - 1];
-              const ayahCount = SURAH_AYAH_COUNTS[sn - 1] || 0;
-              const rukuCount = SURAH_RUKU_COUNTS[sn - 1] || 0;
-              const nuzulRank = SURAH_NUZUL_ORDER[sn - 1] || 0;
-              const isMadani = MADANI_SURAHS.has(sn);
-              const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
-              const periodTr = isMadani ? 'Medenî' : 'Mekkî';
-              const periodEn = isMadani ? 'Madani' : 'Makki';
-              const ayahWord = ayahCount === 1 ? 'آيَة'
-                : ayahCount === 2 ? 'آيَتَان'
-                : ayahCount <= 10 ? 'آيَات'
-                : 'آيَة';
-              // Besmele meali seçili meal yazarının dilinden gelir — sabit
-              // TR/EN dizeleri yerine ortak yardımcı kullanılır (yukarıdaki
-              // eşdeğer blokla aynı: `const bismillahMeal = getBesmeleMeal()`).
-              const bismillahMeal = getBesmeleMeal();
-
-              const arBlock = (
-                <div>
-                  {renderSurahCardAr(sn)}
-                  {sn !== 9 && sn !== 1 && (
-                    <div className="mq-box" style={{
-                      textAlign: 'center', direction: 'rtl',
-                      fontFamily: currentFont,
-                      fontSize: `${arabicFontSize}rem`,
-                      color: C.bismillah,
-                      // Kitap moduyla aynı besmele başlangıcı — bkz. aynı
-                      // değerin kullanıldığı diğer modlar.
-                      // Dolgu değişkenleri KALITSAL: sarmalayıcının --pt-d:50px /
-                        // --pb-d:66px değerleri bu satıra da uygulanıp besmeleyi
-                        // 85px'lik satırdan 201px'e şişiriyor, ızgara satırını
-                        // uzatıyor ve ilk âyeti 116px aşağı itiyordu (ölçüldü
-                        // 2026-08-26: besmele→ilk âyet 122.8px). Sıfırla.
-                        '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
-                        // Kitap moduyla AYNI besmele başlangıcı. -36px, satırın miras
-                        // aldığı dolguyu telafi ederken doğruydu; dolgu sıfırlanınca
-                        // besmeleyi kutuya yapıştırdı (ölçüldü: kitap 42.6px'e karşı
-                        // bu modlarda 26.6px). Telafisiz değere çekildi.
-                        '--mt-d': '-20px', '--mt-m': '-12px',
-                      '--mb-d': '6px', '--mb-m': '4px',
-                      lineHeight: 1.9,
-                    }}>
-                      {BISMILLAH_AR}
-                    </div>
-                  )}
-                </div>
-              );
-
-              const enName = SURAH_NAMES_EN[sn - 1] || '';
-              const nameForHero = contentLang === 'en' ? enName : trName;
-              const heroDisplay = nameForHero;
-              const trBlock = (
-                <div lang={contentLang}>
-                  <div className={showTranslation ? 'qc-meal-surah-card--dup' : undefined}>
-                    {renderSurahCardTr(sn)}
-                  </div>
-                  {sn !== 9 && sn !== 1 && (
-                    <div className="mq-box" style={{
-                      textAlign: 'center',
-                      // Kitap modundaki besmele meali ile aynı yazı tipi ve
-                      // punto — bkz. Kırık Meal'deki aynı blok.
-                      fontFamily: "'Lora', Georgia, serif",
-                      fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
-                      fontStyle: 'italic',
-                      fontWeight: 500,
-                      color: C.bismillah,
-                      // Kitap moduyla aynı besmele başlangıcı — bkz. Kırık
-                      // Meal'deki aynı blok (margin collapse notu orada).
-                      '--mt-d': '33px', '--mt-m': '24px',
-                      '--mb-d': '6px', '--mb-m': '4px',
-                      lineHeight: 1.7,
-                      padding: '0 12px',
-                    }}>
-                      {bismillahMeal}
-                    </div>
-                  )}
-                </div>
-              );
-
-              if (showTranslation && !isMobile) {
-                return (
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    // bkz. kelime-meali başlığındaki aynı not (108px cilt boşluğu).
-                    gap: '108px',
-                    position: 'relative',
-                    zIndex: 1,
-                  }}>
-                    {trBlock}
-                    {arBlock}
-                  </div>
-                );
-              }
-              if (showTranslation && isMobile) {
-                return (
-                  <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
-                    {arBlock}
-                    {trBlock}
-                  </div>
-                );
-              }
-              return (
-                <div style={{ display: 'block', position: 'relative', zIndex: 1 }}>
-                  {arBlock}
-                </div>
-              );
-            })()}
+            {surahVerses.length > 0 && renderSurahOpeningCard(selectedSurah)}
             {flowVerses.map((verse, verseIdx) => {
               // Sûre değiştiyse araya o sûrenin başlığı girer (akış mushaftaki
               // gibi devam etsin). İlk öge için başlık YOK — onu yukarıdaki
@@ -10006,8 +10012,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         const ourWordList = corpusRaw ? cleanArabic(verse.arabic).trim().split(/\s+/).filter(Boolean) : null;
                         const corpusWords = ourWordList
                           ? ourWordList.map((ar, wi) => {
+                              // Corpus artık kanonik kelimelerle hizalı (bkz.
+                              // scripts/fix-corpus-arabic.mjs): uzunluk her zaman
+                              // eşit. Uzunluk kontrolü yine de duruyor — veri
+                              // ileride sürüklenirse yanlış eşleme yapmasın diye.
+                              // Hizalanamayan 91 kelimede `tr` yok; orada anlam
+                              // gösterilmez (yanlış anlam göstermektense hiç).
                               const meta = corpusRaw.length === ourWordList.length ? corpusRaw[wi] : null;
-                              return { ...(meta || {}), ar, idx: meta ? meta.idx : wi, _noMeta: !meta };
+                              const noMeta = !meta || meta.tr == null;
+                              return { ...(meta || {}), ar, idx: meta ? meta.idx : wi, _noMeta: noMeta };
                             })
                           : null;
                         const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
@@ -10220,8 +10233,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         const ourWordList = corpusRaw ? cleanArabic(verse.arabic).trim().split(/\s+/).filter(Boolean) : null;
                         const corpusWords = ourWordList
                           ? ourWordList.map((ar, wi) => {
+                              // Corpus artık kanonik kelimelerle hizalı (bkz.
+                              // scripts/fix-corpus-arabic.mjs): uzunluk her zaman
+                              // eşit. Uzunluk kontrolü yine de duruyor — veri
+                              // ileride sürüklenirse yanlış eşleme yapmasın diye.
+                              // Hizalanamayan 91 kelimede `tr` yok; orada anlam
+                              // gösterilmez (yanlış anlam göstermektense hiç).
                               const meta = corpusRaw.length === ourWordList.length ? corpusRaw[wi] : null;
-                              return { ...(meta || {}), ar, idx: meta ? meta.idx : wi, _noMeta: !meta };
+                              const noMeta = !meta || meta.tr == null;
+                              return { ...(meta || {}), ar, idx: meta ? meta.idx : wi, _noMeta: noMeta };
                             })
                           : null;
                         const isKaraokeVerse = karaokeActive && playingVerseId === verse.id;
@@ -10379,35 +10399,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const nsn = verse.surah;
               return (
                 <Fragment key={`flow-${nsn}`}>
-                  {/* Sonraki sûrenin başlığı — akış kesilmesin diye satır
-                      içinde. Tevbe (9) besmelesizdir; Fâtiha'da besmele
-                      zaten 1. âyettir. */}
+                  {/* Sonraki sûrenin başlığı AÇILIŞ KARTININ TA KENDİSİ
+                      (renderSurahOpeningCard). Önce ayrı, küçük bir blok
+                      yazılmıştı; kullanıcı "mevcut formatla alakası yok" dedi.
+                      Üstteki ince çizgi yalnız akıştaki sûre sınırını belirtir. */}
                   <div style={{
-                    gridColumn: '1 / -1', textAlign: 'center',
-                    margin: '38px 0 22px', paddingTop: '26px',
+                    gridColumn: '1 / -1', marginTop: '34px', paddingTop: '10px',
                     borderTop: `1px solid ${dayMode ? 'rgba(26,14,0,0.12)' : COLORS.glassBorderSoft}`,
                   }}>
-                    <div style={{
-                      fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.24em',
-                      textTransform: 'uppercase', color: dayMode ? 'rgba(26,14,0,0.55)' : SEMANTIC.textFaint,
-                      marginBottom: '8px',
-                    }}>
-                      {language === 'tr' ? `${nsn}. Sûre` : `Surah ${nsn}`}
-                    </div>
-                    <div style={{
-                      fontFamily: currentFont, fontSize: '1.55rem', lineHeight: 1.6,
-                      color: dayMode ? COLORS.paperInk : gold,
-                    }} dir="rtl" lang="ar">{SURAH_NAMES_AR[nsn - 1]}</div>
-                    <div style={{
-                      fontFamily: FONTS.display, fontSize: '1rem', marginTop: '2px',
-                      color: dayMode ? 'rgba(26,14,0,0.75)' : COLORS.offWhite,
-                    }}>{language === 'tr' ? SURAH_NAMES_TR[nsn - 1] : SURAH_NAMES_EN[nsn - 1]}</div>
-                    {nsn !== 9 && nsn !== 1 && (
-                      <div style={{
-                        fontFamily: currentFont, fontSize: '1.15rem', lineHeight: 2,
-                        marginTop: '10px', color: dayMode ? COLORS.paperInk : gold,
-                      }} dir="rtl" lang="ar">{BISMILLAH_AR}</div>
-                    )}
+                    {renderSurahOpeningCard(nsn)}
                   </div>
                   {verseRow}
                 </Fragment>
