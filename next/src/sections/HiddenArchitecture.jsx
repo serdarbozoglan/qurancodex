@@ -99,7 +99,7 @@ const SURAHS = {
 
 // ── Seven Layers prism data ──
 const RAY_Y     = [30, 82, 134, 185, 237, 289, 340];
-const RAY_COLORS = ['#E8A020','#1AAB80','#3B8FE0','#8B5CF6',COLORS.cyan,'#F97316','#E8D070'];
+const RAY_COLORS = ['#E8A020','#1AAB80','#3B8FE0',COLORS.violetAccent,COLORS.cyan,COLORS.orange500,'#E8D070'];
 const LABEL_Y   = [12, 64, 116, 167, 219, 271, 322];
 
 const NUR_LAYERS = [
@@ -144,7 +144,7 @@ const NUR_LAYERS = [
   {
     numTr: '04', nameTr: 'Felsefi',       subTr: 'Epistemolojik',
     numEn: '04', nameEn: 'Philosophical', subEn: 'Epistemological',
-    color: '#8B5CF6',
+    color: COLORS.violetAccent,
     conceptsTr: ['Nur = Bilgi', 'Zulmet = Cehalet', 'Akıl Nuru', 'Aydınlanma', 'Hakikat Arayışı'],
     conceptsEn: ['Light = Knowledge', 'Darkness = Ignorance', 'Light of Reason', 'Enlightenment', 'The Search for Truth'],
     scholarTr: 'İbn Sina\'ya atfedilen okuma', scholarEn: 'Reading attributed to Ibn Sina',
@@ -168,7 +168,7 @@ const NUR_LAYERS = [
   {
     numTr: '06', nameTr: 'Tasavvufi', subTr: 'Mistik',
     numEn: '06', nameEn: 'Mystical',  subEn: 'Sufi',
-    color: '#F97316',
+    color: COLORS.orange500,
     conceptsTr: ['Nur-u Muhammedi', 'Hakikat-i Muhammediyye', 'Tecelli', 'Zikir', 'Fena Fillah'],
     conceptsEn: ['Nur al-Muhammadi', 'Haqiqat al-Muhammadiyya', 'Divine Manifestation', 'Dhikr', 'Fana Fillah'],
     scholarTr: 'Muhyiddin İbn Arabi', scholarEn: 'Muhyiddin Ibn Arabi',

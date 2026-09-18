@@ -2087,18 +2087,18 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
     // Kur'ân'ın en çok tekrar eden anlam ekseni gruplamaları
     { pattern: /^ح م د$/, colorTr: 'Hamd (övgü)', colorEn: 'Ḥamd (praise)', hex: COLORS.gold },
     { pattern: /^ر ب ب$/, colorTr: 'Rabb (Rab)',  colorEn: 'Rabb (Lord)', hex: COLORS.btnGoldMid },
-    { pattern: /^ا ل ه|^أ ل ه$/, colorTr: 'Ilâh (İlah)', colorEn: 'Ilāh (God)', hex: '#8B5CF6' },
-    { pattern: /^ن ا س$/, colorTr: 'Nâs (insan)', colorEn: 'Nās (people)', hex: '#3B82F6' },
+    { pattern: /^ا ل ه|^أ ل ه$/, colorTr: 'Ilâh (İlah)', colorEn: 'Ilāh (God)', hex: COLORS.violetAccent },
+    { pattern: /^ن ا س$/, colorTr: 'Nâs (insan)', colorEn: 'Nās (people)', hex: COLORS.blue500 },
     { pattern: /^ر ح م$/, colorTr: 'Rahm (rahmet)', colorEn: 'Raḥm (mercy)', hex: COLORS.emerald },
-    { pattern: /^ذ ك ر$/, colorTr: 'Zikr (anma)', colorEn: 'Dhikr (remembrance)', hex: '#22C55E' },
+    { pattern: /^ذ ك ر$/, colorTr: 'Zikr (anma)', colorEn: 'Dhikr (remembrance)', hex: COLORS.green500 },
     { pattern: /^ا م ن|^أ م ن$/, colorTr: 'Îmân (iman)', colorEn: 'Īmān (faith)', hex: COLORS.tealDark },
     { pattern: /^ع ب د$/, colorTr: 'ʿAbd (kulluk)', colorEn: 'ʿAbd (worship)', hex: COLORS.royalGold },
-    { pattern: /^ي و م$/, colorTr: 'Yevm (gün)', colorEn: 'Yawm (day)', hex: '#F97316' },
+    { pattern: /^ي و م$/, colorTr: 'Yevm (gün)', colorEn: 'Yawm (day)', hex: COLORS.orange500 },
     { pattern: /^ك ف ر$/, colorTr: 'Kufr (inkar)', colorEn: 'Kufr (denial)', hex: COLORS.coral },
     { pattern: /^ص ل و$/, colorTr: 'Ṣalât (namaz)', colorEn: 'Ṣalāt (prayer)', hex: '#EAB308' },
     { pattern: /^ع ل م$/, colorTr: 'ʿIlm (bilgi)', colorEn: 'ʿIlm (knowledge)', hex: COLORS.skyBlue },
     { pattern: /^س م ع|^ب ص ر$/, colorTr: 'Semī' + "'" + '-Basîr (duyu)', colorEn: 'Semīʿ-Baṣīr (senses)', hex: COLORS.cyan },
-    { pattern: /^ح ك م$/, colorTr: 'Hukm (hüküm)', colorEn: 'Ḥukm (judgment)', hex: '#F59E0B' },
+    { pattern: /^ح ك م$/, colorTr: 'Hukm (hüküm)', colorEn: 'Ḥukm (judgment)', hex: COLORS.amber500 },
     { pattern: /^ه د ي$/, colorTr: 'Hidâyet', colorEn: 'Hidāya (guidance)', hex: '#10B981' },
   ], []);
   const DEFAULT = { colorTr: 'Diğer', colorEn: 'Other', hex: 'rgba(148,163,184,0.35)' };

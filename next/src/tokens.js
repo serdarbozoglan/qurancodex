@@ -112,6 +112,34 @@ export const COLORS = {
   purple:        '#a78bfa',
   amber:         '#f0b429',
 
+  // ── Kod tabanında dağınık duran ortak renkler (2026-09-18) ────────────────
+  // Bunlar zaten kullanılıyordu; yalnızca ADI yoktu. Üçten fazla dosyada
+  // elle yazıldıkları için biri değişince ötekiler geride kalıyor ve palet
+  // sürükleniyordu (§13.25'in engellemek istediği şey). DEĞERLERİ AYNEN
+  // korundu: bu bir adlandırma işidir, renk değişimi değil — tek piksel
+  // oynamaz. Başka bir token'a ÇEKİLMEDİLER; en yakın token'a olan uzaklık
+  // çoğunda büyüktü (ΔE 11-25) ve bazısında rol de uymuyordu.
+  sajdaGreenDay:  '#1a7a4c',   // AyahBadge gündüz modu secde yeşili
+  violetAccent:   '#8b5cf6',   // semantik seri · iç hâl vurgusu
+  purpleAccent:   '#9b59b6',   // kozmoloji · ezel · fetvâ rozeti
+  redDeep:        '#c0392b',   // cehennem gradyanı · helâk türü
+  redDarkest:     '#8b0000',   // cehennem gradyanının en koyu durağı
+  red600:         '#dc2626',   // kalkale · tahta kalemi
+  amberWarm:      '#f39c12',   // âhiret · A'râf ekseni
+  amber400:       '#fbbf24',
+  amber500:       '#f59e0b',
+  orange400:      '#fb923c',
+  orange500:      '#f97316',
+  blue500:        '#3b82f6',   // Medenî sûre vurgusu
+  skyBlueBright:  '#4a9ee8',
+  emerald400:     '#34d399',
+  green500:       '#22c55e',
+  greenSoft:      '#6fc98a',
+  coralSoft:      '#e07a7a',   // olumsuz anılan · kasem
+  paperInkText:   '#1f1908',   // gündüz modu gövde mürekkebi
+  paperGoldDay:   '#9a7838',   // gündüz modu altın
+  paperMutedDeep: '#6a5638',
+
   // 14 Ağustos — kontrast turunda AA'yı geçmeyen kategori/kimlik renklerinin
   // açılmış hâlleri (Melekler/CennetCehennem'de bilerek icat edilmiş yerel
   // paletlerdi, tokens.js'te karşılıkları yoktu — §13.25 md.2). Aynı hue

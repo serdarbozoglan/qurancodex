@@ -175,7 +175,7 @@ const TIMELINE_DATA = [
 const LANG_CARDS = [
   {
     id: 'past',
-    accentColor: '#4a9ee8',
+    accentColor: COLORS.skyBlueBright,
     titleTr: 'Geçmişin Dersi',
     titleEn: 'Lesson of the Past',
     bodyTr:

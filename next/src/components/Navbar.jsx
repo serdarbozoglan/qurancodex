@@ -1522,16 +1522,16 @@ export default function Navbar() {
                       { id: 'kavramsal',       accent: COLORS.skyBlue, labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikoloji ve iç dünya üzerine denemeler',   descEn: 'Essays on psychology and inner life' },
                       { id: 'terminoloji',     accent: COLORS.gold, labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',      descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma',         descEn: 'Reading Human, Universe & Quran' },
                       { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',    descTr: 'Sûre tahlilleri ve yorum prensipleri',    descEn: 'Surah analyses & interpretation' },
-                      { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',         descTr: 'Arapça kök etimolojisi',                  descEn: 'Arabic root etymology' },
+                      { id: 'semantik',        accent: COLORS.violetAccent, labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',         descTr: 'Arapça kök etimolojisi',                  descEn: 'Arabic root etymology' },
                       { id: 'idrak-suur',      accent: COLORS.emerald, labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness',descTr: 'Epistemoloji ve metafizik',               descEn: 'Epistemology & metaphysics' },
-                      { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış',labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
+                      { id: 'kozmoloji',       accent: COLORS.purpleAccent, labelTr: 'Kozmoloji & Yaratılış',labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
                     ].map(c => ({ ...c, count: tefekkurStats.counts[c.id] || 0 }));
 
                     // Son eklenenler — _index.json'dan en yeni 3 makale.
                     // Fetch henüz tamamlanmadıysa tek fallback göster.
                     const featuredArticles = (tefekkurFeatured && tefekkurFeatured.length)
                       ? tefekkurFeatured
-                      : [{ slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', minutes: 3, catLabelTr: 'Semantik Seri', catLabelEn: 'Semantic Series', accent: '#8b5cf6' }];
+                      : [{ slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', minutes: 3, catLabelTr: 'Semantik Seri', catLabelEn: 'Semantic Series', accent: COLORS.violetAccent }];
 
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -2231,9 +2231,9 @@ export default function Navbar() {
               { id: 'kavramsal',       accent: COLORS.skyBlue, labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikoloji ve iç dünya üzerine denemeler',    descEn: 'Essays on psychology and inner life' },
               { id: 'terminoloji',     accent: COLORS.gold, labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',       descTr: "İnsan, Kâinat ve Kur'an'ı Okuma",          descEn: 'Reading Human, Universe & Quran' },
               { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',     descTr: 'Sûre tahlilleri ve yorum prensipleri',     descEn: 'Surah analyses & interpretation' },
-              { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',          descTr: 'Arapça kök etimolojisi',                   descEn: 'Arabic root etymology' },
+              { id: 'semantik',        accent: COLORS.violetAccent, labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',          descTr: 'Arapça kök etimolojisi',                   descEn: 'Arabic root etymology' },
               { id: 'idrak-suur',      accent: COLORS.emerald, labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik',                descEn: 'Epistemology & metaphysics' },
-              { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
+              { id: 'kozmoloji',       accent: COLORS.purpleAccent, labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
             ];
 
             return (

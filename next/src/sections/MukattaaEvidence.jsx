@@ -31,9 +31,9 @@ const { fasila, fasilaTaban } = data;
 // onları buraya koymak yanıltıcı olurdu.
 const MATRIS_GORUSLER = [
   { id: 'tehaddi', tr: 'Tehaddî',      en: 'Challenge',    renk: COLORS.tealDark },
-  { id: 'tenbih',  tr: 'Tenbîh',       en: 'Attention',    renk: '#6fc98a' },
+  { id: 'tenbih',  tr: 'Tenbîh',       en: 'Attention',    renk: COLORS.greenSoft },
   { id: 'sureadi', tr: 'Sûre adı',     en: 'Sura name',    renk: '#7c9fe0' },
-  { id: 'kasem',   tr: 'Kasem',        en: 'Oath',         renk: '#e07a7a' },
+  { id: 'kasem',   tr: 'Kasem',        en: 'Oath',         renk: COLORS.coralSoft },
   { id: 'kisalt',  tr: 'Kısaltma',     en: 'Abbreviation', renk: '#c98ae0' },
   { id: 'yarim',   tr: 'Elifbâ yarısı', en: 'Half the alphabet', renk: COLORS.gold },
 ];
@@ -187,7 +187,7 @@ export default function MukattaaEvidence() {
               }}>
                 <div className="mq-fs" style={{
                   '--fs-d': '0.68rem', '--fs-m': '0.64rem',
-                  color: '#e07a7a', fontFamily: FONTS.body, fontWeight: 700,
+                  color: COLORS.coralSoft, fontFamily: FONTS.body, fontWeight: 700,
                   letterSpacing: '0.12em', marginBottom: '10px',
                 }}>
                   {tr ? k.nameTr : k.nameEn}
@@ -480,7 +480,7 @@ export default function MukattaaEvidence() {
                     {MATRIS_GORUSLER.map((g) => {
                       const d = o.deger[g.id];
                       const stil = {
-                        evet:   { t: tr ? 'evet' : 'yes',      c: '#6fc98a', b: 'rgba(111,201,138,0.12)' },
+                        evet:   { t: tr ? 'evet' : 'yes',      c: COLORS.greenSoft, b: 'rgba(111,201,138,0.12)' },
                         kismen: { t: tr ? 'kısmen' : 'partly', c: '#e8b860', b: 'rgba(232,184,96,0.12)' },
                         zayif:  { t: tr ? 'zayıf' : 'weak',    c: '#c99a6f', b: 'rgba(201,154,111,0.10)' },
                         hayir:  { t: tr ? 'hayır' : 'no',      c: COLORS.slateTextSafe, b: 'rgba(255,255,255,0.03)' },

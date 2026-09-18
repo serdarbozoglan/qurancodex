@@ -1404,7 +1404,7 @@ const PROPHETS = [
     subtitleTr: 'Tevhidin atası, Kâbe\'nin mimarı',
     subtitleEn: 'Father of monotheism, architect of the Kaaba',
     mentions: 69,
-    color: '#fbbf24', glow: 'rgba(251,191,36,0.65)', // TODO: tokenize — prophet-chart amber
+    color: COLORS.amber400, glow: 'rgba(251,191,36,0.65)', // TODO: tokenize — prophet-chart amber
     surahs: [
       { s:87, phaseTr:'İbrahim\'in sahifeleri', phaseEn:"Scrolls of Abraham" },
       { s:19, phaseTr:'Babası Azar ile tartışma', phaseEn:'Debate with Father Azar' },
@@ -1444,7 +1444,7 @@ const PROPHETS = [
     subtitleTr: 'Kur\'an\'ın en güzel kıssası: başından sonuna tek sûrede eksiksiz anlatı',
     subtitleEn: "The Quran's most beautiful story: a complete narrative from beginning to end in one surah",
     mentions: 27,
-    color: '#34d399', glow: 'rgba(52,211,153,0.65)', // TODO: tokenize — prophet-chart green
+    color: COLORS.emerald400, glow: 'rgba(52,211,153,0.65)', // TODO: tokenize — prophet-chart green
     surahs: [
       { s:6,  phaseTr:'İshak soyundan', phaseEn:'Of the Lineage of Isaac' },
       { s:12, phaseTr:'Rüya → Kuyu → Saray → Hapishane → Mısır Veziri', phaseEn:'Dream → Well → Palace → Prison → Viceroy of Egypt' },
@@ -1512,7 +1512,7 @@ const PROPHETS = [
     subtitleTr: 'Rüzgâra, cinlere ve karıncanın diline hâkim olan hükümdar-peygamber',
     subtitleEn: 'The king-prophet who commanded the wind, the jinn, and the language of the ant',
     mentions: 17,
-    color: '#f97316', glow: 'rgba(249,115,22,0.65)', // TODO: tokenize — prophet-chart orange/throne
+    color: COLORS.orange500, glow: 'rgba(249,115,22,0.65)', // TODO: tokenize — prophet-chart orange/throne
     surahs: [
       { s:2,  phaseTr:'Sihir + iftiraya karşı savunma', phaseEn:"Magic + Defense Against False Charges" },
       { s:4,  phaseTr:'Vahiy zincirinde adı', phaseEn:'Name in the Chain of Revelation' },

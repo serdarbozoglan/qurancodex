@@ -78,7 +78,7 @@ const CATEGORY_META = {
   'hypocrite-response': { tr: 'Münafık/Müşrik',     en: 'Hypocrite/Polytheist',  color: COLORS.softRed },
   'companion-case':     { tr: 'Sahabî Durumu',      en: 'Companion Case',        color: COLORS.violet },
   'ahl-kitab':          { tr: 'Ehl-i Kitap',        en: 'People of the Book',    color: COLORS.teal },
-  'family-law':         { tr: 'Aile/Toplum Hukuku', en: 'Family/Social Law',     color: '#f39c12' },
+  'family-law':         { tr: 'Aile/Toplum Hukuku', en: 'Family/Social Law',     color: COLORS.amberWarm },
   'revelation-onset':   { tr: 'Vahyin Başlangıcı',  en: 'Onset of Revelation',   color: COLORS.gold },
   'mecca-persecution':  { tr: 'Mekke\'de Ezâ',      en: 'Persecution in Mecca',  color: COLORS.rustTextSafe },
   'treaty-context':     { tr: 'Anlaşma Bağlamı',    en: 'Treaty Context',        color: COLORS.orchidLightTextSafe },
@@ -93,13 +93,13 @@ const RELIABILITY_META = {
 };
 
 const PERIOD_META = {
-  'makki':  { tr: 'Mekkî',  en: 'Meccan',  color: '#f39c12' },
+  'makki':  { tr: 'Mekkî',  en: 'Meccan',  color: COLORS.amberWarm },
   'madani': { tr: 'Medenî', en: 'Medinan', color: COLORS.skyBlue },
 };
 
 // ── Timeline tab constants (separate from SebebiNuzul's own period/category meta) ──
 const TPERIOD_META = {
-  'erken-mekki': { tr: 'Erken Mekkî',  en: 'Early Meccan',  color: '#f39c12', years: '610–614 M' },
+  'erken-mekki': { tr: 'Erken Mekkî',  en: 'Early Meccan',  color: COLORS.amberWarm, years: '610–614 M' },
   'mekki':       { tr: "Mekkî Dönem",  en: 'Meccan Period', color: COLORS.orange, years: '614–622 M' },
   'medeni':      { tr: "Medenî Dönem", en: 'Medinan Period', color: COLORS.softEmerald, years: '622–632 M' },
 };

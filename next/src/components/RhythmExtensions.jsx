@@ -67,7 +67,7 @@ const RAHMAN_REFRAIN_AYAHS = [13, 16, 18, 21, 23, 25, 28, 30, 32, 34, 36, 38, 40
 const RAHMAN_SECTIONS = [
   { start: 1,  end: 13, themeTr: 'Yaratılış', themeEn: 'Creation', color: COLORS.color },
   { start: 14, end: 25, themeTr: 'Cin ve İns', themeEn: 'Jinn and Man', color: COLORS.purple },
-  { start: 26, end: 36, themeTr: 'Fenâ ve Bekâ', themeEn: 'Passing and Endurance', color: '#f39c12' },
+  { start: 26, end: 36, themeTr: 'Fenâ ve Bekâ', themeEn: 'Passing and Endurance', color: COLORS.amberWarm },
   { start: 37, end: 45, themeTr: 'Kıyâmet', themeEn: 'The Day of Reckoning', color: COLORS.softRed },
   { start: 46, end: 61, themeTr: 'İki Cennet (1)', themeEn: 'Two Gardens (1)', color: COLORS.softEmerald },
   { start: 62, end: 77, themeTr: 'İki Cennet (2)', themeEn: 'Two Gardens (2)', color: COLORS.skyBlue },

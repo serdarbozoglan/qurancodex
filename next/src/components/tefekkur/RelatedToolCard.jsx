@@ -11,7 +11,7 @@ const TOOL_META = {
   'semantik-map':   { labelTr: 'Semantik Harita',labelEn: 'Semantic Map',  path: '/graf/semantik', accent: COLORS.skyBlue, descTr: '20 küme', descEn: '20 clusters' },
   'reading-mode':   { labelTr: 'Kur\'an\'ı Oku',  labelEn: 'Read Quran',    path: '/oku/1',       accent: COLORS.gold,   descTr: 'Reading Mode', descEn: 'Reading Mode' },
   'munafik-profili':{ labelTr: 'Münafık Profili',labelEn: 'Hypocrite',     path: '/atlas/munafik', accent: COLORS.red, descTr: '12 psikolojik özellik', descEn: '12 psychological traits' },
-  'nefs-mertebeleri': { labelTr: 'Nefs Mertebeleri', labelEn: 'Soul Stations', path: '/atlas/nefs-mertebeleri', accent: '#9b59b6', descTr: '7 mertebe', descEn: '7 stations' },
+  'nefs-mertebeleri': { labelTr: 'Nefs Mertebeleri', labelEn: 'Soul Stations', path: '/atlas/nefs-mertebeleri', accent: COLORS.purpleAccent, descTr: '7 mertebe', descEn: '7 stations' },
 };
 
 export default function RelatedToolCard({ tool, language }) {

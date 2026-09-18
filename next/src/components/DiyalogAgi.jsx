@@ -23,7 +23,7 @@ import afterlifeDataStatic from '../../public/diyalog-afterlife.json';
 import megaDataStatic from '../../public/diyalog-mega.json';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
-const TEMPORAL = { ezel: '#9b59b6', dunya: COLORS.skyBlue, ahiret: '#f39c12' };
+const TEMPORAL = { ezel: COLORS.purpleAccent, dunya: COLORS.skyBlue, ahiret: COLORS.amberWarm };
 
 // Ekran okuyucu / klavye için görünmez metin-alternatifi stili (§16.12).
 // SVG ağ grafiği aria-hidden; veriye erişimin metin/klavye yolu bu listedir.
@@ -940,7 +940,7 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
   const CATEGORY_CONFIG = {
     cennet:  { color: COLORS.softEmerald, labelTr: 'CENNET DİYALOGLARI',  labelEn: 'PARADISE DIALOGUES' },
     cehennem:{ color: COLORS.red, labelTr: 'CEHENNEM DİYALOGLARI', labelEn: 'HELL DIALOGUES'     },
-    araf:    { color: '#f39c12', labelTr: "A'RÂF",                labelEn: "A'RAF"               },
+    araf:    { color: COLORS.amberWarm, labelTr: "A'RÂF",                labelEn: "A'RAF"               },
     hesap:   { color: COLORS.royalGold, labelTr: 'HESAP GÜNÜ',           labelEn: 'JUDGMENT DAY'        },
   };
 
@@ -1224,7 +1224,7 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
     prophet:   { labelTr: 'Peygamber',  labelEn: 'Prophet',   color: COLORS.softEmerald },
     adversary: { labelTr: 'Düşman',     labelEn: 'Adversary', color: COLORS.red },
     antagonist:{ labelTr: 'Antagonist', labelEn: 'Antagonist',color: '#8e44ad' },
-    afterlife: { labelTr: 'Ahiret',     labelEn: 'Afterlife', color: '#f39c12' },
+    afterlife: { labelTr: 'Ahiret',     labelEn: 'Afterlife', color: COLORS.amberWarm },
     group:     { labelTr: 'Topluluk',   labelEn: 'Group',     color: COLORS.skyBlue },
   };
 

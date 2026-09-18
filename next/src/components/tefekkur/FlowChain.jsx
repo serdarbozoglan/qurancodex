@@ -22,7 +22,7 @@ import { renderInlineMarkdown } from './inlineMarkdown';
 //   }
 
 const TONES = {
-  trigger:  { accent: COLORS.purple || '#8b5cf6', label: { tr: 'TETİK',  en: 'TRIGGER' } },
+  trigger:  { accent: COLORS.purple || COLORS.violetAccent, label: { tr: 'TETİK',  en: 'TRIGGER' } },
   state:    { accent: COLORS.gold,                label: { tr: 'HÂL',    en: 'STATE'   } },
   outcome:  { accent: COLORS.red,                  label: { tr: 'SONUÇ',  en: 'OUTCOME' } },
   default:  { accent: COLORS.silver,              label: null },
@@ -144,7 +144,7 @@ function Arrow({ delay }) {
       <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="flowArrow" x1="0" y1="0" x2="36" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0%"  stopColor={COLORS.purple || '#8b5cf6'} stopOpacity="0.4" />
+            <stop offset="0%"  stopColor={COLORS.purple || COLORS.violetAccent} stopOpacity="0.4" />
             <stop offset="50%" stopColor={COLORS.gold} stopOpacity="0.85" />
             <stop offset="100%" stopColor="#e74c3c" stopOpacity="0.65" />
           </linearGradient>
@@ -171,7 +171,7 @@ export default function FlowChain({ captionTr, captionEn, nodes, language }) {
       {/* Top accent strip */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-        background: `linear-gradient(90deg, ${COLORS.purple || '#8b5cf6'}, ${COLORS.gold}, #e74c3c)`,
+        background: `linear-gradient(90deg, ${COLORS.purple || COLORS.violetAccent}, ${COLORS.gold}, #e74c3c)`,
         opacity: 0.55,
       }} />
 

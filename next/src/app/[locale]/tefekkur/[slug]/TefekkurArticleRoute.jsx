@@ -16,9 +16,9 @@ const CATEGORY_LABELS = {
   kavramsal:        { tr: 'Kavramsal Tahlil',         en: 'Conceptual Analysis',  accent: COLORS.skyBlue },
   terminoloji:      { tr: 'Terminoloji Serisi',       en: 'Terminology Series',   accent: COLORS.gold },
   'sure-hermenotik':{ tr: 'Sûre & Hermenötik',        en: 'Surah & Hermeneutics', accent: COLORS.royalGold },
-  semantik:         { tr: 'Semantik Seri',            en: 'Semantic Series',      accent: '#8b5cf6' },
+  semantik:         { tr: 'Semantik Seri',            en: 'Semantic Series',      accent: COLORS.violetAccent },
   'idrak-suur':     { tr: 'İdrak & Şuur',             en: 'Cognition & Consciousness', accent: COLORS.emerald },
-  kozmoloji:        { tr: 'Kozmoloji & Yaratılış',    en: 'Cosmology & Creation', accent: '#9b59b6' },
+  kozmoloji:        { tr: 'Kozmoloji & Yaratılış',    en: 'Cosmology & Creation', accent: COLORS.purpleAccent },
 };
 
 // Yayın platformunun adını canonicalUrl'den türetir (2026-08-13).

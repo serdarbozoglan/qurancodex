@@ -19,7 +19,7 @@ import { renderInlineMarkdown } from './inlineMarkdown';
 
 function Pole({ pole, idx, language, totalDelay = 0 }) {
   const tr = language === 'tr';
-  const accent = pole.accent || COLORS.purple || '#8b5cf6';
+  const accent = pole.accent || COLORS.purple || COLORS.violetAccent;
   const fromLeft = idx === 0;
 
   return (

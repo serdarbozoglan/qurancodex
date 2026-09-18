@@ -39,7 +39,7 @@ const CONTEXT_COLORS = {
   negative: COLORS.red,
   positive: COLORS.softEmerald,
   neutral:  '#95a5a6',
-  divine:   '#9b59b6',
+  divine:   COLORS.purpleAccent,
   ritual:   COLORS.royalGold,
 };
 

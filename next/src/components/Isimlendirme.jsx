@@ -213,9 +213,9 @@ export default function Isimlendirme({ onClose }) {
           gap: '14px', marginTop: '26px',
         }}>
           {[
-            { k: simetri.olumlu, renk: '#6fc98a', et: tr ? 'Olumlu anılan' : 'Named positively',
+            { k: simetri.olumlu, renk: COLORS.greenSoft, et: tr ? 'Olumlu anılan' : 'Named positively',
               notTr: 'Kur’ân’da adı geçen tek sahâbî.', notEn: 'The only Companion named in the Qurʾān.' },
-            { k: simetri.olumsuz, renk: '#e07a7a', et: tr ? 'Olumsuz anılan' : 'Named negatively',
+            { k: simetri.olumsuz, renk: COLORS.coralSoft, et: tr ? 'Olumsuz anılan' : 'Named negatively',
               notTr: 'Künyesiyle anılır; asıl adı Abdüluzzâ.', notEn: 'Named by his kunya; his given name was ʿAbd al-ʿUzzā.' },
           ].map((c) => (
             <div key={c.et} style={{
@@ -440,7 +440,7 @@ export default function Isimlendirme({ onClose }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <span aria-hidden="true" style={{
                   width: '18px', height: '18px', borderRadius: RADIUS.full, flexShrink: 0,
-                  border: '1px solid rgba(224,122,122,0.5)', color: '#e07a7a',
+                  border: '1px solid rgba(224,122,122,0.5)', color: COLORS.coralSoft,
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
                 }}>✕</span>

@@ -144,7 +144,7 @@ const CARD_THEMES = [
     ),
   },
   {
-    color: '#34D399', // emerald — modular/blocks
+    color: COLORS.emerald400, // emerald — modular/blocks
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -166,7 +166,7 @@ const CARD_THEMES = [
     ),
   },
   {
-    color: '#FBBF24', // amber — time/clock
+    color: COLORS.amber400, // amber — time/clock
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
@@ -175,7 +175,7 @@ const CARD_THEMES = [
     ),
   },
   {
-    color: '#FB923C', // orange — voice/perspective
+    color: COLORS.orange400, // orange — voice/perspective
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>

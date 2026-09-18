@@ -60,13 +60,13 @@ const TAB_META = {
   // küçük metinde kontrast sınırdaydı". dim/border METİN DEĞİL, dokunulmadı.
   nefs:     { color: CATEGORY.violet, dim: 'rgba(139,92,246,0.12)',  border: 'rgba(139,92,246,0.35)' },
   kalp:     { color: '#F43F5E', dim: 'rgba(244,63,94,0.12)',   border: 'rgba(244,63,94,0.35)'  },
-  korku:    { color: '#F59E0B', dim: 'rgba(245,158,11,0.12)',  border: 'rgba(245,158,11,0.35)' },
+  korku:    { color: COLORS.amber500, dim: 'rgba(245,158,11,0.12)',  border: 'rgba(245,158,11,0.35)' },
   savunma:  { color: '#6366F1', dim: 'rgba(99,102,241,0.12)',  border: 'rgba(99,102,241,0.35)' },
   yusuf:    { color: '#10B981', dim: 'rgba(16,185,129,0.12)',  border: 'rgba(16,185,129,0.35)' },
   sosyal:   { color: '#0EA5E9', dim: 'rgba(14,165,233,0.12)',  border: 'rgba(14,165,233,0.35)' },
   araclar:  { color: COLORS.tealDark, dim: 'rgba(20,184,166,0.12)',  border: 'rgba(20,184,166,0.35)' },
   anlam:    { color: '#A855F7', dim: 'rgba(168,85,247,0.12)',  border: 'rgba(168,85,247,0.35)' },
-  modern:   { color: '#F97316', dim: 'rgba(249,115,22,0.12)',  border: 'rgba(249,115,22,0.35)' },
+  modern:   { color: COLORS.orange500, dim: 'rgba(249,115,22,0.12)',  border: 'rgba(249,115,22,0.35)' },
   ekler:    { color: COLORS.silver, dim: 'rgba(148,163,184,0.10)', border: 'rgba(148,163,184,0.30)' },
 };
 
@@ -361,7 +361,7 @@ function AppendixPanel() {
   const [activeEk, setActiveEk] = useState('a');
   const tabs = t('psychology.appendix.tabs') || {};
 
-  const EK_COLORS = { a: '#F97316', b: '#0EA5E9', c: '#10B981' };
+  const EK_COLORS = { a: COLORS.orange500, b: '#0EA5E9', c: '#10B981' };
   const EK_LETTERS = { a: 'أ', b: 'ب', c: 'ج' };
 
   return (

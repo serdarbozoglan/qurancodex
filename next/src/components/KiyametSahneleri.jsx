@@ -1287,7 +1287,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
 
       <div style={{ background: 'rgba(192,57,43,0.06)', border: '1px solid rgba(192,57,43,0.25)', borderRadius: RADIUS.lg, padding: '16px' }}>
         <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-          <span style={{ color: '#C0392B', fontSize: '1.2rem', flexShrink: 0 }}>ℹ</span>
+          <span style={{ color: COLORS.redDeep, fontSize: '1.2rem', flexShrink: 0 }}>ℹ</span>
           <div>
             <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#e07070', margin: '0 0 8px', fontFamily: FONTS.body }}>
               {language === 'tr' ? "Sırat Köprüsü: Kur'an'da GEÇMİYOR" : "The Sirat Bridge: NOT in the Quran"}

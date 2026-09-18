@@ -1550,7 +1550,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
   // Classical descending order (varies by source; using İbn Kesîr al-Bidāya order)
   const ORDER = ['cehennem', 'leza', 'sair', 'sakar', 'cahim', 'hutame', 'haviye'];
   const list = ORDER.map(id => names.find(n => n.id === id)).filter(Boolean);
-  const shades = [COLORS.red, '#c0392b', '#a63030', '#8B0000', '#6d0000', '#500000', '#2d0000'];
+  const shades = [COLORS.red, COLORS.redDeep, '#a63030', COLORS.redDarkest, '#6d0000', '#500000', '#2d0000'];
 
   return (
     <div className="mq-box" style={{

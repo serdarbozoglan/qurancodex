@@ -103,7 +103,7 @@ const CONTRAST_PAIRS = [
       surahTr: 'Alak 96:1', surahEn: 'Al-ʿAlaq 96:1',
       verse: 'اِقْرَاْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ',
       translitTr: 'Iqra\' bismi rabbike\'llezî halak',
-      color: '#f39c12',
+      color: COLORS.amberWarm,
       letters: ['ق', 'ر', 'ب', 'خ'],
       descTr: 'Patlayıcı ق, tınlayan ر, iki dudaklı ب: "OKU!" emrinin sesi tam kırılma noktasında.',
       descEn: 'Explosive ق, rolling ر, bilabial ب: the imperative "READ!" sits at a breaking point.',
@@ -129,7 +129,7 @@ const CONTRAST_PAIRS = [
 // ── Fonetik spektrum: 8 grup — hangi harfler hangi ses karakterine ait ──
 const PHONETIC_SPECTRUM = [
   { groupTr: 'Patlayıcılar (şedîde)', groupEn: 'Plosives (shadīda)', letters: ['ق','ك','ط','د','ت','ب'], color: COLORS.softRed, descTr: 'Ani hava kesilmesiyle çıkan sesler; azap, uyarı, emir bağlamında yoğun.', descEn: 'Sounds produced by sudden air arrest; dense in punishment, warning, and command contexts.' },
-  { groupTr: 'Sürtünmeliler (rehâviyye)', groupEn: 'Fricatives (rakhāwiyya)', letters: ['ف','ث','ذ','ح','خ','ز','س','ش','ص','ض','ظ','ه'], color: '#f39c12', descTr: 'Havanın darlıktan geçmesiyle çıkan sesler; anlamı taşıyan geniş bir orta ton.', descEn: 'Sounds from air passing through constriction; a broad mid-tone that carries meaning.' },
+  { groupTr: 'Sürtünmeliler (rehâviyye)', groupEn: 'Fricatives (rakhāwiyya)', letters: ['ف','ث','ذ','ح','خ','ز','س','ش','ص','ض','ظ','ه'], color: COLORS.amberWarm, descTr: 'Havanın darlıktan geçmesiyle çıkan sesler; anlamı taşıyan geniş bir orta ton.', descEn: 'Sounds from air passing through constriction; a broad mid-tone that carries meaning.' },
   { groupTr: 'Nazaller (ğunneli)', groupEn: 'Nasals (ghunna)', letters: ['م','ن'], color: COLORS.skyBlue, descTr: 'Burun boşluğunda rezonans; rahmet, huzur, yakarış ile eşleşir.', descEn: 'Resonance in the nasal cavity; pairs with mercy, peace, invocation.' },
   { groupTr: 'Akıcılar (mâyi\')', groupEn: 'Liquids (māʾiʿ)', letters: ['ل','ر'], color: COLORS.softEmerald, descTr: 'Kesintisiz akıcı sesler; anlatının müzik damarını taşır.', descEn: 'Continuous flowing sounds; carrying the melodic vein of narrative.' },
   { groupTr: 'Yarı Ünlüler (leyyine)', groupEn: 'Semi-vowels (līyyina)', letters: ['و','ي'], color: COLORS.purple, descTr: 'Ünlü-benzeri geçiş sesleri; kelimeye uzunluk ve akıcılık verir.', descEn: 'Vowel-like transition sounds; giving words length and fluency.' },

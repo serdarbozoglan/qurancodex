@@ -91,7 +91,7 @@ const MELEK_ICONS = {
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
   vahiy:    { accent: COLORS.btnGoldMid, bg: 'rgba(184,134,11,0.10)',  border: 'rgba(184,134,11,0.28)',  labelTr: 'Vahiy Meleği',    labelEn: 'Revelation',   icon: MELEK_ICONS.vahiy },
-  yardim:   { accent: '#3B82F6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.28)',  labelTr: 'Yardım Meleği',   labelEn: 'Helper',       icon: MELEK_ICONS.yardim },
+  yardim:   { accent: COLORS.blue500, bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.28)',  labelTr: 'Yardım Meleği',   labelEn: 'Helper',       icon: MELEK_ICONS.yardim },
   azap:     { accent: COLORS.coralBright, bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment',   icon: MELEK_ICONS.azap },
   koruyucu: { accent: COLORS.emeraldBright, bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian',     icon: MELEK_ICONS.koruyucu },
   kayit:    { accent: COLORS.violetTextSafe, bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder',     icon: MELEK_ICONS.kayit },
@@ -265,7 +265,7 @@ function HadithOnlyBadge({ language }) {
 // Hadith grade sub-badge (Münâfık Profili 'mütefekkun aleyh' standartının melek sayfasına uygulanması)
 const HADITH_GRADE_META = {
   'mutefekkun-aleyh': { color: COLORS.emeraldBright, tr: 'Mütefekkun Aleyh', en: 'Muttafaqun Alayh', noteTr: 'Buhârî + Müslim ortak', noteEn: 'Bukhari + Muslim agreed' },
-  'sahih':            { color: '#3B82F6', tr: 'Sahih',            en: 'Sahih',           noteTr: 'Sahih kaynak',       noteEn: 'Sahih source' },
+  'sahih':            { color: COLORS.blue500, tr: 'Sahih',            en: 'Sahih',           noteTr: 'Sahih kaynak',       noteEn: 'Sahih source' },
   'hasen':            { color: COLORS.btnGoldMid, tr: 'Hasen',            en: 'Hasan',           noteTr: 'Hasen seviye',       noteEn: 'Hasan grade' },
   'tartismali':       { color: COLORS.coralBright, tr: 'Tartışmalı',       en: 'Disputed',        noteTr: 'Sened/sıhhati tartışmalı', noteEn: 'Chain/grade disputed' },
 };
@@ -596,7 +596,7 @@ const GOREV_COLORS = {
   'korunak-saglamak':COLORS.emeraldBright,
   'kayit-tutmak':    COLORS.violetTextSafe,
   'azap-uygulamak':  COLORS.coralBright,
-  'savasta-yardim':  '#3B82F6',
+  'savasta-yardim':  COLORS.blue500,
   'tesbih-ibadet':   COLORS.softGold,
 };
 

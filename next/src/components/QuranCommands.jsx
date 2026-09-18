@@ -347,7 +347,7 @@ export default function QuranCommands({ onClose }) {
             borderRadius: RADIUS.md, padding: '7px 14px',
             display: 'flex', alignItems: 'center', gap: '7px',
           }}>
-            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#4A9EE8', lineHeight: 1 }}>{categories.length}</span>
+            <span style={{ fontSize: '1.3rem', fontWeight: 800, color: COLORS.skyBlueBright, lineHeight: 1 }}>{categories.length}</span>
             <span style={{ fontSize: '0.75rem', color: COLORS.silver, fontWeight: 500 }}>{L.kategoriler}</span>
           </div>
         </div>

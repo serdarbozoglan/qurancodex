@@ -43,7 +43,14 @@ import path from 'node:path';
 // esleme bu yuzden elle elendi; biri (#0d9e73) otomatik olsa CATEGORY.emerald
 // ile eslesip COLORS.emerald diye yazilacak ve rengi gorunur sekilde
 // kaydiracakti. Esleme listesi acik yazilir, kestirme yapilmaz (§13.28.0).
-const BASELINE = { distinct: 167, occurrences: 559 };
+// 2026-09-18: Uc+ dosyada elle yazilan 20 ortak renk token'a ALINDI (degerleri
+// aynen korunarak — adlandirma isi, renk degisimi degil; tek piksel oynamadi).
+// Olculdu: 182 token disi rengin yalniz 22'si 3+ dosyada geciyordu, 140'i tek
+// bir bilesenin icinde yasiyor. Yaygin olanlar birinde degisince otekiler
+// geride kaliyor ve palet surukleniyordu; yerel olanlar oyle bir risk tasimaz,
+// o yuzden onlara DOKUNULMADI (zorla ortak palete cekmek, olculebilir fayda
+// olmadan onaylanmis tasarimlari degistirmek olurdu).
+const BASELINE = { distinct: 148, occurrences: 459 };
 
 const ROOT = path.resolve(process.cwd(), 'src');
 const TOKENS = path.join(ROOT, 'tokens.js');

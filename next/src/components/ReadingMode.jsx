@@ -267,7 +267,7 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
   // Renk paleti: altın metin renginden (#d4a574) maksimum kontrast sağlanır.
   // Amber/turuncu tonlar altın renge yakın olduğu için ihfa → cyan, ihfa-şefevî → teal.
   const K = dayMode ? {
-    qalqala:   '#dc2626',  // kırmızı — kalkale
+    qalqala:   COLORS.red600,  // kırmızı — kalkale
     gunne:     '#16a34a',  // yeşil — gunne
     idgamBila: '#2563eb',  // mavi — idgam bilağunne
     iklab:     '#db2777',  // pembe — iklab
@@ -1454,9 +1454,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // ✕ close, or 🗑️ clear all wipe the strokes. No persistence.
   const [drawMode, setDrawMode]   = useState(false);
   // drawColor can be a hex (red/yellow/blue/green) or a tool token: 'eraser' | 'text' | 'highlight'.
-  const [drawColor, setDrawColor] = useState('#dc2626'); // default: red
+  const [drawColor, setDrawColor] = useState(COLORS.red600); // default: red
   // Last selected color hex — preserved when switching to text/eraser/highlight so we can resume.
-  const [lastColor, setLastColor] = useState('#dc2626');
+  const [lastColor, setLastColor] = useState(COLORS.red600);
   const drawCanvasRef = useRef(null);
   const drawingActiveRef = useRef(false);
   const drawLastPointRef = useRef(null);
@@ -4577,7 +4577,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         // Palette must match `applyTajweed` in this file (lines ~182–200).
         // Duplicating the values keeps the legend a pure presentation component.
         const PAL = dayMode ? {
-          qalqala:'#dc2626', gunne:'#16a34a', idgamBila:'#2563eb', iklab:'#db2777',
+          qalqala:COLORS.red600, gunne:'#16a34a', idgamBila:'#2563eb', iklab:'#db2777',
           ihfa:'#ea580c',    ihfaSef:'#0284c7', med:'#d946ef',     sila:'#92400e',
         } : {
           qalqala:COLORS.kalkale, gunne:COLORS.gunne, idgamBila:COLORS.idgam, iklab:COLORS.rose,
@@ -11305,10 +11305,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* Color dots */}
             {[
-              { c: '#dc2626', name: 'Kırmızı' },
+              { c: COLORS.red600, name: 'Kırmızı' },
               { c: '#facc15', name: 'Sarı' },
-              { c: '#3b82f6', name: 'Mavi' },
-              { c: '#22c55e', name: 'Yeşil' },
+              { c: COLORS.blue500, name: 'Mavi' },
+              { c: COLORS.green500, name: 'Yeşil' },
             ].map(({ c, name }) => {
               // "Pen" active: drawColor is a hex color (freehand mode).
               // "Chosen but tool active" (Highlight/Text uses lastColor):
@@ -11825,11 +11825,11 @@ function VerseCompareModal({
     bg: COLORS.paperCream,
     cardBg: '#fdfaf2',
     border: 'rgba(180,140,80,0.45)',
-    text: '#1f1908',
-    textMuted: '#6a5638',
-    label: '#9a7838',
+    text: COLORS.paperInkText,
+    textMuted: COLORS.paperMutedDeep,
+    label: COLORS.paperGoldDay,
     arabic: '#0f0a02',
-    gold: '#9a7838',
+    gold: COLORS.paperGoldDay,
     goldDeep: '#7a5e2a',
     cardItemBg: 'rgba(212,165,116,0.06)',
     cardItemBorder: 'rgba(180,140,80,0.22)',

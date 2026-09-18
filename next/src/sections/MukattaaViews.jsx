@@ -72,7 +72,7 @@ const GORUSLER = [
   },
   {
     id: 'kasem',
-    renk: '#e07a7a',
+    renk: COLORS.coralSoft,
     baslikTr: 'Kasem: Allah bu harflere yemin ediyor',
     baslikEn: 'Qasam: an oath sworn by the letters',
     kimTr: 'Ahfeş · bazı nakillerde İbn Abbâs',
@@ -84,7 +84,7 @@ const GORUSLER = [
   },
   {
     id: 'tenbih',
-    renk: '#6fc98a',
+    renk: COLORS.greenSoft,
     baslikTr: 'Tenbîh: dikkat toplama',
     baslikEn: 'Tanbīh: arresting attention',
     kimTr: 'Ahfeş, Ferrâ ve dilcilerden bir grup · İbn Âşûr bu yönü öne çıkarır',

@@ -152,9 +152,12 @@
   - Kök: yazar değişince cache boş → getTranslation varsayılan `verse.turkish`e düşüyor (yeni yazarın metni değil), picker yeni ismi gösteriyor.
   - Yapıldı: Meal sütunu span'lerine `opacity: mealLoading ? 0.4 : 1` (0.2s geçiş) — yükleme sırasında bayat/varsayılan metin dim olur, güncellendiğinde netleşir. İki view modu (kitap + kırık meal). · Katılım: ✅
 
-- [ ] **UX01 · Hero çoğu atmosfer/animasyon** — `/tr`
-  - Yapılacak: Altın-lacivert kimliği koru; ilk ekrana "Oku / Bir örüntü keşfet / Konu ara" kısa girişleri ekle.
-  - Katılım: 🟡 tasarım tercihi — "sorun" değil "ekleme". Atmosferi bozmadan yapılabilir.
+- [x] **UX01 · Hero çoğu atmosfer/animasyon** — `/tr` ✅ **KAPANDI (2026-09-13, 2026-09-18'de doğrulandı)**
+  - İstenen: Altın-lacivert kimliği koru; ilk ekrana "Oku / Bir örüntü keşfet / Konu ara" kısa girişleri ekle.
+  - Yapıldı: Hero'da üç giriş yolu duruyor — **Kur'an'ı Oku · Bir konu ara · Keşfe Başla** (Hero.jsx, `.qc-hero-cta`).
+    Gerekçe kodda yazılı: masaüstünde ilk ekranda navbar dışında tek bağlantı vardı ve ilk araç kartı 1847px aşağıdaydı.
+    Atmosfer korundu: halka, besmele, çapa âyet ve altın-lacivert palet aynı.
+  - Doğrulama (2026-09-18, üretim derlemesi): üç düğme 1440x900 ve 390x734'te görünür ve ekran içinde.
 
 ---
 

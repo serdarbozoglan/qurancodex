@@ -29,7 +29,7 @@ const HELAK_COLORS = {
   ruzgar:   '#93c5fd',
   su:       COLORS.skyBlue,
   ses:      COLORS.purple,
-  sarsinti: '#f39c12',
+  sarsinti: COLORS.amberWarm,
   // 14 Ağustos: tas/deniz/mesh/batirma metin olarak AA'yı geçmiyordu (1.a0785a
   // 4.14, 1a5276 2.04, 8e44ad 2.86, c0392b 3.11) — aynı ton ailesi korunarak
   // açıldı. batirma, KiyametSahneleri faz 1'le aynı orijinal renk (c0392b)
@@ -1700,11 +1700,11 @@ const HELAK_TYPES_TR = [
   { type: 'su',       label: 'Su / Tufan',            color: COLORS.skyBlue, nations: ['Nuh Kavmi', 'Sebe Kavmi'] },
   { type: 'deniz',    label: 'Deniz (Boğulma)',        color: '#1a5276', nations: ['Firavun Kavmi'] },
   { type: 'ses',      label: 'Ses: Saika/Sayha',      color: COLORS.purple, nations: ['Semûd'] },
-  { type: 'sarsinti', label: 'Sarsıntı: Rajfa',       color: '#f39c12', nations: ['Medyen'] },
+  { type: 'sarsinti', label: 'Sarsıntı: Rajfa',       color: COLORS.amberWarm, nations: ['Medyen'] },
   { type: 'ruzgar',   label: 'Rüzgar',                 color: COLORS.silver, nations: ['Âd'] },
   { type: 'tas',      label: 'Taş / Alt-Üst',          color: '#a0785a', nations: ['Lût Kavmi'] },
   { type: 'golge',    label: 'Gölge Azabı',            color: COLORS.btnGoldMid, nations: ['Eyke Halkı'] },
-  { type: 'batirma',  label: 'Yere Batırma',           color: '#c0392b', nations: ['Karun (bireysel)'] },
+  { type: 'batirma',  label: 'Yere Batırma',           color: COLORS.redDeep, nations: ['Karun (bireysel)'] },
   { type: 'ates',     label: 'Ateş Çukuru',            color: '#ff6348', nations: ['Ashâb-ı Uhdud'] },
   { type: 'mesh',     label: 'Mesh (Dönüşüm)',         color: '#8e44ad', nations: ['Ashâb-ı Sebt'] },
 ];
@@ -1712,11 +1712,11 @@ const HELAK_TYPES_EN = [
   { type: 'su',       label: 'Water / Flood',          color: COLORS.skyBlue, nations: ["People of Noah", "People of Sheba"] },
   { type: 'deniz',    label: 'Sea (Drowning)',          color: '#1a5276', nations: ["People of Pharaoh"] },
   { type: 'ses',      label: 'Sound: Saika/Sayha',     color: COLORS.purple, nations: ["Thamud"] },
-  { type: 'sarsinti', label: 'Earthquake: Rajfa',      color: '#f39c12', nations: ["Midian"] },
+  { type: 'sarsinti', label: 'Earthquake: Rajfa',      color: COLORS.amberWarm, nations: ["Midian"] },
   { type: 'ruzgar',   label: 'Wind',                    color: COLORS.silver, nations: ["ʿAd"] },
   { type: 'tas',      label: 'Stones / Overturned',     color: '#a0785a', nations: ["People of Lot"] },
   { type: 'golge',    label: 'Shade Punishment',        color: COLORS.btnGoldMid, nations: ["Companions of the Grove"] },
-  { type: 'batirma',  label: 'Swallowed by Earth',      color: '#c0392b', nations: ["Qarun (individual)"] },
+  { type: 'batirma',  label: 'Swallowed by Earth',      color: COLORS.redDeep, nations: ["Qarun (individual)"] },
   { type: 'ates',     label: 'Fire Pit',                color: '#ff6348', nations: ["Companions of the Pit"] },
   { type: 'mesh',     label: 'Metamorphosis',           color: '#8e44ad', nations: ["People of the Sabbath"] },
 ];

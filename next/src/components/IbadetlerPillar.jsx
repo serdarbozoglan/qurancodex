@@ -575,7 +575,7 @@ const CATEGORY_STYLES = {
   'core-name':   { color: COLORS.gold, labelTr: 'Ana İsim',       labelEn: 'Core Name' },
   'action':      { color: COLORS.color, labelTr: 'Eylem',          labelEn: 'Action' },
   'state':       { color: '#a855f7', labelTr: 'Hâl',            labelEn: 'State' },
-  'inner-state': { color: '#8b5cf6', labelTr: 'İç Hâl',         labelEn: 'Inner State' },
+  'inner-state': { color: COLORS.violetAccent, labelTr: 'İç Hâl',         labelEn: 'Inner State' },
   'time':        { color: COLORS.skyBlue, labelTr: 'Vakit',          labelEn: 'Time' },
   'concept':     { color: COLORS.silver, labelTr: 'Kavram',         labelEn: 'Concept' },
   'purpose':     { color: COLORS.goldBright, labelTr: 'Amaç',           labelEn: 'Purpose' },

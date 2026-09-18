@@ -70,7 +70,7 @@ export default function MukattaaReading() {
             {
               et: tr ? 'Okunmaz' : 'Not read as',
               ar: 'الم', okunus: 'elem',
-              renk: '#e07a7a', cizik: true,
+              renk: COLORS.coralSoft, cizik: true,
               not: tr ? 'bir kelime gibi' : 'as though a word',
             },
             {

@@ -53,15 +53,15 @@ const WORD_COLORS_DAY = [
   '#d97706', // amber-600  (yellow-gold)
   '#1d4ed8', // blue-700
   '#15803d', // green-700
-  '#dc2626', // red-600
+  COLORS.red600, // red-600
   '#7c3aed', // violet-700
 ];
 const WORD_COLORS_NIGHT = [
-  '#fbbf24', // amber-400
+  COLORS.amber400, // amber-400
   COLORS.idgam, // blue-400
-  '#34d399', // emerald-400
+  COLORS.emerald400, // emerald-400
   '#d8b4fe', // violet-300  (lighter than 400 — better contrast on dark bg)
-  '#fb923c', // orange-400
+  COLORS.orange400, // orange-400
 ];
 
 function getColors(dayMode) {
