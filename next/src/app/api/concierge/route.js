@@ -59,14 +59,30 @@ function buildDegradedResult(grouped, lang, reason) {
   //   3. Kaybedileni söylüyordu, VERİLENİ değil. Oysa degrade modda âyetler
   //      hâlâ gerçek arama sonucudur; eksik olan yalnız yorum/giriş metni —
   //      ki sitenin kendi duruşu zaten "sistem yorum katmaz, rehberlik eder".
+  // ⚠ "Arama tam çalışıyor" cümlesi HER DURUMDA DOĞRU DEĞİL. 2026-09-18'de
+  // üretimde ölçüldü: gömülü arama sağlayıcısı kotaya takılınca (`reason ===
+  // 'embed_unavailable'`) anlam araması kapanıyor ve sonuçlar YALNIZ anahtar
+  // kelime eşleşmesinden geliyor; o hâlde "tam çalışıyor" demek okuyucuyu
+  // yanıltır. Sitenin duruşu dürüstlük olduğu için her sebebin kendi cümlesi
+  // var. Uzun tire de kaldırıldı (§13.34).
   const personal = reason === 'ip';
-  out.intro = lang === 'tr'
-    ? (personal
-        ? 'Bugünlük rehber notların tamamlandı — aşağıdakiler doğrudan âyet ve içerik eşleşmeleri. Arama tam çalışıyor; yalnız yorum katmanı yarın yenileniyor.'
-        : 'Rehber notları şu an yoğunluk nedeniyle kapalı — aşağıdakiler doğrudan âyet ve içerik eşleşmeleri. Arama tam çalışıyor.')
-    : (personal
-        ? "You've used today's guided notes — the results below are direct verse and content matches. Search is fully working; the commentary layer refreshes tomorrow."
-        : 'Guided notes are paused due to load — the results below are direct verse and content matches. Search is fully working.');
+  const embedDown = reason === 'embed_unavailable';
+  const tr = lang === 'tr';
+  // Astra turu (2026-09-18): "yorum katmanı" geliştirici jargonuydu, her yerde
+  // "rehber notları" kullanılıyor; "tamamlandı" kotayı anlatmıyordu, "hakkını
+  // kullandın" oldu; "yarın yenilenir" bir VAAT olduğu için kaldırıldı;
+  // "doğrudan eşleşmeler" belirsizdi. Hitap her cümlede aynı (siz).
+  out.intro = embedDown
+    ? (tr
+        ? 'Anlam araması şu an kapalı; aşağıda aramanızla kelime olarak eşleşen âyetler ve içerikler var. Rehber notları da bu sırada çalışmıyor.'
+        : 'Semantic search is off right now; below are the verses and content that match your words. Guided notes are paused as well.')
+    : personal
+      ? (tr
+          ? 'Bugünlük rehber notu hakkınızı kullandınız. Aşağıda aramanızla eşleşen âyetler ve içerikler yer alıyor.'
+          : "You've reached your daily limit for guided notes. Below are the verses and content matching your search.")
+      : (tr
+          ? 'Rehber notları şu an kapalı. Aşağıda aramanızla eşleşen âyetler ve içerikler yer alıyor.'
+          : 'Guided notes are paused right now. Below are the verses and content matching your search.');
   return out;
 }
 
