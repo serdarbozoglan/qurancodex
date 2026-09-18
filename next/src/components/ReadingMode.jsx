@@ -2057,6 +2057,48 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return verses.filter(v => v.surah === selectedSurah).sort((a, b) => a.ayah - b.ayah);
   }, [verses, selectedSurah]);
 
+  // ── Âyet modunda SÛRE BİTİNCE AKIŞ DEVAM EDER (2026-09-18) ───────────────
+  // Kullanıcı: "âyet modunda özellikle son sûrelerde bir sayfada sadece tek
+  // sûre görünüyor, diğerleri aynı sayfada olmasına rağmen yok."
+  // Sebep tasarım farkıydı: Kitap modu SAYFA merkezli (bir mushaf sayfasındaki
+  // tüm sûreleri gösterir), Âyet modu SÛRE merkezli. Son cüzde her sayfa 2-3
+  // sûre taşıdığı için (599: Zilzâl+Âdiyât, 604: İhlâs+Felak+Nâs) okuma
+  // sûrenin sonunda kesiliyordu.
+  // Çözüm: sûrenin sonuna gelince sonraki sûre(ler) aynı akışa eklenir, tıpkı
+  // mushafta olduğu gibi. TEMBEL: başlangıçta hiçbiri eklenmez; okuyucu sona
+  // yaklaşınca (sentinel görünür olunca) bir sonraki eklenir. Böylece uzun
+  // sûrelerde (Bakara 286 âyet) DOM'a peşinen yük binmez.
+  const [flowCount, setFlowCount] = useState(0);
+  useEffect(() => { setFlowCount(0); }, [selectedSurah, bookMode]);
+  const flowVerses = useMemo(() => {
+    if (bookMode || flowCount < 1 || !verses) return surahVerses;
+    const out = [...surahVerses];
+    // Sinir SURE SAYISI degil SATIR BUTCESI: son cuzde sureler kisa, okuma
+    // onlarca sure boyunca akabilmeli; uzun surelerde ise DOM sismemeli.
+    for (let i = 1; i <= flowCount; i++) {
+      const sn = selectedSurah + i;
+      if (sn > 114 || out.length > 500) break;
+      out.push(...verses.filter(v => v.surah === sn).sort((a, b) => a.ayah - b.ayah));
+    }
+    return out;
+  }, [bookMode, flowCount, verses, surahVerses, selectedSurah]);
+  const flowEndRef = useRef(null);
+  useEffect(() => {
+    if (bookMode) return;
+    const el = flowEndRef.current;
+    if (!el || selectedSurah + flowCount >= 114) return;
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) setFlowCount(c => c + 1);
+      // Kok GORUNUM ALANI (null). containerRef masaustunde kaydiran ogedir ama
+      // mobilde kaydirma pencerede oluyor; kok yanlis kapsayiciya baglaninca
+      // gozlemci hic tetiklenmiyordu (390px'te olculdu: akis hic uzamadi).
+      // Kok gorunum alani olunca ikisi de calisir: kapsayici icinde kaydirilan
+      // oge de gorunum alanina gore hareket eder.
+    }, { root: null, rootMargin: '600px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [bookMode, flowCount, selectedSurah, flowVerses.length]);
+
   // ── Concierge deep-link: read ?ayah=N and jump to that verse.
   // Runs once per (surah, ?ayah) combination. Reuses existing activeVerse
   // machinery for page-jump + scrollIntoView; adds landedVerseId for the
@@ -9878,16 +9920,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </div>
               );
             })()}
-            {surahVerses.map((verse, verseIdx) => {
+            {flowVerses.map((verse, verseIdx) => {
+              // Sûre değiştiyse araya o sûrenin başlığı girer (akış mushaftaki
+              // gibi devam etsin). İlk öge için başlık YOK — onu yukarıdaki
+              // açılış kartı zaten çiziyor.
+              const startsNewSurah = verseIdx > 0 && verse.surah !== flowVerses[verseIdx - 1].surah;
+              // Mushaf sayfa siniri akista da gorunur (kullanici 2026-09-18:
+              // "o ayet hangi sayfada ise yine yazsin ustunde"). Ust cubuktaki
+              // canli "S. N" gostergesi kalir; bu, akisin icindeki karsiligi.
+              const startsNewPage = verseIdx > 0 && !startsNewSurah
+                && verse.page != null && verse.page !== flowVerses[verseIdx - 1].page;
               const vt = getTranslation(verse);
               const isActive = activeVerse?.id === verse.id;
                       const isLanded = landedVerseId === verse.id;
               const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
-              return (
+              const verseRow = (
                 <div className="mq-box"
                   key={verse.id}
                   id={`rm-verse-${verse.id}`}
                   data-rm-page={verse.page}
+                  data-rm-surah={verse.surah}
                   onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                   style={{
                     display: isMobile && showTranslation ? 'flex' : 'grid',
@@ -10255,7 +10307,68 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
                 </div>
               );
+              if (startsNewPage) {
+                return (
+                  <Fragment key={`pg-${verse.id}`}>
+                    <div aria-hidden="true" style={{
+                      gridColumn: '1 / -1', display: 'flex', alignItems: 'center',
+                      gap: '10px', margin: '18px 0 14px',
+                      color: dayMode ? 'rgba(26,14,0,0.45)' : SEMANTIC.textFaint,
+                      fontFamily: FONTS.body, fontSize: '0.58rem',
+                      letterSpacing: '0.22em', textTransform: 'uppercase',
+                    }}>
+                      <span style={{ flex: 1, height: '1px', background: dayMode ? 'rgba(26,14,0,0.12)' : COLORS.glassBorderSoft }} />
+                      <span style={{ whiteSpace: 'nowrap' }}>
+                        {language === 'tr' ? `Sayfa ${verse.page}` : `Page ${verse.page}`}
+                      </span>
+                      <span style={{ flex: 1, height: '1px', background: dayMode ? 'rgba(26,14,0,0.12)' : COLORS.glassBorderSoft }} />
+                    </div>
+                    {verseRow}
+                  </Fragment>
+                );
+              }
+              if (!startsNewSurah) return verseRow;
+              const nsn = verse.surah;
+              return (
+                <Fragment key={`flow-${nsn}`}>
+                  {/* Sonraki sûrenin başlığı — akış kesilmesin diye satır
+                      içinde. Tevbe (9) besmelesizdir; Fâtiha'da besmele
+                      zaten 1. âyettir. */}
+                  <div style={{
+                    gridColumn: '1 / -1', textAlign: 'center',
+                    margin: '38px 0 22px', paddingTop: '26px',
+                    borderTop: `1px solid ${dayMode ? 'rgba(26,14,0,0.12)' : COLORS.glassBorderSoft}`,
+                  }}>
+                    <div style={{
+                      fontFamily: FONTS.body, fontSize: '0.62rem', letterSpacing: '0.24em',
+                      textTransform: 'uppercase', color: dayMode ? 'rgba(26,14,0,0.55)' : SEMANTIC.textFaint,
+                      marginBottom: '8px',
+                    }}>
+                      {language === 'tr' ? `${nsn}. Sûre` : `Surah ${nsn}`}
+                    </div>
+                    <div style={{
+                      fontFamily: currentFont, fontSize: '1.55rem', lineHeight: 1.6,
+                      color: dayMode ? COLORS.paperInk : gold,
+                    }} dir="rtl" lang="ar">{SURAH_NAMES_AR[nsn - 1]}</div>
+                    <div style={{
+                      fontFamily: FONTS.display, fontSize: '1rem', marginTop: '2px',
+                      color: dayMode ? 'rgba(26,14,0,0.75)' : COLORS.offWhite,
+                    }}>{language === 'tr' ? SURAH_NAMES_TR[nsn - 1] : SURAH_NAMES_EN[nsn - 1]}</div>
+                    {nsn !== 9 && nsn !== 1 && (
+                      <div style={{
+                        fontFamily: currentFont, fontSize: '1.15rem', lineHeight: 2,
+                        marginTop: '10px', color: dayMode ? COLORS.paperInk : gold,
+                      }} dir="rtl" lang="ar">{BISMILLAH_AR}</div>
+                    )}
+                  </div>
+                  {verseRow}
+                </Fragment>
+              );
             })}
+            {/* Akışın sonu — görünür olunca bir sonraki sûre eklenir. */}
+            {!bookMode && selectedSurah + flowCount < 114 && (
+              <div ref={flowEndRef} aria-hidden="true" style={{ gridColumn: '1 / -1', height: '1px' }} />
+            )}
           </div>
           )
         ))}
