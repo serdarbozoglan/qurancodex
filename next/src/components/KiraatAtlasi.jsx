@@ -11,6 +11,7 @@ import {
 import ToolHeader from './ToolHeader';
 import { ToolTabGlow } from './ToolTabGlow';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
@@ -373,6 +374,43 @@ function ReaderCard({ reader, isMobile, language, isHighlighted }) {
       <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 6px' }}>
         <span style={{ color: COLORS.offWhite }}>{language === 'tr' ? 'Senedin ulaştığı sahâbî:' : 'Chain reaches back to:'}</span> {reader.sahabi}
       </p>
+      {/* Sened zinciri — YALNIZ kaynağı bizzat açılıp okunmuş imamlarda var.
+          Üçünde (Nâfi', Ebû Amr, Âsım) el-Bâz'ın Mebâhis'inde isimlendirilmiş
+          zincir bulundu; kalan yedisinde kaynak taraması bitmediği için blok
+          hiç render edilmez — tarik verisinde olduğu gibi UYDURULMUYOR.
+          NOT (astra, 2026-09-18): el-Bâz derleme bir eser; "birincil kaynak"
+          diye nitelendirilmiyor, künye ona nispet ediliyor. Kartta kısa künye,
+          sekme sonundaki kaynak bloğunda tam ad ve nüsha bilgisi. */}
+      {reader.chainTr && (
+        <div style={{
+          margin: '0 0 8px', padding: '8px 10px', borderRadius: 8,
+          background: color + '0d', borderLeft: `2px solid ${color}55`,
+        }}>
+          <p style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+            <span style={{ color: COLORS.offWhite }}>{language === 'tr' ? 'Sened zinciri:' : 'Chain of transmission:'}</span>{' '}
+            {language === 'tr' ? reader.chainTr : reader.chainEn}
+          </p>
+          {/* Kaynak künyesi textMuted kademesinde: bu blok tonlu bir zemin
+              üstünde ve §13.26'ya göre textFaint yükseltilmiş zeminde AA'yı
+              kırıyor. Bir kademe yukarı çıkıldı. */}
+          <p style={{ fontSize: '0.7rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic', margin: '5px 0 0' }}>
+            {language === 'tr' ? reader.chainSrcTr : reader.chainSrcEn}
+            {reader.chainUrl && (
+              <>
+                {' '}
+                <a
+                  href={reader.chainUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color, textDecoration: 'underline', textUnderlineOffset: 2, fontStyle: 'normal' }}
+                >
+                  {language === 'tr' ? 'kaynağı aç' : 'open source'}
+                </a>
+              </>
+            )}
+          </p>
+        </div>
+      )}
       {/* Note */}
       <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.5, margin: '0 0 5px' }}>
         {reader.note}
@@ -436,17 +474,21 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
           hakem turunda yakalandı: İbn Kesîr'in Abdullah b. es-Sâib'den,
           Ebû Ca'fer'in sahâbîlerden okuduğu nakledilir. Not artık genelleme
           yapmıyor, yalnızca şemanın kısaltma olduğunu söylüyor.
-          AÇIK KALAN: hakem ikinci turda Âsım, Nâfi' ve Ebû Amr zincirlerinin
-          her birinin kaynağıyla ayrı ayrı açıklanmasını istedi. Bu veri elde
-          doğrulanmış hâlde yok; tarik verisinde olduğu gibi UYDURULMADI.
-          Eklenecekse İbnü'l-Cezerî, en-Neşr'den birincil doğrulamayla girer. */}
+          2026-09-18: hakemin ikinci turda istediği üç zincir (Nâfi', Ebû Amr,
+          Âsım) artık imam kartında kaynağıyla duruyor. Kaynak: Muhammed Abbâs
+          el-Bâz, Mebâhis fî ilmi'l-kırâât, s. 63 / 65 / 67 (shamela.ws, kitap
+          38039); Âsım zinciri ed-Dânî'nin et-Teysîr'i s. 90 ile karşılaştırıldı
+          ve örtüştü. Kalan yedi imamın zinciri hâlâ birincil kaynaktan
+          doğrulanmadı, o yüzden YAZILMADI — tarik verisinde olduğu gibi
+          uydurulmuyor; bulunduğunda aynı üç alanla (chainTr/chainEn/chainSrc)
+          eklenir. */}
       <p style={{
         fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.silver,
         lineHeight: 1.6, margin: '-8px 0 24px', maxWidth: 760,
       }}>
         {language === 'tr'
-          ? 'Şema üç düzeyi ayrı gösterir: kıraat imamı, onun râvîsi ve imamın senedinin ulaştığı sahâbî. Çizgiler tam isnadı göstermez, özetler: sahâbî ile imam arasındaki aracı hocalar burada kısaltılmıştır. Kimi imamın bir sahâbîden doğrudan okuduğu nakledilir (İbn Kesîr ile Abdullah b. es-Sâib gibi), kimi imamın senedi ise tâbiîn kuşakları üzerinden uzanır; her imamın kendi kaynaklarındaki zinciri ayrıdır. Râvînin altında zincir tarik adı verilen kollarla sürer; bu katman şemada gösterilmiyor.'
-          : 'The diagram keeps three levels apart: the qirāʾa imam, his rāwī, and the Companion his chain reaches back to. The lines do not show the full isnād; they summarise it, and the intermediate teachers between the Companion and the imam are compressed here. Some imams are reported to have read directly to a Companion (Ibn Kathīr to ʿAbdallāh b. al-Sāʾib, for instance), while other chains run through generations of tābiʿūn; each imam has his own chain in the sources. Below the rāwī the chain continues in branches called ṭuruq (sing. ṭarīq); that layer is not drawn here.'}
+          ? 'Şema üç düzeyi ayrı gösterir: kıraat imamı, onun râvîsi ve imamın senedinin ulaştığı sahâbî. Çizgiler tam isnadı göstermez, özetler: sahâbî ile imam arasındaki aracı hocalar burada kısaltılmıştır. Kimi imamın bir sahâbîden doğrudan okuduğu nakledilir (İbn Kesîr ile Abdullah b. es-Sâib gibi), kimi imamın senedi ise tâbiîn kuşakları üzerinden uzanır; her imamın kendi kaynaklarındaki zinciri ayrıdır. Aşağıdaki kartlarda Nâfi\', Ebû Amr ve Âsım\'ın sened bağlantıları, belirtilen kaynaklara dayanılarak özetlenmiştir; diğer yedi imam için kaynak kontrolü henüz tamamlanmadığından sened özeti verilmemiştir. Bu sunum farkı, kıraatlerin sıhhati bakımından bir derecelendirme değildir. Râvînin altında zincir tarik adı verilen kollarla sürer; bu katman şemada gösterilmiyor.'
+          : 'The diagram keeps three levels apart: the qirāʾa imam, his rāwī, and the Companion his chain reaches back to. The lines do not show the full isnād; they summarise it, and the intermediate teachers between the Companion and the imam are compressed here. Some imams are reported to have read directly to a Companion (Ibn Kathīr to ʿAbdallāh b. al-Sāʾib, for instance), while other chains run through generations of tābiʿūn; each imam has his own chain in the sources. The cards below summarise the chains of transmission for Nāfiʿ, Abū ʿAmr and ʿĀṣim, based on the cited sources; summaries for the other seven imams are not included yet because the source review is incomplete. This difference in coverage does not imply any ranking of the readings\' authenticity. Below the rāwī the chain continues in branches called ṭuruq (sing. ṭarīq); that layer is not drawn here.'}
       </p>
 
       <div className="g-1-2" style={{
@@ -463,6 +505,46 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
             />
           </div>
         ))}
+      </div>
+
+      {/* Sened zincirlerinin künyesi: kartta kısa hâli duruyor, tam ad ve
+          kullanılan nüsha burada (astra, 2026-09-18: "kartta kısa künye
+          kalabilir, kaynakçada eserin tam adı ve nüsha bilgisi bulunmalı").
+          Üç bağlantı da bizzat açılıp ilgili sayfa okunduktan sonra yazıldı
+          (§13.35 Kural 3: tahmini link yayına girmez). */}
+      <div style={{ marginTop: 28 }}>
+        <SourcesCitation
+          language={language}
+          sources={[
+            {
+              author: 'Muhammed Abbâs el-Bâz',
+              workTr: "Mebâhis fî ilmi'l-kırâât maa beyâni usûli rivâyeti Hafs",
+              workEn: 'Mabāḥith fī ʿilm al-Qirāʾāt maʿa Bayān Uṣūl Riwāyat Ḥafṣ',
+              period: 'shamela.ws dijital nüshası',
+              noteTr: "Nâfi' (s. 63), Ebû Amr (s. 65) ve Âsım (s. 67) için kartlarda özetlenen sened bağlantılarının kaynağı.",
+              noteEn: 'Source of the chains summarised in the cards for Nāfiʿ (p. 63), Abū ʿAmr (p. 65) and ʿĀṣim (p. 67).',
+              url: 'https://shamela.ws/book/38039',
+            },
+            {
+              author: 'Ebû Amr ed-Dânî',
+              workTr: "et-Teysîr fi'l-kırââti's-seb'",
+              workEn: 'al-Taysīr fī al-Qirāʾāt al-Sabʿ',
+              period: '981-1053 (Kurtuba, Dâniye)',
+              noteTr: "Âsım'ın üç hocası için karşılaştırma kaynağı (s. 90). Kartta yalnız bu kapsam için anılıyor.",
+              noteEn: "Cross-check for ʿĀṣim's three teachers (p. 90). Cited in the card for that scope only.",
+              url: 'https://shamela.ws/book/147812',
+            },
+            {
+              author: "İbnü'l-Cezerî",
+              workTr: "en-Neşr fi'l-kırââti'l-aşr",
+              workEn: 'al-Nashr fī al-Qirāʾāt al-ʿAshr',
+              period: '1350-1429 (Şam, Şîraz)',
+              noteTr: 'On kıraatin ve râvî tariklerinin klasik ana kaynağı; bu sekmedeki râvî ve tarik bilgisi buna dayanır.',
+              noteEn: 'The classical reference for the ten readings and the rāwī ṭuruq; the transmitter data in this tab rests on it.',
+              url: 'https://shamela.ws/book/22642',
+            },
+          ]}
+        />
       </div>
     </div>
   );

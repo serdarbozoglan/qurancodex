@@ -11,7 +11,12 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": "Mâlikî",
       "note": "Medine ekolünün kurucusu. Öğrencisi Verş aracılığıyla Kuzey Afrika'da yaşamaya devam ediyor.",
-      "usedIn": "Cezayir, Fas, Batı Afrika"
+      "usedIn": "Cezayir, Fas, Batı Afrika",
+      "chainTr": "El-Bâz'ın aktardığına göre Nâfi', tâbiîn neslinden yetmiş hocaya Kur'an okudu; aralarında Yezîd b. el-Ka'kâ' (Ebû Ca'fer), Şeybe b. Nisâh ve Abdurrahman b. Hürmüz el-A'rec vardır. Onların senedi Abdullah b. Abbâs ve Übeyy b. Ka'b üzerinden Hz. Peygamber'e ulaşır.",
+      "chainEn": "According to al-Bāz, Nāfiʿ recited the Qur'an to seventy teachers of the Successor generation, among them Yazīd b. al-Qaʿqāʿ (Abū Jaʿfar), Shayba b. Niṣāḥ and ʿAbd al-Raḥmān b. Hurmuz al-Aʿraj. Their chain runs through ʿAbdallāh b. ʿAbbās and Ubayy b. Kaʿb to the Prophet.",
+      "chainSrcTr": "Muhammed Abbâs el-Bâz, Mebâhis fî ilmi'l-kırâât, s. 63",
+      "chainSrcEn": "Muḥammad ʿAbbās al-Bāz, Mabāḥith fī ʿilm al-Qirāʾāt, p. 63",
+      "chainUrl": "https://shamela.ws/book/38039/55"
     },
     {
       "id": "ibn-kesir",
@@ -37,7 +42,12 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": null,
       "note": "Basra ekolünün en güçlü temsilcisi. İdgam uygulamalarıyla tanınır.",
-      "usedIn": "Sudan, Somali, Doğu Afrika (ed-Dûrî rivayeti)"
+      "usedIn": "Sudan, Somali, Doğu Afrika (ed-Dûrî rivayeti)",
+      "chainTr": "Ebû Amr, Hicaz ve Irak'ta tâbiîn neslinden bir topluluğa Kur'an okudu; aralarında kıraat imamı İbn Kesîr el-Mekkî, Mücâhid ve Saîd b. Cübeyr vardır. Onların senedi Abdullah b. Abbâs ve Übeyy b. Ka'b üzerinden Hz. Peygamber'e ulaşır.",
+      "chainEn": "Abū ʿAmr recited the Qur'an to a group of the Successor generation in the Hijaz and Iraq, among them the recitation imam Ibn Kathīr al-Makkī, Mujāhid and Saʿīd b. Jubayr. Their chain runs through ʿAbdallāh b. ʿAbbās and Ubayy b. Kaʿb to the Prophet.",
+      "chainSrcTr": "Muhammed Abbâs el-Bâz, Mebâhis fî ilmi'l-kırâât, s. 65",
+      "chainSrcEn": "Muḥammad ʿAbbās al-Bāz, Mabāḥith fī ʿilm al-Qirāʾāt, p. 65",
+      "chainUrl": "https://shamela.ws/book/38039/57"
     },
     {
       "id": "ibn-amir",
@@ -63,7 +73,12 @@
       "sahabi": "Übeyy b. Kaʿb",
       "madhab": "Hanefî",
       "note": "Öğrencisi Hafs aracılığıyla dünya genelinde en yaygın kıraat imamı haline geldi.",
-      "usedIn": "Türkiye, Mısır, Körfez, Güney Asya, Güneydoğu Asya (~%95 dünya)"
+      "usedIn": "Türkiye, Mısır, Körfez, Güney Asya, Güneydoğu Asya (~%95 dünya)",
+      "chainTr": "Âsım, Ebû Abdurrahman es-Sülemî, Zir b. Hubeyş el-Esedî ve Sa'd b. İlyâs eş-Şeybânî'ye (Ebû Amr eş-Şeybânî) Kur'an okudu. Üçü de Abdullah b. Mes'ûd'a okumuştu; es-Sülemî ile Zir ayrıca Osman b. Affân ve Ali b. Ebî Tâlib'e, es-Sülemî ayrıca Übeyy b. Ka'b ve Zeyd b. Sâbit'e okudu. Bu sahâbîlerin hepsi Hz. Peygamber'e Kur'an okudu.",
+      "chainEn": "ʿĀṣim recited the Qur'an to Abū ʿAbd al-Raḥmān al-Sulamī, Zirr b. Ḥubaysh al-Asadī and Saʿd b. Ilyās al-Shaybānī (Abū ʿAmr al-Shaybānī). All three had read to ʿAbdallāh b. Masʿūd; al-Sulamī and Zirr also read to ʿUthmān b. ʿAffān and ʿAlī b. Abī Ṭālib, and al-Sulamī also to Ubayy b. Kaʿb and Zayd b. Thābit. All these Companions recited the Qur'an to the Prophet.",
+      "chainSrcTr": "Muhammed Abbâs el-Bâz, Mebâhis fî ilmi'l-kırâât, s. 67. Âsım'ın hocaları için ayrıca bk. ed-Dânî, et-Teysîr, s. 90.",
+      "chainSrcEn": "Muḥammad ʿAbbās al-Bāz, Mabāḥith fī ʿilm al-Qirāʾāt, p. 67. For ʿĀṣim's teachers see also al-Dānī, al-Taysīr, p. 90.",
+      "chainUrl": "https://shamela.ws/book/38039/59"
     },
     {
       "id": "hamza",
