@@ -75,3 +75,7 @@ check-*.mjs
 
 # Playwright artifacts (repo kökünde de oluşabiliyor)
 test-results/
+
+# Güvenlik tarayıcısının yerel raporu — sızıntı eşleşmelerinin bir kısmını
+# metin olarak taşır, herkese açık repoya girmemeli.
+security/
