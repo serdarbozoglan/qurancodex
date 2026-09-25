@@ -66,7 +66,18 @@ const makeWaqfSpan = (dayMode) => (m) =>
 // strip listesinden çıkarıldı ama kırmızı renklendirme denenmedi — combining mark olduğu
 // için span sarma konumunu bozuyor, text-shadow da çalışmıyor. Doğal konumunda, metnin
 // varsayılan renginde gösteriliyor.
-const UTHMANI_MARKS_RE = /[\u06D6-\u06DA\u06DF\u06E2\u0615]\u06DB?/gu;
+// Muânaka (kucaklaşan vakıf) noktası U+06DB, bu sınıftaki bir işaretin ARKASINDAN
+// gelirse yakalanıyor — 97:4'ün sonundaki `اَمْرٍۙۛ` böyle çalışıyor. Ama dört yerde
+// (26:209, 40:70, 48:29, 97:5) kaynak veri noktadan önce U+06E0 (dikdörtgen sıfır)
+// taşıyor; U+06E0 sınıfta olmadığı için İKİSİ de kaldırılmıyor ve ham combining mark
+// olarak harfin harekesine biniyordu. Kullanıcı 97:5'te ekran görüntüsüyle bildirdi
+// (2026-09-24): `سَلَامٌ`ın mîmi üzerinde dammatan + dikdörtgen sıfır + üç nokta
+// okunmaz bir yumak oluyordu. Yazı tipiyle ölçüldü: bu işaretler satır içinde hiçbir
+// kombinasyonda düzgün dizilmiyor, overlay'e çıkmaları ŞART.
+// `\u06E0\u06DB` seçeneği yalnız ÇİFT hâlinde eşleşir; tek başına duran U+06E0
+// (klasik yeri: son elifin üstü — `اَنَا۠`, `الظُّنُونَا۠`, korpusta 20 yer) kendi
+// doğal konumunda kalır, waqf overlay'ine çıkmaz.
+const UTHMANI_MARKS_RE = /\u06E0\u06DB|[\u06D6-\u06DA\u06DF\u06E2\u0615]\u06DB?/gu;
 
 // U+06DC (ARABIC SMALL HIGH SEEN) — King Fahd / acikkuran.com encoding'inde
 // vakıf-mutlak (ط) pozisyonlarını işaretler. Fontlar Unicode standardına göre
@@ -380,7 +391,8 @@ function applyTajweed(text, dayMode, _compact = false, skipAllahColor = false) {
     // creates a false positive on plural pronouns like "لَهُمْ مِنْ" — the gunne
     // wrap on مْ contains base م, which lets the lookahead skip past it and
     // mis-match هُ as singular zamir followed by the next word's voweled letter.
-    const WAQF_SPAN_CONTENT = '\\u06D6-\\u06DC\\u06DF\\u0615\\u06DB';
+    // U+06E0 eklendi: artık muânaka çiftinin (`۠ۛ`) içinde waqf span'ına girebiliyor.
+    const WAQF_SPAN_CONTENT = '\\u06D6-\\u06DC\\u06DF\\u0615\\u06DB\\u06E0';
     // \\s+ (mandatory whitespace before next BASE) enforces that ه is at WORD
     // END. Without this, plural pronouns in mid-word like "لَهُمُ ٱتَّقُوا" or
     // "لَهُمْ مِنْ" would mis-match: lookahead would see "مُ"/"مِ" as the next
