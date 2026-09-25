@@ -75,8 +75,15 @@ const makeWaqfSpan = (dayMode) => (m) =>
 // okunmaz bir yumak oluyordu. Yazı tipiyle ölçüldü: bu işaretler satır içinde hiçbir
 // kombinasyonda düzgün dizilmiyor, overlay'e çıkmaları ŞART.
 // `\u06E0\u06DB` seçeneği yalnız ÇİFT hâlinde eşleşir; tek başına duran U+06E0
-// (klasik yeri: son elifin üstü — `اَنَا۠`, `الظُّنُونَا۠`, korpusta 20 yer) kendi
-// doğal konumunda kalır, waqf overlay'ine çıkmaz.
+// (korpusta 65 yer daha) kendi doğal konumunda kalır, waqf overlay'ine çıkmaz.
+// U+06E0'ın bu dört yerde kaynak mushafa uygun olup olmadığı DOĞRULANMADI, o
+// yüzden veriye dokunulmadı — yalnız çakışma giderildi. Hakem (gpt-6-astra,
+// 2026-09-24) iki noktayı ayrıca uyardı: (1) elif üstünde duran U+06E0'ları
+// "klasik doğru kullanım" diye sınıflamak erken — ör. `فَانْطَلَقَا`nın elifi
+// vasılda düşen elif değil, tesniye elifi; (2) karşılaştırma yapılan iki metin
+// (quran.com, Tanzil) kaynak bağımsızlığı gösterilmediği için "iki bağımsız
+// metin" değil, "iki karşılaştırma metni"dir. Kesin hüküm için künyesi belli bir
+// Türkçe mushaf nüshasının Kadr sayfası görülmeli.
 const UTHMANI_MARKS_RE = /\u06E0\u06DB|[\u06D6-\u06DA\u06DF\u06E2\u0615]\u06DB?/gu;
 
 // U+06DC (ARABIC SMALL HIGH SEEN) — King Fahd / acikkuran.com encoding'inde
