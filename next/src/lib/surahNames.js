@@ -101,24 +101,118 @@ export function localizeVerseRef(text, locale) {
 }
 
 // ─── Sûre adı takma adları ──────────────────────────────────────────────────
-// Halk arasında yaygın alternatif okunuşlar → resmî ad. Anahtar ve değer
-// NORMALİZE edilmiş biçimde (küçük harf, kesme/tire yok) tutulur; arama
-// tarafı sorguyu normalize ettikten sonra buradan geçirir.
+// Halk arasında yaygın alternatif adlar → SÛRE NUMARASI. Anahtar NORMALİZE
+// biçimde (küçük harf, şapkasız, kesme/tire yok; boşluk KORUNUR — arama katmanı
+// da boşluğu silmiyor). Arama tarafı sorguyu normalize edip buradan geçirir.
 //
-// Yalnız EMİN olunan eşlemeler eklenir — yanlış bir takma ad kullanıcıyı
-// sessizce başka sûreye götürür. Yeni madde eklerken kaynağı doğrula.
-// Kullanıcı isteği 2026-08-02: "Kadir" yazınca Kadr bulunsun.
-export const SURAH_NAME_ALIASES = {
-  kadir: 'kadr',
-  // "Et-Tevbe" sûresi halk arasında "Tövbe" (repentance) yazılır; normalize
-  // sonrası "tovbe"/"tobe" → kanonik "tevbe". (Kullanıcı isteği 2026-09-12.)
-  tovbe: 'tevbe',
-  tobe: 'tevbe',
+// Neden numara, neden ad değil: eskiden değer bir addı ("gafir" → "mumin") ve
+// eşleşme alt dize karşılaştırmasıyla yapıldığı için tek sûreyi hedefleyemiyordu
+// — "mumin" hem Mü'min (40) hem Mü'minûn (23) ile eşleşiyordu. Numara tek sûreye
+// bağlar. Aynı sebeple "amme" ÖNEMLİ: takma ad olmadan "muhammed" kelimesinin
+// içindeki "amme" dizisine takılıp kullanıcıyı 47. sûreye götürüyordu.
+//
+// Yalnız DOĞRULANMIŞ eşlemeler eklenir (§13.30): ya sûrenin kendi ilk âyetinden
+// (bizim kanonik metnimizden okundu), ya TDV İslâm Ansiklopedisi'nin ilgili
+// sûre maddesinden. Kaynağı olmayan ad eklenmez — yanlış bir takma ad
+// kullanıcıyı sessizce başka sûreye götürür.
+//
+// ÇAKIŞANLAR BİLEREK DIŞARIDA: bir ad birden fazla sûrenin adıysa takma ad
+// yapılmaz. Örnekler: "Mücâdele" (Mülk'ün alternatif adı ama 58'in kendi adı),
+// "Fetih" (110 için kullanılır ama 48'in kendi adı), çıplak "Kul eûzü" (hem 113
+// hem 114'ün başı), çıplak "Hâ mîm" (yedi sûre). "Elif lâm mîm secde" de
+// eklenmedi: Türkiye'de yaygın ama TDV'nin Secde maddesinde geçmiyor.
+export const SURAH_ALIASES = {
+  // ── Daha önce eklenenler (kullanıcı istekleri 2026-08-02 / 2026-09-12)
+  kadir: 97,
+  tovbe: 9, tobe: 9,
+
+  // ── Sûrenin ilk kelimeleriyle anılanlar ───────────────────────────────────
+  // Her biri kendi ilk âyetinden doğrulandı (public/verse-graph-bgem3.json).
+  elham: 1,                                    // 1:2 اَلْحَمْدُ لِلّٰهِ
+  amme: 78, 'amme yetesaelun': 78,             // 78:1 عَمَّ يَتَسَٓاءَلُونَ
+  vedduha: 93,                                 // 93:1 وَالضُّحٰى
+  'inna enzelna': 97, innaenzelna: 97,         // 97:1 اِنَّٓا اَنْزَلْنَاهُ
+  'iza zulzilet': 99, izazulzilet: 99,         // 99:1 اِذَا زُلْزِلَتِ
+  veladiyat: 100,                              // 100:1 وَالْعَادِيَاتِ
+  elhakum: 102, 'elhakumut tekasur': 102,      // 102:1 اَلْهٰيكُمُ التَّكَاثُرُ
+  velasr: 103,                                 // 103:1 وَالْعَصْرِ
+  'elem tera keyfe': 105, elemterakeyfe: 105,  // 105:1 اَلَمْ تَرَ كَيْفَ
+  ilaf: 106, 'li ilafi kureys': 106,           // 106:1 لِا۪يلَافِ قُرَيْشٍ
+  eraeyte: 107, eraeytellezi: 107,             // 107:1 اَرَاَيْتَ الَّذ۪ي
+  'inna atayna': 108, innaatayna: 108,         // 108:1 اِنَّٓا اَعْطَيْنَاكَ
+  'kul ya eyyuhel kafirun': 109,               // 109:1 قُلْ يَٓا اَيُّهَا الْكَافِرُونَ
+  'iza cae': 110, izacae: 110,                 // 110:1 اِذَا جَٓاءَ نَصْرُ اللّٰهِ
+  'kul huvallahu ehad': 112, kulhuvallah: 112, // 112:1 قُلْ هُوَ اللّٰهُ اَحَدٌ
+  'kul euzu bi rabbil felak': 113,             // 113:1 قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ
+  'kul euzu bi rabbin nas': 114,               // 114:1 قُلْ اَعُوذُ بِرَبِّ النَّاسِ
+
+  // El-Mülk — TDV, "Mülk sûresi": "Tebâreke, Mücâdele, Mânia, Münciye, Vâkıye
+  // ve Mennâa olarak da adlandırılır." (67:1 تَبَارَكَ). Yazım varyantları ve
+  // yarım yazımlar da anahtar ki kullanıcı kelimeyi bitirmeden sonuç görsün.
+  tebareke: 67, teberake: 67, tebereke: 67, tebarake: 67,
+  tebarek: 67, teberek: 67, tebarak: 67,
+
+  // El-İnşirah — TDV, "İnşirâh sûresi": "Adını 'elem neşrah leke' ifadesinden
+  // almıştır. Elem neşrah, Elem neşrah leke ve Şerh sûresi olarak da
+  // anılmaktadır." (94:1 اَلَمْ نَشْرَحْ)
+  nesrah: 94, serh: 94,
+  'elem nesrah': 94, elemnesrah: 94,
+  'elem nesrah leke': 94, elemnesrahleke: 94,
+
+  // ── Gerçek alternatif adlar (TDV İslâm Ansiklopedisi maddeleri) ───────────
+  // Et-Tevbe: "ilk kelimesi berâetten dolayı Berâe adıyla da anılmış"
+  berae: 9,
+  // El-İsrâ: "Sübhân ve İsrâiloğulları'na yer verilmesi sebebiyle Benî İsrâil
+  // sûresi olarak da adlandırılmıştır."
+  subhan: 17, 'beni israil': 17, beniisrail: 17,
+  // Es-Secde: "Medâci'", "Tenzîlü's-Secde", "Secdetü Lokmân"
+  tenzil: 32, 'tenzilus secde': 32, medaci: 32, 'secdetu lokman': 32,
+  // Fâtır: "melâike kelimesinden dolayı Melâike sûresi diye de adlandırılmıştır"
+  melaike: 35,
+  // Mü'min: "Gāfir ve Tavl sûresi olarak da adlandırılır."
+  gafir: 40, tavl: 40,
+  // Fussilet: "Hâ mîmü's-secde", "Mesâbîh sûresi", "Akvât sûresi"
+  'ha mim secde': 41, hamimsecde: 41, 'ha mimus secde': 41,
+  mesabih: 41, akvat: 41,
+  // Muhammed: "Kıtâl sûresi olarak da adlandırılır."
+  kital: 47,
+  // El-İnsân: "Dehr, Emşâc, Ebrâr ve Hel etâ adlarıyla da anılmaktadır."
+  dehr: 76, emsac: 76, ebrar: 76, 'hel eta': 76, heleta: 76,
+  // Tebbet: "sûre Mesed, Ebû Leheb ve Leheb adlarıyla da anılır."
+  mesed: 111, leheb: 111, 'ebu leheb': 111, ebuleheb: 111,
+  // El-İhlâs: "İhlâs ve aynı zamanda sûrenin ilk âyeti olan 'Kul hüvallāhü
+  // ahad' en çok kullanılanlarıdır" · ayrıca "Tevhîd, Esâs, Tecrîd, Necât ve
+  // Velâyet". Günlük kullanımda geçmeyen dördü (Esâs/Tecrîd/Necât/Velâyet)
+  // eklenmedi; gerekirse aynı maddeden eklenebilir.
+  tevhid: 112,
 };
 
-/** Normalize edilmiş sorguyu resmî ada çevirir; eşleşme yoksa aynen döner. */
+/** Normalize edilmiş sorgunun karşılığı sûre numarası; yoksa null. */
+export function surahNumberForAlias(qNorm) {
+  const n = SURAH_ALIASES[qNorm];
+  return n >= 1 && n <= 114 ? n : null;
+}
+
+// Sûre adını arama tarafının kullandığı biçime indirger: küçük harf, Türkçe
+// harfler sadeleşir, şapka/kesme/tire düşer, harf-i tarif ("El-", "Et-"…) atılır.
+function bareName(name) {
+  const norm = (name || '')
+    .toLowerCase()
+    .replace(/İ/g, 'i').replace(/I/g, 'i').replace(/ı/g, 'i')
+    .replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ç/g, 'c')
+    .replace(/ö/g, 'o').replace(/ü/g, 'u')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const m = norm.match(/^(?:el|al|er|ar|es|as|et|at|ez|az|en|an|ed|ad)-(.+)$/);
+  return (m ? m[1] : norm).replace(/['\u2019\u02bc`-]/g, '');
+}
+
+/**
+ * Normalize edilmiş sorguyu kanonik sûre adına çevirir; eşleşme yoksa aynen
+ * döner. Numara yolunu kullanamayan çağıranlar için emniyet ağı olarak durur.
+ */
 export function resolveSurahAlias(qNorm) {
-  return SURAH_NAME_ALIASES[qNorm] || qNorm;
+  const n = surahNumberForAlias(qNorm);
+  return n ? bareName(SURAH_NAMES_TR[n - 1]) : qNorm;
 }
 
 // ─── Deterministik dış kaynak linkleri (§13.35) ─────────────────────────────

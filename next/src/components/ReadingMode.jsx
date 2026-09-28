@@ -3,7 +3,7 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo, Fragment } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
-import { SURAH_NAMES_TR, SURAH_NAMES_EN, resolveSurahAlias } from '../lib/surahNames';
+import { SURAH_NAMES_TR, SURAH_NAMES_EN, resolveSurahAlias, surahNumberForAlias } from '../lib/surahNames';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
@@ -1928,7 +1928,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const tryName = (candidate) => {
       // resolveSurahAlias: yaygın alt yazımlar (ör. "tövbe"→"tovbe"→"tevbe",
       // "kadir"→"kadr") kanonik ada çevrilir.
-      const nQ = resolveSurahAlias(normalizeText(candidate));
+      const cNorm = normalizeText(candidate);
+      // Takma ad varsa doğrudan o sûre: "tebâreke 5" → Mülk 67:5.
+      const aliasNo = surahNumberForAlias(cNorm);
+      if (aliasNo) return aliasNo;
+      const nQ = resolveSurahAlias(cNorm);
       if (nQ.length < 2) return null;
       const userForms = [nQ, stripArticle(nQ), stripDashes(nQ), stripDashes(stripArticle(nQ))];
       const candsFor = (i) => {
@@ -4924,7 +4928,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // Normalize query for name matching (strip apostrophes, hyphens, diacritics)
             // Takma ad katmanı: "Kadir" → "kadr" gibi yaygın alternatif
             // okunuşlar resmî ada çevrilir (lib/surahNames.js).
-            const qNorm = resolveSurahAlias(normalizeText(q).replace(/['\u2019\u02bc`-]/g, ''));
+            const qRawNorm = normalizeText(q).replace(/['\u2019\u02bc`-]/g, '');
+            // Takma ad katmanı (lib/surahNames.js): "tebâreke" → Mülk, "gâfir"
+            // → Mü'min, "amme" → Nebe'. Numara üzerinden bağlanır, çünkü alt
+            // dize eşleşmesi tek sûreyi hedefleyemiyor ("mumin" hem 40 hem
+            // 23'e uyuyor). Takma ad sonucu diğer eşleşmeleri SİLMEZ, başa
+            // eklenir — kullanıcı isteği 2026-09-28: "amme yazınca hem Nebe'
+            // hem Muhammed çıksın zaten".
+            const aliasSurahNo = surahNumberForAlias(qRawNorm);
+            // Ad eşleştirmesi HAM sorguyla sürer: "amme" hem takma adıyla
+            // Nebe'yi (numara yolundan) hem de "Muhammed" içindeki dizi
+            // yüzünden 47'yi getirsin.
+            const qNorm = qRawNorm;
 
             // ── VERSE REFERENCE PATTERN (Dalga 2026-07-07: bakara:5 desteği) ──
             // Kabul edilen formatlar: "2:5" · "bakara:5" · "bakara 5" · "al-baqara:5"
@@ -4986,7 +5001,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             };
 
             const scoredSurahs = [];
+            if (aliasSurahNo) scoredSurahs.push({ surah: aliasSurahNo, score: 6 });
             SURAH_NAMES_TR.forEach((name, i) => {
+              if (i + 1 === aliasSurahNo) return;   // takma ad satırı zaten eklendi
               const surah = i + 1;
               if (isNum && surah === num) { scoredSurahs.push({ surah, score: 5 }); return; }
               if (qNorm.length < 1) return;
@@ -6683,6 +6700,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const num = parseInt(q, 10);
               const isNum = q !== '' && !isNaN(num) && String(num) === q.replace(/^0+/, '');
               const qNorm = q ? normalizeText(q).replace(/['’ʼ`-]/g, '') : '';
+              // Sûre ADI süzgeci için takma ad katmanı (lib/surahNames.js):
+              // "tebâreke" → Mülk, "kadir" → Kadr, "tövbe" → Tevbe. Soldaki
+              // sûre seçme kutusu bunu zaten yapıyordu, büyüteç yapmıyordu;
+              // aynı sorgu iki yerde farklı sonuç veriyordu (kullanıcı isteği
+              // 2026-09-28: "hem soldaki sûre seç kısmında hem de magnifier'ın
+              // olduğu Ara kısmında aynı şekilde çalışmalı").
+              // AYRI değişken, çünkü `qNorm` aşağıda meal eşleşmelerinde
+              // vurgulama dilimi için de kullanılıyor (`text.slice(idx, idx +
+              // qNorm.length)`); orada uzunluk sorgunun kendisi olmalı, takma
+              // adın değil — yoksa vurgu kayar.
+              const qSurahNo = q ? surahNumberForAlias(qNorm) : null;
 
               // Unified verse-address parser: "2:5", "bakara:5", "el-bakara:5",
               // "bakara 5", "elbakara/5" — hepsi tek path'ten geçer
@@ -6946,7 +6974,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               } else if (isText) {
                 // Text query → filter by name
                 const matches = [];
+                // Takma ad eşleşmesi EN BAŞA; doğal ad eşleşmeleri arkasından
+                // gelmeye devam eder (bkz. yukarıdaki not).
+                if (qSurahNo) matches.push(qSurahNo);
                 SURAH_NAMES_TR.forEach((name, i) => {
+                  if (matches.includes(i + 1)) return;
                   const nameNorm = normalizeText(name).replace(/['’ʼ`-]/g, '');
                   if (nameNorm.includes(qNorm)) matches.push(i + 1);
                 });
