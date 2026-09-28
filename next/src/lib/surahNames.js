@@ -134,17 +134,18 @@ export const SURAH_ALIASES = {
   'inna enzelna': 97, innaenzelna: 97,         // 97:1 اِنَّٓا اَنْزَلْنَاهُ
   'iza zulzilet': 99, izazulzilet: 99,         // 99:1 اِذَا زُلْزِلَتِ
   veladiyat: 100,                              // 100:1 وَالْعَادِيَاتِ
-  elhakum: 102, 'elhakumut tekasur': 102,      // 102:1 اَلْهٰيكُمُ التَّكَاثُرُ
+  elhakum: 102, 'elhakumut tekasur': 102, elhakumuttekasur: 102,      // 102:1 اَلْهٰيكُمُ التَّكَاثُرُ
   velasr: 103,                                 // 103:1 وَالْعَصْرِ
   'elem tera keyfe': 105, elemterakeyfe: 105,  // 105:1 اَلَمْ تَرَ كَيْفَ
-  ilaf: 106, 'li ilafi kureys': 106,           // 106:1 لِا۪يلَافِ قُرَيْشٍ
+  ilaf: 106, 'li ilafi kureys': 106, liilafikureys: 106, liilaf: 106,           // 106:1 لِا۪يلَافِ قُرَيْشٍ
   eraeyte: 107, eraeytellezi: 107,             // 107:1 اَرَاَيْتَ الَّذ۪ي
   'inna atayna': 108, innaatayna: 108,         // 108:1 اِنَّٓا اَعْطَيْنَاكَ
-  'kul ya eyyuhel kafirun': 109,               // 109:1 قُلْ يَٓا اَيُّهَا الْكَافِرُونَ
+  'kul ya eyyuhel kafirun': 109, kulyaeyyuhelkafirun: 109,               // 109:1 قُلْ يَٓا اَيُّهَا الْكَافِرُونَ
   'iza cae': 110, izacae: 110,                 // 110:1 اِذَا جَٓاءَ نَصْرُ اللّٰهِ
-  'kul huvallahu ehad': 112, kulhuvallah: 112, // 112:1 قُلْ هُوَ اللّٰهُ اَحَدٌ
-  'kul euzu bi rabbil felak': 113,             // 113:1 قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ
-  'kul euzu bi rabbin nas': 114,               // 114:1 قُلْ اَعُوذُ بِرَبِّ النَّاسِ
+  'kul huvallahu ehad': 112, kulhuvallahuehad: 112,
+  kulhuvallah: 112, kulhu: 112, // 112:1 قُلْ هُوَ اللّٰهُ اَحَدٌ
+  'kul euzu bi rabbil felak': 113, kuleuzubirabbilfelak: 113,             // 113:1 قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ
+  'kul euzu bi rabbin nas': 114, kuleuzubirabbinnas: 114,               // 114:1 قُلْ اَعُوذُ بِرَبِّ النَّاسِ
 
   // El-Mülk — TDV, "Mülk sûresi": "Tebâreke, Mücâdele, Mânia, Münciye, Vâkıye
   // ve Mennâa olarak da adlandırılır." (67:1 تَبَارَكَ). Yazım varyantları ve
@@ -166,13 +167,17 @@ export const SURAH_ALIASES = {
   // sûresi olarak da adlandırılmıştır."
   subhan: 17, 'beni israil': 17, beniisrail: 17,
   // Es-Secde: "Medâci'", "Tenzîlü's-Secde", "Secdetü Lokmân"
-  tenzil: 32, 'tenzilus secde': 32, medaci: 32, 'secdetu lokman': 32,
+  // "Tenzîl" TEK BAŞINA EKLENMEDİ (hakem uyarısı, gpt-6-astra 2026-09-28):
+  // kelime Zümer, Mü'min, Fussilet, Câsiye, Ahkāf gibi başka sûrelerin de
+  // başında geçiyor, Secde'ye özgü değil. Ayırt edici olan uzun biçimler.
+  'tenzilus secde': 32, tenzilussecde: 32, medaci: 32,
+  'secdetu lokman': 32, secdetulokman: 32,
   // Fâtır: "melâike kelimesinden dolayı Melâike sûresi diye de adlandırılmıştır"
   melaike: 35,
   // Mü'min: "Gāfir ve Tavl sûresi olarak da adlandırılır."
   gafir: 40, tavl: 40,
   // Fussilet: "Hâ mîmü's-secde", "Mesâbîh sûresi", "Akvât sûresi"
-  'ha mim secde': 41, hamimsecde: 41, 'ha mimus secde': 41,
+  'ha mim secde': 41, hamimsecde: 41, 'ha mimus secde': 41, hamimussecde: 41,
   mesabih: 41, akvat: 41,
   // Muhammed: "Kıtâl sûresi olarak da adlandırılır."
   kital: 47,
