@@ -77,8 +77,6 @@ export default function Hero() {
   // Desktop'ta tek satırda ' · ' ile birleşik render olur.
   const verse1Ar = 'اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ';
   const verse2Ar = 'خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ';
-  const verse1Chars = [...verse1Ar];
-  const verse2Chars = [...verse2Ar];
 
   // Chevron tıklanınca sahne 2'ye smooth scroll (scroll edenlerin de doğal
   // olarak ineceği yer). 2026-06-16 iki-sahne refactor.
@@ -271,8 +269,33 @@ export default function Hero() {
         {/* Anchor verse — Alak 96:1 (Kur'an'ın ilk inen vahyi: "Oku!").
             Site CTA "Kur'an'ı Oku" ile doğrudan rezonans + "Yaratan Rabbi"
             kavramı Conclusion köprüsünün ("Yaratıcıyı tanıyın") temelini atar. */}
-        {/* Anchor verse — showIntro'da char-by-char RTL letter reveal (kalem yazıyor hissi).
-            Aksi takdirde sade tek seferde fade-up. */}
+        {/* Çapa âyeti — METİN BAŞTAN TAM GÖRÜNÜR, animasyon yalnız nefes alan
+            parıltı (.qc-verse-breathe-soft).
+
+            Eskiden ilk ziyarette âyet harf harf beliriyordu (kalem yazıyor
+            hissi): her harf ayrı bir motion.span'di, 0.022 sn aralıkla
+            açılıyordu. Güzeldi ama ÖLÇÜLDÜ — LCP'yi tek başına o belirliyordu.
+            Pixel 7 · ~1.6 Mbps · CPU 4x yavaş: LCP adayları 1488 ms navbar →
+            4212 ms besmele → 5700 ms meal → sonra tek tek harfler, 6880'den
+            7648 ms'ye. Her yeni harf "en büyük boya" ögesini büyüttüğü için
+            tarayıcı LCP'yi animasyon bitene kadar yeniden tanımlıyordu: skor
+            sayfanın hızını değil animasyonun süresini ölçüyordu (sunucu 230 ms,
+            sayfa 3.9 sn, LCP 7.6 sn).
+
+            Kullanıcı kararı 2026-10-02: metin baştan görünsün, animasyon
+            parıltıya insin. Ek fayda: ~70 motion.span kalktı; metin sunucu
+            HTML'inde zaten vardı, artık boyanmak için hidrasyonu beklemiyor.
+            Besmelenin ışık süpürmesi (yukarıdaki maske) DOKUNULMADAN kaldı.
+
+            GİRİŞ OPAKLIĞI DA YOK — bilerek. Hakem (gpt-6-astra, 2026-10-02)
+            haklı bir itiraz yaptı: harf harf beliriş kalksa bile paragrafın
+            KENDİSİ opacity:0 ile başlıyorsa âyet yine JavaScript'i bekler.
+            Doğrulandı — sunucu HTML'inde bu paragraf opacity:0 geliyordu, yani
+            "metin baştan görünür" iddiası gerçekte sağlanmıyordu. Artık hiçbir
+            giriş opaklığı yok: âyet sunucudan görünür geliyor, boyanmak için
+            hidrasyonu beklemiyor. Tek hareket sınıftan gelen nefes alan parıltı
+            (.qc-verse-breathe-soft), o da opaklığı sıfıra indirmiyor. Kardeş
+            ögeler (besmele, meal) kendi giriş animasyonlarını KORUYOR. */}
         <motion.p
           dir="rtl"
           lang="ar"
@@ -294,54 +317,21 @@ export default function Hero() {
             '--mt-d': '12px', '--mb-d': '12px',
             '--ml-d': 'auto', '--ml-m': 'auto', '--mr-d': 'auto', '--mr-m': 'auto',
             maxWidth: '920px',
+            // KONUM AYNEN KORUNUR — 16px aşağı. Bu kaydırma eskiden giriş
+            // animasyonunun bıraktığı kalıcı transform'du: canlıda ölçüldü,
+            // paragraf `matrix(1, 0, 0, 1, 0, 16)` ile duruyordu. Animasyon
+            // kalkınca kaydırma da düştü ve âyet 16px yukarı çıktı (mobil 390'da
+            // üst kenar 209 → 193). Kullanıcı hero konumlarına dokunulmasını
+            // istemiyor; aynı 16px animasyonsuz, statik olarak geri konuldu.
+            // Transform düzeni DEĞİŞTİRMEZ (kardeş ögeler yerinde kalır), yalnız
+            // görsel konumu eski hâline getirir.
+            transform: 'translateY(16px)',
             // 2026-08-13 — dekoratif glow kaldırıldı (bkz. PortalCard notu).
           }}
-          {...(showIntro && !reduced
-            ? { initial: { opacity: 1 }, animate: { opacity: 1 } }
-            : entrance({ opacity: 0, y: 16 }, { opacity: 1, y: 0 }, { duration: 1.0, delay: 0.45 }))}
         >
-          {showIntro && !reduced ? (
-            <>
-              {verse1Chars.map((c, i) => (
-                <motion.span
-                  key={`v1-${i}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.05, delay: 1.9 + i * 0.022 }}
-                >
-                  {c}
-                </motion.span>
-              ))}
-              {isMobile ? (
-                <br />
-              ) : (
-                <motion.span
-                  key="sep"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.05, delay: 1.9 + verse1Chars.length * 0.022 }}
-                >
-                  {' · '}
-                </motion.span>
-              )}
-              {verse2Chars.map((c, i) => (
-                <motion.span
-                  key={`v2-${i}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.05, delay: 1.9 + (verse1Chars.length + (isMobile ? 0 : 1) + i) * 0.022 }}
-                >
-                  {c}
-                </motion.span>
-              ))}
-            </>
-          ) : (
-            <>
-              {verse1Ar}
-              {isMobile ? <br /> : ' · '}
-              {verse2Ar}
-            </>
-          )}
+          {verse1Ar}
+          {isMobile ? <br /> : ' · '}
+          {verse2Ar}
         </motion.p>
 
         {/* v2.0 — çeviri iki AYETE karşılık iki satıra bölündü (Arapça'da

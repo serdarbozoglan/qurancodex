@@ -72,6 +72,14 @@ const COUNT_BY_CAT = TEFEKKUR_INDEX.articles.reduce((m, a) => {
   m[a.category] = (m[a.category] || 0) + 1;
   return m;
 }, {});
+// Toplam makale ve kategori sayısı da AYNI import'tan türetilir. Eskiden bu
+// ikisi için sayfa açılışında `/tefekkur/_index.json` AYRICA fetch ediliyordu —
+// yani zaten pakete giren dosya bir de ağdan indiriliyordu (37 KB, ölçümde iki
+// kez göründü) ve hesaplanan değerler birebir aynıydı. Kural (§13.29: sayı
+// türetilir, elle yazılmaz) bozulmuyor; türetme yalnız derleme anına taşındı.
+// Ek fayda: sayı artık ilk HTML'de de var, hidrasyondan sonra değişmiyor.
+const TEFEKKUR_TOTAL = TEFEKKUR_INDEX.articles.length;
+const TEFEKKUR_CAT_COUNT = (TEFEKKUR_INDEX.categories || []).length;
 
 // ── 6 essay categories — mirrors public/tefekkur/_index.json categories ──────
 const TEFEKKUR_CATEGORIES = [
@@ -191,11 +199,6 @@ export default function TefekkurHighlight({ compact = false }) {
   // SSR-safe: start with 1, hydrate post-mount (mirrors ToolsHighlight pattern)
   const [columns, setColumns] = useState(1);
 
-  // Dinamik category sayıları — public/tefekkur/_index.json'dan fetch.
-  // Hardcoded count'lar kullanıcı raporunda (2026-06-16) gerçek JSON ile sync
-  // değildi (5+8+11+5+6+7=42, gerçek 23). Runtime hesaplama ile düzeltildi.
-  const [dynamic, setDynamic] = useState(null);
-
   useEffect(() => {
     const h = () => setColumns(getColumnCount(window.innerWidth));
     h();
@@ -203,25 +206,8 @@ export default function TefekkurHighlight({ compact = false }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  useEffect(() => {
-    fetch('/tefekkur/_index.json')
-      .then(r => r.json())
-      .then(d => {
-        const counts = {};
-        for (const a of d.articles || []) {
-          counts[a.category] = (counts[a.category] || 0) + 1;
-        }
-        setDynamic({
-          counts,
-          total: (d.articles || []).length,
-          categories: (d.categories || []).length,
-        });
-      })
-      .catch(() => {/* fallback: statik count'lar kullanılır */});
-  }, []);
-
-  const liveCount = dynamic?.total ?? 0;
-  const categoryCount = dynamic?.categories ?? 6;   // fetch 'categories' yazıyor
+  const liveCount = TEFEKKUR_TOTAL;
+  const categoryCount = TEFEKKUR_CAT_COUNT;
 
   const handleViewAll = () => router.push(`/${language}/tefekkur`);
 
@@ -369,7 +355,7 @@ export default function TefekkurHighlight({ compact = false }) {
             <TefekkurCategoryCard
               key={cat.id}
               accent={cat.accent}
-              count={dynamic?.counts?.[cat.id] ?? cat.count}
+              count={cat.count}
               titleTr={cat.titleTr}
               titleEn={cat.titleEn}
               descTr={cat.descTr}
