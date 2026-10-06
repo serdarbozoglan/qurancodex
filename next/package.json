@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/prebuild-guard.mjs",
+    "prebuild": "node scripts/prebuild-guard.mjs && node scripts/build-verses-lite.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

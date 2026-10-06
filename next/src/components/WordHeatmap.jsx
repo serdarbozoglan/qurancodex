@@ -598,7 +598,7 @@ export default function WordHeatmap({ onClose }) {
   }, []);
 
   useEffect(() => {
-    fetch('/verse-graph-bgem3.json').then(r => r.json()).then(d => { setVerses(d); setLoading(false); }).catch(() => setLoading(false));
+    fetch('/verses-lite.json').then(r => r.json()).then(d => { setVerses(d); setLoading(false); }).catch(() => setLoading(false));
   }, []);
 
   // Body scroll lock — CLAUDE.md §13.16 Layer 1: prevent background page scrollbar leaking through fixed overlay.

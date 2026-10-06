@@ -1991,7 +1991,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   }, [verses, searchQuery, language]);
 
   useEffect(() => {
-    fetch('/verse-graph-bgem3.json')
+    fetch('/verses-lite.json')
       .then(r => r.json())
       .then(data => { setVerses(data); setLoading(false); })
       .catch(() => setLoading(false));

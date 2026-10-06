@@ -5,6 +5,17 @@
 // âyet sonu/secde/hizb). §13.15'in doğrulama komutunun push-öncesi zorunlu hâli.
 // İstisna: ReadingMode/InterlinearView veri hattı (tecvid overlay ister) —
 // `public/tafsir/`, `public/corpus/`, `public/meal-cache/` kapsam dışı.
+//
+// Kök dizindeki İKİ dosya da aynı hattın parçası ve bilerek muaf:
+//   verse-graph-bgem3.json — KANONİK âyet kaynağı. §13.15 bu dosya için açıkça
+//     "buradaki Arapça metne DOKUNMA" diyor; vakıf işaretlerini taşıması
+//     gerekiyor, çünkü ReadingMode onları CSS overlay ile konumlandırıyor.
+//     (Bugüne dek yakalanmamasının sebebi denetimin diff tabanlı olması —
+//     dosya değişmediği için hiç taranmadı. Muafiyet artık yazılı.)
+//   verses-lite.json — yukarıdakinin türevi (scripts/build-verses-lite.mjs,
+//     yalnız connections + x/y/z atılır). Metin birebir aynı, dolayısıyla
+//     muafiyeti de aynı. Aynı hattı besliyor: okuma modu, ısı haritası,
+//     kıssa/mesel atlası, kavram grafı, Esmâ Frekans, sebeb-i nüzûl.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,7 +25,10 @@ const CI = process.argv.includes('--ci');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROBLEM = /[۪ۡٱیۖ-ۜ۝-۟۠ۢ-ۤۧۨ۫۬ؐ-ؔؖؗ؀-؅﴾﴿]/g;
 
-const files = changedFiles(ROOT).filter(f => /^public\/[^/]+\.json$/.test(f) || /^public\/(?!tafsir|corpus|meal-cache|tefekkur)[^/]+\/.*\.json$/.test(f));
+const MUAF = new Set(['public/verse-graph-bgem3.json', 'public/verses-lite.json']);
+const files = changedFiles(ROOT)
+  .filter(f => /^public\/[^/]+\.json$/.test(f) || /^public\/(?!tafsir|corpus|meal-cache|tefekkur)[^/]+\/.*\.json$/.test(f))
+  .filter(f => !MUAF.has(f));
 const findings = [];
 for (const f of files) {
   const p = path.join(ROOT, f);

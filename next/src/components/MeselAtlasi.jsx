@@ -46,7 +46,7 @@ let verseGraphIndexPromise = null;
 
 async function loadVerseGraphIndex() {
   if (!verseGraphIndexPromise) {
-    verseGraphIndexPromise = fetch('/verse-graph-bgem3.json')
+    verseGraphIndexPromise = fetch('/verses-lite.json')
       .then(r => r.json())
       .then(list => {
         const map = new Map();

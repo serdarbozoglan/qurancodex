@@ -20,7 +20,7 @@ import useTabParam from '../hooks/useTabParam';
 let _verseGraphIndexPromise = null;
 async function loadVerseGraphIndex() {
   if (!_verseGraphIndexPromise) {
-    _verseGraphIndexPromise = fetch('/verse-graph-bgem3.json')
+    _verseGraphIndexPromise = fetch('/verses-lite.json')
       .then(r => r.json())
       .then(list => {
         const map = new Map();

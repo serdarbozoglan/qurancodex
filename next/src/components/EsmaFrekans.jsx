@@ -3286,7 +3286,7 @@ function VerseChipGrid({ ayetler, tr }) {
 let _verseGraphPromise = null;
 function loadVerseGraph() {
   if (!_verseGraphPromise) {
-    _verseGraphPromise = fetch('/verse-graph-bgem3.json')
+    _verseGraphPromise = fetch('/verses-lite.json')
       .then(r => r.json())
       .then(arr => {
         const map = new Map();
