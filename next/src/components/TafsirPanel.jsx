@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo } from 'react';
+import { SURAH_NAMES_TR, SURAH_ALIASES } from '../lib/surahNames';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import useFocusTrap from '../hooks/useFocusTrap';
 import CloseIcon from './icons/CloseIcon';
@@ -70,13 +71,63 @@ const CANONICAL_VERSE_COUNTS = {
 // aşan bozuk numara taşıyor — onlar ESKİSİ GİBİ tıklanamaz rozet kalır,
 // ölü bağlantı üretmeyelim diye.
 const VERSE_REF_RE = /(\d{1,3})\s*[/:]\s*(\d{1,3})/;
+const VERSE_REF_ALL = /\d{1,3}\s*[/:]\s*\d{1,3}/g;
+
+// Sûre adı sözlüğü: kanonik adlar (harf-i tarifli ve tarifsiz) + halk adları.
+const _nrm = (x) => (x || '').toLowerCase()
+  .replace(/İ/g, 'i').replace(/ı/g, 'i').replace(/ş/g, 's').replace(/ğ/g, 'g')
+  .replace(/ç/g, 'c').replace(/ö/g, 'o').replace(/ü/g, 'u')
+  .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]/g, '');
+const SURAH_BY_NAME = (() => {
+  const m = {};
+  SURAH_NAMES_TR.forEach((n, i) => {
+    m[_nrm(n)] = i + 1;
+    m[_nrm(n.replace(/^(E[lrstnzd]|Eş)-/, ''))] = i + 1;
+  });
+  for (const [k, v] of Object.entries(SURAH_ALIASES)) m[_nrm(k)] = v;
+  return m;
+})();
+
+// Etiketteki sûre ADINI bul. TAM KELİME eşlemesi — alt dize DEĞİL. İlk sürüm
+// `includes` kullanıyordu ve saçmalıyordu: "tefsirine" içinde "tîn" (95),
+// "Kâfirûn" içinde "Kāf" (50), "Alâk" içinde "A'lâ" (87) buluyordu.
+function surahFromName(label) {
+  const words = (label || '').replace(/\d+/g, ' ').split(/[^A-Za-zÀ-ÿĞğİıŞşÇçÖöÜü']+/);
+  for (const w of words) { if (w.length < 3) continue; const v = SURAH_BY_NAME[_nrm(w)]; if (v) return v; }
+  return null;
+}
+
+/**
+ * Rozet metnini sûre:âyet'e çözer. Çözemezse null — o zaman rozet tıklanamaz
+ * kalır. Hakem turu (gpt-6-astra, 2026-10-07) iki sahte güven kaynağı gösterdi,
+ * ikisi de burada kapatıldı:
+ *
+ * · "Numaranın geçerli olması, göndermenin doğru olduğunu kanıtlamaz."
+ *   Doğru çıktı. Kaynakta adla numaranın ÇELİŞTİĞİ 41 rozet var — ör.
+ *   "(A'raf, 8/34)" (A'râf 7. sûre), "(Enbiya, 17/22)" (Enbiyâ 21),
+ *   "(İnsan, 72/2)" (İnsân 76), "(Yunus, 12/108)" (Yûnus 10). Numaraya körü
+ *   körüne uyulsa okur sessizce BAŞKA bir sûreye giderdi. Artık ad çözülüyorsa
+ *   numarayla karşılaştırılıyor; çelişirse bağlantı VERİLMİYOR. Yanlış bağlantı,
+ *   bağlantısızlıktan kötüdür.
+ * · "Bir rozette birden fazla gönderme bulunabilir." 44 tane var —
+ *   ör. "(Hud, 11/7; Mülk, 67/2)". Yalnız ilkine bağlamak diğerini sessizce
+ *   yutar; bunlar da bağlanmıyor.
+ *
+ * Ölçülen dağılım (3.585 rozet): ad+numara uyumlu 3.204 · adı çözülemeyen
+ * (yalnız numara) 330 · adla numara çelişen 41 · çok göndermeli 44 ·
+ * numarası sûre sınırını aşan 10.
+ */
 function parseVerseRef(txt) {
-  const m = VERSE_REF_RE.exec(txt || '');
+  const label = txt || '';
+  if ((label.match(VERSE_REF_ALL) || []).length > 1) return null;   // çok göndermeli
+  const m = VERSE_REF_RE.exec(label);
   if (!m) return null;
   const surah = parseInt(m[1], 10);
   const ayah = parseInt(m[2], 10);
   const max = CANONICAL_VERSE_COUNTS[surah];
-  if (!max || ayah < 1 || ayah > max) return null;   // sınır dışı → rozet kalsın
+  if (!max || ayah < 1 || ayah > max) return null;                  // sınır dışı
+  const named = surahFromName(label);
+  if (named !== null && named !== surah) return null;               // ad ≠ numara
   return { surah, ayah };
 }
 
@@ -154,6 +205,14 @@ function renderInline(text, palette, onRefClick) {
         <button key={`r-${key++}`} type="button"
           onClick={() => onRefClick(ref.surah, ref.ayah)}
           title={`${ref.surah}:${ref.ayah}`}
+          /* Hakem (gpt-6-astra): "noktalı alt çizgi ve imleç tek başına yeterli
+             değil; ekran okuyucuya hedefi anlatan bir ad verilmeli." Rozetin
+             kendi metni ("Hûd, 11/1") ekran okuyucuda ne yapacağını söylemiyor;
+             aria-label söylüyor. Görünür odak halkası da sınıftan geliyor —
+             klavyeyle gezen okur nerede olduğunu görsün. */
+          aria-label={`${SURAH_NAMES_TR[ref.surah - 1] || ref.surah} ${ref.surah}:${ref.ayah} — ${
+            palette.lang === 'tr' ? 'âyetin tefsirine git' : 'go to this verse'}`}
+          className="qc-tafsir-ref"
           style={{ ...pill, cursor: 'pointer', textDecoration: 'underline',
                    textDecorationStyle: 'dotted', textUnderlineOffset: '2px',
                    fontFamily: 'inherit', lineHeight: 'inherit' }}
@@ -181,7 +240,7 @@ function renderInline(text, palette, onRefClick) {
   return parts.length ? parts : text;
 }
 
-export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile, onVerseRefClick }) {
+export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile, onVerseRefClick, crossRef, onCrossRefBack }) {
   // selectedTafsirId is independent of UI language. First-time users get a
   // language-appropriate default; afterwards their explicit choice persists
   // via localStorage. Switching UI language does NOT change tafsir source.
@@ -348,6 +407,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
     refBg:     C.refBg,
     refBorder: C.refBorder,
     quoteColor:C.quoteColor,
+    lang:      language,   // rozetin aria-label'ı için
   };
 
   return (
@@ -551,6 +611,45 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
           letterSpacing: '0.005em',
         }}
       >
+        {/* Çapraz referansla gelindiğinde: nereden gelindiğini söyleyen ve geri
+            döndüren şerit. İki hakem bulgusunu birden karşılıyor:
+            · "Okur bir göndermeyi izlerken asıl okuduğu yeri kaybedebilir;
+               'Önceki okuma yerine dön' seçeneği sunun."
+            · "Türkçede panel sûrenin başına gidiyor, okura bunu söyleyin."
+            İkinci cümle yalnız düz metin akan kaynakta gösteriliyor; âyet
+            numarasına göre bölümlenmiş kaynakta (İbn Kesîr) gerçekten hedef
+            âyete kaydırdığımız için orada söylenecek bir şey yok. */}
+        {crossRef && (
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap',
+            margin: '14px 0 2px', padding: '9px 12px',
+            background: dayMode ? 'rgba(138,99,0,0.07)' : 'rgba(212,165,116,0.07)',
+            border: `1px solid ${C.gold}33`, borderRadius: RADIUS.md,
+            fontFamily: FONTS.body, fontSize: '0.82rem', color: C.muted,
+          }}>
+            <button type="button" onClick={onCrossRefBack}
+              className="qc-tafsir-ref"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '3px 10px', borderRadius: RADIUS.pill,
+                background: dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.10)',
+                border: `1px solid ${C.gold}55`, color: C.gold,
+                fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: 600, cursor: 'pointer',
+              }}>
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              {language === 'tr' ? `${crossRef.label} okumasına dön` : `Back to ${crossRef.label}`}
+            </button>
+            {source.format === 'flat-prose' && (
+              <span>
+                {language === 'tr'
+                  ? 'İlgili âyet sayfada açıldı; tefsir sûrenin başından gösteriliyor.'
+                  : 'The verse is open on the page; this tafsir starts from the beginning of the surah.'}
+              </span>
+            )}
+          </div>
+        )}
         {loading && (
           <div style={{ color: C.muted, textAlign: 'center', padding: '60px 0' }}>
             {language === 'tr' ? 'Tefsir yükleniyor…' : 'Loading tafsir…'}

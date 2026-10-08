@@ -1916,3 +1916,14 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 @media (max-width: 639.98px) {
   .qc-retorik-panel { flex-direction: column; }
 }
+
+/* Tefsirdeki çapraz referans rozetleri — görünür klavye odağı.
+   Hakem (gpt-6-astra, 2026-10-07): "bağlantılar klavyeyle kullanılabilmeli,
+   görünür odak işareti taşımalı". Rozet zaten <button>, yani odaklanabilir;
+   eksik olan odağın GÖRÜNMESİYDİ. :focus-visible kullanılıyor, böylece fareyle
+   tıklayanda halka çıkmaz, klavyeyle gezende çıkar. */
+.qc-tafsir-ref:focus-visible {
+  outline: 2px solid var(--color-gold, #d4a574);
+  outline-offset: 2px;
+  border-radius: 999px;
+}

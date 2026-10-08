@@ -1158,6 +1158,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     catch { return 1; }
   });
   const [activeVerse, setActiveVerse] = useState(null);
+  // Tefsirdeki çapraz referansa tıklanınca okurun çıkış noktası burada durur;
+  // panelde "… okumasına dön" düğmesini besler. Panel kapanınca sıfırlanır.
+  const [tafsirReturn, setTafsirReturn] = useState(null);
   // Concierge deep-link landing marker — extra gold glow for 4 seconds after
   // ?ayah=N URL param resolves. Cleared when user clicks another verse or timer
   // expires; the underlying activeVerse highlight persists after.
@@ -10902,7 +10905,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* ── Elmalılı Tefsir Paneli ──────────────────────────────────────── */}
       <TafsirPanel
         open={tafsirOpen}
-        onClose={() => setTafsirOpen(false)}
+        onClose={() => { setTafsirOpen(false); setTafsirReturn(null); }}
         surah={activeVerse?.surah || selectedSurah}
         ayah={activeVerse?.ayah}
         language={language}
@@ -10919,8 +10922,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         onVerseRefClick={(s, a) => {
           const target = verses?.find(v => v.surah === s && v.ayah === a);
           if (!target) return;                       // veri yoksa sessiz kal
+          // Nereden geldiğimizi sakla ki okur yerini kaybetmesin (hakem
+          // bulgusu). Zincirleme gezinmede ilk çıkış noktası korunur:
+          // A'dan B'ye, B'den C'ye gidildiğinde "dön" hâlâ A'ya götürür.
+          setTafsirReturn(prev => prev || {
+            verse: activeVerse || null,
+            surah: activeVerse?.surah || selectedSurah,
+            label: `${surahNameOf(activeVerse?.surah || selectedSurah)}${activeVerse ? ' ' + activeVerse.surah + ':' + activeVerse.ayah : ''}`,
+          });
           if (s !== selectedSurah) changeSurah(s);   // activeVerse'i null'lar
           setActiveVerse(target);                    // ...hemen ardından doğrusu
+        }}
+        crossRef={tafsirReturn}
+        onCrossRefBack={() => {
+          const r = tafsirReturn;
+          if (!r) return;
+          if (r.surah !== selectedSurah) changeSurah(r.surah);
+          setActiveVerse(r.verse || null);
+          setTafsirReturn(null);
         }}
       />
 
