@@ -905,8 +905,8 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
               color: C.muted, fontFamily: FONTS.body,
             }}>
               {language === 'tr'
-                ? 'Kur\'an Yolu Türkçe Meâl ve Tefsir. Hazırlayanlar: Hayreddin Karaman, Mustafa Çağrıcı, İbrahim Kâfi Dönmez, Sadrettin Gümüş. Diyanet İşleri Başkanlığı Yayınları. Eserin metni Başkanlığın kendi sayfasında okunur.'
-                : 'Kur\'an Yolu Türkçe Meâl ve Tefsir by Hayreddin Karaman, Mustafa Çağrıcı, İbrahim Kâfi Dönmez and Sadrettin Gümüş. Published by the Turkish Directorate of Religious Affairs, where the text itself is available.'}
+                ? 'Kur\'an Yolu Türkçe Meâl ve Tefsir. Hazırlayanlar: Hayreddin Karaman, Mustafa Çağrıcı, İbrahim Kâfi Dönmez, Sadrettin Gümüş. Yayıncı: Diyanet İşleri Başkanlığı. Bu eserin metni sitemizde yayımlanmamaktadır; bağlantı Başkanlığın resmî sitesindeki ilgili tefsir sayfasını açar.'
+                : 'Kur\'an Yolu Türkçe Meâl ve Tefsir by Hayreddin Karaman, Mustafa Çağrıcı, İbrahim Kâfi Dönmez and Sadrettin Gümüş. Published by the Directorate of Religious Affairs of Türkiye. This Turkish-language work is not reproduced on our site; the link opens the relevant commentary on the Directorate\'s official website.'}
             </p>
             <a
               href={diyanetTafsirUrl(surah, ayah || 1)}
@@ -922,8 +922,8 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
               }}
             >
               {language === 'tr'
-                ? `${ayah ? `${surah}:${ayah}` : SURAH_NAMES_TR[surah - 1] || surah} · Diyanet'te aç`
-                : `Open ${ayah ? `${surah}:${ayah}` : surah} on diyanet.gov.tr`}
+                ? `${ayah ? `${surah}:${ayah}` : SURAH_NAMES_TR[surah - 1] || surah} tefsirini Diyanet'in sitesinde aç`
+                : `Read the commentary on ${ayah ? `${surah}:${ayah}` : surah} at diyanet.gov.tr`}
               <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
