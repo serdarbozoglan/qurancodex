@@ -54,6 +54,32 @@ const CANONICAL_VERSE_COUNTS = {
   111:5,112:4,113:5,114:6,
 };
 
+// ─── Çapraz referans çözümleyici ────────────────────────────────────────────
+// Tefsir metni kendi içinde sürekli başka âyetlere gönderme yapıyor:
+// "(Bakara, 2/30. âyetin tefsirine bkz.)", "(İsrâ, 17/44)", "(A'raf 7/54)".
+// Bunlar zaten altın rozet olarak gösteriliyordu ama TIKLANAMIYORDU; kullanıcı
+// (2026-10-07) "üzerine tıklayınca o âyetin tefsiri gelmeli" dedi. Haklı —
+// rozet görünümü tıklanabilirlik vaat ediyor, karşılığı yoktu.
+//
+// Sûre ADINI ayrıştırmaya çalışmıyoruz: metinde "A'raf", "Araf", "A'râf
+// Sûresi" gibi çok biçim var ve ad zaten numarayla birlikte yazılıyor. Numara
+// çifti hem yeterli hem daha güvenilir.
+//
+// Ölçüldü (2026-10-07, iki tefsir kaynağının tamamı): 3.585 rozetin 3.575'i
+// geçerli bir sûre:âyet çiftine çözülüyor. Kalan 10'u sûrenin âyet sayısını
+// aşan bozuk numara taşıyor — onlar ESKİSİ GİBİ tıklanamaz rozet kalır,
+// ölü bağlantı üretmeyelim diye.
+const VERSE_REF_RE = /(\d{1,3})\s*[/:]\s*(\d{1,3})/;
+function parseVerseRef(txt) {
+  const m = VERSE_REF_RE.exec(txt || '');
+  if (!m) return null;
+  const surah = parseInt(m[1], 10);
+  const ayah = parseInt(m[2], 10);
+  const max = CANONICAL_VERSE_COUNTS[surah];
+  if (!max || ayah < 1 || ayah > max) return null;   // sınır dışı → rozet kalsın
+  return { surah, ayah };
+}
+
 // Minimum char gap between two real anchor offsets. Less than this = scraper
 // captured an inline numbered list item, not a real verse anchor (e.g. Necm
 // ayet 1 and 2 anchors only 14 chars apart in the source).
@@ -84,7 +110,7 @@ function normalizeTafsirText(str) {
 //     not as inline body copy.
 //   • Quranic quotes: "..." or “...” — rendered italic + gold-tinted so
 //     the reader can spot embedded scripture without scanning paragraphs.
-function renderInline(text, palette) {
+function renderInline(text, palette, onRefClick) {
   if (!text) return null;
   // Combined regex: capture either a verse-ref OR a quoted span.
   // - Group 1: short verse-ref like "(İsrâ, 17/44)" or "(2:255)"
@@ -104,25 +130,39 @@ function renderInline(text, palette) {
       parts.push(text.slice(lastIdx, match.index));
     }
     if (match[1]) {
-      // Verse reference pill
-      parts.push(
-        <span key={`r-${key++}`} style={{
-          display: 'inline-block',
-          margin: '0 2px',
-          padding: '1px 8px',
-          fontSize: '0.78em',
-          fontWeight: 600,
-          color: palette.refColor,
-          background: palette.refBg,
-          border: `1px solid ${palette.refBorder}`,
-          borderRadius: RADIUS.pill,
-          letterSpacing: '0.01em',
-          verticalAlign: '1px',
-          whiteSpace: 'nowrap',
-        }}>
-          {match[1].slice(1, -1)}
-        </span>
-      );
+      // Âyet referansı rozeti. Numara çözülebiliyorsa ve bir tıklama işleyicisi
+      // verilmişse BUTON olur; çözülemiyorsa eskisi gibi düz rozet kalır.
+      // Tıklanabilir olanın imleci ve alt çizgisi var — okur hangisinin
+      // gideceğini görsün.
+      const label = match[1].slice(1, -1);
+      const ref = onRefClick ? parseVerseRef(label) : null;
+      const pill = {
+        display: 'inline-block',
+        margin: '0 2px',
+        padding: '1px 8px',
+        fontSize: '0.78em',
+        fontWeight: 600,
+        color: palette.refColor,
+        background: palette.refBg,
+        border: `1px solid ${palette.refBorder}`,
+        borderRadius: RADIUS.pill,
+        letterSpacing: '0.01em',
+        verticalAlign: '1px',
+        whiteSpace: 'nowrap',
+      };
+      parts.push(ref ? (
+        <button key={`r-${key++}`} type="button"
+          onClick={() => onRefClick(ref.surah, ref.ayah)}
+          title={`${ref.surah}:${ref.ayah}`}
+          style={{ ...pill, cursor: 'pointer', textDecoration: 'underline',
+                   textDecorationStyle: 'dotted', textUnderlineOffset: '2px',
+                   fontFamily: 'inherit', lineHeight: 'inherit' }}
+        >
+          {label}
+        </button>
+      ) : (
+        <span key={`r-${key++}`} style={pill}>{label}</span>
+      ));
     } else {
       const inner = match[2] || match[3] || match[4] || '';
       parts.push(
@@ -141,7 +181,7 @@ function renderInline(text, palette) {
   return parts.length ? parts : text;
 }
 
-export default function TafsirPanel({ open, onClose, surah, language, dayMode, isMobile }) {
+export default function TafsirPanel({ open, onClose, surah, ayah, language, dayMode, isMobile, onVerseRefClick }) {
   // selectedTafsirId is independent of UI language. First-time users get a
   // language-appropriate default; afterwards their explicit choice persists
   // via localStorage. Switching UI language does NOT change tafsir source.
@@ -159,10 +199,30 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
   const [error,   setError]   = useState(null);
   const [pickerOpen, setPickerOpen] = useState(false);
   const scrollRef = useRef(null);
+  // Çapraz referansla gelindiğinde hedef âyetin bölümüne kaydırmak için.
+  const ayahRefs = useRef({});
   // W22-U3 focus trap — modal root ref binds Tab/Shift+Tab wrapping +
   // initial focus + return-to-trigger on close. Existing Esc handler
   // (above) and role="complementary" + aria-label remain untouched.
   const trapRef = useFocusTrap(open);
+
+  // ─── Çapraz referansla gelince hedefe kaydır ──────────────────────────────
+  // DÜRÜSTLÜK SINIRI: yalnız âyet numarasına göre anahtarlanmış kaynaklarda
+  // (İbn Kesîr, `verse-html`) hedef âyetin bölümüne kaydırıyoruz. Elmalılı
+  // (`flat-prose`) düz metin akıyor ve âyet çapaları bilerek devre dışı —
+  // yukarıdaki nota göre kazıyıcı, Elmalılı'nın kendi numaralı listelerini
+  // âyet çapası sanmıştı ve "Ayet X tefsiri" başlığı altında YANLIŞ metin
+  // gösteriyordu. Orada tahminî bir konuma kaydırmak aynı hatayı tekrarlamak
+  // olur; bu yüzden sûrenin başına döner, âyete atlamış gibi yapmayız.
+  // Okuma sayfası zaten o âyete gidiyor, yani okur âyetin kendisini görüyor.
+  useEffect(() => {
+    if (!open || !data || !ayah) return;
+    if (source.format !== 'verse-html') { if (scrollRef.current) scrollRef.current.scrollTop = 0; return; }
+    const el = ayahRefs.current[String(ayah)];
+    if (el && typeof el.scrollIntoView === 'function') {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [open, data, ayah, surah, source.format]);
 
   // Persist tafsir choice
   useEffect(() => {
@@ -583,10 +643,10 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                       }}>
                         {body[0]}
                       </span>
-                      {renderInline(body.slice(1), inlinePal)}
+                      {renderInline(body.slice(1), inlinePal, onVerseRefClick)}
                     </>
                   ) : (
-                    renderInline(body, inlinePal)
+                    renderInline(body, inlinePal, onVerseRefClick)
                   )}
                 </p>
               );
@@ -652,7 +712,14 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                 ? `${startAyah}–${endAyah}`
                 : `${startAyah}`;
               return (
-                <div key={pi} style={{
+                <div key={pi}
+                  // Hedef âyet bu bölümün aralığına düşüyorsa buraya kaydırılır.
+                  ref={(el) => {
+                    if (!el) return;
+                    const end = endAyah || startAyah;
+                    for (let a = startAyah; a <= end; a++) ayahRefs.current[String(a)] = el;
+                  }}
+                  style={{
                   marginBottom: isFirst ? '24px' : '20px',
                   paddingBottom: isFirst ? '20px' : '0',
                   borderBottom: isFirst ? `1px dashed ${C.divider}` : 'none',

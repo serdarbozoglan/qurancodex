@@ -10908,6 +10908,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         language={language}
         dayMode={dayMode}
         isMobile={isMobile}
+        /* Tefsir metnindeki âyet rozetine tıklanınca o âyete git. Kullanıcı
+           kararı (2026-10-07): okuma sayfası ve panel BİRLİKTE gider — tek
+           tutarlı durum, ikisi aynı âyeti gösterir. Panelin `surah`/`ayah`
+           prop'ları zaten activeVerse'ten besleniyor, bu yüzden gerçek âyet
+           nesnesini set etmek yetiyor: sayfa atlaması da (activeVerse.page
+           üzerinden) kendiliğinden oluyor.
+           Gerçek nesneyi arıyoruz, {surah, ayah} uydurmuyoruz — sayfa atlama
+           efekti `activeVerse.page` ve `.id` alanlarına bakıyor. */
+        onVerseRefClick={(s, a) => {
+          const target = verses?.find(v => v.surah === s && v.ayah === a);
+          if (!target) return;                       // veri yoksa sessiz kal
+          if (s !== selectedSurah) changeSurah(s);   // activeVerse'i null'lar
+          setActiveVerse(target);                    // ...hemen ardından doğrusu
+        }}
       />
 
       {/* ── EZBER — A–B tekrar kontrol şeridi ────────────────────────────── */}
