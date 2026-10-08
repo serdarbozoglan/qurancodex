@@ -55,6 +55,44 @@ const CANONICAL_VERSE_COUNTS = {
   111:5,112:4,113:5,114:6,
 };
 
+// ─── Diyanet Kur'an Yolu bağlantısı ─────────────────────────────────────────
+// Kur'an Yolu Türkçe Meâl ve Tefsir (Karaman · Çağrıcı · Dönmez · Gümüş),
+// Diyanet İşleri Başkanlığı Yayınları. Eserin METNİ buraya KONULAMAZ: künye
+// sayfasında yalnız "© Diyanet İşleri Başkanlığı" var, serbest kullanıma izin
+// veren bir ibare YOK (2026-10-08'de kitabın 8. baskısının künyesi bizzat
+// açılıp bakıldı). Kaynak göstermek izin yerine geçmez. Bu yüzden metni
+// kopyalamıyoruz; Başkanlığın kendi sayfasına bağlantı veriyoruz. İzin
+// alınırsa tam metin entegrasyonu ayrı bir iş olarak yapılır.
+//
+// URL şeması ÖLÇÜLEREK çözüldü ve dokuz âyette doğrulandı:
+//   /tefsir/<slug>/<kümülatif âyet sırası>/<n>-ayet-tefsiri
+// Sıra, Kûfî sayıma göre 1:1'den itibaren kümülatif âyet numarasıdır
+// (Fâtiha 1:1 → 1, Bakara 2:30 → 37, Kadr 97:1 → 6126, Nâs 114:6 → 6236).
+//
+// ⚠ TUZAK: URL'deki sûre adı KOZMETİKTİR, içeriği yalnız numara belirler.
+// Yanlış numara sessizce BAŞKA bir sûrenin tefsirini açar — ölçüldü:
+// ".../Kadir-suresi/6003/..." aslında Fecr 10. âyet tefsirini veriyor.
+// Bu yüzden numara tahminle değil, aşağıdaki toplamla üretilir.
+const DIYANET_CUM = (() => {
+  const c = [0];
+  for (let s = 1; s <= 114; s++) c[s] = c[s - 1] + (CANONICAL_VERSE_COUNTS[s] || 0);
+  return c;
+})();
+const slugify = (s) => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .replace(/ı/g, 'i').replace(/İ/g, 'I').replace(/ş/g, 's').replace(/Ş/g, 'S')
+  .replace(/ğ/g, 'g').replace(/Ğ/g, 'G').replace(/ç/g, 'c').replace(/Ç/g, 'C')
+  .replace(/ö/g, 'o').replace(/Ö/g, 'O').replace(/ü/g, 'u').replace(/Ü/g, 'U')
+  .replace(/[^A-Za-z]+/g, '-').replace(/^-|-$/g, '');
+function diyanetTafsirUrl(surah, ayah) {
+  const max = CANONICAL_VERSE_COUNTS[surah];
+  if (!max) return null;
+  const a = Math.min(Math.max(parseInt(ayah, 10) || 1, 1), max);
+  const idx = DIYANET_CUM[surah - 1] + a;
+  const name = SURAH_NAMES_TR[surah - 1] || '';
+  const slug = slugify(name.replace(/^(E[lrstnzd]|Eş)-/, '')) || 'sure';
+  return `https://kuran.diyanet.gov.tr/tefsir/${slug}-suresi/${idx}/${a}-ayet-tefsiri`;
+}
+
 // ─── Çapraz referans çözümleyici ────────────────────────────────────────────
 // Tefsir metni kendi içinde sürekli başka âyetlere gönderme yapıyor:
 // "(Bakara, 2/30. âyetin tefsirine bkz.)", "(İsrâ, 17/44)", "(A'raf 7/54)".
@@ -844,6 +882,53 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Diyanet Kur'an Yolu — metin DEĞİL, resmî sayfaya bağlantı.
+            Gerekçe yukarıdaki diyanetTafsirUrl notunda. */}
+        {!loading && !error && diyanetTafsirUrl(surah, ayah || 1) && (
+          <div style={{
+            marginTop: '34px', padding: '14px 16px',
+            background: dayMode ? 'rgba(138,99,0,0.05)' : 'rgba(212,165,116,0.05)',
+            border: `1px solid ${C.gold}33`, borderRadius: RADIUS.md,
+          }}>
+            <div style={{
+              fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.16em',
+              textTransform: 'uppercase', color: C.gold, marginBottom: '6px',
+              fontFamily: FONTS.body,
+            }}>
+              {language === 'tr' ? 'Başka bir tefsir' : 'Another tafsir'}
+            </div>
+            <p style={{
+              margin: '0 0 10px', fontSize: '0.84rem', lineHeight: 1.6,
+              color: C.muted, fontFamily: FONTS.body,
+            }}>
+              {language === 'tr'
+                ? 'Kur\'an Yolu Türkçe Meâl ve Tefsir. Hazırlayanlar: Hayreddin Karaman, Mustafa Çağrıcı, İbrahim Kâfi Dönmez, Sadrettin Gümüş. Diyanet İşleri Başkanlığı Yayınları. Eserin metni Başkanlığın kendi sayfasında okunur.'
+                : 'Kur\'an Yolu Türkçe Meâl ve Tefsir by Hayreddin Karaman, Mustafa Çağrıcı, İbrahim Kâfi Dönmez and Sadrettin Gümüş. Published by the Turkish Directorate of Religious Affairs, where the text itself is available.'}
+            </p>
+            <a
+              href={diyanetTafsirUrl(surah, ayah || 1)}
+              target="_blank" rel="noopener noreferrer"
+              className="qc-tafsir-ref"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '7px',
+                padding: '6px 13px', borderRadius: RADIUS.pill,
+                background: dayMode ? 'rgba(138,99,0,0.10)' : 'rgba(212,165,116,0.10)',
+                border: `1px solid ${C.gold}55`, color: C.gold,
+                fontFamily: FONTS.body, fontSize: '0.82rem', fontWeight: 600,
+                textDecoration: 'none',
+              }}
+            >
+              {language === 'tr'
+                ? `${ayah ? `${surah}:${ayah}` : SURAH_NAMES_TR[surah - 1] || surah} · Diyanet'te aç`
+                : `Open ${ayah ? `${surah}:${ayah}` : surah} on diyanet.gov.tr`}
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+              </svg>
+            </a>
           </div>
         )}
 
