@@ -3,7 +3,7 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo, Fragment } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
-import { SURAH_NAMES_TR, SURAH_NAMES_EN, resolveSurahAlias, surahNumberForAlias } from '../lib/surahNames';
+import { SURAH_NAMES_TR, SURAH_NAMES_EN, resolveSurahAlias, surahNumberForAlias, scoreSurahName, rankSurahMatches } from '../lib/surahNames';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
@@ -4986,22 +4986,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // adın kendisi sorguyla BAŞLIYORSA en üste çıkar.
             //   "ala" -> El-A'lâ (ala...) ve El-Alak (alak...) basa
             //         -> El-En'âm (enam...) sona
-            const stripArticle = (x) => {
-              const m = x.match(/^(?:el|al|er|ar|es|as|et|at|ez|az|en|an|ed|ad|ash|adh)-(.+)$/);
-              return m ? m[1] : x;
-            };
-            const dropMarks = (x) => x.replace(/['\u2019\u02bc`-]/g, '');
-            const scoreName = (raw) => {
-              if (!raw) return 0;
-              const norm = normalizeText(raw);              // tire KORUNUR
-              const bare = dropMarks(stripArticle(norm));   // harf-i tarifsiz ad
-              const full = dropMarks(norm);
-              if (bare === qNorm) return 4;                          // tam ad
-              if (bare.startsWith(qNorm)) return 3;                  // ad ile basliyor
-              if (full.startsWith(qNorm)) return 2;                  // harf-i tarifle basliyor
-              if (full.includes(qNorm) || bare.includes(qNorm)) return 1; // iceriyor
-              return 0;
-            };
+            // Skorlama lib/surahNames.js'te (scoreSurahName): 4 tam ad ·
+            // 3 adla basliyor · 2 harf-i tarifle basliyor · 1 iceriyor.
+            // Buyutec arama kutusu da AYNI fonksiyonu kullanir; iki kutu ayni
+            // sorguda ayni sirayi vermek zorunda (kullanici istegi 2026-09-28).
+            const scoreName = (raw) => scoreSurahName(raw, qNorm);
 
             const scoredSurahs = [];
             if (aliasSurahNo) scoredSurahs.push({ surah: aliasSurahNo, score: 6 });
@@ -6703,17 +6692,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const num = parseInt(q, 10);
               const isNum = q !== '' && !isNaN(num) && String(num) === q.replace(/^0+/, '');
               const qNorm = q ? normalizeText(q).replace(/['’ʼ`-]/g, '') : '';
-              // Sûre ADI süzgeci için takma ad katmanı (lib/surahNames.js):
-              // "tebâreke" → Mülk, "kadir" → Kadr, "tövbe" → Tevbe. Soldaki
-              // sûre seçme kutusu bunu zaten yapıyordu, büyüteç yapmıyordu;
-              // aynı sorgu iki yerde farklı sonuç veriyordu (kullanıcı isteği
-              // 2026-09-28: "hem soldaki sûre seç kısmında hem de magnifier'ın
-              // olduğu Ara kısmında aynı şekilde çalışmalı").
-              // AYRI değişken, çünkü `qNorm` aşağıda meal eşleşmelerinde
-              // vurgulama dilimi için de kullanılıyor (`text.slice(idx, idx +
+              // Sûre ADI süzgeci takma adı da, sıralamayı da rankSurahMatches
+              // üzerinden alır ("tebâreke" → Mülk, "kadir" → Kadr, "tövbe" →
+              // Tevbe). Soldaki sûre seçme kutusu bunu zaten yapıyordu,
+              // büyüteç yapmıyordu; aynı sorgu iki yerde farklı sonuç
+              // veriyordu (kullanıcı isteği 2026-09-28: "hem soldaki sûre seç
+              // kısmında hem de magnifier'ın olduğu Ara kısmında aynı şekilde
+              // çalışmalı"). `qNorm` burada ayrıca meal eşleşmelerinde
+              // vurgulama dilimi için kullanılıyor (`text.slice(idx, idx +
               // qNorm.length)`); orada uzunluk sorgunun kendisi olmalı, takma
               // adın değil — yoksa vurgu kayar.
-              const qSurahNo = q ? surahNumberForAlias(qNorm) : null;
 
               // Unified verse-address parser: "2:5", "bakara:5", "el-bakara:5",
               // "bakara 5", "elbakara/5" — hepsi tek path'ten geçer
@@ -6975,16 +6963,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               } else if (isNum && num >= 1 && num <= 114) {
                 surahList = [renderSurahRow(num)];
               } else if (isText) {
-                // Text query → filter by name
-                const matches = [];
-                // Takma ad eşleşmesi EN BAŞA; doğal ad eşleşmeleri arkasından
-                // gelmeye devam eder (bkz. yukarıdaki not).
-                if (qSurahNo) matches.push(qSurahNo);
-                SURAH_NAMES_TR.forEach((name, i) => {
-                  if (matches.includes(i + 1)) return;
-                  const nameNorm = normalizeText(name).replace(/['’ʼ`-]/g, '');
-                  if (nameNorm.includes(qNorm)) matches.push(i + 1);
-                });
+                // Text query → ada göre süz, ALÂKA SIRASIYLA.
+                // Takma ad eşleşmesi en başta; sonra tam ad > adla başlayan >
+                // içeren. Sıralama soldaki "sûre seç" kutusuyla ortak
+                // (lib/surahNames.js rankSurahMatches) — burada eskiden düz
+                // `includes` vardı ve sonuçlar sûre numarası sırasına göre
+                // geliyordu: "nas" yazınca Nasr (110) Nâs'tan (114) önce,
+                // "asr" yazınca Haşr (59) Asr'dan (103) önce çıkıyordu.
+                const matches = rankSurahMatches(qNorm);
                 surahList = matches.map(s => renderSurahRow(s));
               }
 

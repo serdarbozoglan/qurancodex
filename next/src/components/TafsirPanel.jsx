@@ -174,6 +174,12 @@ function parseVerseRef(txt) {
 // ayet 1 and 2 anchors only 14 chars apart in the source).
 const MIN_ANCHOR_GAP = 80;
 
+// Kaynak metinde Arapça ibarenin düştüğü yeri gösteren işaret. Elmalılı
+// metninde köşeli ayraç HİÇ geçmiyor (ölçüldü: 0 adet), bu yüzden çakışma
+// riski yok.
+const LACUNA_MARK = '[…]';
+const LACUNA_RE_SRC = '\\[\u2026\\]';
+
 // Elmalılı scrape'i PDF/HTML görsel satır sonlarını `\n` olarak koruyor.
 // Bu yüzden cümle ortasında "enter" varmış gibi görünüyor. Tek `\n`'i
 // cümle devamı kabul edip boşluğa çevir; paragraf sınırı olan `\n\n`
@@ -184,11 +190,28 @@ function normalizeTafsirText(str) {
   if (!str) return '';
   return str
     .replace(/\r\n/g, '\n')
+    // ── Boş tırnak = kaynaktaki Arapça boşluğu (LACUNA_MARK) ───────────────
+    // Elmalılı metninin dijital hâlinde Arapça ibareler HİÇ yok; tırnaklar
+    // boş kalmış. Kaynağın kendi hatası, bizim kazımamızın değil: arşivlenmiş
+    // özgün enfal.de sayfasında da, ondan türeyen üç ayrı aynada da
+    // (necatiaksu, islamiokul, kuran.com) sıfır Arapça karakter ve aynı boş
+    // `&quot; &quot;` çiftleri var. Vaktiyle Word'den HTML'e çevrilirken
+    // Arapça akışlar düşmüş. Ölçülen: 254 boş tırnak çifti + 6 boş parantez.
+    // Metni UYDURMUYORUZ; okurun "burada bir şey eksik" diyebilmesi için
+    // eksiklik işaretleniyor — boş tırnak dizgi hatası gibi görünüyordu.
     .replace(/\n{2,}/g, '\uFFFC')  // paragraf işaretini yer tutucuya kaydet (U+FFFC Object Replacement Character — tafsirde geçmeyen güvenli placeholder)
     .replace(/\n/g, ' ')            // kalan tek satır sonları = cümle içi kırılma
     .replace(/\uFFFC/g, '\n\n')     // paragrafları geri getir
     .replace(/[ \t]{2,}/g, ' ')     // fazla iç boşluk
-    .replace(/ *\n */g, '\n');      // satır başı/sonu boşlukları
+    .replace(/ *\n */g, '\n')       // satır başı/sonu boşlukları
+    // Sıfır genişlikli hâller: `""` ve `()`. Bunlar tek başına bir tırnak
+    // çifti/parantez olduğu için eşleştirme belirsizliği YOK. Boşluklu olan
+    // (`" "`) burada DEĞİL, renderInline içinde çözülüyor: orada tırnak
+    // eşleştirmesini zaten metnin başından itibaren yapan tek bir tarayıcı
+    // var; burada ayrıca eşleştirmeye kalkmak `"X" "Y"` gibi arka arkaya iki
+    // alıntıyı birleştirip ikisini birden yutardı.
+    .replace(/""|\u201C\u201D|\([ \t]*\)/g, LACUNA_MARK)
+    .replace(new RegExp(`(?:${LACUNA_RE_SRC})(?:[ \t]*(?:${LACUNA_RE_SRC}))+`, 'g'), LACUNA_MARK);
 }
 
 // Inline-pattern renderer — splits a paragraph string into a sequence of
@@ -209,7 +232,10 @@ function renderInline(text, palette, onRefClick) {
   //   at ~40 chars to prevent over-greedy matches even without nesting.
   // - Groups 2-4: quoted spans (straight " or curly “ ”), capped at 200 chars
   //   to prevent runaway matches when source text has unmatched quotes.
-  const re = /(\([^()]{0,40}\d+[/:]\d+[^()]{0,30}\))|"([^"]{1,200})"|"([^"]{1,200})"|“([^”]{1,200})”/g;
+  //   • Boşluk işareti `[…]`: kaynakta Arapça ibarenin düştüğü yer
+  //     (bkz. normalizeTafsirText). Gövde metninden ayırt edilsin diye
+  //     sönük bir rozet olarak çizilir.
+  const re = /(\([^()]{0,40}\d+[/:]\d+[^()]{0,30}\))|"([^"]{1,200})"|"([^"]{1,200})"|“([^”]{1,200})”|(\[…\])/g;
   const parts = [];
   let lastIdx = 0;
   let match;
@@ -260,6 +286,25 @@ function renderInline(text, palette, onRefClick) {
       ) : (
         <span key={`r-${key++}`} style={pill}>{label}</span>
       ));
+    } else if (match[5] || /^[ \t]*$/.test(match[2] ?? match[3] ?? match[4] ?? 'x')) {
+      // Kaynaktaki Arapça boşluğu. Eskiden boş bir alıntı olarak çiziliyordu
+      // ve ekranda birbirine yapışık iki tırnak görünüyordu — okur bunu dizgi
+      // hatası sanıyordu. Yerine eksikliği SÖYLEYEN bir işaret konuyor.
+      parts.push(
+        <span key={`g-${key++}`}
+          title={palette.lang === 'tr'
+            ? 'Elmalılı tefsirinin dijital nüshasında bu Arapça ibare eksik.'
+            : 'The Arabic phrase is missing from the digital copy of this tafsir.'}
+          aria-label={palette.lang === 'tr' ? 'eksik Arapça ibare' : 'missing Arabic phrase'}
+          style={{
+            color: palette.refColor,   // §13.26: metne opaklık verilmez
+            fontSize: '0.88em',
+            letterSpacing: '0.04em',
+            cursor: 'help',
+          }}>
+          {LACUNA_MARK}
+        </span>
+      );
     } else {
       const inner = match[2] || match[3] || match[4] || '';
       parts.push(
@@ -592,6 +637,44 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
                       </button>
                     );
                   })}
+
+                  {/* Kur'an Yolu (Diyanet) — listede ama SEÇİLEBİLİR KAYNAK
+                      DEĞİL, dış bağlantı. Kullanıcı (2026-10-08) üçüncü
+                      tefsiri bu menüde aradı; panelin altındaki kartı
+                      görmemişti. Menüye koymak doğru, ama radyo seçeneği gibi
+                      davranmamalı: eserin metni bizde yok, seçilince
+                      gösterilecek bir şey olmazdı. Bu yüzden ayraçla ayrılmış,
+                      dış bağlantı ikonu taşıyan bir satır. */}
+                  <div style={{ height: '1px', background: C.border, margin: '6px 4px' }} />
+                  <a
+                    href={diyanetTafsirUrl(surah, ayah || 1)}
+                    target="_blank" rel="noopener noreferrer"
+                    onClick={() => setPickerOpen(false)}
+                    className="qc-tafsir-ref"
+                    style={{
+                      display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+                      gap: '2px', width: '100%', padding: '8px 12px',
+                      borderRadius: '6px', textDecoration: 'none',
+                      color: C.text, fontFamily: FONTS.body,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(138,99,0,0.06)' : 'rgba(255,255,255,0.04)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', fontWeight: 700, color: C.text }}>
+                      Kur&apos;an Yolu
+                      <span style={{ fontSize: '0.6rem', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>TR</span>
+                      <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"
+                        style={{ color: C.muted }}>
+                        <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+                      </svg>
+                    </span>
+                    <span style={{ fontSize: '0.7rem', color: C.muted }}>
+                      {language === 'tr'
+                        ? 'Diyanet İşleri Başkanlığı · Başkanlığın sitesinde açılır'
+                        : 'Directorate of Religious Affairs · opens on their website'}
+                    </span>
+                  </a>
                 </div>
               )}
             </span>

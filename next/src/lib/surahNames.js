@@ -118,9 +118,8 @@ export function localizeVerseRef(text, locale) {
 //
 // ÇAKIŞANLAR BİLEREK DIŞARIDA: bir ad birden fazla sûrenin adıysa takma ad
 // yapılmaz. Örnekler: "Mücâdele" (Mülk'ün alternatif adı ama 58'in kendi adı),
-// "Fetih" (110 için kullanılır ama 48'in kendi adı), çıplak "Kul eûzü" (hem 113
-// hem 114'ün başı), çıplak "Hâ mîm" (yedi sûre). "Elif lâm mîm secde" de
-// eklenmedi: Türkiye'de yaygın ama TDV'nin Secde maddesinde geçmiyor.
+// çıplak "Kul eûzü" (hem 113 hem 114'ün başı), çıplak "Hâ mîm" (yedi sûre).
+// "Elif lâm mîm secde" de eklenmedi: Türkiye'de yaygın ama TDV'nin Secde maddesinde geçmiyor.
 export const SURAH_ALIASES = {
   // ── Daha önce eklenenler (kullanıcı istekleri 2026-08-02 / 2026-09-12)
   kadir: 97,
@@ -185,6 +184,16 @@ export const SURAH_ALIASES = {
   dehr: 76, emsac: 76, ebrar: 76, 'hel eta': 76, heleta: 76,
   // Tebbet: "sûre Mesed, Ebû Leheb ve Leheb adlarıyla da anılır."
   mesed: 111, leheb: 111, 'ebu leheb': 111, ebuleheb: 111,
+  // ── Diyanet'in kendi yazımıyla aranabilsin (kullanıcı isteği 2026-10-07) ─
+  // Bizdeki ad ile Diyanet'in (kuran.diyanet.gov.tr) kullandığı ad üç sûrede
+  // ayrışıyor; kullanıcı Diyanet'te gördüğü yazımı aratınca sonuç gelmiyordu.
+  // Üçü de aynı sûrenin yaygın ikinci yazımı, ayrı bir sûrenin adı değil.
+  fetih: 48,     // bizde "El-Feth"   · Diyanet "Fetih"
+  kiyamet: 75,   // bizde "El-Kıyâme" · Diyanet "Kıyâmet"
+  saff: 61,      // bizde "Es-Saf"    · Diyanet "Saff" ("saff" aynı zamanda
+                 // Sâffât'ın (37) ön eki; takma ad Saf'ı başa alır, Sâffât
+                 // doğal eşleşme olarak listede kalır.)
+
   // El-İhlâs: "İhlâs ve aynı zamanda sûrenin ilk âyeti olan 'Kul hüvallāhü
   // ahad' en çok kullanılanlarıdır" · ayrıca "Tevhîd, Esâs, Tecrîd, Necât ve
   // Velâyet". Günlük kullanımda geçmeyen dördü (Esâs/Tecrîd/Necât/Velâyet)
@@ -209,6 +218,67 @@ function bareName(name) {
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const m = norm.match(/^(?:el|al|er|ar|es|as|et|at|ez|az|en|an|ed|ad)-(.+)$/);
   return (m ? m[1] : norm).replace(/['\u2019\u02bc`-]/g, '');
+}
+
+/**
+ * Bir sûre adının sorguya ALÂKA SKORU: 4 tam ad · 3 adla başlıyor ·
+ * 2 harf-i tarifle başlıyor · 1 içeriyor · 0 eşleşmiyor.
+ *
+ * Buraya taşındı çünkü İKİ arama kutusu da aynı sırayı vermek zorunda
+ * (kullanıcı isteği 2026-09-28: "hem soldaki sûre seç kısmında hem de
+ * büyütecin olduğu Ara kısmında aynı şekilde çalışmalı"). Büyüteç yalnız
+ * `includes` kullanıyordu ve sonuçlar sûre numarası sırasına göre geliyordu;
+ * tam ad eşleşmesi listenin altına düşüyordu. Ölçülen (2026-10-07):
+ *   "nas"   → Nasr (110) Nâs'tan (114) önce
+ *   "asr"   → Haşr (59) Asr'dan (103) önce
+ *   "kaf"   → Ahkâf (46) Kâf'tan (50) önce
+ *   "mumin" → Mü'minûn (23) Mü'min'den (40) önce
+ *   "duha"  → Duhân (44) Duhâ'dan (93) önce
+ *   "alak"  → Talâk (65) Alak'tan (96) önce
+ *   "ala"   → Talâk (65) A'lâ'dan (87) önce
+ * Hepsi tam ad eşleşmesinin öne alınmasıyla düzelir; eşleşme kümesi DEĞİŞMEZ,
+ * yalnız sıra değişir.
+ *
+ * @param raw   sûre adı ("El-Feth", "Al-Fath")
+ * @param qNorm normalize edilmiş sorgu (küçük harf, şapka/kesme/tire atılmış)
+ */
+export function scoreSurahName(raw, qNorm) {
+  if (!raw || !qNorm) return 0;
+  const norm = (raw)
+    .toLowerCase()
+    .replace(/İ/g, 'i').replace(/I/g, 'i').replace(/ı/g, 'i')
+    .replace(/ş/g, 's').replace(/ğ/g, 'g').replace(/ç/g, 'c')
+    .replace(/ö/g, 'o').replace(/ü/g, 'u')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');   // tire KORUNUR
+  const m = norm.match(/^(?:el|al|er|ar|es|as|et|at|ez|az|en|an|ed|ad|ash|adh)-(.+)$/);
+  const dropMarks = (x) => x.replace(/['\u2019\u02bc`-]/g, '');
+  const bare = dropMarks(m ? m[1] : norm);
+  const full = dropMarks(norm);
+  if (bare === qNorm) return 4;
+  if (bare.startsWith(qNorm)) return 3;
+  if (full.startsWith(qNorm)) return 2;
+  if (full.includes(qNorm) || bare.includes(qNorm)) return 1;
+  return 0;
+}
+
+/**
+ * Sorguya uyan sûre numaraları, alâka sırasıyla. Takma ad eşleşmesi (varsa)
+ * her zaman başta; arkasından skor azalan, eşit skorda sûre numarası artan.
+ * Doğal eşleşmeler SİLİNMEZ — kullanıcı isteği 2026-09-28: "amme yazınca hem
+ * Nebe' hem Muhammed çıksın zaten".
+ */
+export function rankSurahMatches(qNorm) {
+  if (!qNorm) return [];
+  const aliasNo = surahNumberForAlias(qNorm);
+  const scored = [];
+  SURAH_NAMES_TR.forEach((name, i) => {
+    if (i + 1 === aliasNo) return;
+    const score = Math.max(scoreSurahName(name, qNorm), scoreSurahName(SURAH_NAMES_EN[i] || '', qNorm));
+    if (score > 0) scored.push({ surah: i + 1, score });
+  });
+  scored.sort((a, b) => b.score - a.score || a.surah - b.surah);
+  const out = scored.map((x) => x.surah);
+  return aliasNo ? [aliasNo, ...out] : out;
 }
 
 /**
