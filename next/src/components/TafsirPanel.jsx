@@ -195,8 +195,10 @@ function normalizeTafsirText(str) {
     // boş kalmış. Kaynağın kendi hatası, bizim kazımamızın değil: arşivlenmiş
     // özgün enfal.de sayfasında da, ondan türeyen üç ayrı aynada da
     // (necatiaksu, islamiokul, kuran.com) sıfır Arapça karakter ve aynı boş
-    // `&quot; &quot;` çiftleri var. Vaktiyle Word'den HTML'e çevrilirken
-    // Arapça akışlar düşmüş. Ölçülen: 254 boş tırnak çifti + 6 boş parantez.
+    // `&quot; &quot;` çiftleri var — yani boşluk dört ayrı yayında ortak.
+    // (Arşiv sayfası Word'den çıkma bir HTML; Arapça akışların o dönüşümde
+    // düştüğü KUVVETLİ İHTİMAL, kanıtlanmış değil — kullanıcıya olgu diye
+    // söylemiyoruz.) Ölçülen: 254 boş tırnak çifti + 6 boş parantez.
     // Metni UYDURMUYORUZ; okurun "burada bir şey eksik" diyebilmesi için
     // eksiklik işaretleniyor — boş tırnak dizgi hatası gibi görünüyordu.
     .replace(/\n{2,}/g, '\uFFFC')  // paragraf işaretini yer tutucuya kaydet (U+FFFC Object Replacement Character — tafsirde geçmeyen güvenli placeholder)
@@ -292,10 +294,16 @@ function renderInline(text, palette, onRefClick) {
       // hatası sanıyordu. Yerine eksikliği SÖYLEYEN bir işaret konuyor.
       parts.push(
         <span key={`g-${key++}`}
+          /* Hakem (gpt-6-astra): her boşluğun Arapça ibare olduğu yalnız
+             karakter sayımından çıkarılamaz; bağlamla doğrulanmayan yerde
+             daha ihtiyatlı dil kullan. Eksikliği esere değil ELİMİZDEKİ
+             nüshaya bağla. */
           title={palette.lang === 'tr'
-            ? 'Elmalılı tefsirinin dijital nüshasında bu Arapça ibare eksik.'
-            : 'The Arabic phrase is missing from the digital copy of this tafsir.'}
-          aria-label={palette.lang === 'tr' ? 'eksik Arapça ibare' : 'missing Arabic phrase'}
+            ? 'Kullandığımız dijital nüshada bu bölüm eksik görünüyor.'
+            : 'This passage appears to be missing from the digital copy used here.'}
+          aria-label={palette.lang === 'tr'
+            ? 'dijital nüshada eksik bölüm'
+            : 'passage missing from the digital copy'}
           style={{
             color: palette.refColor,   // §13.26: metne opaklık verilmez
             fontSize: '0.88em',
@@ -1030,6 +1038,19 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
             }}>
               {source.fullName}
             </a>
+            {/* Hakem (gpt-6-astra): "sorun metin genelinde yaygın; kaynak
+                künyesinin yanında kısa bir açıklama yararlı olur" — ayrıca
+                `[…]` tek başına "editör kısalttı" diye de okunabiliyor ve
+                ipucunu yalnız fareyle üzerine gelen görüyordu. Kalıcı satır
+                hem belirsizliği hem dokunmatik/klavye erişimini çözer.
+                Yalnız Elmalılı için: eksiklik o dijital nüshaya ait. */}
+            {selectedTafsirId === 'elmalili' && (
+              <div style={{ marginTop: '8px', lineHeight: 1.6 }}>
+                {language === 'tr'
+                  ? 'Kullandığımız dijital nüshada bazı Arapça ibareler eksiktir. Tespit edilen eksiklikler […] ile gösterilmiştir.'
+                  : 'Some Arabic phrases are missing from the digital copy used here. Detected gaps are marked with […].'}
+              </div>
+            )}
           </div>
         )}
       </div>
