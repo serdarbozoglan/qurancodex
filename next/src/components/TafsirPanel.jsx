@@ -923,7 +923,7 @@ export default function TafsirPanel({ open, onClose, surah, ayah, language, dayM
             >
               {language === 'tr'
                 ? `${ayah ? `${surah}:${ayah}` : SURAH_NAMES_TR[surah - 1] || surah} tefsirini Diyanet'in sitesinde aç`
-                : `Read the commentary on ${ayah ? `${surah}:${ayah}` : surah} at diyanet.gov.tr`}
+                : `Read the commentary on ${ayah ? `${surah}:${ayah}` : surah} on the Directorate's website`}
               <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
