@@ -14,23 +14,42 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { listRecentQueries, listRecentFeedback, listTopQueries, getStats, isKvEnabled, purgeAllCache, getItemsWithFeedback } from '@/lib/concierge-kv';
+import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
 
 export const runtime = 'nodejs';
 
+// Token denemesi için hız sınırı (2026-10-10). Bearer karşılaştırması tek
+// başına sınırsız tahmin hakkı veriyordu: doğru token uzun ve rastgele olsa
+// bile deneme sayısını bağlamamak için bir sebep yok. Sayaç IP başına ve
+// `concierge-ratelimit`'in bellek içi kovasında — bu uç noktaya meşru trafik
+// yalnız yönetici panelinden geldiği için örnekler arası KV sayacına gerek
+// yok; kötüye kullanımı yavaşlatmak yeterli.
+const ADMIN_RL = { max: 10, windowMs: 60_000, key: 'admin' };
+
 function checkAuth(request) {
+  // Sınır AUTH'TAN ÖNCE tüketilir; aksi halde yanlış token hiç sayılmaz ve
+  // kova tam da korumak istediğimiz durumda boş kalırdı.
+  const rl = checkRateLimit(getClientIp(request), ADMIN_RL);
+  if (!rl.ok) return { ok: false, error: 'rate_limited', status: 429, resetAt: rl.resetAt };
   const expected = process.env.ADMIN_TOKEN;
-  if (!expected) return { ok: false, error: 'ADMIN_TOKEN env var not set on server' };
+  if (!expected) return { ok: false, error: 'ADMIN_TOKEN env var not set on server', status: 401 };
   const auth = request.headers.get('authorization') || '';
   const token = auth.startsWith('Bearer ') ? auth.slice(7) : '';
-  if (token !== expected) return { ok: false, error: 'invalid_token' };
+  if (token !== expected) return { ok: false, error: 'invalid_token', status: 401 };
   return { ok: true };
+}
+
+// İki fiil de aynı reddi döndürür; 401 ile 429 ayrı anlam taşır.
+function denied(auth) {
+  return Response.json(
+    { error: auth.error, ...(auth.resetAt ? { resetAt: auth.resetAt } : {}) },
+    { status: auth.status || 401 }
+  );
 }
 
 export async function GET(request) {
   const auth = checkAuth(request);
-  if (!auth.ok) {
-    return Response.json({ error: auth.error }, { status: 401 });
-  }
+  if (!auth.ok) return denied(auth);
 
   const url = new URL(request.url);
   const view = url.searchParams.get('view') || 'recent';
@@ -77,7 +96,7 @@ export async function GET(request) {
 // POST — admin actions (currently: cache purge)
 export async function POST(request) {
   const auth = checkAuth(request);
-  if (!auth.ok) return Response.json({ error: auth.error }, { status: 401 });
+  if (!auth.ok) return denied(auth);
 
   const url = new URL(request.url);
   const action = url.searchParams.get('action');

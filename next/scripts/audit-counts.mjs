@@ -198,5 +198,28 @@ try {
     `sabit 62px kullanan: ${offenders.join(', ')} — 'var(--qc-nav-h, 84px)' kullan`);
 } catch (e) { check('Navbar offset denetimi', false, e.message); }
 
+// 9) Meal yazar kimlikleri: mealSources == ReadingMode'daki MEAL_AUTHORS (C19)
+//    Üç proxy rotası (/api/meal, /api/meal-fallback, /api/meal-fallback2) artık
+//    ÜYELİK denetimi yapıyor: listede olmayan yazar/edition upstream'e hiç
+//    gitmiyor (2026-10-10, anahtar uzayını kapatan güvenlik düzeltmesi). Liste
+//    `src/lib/mealSources.js`te; arayüzdeki yazar listesi ise ReadingMode'da.
+//    İkisi ayrışırsa hata SESSİZ olur: kullanıcı yeni eklenen yazarı menüde
+//    görür, seçer, 400 alır ve "meal gelmiyor" der. §13.28'in kalıbı — iki
+//    yerde duran bir liste elle senkron tutulamaz, kapı tutar.
+try {
+  const rm = read('src/components/ReadingMode.jsx');
+  const block = rm.slice(rm.indexOf('const MEAL_AUTHORS = ['));
+  const uiIds = [...block.slice(0, block.indexOf('];')).matchAll(/apiId:\s*(\d+)/g)].map(m => Number(m[1]));
+  const srcFile = read('src/lib/mealSources.js');
+  const setBlock = srcFile.slice(srcFile.indexOf('MEAL_AUTHOR_IDS = new Set(['));
+  const allow = [...setBlock.slice(0, setBlock.indexOf('])')).matchAll(/^\s*(\d+),/gm)].map(m => Number(m[1]));
+  const missing = uiIds.filter(id => !allow.includes(id));
+  // Listede fazladan kimlik olması hata DEĞİL: 105 (Erhan Aktaş) menüde yok,
+  // atlas sayfaları için prefetch-meal.mjs ile ön-önbelleğe alınıyor.
+  check('Meal yazar kimlikleri: MEAL_AUTHORS ⊆ mealSources (C19)',
+    uiIds.length > 0 && allow.length > 0 && missing.length === 0,
+    `menüde olup allowlist'te olmayan apiId: ${missing.join(', ')} — src/lib/mealSources.js'e ekle`);
+} catch (e) { check('Meal yazar kimliği denetimi', false, e.message); }
+
 console.log(`\n${fails.length === 0 ? '✓ Tüm sayım denetimleri geçti' : `✗ ${fails.length} denetim BAŞARISIZ: ${fails.join(', ')}`}\n`);
 if (process.argv.includes('--ci') && fails.length) process.exit(1);

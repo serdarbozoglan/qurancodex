@@ -8,6 +8,8 @@
 // /meal-cache/[author]/[surah].json statik dosyaları varsa client önce onları
 // dener; bu route fallback'tir (cache miss veya pre-cache'lenmemiş author için).
 
+import { MEAL_AUTHOR_IDS } from '@/lib/mealSources';
+
 const UPSTREAM = 'https://api.acikkuran.com';
 
 export const runtime = 'edge'; // Edge: faster cold start, geographic distribution
@@ -16,9 +18,17 @@ export async function GET(request, { params }) {
   const { author, surah } = await params;
 
   // Validate inputs
+  //
+  // ÜST SINIR ŞART (2026-10-10). Eskiden koşul `a < 1` idi, yani üst sınır
+  // yoktu: `author=99999` biçim denetimini geçip GERÇEK bir upstream isteği
+  // tetikliyordu (canlıda ölçüldü, 0.67 s). Her farklı sayı ayrı bir önbellek
+  // anahtarı olduğu için önbellek hiç tutmuyor, saldırgan sayıyı artırarak
+  // sınırsız upstream isteği üretebiliyordu — bizi acikkuran.com'a karşı
+  // yükseltici (amplifier) yapan, faturayı ve itibarı bize yazan bir açık.
+  // Hız sınırı bunu çözmez; anahtar uzayını KAPATMAK çözer.
   const s = parseInt(surah, 10);
   const a = parseInt(author, 10);
-  if (Number.isNaN(s) || s < 1 || s > 114 || Number.isNaN(a) || a < 1) {
+  if (Number.isNaN(s) || s < 1 || s > 114 || !MEAL_AUTHOR_IDS.has(a)) {
     return new Response(JSON.stringify({ error: 'invalid params' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },

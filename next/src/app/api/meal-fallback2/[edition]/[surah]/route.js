@@ -12,6 +12,8 @@
 // alt-çizgili anahtarların tire'li klasör karşılığı: tur_diyanetisleri →
 // tur-diyanetisleri gibi.
 
+import { JSDELIVR_EDITIONS } from '@/lib/mealSources';
+
 const UPSTREAM = 'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions';
 
 export const runtime = 'edge';
@@ -19,8 +21,11 @@ export const runtime = 'edge';
 export async function GET(request, { params }) {
   const { edition, surah } = await params;
 
+  // ÜYELİK DENETİMİ (2026-10-10) — bkz. /api/meal-fallback'in aynı tarihli
+  // notu. Kalıp denetimi anahtar uzayını sınırsız bırakıyordu; yalnız slug'ı
+  // canlı istekle doğrulanmış 9 edition geçiyor.
   const s = parseInt(surah, 10);
-  if (Number.isNaN(s) || s < 1 || s > 114 || !/^[a-z]{3}-[a-z0-9]+$/.test(edition)) {
+  if (Number.isNaN(s) || s < 1 || s > 114 || !JSDELIVR_EDITIONS.has(edition)) {
     return new Response(JSON.stringify({ error: 'invalid params' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },

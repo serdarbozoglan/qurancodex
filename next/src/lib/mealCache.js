@@ -13,47 +13,19 @@
 // Bu rotada Next.js fetch cache (revalidate 24h) + Cache-Control header'lar
 // var; aynı surah+author kombinasyonu için tek upstream call yapılıp tüm
 // kullanıcılara dağıtılır.
+import { ALQURAN_CLOUD_FALLBACK, JSDELIVR_QURAN_API_FALLBACK } from './mealSources';
+
 const API_BASE = '/api/meal';
 const FALLBACK_BASE = '/api/meal-fallback';
 const FALLBACK2_BASE = '/api/meal-fallback2';
 
-// 2026-08-19 — kullanıcı raporu: api.acikkuran.com'un DNS'i çözülmüyordu
-// (ENOTFOUND, hem yerel hem sunucu tarafında doğrulandı — ana alan adı
-// acikkuran.com çözülüyor, yalnız api. alt-alan-adı çözülmüyor). acikkuran
-// author ID'sinden alquran.cloud edition kimliğine eşleştirme — yalnız
-// GERÇEK karşılığı doğrulanmış yazarlar (canlı istekle kontrol edildi).
-// Karşılığı olmayan yazarlar (İslamoğlu, Bayraktar, Okuyan, Haleem) bu
-// haritada YOK — onlar için üçüncü katman denenmez, doğrudan hata gösterilir.
-const ALQURAN_CLOUD_FALLBACK = {
-  11: 'tr.diyanet',    // Diyanet İşleri
-  14: 'tr.yazir',      // Elmalılı Hamdi Yazır
-  6: 'tr.bulac',       // Ali Bulaç
-  27: 'tr.ates',       // Süleyman Ateş
-  30: 'tr.ozturk',     // Yaşar Nuri Öztürk
-  2: 'en.yusufali',    // Abdullah Yusuf Ali
-  109: 'en.pickthall', // Marmaduke Pickthall
-  9: 'en.asad',        // Muhammad Asad
-};
-
-// 2026-08-19 — kullanıcı isteği: "bir tane daha fallback olsa iyi olur".
-// fawazahmed0/quran-api (jsdelivr CDN üzerinden statik JSON) — hem
-// ALQURAN_CLOUD_FALLBACK'teki 8 yazarı yedekler (o da düşerse bu tutar)
-// hem de Abdul Haleem'i (alquran.cloud'da karşılığı yoktu) yeni kapsar.
-// Slug'lar CANLI istekle doğrulandı. İslamoğlu/Bayraktar/Okuyan hiçbir
-// katmanda kapsanmıyor — hiçbir kamuya açık JSON API'de karşılıkları
-// bulunamadı (yalnız HTML scraping ile mümkün olurdu, kullanıcı bunu
-// istemedi).
-const JSDELIVR_QURAN_API_FALLBACK = {
-  11: 'tur-diyanetisleri',
-  14: 'tur-elmalilihamdiya',
-  6: 'tur-alibulac',
-  27: 'tur-suleymanates',
-  30: 'tur-yasarnuriozturk',
-  2: 'eng-abdullahyusufal',
-  109: 'eng-mohammedmarmadu',
-  9: 'eng-muhammadasad',
-  113: 'eng-abdelhaleem', // Abdul Haleem — yalnız bu katmanda var
-};
+// Yazar → edition haritaları lib/mealSources.js'te (2026-10-10). Burada ve üç
+// proxy rotasında ayrı kopyalar duruyordu; rotalar üyelik denetimi yapmaya
+// başlayınca iki listenin birbirinden sürüklenmesi sessiz bir "meal gelmiyor"
+// hatasına dönerdi. Tek kaynak, iki tüketici.
+//
+// Kapsam notu (değişmedi): karşılığı doğrulanmamış yazarlar (İslamoğlu,
+// Bayraktar, Okuyan) hiçbir yedek katmanda yok; Haleem yalnız 4. katmanda.
 
 // In-memory cache of parsed JSON responses (per session).
 // Key: `${author}:${surah}`.

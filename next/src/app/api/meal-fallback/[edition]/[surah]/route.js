@@ -9,6 +9,8 @@
 // burada acikkuran'ın şekline normalize edilir ki mealCache.js/ReadingMode.jsx
 // tüketici kodu (v.verse_number, v.translation.text) DEĞİŞMEDEN çalışsın.
 
+import { ALQURAN_CLOUD_EDITIONS } from '@/lib/mealSources';
+
 const UPSTREAM = 'https://api.alquran.cloud/v1';
 
 export const runtime = 'edge';
@@ -16,8 +18,15 @@ export const runtime = 'edge';
 export async function GET(request, { params }) {
   const { edition, surah } = await params;
 
+  // ÜYELİK DENETİMİ (2026-10-10). Eskiden yalnız `^[a-z]{2}\.[a-z]+$` kalıbına
+  // bakılıyordu; kalıba uyan ama var olmayan her edition upstream'e gidiyordu.
+  // alquran.cloud bilinmeyen edition'da hata DÖNDÜRMÜYOR, sessizce varsayılana
+  // düşüyor — aşağıdaki normalizer de onu geçerli bir meal gibi paketleyip 200
+  // veriyordu. Canlıda ölçüldü: `tr.zzzzqqqwx` → 200, Türkçe meal yerine
+  // Arapça Osmanlı hattı metin. Bir Kur'an sitesinde kabul edilemez; artık
+  // yalnız karşılığı doğrulanmış 8 edition geçiyor.
   const s = parseInt(surah, 10);
-  if (Number.isNaN(s) || s < 1 || s > 114 || !/^[a-z]{2}\.[a-z]+$/.test(edition)) {
+  if (Number.isNaN(s) || s < 1 || s > 114 || !ALQURAN_CLOUD_EDITIONS.has(edition)) {
     return new Response(JSON.stringify({ error: 'invalid params' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
