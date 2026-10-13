@@ -200,7 +200,7 @@ for (const u of urls) {
     if (found.length) process.stdout.write(`   ${String(found.length).padStart(4)}  ${u}\n`);
   } catch (e) {
     perPage[u] = null;
-    process.stdout.write(`   HATA  ${u}\n`);
+    process.stdout.write(`   HATA  ${u}  ${String(e && e.message).replace(/\n[\s\S]*/, '').slice(0, 90)}\n`);
   }
 }
 await browser.close();
