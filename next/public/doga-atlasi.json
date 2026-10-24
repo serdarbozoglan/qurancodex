@@ -183,18 +183,18 @@
     },
     {
       "id": "hudhud",
-      "arabic": "الْهُدْهُد",
+      "arabic": "الْهُدْهُدَ",
       "nameTr": "Hüdhüd (İbibik)",
       "nameEn": "Hoopoe",
-      "frequency": "2 kez",
+      "frequency": "1 âyette 1 kez (hüdhüd lafzı)",
       "contexts": [
         "kissa"
       ],
       "sureRef": "Neml 27:20-28",
-      "noteTr": "Kur'an'da en ayrıntılı anlatılan kuş. Haber getirir, mektup taşır, dönüp rapor verir — tam bir elçi portresi.",
-      "noteEn": "The most detailed bird narrative in the Quran. It brings news, carries letters, returns and reports — a complete portrait of a messenger.",
+      "noteTr": "Kur'an'da en ayrıntılı anlatılan kuş. Haber getirir, mektup taşır, dönüp rapor verir. Adı yalnız Neml 27:20'de geçer; kıssa 27:20-28 boyunca sürer.",
+      "noteEn": "The most detailed bird narrative in the Quran. It brings news, carries letters, returns and reports. The name itself appears only in An-Naml 27:20, while the account runs through 27:20-28.",
       "hasTefsirNote": false,
-      "freqNumeric": 2
+      "freqNumeric": 1
     },
     {
       "id": "balik",
@@ -270,18 +270,18 @@
     },
     {
       "id": "aslan",
-      "arabic": "الْأَسَد",
-      "nameTr": "Aslan",
-      "nameEn": "Lion",
-      "frequency": "2 kez",
+      "arabic": "قَسْوَرَةٍ",
+      "nameTr": "Kasvera (aslan veya avcılar)",
+      "nameEn": "Qaswarah (lion or hunters)",
+      "frequency": "1 âyette 1 kez (kasvera lafzı)",
       "contexts": [
         "mecaz"
       ],
       "sureRef": "Müddessir 74:51",
-      "noteTr": "Müddessir 74:51'de 'kasvarah' (قَسْوَرَة) kelimesiyle geçer — bazı müfessirler aslan, bazıları avcılar olarak yorumlar. İslam kültüründeki yaygınlığına rağmen Kur'an'da yalnızca mecaz olarak yer alır.",
-      "noteEn": "Appears in Mudaththir 74:51 as 'qaswarah' (قَسْوَرَة) — some commentators read it as lion, others as hunters. Despite its prominence in Islamic culture, it appears in the Quran only as a metaphor.",
+      "noteTr": "Müddessir 74:51'de geçen kasvera kelimesini müfessirlerin bir kısmı aslan, bir kısmı avcılar diye açıklar. Âyet bir tür adı vermez; burada gösterilen, âyetin kendi kelimesidir.",
+      "noteEn": "Commentators explain the word qaswarah in Al-Muddaththir 74:51 either as a lion or as hunters. The verse names no species; what is shown here is the word the verse itself uses.",
       "hasTefsirNote": false,
-      "freqNumeric": 2
+      "freqNumeric": 1
     },
     {
       "id": "at",
@@ -301,47 +301,47 @@
     },
     {
       "id": "koyun",
-      "arabic": "الْغَنَم",
+      "arabic": "الْغَنَمِ",
       "nameTr": "Koyun / Keçi",
       "nameEn": "Sheep / Goat",
-      "frequency": "6 kez",
+      "frequency": "3 âyette 3 kez (ganem lafzı)",
       "contexts": [
         "haram-helal",
         "kissa"
       ],
-      "sureRef": "En'am 6:143, Sad 38:23",
-      "noteTr": "Hz. Dâvûd kıssasında 99 koyun sahibi davasıyla meşhur ayet (Sâd 38:21-24). Ekonomik adalet dersi.",
-      "noteEn": "The famous verse about the 99-ewe litigation in David's narrative (Ṣād 38:21-24). A lesson in economic justice.",
+      "sureRef": "En'âm 6:146, Tâhâ 20:18, Enbiyâ 21:78",
+      "noteTr": "Ganem, koyunu ve keçiyi birlikte kapsayan bir topluluk adıdır. Hz. Dâvûd kıssasındaki 99 koyun davası (Sâd 38:23) bu lafızla değil, dişi koyun anlamındaki na'ce ile anlatılır.",
+      "noteEn": "Ghanam is a collective noun covering both sheep and goats. The dispute over ninety-nine ewes in David's narrative (Sad 38:23) uses na'jah, a different word for a female sheep.",
       "hasTefsirNote": false,
-      "freqNumeric": 6
+      "freqNumeric": 3
     },
     {
       "id": "yilan",
-      "arabic": "الثَّعْبَان",
+      "arabic": "ثُعْبَانٌ",
       "nameTr": "Yılan",
       "nameEn": "Snake",
-      "frequency": "4 kez",
+      "frequency": "2 âyette 2 kez (su'bân lafzı)",
       "contexts": [
         "kissa"
       ],
-      "sureRef": "A'raf 7:107, Şuara 26:32, Taha 20:20",
-      "noteTr": "Asanın dönüştüğü varlık farklı ayette farklı kelimeyle anılır — biri 'su'ban' (büyük yılan), biri 'jan' (küçük yılan). Tefsirciler bu farkı mucizesinin iki boyutu olarak yorumlar.",
-      "noteEn": "The creature the staff transforms into is named differently in different verses — one 'thu'ban' (large serpent), one 'jann' (small snake). Scholars interpret this difference as two aspects of the miracle.",
+      "sureRef": "A'râf 7:107, Şuarâ 26:32",
+      "noteTr": "Asanın dönüştüğü varlık üç ayrı kelimeyle anılır: su'bân (A'râf 7:107, Şuarâ 26:32), hayye (Tâhâ 20:20) ve cânn (Neml 27:10, Kasas 28:31). Buradaki sayım yalnız su'bân lafzınadır.",
+      "noteEn": "The creature the staff becomes is named by three different words: thu'ban (Al-Araf 7:107, Ash-Shuara 26:32), hayyah (Ta-Ha 20:20) and jann (An-Naml 27:10, Al-Qasas 28:31). The count here covers only thu'ban.",
       "hasTefsirNote": true,
-      "freqNumeric": 4
+      "freqNumeric": 2
     },
     {
       "id": "agac-kurdu",
-      "arabic": "الدُّودَة",
-      "nameTr": "Ağaç Kurdu",
-      "nameEn": "Woodworm",
-      "frequency": "1 kez",
+      "arabic": "دَٓابَّةُ الْاَرْضِ",
+      "nameTr": "Ağaç Kurdu (dâbbetü'l-arz)",
+      "nameEn": "Woodworm (dabbat al-ard)",
+      "frequency": "1 âyette 1 kez (dâbbetü'l-arz ibaresi)",
       "contexts": [
         "kissa"
       ],
       "sureRef": "Sebe 34:14",
-      "noteTr": "'Süleyman'ın ölümünü cinlere gösteren yalnızca ağaç kurduydu.' Hapax kategorisine yakın — çok nadir.",
-      "noteEn": "'Nothing revealed Solomon's death to them except a creature of the earth eating his staff.' Near hapax — very rare.",
+      "noteTr": "Sebe 34:14, Hz. Süleyman'ın ölümünü belli edeni 'yerin canlısı' diye anar ve bir tür adı vermez. Asayı yiyen bu canlı tefsirlerde ağaç kurdu olarak açıklanır.",
+      "noteEn": "Saba 34:14 calls the creature that revealed Solomon's death 'a creature of the earth' and names no species. Commentators explain the creature eating his staff as a woodworm.",
       "hasTefsirNote": false,
       "isHapax": true,
       "freqNumeric": 1
@@ -565,18 +565,19 @@
     },
     {
       "id": "sarimsaklar",
-      "arabic": "الثَّوْم",
-      "nameTr": "Sarımsak",
-      "frequency": "1 kez",
+      "arabic": "فُومِهَا",
+      "nameTr": "Fûm (sarımsak veya buğday)",
+      "frequency": "1 âyette 1 kez (fûm lafzı)",
       "contexts": [
         "dunya"
       ],
       "sureRef": "Bakara 2:61",
-      "noteTr": "'Ey Musa, tek çeşit yemekle yetinmeyiz. Bize sarımsak, salatalık, mercimek ver.' — Nimet içindeyken başka nimet isteyen bir toplumun portresi.",
-      "noteEn": "'O Moses, we will not endure one kind of food. Pray to your Lord to bring forth for us garlic, cucumbers, lentils.' — A portrait of a people seeking more while already blessed.",
+      "noteTr": "Bakara 2:61'de İsrâiloğulları tek çeşit yemeğe razı olmaz; bakla, salatalık, fûm, mercimek ve soğan ister. Fûm'un sarımsak mı buğday mı olduğu tefsirlerde ihtilaflıdır.",
+      "noteEn": "In Al-Baqarah 2:61 the Children of Israel refuse a single kind of food and ask for herbs, cucumbers, fum, lentils and onions. Commentators differ on whether fum means garlic or wheat.",
       "hasTefsirNote": false,
       "isHapax": false,
-      "freqNumeric": 1
+      "freqNumeric": 1,
+      "nameEn": "Fum (garlic or wheat)"
     },
     {
       "id": "mercimek",
@@ -625,35 +626,36 @@
     },
     {
       "id": "mubarek-agac",
-      "arabic": "الشَّجَرَةِ الْمُبَارَكَةِ",
+      "arabic": "شَجَرَةٍ مُبَارَكَةٍ",
       "nameTr": "Mübarek Ağaç (Zeytin)",
-      "frequency": "1 kez (bu sıfatla)",
+      "frequency": "1 âyette 1 kez (ibare)",
       "contexts": [
         "dunya",
         "yemin"
       ],
       "sureRef": "Nur 24:35",
-      "noteTr": "Nur ayetindeki kandil tasvirinde 'doğudan da batıdan da değil' ifadesi yoğun tefsir ilgisi görmüş. Evrensel ışık sembolizmi.",
-      "noteEn": "The phrase 'neither of the East nor of the West' in the Verse of Light's lamp description has attracted intensive scholarly commentary. Universal light symbolism.",
+      "noteTr": "Nûr 24:35'te ibare 'zeytin ağacı' diye sürer; yani Zeytin kartındaki ağacın aynısıdır. 'Doğudan da batıdan da değil' ifadesi yoğun tefsir ilgisi görmüştür.",
+      "noteEn": "In An-Nur 24:35 the phrase continues as 'an olive tree', so this is the same tree as the Olive card. The phrase 'neither of the East nor of the West' has drawn extensive commentary.",
       "hasTefsirNote": true,
       "isHapax": false,
       "freqNumeric": 1
     },
     {
       "id": "tur-agaci",
-      "arabic": "شَجَرَةِ الطُّورِ",
-      "nameTr": "Tur'un Ağacı (Zeytin)",
-      "frequency": "3 kez",
+      "arabic": "شَجَرَةً تَخْرُجُ مِنْ طُورِ سَيْنَٓاءَ",
+      "nameTr": "Sînâ'dan Çıkan Ağaç (zeytin)",
+      "frequency": "1 âyette 1 kez (ibare)",
       "contexts": [
         "kissa",
         "yemin"
       ],
-      "sureRef": "Tîn 95:2, Tur 52:1, Müminun 23:20",
-      "noteTr": "Hz. Musa'nın ateşi gördüğü kutsal ağaç. Müminun 23:20'de 'Sina'dan çıkan ağaç' olarak zeytin ağacına işaret eder.",
-      "noteEn": "The sacred tree where Moses saw the fire. In Al-Mu'minun 23:20, 'the tree growing from Mount Sinai' refers to the olive tree.",
+      "sureRef": "Mü'minûn 23:20",
+      "noteTr": "Mü'minûn 23:20 bu ağacı 'Sînâ'dan çıkan, yağ veren ağaç' diye tanıtır ve tefsirlerde zeytin ağacı olarak açıklanır; yani Zeytin kartındaki ağaçla aynıdır. Tîn 95:2 ve Tûr 52:1'de geçen Tûr, ağaç değil dağdır.",
+      "noteEn": "Al-Muminun 23:20 describes this as the tree that grows from Sinai and yields oil; commentators identify it as the olive, the same tree as the Olive card. The Tur in At-Tin 95:2 and At-Tur 52:1 is the mountain, not a tree.",
       "hasTefsirNote": false,
       "isHapax": false,
-      "freqNumeric": 3
+      "freqNumeric": 1,
+      "nameEn": "The Tree from Sinai (olive)"
     }
   ],
   "sureNames": [

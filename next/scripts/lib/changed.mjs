@@ -2,6 +2,16 @@
 // Karşılaştırma tabanı: upstream'in son bilinen hâli (origin/<dal>) varsa o,
 // yoksa HEAD~1. Çalışma ağacındaki henüz commit'lenmemiş değişiklikler de
 // dahil (push'tan önce her şey commit'lenmiş olmalı ama garanti değil).
+//
+// ⚠ YOLLAR cwd'YE GÖREDİR (`--relative`). Git yolları normalde REPO KÖKÜNE
+// göre basar; bu paket `next/` içinden çağrıldığı için `next/src/...` ve
+// `next/public/...` dönüyordu. Tüketicilerin hepsi ise `^src/` ve `^public/`
+// diye süzüyor, yani HİÇBİRİ eşleşmiyordu: audit-arabic-json (§13.15),
+// audit-humanizer (§13.34) ve audit-verse-refs (§13.32) sessizce HİÇBİR ŞEY
+// taramadan yeşil yanıyordu. 2026-10-24'te `public/doga-atlasi.json`
+// değiştirildiğinde §13.15 kapısı "değişen 0 dosya" deyince yakalandı.
+// `treeStamp` aynı tuzağa düşüp `--show-prefix` ile çözmüştü; burada da
+// aynı sınıf hata vardı, yalnız ters yönde.
 import { execSync } from 'node:child_process';
 
 export function sh(cmd, cwd) {
@@ -30,8 +40,8 @@ export function addedLines(cwd, pathFilter = () => true) {
       else if (!raw.startsWith('-')) line++;
     }
   };
-  try { if (base) parse(sh(`git diff --unified=0 --no-color ${base} -- .`, cwd)); } catch { /* yoksay */ }
-  try { parse(sh('git diff --unified=0 --no-color -- .', cwd)); } catch { /* yoksay */ }
+  try { if (base) parse(sh(`git diff --unified=0 --no-color --relative ${base} -- .`, cwd)); } catch { /* yoksay */ }
+  try { parse(sh('git diff --unified=0 --no-color --relative -- .', cwd)); } catch { /* yoksay */ }
   return out;
 }
 
@@ -39,8 +49,8 @@ export function changedFiles(cwd) {
   const base = diffBase(cwd);
   const set = new Set();
   const add = (txt) => txt.split('\n').map(s => s.trim()).filter(Boolean).forEach(f => set.add(f));
-  try { if (base) add(sh(`git diff --name-only ${base} -- .`, cwd)); } catch { /* yoksay */ }
-  try { add(sh('git diff --name-only -- .', cwd)); } catch { /* yoksay */ }
+  try { if (base) add(sh(`git diff --name-only --relative ${base} -- .`, cwd)); } catch { /* yoksay */ }
+  try { add(sh('git diff --name-only --relative -- .', cwd)); } catch { /* yoksay */ }
   try { add(sh('git ls-files --others --exclude-standard -- .', cwd)); } catch { /* yoksay */ }
   return [...set];
 }
