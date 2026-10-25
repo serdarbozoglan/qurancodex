@@ -273,10 +273,29 @@ aralıklar yanlış toplanıyordu).
       EN özetler). Ortak örüntü zaten kalıp değil, "kalplerde ekinne,
       kulaklarda vakr" anlatımı.
 
-**Kalan 1.4 maddeleri (sonraki tur):** "Yedi gök" listesinde 17:44 ve 23:86
-eksik (ölçüm: 2:29, 17:44, 23:86, 41:12, 65:12, 67:3, 71:15 — liste henüz
-bulunamadı) · Mülk -îr fasılası · Secde âyeti sayısı · "İlâhî sıfatla biten"
-sûreler · Birmingham ↔ Yaşayan Koruma.
+**Kalan 1.4 maddeleri — ÖLÇÜM HAZIR, YERİ BULUNAMADI**
+
+Dördünü de aradım, raporun tarif ettiği metin bu arama terimleriyle
+bulunamadı. Ölçümleri burada duruyor ki sonraki tur baştan başlamasın.
+
+- [ ] **"Yedi gök" listesi** — ölçüm tamam: «سبع» + «سماوات» birlikte
+      **2:29, 17:44, 23:86, 41:12, 65:12, 67:3, 71:15**. (5:3, 12:43, 12:46
+      yanlış eşleşme: oradaki "seb'" yırtıcı hayvan ve yedi başak.)
+      Aranan ve bulunamayan: `"Yedi Gök"`, `"yedi gök"`, `"seven heavens"`
+      → yalnız `verse-metadata.json` ve `DogaAtlasi.jsx`'in genel "semâ"
+      kartı çıktı, raporun tarif ettiği liste değil.
+- [ ] **Mülk -îr fasılası** — aranan: `fasıla`, `fâsıla`, `îr` +
+      `Mülk 67` (isimlendirme, kuran-retorigi, surah-info). Bulunamadı.
+- [ ] **Secde âyeti sayısı** — aranan: `secde` (surah-info, surah-notes;
+      `surah-notes.json` zaten yok). Bulunamadı.
+- [ ] **"İlâhî sıfatla biten" sûreler** — aranan: `ilâhî sıfatla`,
+      `sıfatla biten`, `divine attribute`. Bulunamadı.
+- [ ] **Birmingham ↔ Yaşayan Koruma tutarsızlığı** — dosyalar belli
+      (`tarihsel-kanitlar.json`, `KorumaZinciri.jsx`, `TarihselKanitlar.jsx`),
+      iki metnin karşılaştırılması yapılmadı.
+
+⚠ **Not:** Bu aramaları yaparken `grep -r src/` kullanmak 183 MB'lık gömme
+dosyasına giriyor ve dakikalarca sürüyor. Hedefli dizin/dosya listesiyle ara.
 
 ## KADEME 2 — Kendi kurallarımızın tutarlı uygulanması
 
