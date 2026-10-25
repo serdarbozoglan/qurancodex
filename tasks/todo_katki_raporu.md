@@ -6,7 +6,12 @@
 > Kapsam: ana sayfa, 15 bölüm, ~50 araç/atlas sayfası, 53 tefekkür yazısının
 > tamamı. 587 Arapça âyet alıntısının hepsi tutarlı bulunmuş.
 >
-> **Çalışma kuralı (kullanıcı direktifi 2026-10-24):** maddeler SIRAYLA
+> **Paralel çalışma (kullanıcı direktifi 2026-10-24):** iş, dosya kümeleri
+KESİŞMEYEN ajanlara bölünebilir; aynı dosyada iki ajan çalışmaz. Ajanlar
+git komutu çalıştırmaz (indeks yarışı olmasın), commit tek elden atılır.
+Her ajan astra hakem turundan geçmek zorundadır.
+
+**Çalışma kuralı (kullanıcı direktifi 2026-10-24):** maddeler SIRAYLA
 > yapılır; her değişiklik için astra hakem turu ZORUNLU; emin olmadan
 > değiştirilmez; değişiklik commit edilir, bu liste güncellenir ve `main`'e
 > push edilir.
@@ -27,7 +32,7 @@
 | 2.4 | Kur'an'a Sor örnek sorusu | ○ başlamadı |
 | 3.1-3.4 | Editoryal (astra hükümleri hazır) | ○ başlamadı |
 | 4 | Gizlilik + KV arşiv politikası | ○ kullanıcı kararı bekliyor |
-| 5 | Telif ve lisans | ○ başlamadı |
+| 5 | Telif ve lisans | ⛔ kullanıcı: şimdilik dokunma |
 | 6 | Diğer | ○ başlamadı |
 
 **Yan kazanç:** Kademe 1 sırasında **üç denetim kapısının ölü olduğu** bulundu
@@ -574,6 +579,9 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 ---
 
 ## KADEME 5 — Telif ve lisans (rapor §4)
+
+> ⛔ **KULLANICI: "telif ve lisans kısmına şimdilik dokunma" (2026-10-24).**
+> Bu kademe beklemede. Aşağısı kayıt amaçlı duruyor, uygulanmayacak.
 
 > Rapor "hukuki danışmanlık değildir" diyor; biz de öyle ele alıyoruz.
 > Kesin karar için ilgili kurum/yayınevi/hukukçu.
