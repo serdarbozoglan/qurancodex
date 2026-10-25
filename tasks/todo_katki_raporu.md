@@ -893,16 +893,44 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
       modern teknik anlamların kesin anlam gibi yüklenmemesi; bilimsel veya
       arkeolojik bulguların Kur'an'ın hakikatine ölçüt yapılmaması; Türkçe ve
       İngilizcede aynı ihtiyat düzeyinin korunması.
-- [ ] **`audit-arabic-json` kapısının kör noktası.** Kapı yeşil yanıyor ama
-      `cleanArabicForDisplay` ile ölçünce tefekkür dosyalarında **4 dosyada
-      7 dize** normalize değil: `emrin-mahiyeti` ve `kaynak-yuzey` (U+0653),
-      `terminoloji-1-lokal-global` (U+06E0, U+06DF),
-      `yaratilis-hikayesi-2-katmanli-yaratilis` (U+06DF). Sebep: kapı elle
-      yazılmış bir problem-karakter listesi tarıyor ve bu üç karakter listede
-      yok. **Doğru ölçüt `cleanArabicForDisplay(s) === s`**; kapı buna
-      çevrilmeli. Ayrıca §13.14'ün notu gereği, eski kuralla yazılmış veriyi
-      fonksiyondan geçirmek yetmez, kaynaktan YENİDEN ÜRETMEK gerekir.
-      (2026-10-25'te bulundu; aynı hata sınıfı daha önce de yaşandı.)
+- [x] **`audit-arabic-json` kapısı düzeltildi** (ölçüt artık
+      `cleanArabicForDisplay(s) === s`). İki sebepten kör yanıyordu: elle
+      yazılmış karakter listesi U+0653, U+06DF ve U+06E0'ı içermiyordu, VE
+      `public/tefekkur/` taramadan muaf tutulmuştu; o muafiyet hiçbir yerde
+      belgelenmemişti, betiğin kendi yorumu üç muafiyet sayarken kodda
+      dördüncüsü vardı. `--all` kipi eklendi (borç envanteri).
+      Muaf dört dosya artık gerekçeliyle yazılı; `mushaf-line-breaks.json`
+      ve `tecvid-rehberi.json` tüketicileri aranarak doğrulandı.
+
+- [ ] ⚠ **§13.15'İN GEREKÇESİ ÖLÇÜLDÜ VE DOĞRULANMADI. KULLANICI KARARI
+      GEREKİYOR.** Kapıyı düzelttikten sonra yedi dizeyi normalize ettim,
+      sonra yazı tipinin cmap tablosunu okudum: sevk edilen iki KFGQPC
+      dosyasında da U+0653, U+06DF, U+06E0, U+06EA, U+0671 ve U+06D6 için
+      **GLİF VAR**. §13.15 bu karakterler için "glyph'i bulunmayan ... tofu
+      olarak render olur" diyor; o gerekçe bugünkü yazı tipi için geçerli
+      değil. Üstelik U+06DF ve U+06E0 süs değil, **harfin okunmadığını
+      bildiren işlevli okuyuş işaretleri**; silmek okuyuş bilgisi kaybeder.
+      Yedi dizelik düzeltmem **GERİ ALINDI**.
+      §13.15'te kayıtlı 2026-06-01 olayı (esma-beyanlari'nda U+06EA'nın
+      noktalı daire görünmesi) gerçek bir gözleme dayanıyor; yani ya yazı
+      tipi o tarihten sonra değişti ya da sorun glif eksikliği değil
+      konumlandırma (§13.14'ün üst üste binme şikâyeti GPOS meselesi,
+      glif meselesi değil). Karar verilmesi gereken: hangi karakterler
+      gerçekten bozuk basıyor, hangileri korunmalı. Tarayıcıda görsel
+      doğrulama gerekiyor.
+- [ ] **Arapça normalizasyon borcu: 18 dosyada 86 dize** (`--all` ile
+      ölçüldü). En büyükleri `dua-arabic` 17, `fatiha-atlasi` 16,
+      `insan-yolculugu` 15, `dua-verses` 11, `sunnetullah-atlasi` 6.
+      ⚠ Yukarıdaki karar verilmeden TOPLU İŞLEM YAPILMAZ. Astra: "âyet, dua
+      ve diğer Arapça metinler aynı kaynak eşleştirme kuralına tabi
+      tutulmamalı; onay her dize için kaynak ve bağlam denetimine dayanmalı."
+- [ ] **Normalizasyon fonksiyonunun kendisi sınanmıyor** (astra bulgusu).
+      Kapı düzeltmeyle aynı fonksiyonu çağırdığı için hatalı bir silme
+      kuralı hem düzeltmeden hem denetimden geçer. Korunması gereken
+      işaretler için bağımsız test gerekiyor.
+- [ ] **`verse-metadata.json`'da bozuk metin:** `"nتیجe"` (U+06CC içeriyor).
+      Bu âyet metni değil, "netice" kelimesinin harfleri bozulmuş hâli.
+      Ayrı bir hata sınıfı; envanter taramasında çıktı.
 - [ ] **Birmingham künyesi Wikipedia'ya dayanıyor** (§13.35: Wikipedia künye
       sayılmaz). `src/i18n/tr.json` ve `en.json` 834. satır. İyi haber: aynı
       dosyaların 493. satırında parşömen/mürekkep nüansı zaten doğru yazılı.
