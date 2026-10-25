@@ -33,7 +33,7 @@ Her ajan astra hakem turundan geçmek zorundadır.
 | 1.4 | Terim ve atıf eşleşmeleri | ◐ 8 düzeltildi, kalanı 🔄 Ajan B'de |
 | 2.1 | Sayılar tek kaynaktan + "nasıl sayıldı" | ○ başlamadı |
 | 2.2 | Esmâ frekans listesi | ◐ 3 düzeltildi, 2 işaretlendi, 114'ün denetimi kaldı |
-| 2.3 | Hadis ve rivayet standardı | ◐ 4 künye doğrulandı, 4 madde kaldı (3'ü ajanda) |
+| 2.3 | Hadis ve rivayet standardı | ◐ 7 künye doğrulandı, 3 madde kaldı |
 | 2.4 | Kur'an'a Sor örnek sorusu | 🔄 Ajan C çalışıyor |
 | 3.1-3.4 | Editoryal (astra hükümleri hazır) | ○ başlamadı |
 | 4 | Gizlilik + KV arşiv politikası | ○ kullanıcı kararı bekliyor |
@@ -453,11 +453,30 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       ⏳ Astra'nın ayrıca not ettiği bir nokta yazarla konuşulacak: Alak 4-5
       kalemle öğretmeyi zikreder, kalemin ya da aklın ilk yaratılan olduğunu
       söylemez; rivayet tartışması âyetin doğrudan beyanı gibi sunulmamalı.
-- [ ] 🔄 **Ajan A çalışıyor** — Allahu Ekber yazısı: "ilk yaratılan nur" olgu gibi sunuluyor.
-- [ ] 🔄 **Ajan A çalışıyor** — Evrim-İnanç-Resimler: namaz hadisi kaynaksız
-      (Ebû Dâvûd Salât 26, no. 494-495).
-- [ ] 🔄 **Ajan A çalışıyor** — Sema-İsim, Yaratılış-2: "es-semâü mevcun mekfûf"
-      (Tirmizî no. 3298).
+- [x] **Allahu Ekber: "ilk yaratılan nur"** — ifade kaldırıldı, "yazarın
+      temsilinde" çerçevesine alındı. Künyesi, isnad durumu ve Musannef'te
+      bulunmadığı iddiası DOĞRULANAMADI; hiçbiri yazılmadı, yalnız
+      "doğrulanmış bir hadis künyesi veremiyoruz" denildi (astra onayladı).
+      Karşılaştırma için kalem rivayetinin doğrulanmış künyeleri konuldu.
+      Astra iki ek: Necm 53:9 referansı ve "Allah'a mekân/mesafe nispet eden
+      bir anlatım gibi bırakılmamalı" kaydı. Yazım: "hakikat-ı ahmediye" →
+      "hakikat-i Ahmediye".
+- [x] **Evrim-İnanç-Resimler: namaz hadisi** — Ebû Dâvûd **494** (2/104,
+      Sebre) ve **495** (2/105, Abdullah b. Amr), 26. bab, Elbânî: hasen
+      sahih. Doğrulandı: yedi yaş namaz EMRİ, on yaş vurma; ne "bir daha
+      dövmeyin" ne "yedi yaşında vurma" kaydı var. Yanlış lafız tırnaktan
+      çıkarıldı, künye notu eklendi, fıkhî hüküm vermediği yazıldı.
+- [x] **Sema-İsim + Yaratılış-2: "es-semâü mevcun mekfûf"** — Tirmizî 3298
+      doğrulandı (Tefsîr 47, Hadîd babı, kitap içi 47/350; Katâde → el-Hasan →
+      Ebû Hüreyre). Dârüsselâm: **zayıf**. Tirmizî: "garîb"; ayrıca el-Hasan'ın
+      Ebû Hüreyre'den işitmediği kaydı var. Astra uyarısı üzerine üçü AYRI
+      AYRI verildi ("garîb tek başına zayıf demek değildir").
+      **İki yeni bulgu (raporda yoktu):** (1) lafız "es-semâü mevcun mekfûf"
+      değil; metin «الرَّقِيعُ سَقْفٌ مَحْفُوظٌ وَمَوْجٌ مَكْفُوفٌ» diyor.
+      (2) rivayet göğün "önce homojen sonra katmanlı" olduğunu söylemiyor.
+      Yaratılış-2'de gövdede hiç alıntılanmayan bir hadise atıf yapan cümle
+      astra'nın hükmüyle TAMAMEN kaldırıldı ("olmayan bir alıntıyı notta
+      varmış gibi açıklamak yanıltıcı").
 - [x] **Sebeb-i Nüzûl: teyemmüm ve ruh sorusu** (`65e0b352`) — iki künye
       arşivlenmiş sunnah.com üzerinden doğrulandı.
       · **Teyemmüm (Buhârî 334,** Hz. Âişe'den, Mâlik → Abdurrahman b.
@@ -479,6 +498,10 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       belirtilerek anıldı (astra: "muhtemelen Vâhidî'de" yayımlanacak bir
       künye olamaz). Her iki kayda görünür `hadithRefs` künyesi eklendi;
       görünmeyen not alanı kaldırılıp metin özete taşındı.
+- [ ] **Bediüzzaman pull-quote künyesi** (astra'nın açtığı YENİ madde):
+      yaratilis-hikayesi-2, blok 10'daki "Semâ, dalgaları karardâde olmuş
+      bir denizdir" alıntısının eser ve yer künyesi yok. Doğrulanmadı,
+      dokunulmadı.
 - [ ] Ashâb-ı Uhdûd: İbn Kesîr'de Rebî' b. Enes'ten nakledilen rivayet
       (Kademe 1.4'ten devredildi).
 - [ ] Standart: her rivayetin altında kaynak + durum notu; tek tahkik
