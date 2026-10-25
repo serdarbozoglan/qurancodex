@@ -931,9 +931,44 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 - [ ] **`verse-metadata.json`'da bozuk metin:** `"nتیجe"` (U+06CC içeriyor).
       Bu âyet metni değil, "netice" kelimesinin harfleri bozulmuş hâli.
       Ayrı bir hata sınıfı; envanter taramasında çıktı.
-- [ ] **Birmingham künyesi Wikipedia'ya dayanıyor** (§13.35: Wikipedia künye
-      sayılmaz). `src/i18n/tr.json` ve `en.json` 834. satır. İyi haber: aynı
-      dosyaların 493. satırında parşömen/mürekkep nüansı zaten doğru yazılı.
+- [x] **Kaynakça §13.35'e göre yeniden yazıldı.** Wikipedia bağlantısı bir
+      değil ÜÇ taneymiş (Moore, Bucaille, Birmingham) ve dört sorun daha
+      çıktı. 13 bağlantının hepsi açılıp ölçüldü; hiçbiri kullanıcı için
+      kırık değil, iki 403 bot engeli (sunnah.com, kalamullah.com).
+      · **Birmingham:** Wikipedia yerine üniversitenin resmî duyurusu
+        (22 Temmuz 2015, doğrulandı, HTTP 200). Duyurunun birebir ifadesi
+        "the parchment on which the text is written", yani parşömen nüansı
+        üniversitenin kendi diliyle teyitli. %95,4 oranı da doğrulandı; ama
+        astra kısa künyede gereksiz dedi, açıklamaya bırakıldı.
+      · **Süyûtî künyesi ile bağlantısı birbirini tutmuyordu:** künye
+        el-İtkân + Lübâbu'n-Nukūl diyor, bağlantı Tanzil'in nüzul sırası
+        belgesine gidiyordu. O sayfayı açtım: Süyûtî'den hiç söz etmiyor,
+        verisini Zencânî ve Nöldeke'ye dayandırıyor. Bağlantı kaldırıldı.
+        Yerine arşiv nüshası KOYULMADI: bulduğum nüshanın üstverisi dili
+        İngilizce, 1862 tarihli, Arapça aslın tam nüshası olduğu
+        doğrulanamadı.
+      · **Moore ve Bucaille:** bağlantılar kişi biyografilerine gidiyordu,
+        atıf edilen esere değil. Kaldırıldı.
+      · **Bucaille künyesinin ROLÜ değişti:** aynı gün 12 kartın kaynak
+        satırlarından çıkarıldığı için "dayandığımız kaynaklar" listesinde
+        durması tutarsızdı. Astra'nın cümlesiyle yeniden yazıldı: eser,
+        yöntem tartışması bağlamında anılıyor, iddiaların dayanağı değil.
+        Astra ayrıca eski nottaki "akademik mainstream'de tartışmalıdır"
+        ifadesini belirsiz VE dil karışımı buldu; kaldırıldı.
+      · **kalamullah.com** izinli listede değil, bağlantı kaldırıldı.
+      · **Farrin bağlantısı** kitap hakkında bir söyleşiye gidiyor;
+        astra'nın izniyle kaldı ama artık ne olduğu açıkça etiketli.
+      · **Tek bağlantı altında iki ayrı eser** veren üç künye ayrıldı
+        (İbn Kayyim, Süyûtî, Tanzil + Internet Archive). 13 künye 16 oldu.
+      · Künyelerin TAMAMINDA uzun tire vardı (§13.34); kapı diff'te
+        olmadığı için görmüyordu. Virgüle çevrildi.
+      · Baskı/cilt/sayfa doğrulanamayan künyelere bu durum açıkça yazıldı.
+
+- [ ] **§13.35'in izinli kaynak listesi eksik** (astra bulgusu): Corpus
+      Coranicum ve Birmingham Üniversitesi listede YOK, ama ikisi de resmî
+      kurum kaynağı ve sitede kullanılıyor. Liste kapalıysa bunlar ayrıca
+      onaylanmalı, değilse "resmî kurum kaynağı" istisnası açıkça yazılmalı.
+      CLAUDE.md değişikliği, kullanıcı kararı gerekiyor.
 - [ ] **CLAUDE.md kendi içinde çelişiyor.** §13.24 örtüşme için "dikkat
       çekici uyum" ifadesini ONAYLI sayıyor, §13.34 ise "dikkat çekici" ve
       "striking"i satış sıfatı olarak YASAKLIYOR; otomatik kapı §13.34'ü

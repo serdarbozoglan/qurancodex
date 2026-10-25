@@ -792,70 +792,85 @@
     "sourcesTitle": "Kaynaklar",
     "sources": [
       {
-        "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
+        "name": "Raymond Farrin, Structure and Qur'anic Interpretation (2014)",
         "section": "Gizli Simetri · Halka Kompozisyon",
+        "note": "Bağlantı, kitap hakkında bir söyleşiye gider (New Books Network); kitabın tam metni değildir ve iddialar için kaynak olarak kullanılmamaktadır.",
         "link": "https://newbooksnetwork.com/raymond-farrin-structure-and-quranic-interpretation-white-cloud-press-2014"
       },
       {
-        "name": "Corpus Coranicum — Berlin-Brandenburg Bilimler Akademisi",
+        "name": "Corpus Coranicum, Berlin-Brandenburg Bilimler Akademisi",
         "section": "Metin Analizi",
         "link": "https://corpuscoranicum.de"
       },
       {
-        "name": "Quranic Arabic Corpus — Leeds Üniversitesi",
+        "name": "Quranic Arabic Corpus, Leeds Üniversitesi",
         "section": "Kelime Frekansları · Dilsel Analiz",
         "link": "https://corpus.quran.com"
       },
       {
-        "name": "Dr. Keith L. Moore — The Developing Human",
+        "name": "Keith L. Moore, The Developing Human",
         "section": "Bilimsel İşaretler · Embriyoloji",
-        "note": "Moore'un Kur'an yorumlarına ilişkin akademik tartışma için bkz. ilgili bölüm notu.",
-        "link": "https://en.wikipedia.org/wiki/Keith_L._Moore"
+        "note": "Moore'un Kur'an yorumlarına ilişkin akademik tartışma için ilgili bölüm notuna bakınız. Kullanılan baskının künyesi doğrulanmadığı için yazılmamıştır."
       },
       {
-        "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
-        "section": "Bilimsel İşaretler",
-        "note": "Bazı iddiaları akademik mainstream'de tartışmalıdır; bölüm içi notlar bu ayrımı yansıtmaktadır.",
-        "link": "https://en.wikipedia.org/wiki/Maurice_Bucaille"
+        "name": "Maurice Bucaille, The Bible, the Quran and Science",
+        "section": "Bilimsel İşaretler · Yöntem tartışması",
+        "note": "Bu eser, Kur'an ile bilimsel bulgular arasında ilişki kurma yöntemine ilişkin tartışma bağlamında anılmaktadır; bu sitedeki bilimsel iddiaların dayanağı olarak kullanılmamaktadır."
       },
       {
-        "name": "Zemahşeri — el-Keşşâf (12. yüzyıl)",
+        "name": "Zemahşerî, el-Keşşâf (12. yüzyıl)",
         "section": "Sıfır Gereksizlik",
         "link": "https://shamela.org/pdf/607e16b8847c5_2cdd8b237444d35d77f45a8620c8c0bd"
       },
       {
-        "name": "Zerkeşî — el-Burhân fî Ulûmi'l-Kur'ân",
+        "name": "Zerkeşî, el-Burhân fî Ulûmi'l-Kur'ân",
         "section": "İltifât · Belağat",
         "link": "https://archive.org/details/BurhanQuran"
       },
       {
-        "name": "Birmingham Üniversitesi Kur'an El Yazması (2015)",
+        "name": "Birmingham Üniversitesi, Kur'an el yazmasının parşömenine ilişkin radyokarbon tarihlendirme duyurusu, 22 Temmuz 2015",
         "section": "Yaşayan Koruma",
-        "link": "https://en.wikipedia.org/wiki/Birmingham_Quran_manuscript"
+        "link": "https://www.birmingham.ac.uk/news-archive/2015/birmingham-quran-manuscript-dated-among-the-oldest-in-the-world"
       },
       {
-        "name": "Sahîh-i Müslim · Tirmizî — Sünen",
+        "name": "Sahîh-i Müslim ve Tirmizî, Sünen",
         "section": "Hadis referansları (İhsan tanımı, İstikâmet hadisi)",
         "link": "https://sunnah.com"
       },
       {
-        "name": "İbn Kayyim el-Cevziyye — et-Tibyân fî Aksâmi'l-Kur'ân + Zâdü'l-Meâd",
-        "section": "Yeminler · Kıssa Analizi · Helak-Suç Bağı",
-        "link": "https://kalamullah.com/ibn-qayyim.html"
+        "name": "İbn Kayyim el-Cevziyye, et-Tibyân fî Aksâmi'l-Kur'ân",
+        "section": "Yeminler",
+        "note": "Kullanılan baskı ve ilgili bölüm doğrulanmadığı için yazılmamıştır."
       },
       {
-        "name": "Celâluddin es-Süyûtî — el-İtkân fî Ulûmi'l-Kur'ân + Lübâbu'n-Nukūl",
-        "section": "Nüzûl Sırası · Sebeb-i Nüzûl",
-        "link": "https://tanzil.net/docs/revelation_order"
+        "name": "İbn Kayyim el-Cevziyye, Zâdü'l-Meâd",
+        "section": "Kıssa Analizi · Helak-Suç Bağı",
+        "note": "Kullanılan baskı ve ilgili bölüm doğrulanmadığı için yazılmamıştır."
       },
       {
-        "name": "Fahreddin er-Râzî — Mefâtîhu'l-Gayb",
-        "section": "Tefsir · Yedi Katman · Münâsebât"
+        "name": "Celâluddin es-Süyûtî, el-İtkân fî Ulûmi'l-Kur'ân",
+        "section": "Nüzûl Sırası",
+        "note": "Kullanılan baskı ve ilgili bölüm doğrulanmadığı için yazılmamıştır."
       },
       {
-        "name": "Tanzil Quran Text + Internet Archive Kur'an El Yazmaları",
-        "section": "Metin Doğrulama · Yaşayan Koruma",
+        "name": "Celâluddin es-Süyûtî, Lübâbu'n-Nukūl fî Esbâbi'n-Nüzûl",
+        "section": "Sebeb-i Nüzûl",
+        "note": "Kullanılan baskı ve ilgili bölüm doğrulanmadığı için yazılmamıştır."
+      },
+      {
+        "name": "Fahreddin er-Râzî, Mefâtîhu'l-Gayb",
+        "section": "Tefsir · Yedi Katman · Münâsebât",
+        "note": "Kullanılan baskı ve ilgili bölüm doğrulanmadığı için yazılmamıştır."
+      },
+      {
+        "name": "Tanzil, Kur'an metni",
+        "section": "Metin Doğrulama",
         "link": "https://tanzil.net"
+      },
+      {
+        "name": "Internet Archive, Kur'an el yazması koleksiyonları",
+        "section": "Yaşayan Koruma",
+        "note": "Belirli bir koleksiyon künyesi doğrulanmadığı için bağlantı verilmemiştir."
       }
     ],
     "copyright": "QuranCodex. Tüm hakları saklıdır."

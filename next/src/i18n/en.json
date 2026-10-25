@@ -792,70 +792,85 @@
     "sourcesTitle": "Sources",
     "sources": [
       {
-        "name": "Raymond Farrin — Structure and Qur'anic Interpretation (2014)",
+        "name": "Raymond Farrin, Structure and Qur'anic Interpretation (2014)",
         "section": "Hidden Symmetry · Ring Composition",
+        "note": "The link goes to an interview about the book (New Books Network); it is not the book's full text and is not used as evidence for claims.",
         "link": "https://newbooksnetwork.com/raymond-farrin-structure-and-quranic-interpretation-white-cloud-press-2014"
       },
       {
-        "name": "Corpus Coranicum — Berlin-Brandenburg Academy of Sciences",
-        "section": "Textual Analysis",
+        "name": "Corpus Coranicum, Berlin-Brandenburg Academy of Sciences",
+        "section": "Text Analysis",
         "link": "https://corpuscoranicum.de"
       },
       {
-        "name": "Quranic Arabic Corpus — University of Leeds",
+        "name": "Quranic Arabic Corpus, University of Leeds",
         "section": "Word Frequencies · Linguistic Analysis",
         "link": "https://corpus.quran.com"
       },
       {
-        "name": "Dr. Keith L. Moore — The Developing Human",
+        "name": "Keith L. Moore, The Developing Human",
         "section": "Scientific Signs · Embryology",
-        "note": "For the academic debate on Moore's Quranic interpretations, see the relevant section note.",
-        "link": "https://en.wikipedia.org/wiki/Keith_L._Moore"
+        "note": "For the academic debate on Moore's Quranic interpretations, see the relevant section note. The edition used is not stated, as its details have not been verified."
       },
       {
-        "name": "Dr. Maurice Bucaille — The Bible, the Quran and Science",
-        "section": "Scientific Signs",
-        "note": "Some claims are contested in academic mainstream; in-section notes reflect this distinction.",
-        "link": "https://en.wikipedia.org/wiki/Maurice_Bucaille"
+        "name": "Maurice Bucaille, The Bible, the Quran and Science",
+        "section": "Scientific Signs · Discussion of method",
+        "note": "This work is mentioned in the discussion of methods for relating the Quran to scientific findings; it is not used to support the scientific claims on this site."
       },
       {
-        "name": "Zamakhshari — Al-Kashshaf (12th century)",
+        "name": "Zamakhshari, Al-Kashshaf (12th century)",
         "section": "Zero Redundancy",
         "link": "https://shamela.org/pdf/607e16b8847c5_2cdd8b237444d35d77f45a8620c8c0bd"
       },
       {
-        "name": "Al-Zarkashi — Al-Burhan fi Ulum al-Quran",
+        "name": "Al-Zarkashi, Al-Burhan fi Ulum al-Quran",
         "section": "Iltifat · Rhetoric",
         "link": "https://archive.org/details/BurhanQuran"
       },
       {
-        "name": "University of Birmingham Quran Manuscript (2015)",
+        "name": "University of Birmingham, announcement of radiocarbon dating of the Quran manuscript's parchment, 22 July 2015",
         "section": "Living Preservation",
-        "link": "https://en.wikipedia.org/wiki/Birmingham_Quran_manuscript"
+        "link": "https://www.birmingham.ac.uk/news-archive/2015/birmingham-quran-manuscript-dated-among-the-oldest-in-the-world"
       },
       {
-        "name": "Sahih Muslim · Tirmidhi — Sunan",
-        "section": "Hadith references (definition of ihsan, istiqama hadith)",
+        "name": "Sahih Muslim and Tirmidhi, Sunan",
+        "section": "Hadith references (definition of ihsan, hadith of istiqama)",
         "link": "https://sunnah.com"
       },
       {
-        "name": "Ibn al-Qayyim al-Jawziyya — al-Tibyan fi Aqsam al-Qur'an + Zad al-Ma'ad",
-        "section": "Oaths · Narrative Analysis · Destruction-Sin Nexus",
-        "link": "https://kalamullah.com/ibn-qayyim.html"
+        "name": "Ibn al-Qayyim al-Jawziyya, al-Tibyan fi Aqsam al-Qur'an",
+        "section": "Oaths",
+        "note": "The edition used and the relevant section are not stated, as they have not been verified."
       },
       {
-        "name": "Jalal al-Din al-Suyuti — al-Itqan fi Ulum al-Qur'an + Lubab al-Nuqul",
-        "section": "Order of Revelation · Occasions of Revelation",
-        "link": "https://tanzil.net/docs/revelation_order"
+        "name": "Ibn al-Qayyim al-Jawziyya, Zad al-Ma'ad",
+        "section": "Narrative Analysis · Destruction and Transgression",
+        "note": "The edition used and the relevant section are not stated, as they have not been verified."
       },
       {
-        "name": "Fakhr al-Din al-Razi — Mafatih al-Ghayb",
-        "section": "Tafsir · Seven Layers · Munasabat"
+        "name": "Jalal al-Din al-Suyuti, al-Itqan fi Ulum al-Qur'an",
+        "section": "Order of Revelation",
+        "note": "The edition used and the relevant section are not stated, as they have not been verified."
       },
       {
-        "name": "Tanzil Quran Text + Internet Archive Quran Manuscripts",
-        "section": "Text Verification · Living Preservation",
+        "name": "Jalal al-Din al-Suyuti, Lubab al-Nuqul fi Asbab al-Nuzul",
+        "section": "Occasions of Revelation",
+        "note": "The edition used and the relevant section are not stated, as they have not been verified."
+      },
+      {
+        "name": "Fakhr al-Din al-Razi, Mafatih al-Ghayb",
+        "section": "Tafsir · Seven Layers · Munasabat",
+        "note": "The edition used and the relevant section are not stated, as they have not been verified."
+      },
+      {
+        "name": "Tanzil, Quran text",
+        "section": "Text Verification",
         "link": "https://tanzil.net"
+      },
+      {
+        "name": "Internet Archive, Quran manuscript collections",
+        "section": "Living Preservation",
+        "note": "No link is given, as no specific collection reference has been verified."
       }
     ],
     "copyright": "QuranCodex. All rights reserved."
