@@ -402,10 +402,39 @@ yüksek etki varsayımıyla başta tutulmuştu, bu yalnız sezgiydi):
   bulunamaz hâle getirme"
 
 ### Ortak
-- [ ] Menüdeki toplam öğe sayıları (doğrulanmış gerçek sayım) değişmez,
-  sadece gösterim sırası/kademesi değişir — `toolCatalog.js`'teki 66
-  rotanın tamamı kataloğun kendisinde (`/arac/tum-araclar`) erişilebilir
-  kalır, bu madde menü sunumunu değiştirir, kataloğu küçültmez
+- [x] Menüdeki toplam öğe sayıları (doğrulanmış gerçek sayım) değişmedi,
+  yalnız gösterim sırası/kademesi değişti — kataloğun tamamı erişilebilir
+  kalıyor, hiçbir öğe silinmedi (yalnız DOM'dan daraltılmış halde yok,
+  tıklayınca geri geliyor)
+
+### ✅ TAMAMLANDI (2026-10-25, Navbar.jsx + globals.css)
+
+- [x] **Mobil accordion uygulandı:** KEŞFET(26)/ARAÇLAR(23)/TEFEKKÜR(6)
+  her biri bağımsız `aria-expanded` buton + sayı rozeti + chevron.
+  Varsayılan kapalı. Öne çıkan bannerlar (Kur'an'ı Tanı, Tüm Yazılar)
+  daraltmaya bağlı değil, her zaman görünür.
+- [x] **Ölçülen sonuç:** kapalı 870px (~1.2 ekran, önceki 4.693px'den
+  **%81 azalma**), Keşfet açıkken 2.476px — hâlâ eskisinden az. Masaüstü
+  piksel piksel aynı (ekran görüntüsüyle doğrulandı, mega-menüler zaten
+  görev-bazlı gruplanmıştı, dokunulmadı).
+- [x] **aria-controls eklendi** (astra'nın 1. tur notu) — her buton kendi
+  panelinin benzersiz id'sine işaret ediyor; panel kapalıyken DOM'da hiç
+  yok (yalnız görsel gizleme değil, tamamen erişilebilirlik ağacı ve Tab
+  sırası dışında).
+- [x] **Gerçek bir focus-kaybı bug'ı bulundu ve düzeltildi (astra'nın 2.
+  tur önerisiyle — "klavye testi de otomatikleştirilebilir" demişti,
+  haklı çıktı):** `MobileSectionHeader`/`MobileItem`/`MobileFeatured`
+  Navbar() render'ı içindeki bir IIFE'de tanımlıydı — her render'da yeni
+  bir bileşen referansı üretip React'e "farklı tür" gibi görünüyordu,
+  toggle sırasında DOM düğümü unmount/remount oluyor, focus `body`'ye
+  düşüyordu. Masaüstü dropdown'larında (stabil referans) bu kayıp yoktu
+  — karşılaştırmalı test bunu doğruladı. Üç bileşen de modül seviyesine
+  taşındı (`language`/`onAfterClick` artık prop, closure değil); Playwright
+  klavye testiyle doğrulandı: focus artık aç/kapa döngüsü boyunca butonda
+  kalıyor, hiç kaybolmuyor.
+- [x] Rebuild + canlı doğrulama + astra onayı üç ayrı turda alındı (ilk
+  yaklaşım, aria-controls eksikliği, focus-kaybı bug'ı — hepsi bulunup
+  düzeltildi, sonunda "EVET, tamamlandı" onayı alındı)
 
 ## D — (Opsiyonel, en son) Kısa İlk-Kullanım Turu
 

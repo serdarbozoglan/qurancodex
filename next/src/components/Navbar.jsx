@@ -60,6 +60,150 @@ const ChevronDown = () => (
   </svg>
 );
 
+// ── Mobil çekmece — tıklanabilir bölüm başlığı (accordion toggle) ──────────
+// 2026-10-25: MODÜL SEVİYESİNDE tanımlı tutulmalı — Navbar() render'ı
+// içindeki bir IIFE'de tanımlanınca (önceki hâli) her render'da YENİ bir
+// fonksiyon/bileşen referansı üretiyordu; React bunu farklı bir bileşen
+// TÜRÜ sayıp eski DOM düğümünü unmount edip yenisini mount ediyordu. Ölçüldü
+// (Playwright, klavye testi): Enter ile daraltma aç/kapa yapılınca focus
+// `document.body`'ye düşüyordu — masaüstü dropdown'larında (aynı aria-
+// expanded deseni ama module-level/stabil referanslı buton) bu kayıp HİÇ
+// yoktu. Bileşeni buraya taşımak (stabil referans) focus'u butonda tutar.
+const SECTION_HEADER = {
+  display: 'flex', alignItems: 'center', gap: '10px',
+  margin: '24px 0 6px', padding: '0 4px',
+};
+const SECTION_HEADER_LABEL = {
+  color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
+  textTransform: 'uppercase', letterSpacing: '0.24em',
+  fontFamily: "'Inter', sans-serif",
+  whiteSpace: 'nowrap',
+};
+const SECTION_HEADER_LINE = {
+  flex: 1, height: '1px',
+  background: 'linear-gradient(90deg, rgba(212,165,116,0.28), rgba(212,165,116,0))',
+};
+const MobileSectionHeader = ({ label, count, expanded, onToggle, controlsId }) => (
+  <button
+    type="button"
+    onClick={onToggle}
+    aria-expanded={expanded}
+    aria-controls={controlsId}
+    style={{
+      ...SECTION_HEADER,
+      width: '100%', border: 'none', background: 'transparent',
+      cursor: 'pointer', WebkitTapHighlightColor: 'transparent',
+    }}
+  >
+    <span style={SECTION_HEADER_LABEL}>{label}</span>
+    <span style={SECTION_HEADER_LINE} />
+    {typeof count === 'number' && (
+      <span style={{
+        color: SEMANTIC.textMuted, fontSize: '0.68rem', fontWeight: 600,
+        fontFamily: "'Inter', sans-serif", flexShrink: 0,
+      }}>
+        {count}
+      </span>
+    )}
+    <span style={{
+      color: 'rgba(212,165,116,0.6)', flexShrink: 0, display: 'inline-flex',
+      transition: 'transform 0.2s', transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+    }}>
+      <ChevronDown />
+    </span>
+  </button>
+);
+
+// ── Mobil çekmece — tekil öğe ve öne çıkan banner ───────────────────────────
+// 2026-10-25: MobileSectionHeader'la aynı gerekçeyle modül seviyesine
+// taşındı (astra'nın notu: aynı remount riski burada da pasif olarak
+// mevcuttu — şu an gözlemlenen bir hata yoktu çünkü onClick'leri her
+// zaman setMobileOpen(false) ile tüm çekmeceyi kapatıyordu, ama çekmece
+// açıkken BAŞKA bir state güncellemesi bu bileşenleri de remount
+// edebilirdi). `language` ve `onAfterClick` artık prop; önceden Navbar()
+// kapsamındaki `language`/`setMobileOpen`'a closure ile erişiyordu.
+const ITEM_BTN = {
+  display: 'flex', alignItems: 'center', gap: '12px',
+  width: '100%', textAlign: 'left',
+  padding: '10px 12px', borderRadius: '10px', border: 'none',
+  background: 'transparent', cursor: 'pointer',
+  WebkitTapHighlightColor: 'transparent',
+};
+const ITEM_ICON = {
+  color: 'rgba(212,165,116,0.55)', flexShrink: 0,
+  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+  width: '20px', height: '20px',
+};
+const ITEM_TITLE = {
+  color: COLORS.offWhite, fontSize: '0.9rem',
+  fontFamily: "'Inter', sans-serif", fontWeight: 500,
+  lineHeight: 1.3,
+};
+const ITEM_DESC = {
+  color: SEMANTIC.textMuted, fontSize: '0.72rem',
+  fontFamily: "'Inter', sans-serif", fontWeight: 400,
+  lineHeight: 1.35, marginTop: '2px',
+};
+
+// Z1f (2026-08-13): `href` verilirse <Link>, verilmezse eski <button>.
+// Mobil çekmece TELEFONDA BİRİNCİL GEZİNME — burada da orta tık /
+// "yeni sekmede aç" / bağlantı kopyala çalışmalı.
+const MobileItem = ({ icon, titleTr, titleEn, descTr, descEn, onClick, dotColor, href, language, onAfterClick }) => {
+  const El = href ? Link : 'button';
+  return (
+  <El
+    {...(href ? { href } : {})}
+    onClick={() => { if (onClick) onClick(); onAfterClick(); }}
+    style={href ? { ...ITEM_BTN, textDecoration: 'none' } : ITEM_BTN}
+    aria-label={language === 'tr' ? titleTr : titleEn}
+  >
+    <span style={ITEM_ICON}>
+      {dotColor ? (
+        <span style={{
+          width: '8px', height: '8px', borderRadius: '50%',
+          background: dotColor, boxShadow: `0 0 8px ${dotColor}55`,
+        }} />
+      ) : icon}
+    </span>
+    <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+      <span style={ITEM_TITLE}>{language === 'tr' ? titleTr : titleEn}</span>
+      {(descTr || descEn) && (
+        <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
+      )}
+    </span>
+  </El>
+  );
+};
+
+// ── Featured banner (Kur'an'ı Tanı / Tüm Yazılar) ─────────────────────────
+const MobileFeatured = ({ icon, titleTr, titleEn, descTr, descEn, onClick, language, onAfterClick }) => (
+  <button
+    onClick={() => { onClick(); onAfterClick(); }}
+    style={{
+      display: 'flex', alignItems: 'center', gap: '12px',
+      width: '100%', textAlign: 'left',
+      padding: '12px 14px',
+      background: 'rgba(201, 162, 39, 0.08)',
+      border: '1px solid rgba(201, 162, 39, 0.20)',
+      borderLeft: `3px solid ${COLORS.royalGold}`,
+      borderRadius: '10px',
+      cursor: 'pointer',
+      WebkitTapHighlightColor: 'transparent',
+    }}
+  >
+    <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
+    <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+      <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+        {language === 'tr' ? titleTr : titleEn}
+      </span>
+      <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
+    </span>
+    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  </button>
+);
+
 
 export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
@@ -88,6 +232,15 @@ export default function Navbar() {
   const [toolsOpen, setToolsOpen]       = useState(false);
   const [exploreOpen, setExploreOpen]   = useState(false);
   const [tefekkurOpen, setTefekkurOpen] = useState(false);
+  // Mobil çekmece — üç üst bölüm (Keşfet/Araçlar/Tefekkür) varsayılan kapalı
+  // accordion. Ölçülen: açılışta çekmece ~4.693px (~6.4 mobil ekran) idi,
+  // tek düz liste, daraltma yoktu (2026-10-25 plan bulgusu). Her bölüm
+  // bağımsız açılır/kapanır — masaüstünün var olan gruplamasını (EXPLORE_
+  // CATEGORIES / toolGroups / tefekkurCategories) katlıyor, yeni taksonomi
+  // icat etmiyor.
+  const [mobileKesfetExpanded, setMobileKesfetExpanded]   = useState(false);
+  const [mobileAraclarExpanded, setMobileAraclarExpanded] = useState(false);
+  const [mobileTefekkurExpanded, setMobileTefekkurExpanded] = useState(false);
   // Escape ile kapanınca odak buraya döner (2026-08-13 a11y düzeltmesi).
   const exploreBtnRef  = useRef(null);
   const toolsBtnRef    = useRef(null);
@@ -2118,108 +2271,11 @@ export default function Navbar() {
             };
 
             // ── Design tokens (mobile drawer only, kept local for cohesion) ─────
-            const SECTION_HEADER = {
-              display: 'flex', alignItems: 'center', gap: '10px',
-              margin: '24px 0 6px', padding: '0 4px',
-            };
-            const SECTION_HEADER_LABEL = {
-              color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700,
-              textTransform: 'uppercase', letterSpacing: '0.24em',
-              fontFamily: "'Inter', sans-serif",
-              whiteSpace: 'nowrap',
-            };
-            const SECTION_HEADER_LINE = {
-              flex: 1, height: '1px',
-              background: 'linear-gradient(90deg, rgba(212,165,116,0.28), rgba(212,165,116,0))',
-            };
             const SUB_LABEL = {
               color: SEMANTIC.textMuted, fontSize: '0.62rem', fontWeight: 700,
               textTransform: 'uppercase', letterSpacing: '0.16em',
               margin: '14px 4px 4px', fontFamily: "'Inter', sans-serif",
             };
-            const ITEM_BTN = {
-              display: 'flex', alignItems: 'center', gap: '12px',
-              width: '100%', textAlign: 'left',
-              padding: '10px 12px', borderRadius: '10px', border: 'none',
-              background: 'transparent', cursor: 'pointer',
-              WebkitTapHighlightColor: 'transparent',
-            };
-            const ITEM_ICON = {
-              color: 'rgba(212,165,116,0.55)', flexShrink: 0,
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              width: '20px', height: '20px',
-            };
-            const ITEM_TITLE = {
-              color: COLORS.offWhite, fontSize: '0.9rem',
-              fontFamily: "'Inter', sans-serif", fontWeight: 500,
-              lineHeight: 1.3,
-            };
-            const ITEM_DESC = {
-              color: SEMANTIC.textMuted, fontSize: '0.72rem',
-              fontFamily: "'Inter', sans-serif", fontWeight: 400,
-              lineHeight: 1.35, marginTop: '2px',
-            };
-
-            // ── Reusable item renderer ─────────────────────────────────────────
-            // Z1f (2026-08-13): `href` verilirse <Link>, verilmezse eski <button>.
-            // Mobil çekmece TELEFONDA BİRİNCİL GEZİNME — burada da orta tık /
-            // "yeni sekmede aç" / bağlantı kopyala çalışmalı.
-            const MobileItem = ({ icon, titleTr, titleEn, descTr, descEn, onClick, dotColor, href }) => {
-              const El = href ? Link : 'button';
-              return (
-              <El
-                {...(href ? { href } : {})}
-                onClick={() => { if (onClick) onClick(); setMobileOpen(false); }}
-                style={href ? { ...ITEM_BTN, textDecoration: 'none' } : ITEM_BTN}
-                aria-label={language === 'tr' ? titleTr : titleEn}
-              >
-                <span style={ITEM_ICON}>
-                  {dotColor ? (
-                    <span style={{
-                      width: '8px', height: '8px', borderRadius: '50%',
-                      background: dotColor, boxShadow: `0 0 8px ${dotColor}55`,
-                    }} />
-                  ) : icon}
-                </span>
-                <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                  <span style={ITEM_TITLE}>{language === 'tr' ? titleTr : titleEn}</span>
-                  {(descTr || descEn) && (
-                    <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
-                  )}
-                </span>
-              </El>
-              );
-            };
-
-            // ── Featured banner (Kur'an'ı Tanı / Tüm Yazılar) ─────────────────
-            const MobileFeatured = ({ icon, titleTr, titleEn, descTr, descEn, onClick }) => (
-              <button
-                onClick={() => { onClick(); setMobileOpen(false); }}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: '12px',
-                  width: '100%', textAlign: 'left',
-                  padding: '12px 14px',
-                  background: 'rgba(201, 162, 39, 0.08)',
-                  border: '1px solid rgba(201, 162, 39, 0.20)',
-                  borderLeft: `3px solid ${COLORS.royalGold}`,
-                  borderRadius: '10px',
-                  cursor: 'pointer',
-                  WebkitTapHighlightColor: 'transparent',
-                }}
-              >
-                <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
-                <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
-                  <span style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
-                    {language === 'tr' ? titleTr : titleEn}
-                  </span>
-                  <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
-                </span>
-                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
-            );
-
             // ── Categorize tools (Görselleştirme / Analiz & Veri / Araştırma) ─
             const toolGroups = [
               { labelTr: 'Görselleştirme', labelEn: 'Visualization', items: vizTools },
@@ -2437,12 +2493,17 @@ export default function Navbar() {
                 </button>
 
                 {/* ══════════════════════════════════════════════════════════════
-                    ─── KEŞFET SECTION ────────────────────────────────────────── */}
-                <div style={SECTION_HEADER}>
-                  <span style={SECTION_HEADER_LABEL}>{language === 'tr' ? 'Keşfet' : 'Discover'}</span>
-                  <span style={SECTION_HEADER_LINE} />
-                </div>
+                    ─── KEŞFET SECTION (accordion, varsayılan kapalı) ─────────── */}
+                <MobileSectionHeader
+                  label={language === 'tr' ? 'Keşfet' : 'Discover'}
+                  count={EXPLORE_CATEGORIES.reduce((sum, cat) => sum + cat.items.length, 0)}
+                  expanded={mobileKesfetExpanded}
+                  onToggle={() => setMobileKesfetExpanded(v => !v)}
+                  controlsId="mobile-nav-panel-kesfet"
+                />
 
+                {mobileKesfetExpanded && (
+                <div id="mobile-nav-panel-kesfet">
                 {EXPLORE_CATEGORIES.map(cat => (
                   <div key={cat.id}>
                     <p style={SUB_LABEL}>{language === 'tr' ? cat.titleTr : cat.titleEn}</p>
@@ -2451,6 +2512,8 @@ export default function Navbar() {
                       return (
                         <MobileItem
                           key={item.id}
+                          language={language}
+                          onAfterClick={() => setMobileOpen(false)}
                           icon={Icon ? <Icon size={16} /> : null}
                           titleTr={item.titleTr}
                           titleEn={item.titleEn}
@@ -2471,18 +2534,26 @@ export default function Navbar() {
                     })}
                   </div>
                 ))}
+                </div>
+                )}
 
                 {/* ══════════════════════════════════════════════════════════════
-                    ─── ARAÇLAR SECTION ───────────────────────────────────────── */}
-                <div style={SECTION_HEADER}>
-                  <span style={SECTION_HEADER_LABEL}>{language === 'tr' ? 'Araçlar' : 'Tools'}</span>
-                  <span style={SECTION_HEADER_LINE} />
-                </div>
+                    ─── ARAÇLAR SECTION (accordion, varsayılan kapalı) ────────── */}
+                <MobileSectionHeader
+                  label={language === 'tr' ? 'Araçlar' : 'Tools'}
+                  count={toolGroups.reduce((sum, g) => sum + g.items.length, 0)}
+                  expanded={mobileAraclarExpanded}
+                  onToggle={() => setMobileAraclarExpanded(v => !v)}
+                  controlsId="mobile-nav-panel-araclar"
+                />
 
-                {/* Featured — sadece 1. (Kur'an'ı Tanı); Esma zaten yukarıda */}
+                {/* Featured — sadece 1. (Kur'an'ı Tanı); Esma zaten yukarıda.
+                    Daraltmaya bağlı DEĞİL — öne çıkan her zaman görünür. */}
                 {featuredTools.slice(0, 1).map(ft => (
                   <MobileFeatured
                     key={ft.id}
+                    language={language}
+                    onAfterClick={() => setMobileOpen(false)}
                     icon={ft.icon}
                     titleTr={ft.labelTr}
                     titleEn={ft.labelEn}
@@ -2492,12 +2563,16 @@ export default function Navbar() {
                   />
                 ))}
 
+                {mobileAraclarExpanded && (
+                <div id="mobile-nav-panel-araclar">
                 {toolGroups.map(group => (
                   <div key={group.labelTr}>
                     <p style={SUB_LABEL}>{language === 'tr' ? group.labelTr : group.labelEn}</p>
                     {group.items.map(tool => (
                       <MobileItem
                         key={tool.id || tool.labelTr}
+                        language={language}
+                        onAfterClick={() => setMobileOpen(false)}
                         icon={tool.icon}
                         titleTr={tool.labelTr}
                         titleEn={tool.labelEn}
@@ -2509,15 +2584,23 @@ export default function Navbar() {
                     ))}
                   </div>
                 ))}
+                </div>
+                )}
 
                 {/* ══════════════════════════════════════════════════════════════
-                    ─── TEFEKKÜR SECTION ──────────────────────────────────────── */}
-                <div style={SECTION_HEADER}>
-                  <span style={SECTION_HEADER_LABEL}>{language === 'tr' ? 'Tefekkür' : 'Tefekkür'}</span>
-                  <span style={SECTION_HEADER_LINE} />
-                </div>
+                    ─── TEFEKKÜR SECTION (accordion, varsayılan kapalı) ───────── */}
+                <MobileSectionHeader
+                  label={language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
+                  count={tefekkurCategories.length}
+                  expanded={mobileTefekkurExpanded}
+                  onToggle={() => setMobileTefekkurExpanded(v => !v)}
+                  controlsId="mobile-nav-panel-tefekkur"
+                />
 
+                {/* "Tüm Yazılar" daraltmaya bağlı DEĞİL — öne çıkan her zaman görünür. */}
                 <MobileFeatured
+                  language={language}
+                  onAfterClick={() => setMobileOpen(false)}
                   icon={
                     <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 6 L4 5 L4 18 L12 19" />
@@ -2532,18 +2615,24 @@ export default function Navbar() {
                   onClick={() => router.push(`/${language}/tefekkur`)}
                 />
 
-                <p style={SUB_LABEL}>{language === 'tr' ? 'Kategoriler' : 'Categories'}</p>
-                {tefekkurCategories.map(cat => (
-                  <MobileItem
-                    key={cat.id}
-                    dotColor={cat.accent}
-                    titleTr={cat.labelTr}
-                    titleEn={cat.labelEn}
-                    descTr={cat.descTr}
-                    descEn={cat.descEn}
-                    href={`/${language}/tefekkur?cat=${cat.id}`}
-                  />
-                ))}
+                {mobileTefekkurExpanded && (
+                  <div id="mobile-nav-panel-tefekkur">
+                    <p style={SUB_LABEL}>{language === 'tr' ? 'Kategoriler' : 'Categories'}</p>
+                    {tefekkurCategories.map(cat => (
+                      <MobileItem
+                        key={cat.id}
+                        language={language}
+                        onAfterClick={() => setMobileOpen(false)}
+                        dotColor={cat.accent}
+                        titleTr={cat.labelTr}
+                        titleEn={cat.labelEn}
+                        descTr={cat.descTr}
+                        descEn={cat.descEn}
+                        href={`/${language}/tefekkur?cat=${cat.id}`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })()}
