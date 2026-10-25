@@ -7,6 +7,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
+import { hashIp } from '@/lib/concierge-budget';
 import { logFeedback } from '@/lib/concierge-kv';
 
 export const runtime = 'nodejs';
@@ -54,7 +55,7 @@ export async function POST(request) {
   const itemId = body.itemId || 'response'; // Page-level feedback için varsayılan
   const lang = body.lang === 'en' ? 'en' : 'tr';
 
-  const ipHash = ip ? ip.slice(0, 8) : null;
+  const ipHash = hashIp(ip);
   const ts = Date.now();
 
   // Structured log — Vercel Logs Query ile grep + aggregate mümkün.

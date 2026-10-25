@@ -34,6 +34,18 @@ export const DAILY_LLM_BUDGET = Number(process.env.CONCIERGE_DAILY_BUDGET || 500
 // Tek bir IP'nin günde tüketebileceği LLM çağrısı. Global tavanın %10'u.
 export const IP_DAILY_QUOTA = Number(process.env.CONCIERGE_IP_DAILY_QUOTA || 50);
 
+// Arşive YAZIM için IP başına günlük tavan. Hız sınırı (IP başına 20/dakika)
+// yazım HIZINI bağlıyordu ama TOPLAMI bağlamıyordu: tek IP günde 20×1440 ≈
+// 28.800 kayıt yazabilir. LLM bütçesi de bunu durdurmuyor, çünkü bütçe
+// dolup "degraded" moda düşülen isteklerde de log yazılıyor. Sorgu arşivi
+// TTL'siz tutulduğu için (bilinçli ürün kararı) büyüme kesin bir sınıra
+// bağlanmalıydı; 2026-07-14'te KV kotası bir kez bu yüzden aşıldı.
+//
+// 300 seçildi: gerçek bir kullanıcı günde 50 sorguyu zor geçer, yani
+// kimse veri kaybetmez; buna karşılık tek IP'nin on binlerce kayıt yazma
+// imkânı kapanır. Arşivin "sonsuz" niteliği korunur.
+export const ARCHIVE_IP_DAILY_CAP = Number(process.env.CONCIERGE_ARCHIVE_IP_CAP || 300);
+
 // Sayaç anahtarları iki gün sonra düşsün — gün dönümünde yarış olmasın.
 const COUNTER_TTL_SECONDS = 48 * 60 * 60;
 
@@ -43,7 +55,7 @@ function todayKey() {
 }
 
 // IP'yi düz metin saklamıyoruz — KV'de yalnız kısa hash duruyor.
-function hashIp(ip) {
+export function hashIp(ip) {
   let h = 0;
   const s = String(ip || 'unknown');
   for (let i = 0; i < s.length; i++) {
@@ -146,4 +158,16 @@ export async function checkRateLimitKv(ip, { max = 20, windowSeconds = 60, prefi
     console.warn('[concierge-budget] kv rate limit failed:', err?.message);
     return { enabled: true, ok: true, remaining: max, degraded: true };
   }
+}
+
+// ── Arşiv yazımı — IP başına günlük tavan ───────────────────────────────────
+// Sayacı ARTIRIR ve yazılabilir olup olmadığını söyler. KV yoksa daima
+// `true` döner (yerel geliştirme), yani davranış bozulmaz.
+// Hata durumunda da `true` döner: arşiv kaybı, sayaç arızası yüzünden
+// gerçek kullanıcı sorgusunu düşürmekten daha az zararlı.
+export async function consumeArchiveWrite(ip) {
+  if (!KV_ENABLED) return { ok: true, used: 0, cap: ARCHIVE_IP_DAILY_CAP, enabled: false };
+  const n = await bumpCounter(`archive:ip:${hashIp(ip)}:${todayKey()}`);
+  if (n === null) return { ok: true, used: 0, cap: ARCHIVE_IP_DAILY_CAP, enabled: false };
+  return { ok: n <= ARCHIVE_IP_DAILY_CAP, used: n, cap: ARCHIVE_IP_DAILY_CAP, enabled: true };
 }

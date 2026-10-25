@@ -12,7 +12,7 @@ import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse, hydrateById } from '@/lib/concierge-hydrate';
 import { resolveDirectAnswer, repeatVerseReason } from './direct-answer';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
-import { consumeBudget, checkRateLimitKv } from '@/lib/concierge-budget';
+import { consumeBudget, checkRateLimitKv, consumeArchiveWrite, hashIp } from '@/lib/concierge-budget';
 import { peekSpend, addSpend } from '@/lib/concierge-spend';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
 import { logQuery, getResponseCache, setResponseCache, getItemQualityScores } from '@/lib/concierge-kv';
@@ -111,6 +111,10 @@ export async function POST(request) {
   // In-memory Map her serverless örneğinde ayrı yaşadığı ve cold start'ta
   // sıfırlandığı için tek başına yeterli değildi (2026-08-13).
   const ip = getClientIp(request);
+  // Arşive yazım tavanı: IP başına günlük. Hız sınırı yazım HIZINI bağlıyor,
+  // bu TOPLAMI bağlıyor. Tavan aşılınca sorgu normal cevaplanır, yalnız
+  // kalıcı arşive yazılmaz. Sayaç isteğin başında bir kez tüketilir.
+  const arsiv = await consumeArchiveWrite(ip);
   const rlKv = await checkRateLimitKv(ip, { max: 20, windowSeconds: 60, prefix: 'rl:concierge' });
   const rl = rlKv.enabled ? rlKv : checkRateLimit(ip);
   if (!rl.ok) {
@@ -163,7 +167,7 @@ export async function POST(request) {
       timings.total = Date.now() - startTs;
       // Cache hit'i de query log'a yaz — await ile safe (Vercel fire-and-forget değil)
       try {
-        await logQuery({
+        if (arsiv.ok) await logQuery({
           queryHash: preHash,
           query: originalQuery,
           lang,
@@ -173,7 +177,7 @@ export async function POST(request) {
           cacheHit: true,
           candidateCount: cached.meta?.candidateCount || 0,
           timingTotal: timings.total,
-          ipHash: ip ? ip.slice(0, 8) : null,
+          ipHash: hashIp(ip),
           timestamp: Date.now(),
         });
       } catch (err) {
@@ -222,7 +226,7 @@ export async function POST(request) {
 
     if (guard.verdict === 'reject') {
       const queryHash = computeQueryHash(`${mode}:${originalQuery}`, lang);
-      const ipHash = ip ? ip.slice(0, 8) : null;
+      const ipHash = hashIp(ip);
       // Structured log — for false-positive review (Bölüm F rejection log).
       console.log(JSON.stringify({
         type: 'concierge_rejection',
@@ -236,7 +240,7 @@ export async function POST(request) {
       }));
       // KV log — admin arşivi (await ile safe)
       try {
-        await logQuery({
+        if (arsiv.ok) await logQuery({
           queryHash,
           query: originalQuery,
           lang,
@@ -403,13 +407,13 @@ export async function POST(request) {
     timings.total = Date.now() - startTs;
 
     const queryHash = computeQueryHash(`${mode}:${originalQuery}`, lang);
-    const ipHash = ip ? ip.slice(0, 8) : null;
+    const ipHash = hashIp(ip);
 
     // KV log — Vercel serverless fire-and-forget güvenli DEĞİL (response
     // sonrası eventLoop task'lar drop olur). Await ile try/catch içinde
     // bloklayan yazım — latency ~30-50 ms artar ama data garantili yazılır.
     try {
-      await logQuery({
+      if (arsiv.ok) await logQuery({
         queryHash,
         query: originalQuery,
         effectiveQuery: guard.rewritten ? effectiveQuery : null,

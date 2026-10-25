@@ -36,7 +36,7 @@ Her ajan astra hakem turundan geçmek zorundadır.
 | 2.3 | Hadis ve rivayet standardı | ◐ 7 künye doğrulandı, 2 madde kaldı |
 | 2.4 | Kur'an'a Sor örnek sorusu | ✅ bitti |
 | 3.1-3.4 | Editoryal (astra hükümleri hazır) | ○ başlamadı |
-| 4 | Gizlilik + KV arşiv politikası | ○ kullanıcı kararı bekliyor |
+| 4 | Gizlilik + KV arşiv politikası | ✅ bitti (3 yeni madde açıldı) |
 | 5 | Telif ve lisans | ⛔ kullanıcı: şimdilik dokunma |
 | 6 | Diğer | ○ başlamadı |
 
@@ -557,8 +557,14 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 
 ### 3.1 "Yorum sınırları ve bağlam" bölümü
 > **Astra:** DEĞİŞTİREREK UYGULA. "Zor örnekler" adı kullanılmasın; başlık
-> **"Yorum sınırları ve bağlam"** olsun. Konu "Kur'an'daki sorunlu ifadeler"
-> değil, **âyetlere yüklenen bilimsel anlamların sınırları** olsun.
+> **"Yorum sınırları ve bağlam"** olsun. Konu, **âyetlere yüklenen bilimsel
+> anlamların sınırlarıdır**: değerlendirilen şey Kur'an değil, insanların
+> kurduğu eşleştirmedir.
+>
+> ⚠ **Bu bölümde Kur'an'a kusur atfeden bir çerçeve KURULMAZ** (§13.24).
+> Kur'an kesin hakikattir; sınırı olan, ona dışarıdan yüklenen beşerî
+> yorumdur. Planlama notlarında bile Kur'an'ı özne yapan bir ifade
+> kullanılmaz.
 - [ ] Bilimsel İşaretler sayfası kendi 5. ilkesinde "uyum vermeyenler
       görmezden gelinmemeli" diyor, ama 16 kartın hepsi uyum veren örnek.
 - [ ] 5. ilke yeniden yazılsın (astra'nın önerdiği metin): *"Bilimsel
@@ -641,25 +647,57 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 
 ---
 
-## KADEME 4 — Gizlilik (rapor 🟠 dedi, BİZ 🔴 diyoruz)
+## KADEME 4 — Gizlilik ✅ TAMAM (2026-10-25)
 
-> Raporun bilmediği bir şey var: Kur'an'a Sor sorguları KV'de **TTL'siz,
-> sonsuza kadar** saklanıyor (`concierge-kv.js:15`, kod tabanında `ltrim`/
-> `zrem`/`zremrangebyrank` hiç yok). Üç şey üst üste biniyor ve birlikte
-> sitenin kendi beyanıyla çelişiyor.
+Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıktı.
 
-- [ ] Ana sayfa "yaşadığın bir durumu yaz" diye **hassas** veri davet ediyor.
-- [ ] Soru **adres çubuğuna** yazılıyor (`?q=…`) — tarayıcı geçmişi, referrer,
-      ekran paylaşımı.
-- [ ] Sayfa "hiçbir kişisel veri saklanmaz" diyor; oysa süresiz arşivleniyor.
-- [ ] Kısa bir Gizlilik/KVKK sayfası: hangi veri, hangi hizmet, ne kadar süre.
-- [ ] Soru adres çubuğuna yazılmasın ya da kullanıcı uyarılsın.
-- [ ] **KV arşiv politikası kararı** (kullanıcıya soruldu, yanıt bekleniyor):
-      (a) zset'lere tavan · (b) IP başına günlük yazım kotası — **önerilen** ·
-      (c) degraded modda loglamayı atla · (d) karma.
-- [ ] (Hukuki danışmanlık değildir; KVKK yükümlülükleri için uzmana danışılmalı.)
+- [x] **Site kendi beyanıyla çelişiyordu.** Kur'an'a Sor bölümü "Hiçbir
+      kişisel veri saklanmaz" diyordu; oysa sorulan her soru metniyle
+      birlikte kalıcı kayda yazılıyor. Beyan düzeltildi ve soru alanının
+      yanına hassas bilgi uyarısı kondu (astra isteği).
+- [x] **`ipHash` aslında hash değilmiş.** Kod `ip.slice(0, 8)` yapıyordu,
+      yani IP'nin ilk 8 karakterini DÜZ METİN saklıyordu
+      (`85.105.123.45` → `85.105.1`). Alan adı "ipHash" olduğu için hash
+      sanılıyordu. Aynı pakette zaten gerçek bir `hashIp()` vardı ama kayıt
+      yolu onu kullanmıyordu. Dört yerde düzeltildi.
+- [x] **Arşivin büyümesi sınırlandırılmamıştı.** Hız sınırı yazım HIZINI
+      bağlıyor, TOPLAMI bağlamıyordu: tek IP günde ~28.800 kayıt yazabilirdi,
+      LLM bütçesi de durdurmuyordu (degraded istekler de yazıyor). IP başına
+      günlük 300 kayıt tavanı kondu; tavan aşılınca soru yine cevaplanıyor,
+      yalnız kayda yazılmıyor.
+- [x] **`/tr/gizlilik` ve `/en/gizlilik`** yazıldı. Yedi bölüm. Her satır
+      koddan okunarak yazıldı: saklanan alanlar `logQuery` çağrılarından,
+      süreler `CACHE_TTL_SECONDS` ve `COUNTER_TTL_SECONDS`'tan, IP işleme
+      biçimi `hashIp`'ten.
 
----
+**Astra bir güvenlik iddiamı çürüttü ve yedi düzeltme yaptı:**
+1. **"Bu karşılıktan adres geri elde edilemez" geçerli bir güvence DEĞİL** —
+   hash kısa, kriptografik değil, gizli anahtar yok, IPv4 uzayı sonlu.
+   "Bu işlem anonimlik garantisi sağlamaz" oldu.
+2. "Ağ adresin olduğu gibi saklanmaz" fazla kapsamlı; barındırma ve güvenlik
+   hizmetlerinin ham IP tutmadığını göstermez. Kapsam soru kayıtlarıyla
+   sınırlandı.
+3. "Site kayıtlarına yazılır" istisnayı gizliyordu; "günlük kayıt sınırı
+   aşılmadıkça" eklendi.
+4. Günlük 300 tavanı toplam arşivi sınırlamaz, yalnız kaynak başına büyümeyi
+   yavaşlatır; sayfada bu açıkça yazılı.
+5. Hassas veri uyarısı "göz önünde bulundur" diye zayıftı; açık bir "yazma"
+   oldu ve soru alanının yanına da kondu.
+6. Adres çubuğu uyarısı eksikti: metin erişim kayıtlarına ve yönlendiren
+   adres bilgisine de yansıyabilir.
+7. Geri bildirim düğmesi gerçek bir silme iş akışı başlatmıyorsa "silme yolu"
+   diye sunulmamalı; dürüst hâliyle yazıldı, hesap olmadığı için sahipliğin
+   her zaman doğrulanamayacağı söylendi. "Hukuki bir metin değildir" cümlesi
+   sorumluluk sınırı çizmediği için kaldırıldı.
+
+**Astra'nın açık bıraktığı iki iş (yeni madde):**
+- [ ] Kısa ve kriptografik olmayan hash yerine gizli anahtarlı bir yöntem
+      değerlendirilmeli. Astra: bu da tek başına anonimleştirme sayılmaz.
+- [ ] Her veri türü için amaç, gereklilik ve saklama süresi ayrı
+      belirlenmeli; hukuki değerlendirme uzmanla yapılmalı. Sonsuz arşiv
+      bilinçli bir ürün kararıydı ama astra "ürün kararı olması tek başına
+      süresiz saklamayı gerekçelendirmez" dedi.
+- [ ] Soruyu adres çubuğunda taşımak ayrıca gözden geçirilmeli.
 
 ## KADEME 5 — Telif ve lisans (rapor §4)
 
@@ -722,6 +760,7 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 | 2026-10-25 | 2.4 | Ajan C: örnek sorunun cevabı ölçümden geliyor, iç kimlik sızıntısı kapandı | `2a30cb86` |
 | 2026-10-25 | 1.3/1.4 | Ajan B: yedi gök, ilâhî sıfatla kapanan sûreler, Hac secde notu | `535ecce4` |
 | 2026-10-25 | 1.4 | Ajanın devrettiği işler: Mülk fasılası, "9 sûre" sabiti, Birmingham üstünlük iddiaları | `f4c7f272` |
+| 2026-10-25 | — | Hero: DEVAM göstergesi CTA satırıyla örtüşmüyor | `240d0c35` |
 
 ### Sıradaki iş
 

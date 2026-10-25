@@ -329,8 +329,8 @@ export default function ConciergePrompt() {
           letterSpacing: '0.04em',
         }}>
           {tr
-            ? 'Sistem yorum katmaz, yalnızca ayetlere ve içeriklere yönlendirir. Hiçbir kişisel veri saklanmaz.'
-            : 'The system adds no commentary; it only points you to verses and content. No personal data is stored.'}
+            ? 'Sistem yorum katmaz, yalnızca ayetlere ve içeriklere yönlendirir. Hesap istenmez; sorduğun soru site kayıtlarına yazılır ve adres çubuğunda görünür. Kimlik, iletişim ya da sağlık bilgisi gibi hassas bilgileri yazma.'
+            : 'The system adds no commentary; it only points you to verses and content. No account is required; your question is written to the site records and appears in the address bar. Please do not type sensitive details such as identity, contact or health information.'}
         </p>
       </motion.div>
     </section>
