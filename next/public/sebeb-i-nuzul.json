@@ -102,15 +102,15 @@
         "Yahudiler",
         "Kureyş"
       ],
-      "summaryTr": "Yahudiler, Kureyş'e Hz. Peygamber'i sınamak için üç soru sormalarını tavsiye etti. Bunlardan biri ruh hakkındaydı. \"Sana ruh hakkında sorarlar. De ki: Ruh, Rabbimin emrindendir. Size ilimden ancak az bir şey verilmiştir.\"",
-      "summaryEn": "Jews advised Quraysh to ask the Prophet three questions to test him. One was about the spirit. 'They ask you about the spirit. Say: the spirit is of the command of my Lord. You have been given of knowledge only a little.'",
+      "summaryTr": "Abdullah b. Mes'ûd'dan: Hz. Peygamber bir tarlada hurma dalına dayanmış hâldeyken yanlarından bazı Yahudiler geçti ve birbirlerine \"ona ruhu sorun\" dediler. Kendisine ruhu sordular; Hz. Peygamber sustu ve cevap vermedi, ardından vahiy geldi: \"Sana ruh hakkında sorarlar. De ki: Ruh, Rabbimin emrindendir. Size ilimden ancak az bir şey verilmiştir.\" İsrâ sûresi Mekkî sayılır; bu âyetin nüzûl dönemi klasik tefsirde tartışılmıştır ve rivayette olayın geçtiği yer belirtilmez. Yahudilerin Kureyş'e üç soru sormalarını tavsiye ettiğine dair ayrı bir anlatı daha nakledilir; kaynağı doğrulanmadığı için burada verilmemiştir.",
+      "summaryEn": "From Abdullah b. Masud: while the Prophet was in a field, leaning on a palm stalk, some Jews passed by and said to one another, \"Ask him about the spirit.\" They asked him; he kept silent and gave no answer, and then the revelation came: \"They ask you concerning the spirit. Say: the spirit is of the affair of my Lord, and you have been given of knowledge only a little.\" Surat al-Isra is classed as Meccan; the period of this verse has been debated in classical commentary, and the report does not state where the episode took place. A separate account, in which Jews advise the Quraysh to put three questions to the Prophet, is also transmitted; its source has not been verified and is not given here.",
       "tags": [
         "ruh",
         "soru",
         "Yahudiler",
         "gayb"
       ],
-      "source": "Buhârî, Vâhidî",
+      "source": "Buhârî, no. 4721",
       "reliability": "sahih",
       "hadithRefs": [
         {
@@ -118,7 +118,8 @@
           "collectionKey": "bukhari",
           "number": 4721
         }
-      ]
+      ],
+      "sourceEn": "Bukhari, no. 4721"
     },
     {
       "id": "zihar-case",
@@ -528,8 +529,8 @@
     },
     {
       "id": "tayammum-verse",
-      "titleTr": "Teyemmüm Ayeti",
-      "titleEn": "The Tayammum Verse",
+      "titleTr": "Teyemmüm Âyetinin Nüzûlü",
+      "titleEn": "The Revelation of the Tayammum Verse",
       "category": "companion-case",
       "period": "madani",
       "hijriYear": 6,
@@ -546,8 +547,8 @@
         "Ashab",
         "Üseyd b. Hudayr"
       ],
-      "summaryTr": "Bir seferde Hz. Âişe'nin gerdanlığı kayboldu. Su arayışında vakit geçerken namaz vakti girdi fakat su bulunamadı. Üseyd b. Hudayr dua edince Hz. Âişe'nin devesi oturduğu yerde kalktı ve gerdanlık orada bulundu. Bu olay teyemmüm izninin nüzulüyle eş zamanlıydı.",
-      "summaryEn": "On an expedition, Aisha's necklace was lost. While searching for water, the prayer time came but no water was found. This occasion coincided with the revelation of the verse permitting tayammum (dry ablution with earth when water is unavailable).",
+      "summaryTr": "Bir seferde Hz. Âişe'nin gerdanlığı koptu ve kayboldu; aranırken vakit geçti, namaz vakti girdiğinde su yoktu. Teyemmüm âyeti bunun üzerine indi ve topluluk teyemmüm etti. Üseyd b. Hudayr, Ebû Bekir ailesine \"bu sizin ilk bereketiniz değildir\" dedi; ardından Hz. Âişe'nin üzerinde bulunduğu deve kaldırılınca gerdanlık onun altında bulundu. Rivayette \"teyemmüm âyeti\" denir, âyet numarası verilmez.",
+      "summaryEn": "On a journey Aisha's necklace broke and was lost. The search delayed the party, and when the time for prayer came there was no water. The verse on tayammum was revealed and the company performed tayammum. Usayd b. Hudayr said to the family of Abu Bakr, \"this is not the first blessing of yours\"; the camel Aisha had been riding was then moved and the necklace was found beneath it. The report speaks of \"the verse of tayammum\" without giving a number.",
       "tags": [
         "teyemmüm",
         "abdest",
@@ -555,7 +556,7 @@
         "Âişe",
         "yolculuk"
       ],
-      "source": "Buhârî, Müslim",
+      "source": "Buhârî, no. 334",
       "reliability": "sahih",
       "hadithRefs": [
         {
@@ -563,7 +564,8 @@
           "collectionKey": "bukhari",
           "number": 334
         }
-      ]
+      ],
+      "sourceEn": "Bukhari, no. 334"
     },
     {
       "id": "usury-prohibition",
