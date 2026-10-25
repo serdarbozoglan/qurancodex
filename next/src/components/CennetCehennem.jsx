@@ -1314,7 +1314,6 @@ function TabRahman({ data, language, isMobile }) {
 const SOURCE_URLS = {
   corpus:       'https://corpus.quran.com',
   tanzil:       'https://tanzil.net',
-  kuranvemeali: 'https://www.kuranvemeali.com',
   'tdv-cehennem': 'https://islamansiklopedisi.org.tr/cehennem',
   'tdv-cahim':    'https://islamansiklopedisi.org.tr/cahim',
 };

@@ -1432,7 +1432,7 @@ Kur'an Allah kelamıdır ve harfi harfine doğrudur; hakikati **beşerî keşifl
 - ❌ Kur'an'ı belirli/çürük/tartışmalı bir bilimsel iddiaya **bağlamak** (bilim değişince Kur'an düşmüş görünür).
 - ❌ Bucaille'ı omurga referans yapmak; "akademik olarak kabul görür" gibi **yanlış** genellemeler.
 - ❌ Doğrulayamadığın spesifik atıf (sayfa no, tarih-kişi eşleştirmesi) yazmak — genel atıf ver.
-- ❌ **TASDİKİN YÖNÜ — "bilim/tarih/arkeoloji tasdik eder / confirms / proves"** (bilimi/arkeolojiyi Kur'an'ın **hakemi/doğrulayanı** yapan her ifade). Tasdikin öznesi bilim/arkeoloji **olamaz**. Yalnızca şu geçerli: **"Kur'ân haber verir, BİZ tasdik ederiz; bulgu tefekküre vesiledir."** "Bilim tasdik eder" dersen Kur'an'ın doğruluğu bilimin onayına **bağımlı** hâle gelir; bilim değişince Kur'an düşmüş görünür (çürüyen bizim iddiamızdır, Kur'an değil). Aynı yasak: "confirmed by archaeology", "kanıt/proof/evidence" başlık dili, "bilimin X yıl sonra keşfettikleri" (= gizli "bilinemezdi→mucize" çerçevesi). Örtüşme ifade edilecekse **"örtüşür / coincides / aligns / dikkat çekici uyum"** kullanılır — asla "doğrular/confirms/proves". Bu incelik iki kez ihlal edildi (Kehf 300/309; "Bilim Tasdik Eder" başlık önerisi), kullanıcı 2026-07-26 explicit uyardı.
+- ❌ **TASDİKİN YÖNÜ — "bilim/tarih/arkeoloji tasdik eder / confirms / proves"** (bilimi/arkeolojiyi Kur'an'ın **hakemi/doğrulayanı** yapan her ifade). Tasdikin öznesi bilim/arkeoloji **olamaz**. Yalnızca şu geçerli: **"Kur'ân haber verir, BİZ tasdik ederiz; bulgu tefekküre vesiledir."** "Bilim tasdik eder" dersen Kur'an'ın doğruluğu bilimin onayına **bağımlı** hâle gelir; bilim değişince Kur'an düşmüş görünür (çürüyen bizim iddiamızdır, Kur'an değil). Aynı yasak: "confirmed by archaeology", "kanıt/proof/evidence" başlık dili, "bilimin X yıl sonra keşfettikleri" (= gizli "bilinemezdi→mucize" çerçevesi). Örtüşme ifade edilecekse **"örtüşür / uyum / coincides / aligns"** kullanılır, asla "doğrular/confirms/proves". ⚠ 2026-10-25: bu satırda önce "dikkat çekici uyum" yazılıydı ve §13.34 "dikkat çekici"yi satış sıfatı olarak YASAKLIYOR; `audit-humanizer` kapısı §13.34'ü uyguladığı için iki kural birbirini kesiyordu. Sade "uyum" ikisini de karşılar: §13.24'ün asıl şartı "doğrular/kanıtlar" denmemesidir, sıfat değildir. Bu incelik iki kez ihlal edildi (Kehf 300/309; "Bilim Tasdik Eder" başlık önerisi), kullanıcı 2026-07-26 explicit uyardı.
 
 #### YASAK — ters uç (gereksiz reddediş)
 - ❌ Bulguları "hiçbir şekilde ilişkilendirilemez" diye **gereksiz reddetmek.**
@@ -2307,16 +2307,49 @@ Bir iddia yalnızca şu iki tipten birine dayandırılabilir:
 | Alan | Allowlisted kaynak (link verilebilir) |
 |---|---|
 | Âyet metni/meal | `quran.com` · `tanzil.net` |
-| Dil/morfoloji/kök | `corpus.quran.com` · `corpus.coranicum.de` |
+| Dil/morfoloji/kök | `corpus.quran.com` · `corpuscoranicum.de` |
 | Hadis | `sunnah.com` (koleksiyon+numara) |
 | Klasik tefsir/eser | `altafsir.com` · `shamela.ws` · `archive.org` |
 | Akademik bilim/beşerî | **DOI** (peer-reviewed) |
+| **Resmî kurum duyurusu/kataloğu** | eseri **elinde tutan ya da ölçümü yapan** kurumun kendi alanı (üniversite, akademi, kütüphane, müze) |
+| **Kurumsal ansiklopedi** | bir araştırma kurumunun kendi başvuru eseri (ör. TDV İslâm Ansiklopedisi). İkincil eserdir: maddesindeki açıklamalar için künye gösterilebilir, birincil eserin yerine geçmez. Künye madde adını ve kalıcı bağlantıyı taşır. |
+
+> ⚠ **2026-10-25'te iki şey ölçülerek düzeltildi.** (a) Tablo
+> `corpus.coranicum.de` yazıyordu; o alan adı **hiç çözülmüyor** (zaman
+> aşımı), gerçek site `corpuscoranicum.de`. Yani kuralı harfiyen uygulayan
+> biri ölü bağlantı yazıyordu. (b) Resmî kurum satırı yoktu: sitede
+> Birmingham Üniversitesi'nin kendi radyokarbon duyurusu ve Corpus
+> Coranicum kullanılıyor, ikisi de listede yoktu. Bir ölçümün ya da el
+> yazmasının **birincil** kaydı o kurumun kendi sayfasıdır; Wikipedia
+> maddesi onun yerine geçmez. İstisnanın sınırı: kurumun **kendi** alan
+> adı ve **kendi** elindeki eser/ölçüm. Kurumun bir basın bülteninde
+> başkasının iddiasını aktarması bu istisnaya girmez.
+
 
 - ❌ **KÜNYE DEĞİL (link olarak da referans olarak da kullanılamaz):** rastgele
   web sitesi, blog, forum, `wikishia`, `Wikipedia`, içerik-toplayıcı (aggregator),
   YouTube, kişisel sayfa. Bunlar en fazla "okuyucu buradan başlayabilir" işaret
   levhasıdır — **iddianın dayanağı olamaz**, ve bir iddianın TEK kaynağıysa iddia
   ya birincil esere bağlanır ya yumuşatılır/çıkarılır.
+> **Teknik kaynaklar bu alan adı listesine tabi DEĞİLDİR, ama aynı doğruluk
+> disiplinine tabidir** (2026-10-25, astra). Yazı tipi, gömme modeli, API ve
+> kütüphane künyeleri dinî veya bilimsel iddiaların kaynakçasından **ayrı bir
+> bölümde** durur; künye için modelin/yazılımın kendi resmî kaydı geçerlidir
+> ve kullanılan sürüm belirtilir. Bir veri kaynağını "veri kaynağı" diye
+> etiketlemek doğrulama yükümlülüğünü KALDIRMAZ: kelime kelime meal gibi
+> veriler yorum içerir, sağlayıcı ve çevirmen/eser belirlenmelidir.
+>
+> **`web.archive.org` bir erişim aracıdır, kaynak onayı değildir** (astra).
+> Asıl kaynağın yazarı ve yayıncısı ayrıca değerlendirilir; künye özgün
+> adresi, arşivlenme tarihini ve arşiv bağlantısını birlikte verir.
+> `archive.org` üzerindeki klasik eser izni, arşivlenmiş her internet
+> sayfasını kapsamaz.
+>
+> **Alan adı uygunluğu TEK BAŞINA yeterli değildir** (astra). Ayrıca
+> denetlenir: kaynağın iddiayı gerçekten destekleyip desteklemediği, baskıya
+> özgü sayfa numarası, çeviri ve alıntı doğruluğu, görsel kökeni ve lisansı,
+> geri çekilmiş veya düzeltilmiş yayınlar, DOI'nin doğru esere gitmesi.
+
 - ❌ **AI belleği künye değildir.** "Genel bilgime göre X eserinde geçer" bir
   atıf gerekçesi olamaz (§13.30).
 

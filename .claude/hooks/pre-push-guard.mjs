@@ -56,6 +56,7 @@ process.stdin.on('end', () => {
     ['humanizer, mekanik — §13.34', 'node scripts/audit-humanizer.mjs --ci'],
     ['çıplak âyet referansı — §13.32', 'node scripts/audit-verse-refs.mjs --ci'],
     ['Arapça JSON problem karakter — §13.15', 'node scripts/audit-arabic-json.mjs --ci'],
+    ['dış kaynak izinli mi — §13.35', 'node scripts/audit-sources.mjs --ci'],
     ['/hakkinda son güncelleme tarihi — §13.33', 'node scripts/audit-hakkinda-date.mjs --ci'],
   ];
 

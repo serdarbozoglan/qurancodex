@@ -632,8 +632,7 @@
       { "id": "corpus-quran", "isim": "Corpus Quran", "eser": "corpus.quran.com", "notTr": "Frekans verileri", "notEn": "Frequency data" }
     ],
     "dijital": [
-      { "id": "tanzil", "isim": "tanzil.net", "notTr": "Ayet araması", "notEn": "Verse search" },
-      { "id": "kuranvemeali", "isim": "kuranvemeali.com", "notTr": "Karşılaştırmalı meal", "notEn": "Comparative translation" }
+      { "id": "tanzil", "isim": "tanzil.net", "notTr": "Ayet araması", "notEn": "Verse search" }
     ],
     "globalNotTr": "Bu sayfadaki bilgiler Kur'an ayetlerine dayanmaktadır. Hadis kaynaklı melek bilgileri (İsrafil, Azrail isimleri, kabir sorgusu, melek sayıları gibi) ℹ️ işaretiyle belirtilmiştir. Kur'an'ın hadisleri doğruladığı iddia edilmemektedir. Hadis bilgisi değerlidir — ama bu sayfa Kur'an'da ne geçtiğini gösterir.",
     "globalNotEn": "The information on this page is based on Quranic verses. Angel information from hadith sources (names like Israfil and Azra'il, questioning of the grave, angel counts) is marked with ℹ️. The Quran is not claimed to confirm hadith. Hadith knowledge is valuable — but this page shows only what the Quran says."

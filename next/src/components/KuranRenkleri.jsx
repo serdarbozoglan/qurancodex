@@ -2487,7 +2487,6 @@ function TabKaynaklar({ language }) {
       titleEn: 'Digital Verification',
       items: [
         { name: 'tanzil.net', detail: tr ? 'Ayet araması ve referans doğrulama' : 'Verse search and reference verification' },
-        { name: 'kuranvemeali.com', detail: tr ? 'Karşılaştırmalı meal' : 'Comparative translations' },
       ],
     },
   ];

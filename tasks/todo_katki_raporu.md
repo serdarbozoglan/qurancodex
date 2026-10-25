@@ -964,11 +964,65 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
         olmadığı için görmüyordu. Virgüle çevrildi.
       · Baskı/cilt/sayfa doğrulanamayan künyelere bu durum açıkça yazıldı.
 
-- [ ] **§13.35'in izinli kaynak listesi eksik** (astra bulgusu): Corpus
-      Coranicum ve Birmingham Üniversitesi listede YOK, ama ikisi de resmî
-      kurum kaynağı ve sitede kullanılıyor. Liste kapalıysa bunlar ayrıca
-      onaylanmalı, değilse "resmî kurum kaynağı" istisnası açıkça yazılmalı.
-      CLAUDE.md değişikliği, kullanıcı kararı gerekiyor.
+- [x] **§13.35 düzeltildi ve KAPISI KURULDU** (kullanıcı: "yanlış kaynak asla
+      olmasın sitede"). Üç şey ölçülerek bulundu:
+      · §13.35'in izinli listesinde **çözülmeyen bir alan adı** yazılıydı:
+        `corpus.coranicum.de` zaman aşımına uğruyor, gerçek site
+        `corpuscoranicum.de`. Kuralı harfiyen uygulayan biri ölü bağlantı
+        yazıyordu.
+      · Listede **resmî kurum** satırı yoktu; Birmingham Üniversitesi'nin
+        kendi radyokarbon duyurusu ve Corpus Coranicum kullanılıyordu.
+        Eklendi, sınırı yazıldı: kurumun KENDİ alanı ve KENDİ elindeki
+        eser/ölçüm.
+      · Astra'nın isteğiyle **kurumsal ansiklopedi** satırı eklendi (TDV
+        İslâm Ansiklopedisi); ikincil eser olduğu açıkça yazılı.
+      · **Teknik kaynaklar** (yazı tipi, model, API) aynı alan adı listesine
+        değil, aynı doğruluk disiplinine tabi; ayrı bölümde durur.
+      · **`web.archive.org` erişim aracıdır, kaynak onayı değildir**;
+        künye özgün adresi ve arşiv tarihini birlikte verir.
+      · **Alan adı uygunluğu tek başına yeterli değildir** notu yazıldı.
+      · §13.24 ile §13.34 çelişkisi giderildi: "dikkat çekici uyum" örneği
+        "uyum" oldu.
+      **Kapı: `scripts/audit-sources.mjs`**, `audit:static` zincirinde ve
+      push kapısında. Ölçüm: 362 dış adres, 360 izinli, **yasak 0**.
+      ⚠ Kapının sınırı kendi başlığında yazılı: yeşil yanması "künyeler
+      doğru" demek DEĞİL, "izinsiz alan adı girmedi" demektir.
+
+- [x] **Sitedeki bütün izinsiz kaynaklar kaldırıldı.** Rapor tek bir Wikipedia
+      künyesi bildirmişti; tarama 43 alan adı ve **ayrı bir Kaynakça sayfası**
+      çıkardı. Alt bilgiyi düzeltmek o sayfayı düzeltmemişti.
+      · Wikipedia: alt bilgide 3, Kaynakça sayfasında 3 (Moore, Bucaille,
+        Birmingham). Hepsi gitti; Birmingham üniversitenin resmî duyurusuna
+        bağlandı.
+      · `kalamullah.com`, `newbooksnetwork.com`, `kuranvemeali.com`
+        kaldırıldı. kuranvemeali **beş** yerde künye olarak listeliydi.
+      · Süyûtî künyesiyle bağlantısı birbirini tutmuyordu; bağlantı
+        kaldırıldı, tahminle yenisi konmadı.
+      · Birmingham'daki "yaşayan koruma kanıtı / evidence of textual
+        preservation" dili §13.24'e aykırıydı; astra'nın metniyle değişti.
+      · **Moore künyesi sitede iki ayrı yıl veriyordu** (1982 3. baskı /
+        Dar Al-Qiblah 1983). Kütüphane kaydından ikisi de doğrulanamadı,
+        Dar Al-Qiblah baskısının kaydı hiç yok. İki yerde de baskı bilgisi
+        ve "İslâmî yorumlar içeren ek bölüm" ibaresi kaldırıldı; astra
+        ayrıca eserin özel bir iddianın dayanağı olarak sunulmamasını
+        istedi, not buna göre yazıldı.
+
+- [ ] **`kuran.com` künyesi karara bağlanmalı.** Satır-arası görünümde
+      "kelime meali" veri kaynağı olarak etiketli, canlı, ama izinli listede
+      yok ve `quran.com` ile aynı alan adı DEĞİL. Astra: "veri kaynağı
+      etiketi doğrulama yükümlülüğünü kaldırmaz; kelime meali yorum içerir,
+      sağlayıcı, çevirmen veya çalışma, sürüm ve kullanım izni
+      belirlenmeli." Kapı bunu BİLİNMEZ olarak gösteriyor.
+- [ ] **`web.archive.org` künyeleri tamamlanmalı** (3 yer,
+      `kuran-sayilar.json`): özgün adres ve arşivlenme tarihi eklenecek.
+- [ ] **Künye doğrulamanın ASIL işi, astra'nın kapsam listesi.** Alan adı
+      kapısı bunların hiçbirini ölçmez, tek tek elle yapılacak:
+      kaynağın iddiayı gerçekten destekleyip desteklemediği · baskıya özgü
+      sayfa numarası · çeviri ve alıntı doğruluğu · görsel kökeni ve
+      lisansı · geri çekilmiş veya düzeltilmiş yayınlar · DOI'nin doğru
+      esere gitmesi. Astra: "Kırk üç alan adının listesi ve bağlı metinler
+      görülmeden tarama tamamlanmış sayılamaz."
+      Mevcut envanter: `tasks/kaynak-denetimi-envanteri.md` (Eylül).
 - [ ] **CLAUDE.md kendi içinde çelişiyor.** §13.24 örtüşme için "dikkat
       çekici uyum" ifadesini ONAYLI sayıyor, §13.34 ise "dikkat çekici" ve
       "striking"i satış sıfatı olarak YASAKLIYOR; otomatik kapı §13.34'ü

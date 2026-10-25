@@ -1408,7 +1408,6 @@ function TabKaynaklar({ language }) {
         title: 'Dijital Doğrulama',
         items: [
           'tanzil.net: ayet araması ve doğrulama',
-          'kuranvemeali.com: karşılaştırmalı meal',
         ],
       },
     ],
@@ -1436,7 +1435,6 @@ function TabKaynaklar({ language }) {
         title: 'Digital Verification',
         items: [
           'tanzil.net: verse search and verification',
-          'kuranvemeali.com: comparative translation',
         ],
       },
     ],
