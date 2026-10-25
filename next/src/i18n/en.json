@@ -52,7 +52,7 @@
     "title": "Neither Poetry Nor Prose",
     "intro": "In 7th-century Arabia, the dominant literary forms were metrical poetry and rhymed or free oratory. Many contemporaries perceived the Quran's style as fitting neither mold: rhythmic, yet not reducible to a fixed meter. The classical rhetorical tradition (al-Bāqillānī, al-Jurjānī) treats this \"neither poetry nor prose\" form as a category of its own within the framework of iʿjāz al-bayān.",
     "poetry": "Poetry",
-    "poetryDesc": "Rigid structure bound to 16 strict meters",
+    "poetryDesc": "Structure governed by established metrical patterns",
     "quran": "QURAN",
     "quranDesc": "Rhythmic yet meterless - a form never seen before",
     "prose": "Prose",
@@ -60,7 +60,7 @@
     "unique": "Unique",
     "ijaz": {
       "label": "The Literary Challenge: I'jaz",
-      "text": "The Meccan opponents tried to dismiss it as \"poetry\", yet it fit none of the 16 Arabic poetic meters. They called it \"soothsayer's speech\", but it went beyond even the saj' (rhymed prose) form. The challenge to \"bring something like it\" has gone unanswered for 1,400 years."
+      "text": "Meccan opponents tried to dismiss Prophet Muhammad's message by calling him a \"poet\"; they also called it \"soothsayer's speech\" (al-Ḥāqqah 69:41-42). Yet the Quran is not a text governed by the metrical patterns of Arabic poetry, and its discourse cannot be reduced to sajʿ (rhymed prose) either. The Quran's challenge stands: its like cannot be produced (al-Israʾ 17:88)."
     },
     "fasila": {
       "title": "Fasila: Each Sura's Sound Signature",

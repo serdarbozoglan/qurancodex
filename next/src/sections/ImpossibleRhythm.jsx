@@ -425,8 +425,8 @@ export default function ImpossibleRhythm() {
                     </p>
                     <p className="text-silver text-sm font-body leading-relaxed">
                       {language === 'tr'
-                        ? 'Arap şiiri 16 kesin vezne (aruz) bağlıydı; her mısranın hece sayısı ve vurgu düzeni sabit olmalıydı. Duhâ bu vezinlerin hiçbirine uymuyor.'
-                        : 'Arabic poetry followed 16 fixed meters; each line required a fixed syllable count and stress pattern. Ad-Duha matches none of them.'}
+                        ? 'Arap şiirinde vezin, kısa ve uzun hecelerin belirli düzenlerine dayanır. Bu kalıplar daha sonra aruz ilminde sistemleştirilmiştir. Duhâ sûresi, bütünüyle bir şiir veznine bağlı değildir.'
+                        : 'Meter in Arabic poetry rests on patterned sequences of short and long syllables. These patterns were later systematized in Arabic prosody. Surah Ad-Duha as a whole is not governed by a poetic meter.'}
                     </p>
                   </div>
                 </div>

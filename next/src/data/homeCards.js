@@ -47,9 +47,9 @@ export const HOME_CARDS = [
     verseAr:     'وَالنَّجْمِ اِذَا هَوٰى',
     verseTrans:  { tr: 'Andolsun yıldıza, kayıp düştüğü zaman...', en: 'By the star when it falls...' },
     verseRef:    { tr: 'Necm 53:1', en: 'an-Najm 53:1' },
-    blurb:       { tr: '7. yüzyıl Arabistanı\'nda söz ya 16 vezinden birine bağlı şiirdi ya da serbest düzyazı. Kur\'an bu ikisine de uymaz: ritmi var, vezni yok. Klasik belâgat geleneği bu formu i\'câz-ı beyân çerçevesinde başka örneği olmayan bir tür sayar.', en: 'In 7th-century Arabia, speech was either poetry bound to one of 16 meters or free prose. The Quran fits neither: it has rhythm but no meter. The classical rhetorical tradition treats this form as a category of its own within iʿjāz al-bayān.' },
+    blurb:       { tr: '7. yüzyıl Arabistanı\'nda ölçülü şiir ile secili veya serbest hitabet yaygındı. Kur\'an\'ın söyleyişi bu kalıplara indirgenemez: ritmik bir yapısı vardır, fakat şiir veznine bağlı değildir. Klasik belâgat geleneğinde bu söyleyiş, Kur\'an\'ın beyân bakımından i\'câzı çerçevesinde ele alınır.', en: 'Metrical poetry and rhymed or free oratory were widespread in 7th-century Arabia. The Quran\'s discourse cannot be reduced to these forms: it has a rhythmic structure but is not governed by poetic meter. In the classical rhetorical tradition, this discourse is discussed in terms of the Quran\'s inimitability in expression.' },
     cta:         { tr: 'Ritim analizine bak', en: 'See the rhythm analysis' },
-    kicker:      { tr: '16 vezin · Necm, Kevser, Duhâ örnekleri', en: '16 meters · examples from an-Najm, al-Kawthar, ad-Ḍuḥā' },
+    kicker:      { tr: 'Necm, Kevser ve Duhâ sûrelerinde ses ve bitiş örüntüleri', en: 'Sound and ending patterns in an-Najm, al-Kawthar, and ad-Ḍuḥā' },
   },
   {
     id: 'retorik-card',

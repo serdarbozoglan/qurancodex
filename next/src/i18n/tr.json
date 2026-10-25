@@ -52,7 +52,7 @@
     "title": "Ne Şiir, Ne Düzyazı",
     "intro": "7. yüzyıl Arabistan'ında baskın edebî formlar ölçülü şiir ve secili ya da serbest hitabetti. Kur'an'ın üslubu ise çağdaşlarınca bu kalıplarla tam örtüşmeyen, ritmik ama ölçüye indirgenemeyen bir söyleyiş olarak algılandı. Klasik belâgat geleneği (Bâkıllânî, Cürcânî) bu \"ne şiir ne düzyazı\" formunu i'câz-ı beyân çerçevesinde kendine özgü bir kategori sayar.",
     "poetry": "Şiir",
-    "poetryDesc": "16 farklı vezne bağlı katı yapı",
+    "poetryDesc": "Belirli vezin kalıplarına bağlı yapı",
     "quran": "KUR'AN",
     "quranDesc": "Ritmik ama vezinsiz - daha önce görülmemiş bir form",
     "prose": "Düzyazı",
@@ -60,7 +60,7 @@
     "unique": "Eşsiz",
     "ijaz": {
       "label": "Edebî Meydan Okuma: İ'câz",
-      "text": "Mekke muhalifleri onu \"şair\" yaftasıyla reddetmek istedi, ama metin Arap şiirinin 16 vezninden hiçbirine uymuyordu. \"Kâhin sözü\" dediler; onun saj' (seci) kalıbını da aşıyordu. \"Bir benzeri getirin\" meydan okuması 1.400 yıldır yanıtsız."
+      "text": "Mekkeli muhalifler Hz. Muhammed'i \"şair\" diye niteleyerek tebliğini reddetmeye çalıştı; \"kâhin sözü\" de dediler (Hâkka 69:41-42). Oysa Kur'an, Arap şiirinin vezin kalıplarına bağlı bir metin değildir; söyleyişi seciye de indirgenemez. Kur'an'ın, bir benzerinin getirilemeyeceğini bildiren meydan okuması geçerliliğini korur (İsrâ 17:88)."
     },
     "fasila": {
       "title": "Fasıla: Her Sûrenin Ses İmzası",
