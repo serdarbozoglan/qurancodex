@@ -154,20 +154,56 @@ ESKİ borcu da yakaladı: 3 uzun tire + 4 "ℹ" emoji + 2 isim tiresi
 **Kalan:** Razi/Taberî'nin 18:25 yorumu ve "klasik gelenekte mucize diye
 vurgulanmaz" iddiası nokta referansı istiyor (§13.35) — Kademe 2.3'e.
 
-### 1.3 Küçük atıf ve biçim hataları (🟢 listesi)
-- [ ] Zemahşerî kaynakçada iki kez listelenmiş.
-- [ ] Sekkâkî 12. değil **13.** yüzyıl.
-- [ ] Ölüm yılları tutarsız (hangi kayıtlar olduğu taranacak).
-- [ ] Tarihsel Kanıtlar «غلبت الروم في أدنى الأرض» atfı 30:3 değil **30:2-3**.
-- [ ] Tuğyan tablosunda 96:6 mâzî satırında; fiil **muzâri**.
-- [ ] Rahmetin Grameri-1 "altıncı ve son yazı" diyor; seri **7** parça.
-- [ ] Inception Hayatlar'da boş tablo.
-- [ ] Sicim teorisi **10** boyut (11 M-teorisi).
-- [ ] "Bir kavramı basitçe anlatamıyorsan…" sözü Feynman'a **belgelenmemiş**.
-- [ ] Richelieu sözü "atfedilen" diye verilsin.
-- [ ] Elmas–grafit örneği (kömür değil).
-- [ ] Ana sayfada iç not gibi duran bir cümle var (bulunacak).
-- [ ] Kaynakça biçimi tek tip olsun.
+### 1.3 Küçük atıf ve biçim hataları — KISMEN TAMAM (2026-10-24)
+
+Astra turu yapıldı. Önemli bir sonuç: raporun bazı maddeleri sitede **zaten
+doğru** çıktı. Rapor körlemesine uygulanmadı.
+
+**Düzeltilenler:**
+- [x] **Rûm atfı** — "Edne'l-Arz" kartı `Rûm 30:3` diyordu, alıntıladığı
+      Arapça iki âyete yayılıyor: غُلِبَتِ الرُّومُ (30:2) + فِي اَدْنَى
+      الْاَرْضِ (30:3). `Rûm 30:2-3` oldu.
+- [x] **Sekkâkî** — "Miftâḥu'l-ʿUlûm (12. yy)" → "(ö. 1229)". Doğrulandı:
+      Sirâcüddîn es-Sekkâkî 1160-1229; eser olgunluk dönemi, yani 13. yy.
+      Astra önerisi: yüzyıl tartışmasına girmeden vefat yılı yazmak.
+- [x] **Richelieu** — İngilizce zaten ihtiyatlıydı ("is said to have
+      remarked"), Türkçe kesin konuşuyordu ("dediği gibi"). İki dil eşitlendi:
+      "Richelieu'ye atfedilen söze göre".
+- [x] **"Altıncı ve son yazı"** — Rahmetin Grameri serisi 7 parça ve bütün
+      mercekleri birleştiren sentez yazısı 7. olanı. "Yedinci ve son" oldu
+      (İngilizcesi de).
+- [x] **Sicim teorisi boyutu** — "Sicim teorisindeki 11 boyutlu uzay-zaman"
+      → "Süpersicim kuramındaki 10 boyutlu uzay-zaman". 11 boyut
+      M-kuramınındır. Astra uyarısı: "sicim kuramları 10 boyutludur" diye
+      genelleme yapma, bozonik sicim kuramında sayı farklı. Aynı yazının
+      özeti ve tefekkür indeksi de hizalandı.
+
+**Mevcut metinde bulunamadı (değişiklik yapılmadı):**
+- [x] **Feynman sözü** — rapor "kesin gibi veriliyor" diyor; sitede hem TR
+      hem EN zaten ihtiyatlı ("Feynman'a atfedilen" / "attributed to").
+      Astra: ifade değişikliği yapma. ⚠ Sözün doğrulanabilirliği yine de ayrı
+      bir konu, Kademe 2.3'e.
+- [x] **Rûm 30:2-4 künyesi** — ayrı bir kartta atıf zaten 30:2-4 ve alıntı
+      gerçekten üç âyeti kapsıyor. Doğru.
+- [x] **Zemahşerî mükerrer kaydı** — Kaynakça sayfasında tek kayıt
+      ("Mahmûd ez-Zemahşerî, el-Keşşâf"). Mükerrer bulunamadı. Astra: bu
+      hükmü taranmayan sayfalara genişletme.
+
+**Kalan (bağlam gerekiyor, astra her biri için ne isteneceğini söyledi):**
+- [ ] Tuğyan tablosunda 96:6 — astra: kastedilen kelime **لَيَطْغَىٰ** ise
+      fiil muzâridir; satırı görmeden tabloyu değiştirme. Tablo henüz
+      bulunamadı.
+- [ ] Inception Hayatlar'da boş tablo — astra: gerçekten boş mu, yoksa
+      görüntüleme sorunu mu, önce ayır.
+- [ ] Ana sayfada iç not gibi duran cümle — astra: tam ifade görülmeden
+      karar verilemez.
+- [ ] Ölüm yılları tutarsız — astra: hicrî/miladî ayrımı ve aynı adlı
+      kişilerin karışması kontrol edilsin; sırf tek tip görünsün diye tarih
+      seçilmesin.
+- [ ] Kaynakça biçimi tek tip — astra: eksik bilgileri tahminle doldurma.
+- [ ] Elmas-grafit (kömür değil) — astra: karbon allotropları
+      karşılaştırılıyorsa elmas/grafit doğru; yalnızca benzetme yapan bir
+      cümlede otomatik değiştirme.
 
 ### 1.4 Terim ve atıf eşleşmeleri (olgusal olanlar)
 - [ ] **Sonsuzluğun Merdiveni** — "İbn Sînâ'nın vahdet-i vücûd ↔ vahdet-i
@@ -415,4 +451,5 @@ vurgulanmaz" iddiası nokta referansı istiyor (§13.35) — Kademe 2.3'e.
 | 2026-10-24 | 0 | Rapor okundu, 8 iddia kendi metnimizle doğrulandı, astra editoryal hüküm verdi, bu liste oluşturuldu | — |
 | 2026-10-24 | 1.1 | Tabiat Atlası 8 kart düzeltildi (astra turu yapıldı, 12 bulgusu uygulandı) | — |
 | 2026-10-24 | 1.2 | Metinle çelişen 9 ifade düzeltildi (astra turu; 3 yerde beni düzeltti) | — |
+| 2026-10-24 | 1.3 | 5 küçük hata düzeltildi; 3 rapor maddesi sitede zaten doğru çıktı, dokunulmadı | — |
 | 2026-10-24 | — | **Üç denetim kapısının ölü olduğu bulundu ve düzeltildi** (§13.15, §13.34, §13.32): `changed.mjs` yolları repo köküne göre döndürüyordu, kapılar `^src/`/`^public/` süzüyordu, hiçbiri eşleşmiyordu | — |
