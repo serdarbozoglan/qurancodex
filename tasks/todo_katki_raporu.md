@@ -600,10 +600,37 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       kavramıyla özdeşleştirmek isabetli değildir."*
 - [ ] Zümer 39:5: ana metin "düz-yer modelinde olamayacak bir olgu" ↔ kutu
       "delil kurmak hem gereksiz hem zayıftır".
-- [ ] İmkânsız Ritim ana sayfa kartı: "7. yüzyılda söz ya 16 vezinden birine
-      bağlı şiirdi ya da düzyazı" → aruzun 16 vezni **8. yüzyılda** Halîl b.
-      Ahmed'le tasnif edildi; secî geleneği bu ikilide yok. Ayrıntı sayfası
-      ikisini de doğru anlatıyor.
+- [x] **Aruzun 16 vezni artık 7. yüzyıla tarihlenmiyor** (`751dcd17`).
+      Rapor tek yeri bildirdi, ölçünce iddia **beş** yerde çıktı; bölümün
+      giriş metni ise iki dilde de ZATEN doğruydu, yani sayfa kendi içinde
+      çelişiyordu. Kalıplar şiirle birlikte daha eski, 16 bahirlik tasnif
+      8. yüzyıl sistemleştirmesi. Doğrulanan kaynak hakemli ve DOI'li
+      (10.3389/frai.2025.1523336): kalıpların "analyzed" edildiğini söylüyor,
+      yani icat değil tasnif. Halîl b. Ahmed'in adı ve 15+1 dağılımı sayfaya
+      YAZILMADI; eldeki kaynak bunu tek başına desteklemiyor.
+      Âyet referansları korpustan birebir doğrulandı (Hâkka 69:41-42,
+      İsrâ 17:88).
+
+      **Astra iki turda beş yerde düzeltti, ikisi raporda hiç yoktu:**
+      1. "Hece sayısı ve **vurgu** düzeni sabit" teknik olarak hatalıydı.
+         Arap aruzu vurguya değil kısa/uzun hece düzenine dayanır ve izin
+         verilen vezin değişiklikleri vardır; "katı yapı" da fazla iddialıydı.
+      2. Türkçede "onu" kişiyi, İngilizcede "it" metni gösteriyordu; iki dil
+         aynı şeyi söylemiyordu.
+      3. Kart özeti bütün belâgat geleneğine tek bir tasnif atfediyordu
+         ("başka örneği olmayan bir tür sayar"), kaynağı yok.
+      4. "Bir benzeri getirin" tırnak içinde doğrudan âyet alıntısı gibiydi,
+         oysa serbest özet.
+      5. Alt etiket "16 vezin" diyordu ama sayfa hiç vezin adı listelemiyor.
+
+      ⚠ **Kendi hatam, kayda geçsin:** astra'ya birinci turda "sayfada 16
+      veznin listesi var" diye yanlış bir öncül verdim ve o buna dayanarak
+      alt etiketi ONAYLADI. Ölçünce sayfada hiç vezin adı olmadığı çıktı.
+      Öncülü düzeltip geri döndüm, astra kararını değiştirdi. Hakem hatası
+      değil, ona verilen önermenin hatasıydı (§13.24'ün kendi notu).
+      Astra'nın reddettiği bir çıkarımım: "aruzu kuranlar Kur'an'ı önlerinde
+      buldu, yine hiçbir vezne yerleştirmediler" → metne erişim, onu
+      inceleyip bilerek dışarıda bıraktığının belgesi değildir. Yazılmadı.
 - [ ] Kur'an'ı Tanı: "asla rastlantı olamayacak denklikler" ve "Eksiklik
       fazlalıkla dengelendi" → kendi Sayılar sayfamızın "örüntü çıkarmaz"
       ilkesiyle çelişiyor.
@@ -761,6 +788,10 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 | 2026-10-25 | 1.3/1.4 | Ajan B: yedi gök, ilâhî sıfatla kapanan sûreler, Hac secde notu | `535ecce4` |
 | 2026-10-25 | 1.4 | Ajanın devrettiği işler: Mülk fasılası, "9 sûre" sabiti, Birmingham üstünlük iddiaları | `f4c7f272` |
 | 2026-10-25 | — | Hero: DEVAM göstergesi CTA satırıyla örtüşmüyor | `240d0c35` |
+| 2026-10-25 | 4 | Gizlilik sayfası, yanlış beyan, gerçek IP hash'i, arşiv tavanı | `86e70065` |
+| 2026-10-25 | — | **Dal açıldı: `feat-kademe3-editoryal`.** Kademe 3 işi bu dalda, main'e ayrı onayla merge | — |
+| 2026-10-25 | 3 | Aruzun 16 vezni 8. yüzyıl tasnifi; beş yerde düzeltildi, astra iki turda beş bulgu verdi | `751dcd17` |
+| 2026-10-25 | — | **Üç Kademe 3 ajanı başlatıldı**, dosya kümeleri kesişmiyor: A bilimsel-isaretler (3.1 + 3.3) · B tarihsel-kanitlar (3.2 güç etiketleri) · C tefekkür (3.4) | — |
 
 ### Sıradaki iş
 
