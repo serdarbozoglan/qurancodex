@@ -18,6 +18,63 @@ import { loadCorpus } from './concierge-search.js';
 // Kopya yerine `lib/arabic.js` import ediliyor: §13.15'in tek-kaynak ilkesi.
 import { cleanArabicForDisplay as normalizeArabic } from './arabic.js';
 
+// ── §13.27 İÇ KİMLİK SIZINTISI KALKANI (2026-10-24) ────────────────────────
+//
+// Kullanıcı raporu: "Rahmân sûresinde aynı âyet kaç kez tekrar eder?" sorusuna
+// dönen kapanış cümlesi AYNEN şuydu:
+//   "Sorunuza tam cevap için surah-summary:55 kaynağında sûrenin detaylı
+//    haritasını inceleyiniz."
+// `surah-summary:55` bir iç kayıt adı; okuyan için anlamsız ve §13.27 ihlali.
+//
+// Kök sebep: aday listesi modele `[surah-summary:55]` etiketleriyle veriliyor
+// ve model bu etiketi serbest metne taşıyabiliyor. İstem tarafına yasak
+// eklendi, ama istem bir GARANTİ değil — çıktı burada da süzülür.
+//
+// Yasak kimliklerin ön eki korpusun KENDİ tip listesinden türetilir; elle
+// tutulan ikinci bir liste tutulmaz (o liste kaçınılmaz olarak eskiyor).
+let ID_PREFIX_SOURCE = null;
+
+function idPrefixPattern() {
+  if (ID_PREFIX_SOURCE) return ID_PREFIX_SOURCE;
+  const types = [...new Set(loadCorpus().items.map(i => i.type))]
+    .concat(['article-section'])
+    .filter(Boolean)
+    .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .sort((a, b) => b.length - a.length);
+  // Kimlik = <tip>:<boşluksuz gövde>. Gövde zorunlu, bu yüzden Türkçe
+  // "tefsir: şöyle der" gibi iki nokta + BOŞLUK kalıbı yakalanmaz.
+  ID_PREFIX_SOURCE = `(?<![\\w-])(?:${types.join('|')}):[A-Za-z0-9/#][^\\s,;)"']*`;
+  return ID_PREFIX_SOURCE;
+}
+
+function findInternalId(text) {
+  if (!text) return null;
+  const m = String(text).match(new RegExp(idPrefixPattern()));
+  return m ? m[0] : null;
+}
+
+// Atılan cümlenin yerine işaret eden karşılıksız göndermeler.
+const DANGLING_REF = /\b(bu|o|şu|bahsi geçen|söz konusu) (kaynak|sayfa|bölüm|liste|başlık)\b|\byukarıda|\başağıda|\b(the|that) (above|source|page|section|list)\b|\blisted above\b/i;
+
+// İç kimlik içeren CÜMLE atılır. Kimliği silip cümleyi bırakmak yarım cümle
+// üretiyor ("... için  kaynağında ..."); yerine bir şey UYDURMAK ise daha
+// kötü. Hiçbir cümle kalmazsa alan boş döner ve arayüz o satırı çizmez.
+function sanitizeProse(text, field) {
+  if (!text || typeof text !== 'string') return '';
+  if (!findInternalId(text)) return text;
+  const sentences = text.match(/[^.!?…]+(?:[.!?…]+|$)/g) || [text];
+  const kept = sentences.filter(s => !findInternalId(s));
+  let out = kept.join(' ').replace(/\s+/g, ' ').trim();
+  // Astra turu (2026-10-24): "cümleyi attıktan sonra geriye karşılıksız bir
+  // gönderme kalmadığını da kontrol et." Atılan cümlenin yerine işaret eden
+  // bir kalıp kaldıysa ("bu kaynak", "yukarıdaki", "the above") geri kalan da
+  // okunamaz hâle gelir; o zaman alan tamamen boşaltılır.
+  if (out && DANGLING_REF.test(out)) out = '';
+  console.warn(`[concierge] iç kimlik içeren cümle ayıklandı (${field}): `
+    + `${findInternalId(text)}`);
+  return out;
+}
+
 // URL builders per type
 function buildUrl(item, lang = 'tr') {
   const base = `/${lang}`;
@@ -126,7 +183,13 @@ function buildUrl(item, lang = 'tr') {
 // ── Extract compact client-facing fields per item type
 function hydrateItem(item, reason, lang) {
   const url = buildUrl(item, lang);
-  const base = { id: item.id, type: item.type, reason: reason || '', url };
+  const base = {
+    id: item.id,
+    type: item.type,
+    // Gerekçe cümlesi kartta görünür → iç kimlik kalkanından geçer.
+    reason: sanitizeProse(reason || '', `reason/${item.type}`),
+    url,
+  };
 
   switch (item.type) {
     case 'verse':
@@ -257,8 +320,8 @@ export function hydrateResponse(parsed, lang = 'tr') {
   const tafsirs = resolve(parsed.tafsirs || parsed.tefsirler);
 
   return {
-    intro: parsed.intro || '',
-    closing: parsed.closing || '',
+    intro: sanitizeProse(parsed.intro || '', 'intro'),
+    closing: sanitizeProse(parsed.closing || '', 'closing'),
     verses,
     tools,
     articles,
@@ -273,3 +336,18 @@ export function hydrateResponse(parsed, lang = 'tr') {
     },
   };
 }
+
+// ── Tek bir kalemi kimliğinden hidratla.
+// Ölçülmüş sayı cevabı (bkz. api/concierge/direct-answer.js) kendi âyetini
+// kart listesine eklerken kullanır: sayıyı veren âyetin listede olmaması
+// kullanıcı raporundaki üçüncü şikâyetti (nakarat âyeti 55:13 listede yoktu).
+export function hydrateById(id, reason, lang = 'tr') {
+  if (!id) return null;
+  const corpus = loadCorpus();
+  const item = corpus.items.find(i => i.id === id);
+  if (!item) return null;
+  return hydrateItem(item, reason, lang);
+}
+
+// Sızıntı kalkanı dışarıdan da sınanabilsin (scripts/test-concierge.mjs).
+export { findInternalId, sanitizeProse };

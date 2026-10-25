@@ -1136,8 +1136,18 @@ function ResponseView({ data, language, feedback, setFeedback }) {
         </motion.div>
       )}
 
+      {/* Ölçülmüş sayı cevabı (2026-10-24, Kademe 2.4).
+          Sayı soran bir soru veriden sayılarak cevaplanabildiğinde cevap
+          kartların ÜSTÜNDE, kendi başına durur. Rapordaki şikâyet buydu:
+          "Rahmân sûresinde aynı âyet kaç kez tekrar eder?" sorusunda sayı
+          (31) hiç görünmüyordu. `intro` aynı cümleyi taşıdığı için kart
+          varken giriş paragrafı çizilmez. */}
+      {response.fact && (
+        <FactPanel fact={response.fact} reduced={reduced} tr={tr} />
+      )}
+
       {/* Intro whisper */}
-      {response.intro && (
+      {!response.fact && response.intro && (
         <motion.p
           initial={reduced ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -1280,6 +1290,128 @@ function ResponseView({ data, language, feedback, setFeedback }) {
         </p>
       )}
     </div>
+  );
+}
+
+// ─── ÖLÇÜLMÜŞ CEVAP PANELİ ──────────────────────────────────────────────────
+// Sayı soran bir soru veriden sayılarak cevaplanabildiğinde kullanılır.
+// Metnin tamamı sunucudan gelir (api/concierge/direct-answer.js); burada
+// hiçbir cümle kurulmaz, yalnız biçim verilir. Düzen tek kolon ve sarabilir,
+// bu yüzden 390px'te de yatay taşma üretmez (§13.36, §14.2).
+function FactPanel({ fact, reduced, tr }) {
+  return (
+    <motion.section
+      initial={reduced ? false : { opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      aria-label={tr ? 'Sayım sonucu' : 'Count result'}
+      style={{
+        marginBottom: '32px',
+        padding: '20px 18px',
+        borderRadius: '14px',
+        border: `1px solid ${COLORS.gold}3d`,
+        background: `${COLORS.gold}0d`,
+      }}
+    >
+      <div style={{
+        fontFamily: FONTS.body,
+        fontSize: '0.66rem',
+        fontWeight: 700,
+        letterSpacing: '0.2em',
+        textTransform: 'uppercase',
+        color: COLORS.gold,
+        marginBottom: '14px',
+      // Astra turu (2026-10-24): "Veriden sayıldı / Counted from the data"
+      // başlığındaki "veri" kullanıcı için belirsiz ve teknikti.
+      }}>{tr ? 'Sayım sonucu' : 'Count result'}</div>
+
+      <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '10px', marginBottom: '12px' }}>
+        <span style={{
+          fontFamily: FONTS.display,
+          fontSize: 'clamp(2.6rem, 9vw, 3.6rem)',
+          fontWeight: 900,
+          lineHeight: 1,
+          color: COLORS.gold,
+        }}>{fact.value}</span>
+        <span style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.92rem',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: COLORS.gold,
+        }}>{fact.unit}</span>
+      </div>
+
+      <p style={{
+        fontFamily: FONTS.display,
+        fontSize: '1.08rem',
+        color: COLORS.offWhite,
+        lineHeight: 1.6,
+        margin: '0 0 6px',
+      }}>{fact.headline}</p>
+
+      {fact.detail && (
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.88rem',
+          color: SEMANTIC.textMuted,
+          lineHeight: 1.6,
+          margin: '0 0 14px',
+        }}>{fact.detail}</p>
+      )}
+
+      {fact.arabic && (
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran,
+          fontSize: 'clamp(1.2rem, 5vw, 1.6rem)',
+          color: COLORS.gold,
+          lineHeight: 2.05,
+          margin: '0 0 8px',
+        }}>{fact.arabic}</p>
+      )}
+
+      {fact.text && (
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: '0.95rem',
+          color: COLORS.offWhite,
+          lineHeight: 1.6,
+          margin: '0 0 6px',
+        }}>{fact.text}</p>
+      )}
+
+      {fact.refLabel && (
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          color: SEMANTIC.textMuted,
+          margin: '0 0 14px',
+        }}>{fact.refLabel}</p>
+      )}
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '14px' }}>
+        <Link href={fact.url} style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.8rem',
+          fontWeight: 700,
+          letterSpacing: '0.06em',
+          color: COLORS.gold,
+          textDecoration: 'none',
+          border: `1px solid ${COLORS.gold}44`,
+          borderRadius: '999px',
+          padding: '8px 16px',
+        }}>{fact.linkLabel}</Link>
+        <span style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.76rem',
+          color: SEMANTIC.textMuted,
+          lineHeight: 1.6,
+        }}>{fact.note}</span>
+      </div>
+    </motion.section>
   );
 }
 

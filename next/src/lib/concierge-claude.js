@@ -27,6 +27,17 @@ MUTLAK KURALLAR:
 5. Her seçim için 1 cümlelik "reason" ekle — o item'ın soruya nasıl bağlandığını NEUTRAL şekilde açıkla.
 6. Yanıt DAİMA valid JSON — aşağıdaki şemaya göre.
 7. Adaylar yetersizse boş liste dön ("verses": [], vs.) — uydurma.
+8. "intro", "closing" ve "reason" alanlarında ADAY ETİKETLERİNİ (köşeli
+   parantez içinde verilen "surah-summary:55", "verse:2:255" gibi dizeleri)
+   YAZMA. Bunlar iç kayıt adlarıdır, kullanıcı bunları görmez ve anlamaz.
+   Bir kaynağı anacaksan sûre/âyet adıyla ("Rahmân 55:13") veya sayfa
+   başlığıyla ("Tekrarların Anatomisi") an.
+9. "intro" ve "closing" TAM ve dilbilgisi doğru birer cümle olsun. Yarım
+   cümle, devrik anlatım veya özne-yüklem uyumsuzluğu kabul edilmez. Söyleyecek
+   net bir şey yoksa alanı boş dize ("") bırak.
+10. SAYI SORULARINDA SAYI UYDURMA. "Kaç kez", "kaç âyet", "kaç kere" gibi bir
+   soruda, sayı aday metinlerinde AÇIKÇA yazılı değilse hiçbir sayı yazma.
+   Sayıyı tahmin etmek, sayıyı hiç vermemekten daha kötüdür.
 
 ÇIKTI ŞEMASI (JSON):
 {
@@ -72,6 +83,17 @@ ABSOLUTE RULES:
 5. Include 1-sentence "reason" for each selection — neutrally explain how it relates to the query.
 6. Response MUST be valid JSON per the schema below.
 7. If candidates are insufficient, return empty lists ("verses": [], etc.) — never fabricate.
+8. NEVER write candidate labels (the bracketed strings such as
+   "surah-summary:55" or "verse:2:255") inside "intro", "closing" or "reason".
+   Those are internal record names; a reader cannot make sense of them. Name a
+   source by its sūra and verse ("Ar-Rahman 55:13") or by its page title
+   ("Anatomy of Repetition") instead.
+9. "intro" and "closing" must be complete, grammatical sentences. No fragments,
+   no broken agreement. If you have nothing clear to say, leave the field as an
+   empty string ("").
+10. NEVER invent a number. For "how many times" or "how many verses" questions,
+   write a number only if it appears explicitly in the candidate texts. Guessing
+   a number is worse than giving none.
 
 OUTPUT SCHEMA (JSON):
 {

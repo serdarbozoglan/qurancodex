@@ -9,12 +9,16 @@ import { embedQuery } from '@/lib/concierge-embed';
 import { conciergeSearch, applyQualityBoost, extractItemIds } from '@/lib/concierge-search';
 import { conciergeKeywordSearch } from '@/lib/concierge-keyword-search';
 import { runConcierge } from '@/lib/concierge-claude';
-import { hydrateResponse } from '@/lib/concierge-hydrate';
+import { hydrateResponse, hydrateById } from '@/lib/concierge-hydrate';
+import { resolveDirectAnswer, repeatVerseReason } from './direct-answer';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
 import { consumeBudget, checkRateLimitKv } from '@/lib/concierge-budget';
 import { peekSpend, addSpend } from '@/lib/concierge-spend';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
 import { logQuery, getResponseCache, setResponseCache, getItemQualityScores } from '@/lib/concierge-kv';
+
+// Yanıt önbelleği sürümü — bkz. aşağıdaki `preHash` yorumu.
+const CACHE_VERSION = 'v2';
 
 // Query hash — stable identifier for feedback + cache curation. Deterministic
 // SHA-256 of normalized (lowercase, trim, whitespace-collapse) query + lang.
@@ -139,7 +143,14 @@ export async function POST(request) {
   const originalQuery = query;
   // Query hash mode-aware: aynı query keyword vs semantic'te farklı cache
   // key üretir — sonuç setleri farklı olabilir.
-  const preHash = computeQueryHash(`${mode}:${query}`, lang);
+  // Yanıt önbelleği SÜRÜMLÜ. 2026-10-24'te ölçüldü: rapordaki bozuk cevap
+  // kalıcıydı, çünkü yedi günlük önbellekte duruyordu ve düzeltmeden sonra da
+  // aynı metin servis edilmeye devam ediyordu (`cached: true`). Boru hattı
+  // kullanıcıya görünen metni değiştirdiğinde bu sürüm artırılır; eski
+  // kayıtlar bir daha okunmaz ve kendi süresi içinde düşer.
+  // Not: yalnız ÖNBELLEK anahtarı sürümlü. Günlük/geri bildirim anahtarı olan
+  // `queryHash` dokunulmaz kalır, aksi halde mevcut geri bildirimler kopardı.
+  const preHash = computeQueryHash(`${CACHE_VERSION}:${mode}:${query}`, lang);
 
   try {
     // 0a. Server-side response cache lookup (Faz 2)
@@ -356,6 +367,39 @@ export async function POST(request) {
 
     // 4. Hydrate with full item details (halisinasyon guard)
     const hydrated = hydrateResponse(parsed, lang);
+
+    // 4b. SAYI SORUSU → ÖLÇÜLMÜŞ CEVAP (2026-10-24, Kademe 2.4)
+    //
+    // Sayfanın kendi örnek sorusu ("Rahmân sûresinde aynı âyet kaç kez tekrar
+    // eder?") sayıyı hiç vermiyordu: bu uç nokta aday kartları seçtiriyor,
+    // adaylarda sayı yazılı olmadığı için sayı ortaya çıkmıyordu. Sayı artık
+    // modelden değil ÖLÇÜMDEN geliyor (bkz. direct-answer.js). Çözülemeyen
+    // soruda `fact` yok ve davranış eskisi gibi kalır.
+    const fact = resolveDirectAnswer(originalQuery, lang)
+      || (effectiveQuery !== originalQuery ? resolveDirectAnswer(effectiveQuery, lang) : null);
+    if (fact) {
+      hydrated.fact = fact;
+      // Modelin serbest giriş cümlesi yerine ölçülmüş cümle. Rapordaki
+      // "otomatik üretilen cümle bozuk" şikâyeti buradan geliyordu:
+      // "Rahmân sûresinin en belirgin özelliği, ayetler arasında tekrarlanan
+      // bir ifade mevcuttur." (yarım cümle, sayı yok).
+      hydrated.intro = `${fact.headline}${fact.detail ? ` ${fact.detail}` : ''}`;
+      // Sayıyı veren âyet kart listesinin BAŞINDA olur. Önceki davranışta
+      // Rahmân'ın nakarat âyeti (55:13) listede hiç görünmüyordu.
+      if (fact.verseId) {
+        const idx = hydrated.verses.findIndex(v => v.id === fact.verseId);
+        if (idx > 0) {
+          const [found] = hydrated.verses.splice(idx, 1);
+          hydrated.verses.unshift(found);
+        } else if (idx === -1) {
+          const added = hydrateById(fact.verseId, repeatVerseReason(lang), lang);
+          if (added) hydrated.verses.unshift(added);
+          if (hydrated.verses.length > 4) hydrated.verses.length = 4;
+        }
+        hydrated.stats.versesCount = hydrated.verses.length;
+      }
+    }
+
     timings.total = Date.now() - startTs;
 
     const queryHash = computeQueryHash(`${mode}:${originalQuery}`, lang);
