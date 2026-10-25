@@ -6,7 +6,8 @@
     "kaynak_metin": "Uthmânî resm-i Mushaf (tam diakritikli, 6236 âyet)",
     "kalibrasyon": "M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres referans alınarak doğrulandı (ör. Rahmân 57, Rahîm 114, Zü'l-Fadli'l-Azîm 6).",
     "onemli_not": "Bazı kısa kökler için (ör. el-Hakk 'gerçek/hak', el-Hâlik/el-Hallâk) eş-yazımlı kelimeler tefsir bağlamına göre değerlendirilmelidir. Es-Sabûr, el-Mukaddim, el-Vâcid, el-Mâcid gibi bazı esmâ Kur'an'da bu lafızla geçmeyip hadis kaynaklı esmâ listelerinde yer alır.",
-    "uyari": "Geçiş sayıları, ismin sıfat/lafız formu esas alınarak hesaplanmış yaklaşık değerlerdir; klasik konkordanslarla küçük farklar olabilir."
+    "uyari": "Geçiş sayıları ismin lafız biçimi esas alınarak hesaplanır ve klasik konkordanslarla küçük farklar gösterebilir. Bir sayının yanında sayım notu varsa, o not neyin sayıldığını söyler. Doğrulanmadığı belirtilen sayılar henüz tek bir ölçütle yeniden üretilememiştir.",
+    "sayim_olcutu": "Sayım, ismin Arapça yazılışının kelime başında geçtiği yerleri kapsar; ön ekler (ve, bi, li, ka, fe) ve harf-i tarif sayıma dahildir. Harekesiz yazılışta birden çok kelimeyi temsil eden biçimler (ör. melik, mülk ve melek aynı yazılışı paylaşır) ayrıştırılmadan kesinleştirilmez."
   },
   "temel_ayetler": [
     {
@@ -427,7 +428,10 @@
       "isim_en": "Ar-Rahim",
       "okunus_en": "Ar-Rahim",
       "anlam_en": "The Especially Merciful to the believers",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimDogrulandi": false,
+      "sayimNotuTr": "Bu sayı doğrulanmadı: kayıt 115 diyor, bu sayfanın kalibrasyon kaynağı olarak gösterdiği konkordans ise 114 veriyor. Fark, sûre başlarındaki besmelelerin sayıma dahil edilip edilmediğinden kaynaklanıyor olabilir; ölçüt belirlenmeden sayı kesinleştirilmeyecek.",
+      "sayimNotuEn": "This figure has not been verified: the record gives 115 while the concordance cited as the calibration source on this page gives 114. The difference may come from whether the basmalas heading the suras are included; the figure will not be settled until the criterion is fixed."
     },
     {
       "isim": "El-Azîm",
@@ -897,7 +901,10 @@
       "isim_en": "Al-Malik",
       "okunus_en": "Al-Malik",
       "anlam_en": "The Sovereign King, Owner of all dominion",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimDogrulandi": false,
+      "sayimNotuTr": "Bu sayı doğrulanmadı. Harekesiz yazılışta ملك üç ayrı kelimeyi temsil eder: melik (hükümdar), mülk (egemenlik) ve melek. Hangisinin sayıldığı ayrıştırılmadan sayı kesinleştirilemez.",
+      "sayimNotuEn": "This figure has not been verified. Without vowel marks the spelling malik covers three different words: malik (king), mulk (dominion) and malak (angel). The figure cannot be settled until these are separated."
     },
     {
       "isim": "El-Veliyy",
@@ -1001,7 +1008,7 @@
       "aciklama": "Dünyada tüm yaratılmışlara merhamet eden",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 60,
+      "kuranda_gecis_sayisi": 57,
       "yuksek_frekansli": true,
       "ornek_ayetler": [
         {
@@ -1085,7 +1092,9 @@
       "isim_en": "Ar-Rahman",
       "okunus_en": "Ar-Rahman",
       "anlam_en": "The Entirely Merciful, whose mercy encompasses all things",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimNotuTr": "Rahmân lafzı 56 âyette 57 kez geçer. Bu değer hem bu sayfanın kalibrasyon kaynağıyla (Abdülbâkî) hem de metin üzerinde yapılan sayımla örtüşür.",
+      "sayimNotuEn": "The word Rahman occurs 57 times in 56 verses. This agrees both with the calibration source cited on this page (Abd al-Baqi) and with a direct count on the text."
     },
     {
       "isim": "El-Hâdî",
@@ -1095,7 +1104,7 @@
       "aciklama": "Doğru yola ileten",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 59,
+      "kuranda_gecis_sayisi": 10,
       "yuksek_frekansli": true,
       "ornek_ayetler": [
         {
@@ -1179,7 +1188,9 @@
       "isim_en": "Al-Hadi",
       "okunus_en": "Al-Hadi",
       "anlam_en": "The Guide to the straight path",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimNotuTr": "Hâd ve hâdî biçimleri on âyette geçer: A'râf 7:186, Ra'd 13:7 ve 13:33, Hac 22:54, Furkān 25:31, Neml 27:81, Rûm 30:53, Zümer 39:23 ve 39:36, Mü'min 40:33.",
+      "sayimNotuEn": "The forms had and hadi occur in ten verses: Al-Araf 7:186, Ar-Rad 13:7 and 13:33, Al-Hajj 22:54, Al-Furqan 25:31, An-Naml 27:81, Ar-Rum 30:53, Az-Zumar 39:23 and 39:36, Ghafir 40:33."
     },
     {
       "isim": "El-Basîr",
@@ -1471,7 +1482,7 @@
       "aciklama": "Her mahlûkun rızkını üstlenen",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 43,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": true,
       "ornek_ayetler": [
         {
@@ -1555,7 +1566,9 @@
       "isim_en": "Ar-Razzaq",
       "okunus_en": "Ar-Razzaq",
       "anlam_en": "The Provider of sustenance for all living beings",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimNotuTr": "Er-Rezzâk lafzı Kur'an'da bir âyette geçer (Zâriyât 51:58). Önceki 43 değeri hiçbir sayım ölçütüyle doğrulanamadı; rızık kökünün türevleri ayrı bir sayımdır.",
+      "sayimNotuEn": "The word ar-Razzaq occurs in one verse (Adh-Dhariyat 51:58). The earlier figure of 43 could not be reproduced by any counting criterion; derivatives of the root rizq are a separate count."
     },
     {
       "isim": "El-Kebîr",

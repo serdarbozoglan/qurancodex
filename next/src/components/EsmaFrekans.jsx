@@ -3111,6 +3111,18 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
             textAlign: 'right',
           }}>
             {(isAllah ? ALLAH_CLASSIC_COUNT : item.kuranda_gecis_sayisi).toLocaleString(tr ? 'tr-TR' : 'en-US')}
+            {/* Doğrulanmamış sayı, sayının HEMEN YANINDA işaretlenir. Hakem
+                (gpt-6-astra, 2026-10-24): "Doğrulanana kadar sayıyı gizlemek
+                veya hemen yanında açıkça 'doğrulanmadı' demek daha uygundur";
+                yalnız veriye not düşmek, sayının doğrulanmış olduğu
+                izlenimini sürdürür. İşaretin açıklaması `title` ile gelir. */}
+            {item.sayimDogrulandi === false && (
+              <span
+                title={tr ? (item.sayimNotuTr || 'Bu sayı doğrulanmadı.') : (item.sayimNotuEn || 'This figure has not been verified.')}
+                aria-label={tr ? 'bu sayı doğrulanmadı' : 'this figure has not been verified'}
+                style={{ color: COLORS.silver, fontWeight: 400, marginLeft: '4px', cursor: 'help' }}
+              >?</span>
+            )}
           </span>
         </span>
       </button>

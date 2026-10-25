@@ -314,16 +314,49 @@ dosyasına giriyor ve dakikalarca sürüyor. Hedefli dizin/dosya listesiyle ara.
       mi, kelime/lemma/kök tanımı.
 - [ ] `audit-claims.mjs`'e bu sayılar için türetme kuralı eklensin (§13.28.0).
 
-### 2.2 Esmâ frekans listesi — ölçüt karışıyor
-- [ ] Doğru çıkan sayılar (Alîm 161, Hakîm 97, Azîz 99) kelimenin **bütün**
-      geçişlerini sayıyor, Allah'a nisbet edilmeyenler dahil (12:30'daki
-      "aziz" unvanı, «القرآن الحكيم»).
-- [ ] Hiçbir tanımla yeniden üretilemeyenler: Rezzâk 43 (lafız 1 kez, 51:58) ·
-      Hâdî 59 (10 kez) · Melik 72 (13 kez) · Ehad 32 (kelime 53, ilâhî isim
-      olarak yalnız 112:1).
-- [ ] Her isim için üç sütun: (a) lafzın Allah'a isim olarak geçişi,
-      (b) Allah'a nisbet edilen türevler, (c) kökün toplamı.
-- [ ] Celâl/Cemâl oranı yalnız (a) ile hesaplansın.
+### 2.2 Esmâ frekans listesi — KISMEN TAMAM (2026-10-24)
+
+Raporun dört iddiasını tek tek ölçtüm. **Raporu olduğu gibi uygulamak yanlış
+olurdu**; astra da beni iki yerde düzeltti.
+
+| isim | sitede | ölçüm | raporun dediği | yapılan |
+|---|---|---|---|---|
+| Er-Rezzâk | 43 | **1 âyet** (51:58) | 1 | **43 → 1** |
+| El-Hâdî | 59 | **10 âyet** | 10 | **59 → 10** |
+| Er-Rahmân | 60 | **57** | 57 | **60 → 57** |
+| El-Ehad | 32 | 32 âyet (33 kez) | "hiçbir tanımla çıkmıyor" | dokunulmadı |
+| El-Melik | 72 | ayrıştırılamıyor | 13 | "doğrulanmadı" işareti |
+| Er-Rahîm | 115 | — | 115 ↔ 114 | "doğrulanmadı" işareti |
+
+**Astra beni iki kez düzeltti:**
+1. Hâdî'yi 9 saymıştım; **Furkān 25:31'deki هَادِيًا biçimini kaçırmışım**.
+   Doğrusu 10, yani rapor haklıymış.
+2. "Ehad'da site doğru" sonucum temelsizmiş: sitenin NEYİ saydığı
+   belirlenmeden "doğru" denemez. Sayıya dokunmadım ama iddiayı da geri aldım.
+
+**Dosya kendi içinde çelişiyormuş.** `metodoloji.kalibrasyon` alanı
+"Rahmân 57, Rahîm 114" diyor, ama kayıtlar 60 ve 115 yazıyordu. Rahmân için
+hem kendi kalibrasyon notumuz hem ölçüm 57 dediği için düzeltildi; Rahîm'de
+iki değer arasında seçim yapmak için ölçüt yok, bu yüzden işaretlendi.
+
+**114 ismi toplu yeniden saymayı denedim ve vazgeçtim.** Otomatik sayım aracı
+50 isimde fark bildirdi ama kontrol edince çoğu aracın kendi hatasıydı:
+harekesiz yazımda ى/ي dönüşümü yüzünden عَلَىٰ ("üzerine") ile عَلِيّ
+(el-Aliyy) aynı biçime düşüyor ve El-Aliyy için 914 gibi bir sayı çıkıyor;
+bileşik adlar (Rabbü'l-Âlemîn, Şedîdü'l-İkāb) tek kelime eşleşmesiyle hiç
+bulunamıyor. Toplu sayım düzelttiğinden çok hata sokardı.
+
+**Arayüz değişikliği:** doğrulanmamış sayının HEMEN YANINDA bir işaret
+çıkıyor (astra: "yalnız veriye not düşmek, sayının doğrulanmış olduğu
+izlenimini sürdürür"). İşaretin üzerine gelince neyin neden doğrulanmadığı
+yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
+
+- [ ] **Kalan:** sitede listelenen 114 ismin tam denetimi. Astra'nın notu:
+      morfolojik etiketleme zorunlu değil, harekeli metin ve bağlam üzerinden
+      elle de ayrıştırılabilir. El-Melik ve Er-Rahîm bu turda çözülecek.
+- [ ] Üç sütun önerisi (lafzın isim olarak geçişi / Allah'a nisbet edilen
+      türevler / kök toplamı) henüz uygulanmadı; ikinci sütun bağlam
+      değerlendirmesi istiyor.
 
 ### 2.3 Hadis ve rivayet standardı (§13.35)
 > ⚠ Raporun hadis derecelerini KENDİMİZ doğrulayacağız; rapor hüküm değil.
