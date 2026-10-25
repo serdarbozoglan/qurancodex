@@ -1,7 +1,7 @@
 'use client';
 
 // ─── TarihselKanitlar — Tam tool (2026-07-06 refactor: wrapper → real tool) ───
-// Kaynak: tarihsel-kanitlar.json (10 kanıt, 4 kategori, 6 ulema, 18-nokta timeline).
+// Kaynak: tarihsel-kanitlar.json (10 iz, 4 kategori, 6 ulema, 18-nokta timeline).
 // Denetim raporu: docs/reviews/2026-07-06-kesfet-audit.md (Dalga 1.1 sayfası).
 // Pattern: SunnetullahAtlasi + MunafikProfili premium bar.
 
@@ -21,13 +21,45 @@ import useTabParam from '../hooks/useTabParam';
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import tarihselDataStatic from '../../public/tarihsel-kanitlar.json';
 
-// ─── Confidence chip system ──────────────────────────────────────────────────
-const CONFIDENCE_META = {
-  kesin:      { tr: 'Kesin',      en: 'Certain',     color: COLORS.emerald },
-  guclu:      { tr: 'Güçlü',      en: 'Strong',      color: COLORS.royalGold },
-  muhtemel:   { tr: 'Muhtemel',   en: 'Probable',    color: COLORS.skyBlue },
-  tartismali: { tr: 'Tartışmalı', en: 'Contested',   color: COLORS.silver },
+// ─── İlişki türü etiketleri (2026-10-25, Kademe 3.2) ─────────────────────────
+// Eski dörtlü (Kesin / Güçlü / Muhtemel / Tartışmalı) kategori hatasıydı:
+// "güçlü" bir dayanak derecesi, "muhtemel" bir olasılık, "kesin" bir kesinlik
+// iddiasıydı; üçü aynı düzlemde ölçülemiyordu. Ayrıca alan adı `confidence`
+// ("güven derecesi") hatayı taşıyordu. Yeni etiketler bir güç sıralaması
+// değil, bulgu ile âyet arasında İNSANLARIN kurduğu ilişkinin türünü söyler.
+// Hakem (gpt-6-astra, 2026-10-25) iki adı düzeltti: "doğrudan bulgu" yerine
+// "doğrudan ilişkilendirme" (ölçülen şey bulgunun doğrudanlığı değil,
+// ilişkinin niteliği), "tartışmalı yorum" yerine "tartışmalı eşleştirme"
+// (tartışmalı olan, önerilen özdeşleştirmedir).
+const RELATION_META = {
+  'dogrudan-iliski': {
+    tr: 'Doğrudan ilişkilendirme', en: 'Direct association', color: COLORS.emerald,
+    defTr: "Tarihsel kayıt, âyette açıkça anılan kişi, topluluk, yer veya olayla doğrudan ilişkilendirilir. Bu etiket, eşleştirmenin yanılmaz olduğu ya da Kur'ân'ın doğruluğunun kayıtla belirlendiği anlamına gelmez.",
+    defEn: "The historical record is directly associated with a person, community, place or event explicitly mentioned in the verse. This label does not make the association infallible or make the truth of the Qur'an depend on the record.",
+  },
+  'dolayli-iliski': {
+    tr: 'Dolaylı ilişkilendirme', en: 'Indirect association', color: COLORS.skyBlue,
+    defTr: "Bulgu ile âyet arasında bağlam, benzerlik veya coğrafya üzerinden bağ kurulur; bulgu tek başına kişi, yer veya olay özdeşliğini göstermez.",
+    defEn: "The finding is linked to the verse through context, resemblance or geography; it does not by itself establish that the same person, place or event is involved.",
+  },
+  'tartismali-eslestirme': {
+    tr: 'Tartışmalı eşleştirme', en: 'Contested identification', color: COLORS.silver,
+    defTr: "Önerilen kişi, yer, olay veya anlam eşleştirmesi hakkında belirgin görüş ayrılıkları vardır. Bu sayfa eşleştirmeyi kesinleşmiş bir tespit olarak sunmaz.",
+    defEn: "There is substantial disagreement over the proposed identification of a person, place, event or meaning. This page does not present that identification as established.",
+  },
 };
+
+// Etiketlerin altına her yerde eklenen ortak kayıt.
+// Hakem şartı: kartlarda hiç kullanılmayan bir etiket, kullanılmadığı
+// söylenerek durur. Liste veriden hesaplandığı için not bayatlayamaz.
+const unusedLabel = (usedSet, key, tr) => {
+  if (!usedSet || usedSet.has(key)) return null;
+  return tr ? ' Mevcut kartlarda bu etiket kullanılmamıştır.'
+            : ' This label is not used on any of the present cards.';
+};
+
+const RELATION_NOTE_TR = "Bu etiketler Kur'ân'ın doğruluğunu değil, bulgularla âyetler arasında insanlar tarafından kurulan ilişkileri tanımlar. Üç tür birbiriyle örtüşebilir; bir eşleştirme hem dolaylı hem tartışmalı ise tartışmalı eşleştirme etiketi öne alınır.";
+const RELATION_NOTE_EN = "These labels describe the connections people draw between findings and verses, not the truth of the Qur'an. The three types can overlap; where an association is both indirect and contested, the contested-identification label takes precedence.";
 
 // ─── Category icons ─────────────────────────────────────────────────────────
 const CATEGORY_ICONS = {
@@ -74,7 +106,7 @@ function CategoryIcon({ id, color, size = 24 }) {
 }
 
 const TABS = [
-  { tr: 'Kanıtlar', en: 'Evidences',
+  { tr: 'İzler', en: 'Traces',
     icon: (
       <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 12l2 2 4-4"/>
@@ -148,8 +180,8 @@ export default function TarihselKanitlar({ onClose }) {
       }
       titleTr="Tarihsel İzler"
       titleEn="Historical Traces"
-      subtitleTr="10 iz · 4 kategori · arkeoloji · metin filolojisi · kehânet"
-      subtitleEn="10 traces · 4 categories · archaeology · text philology · prophecy"
+      subtitleTr="10 iz · 4 kategori · arkeoloji · metin filolojisi · gelecek haberi"
+      subtitleEn="10 traces · 4 categories · archaeology · text philology · reports of future events"
       language={language}
     />
   );
@@ -170,6 +202,8 @@ export default function TarihselKanitlar({ onClose }) {
   const filteredKanitlar = activeCategoryId
     ? kanitlar.filter(k => k.categoryId === activeCategoryId)
     : kanitlar;
+  // Etiket açıklamaları filtreye değil, kart kümesinin tamamına bakar.
+  const usedRelations = new Set(kanitlar.map(k => k.relationType));
 
   return (
     <div ref={trapRef} style={{
@@ -279,7 +313,7 @@ export default function TarihselKanitlar({ onClose }) {
             {/* Stat chips */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: isMobile ? '8px' : '12px', flexWrap: 'wrap' }}>
               {[
-                { value: meta.totalKanitlar, tr: 'kanıt', en: 'evidences', color: COLORS.gold },
+                { value: meta.totalKanitlar, tr: 'iz', en: 'traces', color: COLORS.gold },
                 { value: meta.totalCategories, tr: 'kategori', en: 'categories', color: COLORS.emerald },
                 { value: meta.totalScholars, tr: 'akademisyen', en: 'scholars', color: COLORS.skyBlue },
                 { value: timeline.length, tr: 'timeline', en: 'timeline', color: COLORS.purple },
@@ -346,6 +380,7 @@ export default function TarihselKanitlar({ onClose }) {
           {activeTab === 0 && (
             <KanitlarTab
               kanitlar={filteredKanitlar}
+              usedRelations={usedRelations}
               categories={categories}
               activeCategoryId={activeCategoryId}
               onCategoryToggle={id => setActiveCategoryId(activeCategoryId === id ? null : id)}
@@ -364,7 +399,7 @@ export default function TarihselKanitlar({ onClose }) {
           )}
 
           {activeTab === 3 && (
-            <MethodologyTab intro={intro} language={language} isMobile={isMobile} />
+            <MethodologyTab intro={intro} usedRelations={usedRelations} language={language} isMobile={isMobile} />
           )}
 
           <CrossToolCTA
@@ -385,7 +420,7 @@ export default function TarihselKanitlar({ onClose }) {
 // ═══════════════════════════════════════════════════════════════════════════
 // KANITLAR TAB
 // ═══════════════════════════════════════════════════════════════════════════
-function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle, expandedKanitId, onKanitToggle, language, isMobile }) {
+function KanitlarTab({ kanitlar, usedRelations, categories, activeCategoryId, onCategoryToggle, expandedKanitId, onKanitToggle, language, isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
@@ -394,9 +429,41 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 20px',
       }}>
         {tr
-          ? 'Aşağıdaki 10 kanıt 4 metodoloji kategorisine ayrılmıştır. Her kanıt için iddia gücü seviyesi ve klasik + modern akademik referanslar belirtilmiştir.'
-          : 'The 10 evidences below are organized under 4 methodological categories. Each carries a claim-strength level and classical + modern academic references.'}
+          ? 'Aşağıdaki 10 iz 4 metodoloji kategorisine ayrılmıştır. Her iz için bulgu, bulgunun âyetle nasıl ilişkilendirildiği, ilişkinin türü ve klasik ile modern akademik referanslar ayrı ayrı okunur.'
+          : 'The 10 traces below are organized under 4 methodological categories. For each one the finding, the way it is connected to the verse, the type of that connection, and the classical and modern academic references are read separately.'}
       </p>
+
+      {/* İlişki türü etiketlerinin yazılı tanımı — rozetler ekranda tanımsız
+          kalmasın (Kademe 3.2, hakem şartı: etiketin ne ölçtüğü görünür olmalı). */}
+      <div className="mq-box" style={{
+        '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "14px",
+        marginBottom: '24px',
+        background: 'rgba(255,255,255,0.025)',
+        border: `1px solid ${COLORS.glassBorderSoft}`,
+        borderRadius: RADIUS.sm,
+      }}>
+        <div style={{
+          fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+          color: COLORS.gold, textTransform: 'uppercase',
+          fontFamily: FONTS.body, marginBottom: '10px',
+        }}>{tr ? 'Etiketler ne söylüyor' : 'What the labels say'}</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {Object.entries(RELATION_META).map(([k, m]) => (
+            <p key={k} style={{
+              margin: 0, fontSize: '0.78rem', color: COLORS.silver,
+              fontFamily: FONTS.body, lineHeight: 1.65,
+            }}>
+              <strong style={{ color: m.color, fontWeight: 700 }}>{tr ? m.tr : m.en}:</strong>{' '}
+              {tr ? m.defTr : m.defEn}
+              {unusedLabel(usedRelations, k, tr)}
+            </p>
+          ))}
+        </div>
+        <p style={{
+          margin: '10px 0 0', fontSize: '0.76rem', color: COLORS.offWhite,
+          fontFamily: FONTS.body, lineHeight: 1.65, fontStyle: 'italic',
+        }}>{tr ? RELATION_NOTE_TR : RELATION_NOTE_EN}</p>
+      </div>
 
       {/* Category filter chips */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
@@ -457,7 +524,7 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
 function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobile }) {
   const tr = language === 'tr';
   const cat = category || { color: COLORS.gold };
-  const conf = CONFIDENCE_META[kanit.confidence] || CONFIDENCE_META.muhtemel;
+  const rel = RELATION_META[kanit.relationType] || RELATION_META['dolayli-iliski'];
   return (
     <div className="mq-box" style={{
       '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "18px",
@@ -491,8 +558,12 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
           <CategoryIcon id={kanit.categoryId} color={cat.color} size={isMobile ? 24 : 28} />
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
+          {/* 2026-10-25: ilişki türü etiketleri "Güçlü"den çok daha uzun
+              ("Tartışmalı eşleştirme"); satır 390px'te taşıp kırpılıyordu.
+              flexWrap + rozette normal harf düzeni ile iki satıra iniyor. */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
+            flexWrap: 'wrap', rowGap: '6px',
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
             color: cat.color, textTransform: 'uppercase',
             fontFamily: FONTS.body, marginBottom: '6px',
@@ -504,14 +575,16 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
               fontSize: '0.68rem', fontWeight: 800,
             }}>{index}</span>
             {tr ? category.titleTr : category.titleEn}
-            <span style={{
+            <span title={tr ? rel.defTr : rel.defEn} style={{
               padding: '2px 8px', borderRadius: RADIUS.pill,
-              background: `${conf.color}22`,
-              border: `1px solid ${conf.color}55`,
-              color: conf.color,
-              fontSize: '0.6rem', letterSpacing: '0.12em',
+              background: `${rel.color}22`,
+              border: `1px solid ${rel.color}55`,
+              color: rel.color,
+              fontSize: '0.64rem', letterSpacing: '0.04em',
+              textTransform: 'none', fontWeight: 600, whiteSpace: 'nowrap',
+              cursor: 'help',
             }}>
-              {tr ? conf.tr : conf.en}
+              {tr ? rel.tr : rel.en}
             </span>
           </div>
           <h3 className="mq-fs" style={{
@@ -547,12 +620,27 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
         </p>
       </div>
 
-      {/* Summary */}
-      <p style={{
-        margin: 0, fontSize: '0.88rem', color: COLORS.offWhite,
-        fontFamily: FONTS.body, lineHeight: 1.75,
-        position: 'relative', zIndex: 1,
-      }}>{tr ? kanit.summaryTr : kanit.summaryEn}</p>
+      {/* Bulgu / âyetle kurulan ilişki — iki şey aynı paragrafta erimesin
+          (Kademe 3.2). İlki tarihsel kaydın kendisi, ikincisi o kayıt ile
+          âyet arasında insanların kurduğu bağ. */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', position: 'relative', zIndex: 1 }}>
+        {[
+          { label: tr ? 'Bulgu' : 'The finding', body: tr ? kanit.findingTr : kanit.findingEn, accent: COLORS.silverAlpha40 },
+          { label: tr ? 'Âyetle kurulan ilişki' : 'Connection drawn to the verse', body: tr ? kanit.linkTr : kanit.linkEn, accent: `${rel.color}88` },
+        ].map((b, i) => (
+          <div key={i} style={{ borderLeft: `2px solid ${b.accent}`, paddingLeft: '14px' }}>
+            <div style={{
+              fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+              color: COLORS.silver, textTransform: 'uppercase',
+              fontFamily: FONTS.body, marginBottom: '6px',
+            }}>{b.label}</div>
+            <p style={{
+              margin: 0, fontSize: '0.88rem', color: COLORS.offWhite,
+              fontFamily: FONTS.body, lineHeight: 1.75,
+            }}>{b.body}</p>
+          </div>
+        ))}
+      </div>
 
       {/* Toggle for details */}
       <button
@@ -788,13 +876,13 @@ function TimelineTab({ timeline, language, isMobile }) {
           {(tr ? [
             'Boşluk asıl mesajdır. Kur\'ân bu olayları 7. yüzyılda haber verdi; dışarıdan ilk belge ancak 19. yüzyılda geldi. Arada geçen ~1.200 yıl boyunca bu haberler hiçbir arkeolojik desteğe dayanmadan taşındı, çünkü dayanağı arkeoloji değil, vahiydi.',
             'Keşiflerin yönü tek taraflıdır. Hiçbir bulgu Kur\'ân\'ı düzeltmedi; bulgular Kur\'ân\'a ulaştı. Beşerî bilgi her yeni veriyle kendini tashih ederek ilerler; buradaki sabit nokta ise baştan beri yerinde duruyordu.',
-            'Bulgular ispat değil, itiraz düşürücüdür. Bir yazıt Kur\'ân\'ı doğrulayamaz; doğrulayanın doğrulanandan üstün olması gerekir. Ry 507 yazıtının yaptığı şey, "Necran katliamı uydurmadır" iddiasını temelsiz bırakmaktır.',
+            'Bulgular Kur\'ân\'ın doğruluğunun ölçütü değildir; belirli tarihsel itirazların değerlendirilmesinde kullanılabilirler. Bir yazıt Kur\'ân\'ı doğrulayamaz, çünkü doğrulayanın doğrulanandan üstün olması gerekir. Ry 507 yazıtının yaptığı şey, "Necran katliamı uydurmadır" iddiasını bağımsız bir kayıt karşısında cevap vermek zorunda bırakmaktır.',
             'Birmingham folyoları çizelgenin en yakın temas noktasıdır: bir Kur\'ân yazmasının parşömeni, radyokarbonla Peygamber\'in (s.a.v.) hayatına denk ya da ondan önceki bir aralığa tarihlenir.',
             'Ölçü değişmez: Kur\'ân haber verir, biz tasdik ederiz. Çizelge bir delil tablosu değil, tasdikin tarih içinde nasıl göründüğünün kaydıdır.',
           ] : [
             'The gap is the message. The Qur\'an reported these events in the 7th century; the first outside documentation arrived only in the 19th. Across the intervening ~1,200 years these reports were carried without any archaeological support, because their ground was not archaeology but revelation.',
             'The direction of discovery runs one way. No finding corrected the Qur\'an; the findings arrived at it. Human knowledge advances by correcting itself with each new datum; the fixed point here had been standing all along.',
-            'Findings are not proof but defeaters of objections. An inscription cannot verify the Qur\'an; a verifier must stand above what it verifies. What Ry 507 does is leave the claim that "the Najrān massacre is an invention" without foundation.',
+            'Findings are not the measure of the truth of the Qur\'an; they can be used in weighing particular historical objections. An inscription cannot verify the Qur\'an, for a verifier must stand above what it verifies. What Ry 507 does is oblige the claim that "the Najrān massacre is an invention" to answer to an independent record.',
             'The Birmingham folios are the chart\'s closest point of contact: the parchment of a Qur\'anic manuscript is radiocarbon-dated to a range coinciding with, or preceding, the lifetime of the Prophet ﷺ.',
             'The measure does not change: the Qur\'an reports, and we affirm. The chart is not a table of proofs but a record of how that affirmation looks across history.',
           ]).map((s, i) => <li key={i} style={{ marginBottom: '7px' }}>{s}</li>)}
@@ -895,7 +983,7 @@ function ScholarsTab({ scholars, language, isMobile }) {
 // ═══════════════════════════════════════════════════════════════════════════
 // METHODOLOGY TAB
 // ═══════════════════════════════════════════════════════════════════════════
-function MethodologyTab({ intro, language, isMobile }) {
+function MethodologyTab({ intro, usedRelations, language, isMobile }) {
   const tr = language === 'tr';
   return (
     <div style={{ maxWidth: '820px' }}>
@@ -929,34 +1017,30 @@ function MethodologyTab({ intro, language, isMobile }) {
           fontSize: '0.62rem', letterSpacing: '0.14em',
           color: COLORS.skyBlue, textTransform: 'uppercase',
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px', 
-        }}>{tr ? 'İddia Gücü Skalası' : 'Claim-Strength Scale'}</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {Object.entries(CONFIDENCE_META).map(([k, m]) => (
-            <div key={k} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        }}>{tr ? 'İlişki Türü Etiketleri' : 'Relation-Type Labels'}</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {Object.entries(RELATION_META).map(([k, m]) => (
+            <div key={k} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', flexWrap: 'wrap' }}>
               <span style={{
                 display: 'inline-block',
                 padding: '2px 10px', borderRadius: RADIUS.pill,
                 background: `${m.color}22`, border: `1px solid ${m.color}55`,
-                color: m.color, fontSize: '0.68rem',
-                fontFamily: FONTS.body, fontWeight: 700,
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                minWidth: '100px', textAlign: 'center',
+                color: m.color, fontSize: '0.7rem',
+                fontFamily: FONTS.body, fontWeight: 600,
+                letterSpacing: '0.04em',
+                minWidth: '150px', textAlign: 'center', flexShrink: 0,
               }}>{tr ? m.tr : m.en}</span>
-              <span style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body }}>
-                {tr
-                  ? (k === 'kesin' ? 'Batı akademik uzlaşısı ile doğrulanmış (örn. Kur\'ân metin korunması).'
-                    : k === 'guclu' ? 'Bağımsız arkeoloji/epigrafi kanıtıyla desteklenmiş (Uhdûd, Rûm kehâneti, Firavun).'
-                    : k === 'muhtemel' ? 'Akademik olarak plausible ancak kesinlik kazanmamış (Hâmân, İrem).'
-                    : 'Klasik-modern tefsir arasında farklı hipotezler var (Karnayn).')
-                  : (k === 'kesin' ? 'Confirmed by Western academic consensus (e.g., Qur\'anic textual preservation).'
-                    : k === 'guclu' ? 'Supported by independent archaeological/epigraphic evidence (Ukhdūd, Rūm prophecy, Pharaoh).'
-                    : k === 'muhtemel' ? 'Academically plausible but not conclusively confirmed (Hāmān, Iram).'
-                    : 'Different hypotheses among classical-modern exegesis (Dhū al-Qarnayn).')
-                }
-              </span>
+              <span style={{
+                fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body,
+                lineHeight: 1.65, flex: 1, minWidth: '220px',
+              }}>{tr ? m.defTr : m.defEn}{unusedLabel(usedRelations, k, tr)}</span>
             </div>
           ))}
         </div>
+        <p style={{
+          margin: '14px 0 0', fontSize: '0.8rem', color: COLORS.offWhite,
+          fontFamily: FONTS.body, lineHeight: 1.7,
+        }}>{tr ? RELATION_NOTE_TR : RELATION_NOTE_EN}</p>
       </div>
     </div>
   );
