@@ -29,12 +29,12 @@ Her ajan astra hakem turundan geçmek zorundadır.
 |---|---|---|
 | 1.1 | Tabiat Atlası: âyette geçmeyen Arapça | ✅ bitti (8 kart) |
 | 1.2 | Metinle çelişen dokuz ifade | ✅ bitti |
-| 1.3 | Küçük atıf ve biçim hataları | ◐ 5 düzeltildi, kalanı 🔄 Ajan B'de |
-| 1.4 | Terim ve atıf eşleşmeleri | ◐ 8 düzeltildi, kalanı 🔄 Ajan B'de |
+| 1.3 | Küçük atıf ve biçim hataları | ◐ 5 düzeltildi, 4 madde bağlam bekliyor |
+| 1.4 | Terim ve atıf eşleşmeleri | ✅ bitti (13 madde) |
 | 2.1 | Sayılar tek kaynaktan + "nasıl sayıldı" | ○ başlamadı |
 | 2.2 | Esmâ frekans listesi | ◐ 3 düzeltildi, 2 işaretlendi, 114'ün denetimi kaldı |
-| 2.3 | Hadis ve rivayet standardı | ◐ 7 künye doğrulandı, 3 madde kaldı |
-| 2.4 | Kur'an'a Sor örnek sorusu | 🔄 Ajan C çalışıyor |
+| 2.3 | Hadis ve rivayet standardı | ◐ 7 künye doğrulandı, 2 madde kaldı |
+| 2.4 | Kur'an'a Sor örnek sorusu | ✅ bitti |
 | 3.1-3.4 | Editoryal (astra hükümleri hazır) | ○ başlamadı |
 | 4 | Gizlilik + KV arşiv politikası | ○ kullanıcı kararı bekliyor |
 | 5 | Telif ve lisans | ⛔ kullanıcı: şimdilik dokunma |
@@ -318,29 +318,43 @@ aralıklar yanlış toplanıyordu).
       EN özetler). Ortak örüntü zaten kalıp değil, "kalplerde ekinne,
       kulaklarda vakr" anlatımı.
 
-**Kalan 1.4 maddeleri — ÖLÇÜM HAZIR, YERİ BULUNAMADI**
+**Kalan 1.4 maddeleri — TAMAM (2026-10-25, paralel ajanla)**
 
-Dördünü de aradım, raporun tarif ettiği metin bu arama terimleriyle
-bulunamadı. Ölçümleri burada duruyor ki sonraki tur baştan başlamasın.
+Beşinin de yeri bulundu. Astra ajanı altı yerde düzeltti.
 
-- [ ] **"Yedi gök" listesi** — ölçüm tamam: «سبع» + «سماوات» birlikte
-      **2:29, 17:44, 23:86, 41:12, 65:12, 67:3, 71:15**. (5:3, 12:43, 12:46
-      yanlış eşleşme: oradaki "seb'" yırtıcı hayvan ve yedi başak.)
-      Aranan ve bulunamayan: `"Yedi Gök"`, `"yedi gök"`, `"seven heavens"`
-      → yalnız `verse-metadata.json` ve `DogaAtlasi.jsx`'in genel "semâ"
-      kartı çıktı, raporun tarif ettiği liste değil.
-- [ ] **Mülk -îr fasılası** — aranan: `fasıla`, `fâsıla`, `îr` +
-      `Mülk 67` (isimlendirme, kuran-retorigi, surah-info). Bulunamadı.
-- [ ] **Secde âyeti sayısı** — aranan: `secde` (surah-info, surah-notes;
-      `surah-notes.json` zaten yok). Bulunamadı.
-- [ ] **"İlâhî sıfatla biten" sûreler** — aranan: `ilâhî sıfatla`,
-      `sıfatla biten`, `divine attribute`. Bulunamadı.
-- [ ] **Birmingham ↔ Yaşayan Koruma tutarsızlığı** — dosyalar belli
-      (`tarihsel-kanitlar.json`, `KorumaZinciri.jsx`, `TarihselKanitlar.jsx`),
-      iki metnin karşılaştırılması yapılmadı.
-
-⚠ **Not:** Bu aramaları yaparken `grep -r src/` kullanmak 183 MB'lık gömme
-dosyasına giriyor ve dakikalarca sürüyor. Hedefli dizin/dosya listesiyle ara.
+- [x] **Yedi gök listesi** (`kuran-sayilar.json`) — ölçüm: «sebʿ»+«semâvât»
+      birlikte tam 7 âyet (2:29, 17:44, 23:86, 41:12, 65:12, 67:3, 71:15);
+      beşi nekre, 17:44 ve 23:86 marife. Sitede 17:44 ve 23:86 EKSİKTİ;
+      buna karşılık listede olan 78:12 ve 23:17'de "semâvât" lafzı geçmiyor.
+      Astra: tek liste ver, nekre/marife ayrımını nota bırak; beş nekre
+      örneğini "yedi gök yarattı" diye açıklama (2:29 ve 41:12 farklı
+      fiiller); 78:12 ve 23:17 tutulabilir ama o âyetlerin göklerle ilgili
+      yorumunu dışlayan bir hükme dönüştürülmeden.
+- [x] **Mülk "-îr" fasılası** (`ImpossibleRhythm.jsx`) — "üçü de Esmâ-i
+      Hüsnâ, fasıla mührü ilâhî sıfatlardan örülmüştür" sonucu seçilen
+      örneklerden üretilmişti. 13 âyetin son kelimesi tek tek okundu:
+      yalnız 3'ü Allah'a nisbet edilen sıfat. Astra'nın metni kullanıldı,
+      ölçüt ses temelli kuruldu, örnekler çeşitlendirildi.
+- [x] **"İlâhî sıfatla biten" sûreler** (`ilk-son-kelimeler.json` +
+      `IlkSonKelimeler.jsx`) — dosya kendi içinde çelişiyordu: `count` 9,
+      `closerTags` 13 sûre; bileşen sayıyı etiketlerden türetip 13
+      gösterirken düzyazı sabit "9" yazıyordu. Raporun gördüğü "13 ve 9"
+      buydu. 114 sûrenin son kelimesi bağlamında okundu: **19**. Raporun
+      22'si de yeniden üretildi ve dosyanın beyan ettiği yöntemin sonucu
+      olduğu görüldü. Astra iki metin hatası düzeltti: 110:3 "tevvâben"
+      ("et-Tevvâb" değil), ve 112:4'teki "ahad" "denk" diye çevrilemez.
+- [x] **Birmingham ↔ Yaşayan Koruma** — çelişki ajanın kendi dosyalarında
+      değil, `homeCards.js` ("en eski parça") ve i18n Sana sayacında
+      ("EN ERKEN KARBON TARİHİ") çıktı. İki üstünlük iddiası birbirini
+      dışlıyordu ve aralıklar örtüşüyor (568-645 ↔ 578-669). İkisi de
+      kaldırıldı, tarihin parşömene ait olduğu ve 2015'in duyuru yılı
+      olduğu belirtildi.
+- [~] **Secde âyeti sayısı** — kısmen. ⚠ Kanonik metnimizde secde işareti
+      HİÇ YOK (U+06E9, U+06DD, U+06DE: üçü de 0), yani raporun "15"i bizim
+      verimizden türetilemez; hiçbir yere yazılmadı. Raporun dediği "iki
+      farklı 14'lü liste"den yalnız BİRİ bulundu (`ReadingMode.jsx:691`).
+      Bulunan gerçek karışma `surah-info.json`'daki Hac notuydu ("içinde
+      iki secde ayeti bulunan nadir sûrelerden biri"), düzeltildi.
 
 ## KADEME 2 — Kendi kurallarımızın tutarlı uygulanması
 
@@ -502,22 +516,42 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       yaratilis-hikayesi-2, blok 10'daki "Semâ, dalgaları karardâde olmuş
       bir denizdir" alıntısının eser ve yer künyesi yok. Doğrulanmadı,
       dokunulmadı.
+- [ ] **`single-divine-name` etiketi 63. sûrede** (ajanın beşin dışında
+      bulduğu veri hatası): 63'ün son kelimesi «تَعْمَلُونَ», ilâhî isim
+      değil. Etiket arayüzde çip olarak basılıyor.
+- [ ] **Secde listesi âyet numaraları** (`ReadingMode.jsx:691`): yaygın
+      Hanefî/Diyanet işaretlemesi 16:50, 17:109, 27:26, 41:38 kullanıyor;
+      listede 16:49, 17:107, 27:25, 41:37 var. Ayrıca "(Hanafi)" kaydı
+      yalnız kod yorumunda, arayüzde rozet sadece "Secde" diyor.
+- [ ] **Birmingham kaynağı Wikipedia** (`tr.json:834`) — §13.35 bunu
+      künye saymıyor.
 - [ ] Ashâb-ı Uhdûd: İbn Kesîr'de Rebî' b. Enes'ten nakledilen rivayet
       (Kademe 1.4'ten devredildi).
 - [ ] Standart: her rivayetin altında kaynak + durum notu; tek tahkik
       tercihi sayfa sonunda; "Rivayete göre…" ile "Yazarın yorumu:" ayrımı.
 
-### 2.4 Kur'an'a Sor — örnek soru yanlış sonuç veriyor
-- [ ] Sayfanın kendi önerdiği örnek soru ("Rahmân sûresinde aynı âyet kaç kez
-      tekrar eder?") sayıyı (31) vermiyor, cümle bozuk, ilk "ilgili âyet"
-      Hicr 15:87 ve 55:13 listede yok, sonuçta iç kimlik görünüyor
-      (`surah-summary:55`).
-- [ ] Örnek sorular için beklenen cevaplı küçük bir test listesi tutulsun, her
-      güncellemeden sonra koşulsun.
-- [ ] Sayı soran sorularda ilgili veri sayfasındaki değer doğrudan gösterilsin.
-- [ ] İç kimlikler kullanıcıya gösterilmesin.
+### 2.4 Kur'an'a Sor — TAMAM (2026-10-25, paralel ajanla)
 
----
+- [x] Sayfanın kendi örnek sorusu ("Rahmân sûresinde aynı âyet kaç kez
+      tekrar eder?") canlıda birebir üretildi; raporun dört kusuru da
+      doğrulandı ve kapatıldı: sayı yok → **31**; cümle bozuk → ölçülmüş
+      cümle; ilk âyet Hicr 15:87 → **verse:55:13**; `surah-summary:55`
+      sızıntısı → yok.
+- [x] **Raporda olmayan beşinci kusur:** bozuk cevap KV önbelleğinde 7 gün
+      duruyordu, yani düzeltme yapılsa bile eski metin servis edilmeye
+      devam edecekti. Önbellek anahtarı sürümlendi.
+- [x] Üç kök sebep ayrı ayrı çözüldü: iç kimlik sızıntısında hem istem
+      kuralı yoktu hem çıktı süzülmüyordu (kalkan kondu); sayı adaylarda
+      hiç yazılı olmadığı için model uydurma cümleyle dolduruyordu
+      (`direct-answer.js` sayıyı korpustan sayıyor); anlam araması
+      "tekrardan bahseden" âyeti buluyordu (sayı sorularında nakarat âyeti
+      başa alınıyor).
+- [x] Regresyon betiği: `scripts/test-concierge.mjs`, 7 vaka, beklentiler
+      dosyada yazılı, sunucusuz kipte de koşuyor.
+- [ ] **Kalan:** anlam aramasının sıralaması değişmedi; sayı sorusu olmayan
+      "Rahmân'daki tekrar âyeti hangisi?" gibi bir soruda hâlâ 15:87 öne
+      geçebilir. Gerçek çözüm korpus tarafında (nakarat âyetlerine tekrar
+      bilgisini arama metnine katmak) ve embedding rebuild gerektiriyor.
 
 ## KADEME 3 — Editoryal (astra hükmüyle)
 
@@ -684,6 +718,10 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 | 2026-10-24 | 2.3 | Sebeb-i Nüzûl: teyemmüm ve ruh sorusu Buhârî metnine göre düzeltildi | `65e0b352` |
 | 2026-10-24 | — | Kademe 5 beklemeye alındı (kullanıcı); paralel çalışma kuralı yazıldı | `51f78525` |
 | 2026-10-24 | — | **Üç paralel ajan başlatıldı**, dosya kümeleri kesişmiyor: A tefekkür rivayetleri · B araç JSON ölçümleri · C Kur'an'a Sor | — |
+| 2026-10-25 | 2.3 | Ajan A: üç rivayet künyesi kaynaktan doğrulandı; astra 10 bulgu verdi | `e8ac6ed2` |
+| 2026-10-25 | 2.4 | Ajan C: örnek sorunun cevabı ölçümden geliyor, iç kimlik sızıntısı kapandı | `2a30cb86` |
+| 2026-10-25 | 1.3/1.4 | Ajan B: yedi gök, ilâhî sıfatla kapanan sûreler, Hac secde notu | `535ecce4` |
+| 2026-10-25 | 1.4 | Ajanın devrettiği işler: Mülk fasılası, "9 sûre" sabiti, Birmingham üstünlük iddiaları | `f4c7f272` |
 
 ### Sıradaki iş
 
