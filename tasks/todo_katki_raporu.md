@@ -15,6 +15,11 @@ Her ajan astra hakem turundan geçmek zorundadır.
 > yapılır; her değişiklik için astra hakem turu ZORUNLU; emin olmadan
 > değiştirilmez; değişiklik commit edilir, bu liste güncellenir ve `main`'e
 > push edilir.
+>
+> **Bu dosya SÜREKLİ güncellenir (kullanıcı direktifi 2026-10-24):** bir madde
+> astra turundan geçip COMMIT EDİLDİKTEN sonra, aynı turda bu listeye işlenir.
+> Sıra: ölç → astra → uygula → doğrula → commit → **todo** → push.
+> Bir maddenin kutusu, commit'i atılmadan işaretlenmez.
 
 ---
 
@@ -24,12 +29,12 @@ Her ajan astra hakem turundan geçmek zorundadır.
 |---|---|---|
 | 1.1 | Tabiat Atlası: âyette geçmeyen Arapça | ✅ bitti (8 kart) |
 | 1.2 | Metinle çelişen dokuz ifade | ✅ bitti |
-| 1.3 | Küçük atıf ve biçim hataları | ◐ 5 düzeltildi, 6 madde bağlam bekliyor |
-| 1.4 | Terim ve atıf eşleşmeleri | ◐ 8 düzeltildi, 5 madde yeri bulunamadı |
+| 1.3 | Küçük atıf ve biçim hataları | ◐ 5 düzeltildi, kalanı 🔄 Ajan B'de |
+| 1.4 | Terim ve atıf eşleşmeleri | ◐ 8 düzeltildi, kalanı 🔄 Ajan B'de |
 | 2.1 | Sayılar tek kaynaktan + "nasıl sayıldı" | ○ başlamadı |
 | 2.2 | Esmâ frekans listesi | ◐ 3 düzeltildi, 2 işaretlendi, 114'ün denetimi kaldı |
-| 2.3 | Hadis ve rivayet standardı | ◐ 1 künye doğrulandı, 6 madde kaldı |
-| 2.4 | Kur'an'a Sor örnek sorusu | ○ başlamadı |
+| 2.3 | Hadis ve rivayet standardı | ◐ 4 künye doğrulandı, 4 madde kaldı (3'ü ajanda) |
+| 2.4 | Kur'an'a Sor örnek sorusu | 🔄 Ajan C çalışıyor |
 | 3.1-3.4 | Editoryal (astra hükümleri hazır) | ○ başlamadı |
 | 4 | Gizlilik + KV arşiv politikası | ○ kullanıcı kararı bekliyor |
 | 5 | Telif ve lisans | ⛔ kullanıcı: şimdilik dokunma |
@@ -448,11 +453,32 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       ⏳ Astra'nın ayrıca not ettiği bir nokta yazarla konuşulacak: Alak 4-5
       kalemle öğretmeyi zikreder, kalemin ya da aklın ilk yaratılan olduğunu
       söylemez; rivayet tartışması âyetin doğrudan beyanı gibi sunulmamalı.
-- [ ] Allahu Ekber yazısı: "ilk yaratılan nur" olgu gibi sunuluyor.
-- [ ] Evrim-İnanç-Resimler: namaz hadisi kaynaksız (Ebû Dâvûd Salât 26,
-      no. 494-495).
-- [ ] Sema-İsim, Yaratılış-2: "es-semâü mevcun mekfûf" (Tirmizî no. 3298).
-- [ ] Sebeb-i Nüzûl ruh sorusu (Buhârî 4721) ve teyemmüm (Buhârî 334).
+- [ ] 🔄 **Ajan A çalışıyor** — Allahu Ekber yazısı: "ilk yaratılan nur" olgu gibi sunuluyor.
+- [ ] 🔄 **Ajan A çalışıyor** — Evrim-İnanç-Resimler: namaz hadisi kaynaksız
+      (Ebû Dâvûd Salât 26, no. 494-495).
+- [ ] 🔄 **Ajan A çalışıyor** — Sema-İsim, Yaratılış-2: "es-semâü mevcun mekfûf"
+      (Tirmizî no. 3298).
+- [x] **Sebeb-i Nüzûl: teyemmüm ve ruh sorusu** (`65e0b352`) — iki künye
+      arşivlenmiş sunnah.com üzerinden doğrulandı.
+      · **Teyemmüm (Buhârî 334,** Hz. Âişe'den, Mâlik → Abdurrahman b.
+        el-Kāsım → babası → Âişe**)**: site "Üseyd b. Hudayr dua edince deve
+        kalktı ve gerdanlık bulundu" diyordu. Rivayette Üseyd DUA ETMİYOR;
+        "Ey Ebû Bekir ailesi, bu sizin ilk bereketiniz değildir" diyor.
+        Gerdanlık, devenin kaldırılmasından SONRA altında bulunuyor.
+      · **Ruh sorusu (Buhârî 4721,** Abdullah b. Mes'ûd'dan**)**: site
+        "Yahudiler Kureyş'e üç soru sormalarını tavsiye etti" anlatısını
+        verip kaynak olarak Buhârî gösteriyordu. Buhârî 4721'de Yahudiler
+        soruyu DOĞRUDAN Hz. Peygamber'e soruyor.
+      Astra üç yerde düzeltti: (1) rivayet "teyemmüm âyeti" diyor, numara
+      vermiyor ve Mâide 5:6 da teyemmüm hükmü içerir, bu yüzden Nisâ 4:43'e
+      doğrudan bağlanmadı ve başlık "Teyemmüm Âyetinin Nüzûlü" oldu;
+      (2) "sıra tersine çevrilmiş" iddiam fazla kesindi, eksik olan âyetin
+      inişinin hiç anılmamasıydı; (3) "tarla" tasviri tek başına şehir
+      belirlemez, sûrenin tasnifi ile âyetin nüzûl dönemi ayrı şeylerdir.
+      "Kureyş'e tavsiye" anlatısı kaldırılmadı, kaynağı doğrulanmadığı
+      belirtilerek anıldı (astra: "muhtemelen Vâhidî'de" yayımlanacak bir
+      künye olamaz). Her iki kayda görünür `hadithRefs` künyesi eklendi;
+      görünmeyen not alanı kaldırılıp metin özete taşındı.
 - [ ] Ashâb-ı Uhdûd: İbn Kesîr'de Rebî' b. Enes'ten nakledilen rivayet
       (Kademe 1.4'ten devredildi).
 - [ ] Standart: her rivayetin altında kaynak + durum notu; tek tahkik
@@ -631,6 +657,10 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 | 2026-10-24 | — | Kademe 1 damgaları; `audit:live` 154 rota sorunsuz | `da1457fc` **push edildi** |
 | 2026-10-24 | 2.2 | Esmâ: Rezzâk 43→1, Hâdî 59→10, Rahmân 60→57; Melik ve Rahîm "doğrulanmadı" işaretiyle gösteriliyor | `a0b9508e` |
 | 2026-10-24 | 2.3 | "Dört kadın" rivayetinin künyesi kaynaktan doğrulandı; iki yerde düzeltildi | `fe3fc12a` |
+| 2026-10-24 | 2.3 | Alak 4-5: kalem ve "akıl" rivayetleri ayrıldı; PullQuote'a `sourceEn` eklendi | `25eeed03` |
+| 2026-10-24 | 2.3 | Sebeb-i Nüzûl: teyemmüm ve ruh sorusu Buhârî metnine göre düzeltildi | `65e0b352` |
+| 2026-10-24 | — | Kademe 5 beklemeye alındı (kullanıcı); paralel çalışma kuralı yazıldı | `51f78525` |
+| 2026-10-24 | — | **Üç paralel ajan başlatıldı**, dosya kümeleri kesişmiyor: A tefekkür rivayetleri · B araç JSON ölçümleri · C Kur'an'a Sor | — |
 
 ### Sıradaki iş
 
