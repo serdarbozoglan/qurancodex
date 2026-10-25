@@ -43,8 +43,8 @@
       }
     ]
   },
-  "tldrTr": "Mesajı anlamamak bir zekâ meselesi değil, epistemik kafes meselesidir. Kur'an bu kapanmayı üç katmanda anlatır: kalpte ekinne (kabuk), kulakta vakra (ağırlık), arada hicâb (perde). Hûd ve Fussilet'te bunu inkâr edenler kendileri söyler; İsrâ, En'âm ve Kehf'te ise Cenâb-ı Hak \"ve cealnâ\", yani \"biz kıldık\" der. Bu bir sorumluluk beyanı değil, işleyen bir kanundur. Sebep Kehf'te açıklanır: hakkı bâtılla çürütmeye çalışmak, âyetleri hafife alıp cedele girmek. Aynı örüntü Elif-Lâm-Râ, Hâ-Mîm, Elif-Lâm-Mîm ve Tâ-Sîn ailelerinde tekrarlanır.",
-  "tldrEn": "Failing to understand the message is not a matter of intelligence but of an epistemic cage. The Quran describes this closure in three layers: akinna (a shell) on the heart, waqr (a weight) in the ear, and a ḥijāb (veil) between. In Hūd and Fuṣṣilat the deniers say it themselves; in al-Isrāʾ, al-Anʿām and al-Kahf God says \"wa jaʿalnā\", \"We placed\". This is not a statement of accountability but a law in operation. Al-Kahf names the cause: trying to refute truth with falsehood, taking the signs lightly and entering into dispute. The same pattern recurs across the Alif-Lām-Rā, Ḥā-Mīm, Alif-Lām-Mīm and Ṭā-Sīn families.",
+  "tldrTr": "Mesajı anlamamak bir zekâ meselesi değil, epistemik kafes meselesidir. Kur'an bu kapanmayı üç katmanda anlatır: kalpte ekinne (kabuk), kulakta vakra (ağırlık), arada hicâb (perde). Hûd ve Fussilet'te bunu inkâr edenler kendileri söyler; İsrâ, En'âm ve Kehf'te ise Cenâb-ı Hak kapanmayı kendine nisbet eder: \"cealnâ\", yani \"biz kıldık\". Bu bir sorumluluk beyanı değil, işleyen bir kanundur. Sebep Kehf'te açıklanır: hakkı bâtılla çürütmeye çalışmak, âyetleri hafife alıp cedele girmek. Aynı örüntü Elif-Lâm-Râ, Hâ-Mîm, Elif-Lâm-Mîm ve Tâ-Sîn ailelerinde tekrarlanır.",
+  "tldrEn": "Failing to understand the message is not a matter of intelligence but of an epistemic cage. The Quran describes this closure in three layers: akinna (a shell) on the heart, waqr (a weight) in the ear, and a ḥijāb (veil) between. In Hūd and Fuṣṣilat the deniers say it themselves; in al-Isra, al-Anam and al-Kahf God ascribes the closure to Himself: \"jaalna\", \"We placed\". This is not a statement of accountability but a law in operation. Al-Kahf names the cause: trying to refute truth with falsehood, taking the signs lightly and entering into dispute. The same pattern recurs across the Alif-Lām-Rā, Ḥā-Mīm, Alif-Lām-Mīm and Ṭā-Sīn families.",
   "relatedTools": [
     "verse-graph",
     "concept-graph",
@@ -180,8 +180,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "İnsanın ilgi alanının tamamen başkalaşması ile anlatılan mesajların ona çok yabancı kalması. Elhamdülillah sûrelerinden İsrâ ve En'âm'da da bu mesele işlenir:",
-      "en": "When a person's field of interest shifts entirely, the message becomes wholly foreign to him. Al-Isrāʾ and al-Anʿām, both Alḥamdulillāh suras, take up the same matter:"
+      "tr": "İnsanın ilgi alanının tamamen başkalaşması ile anlatılan mesajların ona çok yabancı kalması. İsrâ ve En'âm'da da bu mesele işlenir:",
+      "en": "When a person's field of interest shifts entirely, the message becomes wholly foreign to him. Al-Isra and al-Anam take up the same matter:"
     },
     {
       "type": "verseInline",
@@ -226,8 +226,8 @@
         ]
       },
       "right": {
-        "titleTr": "İsrâ · En'âm · Kehf: “ve cealnâ”",
-        "titleEn": "Al-Isrāʾ · al-Anʿām · al-Kahf: “wa jaʿalnā”",
+        "titleTr": "İsrâ · En'âm · Kehf: kapanmayı Allah kendine nisbet eder",
+        "titleEn": "Al-Isra, al-Anam, al-Kahf: God ascribes the closure to Himself",
         "accent": "#d4a574",
         "descTr": "Aynı kapanmayı bu kez Cenâb-ı Hak **kendine nispet eder**: “biz kıldık.”",
         "descEn": "The same closure is now **ascribed by God to Himself**: “We placed.”",
@@ -421,12 +421,12 @@
           "accent": "#d4a574",
           "children": [
             {
-              "tr": "**Elhamdülillah** ailesi",
-              "en": "The **Alḥamdulillāh** family"
+              "tr": "Ortak örüntü",
+              "en": "A shared pattern"
             },
             {
-              "tr": "**İsrâ 17:45-46 · En'âm 6:24-25 · Kehf 18:56-57** — bu kez “ve cealnâ”: biz kıldık",
-              "en": "**Al-Isrāʾ 17:45-46 · Al-Anʿām 6:24-25 · Al-Kahf 18:56-57** — now “wa jaʿalnā”: We placed"
+              "tr": "**İsrâ 17:45-46 · En'âm 6:24-25 · Kehf 18:56-57** — bu kez “cealnâ”: biz kıldık (Kehf'te “innâ cealnâ”)",
+              "en": "**Al-Isra 17:45-46 · Al-Anam 6:24-25 · Al-Kahf 18:56-57** — now “jaalna”: We placed (in al-Kahf, “inna jaalna”)"
             }
           ]
         },

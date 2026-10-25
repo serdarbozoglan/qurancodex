@@ -246,12 +246,37 @@ aralıklar yanlış toplanıyordu).
       belirtti; bu yüzden metne KONMADI. Kademe 2.3'te baskıdan doğrulanacak.
       Ayrıca Arapça alıntının ortasındaki âyet numarası ("٤") temizlendi.
 
-**Kalan 1.4 maddeleri (sonraki tur):** İsrâ'nın "Elhamdülillah sûresi"
-sayılması (ölçüm: hamd ile açılanlar 6, 18, 34, 35 ve Fâtiha'nın 1:2'si;
-İsrâ «سبحان» ile açılıyor) · Dâru'l-Huld (ölçüm: «دار الخلد» yalnız 41:28'de
-ve cehennem için) · "Yedi gök" listesinde 17:44 ve 23:86 eksik (ölçüm: 2:29,
-17:44, 23:86, 41:12, 65:12, 67:3, 71:15) · Mülk -îr fasılası · Secde âyeti
-sayısı · "İlâhî sıfatla biten" sûreler · Birmingham ↔ Yaşayan Koruma.
+**İkinci tur (aynı gün, ayrı astra turu):**
+
+- [x] **Dâru'l-Huld kartı** — Tabiat Atlası'ndakiyle aynı sınıfta ağır bir
+      bulgu. Kart CENNET adı olarak «دَارُ الْخُلْدِ» gösteriyordu; bu ibare
+      Kur'an'da yalnız **Fussilet 41:28**'de ve **cehennem** için geçiyor.
+      Kaynak verilen iki âyette başka ibareler var: 25:15 «جَنَّةُ الْخُلْدِ»,
+      35:35 «دَارَ الْمُقَامَةِ». Yani kart iki ayrı gerçek cennet adını
+      birleştirip ikisine de üçüncü bir ibarenin adını vermiş.
+      Astra: "mevcut hâliyle yayımlanmamalı", kart İKİYE ayrılsın.
+      Uygulandı: **Cennetü'l-Huld** (25:15) ve **Dâru'l-Mukâme** (35:35).
+      Ayrıca astra'nın iki uyarısı: (1) "sakinlerinin koyduğu tek cennet
+      ismidir" iddiası kaldırıldı — âyette cennet ehlinin bu ifadeyi
+      KULLANMASI adı onların KOYDUĞUNU göstermez, "tek" iddiası da ayrıca
+      kanıt ister; (2) 41:28 ayrımı yalnız Dâru'l-Mukâme kartına kısa bir
+      not olarak kondu, ana açıklamaya karıştırılmadı.
+- [x] **İsrâ "Elhamdülillah sûresi" sayılmış** — ölçüm: hamd ile açılanlar
+      En'âm 6, Kehf 18, Sebe' 34, Fâtır 35 (ve Fâtiha'nın 1:2'si); İsrâ
+      «سُبْحَانَ» ile açılıyor. Astra üç seçenek arasından "yanlış etiketi
+      kaldır"ı seçti; yazarın karşılaştırması korundu, sınıflandırma etiketi
+      çıkarıldı. Aynı yazıdaki Kehf için "Elhamdülillah sûresi" nitelemesi
+      DOĞRU olduğu için dokunulmadı.
+- [x] **"ve cealnâ" kalıbı** — astra'nın fazladan bulgusu. 17:46 ve 6:25
+      «وَجَعَلْنَا» diyor ama Kehf 18:57 «اِنَّا جَعَلْنَا». Üçüne birden
+      "ve cealnâ" denemez; ifade düzeltildi (şema başlığı, dal etiketi, TR ve
+      EN özetler). Ortak örüntü zaten kalıp değil, "kalplerde ekinne,
+      kulaklarda vakr" anlatımı.
+
+**Kalan 1.4 maddeleri (sonraki tur):** "Yedi gök" listesinde 17:44 ve 23:86
+eksik (ölçüm: 2:29, 17:44, 23:86, 41:12, 65:12, 67:3, 71:15 — liste henüz
+bulunamadı) · Mülk -îr fasılası · Secde âyeti sayısı · "İlâhî sıfatla biten"
+sûreler · Birmingham ↔ Yaşayan Koruma.
 
 ## KADEME 2 — Kendi kurallarımızın tutarlı uygulanması
 
