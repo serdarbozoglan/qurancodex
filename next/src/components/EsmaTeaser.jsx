@@ -9,7 +9,10 @@ import { COLORS, FONTS } from '../tokens';
 
 const TEASER_NAMES = [
   { ar: 'اللَّه', trName: 'Allah', enName: 'Allāh', count: 2699 },
-  { ar: 'الرَّحْمَٰن', trName: 'Er-Rahmân', enName: 'ar-Raḥmān', count: 60 },
+  // ⚠ Bu sayılar veri dosyasından TÜRETİLMİYOR, elle taşınıyor (§13.28 borcu).
+  // 2026-10-25: Rahmân 60 yazılıydı, esmâ veri dosyası 57 diyordu. Kapı kuralı
+  // (audit-claims) artık ikisini karşılaştırıyor; sapma kırmızı yanar.
+  { ar: 'الرَّحْمَٰن', trName: 'Er-Rahmân', enName: 'ar-Raḥmān', count: 57 },
   { ar: 'الْعَلِيم', trName: 'El-Alîm', enName: 'al-ʿAlīm', count: 161 },
   { ar: 'الْحَكِيم', trName: 'El-Hakîm', enName: 'al-Ḥakīm', count: 97 },
 ];

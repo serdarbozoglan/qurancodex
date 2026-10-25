@@ -362,12 +362,66 @@ Beşinin de yeri bulundu. Astra ajanı altı yerde düzeltti.
 > kuralların henüz taranmamış alanları. En yüksek getirili iş bu.
 
 ### 2.1 Sayılar tek kaynaktan + "nasıl sayıldı?" notu (§13.28)
-- [ ] Aynı ölçünün farklı sayfalarda farklı sayısı (raporun kanıtı):
-      Er-Rahmân 60 ↔ 57 ↔ 48 (doğrusu **57**) · Er-Rahîm 115 ↔ 114 ·
-      Bilimsel İşaretler "4 âyet" ↔ "16" · Tarihsel İzler "üç iddia" ↔
-      "10 iz" · Mukattaa Mekkî 27 ↔ 26, vahiy atfı 25 ↔ 26 (aynı sayfada) ·
-      Dua Dili 10 ↔ 6 peygamber profili · Kavram sayısı 65 / 78 / "100+" ·
-      Rahmân sûresi Medenî ↔ "Mekkî daha yaygın".
+- [x] **Raporun sayı çelişkileri ölçüldü; üçü gerçek, biri çözüldü, biri
+      çelişki değilmiş.** (Rapor kanıtı: Rahmân 60↔57↔48, Rahîm 115↔114 vb.)
+
+      **Gerçek olanlar, ve sebebi benim kendi yarım işim:** Kademe 2.2'de üç
+      ismin sayısını düzeltmişim (Rezzâk 43→1, Hâdî 59→10, Rahmân 60→57) ama
+      kullanıcıya basılan gösterim notunu ESKİ değerde bırakmışım. Aynı
+      kartta iki farklı sayı görünüyordu. Üçü de düzeltildi.
+
+      **Raporun "48"i çözüldü:** sitede hiçbir yerde yok. Kendi ilk türetmem
+      48 verdi, çünkü ön ekli biçimleri (`للرحمن`, `بالرحمن`) kaçırıyordu.
+      Yani 48 eksik ön ek işlemesinin ürünü. ⚠ Astra uyarısı: raporun 48'inin
+      AYNI sebepten geldiği doğrulanmadı, öyle sunulmamalı.
+
+      **Rahîm 115↔114 çelişki DEĞİLMİŞ:** 115 lafız geçişi, 114'ü Allah'ı
+      niteliyor; fark Tevbe 9:128, orada kelime Hz. Peygamber'i niteler.
+      Kur'an'ı Tanı kartı bunu zaten doğru açıklıyordu ve ben önce YANLIŞ
+      YÖNE düzeltme yapmaya başladım, sonra kartın tam metnini okuyup geri
+      aldım. Çelişen taraf esmâ veri dosyasıydı: farkı besmele sayımına
+      bağlıyordu, bu doğrulanmamış bir tahmindi. Kartın üç sayısını da
+      bağımsız türettim, hepsi tuttu (rahmân 57, rahîm 115, 9:128 hariç 114);
+      Fetih 48:29'daki çoğul `رحماء`'nın müminleri nitelediğini de doğruladım.
+
+- [x] **ÂYET LİSTELERİ ALT DİZE EŞLEŞMESİYLE ÜRETİLMİŞ** (not metinlerini
+      düzeltirken çıkan, çok daha ağır bulgu). Sayılar düzeltilmiş ama
+      listeler yeniden türetilmemiş:
+      · Er-Rezzâk: sayı 1, ama 15 âyet listeli ve **15'inin hiçbirinde**
+        رزاق yok.
+      · El-Hâdî: sayı 10, ama 15 âyet listeli ve **15'inin hiçbirinde** hâdî
+        yok. Liste `هادوا` (yahudi oldular), `شهادة` (şahitlik), `المهاد`
+        (döşek) gibi ilgisiz kelimeleri yakalamış.
+      · Er-Rahmân: 15 âyetten 2'si fiil biçimi `وارحمنا`, ilâhî isim değil.
+      Listeler kanonik metinden yeniden türetildi ve sayılarla çapraz
+      doğrulandı: Rezzâk tam 1 âyet (Zâriyât 51:58), Hâdî tam 10 âyet
+      (astra'nın bir önceki turda beni düzelttiği Furkān 25:31 dahil),
+      Rahmân 13. Er-Rahîm'in 15 âyeti kontrol edildi, hepsi doğru.
+
+- [ ] ⚠ **SAYFANIN ÖLÇÜTÜ BELİRSİZ, VE BU EN BÜYÜK MADDE** (astra bulgusu,
+      metinden doğrulandı). Sayfa "Esmâ Frekans" yani isimlerin frekansı,
+      ama sayılar LAFIZ geçişini sayıyor. İkisi aynı şey değil:
+      · El-Hâdî'nin 10 geçişinin çoğu Allah'ı NİTELEMİYOR. Neml 27:81 ve
+        Rûm 30:53 Hz. Peygamber'e hitap eder ("sen körleri getiremezsin"),
+        Ra'd 13:7 her topluma gelen beşerî bir rehberden söz eder, A'râf
+        7:186 ile Zümer 39:36 ve Mü'min 40:33'te lafız olumsuzlama içinde
+        geçer. İlâhî kullanım 22:54 ve 25:31 gibi birkaç yerde.
+      · Er-Rahîm'de 115 lafız, 114 ilâhî kullanım.
+      Astra'nın hükmü: esmâ sayfasında **Allah'a nisbet edilen kullanımlar**
+      esas alınmalı ve aynı ölçüt 114 ismin HEPSİNE uygulanmalı. Bu, El-Hâdî
+      kaydının yeniden sınıflandırılmasını da gerektiriyor.
+      Şimdilik yapılan: iddia edilmeyen şey iddia edilmedi. El-Hâdî'nin notu
+      artık "bu kullanımların tamamı Allah'ı nitelemez" diyor, Er-Rahîm'in
+      notu 115/114 ayrımını açıkça yazıyor, ve ölçüt kararının bütün isimler
+      için birlikte verileceği söyleniyor.
+
+- [ ] **Kalan 110 ismin listeleri denetlenmeli** (astra'nın öncelik sırası):
+      önce sayı ile liste uyuşmazlıkları, sonra alt dize çakışması üreten
+      biçimler, sonra Allah dışındaki varlıkları da niteleyebilen lafızlar.
+      Her eşleşmede kelimenin biçimi, âyetteki bağlamı ve kime nispet
+      edildiği ayrı denetlenmeli. ⚠ Astra: "denetlenmemiş listeler
+      doğrulanmış gibi sunulmamalı."
+
 - [ ] Bütün sayılar tek veri dosyasından üretilsin, sayfalar onu okusun.
 - [ ] Her sayının yanında "ⓘ nasıl sayıldı?" notu: hangi metin, besmele dahil
       mi, kelime/lemma/kök tanımı.

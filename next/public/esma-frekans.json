@@ -423,15 +423,15 @@
           "ayet": 31
         }
       ],
-      "gosterim_notu": "Kur'an'da yaklaşık 115 yerde geçer; ilk 15 referans listelenmiştir.",
+      "gosterim_notu": "Rahîm lafzı Kur'an'da 115 kez geçer. Bunların 114'ü Allah'ı, Tevbe 9:128'deki kullanım ise Hz. Peygamber'i niteler. İlgili âyetlerden 15'i aşağıda listelenmiştir.",
       "tum_ayetler": [],
       "isim_en": "Ar-Rahim",
       "okunus_en": "Ar-Rahim",
       "anlam_en": "The Especially Merciful to the believers",
       "kategori_etiket_en": "Beautiful Name",
       "sayimDogrulandi": false,
-      "sayimNotuTr": "Bu sayı doğrulanmadı: kayıt 115 diyor, bu sayfanın kalibrasyon kaynağı olarak gösterdiği konkordans ise 114 veriyor. Fark, sûre başlarındaki besmelelerin sayıma dahil edilip edilmediğinden kaynaklanıyor olabilir; ölçüt belirlenmeden sayı kesinleştirilmeyecek.",
-      "sayimNotuEn": "This figure has not been verified: the record gives 115 while the concordance cited as the calibration source on this page gives 114. The difference may come from whether the basmalas heading the suras are included; the figure will not be settled until the criterion is fixed."
+      "sayimNotuTr": "Rahîm lafzı Kur'an'da 115 kez geçer. Bunların 114'ü Allah'ı, Tevbe 9:128'deki kullanım ise Hz. Peygamber'i niteler. Çoğul biçim ruhamâ (Fetih 48:29) bu sayımın dışındadır ve orada müminlerin birbirine merhametini anlatır; Quranic Arabic Corpus'un verdiği 116 sayısı onu da içerir. Bu sayfada hangi ölçütün esas alınacağı, yani lafız geçişi mi Allah'a nisbet edilen kullanım mı sayılacağı, bütün isimler için birlikte kararlaştırılacaktır.",
+      "sayimNotuEn": "The word Rahim occurs 115 times in the Quran. Of these, 114 describe Allah, while the occurrence in al-Tawba 9:128 describes the Prophet. The plural form ruhama (al-Fath 48:29) falls outside this count and there describes the believers' mercy toward one another; the figure of 116 given by the Quranic Arabic Corpus includes it. Which criterion this page will use, occurrences of the word or uses referring to Allah, will be decided for all the names together."
     },
     {
       "isim": "El-Azîm",
@@ -1027,16 +1027,6 @@
           "ayet": 163
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 286
-        },
-        {
-          "sure": 7,
-          "sure_adi": "A'râf",
-          "ayet": 155
-        },
-        {
           "sure": 13,
           "sure_adi": "Ra'd",
           "ayet": 30
@@ -1087,14 +1077,14 @@
           "ayet": 75
         }
       ],
-      "gosterim_notu": "Kur'an'da yaklaşık 60 yerde geçer; ilk 15 referans listelenmiştir.",
+      "gosterim_notu": "Rahmân lafzı Kur'an'da 57 kez geçer. İlgili âyetlerden 13'ü aşağıda listelenmiştir.",
       "tum_ayetler": [],
       "isim_en": "Ar-Rahman",
       "okunus_en": "Ar-Rahman",
       "anlam_en": "The Entirely Merciful, whose mercy encompasses all things",
       "kategori_etiket_en": "Beautiful Name",
-      "sayimNotuTr": "Rahmân lafzı 56 âyette 57 kez geçer. Bu değer hem bu sayfanın kalibrasyon kaynağıyla (Abdülbâkî) hem de metin üzerinde yapılan sayımla örtüşür.",
-      "sayimNotuEn": "The word Rahman occurs 57 times in 56 verses. This agrees both with the calibration source cited on this page (Abd al-Baqi) and with a direct count on the text."
+      "sayimNotuTr": "Sayım, sitenin kanonik Kur'an metni (Hafs rivayeti) üzerinde yapıldı ve ön ekli biçimleri içerir (er-rahmân, bi'r-rahmân, li'r-rahmân). Quranic Arabic Corpus da aynı sayıyı verir. Listeden iki âyet çıkarıldı (Bakara 2:286 ve A'râf 7:155): oralarda geçen ve'rhamnâ bir fiildir, ilâhî isim değildir.",
+      "sayimNotuEn": "The count was made over the site's canonical Quranic text (the Hafs reading) and includes prefixed forms (al-rahman, bi-l-rahman, li-l-rahman). The Quranic Arabic Corpus gives the same figure. Two verses were removed from the list (al-Baqara 2:286 and al-A'raf 7:155): the word warhamna occurring there is a verb, not the divine name."
     },
     {
       "isim": "El-Hâdî",
@@ -1108,89 +1098,65 @@
       "yuksek_frekansli": true,
       "ornek_ayetler": [
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 26
+          "sure": 7,
+          "sure_adi": "الأعراف",
+          "ayet": 186
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 142
+          "sure": 13,
+          "sure_adi": "الرعد",
+          "ayet": 7
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 196
+          "sure": 13,
+          "sure_adi": "الرعد",
+          "ayet": 33
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 213
+          "sure": 22,
+          "sure_adi": "الحج",
+          "ayet": 54
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 258
+          "sure": 25,
+          "sure_adi": "الفرقان",
+          "ayet": 31
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 264
+          "sure": 27,
+          "sure_adi": "النمل",
+          "ayet": 81
         },
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 272
+          "sure": 30,
+          "sure_adi": "الروم",
+          "ayet": 53
         },
         {
-          "sure": 3,
-          "sure_adi": "Âl-i İmrân",
-          "ayet": 86
+          "sure": 39,
+          "sure_adi": "الزمر",
+          "ayet": 23
         },
         {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 2
+          "sure": 39,
+          "sure_adi": "الزمر",
+          "ayet": 36
         },
         {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 16
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 51
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 67
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 97
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 108
-        },
-        {
-          "sure": 6,
-          "sure_adi": "En'âm",
-          "ayet": 88
+          "sure": 40,
+          "sure_adi": "غافر",
+          "ayet": 33
         }
       ],
-      "gosterim_notu": "Kur'an'da yaklaşık 59 yerde geçer; ilk 15 referans listelenmiştir.",
+      "gosterim_notu": "Hâdî lafzının 10 geçişinin tamamı aşağıda listelenmiştir. Bu kullanımların tamamı Allah'ı nitelemez.",
       "tum_ayetler": [],
       "isim_en": "Al-Hadi",
       "okunus_en": "Al-Hadi",
       "anlam_en": "The Guide to the straight path",
       "kategori_etiket_en": "Beautiful Name",
-      "sayimNotuTr": "Hâd ve hâdî biçimleri on âyette geçer: A'râf 7:186, Ra'd 13:7 ve 13:33, Hac 22:54, Furkān 25:31, Neml 27:81, Rûm 30:53, Zümer 39:23 ve 39:36, Mü'min 40:33.",
-      "sayimNotuEn": "The forms had and hadi occur in ten verses: Al-Araf 7:186, Ar-Rad 13:7 and 13:33, Al-Hajj 22:54, Al-Furqan 25:31, An-Naml 27:81, Ar-Rum 30:53, Az-Zumar 39:23 and 39:36, Ghafir 40:33."
+      "sayimNotuTr": "Bu sayı lafzın geçiş sayısıdır, Allah'a nisbet edilen kullanımların sayısı değildir. Geçişlerin bir kısmı başkasını niteler: Neml 27:81 ve Rûm 30:53 Hz. Peygamber'e hitap eder, Ra'd 13:7'de her topluma gelen bir rehberden söz edilir, A'râf 7:186 ile Zümer 39:36 ve Mü'min 40:33'te lafız olumsuzlama içinde geçer. Hangi kullanımların Allah'a nisbet edildiği ayrı ayrı değerlendirilecektir. Önceki 59 değeri ve ona bağlı liste, harfleri başka kelimelerin içinde de arayan bir eşleştirmeden geliyordu; o liste hâdevû (yahudi oldular), şehâdet ve mihâd gibi ilgisiz kelimeleri yakalıyordu. Liste metin üzerinden yeniden üretildi.",
+      "sayimNotuEn": "This figure counts occurrences of the word, not uses that refer to Allah. Some occurrences describe someone else: al-Naml 27:81 and al-Rum 30:53 address the Prophet, al-Ra'd 13:7 speaks of a guide sent to every people, and in al-A'raf 7:186, al-Zumar 39:36 and al-Mu'min 40:33 the word appears inside a negation. Which uses refer to Allah will be assessed individually. The earlier figure of 59 and its verse list came from a match that also found the letters inside other words, picking up unrelated words such as hadu (they became Jews), shahada (testimony) and mihad (resting place). The list has been regenerated from the text.",
+      "sayimDogrulandi": false
     },
     {
       "isim": "El-Basîr",
@@ -1486,89 +1452,19 @@
       "yuksek_frekansli": true,
       "ornek_ayetler": [
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 22
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 25
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 60
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 126
-        },
-        {
-          "sure": 3,
-          "sure_adi": "Âl-i İmrân",
-          "ayet": 37
-        },
-        {
-          "sure": 7,
-          "sure_adi": "A'râf",
-          "ayet": 32
-        },
-        {
-          "sure": 8,
-          "sure_adi": "Enfâl",
-          "ayet": 4
-        },
-        {
-          "sure": 8,
-          "sure_adi": "Enfâl",
-          "ayet": 74
-        },
-        {
-          "sure": 10,
-          "sure_adi": "Yûnus",
-          "ayet": 59
-        },
-        {
-          "sure": 11,
-          "sure_adi": "Hûd",
-          "ayet": 88
-        },
-        {
-          "sure": 13,
-          "sure_adi": "Ra'd",
-          "ayet": 26
-        },
-        {
-          "sure": 14,
-          "sure_adi": "İbrâhîm",
-          "ayet": 32
-        },
-        {
-          "sure": 16,
-          "sure_adi": "Nahl",
-          "ayet": 67
-        },
-        {
-          "sure": 16,
-          "sure_adi": "Nahl",
-          "ayet": 71
-        },
-        {
-          "sure": 16,
-          "sure_adi": "Nahl",
-          "ayet": 73
+          "sure": 51,
+          "sure_adi": "الذاريات",
+          "ayet": 58
         }
       ],
-      "gosterim_notu": "Kur'an'da yaklaşık 43 yerde geçer; ilk 15 referans listelenmiştir.",
+      "gosterim_notu": "Rezzâk lafzı Kur'an'da 1 kez geçer. O âyet aşağıda listelenmiştir.",
       "tum_ayetler": [],
       "isim_en": "Ar-Razzaq",
       "okunus_en": "Ar-Razzaq",
       "anlam_en": "The Provider of sustenance for all living beings",
       "kategori_etiket_en": "Beautiful Name",
-      "sayimNotuTr": "Er-Rezzâk lafzı Kur'an'da bir âyette geçer (Zâriyât 51:58). Önceki 43 değeri hiçbir sayım ölçütüyle doğrulanamadı; rızık kökünün türevleri ayrı bir sayımdır.",
-      "sayimNotuEn": "The word ar-Razzaq occurs in one verse (Adh-Dhariyat 51:58). The earlier figure of 43 could not be reproduced by any counting criterion; derivatives of the root rizq are a separate count."
+      "sayimNotuTr": "Rezzâk lafzı yalnız Zâriyât 51:58'de geçer. Önceki 43 değeri ve ona bağlı âyet listesi, kelimenin harflerini başka kelimelerin içinde de arayan bir eşleştirmeden geliyordu; liste metin üzerinden yeniden üretildi.",
+      "sayimNotuEn": "The word Razzaq occurs only in al-Dhariyat 51:58. The earlier figure of 43 and the verse list built on it came from a match that also found the word's letters inside other words; the list has been regenerated from the text."
     },
     {
       "isim": "El-Kebîr",

@@ -101,6 +101,50 @@ for (const [file, key, derive] of RULES) {
   check(`${path.basename(file)} · ${key}`, declared, derived);
 }
 
+// ── Esmâ: gösterim notundaki sayı, sayı alanıyla uyuşmalı ───────────────────
+// 2026-10-25'te yazıldı, çünkü tam bu hata üç isimde CANLIDA duruyordu. Bir
+// önceki turda üç ismin sayısı düzeltilmiş (Rezzâk 43→1, Hâdî 59→10,
+// Rahmân 60→57), ama kullanıcıya basılan gösterim notu ESKİ değerde
+// kalmıştı. Yani aynı kartta iki farklı sayı görünüyordu ve hiçbir kapı
+// bunu ölçmüyordu.
+//
+// ⚠ KAPININ SINIRI (astra, 2026-10-25): bu kural yalnız İKİ ALANIN
+// BİRBİRİYLE TUTARLILIĞINI ölçer. Sayının DOĞRU olduğunu göstermez, âyet
+// listesinin doğru âyetleri taşıdığını da göstermez. Notta geçiş sayısından
+// başka sayılar da bulunabiliyor ("ilk 15 referans" gibi), bu yüzden
+// nottaki HER sayı değil, yalnız "N kez/yerde geçer" kalıbındaki sayı
+// karşılaştırılır.
+//
+// ⚠ Binlik ayıracı: "2.155 yerde geçer" gibi yazımda Türkçe nokta ayıracı
+// var. İlk yazdığım tarayıcı bunu kesip "155" okudu ve tutarlı bir kaydı
+// uyuşmaz diye bildirdi. Noktalar sayıdan atılır.
+try {
+  const ef = readJson('public/esma-frekans.json');
+  const sapan = [];
+  for (const x of ef.isimler || []) {
+    const not = x.gosterim_notu;
+    if (!not) continue;
+    const m = not.match(/([\d.]+)\s*(?:kez|yerde)\s*geçer/);
+    if (!m) continue;
+    const nottaki = Number(m[1].replace(/\./g, ''));
+    if (Number.isFinite(nottaki) && nottaki !== x.kuranda_gecis_sayisi) {
+      sapan.push(`${x.isim}: alan ${x.kuranda_gecis_sayisi}, not ${nottaki}`);
+    }
+  }
+  check('esma-frekans · gösterim notu ile geçiş sayısı', sapan.length, 0,
+    sapan.length ? sapan.join(' · ') : '');
+
+  // Liste uzunluğu geçiş sayısını AŞMAMALI. Rezzâk sayı 1 iken 15 âyet
+  // listeliyordu; liste eski ve geniş bir eşleştirmeden kalmıştı.
+  const tasan = (ef.isimler || [])
+    .filter((x) => Number.isFinite(x.kuranda_gecis_sayisi) && (x.ornek_ayetler || []).length > x.kuranda_gecis_sayisi)
+    .map((x) => `${x.isim}: sayı ${x.kuranda_gecis_sayisi}, liste ${(x.ornek_ayetler || []).length}`);
+  check('esma-frekans · liste uzunluğu geçiş sayısını aşmıyor', tasan.length, 0,
+    tasan.length ? tasan.join(' · ') : '');
+} catch (e) {
+  console.log(`  ! esma-frekans kuralı koşmadı: ${e.message}`);
+}
+
 // ── Fâtiha halkası: düğüm referansları Hafs numaralandırmasına uymalı ────────
 // 2026-09-13'te ilk üç düğüm bir kayıktı ("Âlemlerin Rabbi" 1:1 diyordu, Hafs'ta
 // 1:1 besmeledir). Bu, gözle bakılmadıkça görünmeyen bir hata sınıfı.
