@@ -13,6 +13,41 @@
 
 ---
 
+## DURUM ÖZETİ (2026-10-24)
+
+| kademe | konu | durum |
+|---|---|---|
+| 1.1 | Tabiat Atlası: âyette geçmeyen Arapça | ✅ bitti (8 kart) |
+| 1.2 | Metinle çelişen dokuz ifade | ✅ bitti |
+| 1.3 | Küçük atıf ve biçim hataları | ◐ 5 düzeltildi, 6 madde bağlam bekliyor |
+| 1.4 | Terim ve atıf eşleşmeleri | ◐ 8 düzeltildi, 5 madde yeri bulunamadı |
+| 2.1 | Sayılar tek kaynaktan + "nasıl sayıldı" | ○ başlamadı |
+| 2.2 | Esmâ frekans listesi | ◐ 3 düzeltildi, 2 işaretlendi, 114'ün denetimi kaldı |
+| 2.3 | Hadis ve rivayet standardı | ◐ 1 künye doğrulandı, 6 madde kaldı |
+| 2.4 | Kur'an'a Sor örnek sorusu | ○ başlamadı |
+| 3.1-3.4 | Editoryal (astra hükümleri hazır) | ○ başlamadı |
+| 4 | Gizlilik + KV arşiv politikası | ○ kullanıcı kararı bekliyor |
+| 5 | Telif ve lisans | ○ başlamadı |
+| 6 | Diğer | ○ başlamadı |
+
+**Yan kazanç:** Kademe 1 sırasında **üç denetim kapısının ölü olduğu** bulundu
+ve düzeltildi (§13.15 Arapça, §13.34 humanizer, §13.32 âyet referansı).
+Aylardır hiçbir şey taramadan yeşil yanıyorlardı.
+
+**Tekrarlayan ders:** bu çalışmada kendi ölçüm araçlarıma **dört kez**
+güvenemedim (Tabiat Atlası taraması 29/41 sahte bulgu, maddah işareti, kırık
+çoğul, ve ى/ي dönüşümünün عَلَىٰ ile عَلِيّ'i birleştirip El-Aliyy'e 914
+vermesi). Oran şüpheli geldiğinde önce aracı sorgulamak gerekiyor (§13.26'nın
+aynı dersi).
+
+**Raporun kendisi de her zaman haklı değil.** Üç maddesi sitede zaten doğru
+çıktı (Feynman atfı, Rûm 30:2-4 künyesi, Zemahşerî mükerrer kaydı), bir
+maddesi tutmadı (Ehad 32), bir maddesinde ne rapor ne site doğruydu (Melik).
+Buna karşılık iki kez rapor haklıydı ve ben yanılmıştım (Hâdî'de Furkān
+25:31'i kaçırmıştım).
+
+---
+
 ## 0. Raporun güvenilirliği — ÖNCE SAĞLAMASI YAPILDI
 
 Rapor körlemesine uygulanmadı (§13.30). Kur'an metnine dayanan iddiaları
@@ -560,8 +595,24 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 | tarih | kademe | ne yapıldı | commit |
 |---|---|---|---|
 | 2026-10-24 | 0 | Rapor okundu, 8 iddia kendi metnimizle doğrulandı, astra editoryal hüküm verdi, bu liste oluşturuldu | — |
-| 2026-10-24 | 1.1 | Tabiat Atlası 8 kart düzeltildi (astra turu yapıldı, 12 bulgusu uygulandı) | — |
-| 2026-10-24 | 1.2 | Metinle çelişen 9 ifade düzeltildi (astra turu; 3 yerde beni düzeltti) | — |
-| 2026-10-24 | 1.3 | 5 küçük hata düzeltildi; 3 rapor maddesi sitede zaten doğru çıktı, dokunulmadı | — |
-| 2026-10-24 | 1.4 | Terim/atıf eşleşmelerinden 5'i düzeltildi (astra önerimdeki bir tutarsızlığı yakaladı) | — |
-| 2026-10-24 | — | **Üç denetim kapısının ölü olduğu bulundu ve düzeltildi** (§13.15, §13.34, §13.32): `changed.mjs` yolları repo köküne göre döndürüyordu, kapılar `^src/`/`^public/` süzüyordu, hiçbiri eşleşmiyordu | — |
+| 2026-10-24 | 1.1 | Tabiat Atlası 8 kart düzeltildi; astra 12 bulgu verdi, hepsi uygulandı | `59c7277b` |
+| 2026-10-24 | — | **Üç denetim kapısının ölü olduğu bulundu ve düzeltildi** (§13.15, §13.34, §13.32): `changed.mjs` yolları repo köküne göre döndürüyordu, kapılar `^src/`/`^public/` süzüyordu, hiçbiri eşleşmiyordu | `59c7277b` |
+| 2026-10-24 | 1.2 | Metinle çelişen 9 ifade düzeltildi; astra 3 yerde beni düzeltti | `60319a7e` |
+| 2026-10-24 | 1.3 | 5 küçük hata düzeltildi; 3 rapor maddesi sitede zaten doğru çıktı, dokunulmadı | `a83e4741` |
+| 2026-10-24 | 1.4 | Terim/atıf eşleşmelerinden 5'i düzeltildi; astra önerimdeki bir tutarsızlığı yakaladı | `e9157b12` |
+| 2026-10-24 | 1.4 | Dâru'l-Huld kartı ikiye ayrıldı, İsrâ'nın yanlış sınıflandırması, "ve cealnâ" kalıbı | `cd1ca5aa` |
+| 2026-10-24 | — | Kalan 1.4 maddeleri için ölçümler ve arama kaydı | `d22f63b3` |
+| 2026-10-24 | — | Kademe 1 damgaları; `audit:live` 154 rota sorunsuz | `da1457fc` **push edildi** |
+| 2026-10-24 | 2.2 | Esmâ: Rezzâk 43→1, Hâdî 59→10, Rahmân 60→57; Melik ve Rahîm "doğrulanmadı" işaretiyle gösteriliyor | `a0b9508e` |
+| 2026-10-24 | 2.3 | "Dört kadın" rivayetinin künyesi kaynaktan doğrulandı; iki yerde düzeltildi | `fe3fc12a` |
+
+### Sıradaki iş
+
+1. `audit:live` yeşil gelince `a0b9508e` ve `fe3fc12a` push edilecek.
+2. **Kademe 2.3'ün kalan altı rivayeti** — her biri künyesinden doğrulanacak.
+   sunnah.com doğrudan erişime kapalı (403); arşivlenmiş nüshalar üzerinden
+   çalışılıyor ve bu sınırlılık kaydediliyor.
+3. **Kademe 2.1** (sayılar tek kaynaktan) ve **2.4** (Kur'an'a Sor örnek
+   sorusu testi).
+4. **Kademe 4** kullanıcı kararı bekliyor: KV arşiv politikası için önerilen
+   seçenek (b), IP başına günlük 300 kayıt tavanı.
