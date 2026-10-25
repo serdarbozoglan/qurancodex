@@ -46,13 +46,22 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
   return (
     <section
       id={id}
-      className={`portal-card portal-card--${weight}`}
+      className={compact ? `portal-card portal-card--${weight}` : `portal-card portal-card--${weight} mq-box`}
       style={
         compact
           ? { position: 'relative' }
           : {
               background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 50%, ${SEMANTIC.surface} 100%)`,
-              padding: weight === 'feature' ? '110px 24px' : '90px 24px',
+              // Mobilde 390-639px: aynı oranlı kesinti ScienceTimelineCard'da
+              // doğrulandı (astra + asistan mutabakatı, 2026-10-25) — feature
+              // 110->80, medium 90->65. §14.2 — isMobile JS değil, CSS
+              // custom property; bu bir sunucu bileşeni, JS state zaten yok.
+              '--pt-d': weight === 'feature' ? '110px' : '90px',
+              '--pt-m': weight === 'feature' ? '80px' : '65px',
+              '--pb-d': weight === 'feature' ? '110px' : '90px',
+              '--pb-m': weight === 'feature' ? '80px' : '65px',
+              '--pl-d': '24px', '--pl-m': '16px',
+              '--pr-d': '24px', '--pr-m': '16px',
               position: 'relative',
               overflow: 'hidden',
             }
@@ -110,6 +119,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
         </div>
 
         <Heading
+          className={compact ? undefined : 'mq-margin'}
           style={{
             fontFamily: FONTS.display,
             fontWeight: 700,
@@ -124,14 +134,21 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
             color: COLORS.offWhite,
             lineHeight: 1.15,
             letterSpacing: weight === 'feature' ? '-0.02em' : '-0.015em',
-            margin: compact ? '0 0 22px' : '0 0 36px',
+            ...(compact
+              ? { margin: '0 0 22px' }
+              // Mobilde 390-639px: 36px -> 22px (ScienceTimelineCard ile
+              // aynı oran, 2026-10-25).
+              : { '--mb-d': '36px', '--mb-m': '22px' }),
           }}
         >
           {pick(card.title)}
         </Heading>
 
         {/* Çıpa âyet — §13.15: metin homeCards.js'ten gelir, hafızadan yazılmaz */}
-        <div style={{ marginBottom: compact ? '20px' : '36px' }}>
+        <div
+          className={compact ? undefined : 'mq-margin'}
+          style={compact ? { marginBottom: '20px' } : { '--mb-d': '36px', '--mb-m': '22px' }}
+        >
           <p
             dir="rtl"
             lang="ar"
@@ -259,13 +276,15 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
 
         {!compact && (
           <p
+            className="mq-margin"
             style={{
               color: SEMANTIC.textMuted,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
               fontSize: '0.9rem',
-              marginTop: '34px',
               lineHeight: 1.6,
+              // Mobilde 390-639px: 34px -> 20px (2026-10-25).
+              '--mt-d': '34px', '--mt-m': '20px',
             }}
           >
             {pick(card.kicker)}

@@ -1506,6 +1506,45 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   }
 }
 
+/* ── .mq-margin — yalnız PADDING mirasına karşı dar bir çözüm ─────────────
+   2026-10-25. CSS custom property'ler MİRAS ALINIR: bir dış elemana
+   `className="mq-box"` ile `--pt-d`/`--pb-d` verilince, o elemanın İÇİNDE
+   yine `className="mq-box"` kullanan bir alt eleman (yalnız margin vermek
+   isteyen bir başlık/paragraf gibi) bu padding değişkenlerini de miras
+   alır — `.mq-box` kuralı HER elemanda padding-top: var(--pt-d, unset)
+   uyguladığı için, alt eleman kendi --pt-d'sini hiç tanımlamasa bile dış
+   elemanın padding'ini DEVRALIR. Ölçülen gerçek hata (PortalCard.jsx):
+   yalnız --mb-d/--mb-m ile 22px margin vermek istenen bir <h2>, dış
+   section'ın 110px/80px padding'ini miras alıp kendi üstüne de uyguladı.
+   `.mq-margin`, yalnız margin longhand'larını okur, padding değişkenlerini
+   HİÇ okumaz — miras alınan --pt-d/--pb-d ambient olarak dursa da bu
+   SINIF için etkisizdir.
+   ⚠ "Güvenli/izole" DEĞİL — yalnız padding mirasını keser (astra'nın 2.
+   tur düzeltmesi, 2026-10-25). `.mq-margin` kendisi de --mt-d/--mb-d/
+   --ml-d/--mr-d'yi OKUR; bu yüzden bir `.mq-margin` elemanı yine margin
+   değişkeni tanımlayan bir `.mq-margin`/`.mq-box` atanın İÇİNDEYSE aynı
+   miras sorunu MARGIN için tekrarlanabilir — `unset` miras zincirini
+   kesmez. Yeni bir iç-içe kullanımdan önce: (1) atanın hangi --mt/mb/pl/pr
+   değişkenlerini tanımladığını kontrol et, (2) iç elemanın okuduğu/
+   okumadığı değişkenleri bununla karşılaştır, (3) çakışma varsa iç
+   elemanda o yönleri AÇIKÇA sıfırla (örn. ScienceTimelineCard.jsx'teki
+   timeline düğümü — gerçekten padding-bottom istiyordu, bu yüzden
+   mq-box kullanıp diğer üç kenarı elle '0px'e sabitledi). */
+.mq-margin {
+  margin-top: var(--mt-d, unset);
+  margin-bottom: var(--mb-d, unset);
+  margin-left: var(--ml-d, unset);
+  margin-right: var(--mr-d, unset);
+}
+@media (max-width: 640px) {
+  .mq-margin {
+    margin-top: var(--mt-m, var(--mt-d, unset));
+    margin-bottom: var(--mb-m, var(--mb-d, unset));
+    margin-left: var(--ml-m, var(--ml-d, unset));
+    margin-right: var(--mr-m, var(--mr-d, unset));
+  }
+}
+
 /* Sekme etiketi — mobilde GİZLİ, ama JS ile DEĞİL. Bu etiketler
    `{!isMobile && <span>…</span>}` ile koşullu render ediliyordu: `isMobile`
    §14.1 gereği hydration anında her zaman `false`, dolayısıyla mobilde

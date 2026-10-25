@@ -117,10 +117,16 @@ export default function ProofSection({ locale = 'tr' }) {
   return (
     <section
       id="proof-fatiha"
-      className="proof-section depth-gold"
+      className="proof-section depth-gold mq-box"
       style={{
         background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 55%, ${SEMANTIC.surface} 100%)`,
-        padding: '96px 24px',
+        // Mobilde 390-639px: 96px -> 65px (ScienceTimelineCard/PortalCard
+        // ile aynı orantı, 2026-10-25). İçerik (4 adım, âyet listesi,
+        // eşleşme kartları, diyagram) DEĞİŞMEDİ — yalnız dış boşluk.
+        '--pt-d': '96px', '--pt-m': '65px',
+        '--pb-d': '96px', '--pb-m': '65px',
+        '--pl-d': '24px', '--pl-m': '16px',
+        '--pr-d': '24px', '--pr-m': '16px',
         position: 'relative',
       }}
     >
@@ -156,14 +162,19 @@ export default function ProofSection({ locale = 'tr' }) {
         </h2>
 
         <p
+          className="mq-margin"
           style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
             fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
             lineHeight: 1.75,
             maxWidth: '680px',
-            margin: '0 auto 44px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: 0,
             textAlign: 'center',
+            // Mobilde 44px -> 24px (2026-10-25).
+            '--mb-d': '44px', '--mb-m': '24px',
           }}
         >
           {label.lead}
@@ -192,7 +203,7 @@ export default function ProofSection({ locale = 'tr' }) {
           بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ
         </div>
 
-        <div style={{ position: 'relative', marginBottom: '46px' }}>
+        <div className="mq-margin" style={{ position: 'relative', '--mb-d': '46px', '--mb-m': '26px' }}>
         {/* v2.0 — statik SVG yerine İNTERAKTİF diyagram (client alt-bileşen).
             Hover → aynadaki eş + bağ yayı yanar, altında âyet metni belirir.
             Metin/SEO bu sunucu bileşeninde kalır; yalnız diyagram client. */}
@@ -216,7 +227,7 @@ export default function ProofSection({ locale = 'tr' }) {
             data-reveal YOK bilinçli: reveal öncesi opacity 0'da yerini tutup
             "görünmez boşluk" izlenimi veriyordu (kullanıcı raporu). Referans
             içeriği — hep görünür olması daha doğru. */}
-        <div style={{ maxWidth: '820px', margin: '0 auto 46px' }}>
+        <div className="mq-margin" style={{ maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto', marginTop: 0, '--mb-d': '46px', '--mb-m': '26px' }}>
           <div style={{
             fontFamily: FONTS.body, fontSize: '0.7rem', fontWeight: 600,
             letterSpacing: '0.24em', textTransform: 'uppercase',
@@ -271,7 +282,7 @@ export default function ProofSection({ locale = 'tr' }) {
         {/* Âyet listesi 980px kapsayıcıdan DAR: RTL metin sağa yaslandığı için
             geniş kapsayıcıda etiket ile âyet arasında kocaman boşluk kalıyordu
             (ekran görüntüsünde görüldü). 720px'te satır bir arada okunuyor. */}
-        <ol className="proof-verses" style={{ listStyle: 'none', margin: '0 auto 46px', padding: 0, maxWidth: '720px' }}>
+        <ol className="proof-verses mq-margin" style={{ listStyle: 'none', marginLeft: 'auto', marginRight: 'auto', marginTop: 0, padding: 0, maxWidth: '720px', '--mb-d': '46px', '--mb-m': '26px' }}>
           {FATIHA_RING.map((r) => (
             <li
               key={`v-${r.pos}`}
@@ -372,7 +383,7 @@ export default function ProofSection({ locale = 'tr' }) {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '44px' }}>
+        <div className="mq-margin" style={{ textAlign: 'center', '--mt-d': '44px', '--mt-m': '24px' }}>
           <Link
             href={`/${locale}/atlas/fatiha`}
             className="portal-card__cta"

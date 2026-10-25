@@ -24,9 +24,17 @@ export default function ScienceTimelineCard({ card, locale = 'tr' }) {
   return (
     <section
       id={card.id}
+      className="mq-box"
       style={{
         background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 50%, ${SEMANTIC.surface} 100%)`,
-        padding: '110px 24px',
+        // Mobilde 390-639px: 110px -> 80px (astra + asistan mutabakatı,
+        // 2026-10-25) — flagship/ÖNE ÇIKAN kart olduğu için ilk adım
+        // ölçülü tutuldu, ekran görüntüsüyle doğrulanmadan 48px'e
+        // inilmedi. §14.2 — isMobile JS değil, CSS custom property.
+        '--pt-d': '110px', '--pt-m': '80px',
+        '--pb-d': '110px', '--pb-m': '80px',
+        '--pl-d': '24px',  '--pl-m': '16px',
+        '--pr-d': '24px',  '--pr-m': '16px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -49,7 +57,7 @@ export default function ScienceTimelineCard({ card, locale = 'tr' }) {
           margin: '0 auto',
         }}
       >
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <div className="mq-margin" style={{ textAlign: 'center', '--mb-d': '48px', '--mb-m': '24px' }}>
           <div
             style={{
               color: `${COLORS.gold}cc`,
@@ -108,12 +116,31 @@ export default function ScienceTimelineCard({ card, locale = 'tr' }) {
               background: `linear-gradient(180deg, ${COLORS.gold} 0%, ${COLORS.gold}26 100%)`,
             }}
           />
-          {SCIENCE_TIMELINE.map((node, i) => (
+          {SCIENCE_TIMELINE.map((node, i) => {
+            const isLast = i === SCIENCE_TIMELINE.length - 1;
+            return (
             <div
               key={`${node.surah}:${node.ayah}`}
+              className={isLast ? undefined : 'mq-box'}
               style={{
                 position: 'relative',
-                paddingBottom: i === SCIENCE_TIMELINE.length - 1 ? 0 : '34px',
+                // ⚠ mq-box kullanılıyor (mq-margin DEĞİL) çünkü burada
+                // gerçekten PADDING gerekiyor — ama bu div dış section'ın
+                // mq-box'ı İÇİNDE, o da --pt-d/--pb-d/--pl-d/--pr-d
+                // tanımlıyor. CSS custom property'ler miras alındığı için
+                // diğer üç kenar AÇIKÇA sıfırlanmazsa dıştan 80-110px
+                // top/left/right padding sızar (2026-10-25, astra'nın 2.
+                // turda yakaladığı regresyon — ilk "mq-margin" düzeltmesi
+                // bu elemanda padding-bottom'u tamamen SIFIRLAMIŞTI, çünkü
+                // mq-margin padding değişkenlerini hiç okumuyor).
+                ...(isLast
+                  ? { paddingBottom: 0 }
+                  : {
+                      '--pb-d': '34px', '--pb-m': '20px',
+                      '--pt-d': '0px', '--pt-m': '0px',
+                      '--pl-d': '0px', '--pl-m': '0px',
+                      '--pr-d': '0px', '--pr-m': '0px',
+                    }),
               }}
             >
               <div
@@ -178,10 +205,11 @@ export default function ScienceTimelineCard({ card, locale = 'tr' }) {
                 {pick({ tr: node.refTr, en: node.refEn })}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '48px' }}>
+        <div className="mq-margin" style={{ textAlign: 'center', '--mt-d': '48px', '--mt-m': '24px' }}>
           <Link
             href={`/${locale}${card.href}`}
             style={{

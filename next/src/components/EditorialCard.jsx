@@ -24,9 +24,14 @@ export default function EditorialCard({ card, locale = 'tr', surahNum, accent = 
   return (
     <section
       id={card.id}
+      className="mq-box"
       style={{
         background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 50%, ${SEMANTIC.surface} 100%)`,
-        padding: '80px 24px',
+        // Mobilde 390-639px: 80px -> 55px (aynı oran, 2026-10-25).
+        '--pt-d': '80px', '--pt-m': '55px',
+        '--pb-d': '80px', '--pb-m': '55px',
+        '--pl-d': '24px', '--pl-m': '16px',
+        '--pr-d': '24px', '--pr-m': '16px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -74,6 +79,7 @@ export default function EditorialCard({ card, locale = 'tr', surahNum, accent = 
           </div>
 
           <h3
+            className="mq-margin"
             style={{
               fontFamily: FONTS.display,
               fontWeight: 700,
@@ -81,17 +87,19 @@ export default function EditorialCard({ card, locale = 'tr', surahNum, accent = 
               color: COLORS.offWhite,
               lineHeight: 1.2,
               letterSpacing: '-0.015em',
-              margin: '0 0 22px',
+              // Mobilde 22px -> 14px (2026-10-25).
+              '--mb-d': '22px', '--mb-m': '14px',
             }}
           >
             {pick(card.title)}
           </h3>
 
           <div
+            className="mq-margin"
             style={{
               borderLeft: `2px solid ${COLORS.gold}`,
               paddingLeft: '18px',
-              marginBottom: '22px',
+              '--mb-d': '22px', '--mb-m': '14px',
             }}
           >
             <p
@@ -136,13 +144,15 @@ export default function EditorialCard({ card, locale = 'tr', surahNum, accent = 
           </div>
 
           <p
+            className="mq-margin"
             style={{
               color: COLORS.silver,
               fontFamily: FONTS.body,
               fontSize: '0.98rem',
               lineHeight: 1.75,
               maxWidth: '62ch',
-              margin: '0 0 22px',
+              // Mobilde 22px -> 14px (2026-10-25).
+              '--mb-d': '22px', '--mb-m': '14px',
             }}
           >
             {pick(card.blurb)}
