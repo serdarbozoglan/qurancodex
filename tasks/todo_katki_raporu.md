@@ -861,6 +861,38 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 ## KADEME 6 — Diğer
 
 - [ ] "Ekip ve danışmanlar" bölümü (hazırlayan / ilmî danışman bilgisi yok).
+- [ ] **Bilimsel İşaretler kart künyeleri doğrulanmadı** (astra bulgusu,
+      2026-10-25). Astra: "künyeler bu paketle doğrulanmış değil."
+      Tek tek kontrol edilecek: El-Naggar'ın eser adı ve yılı; Moore'un
+      yayınevi, baskı yılı, baskı numarası ve ek bölüm bilgisi; "Basim
+      Musallam, akademik eleştiri" ulaşılabilir bir kaynak göstermiyor
+      (eser/makale adı, yayın bilgisi ve sayfa gerekli); "Cambridge
+      tarihçisi" nitelemesi. Ayrıca A ajanının devrettiği künyeler:
+      "modern fizyoloji ders kitapları", yalnız "Zaghloul El-Naggar",
+      "Mefâtîh" kısaltması.
+      ⚠ Bağlı bulgu, ASTRA'YA UYULMADI: astra "dikkatli okunmalıdır"
+      uyarısının belirsiz olduğunu, hangi iddiaya neden ihtiyat gerektiğinin
+      yazılmasını ya da notun kaldırılmasını istedi. Uyarı BIRAKILDI;
+      gerekçe: doğrulanmamış bir kaynağı uyarısız sunmak sayfayı daha az
+      dürüst yapar, nedeni yazmak ise kaynağı doğrulamayı gerektiriyor.
+      Künye doğrulandığında bu not da ya somutlaşacak ya kalkacak.
+- [ ] **Yöntem notu gövdesindeki atıflar** (A ajanının devrettiği):
+      Bediüzzaman Muhâkemât, Şâtıbî el-Muvâfakât, Sinai/Neuwirth/Guessoum.
+      Astra ayrıca "klasik usûlün kendi kaidesidir" iddiasının belirli bir
+      dayanağının gösterilmesini istedi.
+- [ ] **Kart başlıklarındaki 📖 ve 🔬 emojileri** (§13.34 yasağı, eski borç).
+      Diff'e girmediği için kapı yakalamıyor.
+- [ ] **Astra'nın yapısal uyarısı:** 16 âyetin tamamı için topluca "uyum"
+      demek, yorumların kesinlik ve kapsam farklarını örtebilir; ilişki her
+      kartta ayrıca açıklanmalı. Kartlarda nüans kutuları var ama bu açıdan
+      bütün olarak gözden geçirilmedi.
+- [ ] **Üç ajanın birleşik sonucu astra'ya bütün olarak gösterilmedi.**
+      Her ajan kendi paketinde onay aldı; nihai hâli kimse göstermedi.
+      Astra: "gösterilmeyen bütüne onay veremem." Bakılacak başlıklar
+      (astra'nın verdiği liste): âyet meali ile yorumun ayrılması; kelimelere
+      modern teknik anlamların kesin anlam gibi yüklenmemesi; bilimsel veya
+      arkeolojik bulguların Kur'an'ın hakikatine ölçüt yapılmaması; Türkçe ve
+      İngilizcede aynı ihtiyat düzeyinin korunması.
 - [ ] **`audit-arabic-json` kapısının kör noktası.** Kapı yeşil yanıyor ama
       `cleanArabicForDisplay` ile ölçünce tefekkür dosyalarında **4 dosyada
       7 dize** normalize değil: `emrin-mahiyeti` ve `kaynak-yuzey` (U+0653),
