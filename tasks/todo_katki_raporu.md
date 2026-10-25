@@ -205,34 +205,53 @@ doğru** çıktı. Rapor körlemesine uygulanmadı.
       karşılaştırılıyorsa elmas/grafit doğru; yalnızca benzetme yapan bir
       cümlede otomatik değiştirme.
 
-### 1.4 Terim ve atıf eşleşmeleri (olgusal olanlar)
-- [ ] **Sonsuzluğun Merdiveni** — "İbn Sînâ'nın vahdet-i vücûd ↔ vahdet-i
-      şuhûd nüansı" → vahdet-i vücûd **İbn Arabî** ekolüne, vahdet-i şuhûd
-      **İmam Rabbânî**'ye nisbet edilir.
-- [ ] **Kur'an Mesajına Yabancı Kalmak** — İsrâ "Elhamdülillah sûresi"
-      sayılmış; İsrâ «سبحان» ile açılır. Hamd ile açılanlar 1, 6, 18, 34, 35.
-      Kendi Münâsebât sayfamız da böyle diyor.
-- [ ] **Âyet Grafiği** — "klasik öbekler: Tıval (6 sûre)…" → klasik tasnif
-      **Tıvâl (7) · Mieîn · Mesânî · Mufassal**. Bizim öbeklerimiz kendi
-      gruplarımız, öyle adlandırılsın.
-- [ ] **Bouba/kiki** — deney Köhler 1929 "takete/maluma"; "bouba/kiki"
-      Ramachandran & Hubbard 2001.
-- [ ] **Dâru'l-Huld** — Cennet-Cehennem'de cennet adı olarak veriliyor
-      (25:15, 35:35). «دار الخلد» yalnız **41:28**'de ve **cehennem** için;
-      25:15'te «جنة الخلد», 35:35'te «دار المقامة».
-- [ ] **Kavimler Atlası** — Uhdûd etiketi çelişiyor; Sebe 2 kez (site 20);
-      «الأخدود» 1 kez (site 3).
-- [ ] **"Yedi gök" listesi** — 17:44 ve 23:86 eksik.
-- [ ] **Mülk -îr fasılası** — "ilâhî sıfatlardan örülmüş" → -îr ile biten 13
-      âyetin 3'ü ilâhî isim.
-- [ ] **Secde âyeti sayısı** — iki sayım karışmış; secde işareti metinde 15
-      yerde, sitede iki farklı 14'lü liste var.
-- [ ] **"İlâhî sıfatla biten" sûreler** — site 13 ve 9 diyor; aynı tanımla
-      sayım 22 veriyor.
-- [ ] **Birmingham kutusu ↔ Yaşayan Koruma** — "en eski" ve "hepsi aynı
-      çekirdek" ifadeleri birbirini tutmuyor.
+### 1.4 Terim ve atıf eşleşmeleri — KISMEN TAMAM (2026-10-24)
 
----
+İlk beş madde astra turundan geçti. Astra kendi önerimdeki bir tutarsızlığı
+yakaladı (Köhler 1929 için doğrulamada "baluma", düzeltmede "maluma"
+yazmışım) ve aritmetiğimi düzeltti (Sebe anlatı âyetleri 32, benim verdiğim
+aralıklar yanlış toplanıyordu).
+
+- [x] **Vahdet-i vücûd / şuhûd** (`sonsuzlugun-merdiveni`, editör kutusu,
+      yani bizim metnimiz) — "İbn Sînâ'nın vahdet-i vücûd ↔ vahdet-i şuhûd
+      nüansı" → "İbn Arabî ekolüne nisbet edilen vahdet-i vücûd ile İmam
+      Rabbânî'ye nisbet edilen vahdet-i şuhûd arasındaki nüans". İngilizcesi
+      de düzeltildi.
+- [x] **Âyet Grafiği öbekleri** — "İslam ilmi geleneğine göre: Tıval,
+      Mufassal vb." iddiası kaldırıldı. Gruplar (Büyük Medenî, Medenî İdare,
+      Kelâm ve Yaratılış…) bizim kendi tematik gruplamamız. Klasik "Tıvâl"
+      terimi hiç kullanılmıyor artık ("Uzun Sûreler"), böylece 6 ↔ 7 sûre
+      ihtilafına da girilmiyor. Sekme adı "İlmî Gruplar" → "Tematik Gruplar".
+- [x] **Bouba/kiki künyesi** — "Köhler'in bouba/kiki etkisi, 1929" yanlış.
+      Doğrulandı: Köhler 1929'da takete/baluma kullandı (1947 baskısında
+      maluma); bouba/kiki biçimi Ramachandran ve Hubbard (2001). Astra'nın
+      güvenli metni kullanıldı: baskı farklarını nüshadan görmeden kelime
+      biçimi kesinleştirilmedi, "adlandırması onlara aittir" yerine "bouba/
+      kiki biçimiyle kullanılmıştır" denildi. "Modern fonetik" → "ses
+      sembolizmi araştırmaları".
+- [x] **Sebe geçiş sayısı** — 20 → **2** (Neml 27:22, Sebe' 34:15). Astra
+      uyarısı: 20'yi "kıssa âyeti sayısı" diye açıklama, o da tutmuyor
+      (27:20-44 = 25 âyet, 34:15-21 = 7, toplam 32). İkinci bir sayı alanı
+      eklenmedi; anlatı bölümleri ayrı bir not olarak yazıldı.
+- [x] **Ashâb-ı Uhdûd** — iki sorun vardı. Geçiş sayısı 3 → **1** (Bürûc
+      85:4). Daha önemlisi kayıt kendi içinde çelişiyordu: "ateşle helâk"
+      etiketliydi, oysa ateş zalimlerin müminlere karşı kullandığı araçtı ve
+      Kur'an onların dünyevî âkıbetini bildirmiyor. Astra: "yanına not
+      eklemek yanlış ana etiketi düzeltmez". Etiket kaldırıldı, statü
+      `gizemli` yapıldı (arayüzün kabul ettiği üç değerden biri), açıklama
+      "Kur'an dünyevî âkıbetlerini açıkça bildirmez" oldu. "Kutile" için
+      "beddua kipi" yerine astra'nın ihtiyatlı ifadesi kullanıldı.
+      ⚠ Astra İbn Kesîr'de (Rebî' b. Enes'ten) ateşin zalimleri de yaktığına
+      dair bir rivayet bulunduğunu söyledi ama isnadını teyit etmediğini
+      belirtti; bu yüzden metne KONMADI. Kademe 2.3'te baskıdan doğrulanacak.
+      Ayrıca Arapça alıntının ortasındaki âyet numarası ("٤") temizlendi.
+
+**Kalan 1.4 maddeleri (sonraki tur):** İsrâ'nın "Elhamdülillah sûresi"
+sayılması (ölçüm: hamd ile açılanlar 6, 18, 34, 35 ve Fâtiha'nın 1:2'si;
+İsrâ «سبحان» ile açılıyor) · Dâru'l-Huld (ölçüm: «دار الخلد» yalnız 41:28'de
+ve cehennem için) · "Yedi gök" listesinde 17:44 ve 23:86 eksik (ölçüm: 2:29,
+17:44, 23:86, 41:12, 65:12, 67:3, 71:15) · Mülk -îr fasılası · Secde âyeti
+sayısı · "İlâhî sıfatla biten" sûreler · Birmingham ↔ Yaşayan Koruma.
 
 ## KADEME 2 — Kendi kurallarımızın tutarlı uygulanması
 
@@ -452,4 +471,5 @@ doğru** çıktı. Rapor körlemesine uygulanmadı.
 | 2026-10-24 | 1.1 | Tabiat Atlası 8 kart düzeltildi (astra turu yapıldı, 12 bulgusu uygulandı) | — |
 | 2026-10-24 | 1.2 | Metinle çelişen 9 ifade düzeltildi (astra turu; 3 yerde beni düzeltti) | — |
 | 2026-10-24 | 1.3 | 5 küçük hata düzeltildi; 3 rapor maddesi sitede zaten doğru çıktı, dokunulmadı | — |
+| 2026-10-24 | 1.4 | Terim/atıf eşleşmelerinden 5'i düzeltildi (astra önerimdeki bir tutarsızlığı yakaladı) | — |
 | 2026-10-24 | — | **Üç denetim kapısının ölü olduğu bulundu ve düzeltildi** (§13.15, §13.34, §13.32): `changed.mjs` yolları repo köküne göre döndürüyordu, kapılar `^src/`/`^public/` süzüyordu, hiçbiri eşleşmiyordu | — |

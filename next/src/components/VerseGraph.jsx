@@ -856,11 +856,11 @@ function computeClusters(verses) {
 // ─── Classical surah groupings (Islamic scholarship) ─────────────────────────
 const CLASSICAL_GROUPS = [
   { id: 'fatiha',      tr: 'El-Fâtiha',           en: 'The Opening',            nx: 0.05, ny: 0.50, surahs: [1] },
-  { id: 'tival',       tr: 'Tıval: Uzun Sûreler', en: 'Tiwāl: Long Surahs',   nx: 0.14, ny: 0.18, surahs: [2,3,4,5,6,7] },
+  { id: 'tival',       tr: 'Uzun Sûreler',        en: 'Long Surahs',           nx: 0.14, ny: 0.18, surahs: [2,3,4,5,6,7] },
   { id: 'medeni_b',    tr: 'Büyük Medenî',         en: 'Major Medinan',          nx: 0.16, ny: 0.60, surahs: [8,9,22,24,33,47,48,49] },
   { id: 'medeni_i',    tr: 'Medenî İdare',         en: 'Medinan Governance',     nx: 0.30, ny: 0.82, surahs: [57,58,59,60,61,62,63,64,65,66] },
   { id: 'kissas',      tr: 'Kıssas-ı Enbiyâ',      en: 'Prophet Narratives',     nx: 0.40, ny: 0.17, surahs: [10,11,12,14,15,17,18,19,20,21,26,27,28] },
-  { id: 'kelam',       tr: 'Kelam & Yaratılış',    en: 'Theology & Creation',    nx: 0.53, ny: 0.50, surahs: [13,16,29,30,31,32,34,35,36,38,39,50,51,52,53] },
+  { id: 'kelam',       tr: 'Kelâm ve Yaratılış',    en: 'Theology & Creation',    nx: 0.53, ny: 0.50, surahs: [13,16,29,30,31,32,34,35,36,38,39,50,51,52,53] },
   { id: 'hamim',       tr: 'Hâmim Sûreleri',       en: 'Hā-Mīm Surahs',         nx: 0.40, ny: 0.78, surahs: [40,41,42,43,44,45,46] },
   { id: 'orta_mekki',  tr: 'Orta Mekkî',           en: 'Mid-Meccan',             nx: 0.66, ny: 0.22, surahs: [23,25,37,54,55,56,67,68,69,70,71,72] },
   { id: 'kiyamet',     tr: 'Kıyamet & Haberler',   en: 'Eschatology',            nx: 0.77, ny: 0.63, surahs: [73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91] },
@@ -1615,9 +1615,9 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
             },
             {
               mode: 'classical',
-              labelTr: 'İlmî Gruplar', labelEn: 'Traditional Groups',
-              tipTr: 'İslam ilmi geleneğine göre: Tıval, Mufassal vb.',
-              tipEn: 'By Islamic scholarly tradition: Tiwāl, Mufassal etc.',
+              labelTr: 'Tematik Gruplar', labelEn: 'Thematic Groups',
+              tipTr: 'Bu sitenin kendi tematik gruplaması; klasik Tıvâl-Mieîn-Mesânî-Mufassal tasnifi değildir.',
+              tipEn: "This site's own thematic grouping, not the classical Tiwal-Mi'un-Mathani-Mufassal division.",
             },
           ].map(({ mode, labelTr, labelEn, tipTr, tipEn }) => {
             const active = viewMode === mode;
