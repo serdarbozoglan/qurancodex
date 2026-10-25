@@ -343,7 +343,26 @@ yüksek etki varsayımıyla başta tutulmuştu, bu yalnız sezgiydi):
 
 ## C — Mega-Menü Kademeli/Önceliklendirilmiş Gösterim (iki platformda)
 
-> ⚠ **astra'nın 2. tur düzeltmesi:** keşif turunda "66 araç/atlas/graf
+> **Gerçek sayım + canlı inceleme (2026-10-25):** Keşfet 26, Araçlar 23,
+> Tefekkür 7 link (**53 değil** — o rakam toplam makale kataloğu, navbar
+> zaten küratörlü). **Masaüstü mega-menüler zaten görev/konu-bazlı
+> gruplanmış** (Araçlar: Görselleştirme/Analiz & Veri/Araştırma & Keşif
+> sütunları, altta "TÜM ARAÇLAR →"; Keşfet: 4 tematik sütun, ikon+açıklama)
+> — bu madde masaüstü için **büyük ölçüde zaten karşılanmış**, dokunmaya
+> gerek yok.
+>
+> **Gerçek fırsat mobilde:** Hamburger menü masaüstündeki sütunlu yapıyı
+> KORUMUYOR — KEŞFET (26) → ARAÇLAR (23) → TEFEKKÜR (6 kategori) hepsi tek
+> uzun düz liste halinde art arda akıyor, **hiç daraltma/accordion yok**.
+> Ölçülen: drawer toplam **~4.693px (~6.4 mobil ekran)**. Bu, planın
+> orijinal "4-5 öne çıkan + tümünü gör" önerisinin tam uygulanabileceği
+> gerçek bir yer — SixGates/AlanlarPortal/masaüstü menüler gibi "aslında
+> sorun yokmuş" çıkmadı.
+>
+> ⚠ **Şu an `src/` kilitli** (içerik agent'ının canlı denetim zinciri
+> koşuyor, ~10-16 dk, 2026-10-25) — uygulama bu pencere kapanınca başlar.
+
+> ⚠ **astra'nın 2. tur düzeltmesi (eski not, hâlâ geçerli):** keşif turunda "66 araç/atlas/graf
 > **rotası**" (toolCatalog.js'teki toplam route sayısı) ile Araçlar
 > menüsündeki **öğe sayısı** (agent raporuna göre menüde görünen 16+)
 > birbirine karıştırılmıştı — rota sayısı menü öğesi sayısı değildir. Bu
@@ -352,14 +371,25 @@ yüksek etki varsayımıyla başta tutulmuştu, bu yalnız sezgiydi):
 > ilgili menü bileşenlerinden) yeniden saymak; aşağıdaki sayılar bu sayım
 > yapılana kadar **taslak**tır.
 
-### Mobil
-- [ ] Önce gerçek menü öğesi sayılarını doğrula (yukarı bak)
-- [ ] Keşfet / Araçlar / Tefekkür menülerinde mobilde önce 4-5 öne çıkan
-  öğe gösterilir, "tümünü gör" ile doğrulanmış tam listeye genişler
+### Mobil (gerçek fırsat — `src/` kilidi açılınca başla)
+- [x] Gerçek menü öğesi sayıları doğrulandı: Keşfet 26, Araçlar 23,
+  Tefekkür 7 link + alt kategoriler (Keşfet: Dil & Yapı / Retorik & Dua /
+  İnsan & Toplum / Kur'an'ın Evreni; Araçlar: Görselleştirme / Analiz &
+  Veri / Araştırma & Keşif; Tefekkür: 6 kategori)
+- [ ] Her üst bölüm (KEŞFET/ARAÇLAR/TEFEKKÜR) mobilde **accordion/collapse**
+  olur — varsayılan kapalı veya yalnız öne çıkan banner + ilk alt kategori
+  açık, geri kalanı "Tümünü gör"/dokunarak aç. Masaüstünün sütunlu
+  gruplamasını (zaten var, iyi) mobilde accordion başlıkları olarak
+  yeniden kullan — yeni taksonomi icat etme, var olanı katla.
+- [ ] İçerik SİLİNMEZ, SSR'da kalır (§13.31b) — yalnız varsayılan görünürlük
+  CSS/attribute ile kapatılır (native `<details>` tercih, §8'deki
+  accordion dersleriyle tutarlı — bkz. B maddesindeki ScienceTimelineCard
+  erişilebilirlik notları)
 - [ ] `Navbar.jsx` mobil davranışı CSS ile yönetilir (isMobile JS state'i
   yalnız davranış için, düzen için değil — §14.2)
+- [ ] Hedef: 4.693px (~6.4 ekran) → ilk açılışta ~1.500-2.000px (~2-3 ekran)
 
-### Masaüstü (astra görüşü: muaf tutulmaz)
+### Masaüstü (astra görüşü: muaf tutulmaz, ama büyük ölçüde zaten karşılanmış)
 - [ ] Mega-menüler **göreve/niyete göre** öncelikli gruplanır — astra'nın
   3. tur düzeltmesi: "En çok kullanılan" / "Yeni" gibi etiketler görev
   grubu DEĞİLDİR, en fazla ek rozet olarak eklenebilir, görev temelli
