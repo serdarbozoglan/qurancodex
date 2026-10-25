@@ -12,7 +12,10 @@
   "canonicalUrl": "https://sufist.medium.com/anlam-yarat%C4%B1l%C4%B1%C5%9F-ve-senteninin-bariz-i%CC%87mzas%C4%B1-dd2abbbe9a19",
   "tldrTr": "Genomlarda senteni (synteny) denen bir düzen vardır: türler arasında yalnız benzer genler değil, o genlerin aynı sıradaki dizilişi de korunur. Şüpheci itiraz, \"benzer işlev, benzer gen; yaratıcı araçları yeniden kullanmıştır\", benzerliği açıklar ama düzeni açıklamaz. Yazar burada belirleyici noktayı vurgular: bir genin kromozom üzerindeki tam yeri işlevi için genellikle kritik değildir; laboratuvarda gen taşınabilir, gen tedavisi konum belirlemeden, hatta plazmitle gen ekler ve hücre proteini yine üretir. Düzen işlevsel bir zorunluluk değilse, korunmuş olması ortak bir soya işaret eder. Yazarın vardığı sonuç yaratılışı reddetmek değil genişletmektir: yaratılış tek bir an değil, anlamın her doğal sürece dokunduğu sürekli bir yöntemdir.",
   "tldrEn": "Genomes exhibit a pattern known as synteny: across species, not only similar genes are preserved but also the order in which those genes are arranged. The sceptical objection, \"similar function, similar genes; the creator reused his tools\", accounts for the similarity but not for the order. The author presses the decisive point: a gene's exact position on a chromosome is usually not critical to its function; genes can be relocated in the laboratory, and gene therapy inserts genes without specifying a location, even via a plasmid, and the cell still produces the protein. If the ordering is not a functional necessity, its preservation points to common descent. The author's conclusion is not to reject creation but to widen it: creation is not a single instant but a continuous method in which meaning is woven through every natural process.",
-  "relatedTools": ["concept-graph", "reading-mode"],
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
   "relatedVerses": [],
   "previousArticle": null,
   "nextArticle": null,
@@ -301,6 +304,13 @@
       "en": "On the perspective the author invokes, the **common ancestry visible in synteny becomes part of a method chosen by the creator**: a long narrative originating in simple life forms and moving toward beings who reflect on their origins, their meaning and their final purpose. This, in the essay's own words, need not conflict with faith."
     },
     {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: BİLİMSEL DAYANAĞIN YERİ",
+      "headingEn": "Editor's note: where the scientific grounding stands",
+      "tr": "Bu yazı bir bilimsel bulgu ya da modeli dinî veya metafizik bir sonucun dayanağı olarak kullanır. Bu tür sonuçlar bilimsel bulgu veya modelden kendiliğinden çıkmaz; ayrıca gerekçelendirilmesi gereken yorumlardır. Kur'an kesin hakikattir; bildirdiği hakikatler, bilimsel modellerin kabulüne veya değişimine bağlı değildir. Bilimsel bulgular tefekküre vesile olabilir; Kur'an'ın doğruluğunu belirleyen bir ölçüt değildir.",
+      "en": "This essay uses a scientific finding or model as the ground of a religious or metaphysical conclusion. Conclusions of this kind do not follow on their own from a scientific finding or model; they are interpretations that need separate justification. The Quran is certain truth; what it states does not depend on scientific models being accepted or revised. Scientific findings may be an occasion for reflection; they are not a criterion that settles the truth of the Quran."
+    },
+    {
       "type": "section",
       "id": "insan-hikayesi",
       "titleTr": "İnsan Hikâyesini Yeniden Yorumlamak",
@@ -388,8 +398,8 @@
       "type": "criticalNote",
       "headingTr": "Yazar hakkında · küme",
       "headingEn": "About the author · cluster",
-      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Yazı, yazarın Medium'da *Yaratılış Hikâyesi* adıyla topladığı okuma listesinde yer alır; aynı listedeki diğer yazılar sitede mevcuttur: evrim üçlemesi (*Hâlâ mı Evrim?*, ardından *Evrim Dinsizliği Yayma Projesidir!*, ardından *Evrim, İnanç ve Aklımızdaki Resimler*) ve Yaratılış Hikâyesi 1-2. Metindeki ERV/ortak ata tartışmasının devamı *Hâlâ mı Evrim?* yazısında bulunabilir.",
-      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. It belongs to the reading list the author gathered on Medium under the name *The Story of Creation*; the other pieces in that list are available here: the evolution trilogy (*Evolution, Again?*, then *Evolution Is a Project to Spread Godlessness!*, then *Evolution, Belief and the Pictures in Our Minds*) and The Story of Creation 1-2. The continuation of the ERV / common-ancestry discussion touched on here may be found in *Evolution, Again?*"
+      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır. Yazı, yazarın Medium'da *Yaratılış Hikâyesi* adıyla topladığı okuma listesinde yer alır; aynı listedeki diğer yazılar sitede mevcuttur: evrim üçlemesi (*Hâlâ mı Evrim?*, ardından *Evrim Dinsizliği Yayma Projesidir!*, ardından *Evrim, İnanç ve Aklımızdaki Resimler*) ve Yaratılış Hikâyesi 1-2. Metindeki ERV/ortak ata tartışmasının devamı *Hâlâ mı Evrim?* yazısında bulunabilir.",
+      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium. It belongs to the reading list the author gathered on Medium under the name *The Story of Creation*; the other pieces in that list are available here: the evolution trilogy (*Evolution, Again?*, then *Evolution Is a Project to Spread Godlessness!*, then *Evolution, Belief and the Pictures in Our Minds*) and The Story of Creation 1-2. The continuation of the ERV / common-ancestry discussion touched on here may be found in *Evolution, Again?*"
     }
   ]
 }

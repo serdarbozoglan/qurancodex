@@ -307,6 +307,13 @@
       "en": "**Every** system of which we have partial knowledge is local in proportion to that deficiency; hence we necessarily explain it using random variables. The indeterminacy of quantum mechanics likewise indicates that the cosmos is not a closed system; that this must be an uncertainty arising from a deficiency of knowledge at the most fundamental level, since it cannot enclose the choice and will of the Creator."
     },
     {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: BELİRSİZLİK İLKESİ NE SÖYLER",
+      "headingEn": "Editor's note: what the uncertainty principle states",
+      "tr": "Heisenberg belirsizlik ilkesi, eşlenik niceliklerin (konum ile momentum gibi) aynı anda ne kadar keskin tanımlanabileceğine bir sınır koyar. Standart kuantum mekaniğinde bu sınır yalnızca gözlemcinin bilgi eksikliğine indirgenmez; kuramın kendi yapısından gelir ve kâinatın dışarıdan bir etkiye açık olup olmadığı hakkında bir şey söylemez: yalıtılmış bir sistemin kuantum betimlemesinde de aynı bağıntı geçerlidir. Paragrafın başındaki “kısmî bilgiye sahip olduğumuz her sistem lokaldir” ve “mutlaka rastgele değişken kullanırız” genellemeleri de fizikte bu şekilde kurulmaz. Buradaki çıkarım yazarın yorumudur.",
+      "en": "Heisenberg's uncertainty principle sets a limit on how sharply conjugate quantities (such as position and momentum) can be defined at the same time. In standard quantum mechanics this limit is not reducible to the observer's lack of information alone; it follows from the structure of the theory, and it says nothing about whether the universe is open to an influence from outside: the same relation holds in the quantum description of an isolated system as well. The generalisations at the start of the paragraph, that every system we know partially is local and that we must use a random variable, are not framed this way in physics either. The inference here is the author's own interpretation."
+    },
+    {
       "type": "section",
       "id": "sonuc",
       "titleTr": "Şimdilik Sonuç",

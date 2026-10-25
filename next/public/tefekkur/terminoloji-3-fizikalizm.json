@@ -248,6 +248,13 @@
       "en": "The **measurement problem** in quantum mechanics points to this basic role too: through the act of measurement the observer determines the state of the system. This forces us to admit the observer as a distinct and fundamental existent: an information-processing system irreducible to anything else. That the observer plays a significant part in shaping reality challenges physicalism's simple reductionism head-on. We will treat this in more detail later."
     },
     {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: ÖLÇÜM PROBLEMİ VE GÖZLEMCİ",
+      "headingEn": "Editor's note: the measurement problem and the observer",
+      "tr": "Dekoherans, bilinçli bir gözlemci varsaymadan, sistem ile çevre arasındaki etkileşim üzerinden girişimin bastırılmasını açıklar; ancak ölçüm problemini tek başına bütünüyle çözmez. Çok-dünyalar yorumunda çöküş hiç kabul edilmez; de Broglie-Bohm yorumunda parçacıkların konumu her an belirlidir. Bu yorumlar, gözlemciyi indirgenemez ayrı bir varlık saymayı gerektirmez; “gözlemciyi ayrı ve temel bir varlık kabul etmeye zorlar” sonucu kuramdan zorunlu olarak çıkmaz.",
+      "en": "Decoherence explains the suppression of interference through the interaction between a system and its environment, without assuming a conscious observer; it does not, on its own, fully resolve the measurement problem. The many-worlds interpretation admits no collapse at all; in the de Broglie-Bohm interpretation particles have definite positions at every moment. These interpretations do not require treating the observer as an irreducible separate entity, so the conclusion that the measurement problem forces us to do so does not follow from the theory."
+    },
+    {
       "type": "section",
       "id": "sonuc",
       "titleTr": "Sonuç",

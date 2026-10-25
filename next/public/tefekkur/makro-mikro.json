@@ -228,6 +228,13 @@
       "en": "Here Felsufi joins **complexity-science** and statistical-mechanics concepts (microstate / macrostate, aggregate vs emergent, phase transition) with the Quranic concepts of tesviye and taqdīr. This is a contemporary reading-experiment: classical tafsīr (Rāzī, Qurṭubī, Ibn Kathīr) does not employ terms like emergence or phase transition. The aim is not verse-tafsīr but to offer the modern reader a cognitive tool that makes Quranic concepts re-speakable within a contemporary mental map. The tool's accuracy must be tested against verse-context."
     },
     {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: BİLİMSEL DAYANAĞIN YERİ",
+      "headingEn": "Editor's note: where the scientific grounding stands",
+      "tr": "Bu yazı bir bilimsel bulgu ya da modeli dinî veya metafizik bir sonucun dayanağı olarak kullanır. Bu tür sonuçlar bilimsel bulgu veya modelden kendiliğinden çıkmaz; ayrıca gerekçelendirilmesi gereken yorumlardır. Kur'an kesin hakikattir; bildirdiği hakikatler, bilimsel modellerin kabulüne veya değişimine bağlı değildir. Bilimsel bulgular tefekküre vesile olabilir; Kur'an'ın doğruluğunu belirleyen bir ölçüt değildir.",
+      "en": "This essay uses a scientific finding or model as the ground of a religious or metaphysical conclusion. Conclusions of this kind do not follow on their own from a scientific finding or model; they are interpretations that need separate justification. The Quran is certain truth; what it states does not depend on scientific models being accepted or revised. Scientific findings may be an occasion for reflection; they are not a criterion that settles the truth of the Quran."
+    },
+    {
       "type": "pullQuote",
       "tr": "Uzun ama zevkli bir yolculuk bu. Makro ve mikro durumlar, emergence ve faz geçişi gibi kavramların **hayatın anlamını ve kaderini anlamada nasıl birer zihin aracı olabileceğini** keşfetmemizi sağlayacak. Bu sayede, insanın kâinattaki yerini ve şuur, irade gibi kavramlarla olan bağlantısını daha iyi kavramayı hedefliyoruz.",
       "en": "A long but enjoyable journey. Concepts such as macro/micro states, emergence, and phase transition will let us discover **how they may serve as cognitive tools in understanding the meaning of life and destiny**. By this means we aim to grasp the human's place in the cosmos, and the link between concepts such as consciousness and will.",

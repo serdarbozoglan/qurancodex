@@ -81,6 +81,13 @@
       "en": "ERVs are inherited genetic traces of viruses that once integrated into our ancestors' DNA and were passed down through generations. Finding the same ERVs at the same synteny in two species is among the clearest evidences of a shared evolutionary process."
     },
     {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: BİLİMSEL DAYANAĞIN YERİ",
+      "headingEn": "Editor's note: where the scientific grounding stands",
+      "tr": "Bu bölüm, endojen retrovirüs izleri gibi bulguları ve bu bulguları açıklayan ortak atalık modelini dinî bir sonucun dayanağı olarak kullanır. Bu tür sonuçlar bilimsel bulgu veya modelden kendiliğinden çıkmaz; ayrıca gerekçelendirilmesi gereken yorumlardır. Kur'an kesin hakikattir; bildirdiği hakikatler, bilimsel modellerin kabulüne veya değişimine bağlı değildir. Bilimsel bulgular tefekküre vesile olabilir; Kur'an'ın doğruluğunu belirleyen bir ölçüt değildir.",
+      "en": "This section uses findings such as endogenous retrovirus traces, and the common-ancestry model that explains them, as the ground of a religious conclusion. Conclusions of this kind do not follow on their own from a scientific finding or model; they are interpretations that need separate justification. The Quran is certain truth; what it states does not depend on scientific models being accepted or revised. Scientific findings may be an occasion for reflection; they are not a criterion that settles the truth of the Quran."
+    },
+    {
       "type": "section",
       "id": "tutarlilik",
       "titleTr": "Tutarlı Olmak: Tevhid ve Evrim",
@@ -181,6 +188,13 @@
       "type": "paragraph",
       "tr": "Tarih boyunca evrimi kabul eden çok sayıda Müslüman âlim olmuştur; hatta Darwin'den önce bile *“Mohammedan Theory of Evolution”* diye anılan görüşler mevcuttur. İslâm tarihinde âlimlerin çok büyük kısmı, hayvanların ve insanların **manevî evrimleri** olduğu ve bu süreçte bazı hayvan tabakalarından geçildiği konusunda hemfikirdir; bir kısmı biyolojik olarak da böyle bir süreci savunur.\n\nMuhammed Hamîdullah · Muhammed İkbal · Seyyid Emîr Ali · İsmail Hakkı İzmirli · Maurice Bucaille · Muhammed Esed · Bahaeddin Sağlam · Süleyman Ateş · Cafer Sadık Yaran · Mehmed Bayraktar · İsmail Yakıt · Shabir Ally; bu isimler evrimi, yaratılışı anlamanın bir yolu olarak görmüştür.",
       "en": "Many Muslim scholars through history have accepted evolution; indeed even before Darwin there were views known as the “Mohammedan Theory of Evolution.” The great majority of scholars in Islamic history agree that animals and humans undergo a **spiritual evolution**, passing through certain animal strata in the process; some defend such a process biologically as well.\n\nMuhammad Hamidullah · Muhammad Iqbal · Syed Ameer Ali · İsmail Hakkı İzmirli · Maurice Bucaille · Muhammad Asad · Bahaeddin Sağlam · Süleyman Ateş · Cafer Sadık Yaran · Mehmed Bayraktar · İsmail Yakıt · Shabir Ally; these have seen evolution as one way of understanding creation."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: LİSTEDEKİ NİTELEMELER VE ÇOĞUNLUK İDDİASI",
+      "headingEn": "Editor's note: the labels in the list and the claim of majority",
+      "tr": "Maurice Bucaille'ı “Müslüman âlim” olarak niteleyen ve onun evrimi yaratılışı anlamanın bir yolu olarak gördüğü iddiasını destekleyen kaynaklar bu yazıda gösterilmemiştir. Bu nedenle adının listede bu görüşün temsilcisi olarak yer alması ayrıca kaynaklandırılmalıdır.\n\nListedeki diğer isimler için de hangisinin manevî tekâmülü, hangisinin biyolojik evrimi, hangisinin insanın ortak atadan gelişini benimsediği ayrı ayrı gösterilmemiştir; bu üç görüş aynı şey değildir. Aynı paragraftaki “âlimlerin çok büyük kısmı hemfikirdir” ifadesi ile Darwin öncesine nisbet edilen “Mohammedan Theory of Evolution” adlandırması da kaynaklandırılmamıştır.",
+      "en": "The sources that would support calling Maurice Bucaille a Muslim scholar, and the claim that he saw evolution as a way of understanding creation, are not given in this essay. His name standing in the list as a representative of that view therefore needs separate grounding.\n\nFor the other names, the essay does not show which of them holds spiritual ascent, which holds biological evolution, and which holds the common descent of humans; these are three different positions. The same paragraph's claim that the great majority of scholars agree, and the label “Mohammedan Theory of Evolution” ascribed to the period before Darwin, are likewise not sourced."
     },
     {
       "type": "section",

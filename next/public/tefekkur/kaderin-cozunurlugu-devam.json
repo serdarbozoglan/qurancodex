@@ -76,8 +76,8 @@
           "accent": "#9b59b6",
           "children": [
             {
-              "tr": "*“Açık sistem”* fikrini **bilimsel zemine** taşır",
-              "en": "Carries the idea of an “open system” onto **scientific ground**"
+              "tr": "*“Açık sistem”* fikrini **kuantum kavramlarıyla** yorumlar",
+              "en": "Interprets the idea of an “open system” **using quantum concepts**"
             }
           ]
         }
@@ -374,6 +374,13 @@
       "en": "The quantum **wave function (ψ)** maps the possible states, but does not determine which will be realised. Definiteness arises from the joint interaction of observation + system + environment. The author's conclusion: the electron's final state is the destiny not only of *“the electron”* but of the rest of the universe as well. So long as the system is open, the notion of a *“fully definite state”* never becomes more than a theoretical limit."
     },
     {
+      "type": "criticalNote",
+      "headingTr": "EDİTÖR NOTU: BİLİMSEL DAYANAĞIN YERİ",
+      "headingEn": "Editor's note: where the scientific grounding stands",
+      "tr": "Bu yazı bir bilimsel bulgu ya da modeli dinî veya metafizik bir sonucun dayanağı olarak kullanır. Bu tür sonuçlar bilimsel bulgu veya modelden kendiliğinden çıkmaz; ayrıca gerekçelendirilmesi gereken yorumlardır. Kur'an kesin hakikattir; bildirdiği hakikatler, bilimsel modellerin kabulüne veya değişimine bağlı değildir. Bilimsel bulgular tefekküre vesile olabilir; Kur'an'ın doğruluğunu belirleyen bir ölçüt değildir.",
+      "en": "This essay uses a scientific finding or model as the ground of a religious or metaphysical conclusion. Conclusions of this kind do not follow on their own from a scientific finding or model; they are interpretations that need separate justification. The Quran is certain truth; what it states does not depend on scientific models being accepted or revised. Scientific findings may be an occasion for reflection; they are not a criterion that settles the truth of the Quran."
+    },
+    {
       "type": "section",
       "id": "genel-sonuc",
       "titleTr": "Genel Sonuç",
@@ -414,13 +421,13 @@
         },
         {
           "id": "s3",
-          "labelTr": "3 · Zemine taşır",
-          "labelEn": "3 · It grounds",
+          "labelTr": "3 · Kuantum kavramlarıyla yorum",
+          "labelEn": "3 · Interpretation using quantum concepts",
           "accent": "#9b59b6",
           "children": [
             {
-              "tr": "**Kuantum fiziği** sayesinde *“açık sistem”* fikrini bilimsel zemine taşır",
-              "en": "Through **quantum physics** it carries the idea of an “open system” onto scientific ground"
+              "tr": "**Kuantum fiziği** üzerinden *“açık sistem”* fikrini yorumlar",
+              "en": "Through **quantum physics** it interprets the idea of an “open system”"
             }
           ]
         }
@@ -435,8 +442,8 @@
       "type": "criticalNote",
       "headingTr": "Yazar hakkında · seri",
       "headingEn": "About the author · series",
-      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Metinde anılan iki rivayetin kaynakları yazarın verdiği şekliyle korunmuştur (Tirmizî, Tıb 21; Buhârî, Tıb 30 ve Müslim, Selâm 98). *Kalem-i kader* tabiri Bediüzzaman Saîd Nursî'ye aittir. Yazının ilk kısmı için sitedeki Terminoloji 7 yazısına bakınız; *emergence* ve faz geçişi kavramları Terminoloji 5: Makro/Mikro Durumlar yazısında ayrıntılandırılmıştır.",
-      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. The sources of the two narrations cited are preserved as the author gave them (Tirmidhī, Ṭibb 21; Bukhārī, Ṭibb 30 and Muslim, Salām 98). The phrase *the pen of destiny* belongs to Bediüzzaman Said Nursi. For the first part of this essay see Terminology 7 on this site; the notions of *emergence* and phase transition are developed at length in Terminology 5: Macro/Micro States."
+      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır. Metinde anılan iki rivayetin kaynakları yazarın verdiği şekliyle korunmuştur (Tirmizî, Tıb 21; Buhârî, Tıb 30 ve Müslim, Selâm 98). *Kalem-i kader* tabiri Bediüzzaman Saîd Nursî'ye aittir. Yazının ilk kısmı için sitedeki Terminoloji 7 yazısına bakınız; *emergence* ve faz geçişi kavramları Terminoloji 5: Makro/Mikro Durumlar yazısında ayrıntılandırılmıştır.",
+      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium. The sources of the two narrations cited are preserved as the author gave them (Tirmidhī, Ṭibb 21; Bukhārī, Ṭibb 30 and Muslim, Salām 98). The phrase *the pen of destiny* belongs to Bediüzzaman Said Nursi. For the first part of this essay see Terminology 7 on this site; the notions of *emergence* and phase transition are developed at length in Terminology 5: Macro/Micro States."
     }
   ]
 }
