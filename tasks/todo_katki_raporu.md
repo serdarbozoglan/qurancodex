@@ -565,41 +565,96 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 > Kur'an kesin hakikattir; sınırı olan, ona dışarıdan yüklenen beşerî
 > yorumdur. Planlama notlarında bile Kur'an'ı özne yapan bir ifade
 > kullanılmaz.
-- [ ] Bilimsel İşaretler sayfası kendi 5. ilkesinde "uyum vermeyenler
-      görmezden gelinmemeli" diyor, ama 16 kartın hepsi uyum veren örnek.
-- [ ] 5. ilke yeniden yazılsın (astra'nın önerdiği metin): *"Bilimsel
-      eşleştirmelerde seçmeci davranılmaz; önerilen yorumların dayanakları,
-      sınırları ve uyuşmazlıkları açıkça belirtilir. Değerlendirilen, Kur'an'ın
-      doğruluğu değil, eşleştirmenin isabetidir."*
-- [ ] Kehf 18:86 ele alınacaksa tefsir kaynakları **doğrudan kontrol edilerek**
-      verilsin; "klasik müfessirler böyle açıklar" diye kaynaksız genelleme
-      yapılmasın.
+- [x] Bilimsel İşaretler sayfası kendi ilkesinde "uyum vermeyenler görmezden
+      gelinmemeli" diyor, ama 16 kartın hepsi uyum veren örnek (`c318fa21`).
+      ⚠ Künye düzeltmesi: rapor "5. ilke" diyor, o cümle listenin
+      **DÖRDÜNCÜ** maddesiymiş. İlkeler artık bileşende sabit metin değil,
+      veri dosyasında.
+- [x] İlke yeniden yazıldı (`c318fa21`). Astra 1. ve 3. ilkeyi de düzeltti:
+      "Kur'ân'ın metaforik dili" nitelemesi hakiki anlatımları da mecaza
+      sokuyordu; 3. ilkede ölçünün neye uygulandığı belirsizdi. 5. ilke için
+      "çelişmiyor, kalsın" dedi.
+- [x] "Yorum sınırları ve bağlam" bölümü eklendi, Kehf 18:86 örneğiyle
+      (`c318fa21`). İki tefsir **birinci elden okundu**: İbn Kesîr'in muhtasar
+      metni ve Elmalılı (sitenin kendi arşivinden). Râzî, Zemahşerî ve
+      Kurtubî'nin 18:86 sözleri doğrulanamadı, **hiçbiri anılmadı**;
+      "klasik müfessirler böyle açıklar" genellemesi kurulmadı. Baskı ve
+      yayınevi bilgisi elde olmadığı için uydurulmadı, künyede bu durum
+      yazılı. Astra'nın ısrarıyla çalışan bir iç bağlantı kondu.
 
 ### 3.2 Güç etiketleri
 > **Astra:** DEĞİŞTİREREK UYGULA. "Güçlü/Muhtemel/Kesin" aynı düzlemde değil
 > (dayanak derecesi / olasılık / kesinlik). Yerine yazılı tanımlı
 > **"Doğrudan bulgu / Dolaylı ilişkilendirme / Tartışmalı yorum"**.
-- [ ] Her kartta bulgu ile onunla kurulan ilişki ayrılsın.
-- [ ] "Edne'l-arz = Ölü Deniz" kartı: kendi kutusu dayanağı reddediyorsa
-      "Güçlü" korunamaz. "İlk itirazda düştü" ifadesi polemikçi; somut itiraz
-      yazılsın.
-- [ ] Birmingham: asıl nüans aralık olması değil — **radyokarbon parşömeni
-      tarihler, mürekkebi veya yazıya geçirilişi değil**.
-- [ ] Semûd "Güçlü" ↔ kutu "Nabatî anıtlarını bizzat yaptığı iddia
-      edilmemelidir"; İrem "Muhtemel" ↔ İrem-Ubar eşlemesi akademide kabul
-      görmüş değil.
-- [ ] "Kanıt" kelimesi gözden geçirilsin — ama astra uyarısı: **mekanik olarak
-      "örtüşme"ye çevirme**; tarihsel olgu için kullanılan "kanıt" meşru.
+- [x] Bulgu ile ilişki ayrıldı (`1aae37f4`). Tek `summary` alanı yerine
+      "Bulgu" ve "Âyetle kurulan ilişki" ayrı etiketli bloklar. Etiket
+      üçlüsü de değişti: astra benim "doğrudan bulgu" ve "tartışmalı yorum"
+      adlarımı düzeltti → **"doğrudan ilişkilendirme"** (ölçülen şey
+      bulgunun doğrudanlığı değil, ilişkinin niteliği) ve **"tartışmalı
+      eşleştirme"** (tartışmalı olan, önerilen özdeşleştirme).
+      Dağılım: 6 dolaylı, 4 tartışmalı, **0 doğrudan**. Astra "kartları
+      kategoriye zorlamayın" dedi; etiket tanımlı duruyor ve
+      "kullanılmamıştır" notu veriden hesaplanıyor, bayatlamaz.
+- [x] Edne'l-arz (`1aae37f4`). **Astra beni burada düzeltti:** ben "dolaylı"
+      demiştim, oysa sorun kelime anlamı değil, savaş coğrafyasının Ölü Deniz
+      havzasıyla özdeşleştirilmesi → **tartışmalı eşleştirme**. Polemikçi
+      ifade kaldırıldı, somut itiraz yazıldı.
+- [x] Birmingham (`1aae37f4`). Nüans buna çevrildi. Etiket "Kesin" → dolaylı:
+      yazmanın varlığı ile Hicr 15:9'un bildirdiği koruma arasındaki bağ bir
+      çıkarım. Radyokarbon **yüzdesi kaldırıldı**: duyurunun %95 mi %95,4 mü
+      verdiği doğrulanamadı, astra yuvarlamayı yasakladı; aralık duruyor.
+      Doğrulanamadığı için silinenler: "batı akademisyenlerinin geniş
+      uzlaşısı", "Wansbrough teorisi terk edilmiştir", "250+ elyazması".
+      Yerine Sadeghi (2010) ve Sinai (2017) kendi iddialarıyla anılıyor.
+      ⚠ **Bende kalan:** `src/i18n/tr.json` ve `en.json` 834. satır
+      Birmingham için Wikipedia künyesi veriyor (§13.35 Wikipedia künye
+      saymıyor). B ajanının alanı dışındaydı, dokunulmadı.
+- [x] Semûd ve İrem (`1aae37f4`). Semûd kutusuyla uyumlandı (dolaylı);
+      İrem iki basamaklı bir eşleştirme olduğu için tartışmalı. Başlık da
+      değişti: "İrem Şehri" İrem'in şehir olduğunu peşinen sabitliyordu →
+      "İrem (Zâtü'l-İmâd) ve Ubar Eşleştirmesi". Semûd kartından
+      doğrulanamayan iki iddia **silindi**: UNESCO'nun bağı "kültürel
+      süreklilik" çerçevesinde kabul ettiği ve "3000+ Thamūdic yazıt" sayısı.
+      Astra silmeyi onayladı: "kaynak bekleniyor işaretiyle yayımlamak
+      iddiayı dolaşımda tutar."
+      Dinî bakımdan iki başlık daha değişti: "Rûm Sûresi Kehâneti" → "Rûm
+      Sûresinde Bildirilen Galibiyet", kategori "Tarih-Öncesi Kehânet" →
+      "Geleceğe Dair Haberler".
+- [x] "Kanıt" geçişleri **tek tek** değerlendirildi, toplu değiştirme
+      yapılmadı (`1aae37f4`): 7'si değişti, 6'sı korundu. Korunanların
+      hepsinde kelimenin nesnesi ya bir argüman ya da olumsuzlama ("ispat
+      olarak konulmamıştır"). Sekme adı "Kanıtlar" → "İzler" (§13.24 başlık
+      dili yasağı; sayfanın adı zaten "Tarihsel İzler").
 
 ### 3.3 Nüans ana metne taşınsın
 > **Astra:** DEĞİŞTİREREK UYGULA — ama asıl çözüm kutuya uyarı eklemek değil,
 > **ana iddiayı baştan doğru kurmak**.
-- [ ] Zerre (99:7-8): ana metin "'atom ölçeğinde' anlamına gelir" ↔ kutu
-      "kesin bir modern iddia değil". Astra'nın önerdiği ana metin: *"'Zerre',
-      çok küçük bir miktarı ifade eder; kelimeyi burada doğrudan modern atom
-      kavramıyla özdeşleştirmek isabetli değildir."*
-- [ ] Zümer 39:5: ana metin "düz-yer modelinde olamayacak bir olgu" ↔ kutu
-      "delil kurmak hem gereksiz hem zayıftır".
+- [x] Zerre (`c318fa21`). Ana metin kutuyla uyumlandı; **başlık da** değişti,
+      çünkü eski başlık tam reddedilen özdeşleştirmeyi ilan ediyordu.
+      Astra üç bulgu daha verdi: Zilzâl ile Sebe'nin vurguları ayrı (biri
+      amelin karşılıksız kalmaması, öteki Allah'ın ilminden gizli kalmaması),
+      lügat iddiası kaynaklandı, "mutlak ret"e kaçılmadı.
+      **Doğrulanan yan bulgu:** Elmalılı Sebe 34:3'te atom ve elektronu
+      zerreden KÜÇÜK olanlar arasında anıyor, yani müfessirin kendisi zerre
+      ile atomu özdeşleştirmiyor. Kart Keşif Çizelgesi'nden çıkarıldı:
+      1897'ye yerleştirmek reddedilen eşleştirmeyi görsel olarak yeniden
+      kuruyordu (12 → 11 kart). Kart ayrıca yeni açılan **"Dil ve Yorum"**
+      alanına taşındı; "astronomi" etiketinde durması astra'ya göre
+      "yayımdan önce düzeltilmeli"ydi (kullanıcı onayıyla altıncı alan).
+- [x] Zümer 39:5 (`c318fa21`). "Düz-yer modelinde olamayacak olgu" ve
+      "sarma fiili küresel modelle uyumludur" kalktı. Astra kutuyu da
+      düzeltti: "küresel bir tasavvura uygundur" dışlayıcı, "ilk itirazda
+      düşer" polemikçiydi. Dilbilgisi düzeltmesi: `kevvera` kök değil,
+      âyetteki biçim **yükevviru**, kök k-v-r.
+      **İbn Kesîr'in muhtasar metni 39:5 için okundu:** vurgu gece ile
+      gündüzün aralıksız nöbetleşmesi (A'râf 7:54 ile birlikte). Kart artık
+      klasik okumanın bu olduğunu, küresellik ilişkisinin ise ayrıca
+      gerekçelendirilmesi gereken bir yorum olduğunu söylüyor.
+      Doğrulanamayan Râzî ve Elmalılı atıfları kaynak satırından çıkarıldı.
+      "1543'ten önce biliniyordu" önermesi de çıkarıldı (astra: bu, nüzul
+      döneminde biliniyordu önermesini temellendirmez) ve kaynaksız "Antik
+      Yunan'a kadar geri" ibaresiyle Kopernik satırı silindi (güneş
+      merkezlilik ile yerin biçimi aynı mesele değil).
 - [x] **Aruzun 16 vezni artık 7. yüzyıla tarihlenmiyor** (`751dcd17`).
       Rapor tek yeri bildirdi, ölçünce iddia **beş** yerde çıktı; bölümün
       giriş metni ise iki dilde de ZATEN doğruydu, yani sayfa kendi içinde
@@ -634,43 +689,91 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
 - [ ] Kur'an'ı Tanı: "asla rastlantı olamayacak denklikler" ve "Eksiklik
       fazlalıkla dengelendi" → kendi Sayılar sayfamızın "örüntü çıkarmaz"
       ilkesiyle çelişiyor.
-- [ ] Önce başlık ve ana metin düzelsin; sonra kısa nüans kapalı görünümde de
-      görünsün. Gri satır düşük kontrastla okunamaz hâle gelmesin (§13.26).
+- [x] Nüans kapalı görünümde de görünüyor (`c318fa21`). "Kritik Nüans"
+      açılır bölümden çıkarılıp kart gövdesine alındı; düğmenin arkasında
+      yalnız Kaynaklar kaldı. Kutu adı "Yorum Notu". Metin kart ana metin
+      renginde ve **tam opak**: §13.26 gereği opaklık verilmedi, kademe
+      seçildi. Kısaltma veya ilk-cümle kesme yapılmadı.
 
 ### 3.4 Tefekkür yazıları
 > **Astra:** DEĞİŞTİREREK UYGULA. "İmzalı görüşe saygı, olgusal yanlışları
 > düzeltmeden yayımlama muafiyeti sağlamaz." Önce **yazar onayıyla metin
 > düzeltilsin**; özgün metin aynen korunacaksa hatanın **yanına** editör notu.
 > §13.24'ün tefekkür muafiyeti GÖRÜŞÜ korur, OLGUYU değil.
-- [ ] Bucaille evrimi kabul eden "Müslüman âlimler" listesinde → "Fransız
+- [x] Bucaille evrimi kabul eden "Müslüman âlimler" listesinde → "Fransız
       hekim ve yazar". "Müslüman âlim" nitelemesi ayrı dayanak ister; evrim
       görüşü de ayrıca incelenmeli.
-- [ ] Terminoloji-1: "kuantum belirsizliği kâinatın kapalı sistem olmadığını
+- [x] Terminoloji-1: "kuantum belirsizliği kâinatın kapalı sistem olmadığını
       gösterir" → bu sonuç belirsizlikten çıkmaz.
-- [ ] Terminoloji-3: ölçüm problemi "gözlemciyi ayrı bir varlık kabul etmeye
+- [x] Terminoloji-3: ölçüm problemi "gözlemciyi ayrı bir varlık kabul etmeye
       zorlar" → dekoherans, çok-dünya ve Bohm yorumları bilinçli gözlemci
       gerektirmez.
-- [ ] Kader yazısı "bilimsel zemine taşır".
-- [ ] "İslâm tarihinde âlimlerin çok büyük kısmı hemfikirdir" → kaynaklandır
+- [x] Kader yazısı "bilimsel zemine taşır".
+- [x] "İslâm tarihinde âlimlerin çok büyük kısmı hemfikirdir" → kaynaklandır
       ya da kapsamı daralt.
-- [ ] Terminoloji-4: "Eş'arîlerin cüz-ü lâ yetecezzâsı uzayın içinde değildir"
+- [x] Terminoloji-4: "Eş'arîlerin cüz-ü lâ yetecezzâsı uzayın içinde değildir"
       → klasik kelâmda cevher-i ferd tanım gereği mütehayyizdir. Çağdaş yorum
       olarak etiketlensin.
-- [ ] Sema-İsim: "isim ile semâ aynı س-م-و kökünden" olgu gibi veriliyor;
+- [x] Sema-İsim: "isim ile semâ aynı س-م-و kökünden" olgu gibi veriliyor;
       bu **Basra** dilcilerinin görüşü, Kûfeliler و-س-م'den türetir
       (İbnü'l-Enbârî, el-İnsâf).
-- [ ] Rahmetin Grameri-2: "hukuk çekirdeği mimarinin tam merkezinde" →
+- [x] Rahmetin Grameri-2: "hukuk çekirdeği mimarinin tam merkezinde" →
       Bakara'nın orta âyeti 2:143; aile hukuku (2:221-242) %77-85 aralığında.
       Site içinde üç ayrı "merkez" var (Farrin'in kıble bölümü, 2:255 "kalbi").
-- [ ] Rahmetin Grameri-5: İbn Arabî'ye atfedilen "üç talâk = üç kopuş" için
+- [x] Rahmetin Grameri-5: İbn Arabî'ye atfedilen "üç talâk = üç kopuş" için
       Fütûhât'tan yer gösterilsin. Serinin hiçbir yazısında editör kutusu yok.
-- [ ] "Editoryal hakemlik uygulanmadı" notu yazının **başına** taşınsın.
-- [ ] Bilim içeren yazılara "bilim notu" — astra: **her yazıya otomatik değil,
+- [x] "Editoryal hakemlik uygulanmadı" notu yazının **başına** taşınsın.
+- [x] Bilim içeren yazılara "bilim notu" — astra: **her yazıya otomatik değil,
       gerekli yerlere**.
-- [ ] "Geçmiş Klasik, Gelecek Kuantum" yazısının hiç Kur'an içeriği yok →
+- [x] "Geçmiş Klasik, Gelecek Kuantum" yazısının hiç Kur'an içeriği yok →
       kategori içerik esas alınarak düzenlensin.
 - [ ] Graf sayfaları (Semantik Harita, Âyet Grafiği): üstte tek cümle — "Bu
       gruplar makine hesabıdır, tefsir değildir."
+
+**Sonuç (`2485422e`): yazarın tek bir cümlesi değişmedi.** Kullanıcı kararı
+(2026-10-25): metne dokunulmaz, olgusal hatanın YANINA site imzalı editör
+notu konur. Doğruladım: silinen her satır site metniydi (şema etiketi,
+disclaimer kutusu, kategori alanı); yazarın blokları olduğu gibi duruyor.
+Yeni desen icat edilmedi, `criticalNote` bloğu ve "Editör notu" imzası
+zaten vardı.
+
+**Astra iki tur döndü ve beni şurada düzeltti:**
+- Dekoherans hakkında fazla güçlü yazmışım ("çevreyle etkileşim yeterlidir");
+  doğrusu girişimin bastırılmasını açıklar, ölçüm problemini tek başına
+  çözmez.
+- Bilim notu ölçütüm yanlıştı: "âyet bloğu yok" elemeyi haklı çıkarmaz.
+  Ölçüt değişti, liste 1'den **7 yazıya** çıktı. ⚠ Astra ölçütü onayladı
+  ama listeyi TASDİK ETMEDİ (tam metinleri görmedi).
+- "Nisbet edilir" dili bile doğrulanmış bir atıf geleneği izlenimi veriyor
+  → "kaynağı doğrulanamamıştır".
+- %77-85 "son çeyreğe yakın" değil, son çeyreğin **içinde**.
+- "Editoryal hakemlik uygulanmamıştır" cümlesi yaptığımız olgusal
+  incelemeyle ÇELİŞİYOR → kutu yeniden yazıldı.
+
+**Ölçümle çıkan iki şey:**
+- "Site editoryal bir hakemlik uygulamamıştır" cümlesi yalnız **3 yazıda**
+  ve hepsinde **sonda** duruyordu; kalan 50 yazıda hiç yoktu. Cümle o üç
+  kutudan çıkarıldı, her yazının başında zaten duran şeffaflık kutusu
+  yeniden yazıldı; artık 53 yazının hepsi başta görüyor. Yeni metin şunu da
+  diyor: editör notu bulunmaması, yazının bütünüyle incelendiği anlamına
+  gelmez.
+- "Geçmiş Klasik, Gelecek Kuantum" iki parçalı serinin ikincisiymiş; yalnız
+  birini taşımak seriyi bölerdi, **ikisi birlikte** taşındı (astra onayladı).
+  idrak-suur 9, kavramsal 8, toplam 53 değişmedi.
+
+**Doğrulanamadığı için YAZILMAYANLAR (uydurulmadı):**
+- Bucaille'ın mesleki künyesi: tek dayanak ansiklopediydi, astra "kaynak
+  değil" dedi (§13.35 Wikipedia künye saymıyor).
+- İbnü'l-Enbârî el-İnsâf'ın baskı ve sayfası: metin birinci elden okundu,
+  basılı tahkik doğrulanamadı.
+- Cevher-i ferd için nokta referansı: astra görünür kaynak istedi,
+  karşılanamadı; §13.30'un öngördüğü genel atıfla bırakıldı.
+- Fütûhât'ta "üç talâk = üç kopuş" eşleştirmesinin yeri bulunamadı.
+
+**Birinci elden okunan iki kaynak:** İbnü'l-Enbârî, el-İnsâf (Basra س-م-و
+görüşü, Kûfe و-س-م görüşü; İbnü'l-Enbârî Kûfe'yi "mânâ bakımından doğru,
+lafız bakımından bozuk" diye reddediyor) ve Farrin'in kendi bölüm tablosu
+(merkez E 142-152; hukuk bölümü merkez değil, C 40-103'ün aynası).
 
 ---
 
@@ -758,6 +861,25 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 ## KADEME 6 — Diğer
 
 - [ ] "Ekip ve danışmanlar" bölümü (hazırlayan / ilmî danışman bilgisi yok).
+- [ ] **`audit-arabic-json` kapısının kör noktası.** Kapı yeşil yanıyor ama
+      `cleanArabicForDisplay` ile ölçünce tefekkür dosyalarında **4 dosyada
+      7 dize** normalize değil: `emrin-mahiyeti` ve `kaynak-yuzey` (U+0653),
+      `terminoloji-1-lokal-global` (U+06E0, U+06DF),
+      `yaratilis-hikayesi-2-katmanli-yaratilis` (U+06DF). Sebep: kapı elle
+      yazılmış bir problem-karakter listesi tarıyor ve bu üç karakter listede
+      yok. **Doğru ölçüt `cleanArabicForDisplay(s) === s`**; kapı buna
+      çevrilmeli. Ayrıca §13.14'ün notu gereği, eski kuralla yazılmış veriyi
+      fonksiyondan geçirmek yetmez, kaynaktan YENİDEN ÜRETMEK gerekir.
+      (2026-10-25'te bulundu; aynı hata sınıfı daha önce de yaşandı.)
+- [ ] **Birmingham künyesi Wikipedia'ya dayanıyor** (§13.35: Wikipedia künye
+      sayılmaz). `src/i18n/tr.json` ve `en.json` 834. satır. İyi haber: aynı
+      dosyaların 493. satırında parşömen/mürekkep nüansı zaten doğru yazılı.
+- [ ] **CLAUDE.md kendi içinde çelişiyor.** §13.24 örtüşme için "dikkat
+      çekici uyum" ifadesini ONAYLI sayıyor, §13.34 ise "dikkat çekici" ve
+      "striking"i satış sıfatı olarak YASAKLIYOR; otomatik kapı §13.34'ü
+      uyguluyor. Bu turda sade "uyum" kullanıldı, ama dokümandaki çelişki
+      duruyor ve bir sonraki yazan yine takılır. §13.24'ün örnek listesi
+      düzeltilmeli.
 - [ ] Sayaçlar HTML'de 0 görünüyor, bazı sayfalar istemcide yükleniyor.
       ⚠ Kısmen aşılmış: `audit-ssr` kapımız var, son ölçüm eşik altı **0/26**.
       Hangi sayaçların kaldığı ayrıca taranacak.
@@ -792,6 +914,10 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 | 2026-10-25 | — | **Dal açıldı: `feat-kademe3-editoryal`.** Kademe 3 işi bu dalda, main'e ayrı onayla merge | — |
 | 2026-10-25 | 3 | Aruzun 16 vezni 8. yüzyıl tasnifi; beş yerde düzeltildi, astra iki turda beş bulgu verdi | `751dcd17` |
 | 2026-10-25 | — | **Üç Kademe 3 ajanı başlatıldı**, dosya kümeleri kesişmiyor: A bilimsel-isaretler (3.1 + 3.3) · B tarihsel-kanitlar (3.2 güç etiketleri) · C tefekkür (3.4) | — |
+| 2026-10-25 | 3.1/3.3 | Ajan A: seçmecilik ilkesi, yorum sınırları bölümü, Zerre ve Zümer nüansı ana metne; astra 7 tur | `c318fa21` |
+| 2026-10-25 | 3.2 | Ajan B: güç etiketleri ilişki türüne, bulgu ile ilişki ayrıldı; astra eşlemede 4 kartta düzeltti | `1aae37f4` |
+| 2026-10-25 | 3.4 | Ajan C: 14 editör notu, yazarın metni değişmedi; astra 2 tur | `2485422e` |
+| 2026-10-25 | — | §13.22 korpus ve gömme: 88 kalem, 0,0002 dolar; alan adı değişikliğinin kırdığı bağ doğrulandı | `57491841` |
 
 ### Sıradaki iş
 
