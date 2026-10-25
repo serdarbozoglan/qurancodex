@@ -358,32 +358,47 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       türevler / kök toplamı) henüz uygulanmadı; ikinci sütun bağlam
       değerlendirmesi istiyor.
 
-### 2.3 Hadis ve rivayet standardı (§13.35)
-> ⚠ Raporun hadis derecelerini KENDİMİZ doğrulayacağız; rapor hüküm değil.
-- [ ] **Alak 4-5** — kalem rivayeti + "[mevzû] ilk yarattığı şey akıldır" +
-      "— Hadis — Tirmizî, Ebû Dâvûd, Ahmed" dizilişi okura uydurma rivayeti
-      Tirmizî'ye aitmiş gibi gösteriyor. O kaynaklardaki **kalem** rivayetidir
-      (Tirmizî Kader 17 no. 2155, Tefsîr no. 3319; Ebû Dâvûd Sünnet 17
-      no. 4700).
-- [ ] **Allahu Ekber yazısı** — "ilk yaratılan nur, hakikat-ı ahmediye" olgu
-      gibi sunuluyor; isnadı tartışmalı. Aynı sitede "ilk yaratılan kalem"
-      sahih kaynaklarla veriliyor → iki yazı çelişiyor.
-- [ ] **Evrim-İnanç-Resimler** — namaz hadisi kaynaksız ve yorumla karışık.
-      Ebû Dâvûd Salât 26 no. 494-495 metni farklı.
-- [ ] **Sema-İsim, Yaratılış-2** — "es-semâü mevcun mekfûf" delil gibi
-      kullanılıyor; Tirmizî no. 3298, Dârüsselâm tahkikinde zayıf.
-- [ ] **Kadınlar Atlası** — "dört kadın" için Buhârî+Müslim gösteriliyor; o
-      ikisi yalnız Meryem ve Âsiye'yi anar (Buhârî 3411, Müslim 2431). Dört
-      kadını birlikte sayan rivayet Tirmizî 3878.
-- [ ] **Sebeb-i Nüzûl / ruh sorusu (17:85)** — kart "Yahudiler Kureyş'e
-      tavsiye etti" anlatısını veriyor ve Mekkî etiketliyor; gösterilen
-      Buhârî 4721'de Yahudiler doğrudan soruyor (Medine sahnesi).
-- [ ] **Sebeb-i Nüzûl / teyemmüm (4:43)** — "Üseyd dua edince" → Buhârî
-      334'te Üseyd dua etmez, "bu sizin ilk bereketiniz değil" der; gerdanlık
-      deve kaldırılınca bulunur.
-- [ ] Standart: her rivayetin altında kaynak (kitap/bab/no) + durum notu
-      (sahih/hasen/zayıf/isnadsız); tek bir tahkik tercih edilip sayfa sonunda
-      yazılsın; "Rivayete göre…" ile "Yazarın yorumu:" ayrılsın.
+### 2.3 Hadis ve rivayet standardı — BAŞLADI (2026-10-24)
+
+> ⚠ Raporun hadis dereceleri körlemesine uygulanmıyor; rapor da "derece
+> notları aktarılmıştır, bir hüküm değildir" diyor. Her künye kaynağından
+> doğrulanıyor (§13.30).
+>
+> **Erişim notu:** sunnah.com doğrudan isteklerimizi engelliyor (403).
+> Doğrulama arşivlenmiş nüshalar üzerinden yapıldı. Astra: "arşivlenmiş
+> sayfa o sayfanın içeriğini belgelemek için kullanılabilir; doğrudan neşir
+> kontrolüyle aynı şey değildir" — sınırlılık olarak kaydedildi.
+
+- [x] **Kadınlar Atlası, "dört kadın" rivayeti** — künyelerden doğrulandı:
+      · **Buhârî 3411** (Enbiyâ, 32. bab): "kadınlardan Firavun'un karısı
+        Âsiye ve İmrân kızı Meryem dışında kimse kemâle ermemiştir"; ayrıca
+        Âişe'nin tiride benzetilen üstünlüğü.
+      · **Müslim 2431** (Fedâilü's-Sahâbe, Hz. Hatice babı): aynı muhteva,
+        yine yalnız Meryem ve Âsiye.
+      · **Tirmizî 3878** (Menâkıb 62; kitap içi 49/278): "Meryem bint İmrân,
+        Hatice bint Huveylid, Fâtıma bint Muhammed ve Firavun'un karısı
+        Âsiye yeter" — dört kadın BİRLİKTE burada. Tirmizî: "hadîs sahîh".
+      Rapor haklıymış. Site iki yerde dört kadını Buhârî ve Müslim'e
+      atfediyordu; ikisi de düzeltildi (TR ve EN).
+      Astra'nın üç düzeltmesi uygulandı: (1) "Buhârî ve Müslim'de yok"
+      diye genelleme yapma, "verilen atıflar bu ifadeyi desteklemiyor" de;
+      (2) "yalnız Meryem ile Âsiye'yi anıyor" yanıltıcı, aynı rivayette
+      Âişe de var, "kemâle erme ifadesinde" de; (3) Sahihayn için ayrıca
+      "sahih" yazmaya gerek yok, Tirmizî için yeterli.
+
+**Kalan rivayet maddeleri (her biri kaynaktan doğrulanacak):**
+- [ ] Alak 4-5: kalem rivayeti ile "ilk yaratılan akıl" rivayetinin
+      dizilişi okuru yanıltıyor (Tirmizî Kader 17 no. 2155, Tefsîr no. 3319;
+      Ebû Dâvûd Sünnet 17 no. 4700).
+- [ ] Allahu Ekber yazısı: "ilk yaratılan nur" olgu gibi sunuluyor.
+- [ ] Evrim-İnanç-Resimler: namaz hadisi kaynaksız (Ebû Dâvûd Salât 26,
+      no. 494-495).
+- [ ] Sema-İsim, Yaratılış-2: "es-semâü mevcun mekfûf" (Tirmizî no. 3298).
+- [ ] Sebeb-i Nüzûl ruh sorusu (Buhârî 4721) ve teyemmüm (Buhârî 334).
+- [ ] Ashâb-ı Uhdûd: İbn Kesîr'de Rebî' b. Enes'ten nakledilen rivayet
+      (Kademe 1.4'ten devredildi).
+- [ ] Standart: her rivayetin altında kaynak + durum notu; tek tahkik
+      tercihi sayfa sonunda; "Rivayete göre…" ile "Yazarın yorumu:" ayrımı.
 
 ### 2.4 Kur'an'a Sor — örnek soru yanlış sonuç veriyor
 - [ ] Sayfanın kendi önerdiği örnek soru ("Rahmân sûresinde aynı âyet kaç kez

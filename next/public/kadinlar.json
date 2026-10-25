@@ -78,8 +78,8 @@
         "Motherhood",
         "Palace"
       ],
-      "criticalNoteTr": "\"Asiye bint Müzâhim\" ismi Kur'an'da geçmez; klasik tefsirde (Taberî, İbn Kesîr) verilir. Hadiste (Buhârî, Enbiyâ 32; Müslim, Fedâilü's-Sahâbe 70) Hz. Peygamber'in \"kemâl mertebesine ulaşmış dört kadın\"dan biri olarak Hz. Meryem, Hz. Asiye, Hz. Hatice ve Hz. Fatıma'yı saydığı rivayet edilir. Şehâdet biçimine dair anlatılar (kazıklara gerilme vb.) tefsir-tarihî rivayetlerdir, Kur'an'da yer almaz.",
-      "criticalNoteEn": "The name \"Asiya bint Muzahim\" does not appear in the Quran; it is supplied by classical tafsir (Tabari, Ibn Kathir). A hadith (Bukhari, Anbiya 32; Muslim, Fada'il as-Sahaba 70) reports the Prophet naming Maryam, Asiya, Khadija and Fatima as the four women who reached the rank of perfection. Narratives about the manner of her martyrdom (e.g. being impaled with stakes) belong to tafsir-historical reports, not the Quran."
+      "criticalNoteTr": "\"Asiye bint Müzâhim\" ismi Kur'an'da geçmez; klasik tefsirde (Taberî, İbn Kesîr) verilir. Ebû Mûsâ'dan nakledilen rivayetin ilgili kısmında, kadınlardan kemâle erenler olarak Hz. Meryem ile Hz. Âsiye zikredilir (Buhârî, no. 3411; Müslim, no. 2431). Hz. Meryem, Hz. Hatice, Hz. Fâtıma ve Hz. Âsiye'yi birlikte anan ayrı bir rivayet ise Tirmizî'de yer alır (no. 3878); Tirmizî bu rivayeti sahih olarak nitelendirir. Şehâdet biçimine dair anlatılar (kazıklara gerilme vb.) tefsir-tarihî rivayetlerdir, Kur'an'da yer almaz.",
+      "criticalNoteEn": "The name \"Asiya bint Muzahim\" does not appear in the Quran; it is supplied by classical tafsir (Tabari, Ibn Kathir). In the relevant part of the report from Abu Musa, Maryam and Asiya are named as the women who reached perfection (Bukhari, no. 3411; Muslim, no. 2431). A separate report naming Maryam, Khadija, Fatima and Asiya together is found in Tirmidhi (no. 3878), which Tirmidhi grades as sahih. Narratives about the manner of her martyrdom (e.g. being impaled with stakes) belong to tafsir-historical reports, not the Quran."
     },
     {
       "id": "havva",
@@ -534,8 +534,8 @@
         "titleEn": "Khadija and Fatima",
         "ref": "Kur'an'da yok",
         "tier": 3,
-        "noteTr": "Her ikisi de Kur'an metninde hiç geçmez. Hz. Hatice (Hz. Peygamber'in ilk eşi) ve Hz. Fâtıma (kızı), Hz. Peygamber'in hadis literatüründe (Buhârî, Müslim) ve siret kaynaklarında (İbn İshâk, Vâkıdî) merkezî figürlerdir. Hadiste Hz. Peygamber'in \"kemâl mertebesine ulaşmış dört kadın\" olarak Hz. Meryem ve Hz. Asiye ile birlikte saydığı isimlerdir (Buhârî, Enbiyâ 32; Müslim, Fedâilü's-Sahâbe 70). Şiî gelenekte Hz. Fâtıma'ya yüklenen anlam Sünnî gelenekten farklıdır.",
-        "noteEn": "Neither appears in the Quranic text. Khadija (the Prophet's first wife) and Fatima (his daughter) are central figures in hadith literature (Bukhari, Muslim) and sira sources (Ibn Ishaq, Waqidi). They are listed in a hadith alongside Maryam and Asiya as the four women who reached the rank of perfection (Bukhari, Anbiya 32; Muslim, Fada'il as-Sahaba 70). Shi'i tradition assigns special significance to Fatima beyond the Sunni view."
+        "noteTr": "Her ikisi de Kur'an metninde hiç geçmez. Hz. Hatice (Hz. Peygamber'in ilk eşi) ve Hz. Fâtıma (kızı), Hz. Peygamber'in hadis literatüründe (Buhârî, Müslim) ve siret kaynaklarında (İbn İshâk, Vâkıdî) merkezî figürlerdir. Hz. Meryem, Hz. Hatice, Hz. Fâtıma ve Hz. Âsiye'yi birlikte anan rivayet Tirmizî'dedir (no. 3878); Tirmizî bu rivayeti sahih olarak nitelendirir. Buhârî (no. 3411) ve Müslim (no. 2431) ise kemâle erenler olarak yalnız Hz. Meryem ile Hz. Âsiye'yi zikreder. Şiî gelenekte Hz. Fâtıma'ya yüklenen anlam Sünnî gelenekten farklıdır.",
+        "noteEn": "Neither appears in the Quranic text. Khadija (the Prophet's first wife) and Fatima (his daughter) are central figures in hadith literature (Bukhari, Muslim) and sira sources (Ibn Ishaq, Waqidi). A report naming Maryam, Khadija, Fatima and Asiya together is found in Tirmidhi (no. 3878), which Tirmidhi grades as sahih. Bukhari (no. 3411) and Muslim (no. 2431) name only Maryam and Asiya among the women who reached perfection. Shi'i tradition assigns special significance to Fatima beyond the Sunni view."
       },
       {
         "titleTr": "Hz. Yûsuf'un Şehir Kadınları",
