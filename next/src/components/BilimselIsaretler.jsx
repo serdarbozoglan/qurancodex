@@ -1,11 +1,12 @@
 'use client';
 
 // ─── BilimselIsaretler — Tam tool (2026-07-06 refactor: wrapper → real tool) ─
-// Kaynak: bilimsel-isaretler.json (16 âyet, 5 alan).
+// Kaynak: bilimsel-isaretler.json (16 âyet, 6 alan).
 // Denetim raporu: docs/reviews/2026-07-06-kesfet-audit.md (Dalga 1.2).
 // Sorumlu Kur'ân-bilim okuma metodolojisi — Bucaillism nüansı vurgulu.
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../i18n/LanguageContext';
 import LinkifyRefs from './LinkifyRefs';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -54,6 +55,16 @@ const DOMAIN_ICONS = {
       <path d="M5 20 Q5 11 11 11 Q17 11 17 20" stroke={color} strokeWidth="1.4" fill={`${color}18`} strokeLinejoin="round" />
     </svg>
   ),
+  // Dil ve Yorum: bilimsel bir bulgu değil, kelime anlamı ve yorumun sınırı
+  // (astra turu, 2026-10-25). Tırnak + altı çizili satır: okuma ve not.
+  'dil-yorum': (color) => (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <path d="M6 5 Q4 5 4 7 Q4 9 6 9 Q6 11 4 12" stroke={color} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M13 5 Q11 5 11 7 Q11 9 13 9 Q13 11 11 12" stroke={color} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 16 H18" stroke={color} strokeWidth="1.3" strokeLinecap="round" opacity="0.7" />
+      <circle cx="17" cy="7" r="2.4" stroke={color} strokeWidth="1.1" fill="none" opacity="0.65" />
+    </svg>
+  ),
   'meteoroloji': (color) => (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
       <path d="M5 12 Q3 12 3 9 Q3 6 6 6 Q7 3 11 3 Q15 3 15 6 Q19 6 19 10 Q19 13 16 13 L5 13 Z" stroke={color} strokeWidth="1.3" fill={`${color}22`} strokeLinejoin="round" />
@@ -75,7 +86,7 @@ const TABS = [
   { tr: 'Keşif Çizelgesi', en: 'Discovery Timeline',
     icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></svg>),
   },
-  { tr: 'Bucaillism Nüansı', en: 'Bucaillism Nuance',
+  { tr: 'Yöntem Notu', en: 'Method Note',
     icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>),
   },
 ];
@@ -110,8 +121,8 @@ export default function BilimselIsaretler({ onClose }) {
       icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2 A10 10 0 0 1 12 22 M2 12 A10 10 0 0 1 22 12"/></svg>}
       titleTr="Bilimsel İşaretler"
       titleEn="Scientific Signs"
-      subtitleTr="16 âyet · 5 alan · astronomi · yer · biyoloji · insan · meteoroloji"
-      subtitleEn="16 verses · 5 domains · astronomy · earth · biology · human · meteorology"
+      subtitleTr="16 âyet · 6 alan · astronomi · yer · biyoloji · insan · meteoroloji · dil ve yorum"
+      subtitleEn="16 verses · 6 domains · astronomy · earth · biology · human · meteorology · language and interpretation"
       language={language}
     />
   );
@@ -316,8 +327,8 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 20px',
       }}>
         {tr
-          ? 'Aşağıdaki 16 âyet 5 bilimsel alan altında sunulmuştur. Her âyet için klasik tefsir okuması + modern bilim keşfi + kritik nüans dengeli olarak verilmiştir.'
-          : 'The 16 verses below are presented under 5 scientific domains. For each, the classical exegetical reading + modern discovery + critical nuance are balanced.'}
+          ? 'Aşağıdaki 16 âyet 6 alan altında sunulmuştur: beş bilimsel alan ve bir de dil ve yorum alanı. Her kartta klasik tefsir açıklaması ve yorum notu yer alır; ilgili kartlarda modern bilimle kurulan ilişkiler de ele alınır. Yorum notu kart açılmadan da görünür.'
+          : 'The 16 verses below are presented under 6 domains: five scientific domains and one for language and interpretation. Every card carries the classical exegetical explanation and the interpretation note; where relevant, a card also takes up the connections drawn with modern science. The interpretation note is visible without opening the card.'}
       </p>
       {/* Domain filter chips */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
@@ -417,7 +428,11 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
             color: COLORS.silver, fontFamily: FONTS.body,
           }}>
             <span>📖 <strong style={{ color: dom.color, fontWeight: 600 }}><LinkifyRefs text={isaret.verseRef} /></strong></span>
-            <span>🔬 {tr ? isaret.discoveryYear : isaret.discoveryYearEn}</span>
+            {/* Bilim tarihi satırı boşsa hiç basılmaz: o kart bir keşif
+                yılına bağlanmıyor (astra turu, 2026-10-25). */}
+            {(tr ? isaret.discoveryYear : isaret.discoveryYearEn) && (
+              <span>🔬 {tr ? isaret.discoveryYear : isaret.discoveryYearEn}</span>
+            )}
           </div>
         </div>
       </div>
@@ -436,6 +451,28 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
         margin: 0, fontSize: '0.88rem', color: COLORS.offWhite,
         fontFamily: FONTS.body, lineHeight: 1.75, position: 'relative', zIndex: 1,
       }}>{tr ? isaret.summaryTr : isaret.summaryEn}</p>
+      {/* Yorum notu artık KAPALI görünümde de görünür: iddianın sınırı,
+          iddiayla aynı anda okunmalı (astra turu, 2026-10-25). Metin kartın
+          ana metin rengini taşır, opaklık verilmez (§13.26). */}
+      <div style={{
+        padding: '14px 18px', background: 'rgba(212,165,116,0.05)',
+        border: `1px solid ${COLORS.gold}25`, borderLeft: `2px solid ${COLORS.gold}88`,
+        borderRadius: RADIUS.sm, display: 'flex', gap: '10px', alignItems: 'flex-start',
+        position: 'relative', zIndex: 1,
+      }}>
+        <span aria-hidden="true" style={{ color: COLORS.gold, fontSize: '0.95rem', flexShrink: 0 }}>✱</span>
+        <div>
+          <div style={{
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+            color: COLORS.gold, textTransform: 'uppercase',
+            fontFamily: FONTS.body, marginBottom: '4px',
+          }}>{tr ? 'Yorum Notu' : 'Interpretation Note'}</div>
+          <p style={{
+            fontSize: '0.82rem', color: COLORS.offWhite,
+            fontFamily: FONTS.body, lineHeight: 1.7, margin: 0, fontStyle: 'italic',
+          }}>{tr ? isaret.criticalNoteTr : isaret.criticalNoteEn}</p>
+        </div>
+      </div>
       <button onClick={onToggle}
         style={{
           alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: '6px',
@@ -445,44 +482,25 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
           fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
           position: 'relative', zIndex: 1,
         }}>
-        {isOpen ? (tr ? 'Nüans & Kaynakları kapat' : 'Close nuance & sources') : (tr ? 'Nüans & Kaynaklar' : 'Nuance & Sources')}
+        {isOpen ? (tr ? 'Kaynakları kapat' : 'Close sources') : (tr ? 'Kaynaklar' : 'Sources')}
         <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
           style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       {isOpen && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', position: 'relative', zIndex: 1 }}>
+        <div style={{
+          padding: '12px 16px', background: 'rgba(255,255,255,0.025)',
+          border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: RADIUS.sm,
+          position: 'relative', zIndex: 1,
+        }}>
           <div style={{
-            padding: '14px 18px', background: 'rgba(212,165,116,0.05)',
-            border: `1px solid ${COLORS.gold}25`, borderLeft: `2px solid ${COLORS.gold}88`,
-            borderRadius: RADIUS.sm, display: 'flex', gap: '10px', alignItems: 'flex-start',
-          }}>
-            <span style={{ color: COLORS.gold, fontSize: '0.95rem', flexShrink: 0 }}>✱</span>
-            <div>
-              <div style={{
-                fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
-                color: COLORS.gold, textTransform: 'uppercase',
-                fontFamily: FONTS.body, marginBottom: '4px',
-              }}>{tr ? 'Kritik Nüans' : 'Critical Nuance'}</div>
-              <p style={{
-                fontSize: '0.82rem', color: COLORS.offWhite,
-                fontFamily: FONTS.body, lineHeight: 1.7, margin: 0, fontStyle: 'italic',
-              }}>{tr ? isaret.criticalNoteTr : isaret.criticalNoteEn}</p>
-            </div>
-          </div>
-          <div style={{
-            padding: '12px 16px', background: 'rgba(255,255,255,0.025)',
-            border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: RADIUS.sm,
-          }}>
-            <div style={{
-              fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
-              color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, marginBottom: '6px', 
-            }}>{tr ? 'Kaynaklar' : 'Sources'}</div>
-            <p style={{
-              fontSize: '0.78rem', color: COLORS.silver,
-              fontFamily: FONTS.body, lineHeight: 1.65, margin: 0, fontStyle: 'italic',
-            }}>{tr ? isaret.sourcesTr : isaret.sourcesEn}</p>
-          </div>
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+            color: COLORS.gold, textTransform: 'uppercase',
+            fontFamily: FONTS.body, marginBottom: '6px',
+          }}>{tr ? 'Kaynaklar' : 'Sources'}</div>
+          <p style={{
+            fontSize: '0.78rem', color: COLORS.silver,
+            fontFamily: FONTS.body, lineHeight: 1.65, margin: 0, fontStyle: 'italic',
+          }}>{tr ? isaret.sourcesTr : isaret.sourcesEn}</p>
         </div>
       )}
     </div>
@@ -497,7 +515,10 @@ function TimelineTab({ isaretler, domains, language, isMobile }) {
     const m = (i.discoveryYear || '').match(/(\d{4})/);
     const year = m ? parseInt(m[1]) : null;
     return { ...i, year };
-  }).filter(i => i.year !== null).sort((a, b) => a.year - b.year);
+  // `timeline: false` olan kart çizelgeden düşer: kartın ana metni modern
+  // eşleştirmeyi reddediyorsa, onu bir keşif yılına yerleştirmek aynı
+  // eşleştirmeyi görsel olarak yeniden kurar (astra turu, 2026-10-25).
+  }).filter(i => i.year !== null && i.timeline !== false).sort((a, b) => a.year - b.year);
 
   return (
     <div>
@@ -569,7 +590,7 @@ function BucaillismTab({ intro, language, isMobile }) {
           fontSize: '0.62rem', letterSpacing: '0.16em',
           color: COLORS.softRed, textTransform: 'uppercase',
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px',
-        }}>{tr ? 'Bucaillism Nedir?' : 'What Is Bucaillism?'}</div>
+        }}>{tr ? 'Bucaillezm Nedir?' : 'What Is Bucaillism?'}</div>
         <p style={{
           margin: 0, fontSize: '0.9rem', color: COLORS.offWhite,
           fontFamily: FONTS.body, lineHeight: 1.75,
@@ -590,20 +611,46 @@ function BucaillismTab({ intro, language, isMobile }) {
           fontSize: '0.85rem', color: COLORS.silver,
           fontFamily: FONTS.body, lineHeight: 1.8,
         }}>
-          {(tr ? [
-            'Kur\'ân\'ın metaphorik-ahlâkî dili öncelikli, bilim referansı ikincildir.',
-            'Klasik tefsir (Râzî, İbn Kesîr, Kurtubî) modern okumalardan önce okunmalı.',
-            'Ölçü "kanıt" değil "uyum"dur: Kur\'ân haber verir, biz tasdik ederiz.',
-            'Uyum-veren âyetler seçilirken, uyum vermeyenler görmezden gelinmemeli (cherry-picking eleştirisi).',
-            'Bilim değişir, vahiy sabittir; bugün güçlü görünen bir bilimsel iddia yarın çürütülebilir.'
-          ] : [
-            'The Qur\'an\'s metaphorical-ethical language is primary; scientific reference is secondary.',
-            'Classical exegesis (Rāzī, Ibn Kathīr, Qurṭubī) should be read before modern readings.',
-            'The measure is "alignment," not "proof": the Qur\'an reports, we affirm.',
-            'When compatible verses are chosen, incompatible ones should not be hidden (cherry-picking critique).',
-            'Science changes; revelation is fixed. A strong scientific claim today may be refuted tomorrow.'
-          ]).map((p, i) => <li key={i} style={{ marginBottom: '4px' }}>{p}</li>)}
+          {/* İlkeler veri dosyasında tutulur (§13.9); bileşende sabit metin
+              bırakılmıyor ki iki yer birbirinden sürüklenmesin. */}
+          {(tr ? intro.principlesTr : intro.principlesEn).map((p, i) => <li key={i} style={{ marginBottom: '4px' }}>{p}</li>)}
         </ul>
+      </div>
+      {/* Yorum sınırları ve bağlam — 4. ilkenin sayfadaki karşılığı: sınırı
+          olan, âyete atfedilen beşerî yorumdur. Kaynaklar birinci elden
+          okunarak verildi (§13.30/§13.35). */}
+      <div style={{
+        padding: '18px 22px', background: 'rgba(212,165,116,0.05)',
+        border: `1px solid ${COLORS.gold}25`, borderLeft: `2px solid ${COLORS.gold}88`,
+        borderRadius: RADIUS.sm, marginBottom: '20px',
+      }}>
+        <div style={{
+          fontSize: '0.62rem', letterSpacing: '0.14em',
+          color: COLORS.gold, textTransform: 'uppercase',
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px',
+        }}>{tr ? intro.limitsTitleTr : intro.limitsTitleEn}</div>
+        <p style={{
+          margin: '0 0 14px', fontSize: '0.88rem', color: COLORS.offWhite,
+          fontFamily: FONTS.body, lineHeight: 1.75,
+        }}>{tr ? intro.limitsIntroTr : intro.limitsIntroEn}</p>
+        <div style={{
+          fontSize: '0.8rem', fontWeight: 700, color: COLORS.gold,
+          fontFamily: FONTS.body, marginBottom: '6px',
+        }}>{tr ? intro.limitsExampleTitleTr : intro.limitsExampleTitleEn}</div>
+        <p style={{
+          margin: '0 0 12px', fontSize: '0.85rem', color: COLORS.offWhite,
+          fontFamily: FONTS.body, lineHeight: 1.75,
+        }}>{tr ? intro.limitsExampleTr : intro.limitsExampleEn}</p>
+        <p style={{
+          margin: '0 0 8px', fontSize: '0.78rem', color: COLORS.silver,
+          fontFamily: FONTS.body, lineHeight: 1.65, fontStyle: 'italic',
+        }}>{tr ? intro.limitsSourceTr : intro.limitsSourceEn}</p>
+        {/* Okuyucu Elmalılı metnini aynı yerde açıp karşılaştırabilsin
+            (§13.35 Kural 3: kaynak erişilebilir olur). */}
+        <Link href={`/${language}/oku/18?ayah=86`} style={{
+          fontSize: '0.78rem', color: COLORS.gold, fontFamily: FONTS.body,
+          textDecoration: 'underline', textUnderlineOffset: '3px',
+        }}>{tr ? intro.limitsSourceLinkTr : intro.limitsSourceLinkEn}</Link>
       </div>
       <div style={{
         padding: '16px 20px', background: 'rgba(29,158,117,0.06)',

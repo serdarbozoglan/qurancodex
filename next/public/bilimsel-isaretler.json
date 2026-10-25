@@ -1,19 +1,45 @@
 {
   "meta": {
     "totalIsaretler": 16,
-    "totalDomains": 5,
+    "totalDomains": 6,
     "generatedDate": "2026-07-06",
     "sourceDraft": "docs/reviews/2026-07-06-kesfet-audit.md — Dalga 1.2"
   },
   "intro": {
     "titleTr": "Bilimsel İşaretler — Kur'ân ve Modern Bilim",
     "titleEn": "Scientific Signs — The Qur'an and Modern Science",
-    "subtitleTr": "16 ayet · 5 alan · astronomi · yer bilimleri · biyoloji · insan · meteoroloji",
-    "subtitleEn": "16 verses · 5 domains · astronomy · earth sciences · biology · human · meteorology",
-    "descTr": "Kur'ân bir bilim kitabı değildir — birincil amacı hidayet ve teolojik-etik rehberliktir. Ancak metinde geçen çok sayıda âyet-i kevniyye (tabiat işareti), modern bilimin de sonradan ele aldığı tabiat olgularına temas eder. Bu sayfa, sorumlu Kur'ân-bilim okumasına örnek 16 ayeti 5 alan altında sunar: her kart 'metnin lafzî sınırı' ile 'modern bilim keşfi' arasındaki uzaklığı ölçer. Bucaillism (agresif konkordizm) eleştirileri her karta gömülüdür.",
-    "descEn": "The Qur'an is not a science book — its primary purpose is guidance and theological-ethical direction. But many āyāt kawniyya (natural signs) in the text touch on natural phenomena that modern science, too, would take up later. This tool presents 16 verses under 5 domains as examples of responsible Qur'an-science reading: each card measures the distance between the 'literal boundary of the text' and the 'modern scientific discovery.' Critiques of Bucaillism (aggressive concordism) are embedded in each card.",
-    "bucaillismNoteTr": "'Bucaillism' (Maurice Bucaille'ın 1976 çalışmasından adlandırılır), bir ayeti güncel bir bilimsel bulguyla eşleştirip bundan ispat çıkarma yöntemidir. Bu sayfa o yöntemi kullanmaz — ve bu bir taviz değil, klasik usûlün kendi kaidesidir. Bediüzzaman Muhâkemât'ta bunu açıkça koyar: Kur'ân'ın maksadı Sâni'i tanıtmaktır; kâinattan bahsi bu maksada delil olmak üzere, arızî (istitradî) olarak gelir — Kur'ân bir fen kitabı değildir. Şâtıbî de el-Muvâfakât'ta Kur'ân'dan tabiat ilmi çıkarmaya çalışmayı bir usûl hatası sayar. Sebebi açıktır: bir ayeti bugünün modeline çivilemek onu o modelin ömrüne bağlar; model değiştiğinde çöken şey Kur'ân değil bizim kurduğumuz delildir — ama zarar Kur'ân'a yazılır. Aynı eleştiriyi modern akademi de yapar (Sinai, Neuwirth, Guessoum): seçmecilik, klasik tefsiri atlama, uyuşmazlıkları saklama. Bu sayfanın çerçevesi şudur: Kur'ân haber verir, biz tasdik ederiz. Aşağıdaki 16 ayet bir 'kanıt' olarak değil, kelime seçimi ile bugünkü bilgi arasındaki dikkat çekici uyum ve bir tefekkür vesilesi olarak okunur.",
-    "bucaillismNoteEn": "'Bucaillism' (named after Maurice Bucaille's 1976 work) is the method of matching a verse to a current scientific finding and extracting a proof from it. This page does not use that method — and this is no concession but a rule of classical methodology itself. Bediüzzaman states it plainly in Muḥākamāt: the Qur'an's aim is to make the Maker known; its mention of the cosmos comes incidentally, as evidence for that aim — the Qur'an is not a textbook of natural science. Al-Shāṭibī likewise holds in al-Muwāfaqāt that extracting natural science from the Qur'an is a methodological error. The reason is plain: nailing a verse to today's model binds it to that model's lifespan, and when the model changes what collapses is not the Qur'an but the argument we built — yet the damage is charged to the Qur'an. Modern scholarship makes the same critique (Sinai, Neuwirth, Guessoum): cherry-picking, bypassing classical exegesis, hiding the mismatches. The frame of this page is this: the Qur'an reports, we affirm. The 16 verses below are read not as 'proof' but as a striking alignment between word choice and present knowledge, and as an occasion for reflection."
+    "subtitleTr": "16 ayet · 6 alan · astronomi · yer bilimleri · biyoloji · insan · meteoroloji · dil ve yorum",
+    "subtitleEn": "16 verses · 6 domains · astronomy · earth sciences · biology · human · meteorology · language and interpretation",
+    "descTr": "Kur'ân bir bilim kitabı değildir; birincil amacı hidayet ve teolojik-etik rehberliktir. Ancak metinde geçen çok sayıda âyet-i kevniyye (tabiat işareti), modern bilimin de sonradan ele aldığı tabiat olgularına temas eder. Bu sayfa, sorumlu Kur'ân-bilim okumasına örnek 16 âyeti 6 alan altında sunar (beş bilimsel alan ve bir de dil ve yorum alanı). Her kart, âyetin lafzını, klasik tefsir açıklamalarını ve ilgili yorumların dayanakları ile sınırlarını ele alır. İlgili kartlarda, âyetleri bilimsel bulgularla zorlayarak eşleştiren yorumların sorunları da açıklanır.",
+    "descEn": "The Qur'an is not a science book; its primary purpose is guidance and theological-ethical direction. But many āyāt kawniyya (natural signs) in the text touch on natural phenomena that modern science, too, would take up later. This page presents 16 verses under 6 domains (five scientific domains and one for language and interpretation) as examples of responsible Qur'an-science reading. Each card takes up the wording of the verse, the classical exegetical explanations, and the grounds and limits of the interpretations at issue. Where relevant, a card also sets out the problems of readings that force a verse into a match with scientific findings.",
+    "bucaillismNoteTr": "'Bucaillism' (Maurice Bucaille'ın 1976 çalışmasından adlandırılır), bir ayeti güncel bir bilimsel bulguyla eşleştirip bundan ispat çıkarma yöntemidir. Bu sayfa o yöntemi kullanmaz; bu bir taviz değil, klasik usûlün kendi kaidesidir. Bediüzzaman Muhâkemât'ta bunu açıkça koyar: Kur'ân'ın maksadı Sâni'i tanıtmaktır; kâinattan bahsi bu maksada delil olmak üzere, arızî (istitradî) olarak gelir; Kur'ân bir fen kitabı değildir. Şâtıbî de el-Muvâfakât'ta Kur'ân'dan tabiat ilmi çıkarmaya çalışmayı bir usûl hatası sayar. Sebebi açıktır: bir ayeti bugünün modeline çivilemek onu o modelin ömrüne bağlar; model değiştiğinde çöken şey Kur'ân değil bizim kurduğumuz delildir, ama zarar Kur'ân'a yazılır. Aynı eleştiriyi modern akademi de yapar (Sinai, Neuwirth, Guessoum): seçmecilik, klasik tefsiri atlama, uyuşmazlıkları saklama. Bu sayfanın çerçevesi şudur: Kur'ân haber verir, biz tasdik ederiz. Aşağıdaki 16 ayet bir 'kanıt' olarak değil, kelime seçimi ile bugünkü bilgi arasındaki uyum ve bir tefekkür vesilesi olarak okunur.",
+    "bucaillismNoteEn": "'Bucaillism' (named after Maurice Bucaille's 1976 work) is the method of matching a verse to a current scientific finding and extracting a proof from it. This page does not use that method; this is no concession but a rule of classical methodology itself. Bediüzzaman states it plainly in Muḥākamāt: the Qur'an's aim is to make the Maker known; its mention of the cosmos comes incidentally, as evidence for that aim; the Qur'an is not a textbook of natural science. Al-Shāṭibī likewise holds in al-Muwāfaqāt that extracting natural science from the Qur'an is a methodological error. The reason is plain: nailing a verse to today's model binds it to that model's lifespan, and when the model changes what collapses is not the Qur'an but the argument we built, yet the damage is charged to the Qur'an. Modern scholarship makes the same critique (Sinai, Neuwirth, Guessoum): cherry-picking, bypassing classical exegesis, hiding the mismatches. The frame of this page is this: the Qur'an reports, we affirm. The 16 verses below are read not as 'proof' but as an alignment between word choice and present knowledge, and as an occasion for reflection.",
+    "principlesTr": [
+      "Âyetler öncelikle dil, bağlam ve hidayet maksadı gözetilerek okunur; modern bilimsel eşleştirmeler ikincildir.",
+      "Klasik tefsir (Râzî, İbn Kesîr, Kurtubî) modern okumalardan önce okunmalı.",
+      "Bilimsel eşleştirmelerde ölçü \"kanıt\" değil \"uyum\"dur: Kur'ân haber verir, biz tasdik ederiz.",
+      "Bilimsel eşleştirmelerde seçmeci davranılmaz; önerilen yorumların dayanakları, sınırları ve uyuşmazlıkları açıkça belirtilir. Değerlendirilen, Kur'ân'ın doğruluğu değil, eşleştirmenin isabetidir.",
+      "Bilim değişir, vahiy sabittir; bugün güçlü görünen bir bilimsel iddia yarın çürütülebilir."
+    ],
+    "principlesEn": [
+      "Verses are read first with regard to language, context and the aim of guidance; proposed correspondences with modern science are secondary.",
+      "Classical exegesis (Rāzī, Ibn Kathīr, Qurṭubī) should be read before modern readings.",
+      "In scientific matching the measure is \"alignment,\" not \"proof\": the Qur'an reports, we affirm.",
+      "Scientific interpretations should not rely on selective use of evidence. Their grounds, limits and points of mismatch should be stated openly. What is assessed is not the truth of the Qur'an but the soundness of the proposed interpretation.",
+      "Science changes; revelation is fixed. A strong scientific claim today may be refuted tomorrow."
+    ],
+    "limitsTitleTr": "Yorum Sınırları ve Bağlam",
+    "limitsTitleEn": "Limits of Interpretation and Context",
+    "limitsIntroTr": "Bir âyete bilimsel bir anlam atfedildiğinde sınanan şey âyet değil, o yorumdur. Bu sayfadaki kartlarda iki sınır tekrar eder: bir kelimeye sonradan gelişmiş teknik bir anlamın yüklenmesi ve bir âyetin güncel bir bilimsel modele bağlanması. İlgili sınırlar kartların yorum notlarında belirtilir.",
+    "limitsIntroEn": "When a scientific meaning is attributed to a verse, what is tested is not the verse but that interpretation. Two limits recur in the cards on this page: a word being given a technical meaning developed later, and a verse being tied to a current scientific model. The relevant limits are stated in the interpretation notes of the cards.",
+    "limitsExampleTitleTr": "Örnek: Kehf 18:86",
+    "limitsExampleTitleEn": "Example: al-Kahf 18:86",
+    "limitsExampleTr": "Kehf 18:86, Zülkarneyn'in güneşi çamurlu bir pınarda batıyor olarak gördüğünü bildirir. İbn Kesîr bunu, batı yönünde varılabilecek en son noktaya ulaşması diye açıklar ve güneşin gökteki batış yerine ulaşması biçimindeki okumanın imkânsız olduğunu söyler; görülen şey, kıyıya çıkan herkesin görebileceği gibi güneşin denize batıyormuş görünmesidir, oysa güneş kendisi için belirlenmiş yoldan hiç çıkmaz. Elmalılı aynı yerde 'ayn'ı pınar, 'hamie'yi balçıklı, 'hâmiye' kıraatini kızgın diye kaydeder ve tasviri Zülkarneyn'in müşahedesine bağlar; çıkardığı ders, dünyevî büyüklüğün sınırlı ve geçici olduğunu anlamaktır. Bu ifade tek başına ne belirli bir kozmolojik model ortaya koyar ne de modern astronomi bulgularına ilişkin bir ön bildirim verir. Burada değerlendirilen, âyetin doğruluğu değil, ona atfedilen bilimsel yorumun dayanakları ve sınırlarıdır.",
+    "limitsExampleEn": "Al-Kahf 18:86 reports that Dhū al-Qarnayn saw the sun as setting in a muddy spring. Ibn Kathīr explains this as his reaching the furthest point that could be reached toward the west, and holds that reading it as reaching the place in the sky where the sun sets is impossible; what was seen is what anyone who goes to the coast can see, the sun looking as though it sets into the sea, while in fact it never leaves the path in which it is fixed. Elmalılı, on the same verse, records 'ayn' as spring, 'hamiʾa' as muddy and the 'hāmiya' reading as scorching, ties the description to Dhū al-Qarnayn's own observation, and draws the lesson that worldly greatness is limited and transient. This expression alone establishes neither a particular cosmological model nor a prediction of modern astronomical findings. What is assessed here is not the truth of the verse but the grounds and limits of the scientific interpretation attributed to it.",
+    "limitsSourceTr": "Yukarıdaki iki açıklama şu metinlerde okundu: Elmalılı Hamdi Yazır'ın Hak Dini Kur'an Dili'nin sadeleştirilmiş Türkçe metni, Kehf 86 (bu metin, okuma sayfasındaki tefsir panelinde aynı yerde açılabilir; aşağıdaki bağlantı) ve İbn Kesîr tefsirinin quran.com üzerinde yayımlanan muhtasar İngilizce metni (Tafsir Ibn Kathir, Abridged), Kehf 18:86. Muhtasar ve sadeleştirilmiş metinler müellifin özgün ifadesini birebir vermeyebilir; künye bu yüzden okunan metne aittir, basılı neşir bilgisi elimizde olmadığı için yazılmamıştır. Bu iki açıklama tefsir geleneğinin ortak görüşü olarak sunulmaz; başka müfessirlerin bu âyetteki sözleri birinci elden doğrulanmadığı için anılmamıştır.",
+    "limitsSourceEn": "The two explanations above were read in the following texts: the simplified Turkish text of Elmalılı Hamdi Yazır's Hak Dini Kur'an Dili, on al-Kahf 86 (the same passage can be opened in the tafsir panel of the reading page; see the link below), and the abridged English text of Ibn Kathīr's commentary published on quran.com (Tafsir Ibn Kathir, Abridged), on al-Kahf 18:86. Abridged and simplified texts need not reproduce the author's own wording, so the reference is to the text that was read; imprint details are not given because we do not have them. The two explanations are not presented as the shared view of the exegetical tradition; other commentators are not cited here because their words on this verse were not verified at first hand.",
+    "limitsSourceLinkTr": "Elmalılı'nın Kehf 18:86 açıklamasını tefsir panelinde aç",
+    "limitsSourceLinkEn": "Open Elmalılı's commentary on al-Kahf 18:86 in the tafsir panel"
   },
   "domains": [
     {
@@ -55,6 +81,14 @@
       "color": "#3498db",
       "descTr": "Rüzgâr, bulut, yağmur, hava döngüsü.",
       "descEn": "Wind, cloud, rain, weather cycles."
+    },
+    {
+      "id": "dil-yorum",
+      "titleTr": "Dil ve Yorum",
+      "titleEn": "Language and Interpretation",
+      "color": "#F472B6",
+      "descTr": "Kelime anlamı, yorumun dayanakları ve sınırları.",
+      "descEn": "Word meaning, and the grounds and limits of interpretation."
     }
   ],
   "isaretler": [
@@ -73,8 +107,8 @@
       "summaryEn": "'La-mūsiʿūn' (lā + mūsiʿ = those who are expanding) in classical Arabic carries the meaning of 'expansion.' Classical exegesis (Rāzī, Qurṭubī) read it as the 'width of the sky' (power + provision), meaning rain and bounty. In modern astronomy, in 1929 Hubble established the relation between galactic redshift and recession; this became one of the observational cornerstones of the idea that the universe is expanding (expansion is today quantified by the Hubble parameter). The verse's wording, without denying the classical reading, is open to the modern one: mūsiʿūn in the present participle allows the reading 'continue to expand.'",
       "criticalNoteTr": "Klasik tefsir 'kudretle genişletme' ifadesini semânın bina edilişi ve bereket bağlamında okur; modern kozmolojik okuma bunun üzerine eklenen bir anlam katmanıdır. Ayetin haber verdiği hakikat sabittir — dikkat edilmesi gereken, onu Hubble'ın modeline delil diye bağlamamaktır: model değişirse çöken Kur'ân değil, bizim kurduğumuz delil olur. Kelimenin genişliği hem klasik anlamı hem modern kozmolojiyi kaldıracak ölçüdedir; bu bir tefekkür vesilesidir, bir ispat değil.",
       "criticalNoteEn": "Classical exegesis reads 'expanding it with power' in the context of the building of the heaven and of abundance; the modern cosmological reading is a layer of meaning added upon that. The truth the verse reports is fixed — what requires care is not binding it to Hubble's model as proof: if the model changes, what collapses is not the Qur'an but the argument we built. The breadth of the word can carry both the classical sense and modern cosmology; this is an occasion for reflection, not a proof.",
-      "sourcesTr": "Râzî, Mefâtîhu'l-Gayb, Zâriyât 47; Elmalılı, Zâriyât 47 (klasik yorum); Bucaille (1976); Nidhal Guessoum, Islam's Quantum Question (2011).",
-      "sourcesEn": "Al-Rāzī, Mafātīḥ, on Q 51:47; Elmalılı on Q 51:47 (classical); Bucaille (1976); Nidhal Guessoum, Islam's Quantum Question (2011)."
+      "sourcesTr": "Râzî, Mefâtîhu'l-Gayb, Zâriyât 47; Elmalılı, Zâriyât 47 (klasik yorum); Nidhal Guessoum, Islam's Quantum Question (2011).",
+      "sourcesEn": "Al-Rāzī, Mafātīḥ, on Q 51:47; Elmalılı on Q 51:47 (classical); Nidhal Guessoum, Islam's Quantum Question (2011)."
     },
     {
       "id": "yorunge-hareketi",
@@ -91,8 +125,8 @@
       "summaryEn": "The verse states that the sun, moon, night, and day are 'swimming' (yasbaḥūna) — 'swimming' (sabḥ) means moving through a medium with fluidity. 'Falak' (orbit) is the classical Arabic term for circle/cycle. In modern astronomy, all solar system bodies (Earth, moon, planets, sun) follow their own orbits — even the sun orbits the Milky Way's center every 230 million years. Classical exegesis (Rāzī, Ṭabarī) accepts that 'kull' (each/all) includes the sun's motion — despite pre-heliocentric classical astronomy.",
       "criticalNoteTr": "Ayet 'her biri' der — güneşin hareketini de kapsar. Ancak, bu hareketin 'yer etrafında' (klasik jeosentrik) mı yoksa 'kendi yörüngesinde' (modern) mi olduğunu ise ayet belirtmez — genel ve kapsayıcı bir ifadedir. Klasik tefsirin Batlamyus astronomisi ile uyum sağlamış olması bir 'hata' değil, dönemin bilim standartına göre yorumdur.",
       "criticalNoteEn": "The verse says 'each' — including the sun's motion. However, whether that motion is 'around the earth' (classical geocentric) or 'in its own orbit' (modern) is unspecified. The classical exegesis's alignment with Ptolemaic astronomy is not an 'error' but an interpretation according to the science of its era.",
-      "sourcesTr": "Râzî, Mefâtîh, Enbiyâ 33; Elmalılı, Enbiyâ 33; Bucaille (1976); Guessoum (2011).",
-      "sourcesEn": "Al-Rāzī on Q 21:33; Elmalılı on Q 21:33; Bucaille (1976); Guessoum (2011)."
+      "sourcesTr": "Râzî, Mefâtîh, Enbiyâ 33; Elmalılı, Enbiyâ 33; Guessoum (2011).",
+      "sourcesEn": "Al-Rāzī on Q 21:33; Elmalılı on Q 21:33; Guessoum (2011)."
     },
     {
       "id": "yildiz-yol",
@@ -127,8 +161,8 @@
       "summaryEn": "The Qur'an describes mountains as 'awtād' (pegs). Classical exegesis read this as 'stabilization of the earth' — mitigating earthquakes. In modern geology, isostasy models (Airy/Pratt approaches) show that mountain belts can have thicker 'root'-like structures in the crust; this permits a limited structural analogy with the 'peg' image. This is structurally analogous to a 'peg' (small top, large bottom). However: the classical reading focuses on the 'stabilization' function, not on 'geological depth.'",
       "criticalNoteTr": "'Dağ kazık gibidir' analojisi modern jeoloji ile uyumlu — ancak 'yerin dönüşünden düşmeyi engelleme' (Enbiyâ 21:31'de 'meyd' = ihtizaz/sallantı) klasik yorumun içindedir. Bu ayet Kur'ân-jeoloji uyumunun en sık kullanılan örneklerinden ama 'kanıt' değil 'uyum' seviyesinde okunur.",
       "criticalNoteEn": "The 'mountain is like a peg' analogy is compatible with modern geology — but 'preventing shaking' (from Q 21:31's mayd = tremor) is part of the classical reading. This is one of the most-cited examples of Qur'an-geology compatibility, but read at the 'compatibility' rather than 'proof' level.",
-      "sourcesTr": "İbn Kesîr, Nebe' 6-7; İbn Kesîr, Enbiyâ 31; Zaghloul El-Naggar, Treasures in the Sunnah (2001) — dikkatli okuma; Bucaille (1976).",
-      "sourcesEn": "Ibn Kathīr on Q 78:6-7 and Q 21:31; Zaghloul El-Naggar, Treasures in the Sunnah (2001) — read with care; Bucaille (1976)."
+      "sourcesTr": "İbn Kesîr, Nebe' 6-7; İbn Kesîr, Enbiyâ 31; Zaghloul El-Naggar, Treasures in the Sunnah (2001), dikkatli okunmalıdır.",
+      "sourcesEn": "Ibn Kathīr on Q 78:6-7 and Q 21:31; Zaghloul El-Naggar, Treasures in the Sunnah (2001), to be read with care."
     },
     {
       "id": "iki-deniz",
@@ -145,8 +179,8 @@
       "summaryEn": "The Qur'an says two seas meet and do not mix, that between them is a 'barzakh' (barrier). Modern oceanography discovered the halocline phenomenon — the salinity-gradient boundary layer. When the Atlantic and Mediterranean meet at Gibraltar, the salinity-density difference creates an 'invisible boundary' where the waters do not fully mix. The same phenomenon occurs at the Baltic-North Sea meeting. Classical exegesis's 'freshwater + saltwater at a river mouth' reading fits Q 25:53 better; Q 55:19's 'two salt seas' reading better matches the halocline.",
       "criticalNoteTr": "Halocline bilimi Kur'ân-uyumlu ancak: (1) bu ayrım klasik tefsir dahilindeydi (Râzî'nin 'iki tür su' analizi); (2) halocline (dinamik tuzluluk gradyanı), 'berzah' ifadesinin birebir bilimsel karşılığı değil, onunla uyumlu bir okumadır. 'Kanıt' değil 'uyum' seviyesinde okunmalı.",
       "criticalNoteEn": "The halocline science is Qur'an-compatible, but: (1) this distinction was within classical exegesis (Rāzī's 'two kinds of water' analysis); (2) the halocline (dynamic salinity gradient) is not the one-to-one scientific equivalent of 'barzakh' but a reading compatible with it. Read at the 'compatibility' level, not as proof.",
-      "sourcesTr": "Râzî, Mefâtîh, Rahmân 19-20; İbn Kesîr, Furkân 53; Bucaille (1976).",
-      "sourcesEn": "Al-Rāzī on Q 55:19-20; Ibn Kathīr on Q 25:53; Bucaille (1976)."
+      "sourcesTr": "Râzî, Mefâtîh, Rahmân 19-20; İbn Kesîr, Furkân 53.",
+      "sourcesEn": "Al-Rāzī on Q 55:19-20; Ibn Kathīr on Q 25:53."
     },
     {
       "id": "yagmur-dongusu",
@@ -163,8 +197,8 @@
       "summaryEn": "The Qur'an describes rain descending from the sky and feeding earth's springs. Until the 17th century the prevailing Greco-Roman view was: springs come 'from the sea beneath the earth' (Aristotle, Sextus Empiricus). Modern water cycle theory (evaporation → condensation → precipitation → runoff → groundwater) entered science with Bernard Palissy and Pierre Perrault in the 16th-17th centuries. The process the Qur'an describes in the 7th century ('descends from the sky, flows to springs, plants grow, then dries') closely parallels the modern hydrological cycle. Q 56:68-70 emphasizes water is given in 'measure'; this aligns with modern hydrology.",
       "criticalNoteTr": "Bu ayet 'Kur'ân-bilim uyumunun' klasik örneklerinden. Ancak: Kur'ân öncesi Arap kültüründe de yağmur→pınar süreci gözlemsel olarak biliniyordu (çöl kültüründe su yaşamsaldı). Modern okumanın gücü Aristo-öncesi bir 'yer altı deniz' teorisine karşı Kur'ân'ın modern bilime yakın anlatısını göstermede.",
       "criticalNoteEn": "This is one of the classical examples of Qur'an-science compatibility. However: pre-Qur'anic Arab culture also knew the rain→spring process observationally (water was existential in desert culture). The modern reading's strength is in showing the Qur'an's account is closer to modern science than the pre-Aristotelian 'underground sea' theory.",
-      "sourcesTr": "İbn Kesîr, Zümer 21; Râzî, Vâkıa 68-70; Elmalılı, Mü'minûn 18; Bucaille (1976); modern hidroloji tarihi.",
-      "sourcesEn": "Ibn Kathīr on Q 39:21; Al-Rāzī on Q 56:68-70; Elmalılı on Q 23:18; Bucaille (1976); modern hydrology history."
+      "sourcesTr": "İbn Kesîr, Zümer 21; Râzî, Vâkıa 68-70; Elmalılı, Mü'minûn 18; modern hidroloji tarihi.",
+      "sourcesEn": "Ibn Kathīr on Q 39:21; Al-Rāzī on Q 56:68-70; Elmalılı on Q 23:18; modern hydrology history."
     },
     {
       "id": "ruzgar-dolleme",
@@ -181,8 +215,8 @@
       "summaryEn": "'Lawāqiḥ' in Arabic means 'fertilizing' — with an implication of the male element depositing seed in the female womb. The Qur'an notes the 'fertilizing' role of winds. In botany this fits two functions: (1) pollination — anemophilous plants (pines, oaks, many grains) have wind-carried pollen; 10% of global plants are anemophilous; (2) cloud formation — wind transports sea-evaporated water, plays a role in condensation, transforms into rain. Classical exegesis (Qurṭubī, Rāzī) read 'lawāqiḥ' as 'fertilizing the clouds' (uniting them into rain) — consistent with modern meteorology.",
       "criticalNoteTr": "Klasik tefsirin 'bulutları döllendirici' okuması modern bulut-fiziği ile uyumlu; 'bitki polinasyonu' okuması ise 17. yy sonrası eklenen bir katmandır — klasik tefsirde ayrı bir odak değil. İki okuma da lafzî anlama uygun.",
       "criticalNoteEn": "The classical 'cloud-fertilizing' reading matches modern cloud physics; the 'plant pollination' reading is a layer added post-17th c. — not a distinct focus in classical exegesis. Both readings suit the literal meaning.",
-      "sourcesTr": "Kurtubî, el-Câmi', Hicr 22; Râzî, Mefâtîh, Hicr 22; Bucaille (1976); Yusuf Ali (1934 çeviri notu).",
-      "sourcesEn": "Al-Qurṭubī, al-Jāmiʿ, on Q 15:22; Al-Rāzī on Q 15:22; Bucaille (1976); Yūsuf Ali (1934 translation note)."
+      "sourcesTr": "Kurtubî, el-Câmi', Hicr 22; Râzî, Mefâtîh, Hicr 22; Yusuf Ali (1934 çeviri notu).",
+      "sourcesEn": "Al-Qurṭubī, al-Jāmiʿ, on Q 15:22; Al-Rāzī on Q 15:22; Yūsuf Ali (1934 translation note)."
     },
     {
       "id": "dumansi-gok",
@@ -199,8 +233,8 @@
       "summaryEn": "The Qur'an describes the sky's initial state as 'smoke' (dukhān). Classical exegesis (Rāzī, Ibn Kathīr) read this as vapor or cloud-like matter, not fire-smoke. In modern cosmology, the early universe (~380,000 years after Big Bang, 'recombination era') is in a 'nebulous-smoky' state during the plasma → neutral atom transition — the cosmic microwave background dates from this period. Stars and galaxies form from condensation of gas-plasma-dust mixtures. The Qur'anic 'dukhān' (smoke / nebulous appearance) can be related — at the level of analogy — to the early universe's gas/plasma phases or the nebulous media of star formation in modern cosmology; it should not be read as an exact technical-term equivalent.",
       "criticalNoteTr": "Klasik tefsirin 'duhân' okuması (buğu hâlindeki, henüz şekillenmemiş gök) ile modern 'ilk evrenin gaz-partikül hâli' okuması birbirinden uzak değildir. Ayet sabittir; tartışmalı olan bizim eşleştirmemizdir: 'duhân = Big Bang' demek ayeti belirli bir kozmolojik modele çivilemektir ve model değiştiğinde çöken şey ayet değil, o eşleştirmedir. Uyumdan söz etmek isabetlidir — kanıt olarak değil, tefekkür vesilesi olarak.",
       "criticalNoteEn": "The classical reading of duhān (a heaven still in a vaporous, unformed state) is not far from the modern reading of the early universe as gas and particulate matter. The verse is fixed; what is in question is our own mapping: to say 'duhān = the Big Bang' is to nail the verse to a particular cosmological model, and when the model changes what collapses is that mapping, not the verse. Speaking of an alignment is apt — as an occasion for reflection, not as proof.",
-      "sourcesTr": "Râzî, Mefâtîh, Fussilet 11; İbn Kesîr, Fussilet 11; Bucaille (1976); Nidhal Guessoum (2011).",
-      "sourcesEn": "Al-Rāzī on Q 41:11; Ibn Kathīr on Q 41:11; Bucaille (1976); Nidhal Guessoum (2011)."
+      "sourcesTr": "Râzî, Mefâtîh, Fussilet 11; İbn Kesîr, Fussilet 11; Nidhal Guessoum (2011).",
+      "sourcesEn": "Al-Rāzī on Q 41:11; Ibn Kathīr on Q 41:11; Nidhal Guessoum (2011)."
     },
     {
       "id": "demir-inisi",
@@ -217,8 +251,8 @@
       "summaryEn": "The Qur'an says iron was 'sent down' (anzalnā). Classical exegesis (Rāzī) read this as 'sent down from divine bounty' (metaphorical descent) — because in the 7th century it was known that iron ores come from the earth. However, modern astrophysics shows that heavy elements such as iron are of cosmic origin (dispersed into space through stellar nucleosynthesis and processes like supernovae); the Earth's matter is itself a product of these cosmic processes. The 1957 B²FH paper is one of the classic/foundational works on stellar nucleosynthesis and systematized the framework explaining the cosmic origin of heavy elements. 'Anzalnā' can be seen as amenable both to a metaphorical sense (a sending-down as divine bounty) and to a resonance compatible with this cosmic origin.",
       "criticalNoteTr": "Klasik tefsirin metaphorik okuması yanlış değil — Kur'ân'da 'inzâl' başka ilâhî nimetler için de kullanılır (mesela hayvanların indirilmesi Zümer 39:6). Modern okumanın gücü, 'inzâl' kelimesinin astrofiziksel iniş ile de örtüşme kabiliyeti göstermesindedir — kelime seçimi Kur'ân'ın 'çift-anlam kapasitesi' örneği.",
       "criticalNoteEn": "The classical metaphorical reading is not wrong — inzāl is used in the Qur'an for other divine bounties (e.g., animals in Q 39:6). The strength of the modern reading is that 'inzāl' can also match astrophysical descent — an example of the Qur'an's 'dual-meaning capacity.'",
-      "sourcesTr": "Râzî, Mefâtîh, Hadîd 25; Bucaille (1976); Zaghloul El-Naggar; Burbidge, Burbidge, Fowler, Hoyle, 'Synthesis of the Elements in Stars', Rev. Mod. Phys. 29 (1957).",
-      "sourcesEn": "Al-Rāzī on Q 57:25; Bucaille (1976); Zaghloul El-Naggar; Burbidge, Burbidge, Fowler, Hoyle, 'Synthesis of the Elements in Stars,' Rev. Mod. Phys. 29 (1957)."
+      "sourcesTr": "Râzî, Mefâtîh, Hadîd 25; Zaghloul El-Naggar; Burbidge, Burbidge, Fowler, Hoyle, 'Synthesis of the Elements in Stars', Rev. Mod. Phys. 29 (1957).",
+      "sourcesEn": "Al-Rāzī on Q 57:25; Zaghloul El-Naggar; Burbidge, Burbidge, Fowler, Hoyle, 'Synthesis of the Elements in Stars,' Rev. Mod. Phys. 29 (1957)."
     },
     {
       "id": "arı-navigasyonu",
@@ -271,8 +305,8 @@
       "summaryEn": "The Qur'an says milk is brought forth 'from between chyme (farth) and blood' as a pure drink (Q 16:66). Modern physiology follows the same sequence: food is digested in the gut (farth/digestive content), nutrients are absorbed into the blood, carried by the blood to the mammary gland, and synthesized there into milk. This picture makes the verse's 'between' wording a striking correspondence. The verse is not a biochemistry lesson, but this anatomical ordering is striking.",
       "criticalNoteTr": "'Ferş' klasik Arapçada bağırsak/sindirim içeriği, 'dem' kandır; modern fizyoloji sütün besin öğelerinin bu ikisi üzerinden meme bezine ulaştığını gösterir. Çerçeve: Kur'ân haber verir, biz tasdik ederiz; bulgu bir 'bilimsel mucize ispatı' değil, dikkat çekici bir uyum ve tefekkür vesilesidir.",
       "criticalNoteEn": "'Farth' in classical Arabic is intestinal/digestive content, 'dam' is blood; modern physiology shows that milk's nutrients reach the mammary gland by way of both. Frame: the Qur'an informs, we affirm the correspondence; the finding is not 'proof of a scientific miracle' but a striking coincidence and an occasion for reflection.",
-      "sourcesTr": "İbn Kesîr, Nahl 66; Bucaille (1976) — laktasyon fizyolojisi analizi; modern fizyoloji ders kitapları.",
-      "sourcesEn": "Ibn Kathīr on Q 16:66; Bucaille (1976) — analysis of lactation physiology; modern physiology textbooks."
+      "sourcesTr": "İbn Kesîr, Nahl 66; modern fizyoloji ders kitapları.",
+      "sourcesEn": "Ibn Kathīr on Q 16:66; modern physiology textbooks."
     },
     {
       "id": "embriyoloji",
@@ -289,8 +323,8 @@
       "summaryEn": "The Qur'an presents embryonic development in stages: nuṭfa → ʿalaqa → muḍgha → bones → covering with flesh (Q 23:14). The word 'ʿalaqa' carries three senses at once: 'clinging/attached,' 'leech,' and 'blood(-filled) thing.' The early embryo does indeed cling to the uterine wall (implantation), resembles a leech in outward form, and is nourished via the maternal blood supply — all three senses of the single word fit this stage. The staged account (aṭwār) also depicts a sequential process rather than a single-step creation. Turning this into a claim of 'a detailed embryological discovery' or 'the Qur'an gave science in advance' is not academic; the sound frame is this striking fit between the word choice and the developmental stages.",
       "criticalNoteTr": "Nüans: 'alaka'nın 'kan pıhtısı' diye çevrilmesi bu evre için birebir teknik karşılık vermez (pıhtı canlı doku değildir) — bu bir tercüme tercihinin zaafıdır, ayetin değil; kelimenin 'asılma/tutunma' ve 'sülük benzeri görünüm' anlamları implantasyon evresiyle daha isabetli örtüşür. Keith Moore'a dayandırılarak kurulan 'bilim Kur'ân'ı doğruladı' sunumu ise gereksiz bir ispat denemesidir: Kur'ân keşfetmez, haber verir. Kelime seçimi ile gelişim evreleri arasındaki uyum gerçektir ve dikkat çekicidir — kanıt olarak değil, tefekkür vesilesi olarak okunur.",
       "criticalNoteEn": "A nuance: rendering ʿalaqa as 'blood clot' gives no exact technical counterpart for this stage (a clot is not living tissue) — that is a weakness of a translation choice, not of the verse; the word's senses of 'clinging/attaching' and 'leech-like appearance' correspond far more aptly to the implantation stage. The presentation built on Keith Moore, that 'science has confirmed the Qur'an,' is an unnecessary attempt at proof: the Qur'an does not discover, it reports. The alignment between word choice and the stages of development is real and striking — read as an occasion for reflection, not as proof.",
-      "sourcesTr": "İbn Kesîr, Mü'minûn 12-14; Keith Moore, The Developing Human (Dar Al-Qiblah, 1983 3rd ed. — Islamic addendum); Bucaille (1976); Basim Musallam (Cambridge historian) — akademik eleştiri.",
-      "sourcesEn": "Ibn Kathīr on Q 23:12-14; Keith Moore, The Developing Human (Dar Al-Qiblah, 1983 3rd ed. — Islamic addendum); Bucaille (1976); Basim Musallam (Cambridge historian) — academic critique."
+      "sourcesTr": "İbn Kesîr, Mü'minûn 12-14; Keith Moore, The Developing Human (Dar Al-Qiblah, 1983, 3. baskı, İslâmî ek); Basim Musallam (Cambridge tarihçisi), akademik eleştiri.",
+      "sourcesEn": "Ibn Kathīr on Q 23:12-14; Keith Moore, The Developing Human (Dar Al-Qiblah, 1983, 3rd ed., Islamic addendum); Basim Musallam (Cambridge historian), academic critique."
     },
     {
       "id": "parmak-izi",
@@ -319,32 +353,34 @@
       "verseAr": "يُكَوِّرُ اللَّيْلَ عَلَى النَّهَارِ وَيُكَوِّرُ النَّهَارَ عَلَى اللَّيْلِ",
       "verseTr": "O geceyi gündüzün üstüne sarar, gündüzü de gecenin üstüne sarar.",
       "verseEn": "He wraps the night over the day and wraps the day over the night.",
-      "discoveryYear": "16. yy — Kopernik heliyosentrik model · dünyanın küresel olduğu bilgisi Antik Yunan'a kadar geri",
-      "discoveryYearEn": "16th c. — Copernicus's heliocentric model · knowledge of earth's spherical shape dates back to ancient Greece",
-      "summaryTr": "'Yükevviru' (yekevviru — küresel yapmak, sarmak, koza gibi örtmek) Arapça 'kevvere' kökünden — top, koza, küre kavramıyla ilişkili. Klasik Arap dilinde 'kevr' başsari, sarık sarma anlamında da kullanılır. Kur'ân gece-gündüzün birbirinin 'üstüne sarılması' fiiliyle sunar. Küresel yerküre modelinde gece-gündüz dünyanın kendi ekseni etrafında dönmesiyle 'birbirinin üstüne kayar' — düz-yer modelinde olamayacak bir olgu. Kopernik 1543'te heliyosentrik modeli yayınlamadan önce Arap-Yunan astronomi zaten yerin küresel olduğunu kabul ediyordu (Batlamyus jeosentrik + küresel yer). Kur'ân'ın 'sarma' fiili, bu küresel modelle uyumludur.",
-      "summaryEn": "'Yukawwiru' (yukawwiru — to sphere, wrap, cover like a cocoon) from the Arabic root kawwara — related to ball, cocoon, sphere. In classical Arabic 'kawr' is also used for wrapping a turban. The Qur'an presents day and night as being 'wrapped over' each other. In the spherical earth model, day and night 'slide over each other' via earth's axial rotation — impossible in a flat-earth model. Before Copernicus's 1543 heliocentric publication, Arab-Greek astronomy already accepted the earth's spherical shape (Ptolemaic geocentric + spherical earth). The Qur'anic 'wrap' verb aligns with this spherical model.",
-      "criticalNoteTr": "Ayetin 'sarma / dolama' (tekvîr) ifadesi düz-yer tasavvuruna değil küresel bir tasavvura uygundur. Buradan 'Kur'ân bunu ilk kez bildirdi' biçiminde bir delil kurmak hem gereksiz hem zayıftır: yerin küreselliği o çağın ilim çevrelerinde zaten biliniyordu, dolayısıyla böyle bir argüman ilk itirazda düşer. Ayetin isabeti bir 'ilk keşif' iddiasına muhtaç değildir — kelime seçimi hakikate uygundur, bu yeter.",
-      "criticalNoteEn": "The verse's expression of 'winding / coiling' (takwīr) suits a spherical conception rather than a flat-earth one. To build from this an argument that 'the Qur'an announced it first' is both unnecessary and weak: the sphericity of the earth was already known in the learned circles of that age, so such an argument falls at the first objection. The verse's precision needs no claim of first discovery — its word choice accords with the truth, and that suffices.",
-      "sourcesTr": "Râzî, Mefâtîh, Zümer 5 (küre analizi); İbn Kesîr, Zümer 5; Bucaille (1976); Elmalılı, Zümer 5.",
-      "sourcesEn": "Al-Rāzī on Q 39:5 (sphericity analysis); Ibn Kathīr on Q 39:5; Bucaille (1976); Elmalılı on Q 39:5."
+      "discoveryYear": "",
+      "discoveryYearEn": "",
+      "summaryTr": "Âyette geçen 'yükevviru', k-v-r kökünden 'kevvera' fiilinin muzâri biçimidir ve sarma anlamı taşır. Âyet, gecenin gündüzün üzerine, gündüzün de gecenin üzerine sarılmasını bildirir. Okunan muhtasar İbn Kesîr metninde vurgu, gece ile gündüzün aralıksız nöbetleşmesindedir; ifade A'râf 7:54 ile birlikte okunur ve bu mânâ, metnin kendi ifadesiyle İbn Abbâs, Mücâhid, Katâde, Süddî ve başkalarından nakledilene nisbet edilir. Burada tekvîr ile yerkürenin biçimi arasında kurulan ilişki ise ayrıca gerekçelendirilmesi gereken bir yorumdur: küresel bir tasavvurla uyumludur, fakat bu ifade tek başına belirli bir kozmolojik model ortaya koymaz.",
+      "summaryEn": "The word 'yukawwiru' in the verse is the imperfect form of the verb 'kawwara', from the root k-w-r, and carries the sense of winding. The verse states that the night is wound over the day and the day over the night. In the abridged Ibn Kathīr text that was read, the emphasis falls on the ceaseless alternation of night and day; the expression is read together with al-A'rāf 7:54, and that sense is, in the text's own words, ascribed to what was narrated from Ibn 'Abbās, Mujāhid, Qatāda, al-Suddī and others. The connection drawn here between takwīr and the shape of the earth is an interpretation that needs grounds of its own: it accords with a spherical conception, yet this expression alone establishes no particular cosmological model.",
+      "criticalNoteTr": "Bu kart bir ilk keşif iddiası kurmaz: 'Kur'ân bunu ilk kez bildirdi' biçimindeki bir delil, nüzul dönemindeki astronomi bilgisine dair kaynaklı ayrı bir inceleme olmadan kurulamaz. Burada değerlendirilen, âyetin doğruluğu değil, tekvîr ifadesiyle yerkürenin biçimi arasında kurulan yorumun dayanakları ve sınırlarıdır.",
+      "criticalNoteEn": "This card makes no claim of first discovery: an argument of the form 'the Qur'an announced this first' is unsupported without a separate, sourced study of the astronomical knowledge of the period of revelation. What is assessed here is not the truth of the verse but the grounds and limits of the proposed connection between takwīr and the shape of the earth.",
+      "sourcesTr": "İbn Kesîr, Zümer 5 (quran.com'daki muhtasar İngilizce metin: vurgu gece ile gündüzün aralıksız nöbetleşmesinde, A'râf 7:54 ile birlikte; mânâ İbn Abbâs, Mücâhid, Katâde, Süddî ve başkalarından nakledilene nisbet edilir).",
+      "sourcesEn": "Ibn Kathīr on Q 39:5 (the abridged English text on quran.com: the emphasis is the ceaseless alternation of night and day, read with Q 7:54; the sense is ascribed to what was narrated from Ibn 'Abbās, Mujāhid, Qatāda, al-Suddī and others).",
+      "timeline": false
     },
     {
       "id": "zerre-agirligi",
-      "titleTr": "Zerre Ağırlığı — Atom Ölçeği",
-      "titleEn": "Atom-Weight — Atomic Scale",
-      "domainId": "astronomi",
+      "titleTr": "Zerre Ağırlığı: Çok Küçük Bir Miktar",
+      "titleEn": "The Weight of a Dharra: A Very Small Amount",
+      "domainId": "dil-yorum",
       "verseRef": "Zilzâl 99:7-8 · Sebe 34:3",
       "verseAr": "فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْراً يَرَهُ وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَراًّ يَرَهُ",
       "verseTr": "Kim zerre ağırlığınca hayır işlerse onu görecek. Kim de zerre ağırlığınca kötülük işlerse onu görecek.",
       "verseEn": "So whoever does an atom's weight of good will see it. And whoever does an atom's weight of evil will see it.",
-      "discoveryYear": "1897 — J.J. Thomson elektron keşfi · 1911 — Rutherford atom modeli · 1932 — nötron",
-      "discoveryYearEn": "1897 — J.J. Thomson discovers electron · 1911 — Rutherford atom model · 1932 — neutron",
-      "summaryTr": "'Zerre' klasik Arapçada 'karınca tanesi', 'toz zerresi' — en küçük görünen partikül anlamında kullanılırdı. 20. yy modern fiziğinde 'zerre' bilimsel-teknik olarak 'atom' terimine yaklaştırıldı. Kur'ân'ın 'mîsqâle zerra' (zerre ağırlığında) ifadesi 7. yy'da 'ölçülebilir en küçük' anlamındaydı. Modern fizik atomu 10^-10 metre, atom altı parçacıkları daha küçük ölçekte gösterdi — 'mîsqâle zerra' modern okuma ile 'atom ölçeğinde' anlamına gelir. Ancak: klasik anlam ('toz tanesi') ile modern anlam ('atom') arasında bir 'yerleşim' vardır; Kur'ân'ın kelime seçimi 'olabilecek en küçük' fikrini yakalar.",
-      "summaryEn": "'Dharra' in classical Arabic meant 'ant' or 'dust particle' — the smallest visible unit. In 20th-century modern physics, 'dharra' was technically approximated to the 'atom' concept. The Qur'anic 'mithqāl dharra' (an atom's weight) meant, in the 7th century, 'the smallest measurable.' Modern physics shows the atom at 10⁻¹⁰ m and subatomic particles at smaller scales — 'mithqāl dharra' in modern reading corresponds to 'atomic scale.' However: there is a 'settling' between the classical ('dust particle') and modern ('atom') meanings; the Qur'anic word choice captures the notion of 'smallest possible.'",
-      "criticalNoteTr": "'Zerre = atom' kesin bir modern iddia değil — kelime tarihsel olarak 'gözle görülür en küçük şey' anlamına gelir. Fakat Kur'ân'ın kullanımı ('ölçülebilir en küçük ağırlıkta') modern ölçek anlayışını dilbilimsel olarak destekler.",
-      "criticalNoteEn": "'Dharra = atom' is not a definite modern claim — the word historically means 'smallest visible thing.' But the Qur'anic usage ('the smallest measurable weight') linguistically supports the modern scale-understanding.",
-      "sourcesTr": "İbn Kesîr, Zilzâl 7-8; Elmalılı, Zilzâl 7; Bucaille (1976); modern Arap sözlük çalışmaları.",
-      "sourcesEn": "Ibn Kathīr on Q 99:7-8; Elmalılı on Q 99:7; Bucaille (1976); modern Arabic lexicon studies."
+      "discoveryYear": "Bilim tarihi bağlamı (atom ve parçacık fiziği): 1897 elektron · 1911 Rutherford'un çekirdekli atom modeli · 1932 nötron",
+      "discoveryYearEn": "Context from the history of science (atomic and particle physics): 1897 electron · 1911 Rutherford's nuclear model of the atom · 1932 neutron",
+      "summaryTr": "'Zerre', çok küçük bir miktarı ifade eder; kelimeyi burada doğrudan modern atom kavramıyla özdeşleştirmek isabetli değildir. Okunan sadeleştirilmiş Elmalılı neşrinde, Zilzâl 7 açıklamasında zerre 'görülür görülmez derecede, gayet küçük karınca' ve güneş ışığında sezilen toz zerrecikleri diye kaydedilir; ikisi de azlığa meseldir. Bu iki pasajın vurgusu da ayrıdır: Zilzâl 99:7-8 zerre ağırlığınca bir hayrın ya da bir kötülüğün bile karşılıksız kalmayacağını bildirir; Sebe 34:3 göklerde ve yerde zerre ağırlığınca bir şeyin Allah'ın ilminden gizli kalmayacağını bildirir. Aynı neşirde Sebe 34:3 açıklamasında atom ve elektron, zerreden küçük olanlar arasında anılır; yani o pasajda zerre doğrudan modern atom kavramıyla özdeşleştirilmez. Bu karttaki tarihler elektron, çekirdekli atom modeli ve nötronla ilgili gelişmelere aittir; âyetin karşılığı olarak verilmez.",
+      "summaryEn": "'Dharra' denotes a very small quantity; identifying the word here directly with the modern concept of the atom is not sound. In the simplified Elmalılı text that was read, the explanation of al-Zalzala 7 records the dharra as a very small ant, barely visible, and as the motes discernible in sunlight; both are figures for smallness. The two passages differ in emphasis: al-Zalzala 99:7-8 states that not even a dharra's weight of good or of evil goes unaccounted for; Saba' 34:3 states that not a dharra's weight in the heavens or the earth escapes God's knowledge. In the same text, the explanation of Saba' 34:3 mentions the atom and the electron among what is smaller than a dharra; in that passage, then, the dharra is not identified with the modern concept of the atom. The dates on this card belong to developments concerning the electron, the nuclear model of the atom and the neutron; they are not given as the verse's counterpart.",
+      "criticalNoteTr": "'Zerre = atom' önerilmiş bir özdeşleştirmedir; bu bağlamdaki klasik anlamdan zorunlu olarak çıkmaz. Kelime tarihsel olarak gözle görülebilen çok küçük şeyler için kullanılır ve âyetteki ağırlık ifadesi tek başına modern atom fiziğiyle bir bağ kurmaz. Burada değerlendirilen de âyet değil, önerilen özdeşleştirmedir.",
+      "criticalNoteEn": "'Dharra = atom' is a proposed identification; it does not follow necessarily from the classical sense in this context. Historically the word is used for very small visible things, and the verse's expression of weight does not by itself establish a connection with modern atomic physics. What is assessed here is the proposed identification, not the verse.",
+      "sourcesTr": "Elmalılı Hamdi Yazır, Hak Dini Kur'an Dili, Zilzâl 7 ve Sebe 3 (bu sitenin okuma sayfalarındaki sadeleştirilmiş metinden okundu); İbn Kesîr, Zilzâl 7-8 (quran.com'daki muhtasar İngilizce metinde 'bir toz zerresi ağırlığı'; bahis, en küçük hayrın ve şerrin hafife alınmaması).",
+      "sourcesEn": "Elmalılı Hamdi Yazır, Hak Dini Kur'an Dili, on al-Zalzala 7 and Saba' 3 (read in the simplified text on this site's reading pages); Ibn Kathīr on al-Zalzala 7-8 (the abridged English text on quran.com renders it 'the weight of a speck of dust'; the theme is not belittling the smallest good or evil).",
+      "timeline": false
     }
   ]
 }
