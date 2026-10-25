@@ -563,9 +563,21 @@ export default function Hero() {
           style={{
             position: 'absolute',
             // v2.0 — DEVAM göstergesi halkanın İÇİNE (alt yayının içine) taşındı.
-            // Halka yüksekliği viewport'a bağlı olduğundan yüzde ile takip eder:
-            // ring bottom ≈ ekran altından ~%12+14px yukarıda; %17 rahatça içeride.
-            bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : 'calc(11% - 6px)',
+            // Halka yüksekliği viewport'a bağlı olduğundan yüzde ile takip eder.
+            //
+            // 2026-10-25 — masaüstünde CTA satırıyla ÖRTÜŞÜYORDU (kullanıcı
+            // bildirdi). Ölçüm, örtüşmenin SABİT OLMADIĞINI gösterdi: CTA satırı
+            // normal akışta, yani üstündeki içeriğin yüksekliğine bağlı; DEVAM
+            // ise mutlak konumda, yani kapsayıcı yüksekliğine bağlı. Ekran
+            // kısaldıkça ikisi yaklaşıyor:
+            //   1680x1050  boşluk  51px      1440x900  ÖRTÜŞME 7px
+            //   1280x800   boşluk  29px      1440x720  boşluk   2px
+            // Bu yüzden sabit piksel eklemek yanlış olurdu; yüzdenin sabit
+            // bileşeni büyütüldü. `max()` çok uzun ekranlarda DEVAM'ın ekran
+            // dibine yapışmasını engelleyen alt sınır.
+            bottom: isMobile
+              ? 'calc(24px + env(safe-area-inset-bottom, 0px))'
+              : 'max(32px, calc(11% - 28px))',
             left: 0,
             right: 0,
             justifyContent: 'center',
