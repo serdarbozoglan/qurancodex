@@ -422,9 +422,27 @@ yazıyor. Sayfanın metodoloji bölümüne de sayım ölçütü eklendi.
       "sahih" yazmaya gerek yok, Tirmizî için yeterli.
 
 **Kalan rivayet maddeleri (her biri kaynaktan doğrulanacak):**
-- [ ] Alak 4-5: kalem rivayeti ile "ilk yaratılan akıl" rivayetinin
-      dizilişi okuru yanıltıyor (Tirmizî Kader 17 no. 2155, Tefsîr no. 3319;
-      Ebû Dâvûd Sünnet 17 no. 4700).
+- [x] **Alak 4-5: kalem ve "akıl" rivayetlerinin karışması** — tek alıntı
+      kutusunda iki ayrı rivayet vardı ve kaynak satırı en altta durduğu için
+      okur onu, kendi parantezi "uydurma" diyen son cümleye ait sanıyordu.
+      İngilizcesinde uydurma uyarısı HİÇ yoktu.
+      Künyeler doğrulandı: **Tirmizî 2155** (Kader, kitap içi 32/23, Ubâde b.
+      Sâmit'ten, Dârüsselâm: Sahih) ve **Ebû Dâvûd 4700** (Sünne, Kader babı,
+      42/105, aynı râvi, Elbânî: Sahih).
+      Yapılan: kalem rivayeti künyesiyle birlikte kendi kutusunda kaldı;
+      "akıl" rivayeti ayrı bir editör notuna taşındı. Astra'nın üç şartı
+      uygulandı: (1) doğrulayamadığım **Ahmed b. Hanbel** kaynak satırından
+      çıkarıldı; (2) isimsiz "hadis âlimlerinin çoğunluğunca" iddiası
+      kaldırıldı ("birkaç isim sıralamak çoğunluk iddiasını doğrulamaz");
+      (3) yerine İbn Teymiyye ve İbn Hacer adları §13.30 gereği ihtiyatlı
+      dille verildi ve "burada dinî delil olarak kullanılmamaktadır" cümlesi
+      eklendi.
+      **Yan bulgu:** `PullQuote` bileşeni İngilizce künye desteklemiyordu,
+      Türkçe kaynak satırı İngilizce sayfada da görünüyordu. `sourceEn`
+      eklendi; `sourceEn` vermeyen eski bloklar aynı şekilde çalışıyor.
+      ⏳ Astra'nın ayrıca not ettiği bir nokta yazarla konuşulacak: Alak 4-5
+      kalemle öğretmeyi zikreder, kalemin ya da aklın ilk yaratılan olduğunu
+      söylemez; rivayet tartışması âyetin doğrudan beyanı gibi sunulmamalı.
 - [ ] Allahu Ekber yazısı: "ilk yaratılan nur" olgu gibi sunuluyor.
 - [ ] Evrim-İnanç-Resimler: namaz hadisi kaynaksız (Ebû Dâvûd Salât 26,
       no. 494-495).

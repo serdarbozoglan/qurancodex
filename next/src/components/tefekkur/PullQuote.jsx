@@ -4,8 +4,12 @@ import { COLORS, FONTS } from '../../tokens';
 import { renderInlineMarkdown } from './inlineMarkdown';
 
 // PullQuote — museum-style büyük italic quote (gold-bordered).
-export default function PullQuote({ tr: trText, en: enText, source, language }) {
+export default function PullQuote({ tr: trText, en: enText, source, sourceEn, language }) {
   const tr = language === 'tr';
+  // Künye de iki dilli olabilir. Eskiden tek `source` vardı ve Türkçe
+  // künye İngilizce sayfada da görünüyordu; `sourceEn` verilmeyen eski
+  // bloklar aynı şekilde çalışmaya devam eder.
+  const kaynak = (tr ? source : (sourceEn || source));
   return (
     <div style={{
       margin: '32px 0',
@@ -36,7 +40,7 @@ export default function PullQuote({ tr: trText, en: enText, source, language }) 
       }}>
         {renderInlineMarkdown(tr ? trText : enText, { boldColor: COLORS.gold })}
       </p>
-      {source && (
+      {kaynak && (
         <div style={{
           marginLeft: '28px',
           fontSize: '0.72rem',
@@ -47,7 +51,7 @@ export default function PullQuote({ tr: trText, en: enText, source, language }) 
           opacity: 0.8,
           textTransform: 'uppercase',
         }}>
-          — {source}
+          — {kaynak}
         </div>
       )}
     </div>
