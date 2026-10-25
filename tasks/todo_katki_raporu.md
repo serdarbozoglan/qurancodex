@@ -464,6 +464,50 @@ Beşinin de yeri bulundu. Astra ajanı altı yerde düzeltti.
       astra haklı: o sayı ilâhî kullanım sayısı DEĞİL, ve tarama Es-Selâm'ı
       kaçırdığı için 61'in bütün ilgili yerleri kapsadığı da varsayılamaz.
       Veride şimdilik "doğrulanmadı" notu duruyor.
+- [x] **İkinci grup: yedi isim daha ölçüt esasına çevrildi.**
+      El-Âhir 30→1 (Hadîd 57:3) · El-Berr 19→1 (Tûr 52:28) · En-Nûr 12→1
+      (Nûr 24:35) · El-Hakem 11→1 (En'âm 6:114) · El-Hayy 8→**5** ·
+      El-Mü'min 3→1 (Haşr 59:23) · El-Adl 5→**0**.
+      El-Cebbâr, El-Hallâk, El-Mütekebbir ve Ez-Zâhir kayıtları zaten
+      doğruydu, dokunulmadı.
+
+      **El-Âhir'de sapmanın sebebi:** kelime çoğunlukla "âhiret günü"
+      terkibinin parçası. Bakara 2:8 ile doğrulandı. ⚠ Astra uyarısı
+      uygulandı: "eski sayı son gün geçişlerini sayıyor" demek kanıtı
+      aşıyor; veriye "önceki sayı, Allah'ı nitelemeyen kullanımları da
+      içeriyordu" yazıldı.
+
+      **El-Adl, yapısal bir sınıfın ilk örneği:** kelime Kur'an'da var ama
+      Allah'a nisbet edilen bir lafız olarak yok (adalet buyruğu ve "denk
+      karşılık" anlamında geçiyor). Astra'nın hükmü ve metniyle sıfır
+      yazıldı, gerekçesi açıkça belirtildi. Astra ayrıca şunu düzeltti:
+      "Kur'an'da bu lafızla geçmez" demek yanlış, kelime geçiyor; yok olan
+      şey onun Allah'ın adı olarak kullanımı. Bir de "hadiste sayılan
+      doksan dokuz isim listesinden geliyor" demenin kayıt gerektirdiğini
+      söyledi: doksan dokuz isim hakkındaki sahih hadis ile isimleri tek
+      tek sıralayan rivayetlerin sıhhati ayrı meseleler.
+
+- [ ] ⚠ **YÖNTEM DEĞİŞMELİ: elle düzenli ifade yazmak bu iş için
+      yetersiz.** Bu turda beş ayrı kalıp yazdım ve **beşinde de hata
+      çıktı**, üçünü astra yakaladı:
+      · El-Aliyy: yâ'dan sonra şedde bekledim, `عَلِياًّ` biçiminde araya
+        elif giriyor; üç geçiş kaçtı.
+      · El-Hayy: biçim gruplarına bakıp grubu bütün olarak eledim, oysa
+        her geçiş tek tek yargılanmalıydı; Furkān 25:58 ("ölümsüz ve daima
+        diri olan Allah'a güvenip dayan") o grubun içindeydi.
+      · Ön ek soyutlayıcım **kök harfi** `و`, `ب`, `ك`, `ل` olan
+        kelimelerde zarar veriyor: `وَحْيٌ` (vahiy) El-Hayy'e, `وَاحِدٌ`
+        ise El-Ehad'a karışabiliyor.
+      · El-Vâhid: belirlilik takısının lâmındaki cezm yüzünden belirli
+        biçimleri kaçırdım. Gerçek tablo 61 geçiş, 6'sı belirli biçim,
+        ilâhî kullanım 20'nin üzerinde. Benim 7 sayım fena hâlde yanlıştı.
+      **Öneri:** isim başına elle kalıp yazmak yerine `corpus.quran.com`
+      morfolojisini (izinli listede) kullanmak. Biçim tespiti oradan
+      güvenilir gelir; geriye kalan ve indirgenemeyen iş, her geçişin
+      kime nisbet edildiğini âyet metninden okumak.
+      ⚠ **El-Vâhid'e DOKUNULMADI**, çünkü doğru sayıyı bu yöntemle
+      veremiyorum.
+
 - [ ] **Kalan 110 ismin listeleri denetlenmeli** (astra'nın öncelik sırası):
       önce sayı ile liste uyuşmazlıkları, sonra alt dize çakışması üreten
       biçimler, sonra Allah dışındaki varlıkları da niteleyebilen lafızlar.

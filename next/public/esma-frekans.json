@@ -1785,91 +1785,23 @@
       "aciklama": "Her şeyden sonra bâki kalan",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 30,
-      "yuksek_frekansli": true,
+      "kuranda_gecis_sayisi": 1,
+      "yuksek_frekansli": false,
       "ornek_ayetler": [
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 8
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 62
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 126
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 177
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 228
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 232
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 264
-        },
-        {
-          "sure": 3,
-          "sure_adi": "Âl-i İmrân",
-          "ayet": 114
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 38
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 39
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 59
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 136
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 162
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 27
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 69
+          "sure": 57,
+          "sure_adi": "الحديد",
+          "ayet": 3
         }
       ],
-      "gosterim_notu": "Kur'an'da yaklaşık 30 yerde geçer; ilk 15 referans listelenmiştir.",
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
       "tum_ayetler": [],
       "isim_en": "Al-Akhir",
       "okunus_en": "Al-Akhir",
       "anlam_en": "The Last, without end",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Önceki sayı, Allah'ı nitelemeyen kullanımları da içeriyordu. Her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Kelime Kur'an'da çoğunlukla «âhiret günü» terkibinin parçası olarak geçer; Bakara 2:8 buna örnektir. Ayrıca «bir başka» anlamında da kullanılır.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. The previous figure also included uses that do not describe Allah. The referent of each occurrence was read individually from the verse. The word mostly occurs in the Quran as part of the phrase for the Last Day, as in al-Baqara 2:8. It is also used in the sense of another."
     },
     {
       "isim": "El-Kerîm",
@@ -2349,7 +2281,7 @@
       "aciklama": "İyilik ve ihsan kaynağı",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 19,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -2451,7 +2383,17 @@
       "isim_en": "Al-Barr",
       "okunus_en": "Al-Barr",
       "anlam_en": "The Source of Goodness, abundant in kindness",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 52,
+          "sure_adi": "الطور",
+          "ayet": 28
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Önceki sayı, Allah'ı nitelemeyen kullanımları da içeriyordu. Her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Bu yazılışı paylaşan başka kelimeler de vardır ve bağlama göre «kara» (denizin karşıtı) ya da «iyilik, takva» anlamına gelir. Allah'a nisbet edildiği yer Tûr 52:28'dir.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. The previous figure also included uses that do not describe Allah. The referent of each occurrence was read individually from the verse. Other words share this spelling and, depending on context, mean dry land as opposed to sea, or righteousness and piety. The place where it is ascribed to Allah is al-Tur 52:28."
     },
     {
       "isim": "El-Hâlik",
@@ -3279,7 +3221,7 @@
       "aciklama": "Hidayet ve aydınlık kaynağı",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 12,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -3346,7 +3288,17 @@
       "isim_en": "An-Nur",
       "okunus_en": "An-Nur",
       "anlam_en": "The Light of the heavens and the earth",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 24,
+          "sure_adi": "النور",
+          "ayet": 35
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Önceki sayı, Allah'ı nitelemeyen kullanımları da içeriyordu. Her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Kelime Kur'an'da «ışık, aydınlık» anlamında ve hidayet için de kullanılır. Allah'ı doğrudan nitelediği yer Nûr 24:35'tir. Aynı âyetteki «O'nun nuru» ve «nûr üstüne nûr» ifadeleri ismin yeniden kullanımı olarak sayılmadı.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. The previous figure also included uses that do not describe Allah. The referent of each occurrence was read individually from the verse. The word is also used in the Quran for light and brightness, and for guidance. The place where it directly describes Allah is al-Nur 24:35. The phrases about His light and light upon light in the same verse were not counted as further occurrences of the name."
     },
     {
       "isim": "El-Hakem",
@@ -3356,7 +3308,7 @@
       "aciklama": "Aralarında hükmeden yegâne hâkim",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 11,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -3418,7 +3370,17 @@
       "isim_en": "Al-Hakam",
       "okunus_en": "Al-Hakam",
       "anlam_en": "The Ultimate Judge, whose decree is absolute",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 6,
+          "sure_adi": "الأنعام",
+          "ayet": 114
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Önceki sayı, Allah'ı nitelemeyen kullanımları da içeriyordu. Her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Bu kök Kur'an'da «hüküm, yargı yetkisi» ve «hikmet» anlamlarındaki kelimelerle de geçer; bunlar ayrı kelimelerdir. Hakem lafzının Allah'a nisbet edildiği yer En'âm 6:114'tür.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. The previous figure also included uses that do not describe Allah. The referent of each occurrence was read individually from the verse. This root also yields words in the Quran meaning judgment and authority, and wisdom; these are separate words. The place where the word hakam is ascribed to Allah is al-An'am 6:114."
     },
     {
       "isim": "El-Hafîz",
@@ -4314,7 +4276,7 @@
       "aciklama": "Daima diri olan",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 8,
+      "kuranda_gecis_sayisi": 5,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -4361,7 +4323,37 @@
       "isim_en": "Al-Hayy",
       "okunus_en": "Al-Hayy",
       "anlam_en": "The Ever-Living, eternally alive",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 2,
+          "sure_adi": "البقرة",
+          "ayet": 255
+        },
+        {
+          "sure": 3,
+          "sure_adi": "آل عمران",
+          "ayet": 2
+        },
+        {
+          "sure": 20,
+          "sure_adi": "طه",
+          "ayet": 111
+        },
+        {
+          "sure": 25,
+          "sure_adi": "الفرقان",
+          "ayet": 58
+        },
+        {
+          "sure": 40,
+          "sure_adi": "غافر",
+          "ayet": 65
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 5 yerde kullanılır; âyetlerin hepsi aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Önceki sayı, Allah'ı nitelemeyen kullanımları da içeriyordu. Her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Kelime Kur'an'da «diri, canlı» anlamında da geçer; Âl-i İmrân 3:27, En'âm 6:95, Yûnus 10:31 ve Rûm 30:19'da «ölüden diriyi çıkarır» ifadesinin parçasıdır, Enbiyâ 21:30'da ise her canlıyı anar.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. The previous figure also included uses that do not describe Allah. The referent of each occurrence was read individually from the verse. The word also occurs in the Quran meaning living or alive; in Al Imran 3:27, al-An'am 6:95, Yunus 10:31 and al-Rum 30:19 it is part of the phrase about bringing the living out of the dead, and in al-Anbiya 21:30 it refers to every living thing."
     },
     {
       "isim": "El-Fettâh",
@@ -4663,7 +4655,7 @@
       "aciklama": "Adaletin kaynağı",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 5,
+      "kuranda_gecis_sayisi": 0,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -4695,7 +4687,11 @@
       "isim_en": "Al-Adl",
       "okunus_en": "Al-Adl",
       "anlam_en": "The Absolutely Just, who never wrongs anyone",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [],
+      "gosterim_notu": "Kur'an'da Allah'ın adı veya sıfatı olarak kullanım sayısı: 0. Adl kelimesi Kur'an'da geçer; ancak Allah'ın adı veya sıfatı olarak kullanılmaz. El-Adl, yaygın esmâ-i hüsnâ listesinde yer alır.",
+      "sayimNotuTr": "Kelime Kur'an'da «adalet» anlamında (insanlara yönelik buyruklarda) ve «denk karşılık, fidye» anlamında geçer. Bu isim, Kur'an metninde Allah'a nisbet edilen bir lafız olarak bulunmaz.",
+      "sayimNotuEn": "The word occurs in the Quran in the sense of justice, in commands addressed to people, and in the sense of an equivalent or ransom. This name does not occur in the Quranic text as a word ascribed to Allah."
     },
     {
       "isim": "Er-Rakîb",
@@ -4863,7 +4859,7 @@
       "aciklama": "Kullarına güven veren, vaadinde sâdık",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 3,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -4885,7 +4881,17 @@
       "isim_en": "Al-Mumin",
       "okunus_en": "Al-Mumin",
       "anlam_en": "The Giver of Security, who grants safety",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 59,
+          "sure_adi": "الحشر",
+          "ayet": 23
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Önceki sayı, Allah'ı nitelemeyen kullanımları da içeriyordu. Her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Kelime Kur'an'da çoğunlukla «inanan kişi» anlamında geçer. Allah'ın isimleri arasında sayıldığı yer Haşr 59:23'tür.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. The previous figure also included uses that do not describe Allah. The referent of each occurrence was read individually from the verse. The word mostly occurs in the Quran meaning a believer. The place where it is listed among the names of Allah is al-Hashr 59:23."
     },
     {
       "isim": "El-Vehhâb",
