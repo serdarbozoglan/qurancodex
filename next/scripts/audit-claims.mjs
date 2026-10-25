@@ -134,6 +134,16 @@ try {
   check('esma-frekans · gösterim notu ile geçiş sayısı', sapan.length, 0,
     sapan.length ? sapan.join(' · ') : '');
 
+  // "Yüksek frekanslı" rozeti ile sayı çelişmemeli. 2026-10-25'te El-Ehad ve
+  // Er-Rezzâk sayıları 1'e indiği hâlde bu rozeti taşımaya devam ediyordu;
+  // arayüz bir kez geçen bir isme "yüksek frekanslı" diyordu. Eşik verinin
+  // kendi deseninden okundu: rozetli isimlerin en küçük sayısı 10.
+  const rozetSapan = (ef.isimler || [])
+    .filter((x) => x.yuksek_frekansli && Number.isFinite(x.kuranda_gecis_sayisi) && x.kuranda_gecis_sayisi < 10)
+    .map((x) => `${x.isim}: ${x.kuranda_gecis_sayisi}`);
+  check('esma-frekans · yüksek frekans rozeti sayıyla uyumlu', rozetSapan.length, 0,
+    rozetSapan.length ? rozetSapan.join(' · ') : '');
+
   // Liste uzunluğu geçiş sayısını AŞMAMALI. Rezzâk sayı 1 iken 15 âyet
   // listeliyordu; liste eski ve geniş bir eşleştirmeden kalmıştı.
   const tasan = (ef.isimler || [])

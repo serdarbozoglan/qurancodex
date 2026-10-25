@@ -415,6 +415,55 @@ Beşinin de yeri bulundu. Astra ajanı altı yerde düzeltti.
       notu 115/114 ayrımını açıkça yazıyor, ve ölçüt kararının bütün isimler
       için birlikte verileceği söyleniyor.
 
+- [x] **Birinci grup bitti: Allah dışı yaygın anlamı olan beş isim.** Kullanıcı
+      ölçütü belirledi (Allah'a nisbet edilen kullanım). Her geçiş harekeli
+      metin üzerinde sayıldı ve kime nisbet edildiği mealden tek tek okundu.
+
+      | isim | eski | yeni | lafız geçişi |
+      |---|---|---|---|
+      | El-Aliyy | 10 | **8** | 11 |
+      | El-Ehad | 32 | **1** | çok daha fazla, hepsi "biri/kimse" |
+      | Es-Selâm | 13 | **1** | selamlama ve barış anlamında da geçer |
+      | El-Evvel | 2 | **1** | çoğulu "önceki nesiller" demek |
+      | El-Hakk | 176 | dokunulmadı | 241, tek tek inceleme ister |
+
+      Eski sayıların hiçbiri ne lafız geçişine ne ilâhî kullanıma denk
+      geliyordu. ⚠ Astra uyarısı uygulandı: "bilinen bir ölçütten
+      üretilmemiş" demek kanıtı aşıyor; doğru ifade "mevcut sayıların hangi
+      sayım yöntemine dayandığı doğrulanamadı".
+
+      **Dışarıda bırakılan geçişler, gerekçeleriyle:** El-Aliyy'de Meryem
+      19:50 bir şöhreti, Meryem 19:57 Hz. İdrîs'in makamını, Zuhruf 43:4
+      Kur'an'ı niteler. El-Ehad'da Cin 72:7, 72:18 ve 72:22 kelimeyi "kimse"
+      anlamında kullanır. El-Evvel'de Şuarâ 26:26, Sâffât 37:126 ve Duhân
+      44:8 "önceki atalar" der.
+
+      **ASTRA BENİ İKİ YERDE DÜZELTTİ, ikisi de gerçek hataydı:**
+      1. Nisâ 4:34'teki `عَلِياًّ` biçimini kaçırmışım. Sebep: düzenli
+         ifadem yâ'dan hemen sonra şedde bekliyordu, o biçimde araya elif
+         giriyor (yâ-elif-şedde). Üç geçiş kaçmış; düzeltilince lafız 8'den
+         11'e, ilâhî kullanım 7'den 8'e çıktı.
+      2. Aritmetiğim tutmuyordu (31 − 15 − 6 − 1 = 9, ben 8 demiştim).
+         Sebep bende: `عَلَيَّ` grubunu 15 saymışım, aslında 16.
+      ⚠ Ayrıca kendi yakınlık taramam Es-Selâm'ın Haşr 59:23'teki ilâhî
+      kullanımını TESPİT EDEMEDİ, çünkü isimlerin sıralandığı yerde ±2
+      kelime penceresi yetmiyor. Yani o tarama ön eleme, hüküm değil.
+
+      **Astra'nın koşulu uygulandı:** lafız TOPLAMLARI karşılaştırılabilir
+      sayı gibi sunulmuyor, çünkü kapsamları tutarsız (El-Evvel'in 62'si
+      çoğulları içeriyordu). Birincil sayı tek tek doğrulanmış ilâhî
+      kullanım; doğrulanmamış toplam hiç yazılmadı.
+
+- [x] **Aşağı-akış çelişkisi bulundu ve kapıya bağlandı:** El-Ehad ve
+      Er-Rezzâk `yuksek_frekansli` rozetini taşımaya devam ediyordu, oysa
+      sayıları 1'e inmişti; arayüz bir kez geçen isme "yüksek frekanslı"
+      diyordu. Bayrak temizlendi. Kapı kuralı eklendi (rozetli isimlerin en
+      küçük sayısı 10, veriden okundu) ve bilerek bozularak sınandı.
+
+- [ ] **El-Hakk** (241 lafız geçişi). Yakınlık taraması 61 aday verdi ama
+      astra haklı: o sayı ilâhî kullanım sayısı DEĞİL, ve tarama Es-Selâm'ı
+      kaçırdığı için 61'in bütün ilgili yerleri kapsadığı da varsayılamaz.
+      Veride şimdilik "doğrulanmadı" notu duruyor.
 - [ ] **Kalan 110 ismin listeleri denetlenmeli** (astra'nın öncelik sırası):
       önce sayı ile liste uyuşmazlıkları, sonra alt dize çakışması üreten
       biçimler, sonra Allah dışındaki varlıkları da niteleyebilen lafızlar.

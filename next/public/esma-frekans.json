@@ -240,7 +240,10 @@
       "isim_en": "Al-Haqq",
       "okunus_en": "Al-Haqq",
       "anlam_en": "The Absolute Truth, whose existence and sovereignty are real",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimDogrulandi": false,
+      "sayimNotuTr": "Bu lafzın Allah'ın adı veya sıfatı olarak kullanıldığı yerlerin sayısı henüz doğrulanmadı. Lafız Kur'an'da «hak, gerçek, doğru» anlamlarıyla çok sayıda yerde geçer ve her geçişin kime nisbet edildiği tek tek incelenmelidir.",
+      "sayimNotuEn": "The number of occurrences in which this word is used as a name or attribute of Allah has not yet been verified. The word occurs in many places in the Quran in the senses of truth, reality and what is right, and the referent of each occurrence needs individual review."
     },
     {
       "isim": "El-Alîm",
@@ -1449,7 +1452,7 @@
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
       "kuranda_gecis_sayisi": 1,
-      "yuksek_frekansli": true,
+      "yuksek_frekansli": false,
       "ornek_ayetler": [
         {
           "sure": 51,
@@ -1662,91 +1665,23 @@
       "aciklama": "Zâtında mutlak tek",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 32,
-      "yuksek_frekansli": true,
+      "kuranda_gecis_sayisi": 1,
+      "yuksek_frekansli": false,
       "ornek_ayetler": [
         {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 102
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 136
-        },
-        {
-          "sure": 2,
-          "sure_adi": "Bakara",
-          "ayet": 285
-        },
-        {
-          "sure": 3,
-          "sure_adi": "Âl-i İmrân",
-          "ayet": 73
-        },
-        {
-          "sure": 3,
-          "sure_adi": "Âl-i İmrân",
-          "ayet": 84
-        },
-        {
-          "sure": 3,
-          "sure_adi": "Âl-i İmrân",
-          "ayet": 153
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 43
-        },
-        {
-          "sure": 4,
-          "sure_adi": "Nisâ",
-          "ayet": 152
-        },
-        {
-          "sure": 5,
-          "sure_adi": "Mâide",
-          "ayet": 6
-        },
-        {
-          "sure": 7,
-          "sure_adi": "A'râf",
-          "ayet": 80
-        },
-        {
-          "sure": 9,
-          "sure_adi": "Tevbe",
-          "ayet": 6
-        },
-        {
-          "sure": 9,
-          "sure_adi": "Tevbe",
-          "ayet": 84
-        },
-        {
-          "sure": 9,
-          "sure_adi": "Tevbe",
-          "ayet": 127
-        },
-        {
-          "sure": 11,
-          "sure_adi": "Hûd",
-          "ayet": 81
-        },
-        {
-          "sure": 12,
-          "sure_adi": "Yûsuf",
-          "ayet": 4
+          "sure": 112,
+          "sure_adi": "الإخلاص",
+          "ayet": 1
         }
       ],
-      "gosterim_notu": "Kur'an'da yaklaşık 32 yerde geçer; ilk 15 referans listelenmiştir.",
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
       "tum_ayetler": [],
       "isim_en": "Al-Ahad",
       "okunus_en": "Al-Ahad",
       "anlam_en": "The Indivisible One, absolutely Unique",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Kelimenin diğer kullanımları bu sayıya girmez. Sayım, sitenin kanonik Kur'an metni (Hafs rivayeti) üzerinde harekeler esas alınarak yapıldı ve her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Lafız Kur'an'da çok daha sık geçer, fakat geçişlerin neredeyse tamamı «biri, kimse» anlamındadır. Allah'a yüklem olduğu tek yer İhlâs 112:1'dir. Cin 72:7, 72:18 ve 72:22'de kelime Allah'ın anıldığı cümlelerde geçer, ama orada da «kimse» anlamındadır.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. Its other uses are not included. The count was made over the site's canonical Quranic text (the Hafs reading) using the vowel marks, and the referent of each occurrence was read individually from the verse. The word occurs far more often in the Quran, but almost all occurrences mean one or anyone. The only place where it is predicated of Allah is al-Ikhlas 112:1. In al-Jinn 72:7, 72:18 and 72:22 the word appears in sentences mentioning Allah, but there too it means anyone."
     },
     {
       "isim": "El-Kâdir",
@@ -3011,7 +2946,7 @@
       "aciklama": "Selâmet kaynağı, kullarını esenliğe çıkaran",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 13,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -3083,7 +3018,17 @@
       "isim_en": "As-Salam",
       "okunus_en": "As-Salam",
       "anlam_en": "The Source of Peace, free from every imperfection",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 59,
+          "sure_adi": "الحشر",
+          "ayet": 23
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Kelimenin diğer kullanımları bu sayıya girmez. Sayım, sitenin kanonik Kur'an metni (Hafs rivayeti) üzerinde harekeler esas alınarak yapıldı ve her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Lafız Kur'an'da selamlama ve barış anlamında da geçer. Allah'ın isimleri arasında sayıldığı yer Haşr 59:23'tür. Bu lafzın isim mi sıfat mı sayılacağı tefsirde ayrıca ele alınır.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. Its other uses are not included. The count was made over the site's canonical Quranic text (the Hafs reading) using the vowel marks, and the referent of each occurrence was read individually from the verse. The word also occurs in the Quran in the sense of greeting and peace. The place where it is listed among the names of Allah is al-Hashr 59:23. Whether this word counts as a name or an attribute is discussed separately in the exegetical tradition."
     },
     {
       "isim": "El-Vâsi'",
@@ -3838,7 +3783,7 @@
       "aciklama": "Her şeyin üstünde yüce",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 10,
+      "kuranda_gecis_sayisi": 8,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -3895,7 +3840,52 @@
       "isim_en": "Al-Aliyy",
       "okunus_en": "Al-Aliyy",
       "anlam_en": "The Most High, exalted above all",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 2,
+          "sure_adi": "البقرة",
+          "ayet": 255
+        },
+        {
+          "sure": 4,
+          "sure_adi": "النساء",
+          "ayet": 34
+        },
+        {
+          "sure": 22,
+          "sure_adi": "الحج",
+          "ayet": 62
+        },
+        {
+          "sure": 31,
+          "sure_adi": "لقمان",
+          "ayet": 30
+        },
+        {
+          "sure": 34,
+          "sure_adi": "سبإ",
+          "ayet": 23
+        },
+        {
+          "sure": 40,
+          "sure_adi": "غافر",
+          "ayet": 12
+        },
+        {
+          "sure": 42,
+          "sure_adi": "الشورى",
+          "ayet": 4
+        },
+        {
+          "sure": 42,
+          "sure_adi": "الشورى",
+          "ayet": 51
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 8 yerde kullanılır; âyetlerin hepsi aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Kelimenin diğer kullanımları bu sayıya girmez. Sayım, sitenin kanonik Kur'an metni (Hafs rivayeti) üzerinde harekeler esas alınarak yapıldı ve her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Lafız 11 kez geçer; üç geçiş başka bir özneyi niteler. Meryem 19:50'de bir şöhreti, Meryem 19:57'de Hz. İdrîs'in makamını, Zuhruf 43:4'te Kur'an'ı niteler. Harekesiz yazımda bu lafız «aleyye» (benim üzerime) ile aynı iskelete iner; ayırt edici işaret lâmın harekesidir, bu yüzden sayım harekeler üzerinden yapıldı.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. Its other uses are not included. The count was made over the site's canonical Quranic text (the Hafs reading) using the vowel marks, and the referent of each occurrence was read individually from the verse. The word occurs 11 times; three occurrences describe a different subject. In Maryam 19:50 it describes a reputation, in Maryam 19:57 the station of the Prophet Idris, and in al-Zukhruf 43:4 the Quran. Without vowel marks this word shares its skeleton with alayya (upon me); the distinguishing mark is the vowel on the lam, so the count was made using the vowel marks."
     },
     {
       "isim": "El-Bâis",
@@ -5328,7 +5318,7 @@
       "aciklama": "Her şeyden önce var olan",
       "kategori": "esma",
       "kategori_etiket": "Esmâ-i Hüsnâ",
-      "kuranda_gecis_sayisi": 2,
+      "kuranda_gecis_sayisi": 1,
       "yuksek_frekansli": false,
       "ayetler": [
         {
@@ -5345,7 +5335,17 @@
       "isim_en": "Al-Awwal",
       "okunus_en": "Al-Awwal",
       "anlam_en": "The First, without any beginning",
-      "kategori_etiket_en": "Beautiful Name"
+      "kategori_etiket_en": "Beautiful Name",
+      "ornek_ayetler": [
+        {
+          "sure": 57,
+          "sure_adi": "الحديد",
+          "ayet": 3
+        }
+      ],
+      "gosterim_notu": "Allah'ın adı veya sıfatı olarak 1 yerde kullanılır; o âyet aşağıda listelenmiştir.",
+      "sayimNotuTr": "Bu sayı, kelimenin Allah'ın adı veya sıfatı olarak kullanıldığı yerleri gösterir. Kelimenin diğer kullanımları bu sayıya girmez. Sayım, sitenin kanonik Kur'an metni (Hafs rivayeti) üzerinde harekeler esas alınarak yapıldı ve her geçişin kime nisbet edildiği âyet metninden tek tek okundu. Lafız Kur'an'da «önceki nesiller, atalar» anlamındaki çoğul biçimiyle de geçer; Şuarâ 26:26, Sâffât 37:126 ve Duhân 44:8 böyledir. Allah'a nisbet edildiği yer Hadîd 57:3'tür.",
+      "sayimNotuEn": "This figure counts occurrences in which the word is used as a name or attribute of Allah. Its other uses are not included. The count was made over the site's canonical Quranic text (the Hafs reading) using the vowel marks, and the referent of each occurrence was read individually from the verse. The word also occurs in the Quran in its plural form meaning the former generations or forefathers, as in al-Shu'ara 26:26, al-Saffat 37:126 and al-Dukhan 44:8. The place where it is ascribed to Allah is al-Hadid 57:3."
     },
     {
       "isim": "Zü'l-Celâli ve'l-İkrâm",
