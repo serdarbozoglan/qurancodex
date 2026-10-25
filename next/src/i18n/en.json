@@ -469,7 +469,7 @@
         "description": "Continuous preservation period"
       },
       "sanaa": {
-        "label": "EARLIEST CARBON DATE",
+        "label": "CARBON DATE RANGE",
         "description": "Sana'a parchment: 578-669 CE (95% confidence). A range that partly overlaps the Prophet's lifetime.",
         "note": "Carbon dating applies to the parchment and does not date the writing; ink is typically applied later. In the Ṣanʿāʾ palimpsest examined by Sadeghi and Bergmann the upper text belongs to the ʿUthmānic tradition, while the erased lower text is classified by the researchers as a text type distinct from it. Sadeghi & Bergmann (2010), University of Arizona AMS lab."
       },

@@ -71,10 +71,13 @@ const FASILA_SURAS = [
     color: COLORS.softEmerald,
     glow: 'rgba(46,204,113,0.15)',
     border: 'rgba(46,204,113,0.3)',
-    examples: ['قَدِيرٌ', 'خَبِيرٌ', 'بَصِيرٌ'],
-    // §8 audit notu: 3 örneğin üçü de Esmâ-i Hüsnâ.
-    noteTr: '3 örneğin üçü de Esmâ-i Hüsnâ\'dandır; sûrenin fasıla mührü ilâhî sıfatlardan örülmüştür.',
-    noteEn: 'All three examples are among the Beautiful Names of God; the sura\'s closing-rhyme seal is woven from divine attributes.',
+    examples: ['قَديرٌ', 'نَذيرٌ', 'السَّعيرِ'],
+    // 2026-10-25 — eski not "üçü de Esmâ-i Hüsnâ, fasıla mührü ilâhî
+    // sıfatlardan örülmüştür" diyordu; sonuç seçilen örneklerden
+    // üretilmişti. Ölçüm: -îr sesiyle biten 13 âyetin (67:1,4,5,6,8,9,10,
+    // 11,12,14,17,18,19) yalnız ÜÇÜ Allah'a nisbet edilen bir sıfat.
+    noteTr: 'Vakıf hâlinde -îr sesiyle biten 13 âyetin üçünde son kelime Allah\'a nisbet edilen bir sıfattır: Kadîr (67:1), Habîr (67:14), Basîr (67:19). Diğer örnekler farklı anlam alanlarına aittir.',
+    noteEn: 'Of the thirteen verses that end on the -ir sound in pause, three close on an attribute ascribed to God: Qadir (67:1), Khabir (67:14), Basir (67:19). The other instances belong to different fields of meaning.',
   },
   {
     surahNum: 93,

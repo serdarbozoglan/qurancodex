@@ -1267,8 +1267,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'divineNameCloser',
       count: surahs.filter(s => (s.closerTags || []).includes('divine-name-closer')).length,
       labelTr: 'İlâhî sıfatla biten', labelEn: 'Divine attribute closer',
-      insightTr: 'Esmâ-i Hüsnâ\'dan biriyle mühürlenen 9 sûre: Hakîm, Habîr, Muhît, Tevvâb… Sûrenin son kelimesi Allah\'ın bir sıfatıyla mühürlenir.',
-      insightEn: 'Nine surahs sealed with one of God\'s Beautiful Names: al-Ḥakīm, al-Khabīr, al-Muḥīṭ, al-Tawwāb… Each surah\'s closing word is one of God\'s attributes.',
+      insightTr: 'Son kelimesi Allah\'a nisbet edilen bir sıfat olan 19 sûre: Hakîm, Habîr, Muhît, Tevvâb… Sayım sıfat biçimine bakar; kapanışı ilâhî bir ünvan olup son kelimesi sıfat olmayan sûreler ayrı tutulmuştur.',
+      insightEn: 'Nineteen surahs whose closing word is an attribute ascribed to God: al-Hakim, al-Khabir, al-Muhit, al-Tawwab… The count looks at the adjectival form; surahs that close on a divine title whose final word is not an adjective are kept separate.',
     },
     {
       filterId: 'kulOpener',

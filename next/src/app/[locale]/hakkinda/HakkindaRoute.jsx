@@ -16,8 +16,8 @@ import useNavbarOffset from '@/components/useNavbarOffset';
 
 // "Son güncelleme" tarihi — CLAUDE.md kuralı: her `git push`'ta en son push
 // gününe elle güncellenir (2026-08-17'de eklendi, kullanıcı direktifi).
-const LAST_UPDATED_TR = '24 Ekim 2026';
-const LAST_UPDATED_EN = 'October 24, 2026';
+const LAST_UPDATED_TR = '25 Ekim 2026';
+const LAST_UPDATED_EN = 'October 25, 2026';
 
 const SECTIONS = [
   {
