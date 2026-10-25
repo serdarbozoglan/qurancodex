@@ -9587,7 +9587,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       fontFamily: 'inherit',
                       textAlign: 'right',
                     }}>
-                      {language === 'tr' ? 'Kelime meali: kuran.com' : 'Word-by-word: kuran.com'}
+                      {language === 'tr'
+                        ? 'Kelime karşılıkları kuran.com adlı siteden alınmaktadır. İncelediğimiz kaynak sayfalarında çevirmen ve dayanak eser bilgisine ulaşamadık. Bu karşılıklar çeviri tercihlerini yansıtır; âyet mealinin yerine geçmez.'
+                        : 'Word glosses are taken from kuran.com. We could not find information identifying the translator or underlying work on the source pages we reviewed. These glosses reflect translation choices; they do not replace a translation of the verse.'}
                     </div>
                   )}
                 </div>

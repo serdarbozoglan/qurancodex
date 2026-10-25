@@ -39,7 +39,12 @@ function cleanWord(str) {
     // U+06DF = small high rounded zero (صفر مستدير), U+06E0 = small high upright zero,
     // U+06E1 = small high dotless head of khah — all used as sukun in Uthmani rasm
     .replace(/[\u06DF\u06E0\u06E1]/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653') // hareke before maddah → keep only maddah
+    // §13.14 (2026-09-12 düzeltmesi): HAREKEYİ KORU, fazlalık maddahı at.
+    // Burada 2026-10-25'e kadar eski ve yanlış olduğu BELGELENMİŞ kural
+    // duruyordu: hareke+maddah dizisinden harekeyi silip maddahı tutuyordu.
+    // Kullanıcının Eylül'de bildirdiği hata ("maddah olan harflerde hareke
+    // stripleniyor") bu dosyada düzeltilmemişti.
+    .replace(/([\u064B-\u0652])\u0653/gu, '$1')
     .replace(/[\u0610-\u0617]/g, '')   // Islamic phrase abbreviations + U+0615 small high TAH
     .replace(/[\u0600-\u0605]/g, '')   // Quranic number/footnote marks
     .replace(/[\u06D6-\u06DC\u06E2-\u06E4\u06E7\u06E8\u06EB-\u06ED]/g, '') // waqf/pause/annotation marks
@@ -351,10 +356,10 @@ function LoadingSkeleton({ C: _C }) {
   );
 }
 
-const SOURCE_LABELS = {
-  tr: { label: 'Kelime meali: kuran.com', url: 'https://www.kuran.com' },
-  en: { label: 'Word-by-word: kuran.com', url: 'https://www.kuran.com' },
-};
+// Not: burada kullanılmayan bir SOURCE_LABELS sabiti vardı (2026-10-25'te
+// kaldırıldı). Kullanıcıya görünen kaynak atfı ReadingMode'daki kelime modu
+// satırında duruyor; iki yerde iki ayrı metin tutmak ikisinin birbirinden
+// sürüklenmesine yol açıyordu.
 
 export default function InterlinearView({
   surahNumber,

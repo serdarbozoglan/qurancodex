@@ -1007,12 +1007,51 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
         ayrıca eserin özel bir iddianın dayanağı olarak sunulmamasını
         istedi, not buna göre yazıldı.
 
-- [ ] **`kuran.com` künyesi karara bağlanmalı.** Satır-arası görünümde
-      "kelime meali" veri kaynağı olarak etiketli, canlı, ama izinli listede
-      yok ve `quran.com` ile aynı alan adı DEĞİL. Astra: "veri kaynağı
-      etiketi doğrulama yükümlülüğünü kaldırmaz; kelime meali yorum içerir,
-      sağlayıcı, çevirmen veya çalışma, sürüm ve kullanım izni
-      belirlenmeli." Kapı bunu BİLİNMEZ olarak gösteriyor.
+- [ ] **`kuran.com` kaynak sorunu AÇIK kalıyor, ama taşıma YAPILMADI.**
+      Kullanıcı kararı: kelime modu açık kalacak (astra geçici kapatmayı
+      önermişti). Ben de kaynağı izinli listedeki Quran Foundation API'sine
+      taşımayı denedim; yazdım, çalıştırdım, sonra ölçüp **GERİ ALDIM.**
+
+      **Taşımanın neden yapılmadığı, üç ölçüm adımında:**
+      1. Önce quran.com'un Türkçe kelime mealinde %6,9 İngilizce sızıntı
+         ölçtüm ("before you", "their Lord", "the earth"). Mevcut kaynakta
+         %0,2 çıktı ve "mevcut kaynak tam" sonucuna vardım.
+      2. Astra örneklemlerin karşılaştırılamaz olduğunu söyledi (biri tek
+         sûre, diğeri on sûre) ve aynı âyetler üzerinden ölçmemi istedi.
+         Ölçtüm: mevcut kaynak Bakara'da 568 kelimede (%9,3) karşılık
+         olarak düz bir **yıldız** veriyordu. Yani "tam" sonucum YANLIŞTI.
+      3. Sonra bileşenin kodunda şu satırı buldum:
+         `colorIndices.push(gloss === '*' && idx > 0 ? colorIndices[idx-1] : idx)`
+         Yani `*` **eksiklik değil, DEVAM İŞARETİ**: o kelime önceki
+         karşılığın kapsamında ve rengini miras alıyor. Veriyle doğrulandı:
+         `مِن` → "senden önce", ardından `قَبۡلِكَ` → `*`. Bir Türkçe öbek
+         iki Arapça kelimeyi karşılıyor, ki Türkçe söz dizimi için doğru
+         olan budur.
+      **Sonuç:** mevcut kaynağın Türkçesi öbek hizalı ve kusurlu değil;
+      quran.com'un İngilizcesi tam bu devam konumlarında çıkıyor çünkü onun
+      Türkçe verisi kelime hizalı. Taşıma iyileştirme değil gerileme olurdu.
+
+      **Çözülmeyen:** kaynağın işleteni, çevirmeni, dayanak eseri ve
+      kullanım izni incelediğim sayfalarda yok. Yapılabilecekler: siteyle
+      iletişime geçip izin ve künye istemek, ya da künyesi belli bir Türkçe
+      kelime kelime veri kümesi bulmak. Kapı bunu BİLİNMEZ gösteriyor.
+      ⚠ Kaydedilsin: bu turda ÜÇ kez daha dikkatli ölçmek sonucu tersine
+      çevirdi. `*`'ı yanlış okuyup bir gerileme göndermeye bir adım kalmıştı.
+
+- [x] **Kelime modunda üç şey düzeltildi** (taşımadan bağımsız, hepsi doğru):
+      · **§13.14 ihlali:** `InterlinearView`'un `cleanWord`'ü, Eylül'de
+        YANLIŞ olduğu belgelenen eski kuralı taşıyordu; hareke+maddah
+        dizisinden harekeyi silip maddahı tutuyordu. Kullanıcının
+        "maddah olan harflerde hareke stripleniyor" diye bildirdiği hata bu
+        dosyada düzeltilmemişti. Artık hareke korunuyor, fazlalık maddah
+        atılıyor.
+      · **Ölü kod:** kullanılmayan bir `SOURCE_LABELS` sabiti vardı ve
+        kaynak metnini ikinci bir yerde tutuyordu (sürüklenme riski).
+      · **Etiket dürüstleştirildi** (astra'nın metni): artık çevirmen ve
+        dayanak eser bilgisine ulaşılamadığını ve bu karşılıkların âyet
+        mealinin yerine geçmediğini söylüyor. Astra uyarısı: kesin
+        olumsuzlama ("kaynakta çevirmen belirtilmemiştir") yerine yalnız
+        incelenen sayfalara ilişkin bulgu yazıldı.
 - [ ] **`web.archive.org` künyeleri tamamlanmalı** (3 yer,
       `kuran-sayilar.json`): özgün adres ve arşivlenme tarihi eklenecek.
 - [ ] **Künye doğrulamanın ASIL işi, astra'nın kapsam listesi.** Alan adı
