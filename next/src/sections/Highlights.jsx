@@ -106,8 +106,8 @@ function SolarLunarConverter({ accent }) {
           fontFamily: FONTS.body, fontStyle: 'italic', opacity: 0.8,
         }}>
           {language === 'tr'
-            ? '✦ Kehf 18:25 — "300 yıl kaldılar, bir de 9 eklediler" → 309.017'
-            : '✦ Kahf 18:25 — "They stayed 300 years, and add 9" → 309.017'}
+            ? '✦ Kehf 18:25: "300 yıl kaldılar, bir de 9 eklediler" → yaklaşık 309,21'
+            : '✦ Kahf 18:25: "They stayed 300 years, and add 9" → about 309.21'}
         </p>
       )}
 

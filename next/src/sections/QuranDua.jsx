@@ -244,7 +244,7 @@ export default function QuranDua() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))',
           gap: '14px',
         }}>
-          {/* Pencere 2: "Yâ" Edatının Yokluğu */}
+          {/* Pencere 2: Nidâ edatı "yâ" — duaların çoğunda düşer, iki âyette geçer */}
           <div className="mq-box" style={{
             background: 'rgba(167,139,250,0.05)',
             border: '1px solid rgba(167,139,250,0.22)',
@@ -261,7 +261,7 @@ export default function QuranDua() {
               color: COLORS.purple, fontWeight: 700, fontFamily: "'Inter', sans-serif",
               marginBottom: '10px', 
             }}>
-              {tr ? 'Pencere 2 · "Yâ" Edatının Yokluğu' : 'Window 2 · The Absence of "Yā"'}
+              {tr ? 'Pencere 2 · Nidâ Edatı "Yâ"' : 'Window 2 · The Vocative "Yā"'}
             </div>
             <div dir="rtl" lang="ar" style={{
               fontFamily: FONTS.quran,
@@ -282,8 +282,8 @@ export default function QuranDua() {
               fontFamily: "'Inter', sans-serif", lineHeight: 1.7, margin: 0,
             }}>
               {tr
-                ? 'Türkçede "Ey Rabbim!" doğal görünür. Kur\'an\'da hiçbir dua "yâ" hitap edatıyla başlamaz; yalnızca "Rabbî" veya "Rabbenâ". Çünkü "yâ" edatı, çağrılan ile çağıran arasında mesafe varsa kullanılır. Kur\'an zaten der: "Kullarım sana Beni sorduğunda, Ben elbette yakınım." Hitap edatının düşmesi, bu yakınlığın gramatik ifadesidir.'
-                : 'In Turkish "Ey Rabbim!" sounds natural. In the Qur\'an no prayer begins with the vocative "yā"; only "Rabbī" or "Rabbanā". The "yā" particle is used when there is distance between the caller and the called. The Qur\'an itself states: "When My servants ask you about Me, I am near." The omission of the vocative is the grammatical expression of this nearness.'}
+                ? 'Türkçede "Ey Rabbim!" doğal görünür. Kur\'an\'da "Rabbî" ve "Rabbenâ" hitaplarıyla başlayan çok sayıda dua vardır. Furkān 25:30 ve Zuhruf 43:88\'de ise "yâ Rabbi" hitabı geçer. Nidâ edatının kullanılması ya da kullanılmaması tek başına yakınlık veya uzaklık bildirmez. Âyetin kendisi şöyle der: "Kullarım sana Beni sorduğunda, Ben elbette yakınım."'
+                : 'In Turkish "Ey Rabbim!" sounds natural. In the Qur\'an many prayers open with "Rabbī" or "Rabbanā". In Al-Furqan 25:30 and Az-Zukhruf 43:88 the address "yā Rabbi" appears. Using or omitting the vocative particle does not by itself indicate nearness or distance. The verse itself says: "When My servants ask you about Me, I am near."'}
             </p>
           </div>
 

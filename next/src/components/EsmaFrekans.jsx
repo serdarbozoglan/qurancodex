@@ -31,7 +31,18 @@ const HERO_VERSE = {
 
 // Allah lemma şeffaflık sabitleri (Spec §6)
 const ALLAH_CLASSIC_COUNT = 2699;   // M. Fuâd Abdülbâkî, lemma sayımı
-const ALLAH_SURFACE_COUNT = 1813;   // JSON'daki yüzey lafz sayımı
+// Yalın yüzey lafzı. 2026-10-24'te 1813'ten düzeltildi: dış bir değerlendirme
+// raporu sayıyı sorguladı, sitenin kendi Kur'an metni üzerinde yeniden
+// sayıldı. 1813'ün hangi ölçütle çıktığı bulunamadı; hiçbir tanım onu
+// vermiyor. Ölçüt artık yazılı ve sayfada da görünüyor:
+//   · metin: bu sitenin kullandığı Kur'an metni (Kûfî sayım, 6.236 âyet)
+//   · hareke ve okuma işaretleri düşürülür
+//   · yalnız ÖN EKSİZ «الله» biçimi sayılır (bi-/li-/wa-/ka-/ta-/fa- hariç,
+//     «اللهم» hariç)
+//   · Kûfî sayımda besmele yalnız 1:1'de âyet olduğu için 2-114. sûrelerin
+//     başındaki besmeleler toplama girmez
+// Aynı metinde ön ekli biçimler 393, lafzı içeren tüm kelimeler 2.557.
+const ALLAH_SURFACE_COUNT = 2155;
 
 // 4 temel ayet — Hero kartlarında her birinin GERÇEK quote'u (sloppy
 // tekrarlamayı engelle). Tek bir metin = "En güzel isimler O'nundur" 4x değil.
@@ -1422,8 +1433,8 @@ function AllahLemmaNote({ tr }) {
       </p>
       <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>
         {tr
-          ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına (~{ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
-          : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts (~{ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
+          ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına ({ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
+          : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts ({ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
       </p>
     </motion.div>
   );
@@ -3542,7 +3553,7 @@ function NameDetail({ item, tr, isAllah }) {
           </p>
           <p style={{ color: COLORS.silver, fontSize: '0.82rem', margin: 0 }}>
             <strong>{tr ? 'Yalın yüzey lafzı: ' : 'Surface form only: '}</strong>
-            ~{ALLAH_SURFACE_COUNT.toLocaleString(tr ? 'tr-TR' : 'en-US')}
+            {ALLAH_SURFACE_COUNT.toLocaleString(tr ? 'tr-TR' : 'en-US')}
           </p>
         </div>
       )}
@@ -4040,8 +4051,8 @@ function Methodology({ data, tr }) {
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
               {tr
-                ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına (~{ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
-                : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts (~{ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
+                ? <>Bu nedenle klasik rakamlar (Allah=2.699), yalın yüzey lafzı sayımına ({ALLAH_SURFACE_COUNT.toLocaleString('tr-TR')}) göre daha yüksek görünür. Bu metodolojik bir tercihtir, sayım hatası değildir.</>
+                : <>This is why classical figures (Allah=2,699) appear higher than strict surface counts ({ALLAH_SURFACE_COUNT.toLocaleString('en-US')}). It is a methodological choice, not a counting error.</>}
             </p>
 
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>

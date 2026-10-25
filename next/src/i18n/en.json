@@ -530,15 +530,15 @@
       },
       "uniqueWords": {
         "label": "UNIQUE WORD FORMS",
-        "value": "~14,870",
+        "value": "14,782",
         "description": "Each distinct surface form counted once",
-        "tooltip": "The vast majority of these forms appear more than once. Source: Quranic Arabic Corpus, University of Leeds (corpus.quran.com)."
+        "tooltip": "Counted on the Quranic text this site uses: vowel and recitation marks were removed and each distinct spelling counted once. Under the Kufan numbering the basmala is a verse only at al-Fatiha 1:1, so the basmalas heading the other suras are not part of this total. Other corpora give slightly different totals, depending on which marks are removed."
       },
       "hapax": {
         "label": "APPEARING ONLY ONCE",
-        "value": "~455",
-        "description": "Of 14,870 forms, only these appear in a single verse",
-        "tooltip": "Hapax legomenon. Source: Shawkat M. Toorawa (2011). The count varies between 400 and 500 by method."
+        "value": "8,666",
+        "description": "Of 14,782 spellings, these occur once in the whole text",
+        "tooltip": "The unit counted here is the SPELLING: a single inflected form with its affixes. A hapax legomenon counted at the lexical level, by root or dictionary word, is a far smaller set and a separate field of study; Shawkat M. Toorawa has catalogued Quranic hapaxes. Example spellings: \"أَبًّا\" (Abasa 80:31), \"غِسْلِينٍ\" (Al-Haqqah 69:36)."
       }
     },
     "icaz": {
@@ -634,8 +634,8 @@
       },
       {
         "title": "Time Flexibility",
-        "content": "In the Quran, future events are described in the past tense (al-māḍī bi-maʿnā al-mustaqbal), as though they had already occurred; and past events are narrated in the present tense, as though happening now. The Sleepers of the Cave: 300 solar years correspond to 309 lunar years, and the difference is exactly the solar-lunar calendar conversion. Surah Ar-Rum, revealed around 614 CE while Byzantium had just been defeated (ghulibat, past tense), foretold that within a few years \"they will be victorious\" (sayaghlibūn, future tense). Byzantium won in 628 CE.",
-        "note": "The solar-to-lunar conversion is mathematically exact (300 × 365.25 / 354.37 ≈ 309.017). However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, and so on); the solar-to-lunar reading is a modern one and is not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
+        "content": "In the Quran, future events are described in the past tense (al-māḍī bi-maʿnā al-mustaqbal), as though they had already occurred; and past events are narrated in the present tense, as though happening now. The Sleepers of the Cave: the nine years added to three hundred in the verse are explained in some commentaries by the difference between the solar and lunar years. Surah Ar-Rum, revealed around 614 CE while Byzantium had just been defeated (ghulibat, past tense), foretold that within a few years \"they will be victorious\" (sayaghlibūn, future tense). Byzantium won in 628 CE.",
+        "note": "With the average year lengths given, 300 solar years come to about 309.21 lunar years (300 × 365.25 / 354.37), so the calculation is not an exact equality; the gap is roughly 75 days. However, classical tafsir (al-Razi, al-Tabari) offers three different interpretations of this gap (margin of error, lunar-month reading, and so on); the solar-to-lunar reading is a modern one and is not specifically highlighted as a miracle in the classical tradition. The al-māḍī bi-maʿnā al-mustaqbal (past tense for future meaning) technique is well established in classical Arabic linguistics (al-Suyūṭī, al-Itqān; al-Zarkashī, al-Burhān)."
       },
       {
         "title": "Iltifat",

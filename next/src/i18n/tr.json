@@ -530,15 +530,15 @@
       },
       "uniqueWords": {
         "label": "BENZERSİZ KELİME FORMU",
-        "value": "~14,870",
-        "description": "Her farklı form bir kez sayılarak",
-        "tooltip": "Bu formların büyük çoğunluğu birden fazla kez geçer. Kaynak: Quranic Arabic Corpus, Leeds Üniversitesi (corpus.quran.com)."
+        "value": "14.782",
+        "description": "Her farklı yazılış bir kez sayılarak",
+        "tooltip": "Sayım bu sitenin kullandığı Kur'an metni üzerinde yapıldı: hareke ve okuma işaretleri düşürülüp her farklı yazılış bir kez sayıldı. Kûfî sayımda besmele yalnız Fâtiha 1:1'de âyet olduğu için diğer sûrelerin başındaki besmeleler bu toplama girmez. Başka korpuslar biraz farklı toplamlar verir; fark, hangi işaretlerin düşürüldüğünden gelir."
       },
       "hapax": {
-        "label": "SADECE BİR KEZ GEÇEN",
-        "value": "~455",
-        "description": "14,870 formdan yalnızca tek bir ayette geçenler",
-        "tooltip": "Hapax legomenon: tüm Kur'an'da yalnızca bir kez geçen kelime formu. Örnekler: 'أَبًّا' (abben, otlak; Abese 80:31), 'غِسْلِينٍ' (gıslîn, irin; Hâkka 69:36), 'صَلْدًا' (salden, kaygan taş; Bakara 2:264). Kaynak: Shawkat M. Toorawa (2011). Sayım yöntemine göre 400 ile 500 arası."
+        "label": "YALNIZ BİR KEZ GEÇEN",
+        "value": "8.666",
+        "description": "14.782 yazılıştan bütün metinde tek kez geçenler",
+        "tooltip": "Burada sayılan birim YAZILIŞTIR: çekim ve ekleriyle birlikte tek bir biçim. Sözlük birimi (kök ya da kelime) düzeyinde sayılan \"hapax legomenon\" çok daha küçük bir kümedir ve ayrı bir çalışma konusudur; Shawkat M. Toorawa'nın Kur'an hapaksları üzerine bir katalog çalışması vardır. Örnek yazılışlar: \"أَبًّا\" (Abese 80:31), \"غِسْلِينٍ\" (Hâkka 69:36)."
       }
     },
     "icaz": {
@@ -634,8 +634,8 @@
       },
       {
         "title": "Zaman Esnekliği",
-        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (mâzî bi-ma'na'l-müstakbel), sanki zaten olmuş gibi; geçmiş ise şimdiki zamanla anlatılır, sanki şu an yaşanıyor gibi. Ashab-ı Kehf: 300 güneş yılı 309 ay yılına karşılık gelir; fark tam olarak güneş-ay takvimi dönüşümüdür. Rum sûresi, 614 civarında Bizans yeni yenilmişken (غُلِبَتِ, geçmiş kip: yenildiler) \"birkaç yıl içinde galip gelecekler\" (سَيَغْلِبُونَ, gelecek kip) diye önceden bildirdi. Bizans 628'de galip geldi.",
-        "note": "Güneş-ay dönüşümü matematik açısından birebir uyumludur (300 × 365,25 / 354,37 ≈ 309,017). Ancak klasik tefsirde Razi ve Taberî bu farkı üç farklı şekilde yorumlar (yanılma payı, ay yıllarına atıf vb.); güneş-ay dönüşümü modern bir okumadır ve klasik gelenekte özel olarak \"mucize\" diye vurgulanmaz. El-mâzî bi-ma'na'l-müstakbel (gelecek anlamında geçmiş zaman) tekniği klasik Arap dilbiliminde yerleşiktir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
+        "content": "Kur'an'da gelecek, geçmiş zaman kipiyle anlatılır (mâzî bi-ma'na'l-müstakbel), sanki zaten olmuş gibi; geçmiş ise şimdiki zamanla anlatılır, sanki şu an yaşanıyor gibi. Ashab-ı Kehf: Âyetteki üç yüz yıla dokuz yıl eklenmesi, bazı tefsirlerde güneş ve ay yılı farkıyla açıklanır. Rum sûresi, 614 civarında Bizans yeni yenilmişken (غُلِبَتِ, geçmiş kip: yenildiler) \"birkaç yıl içinde galip gelecekler\" (سَيَغْلِبُونَ, gelecek kip) diye önceden bildirdi. Bizans 628'de galip geldi.",
+        "note": "Verilen ortalama yıl uzunluklarıyla 300 güneş yılı yaklaşık 309,21 ay yılıdır (300 × 365,25 / 354,37); yani hesap tam bir eşitlik vermez, aradaki fark yaklaşık 75 gündür. Ancak klasik tefsirde Razi ve Taberî bu farkı üç farklı şekilde yorumlar (yanılma payı, ay yıllarına atıf vb.); güneş-ay dönüşümü modern bir okumadır ve klasik gelenekte özel olarak \"mucize\" diye vurgulanmaz. El-mâzî bi-ma'na'l-müstakbel (gelecek anlamında geçmiş zaman) tekniği klasik Arap dilbiliminde yerleşiktir (Suyûtî, El-İtkân; Zerkeşî, El-Burhân)."
       },
       {
         "title": "İltifât",

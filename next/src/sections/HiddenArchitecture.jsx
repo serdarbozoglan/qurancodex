@@ -312,8 +312,8 @@ export default function HiddenArchitecture() {
           {activeSurah === 'fatiha' && (
             <p className="text-silver text-xs mb-5 font-body italic max-w-3xl leading-relaxed">
               {language === 'tr'
-                ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfadaki âyet numaraları (1:2, 1:3 …) Şafiî sayımını izler; ama Bismillah\'ın kendisi bu halka şemasının bir pozisyonu DEĞİL: Farrin\'in kendi analizi de Bismillah\'ı sûrenin yapısına saymaz. Son âyet (1:7) iki cümleciğe ayrılır; B\' ve A\' aynı âyetin iki yarısıdır (yedi konum, altı âyet).'
-                : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. The verse numbers here (1:2, 1:3, …) follow the Shāfiʿī count; but Bismillah itself is not a position in this ring: Farrin\'s own analysis likewise does not count it as part of the sura\'s structure. The final verse (1:7) is split into two clauses; B\' and A\' are the two halves of the same verse (seven positions, six verses).'}
+                ? 'Bu sayfada Kûfî âyet sayımı esas alınmıştır; Fâtiha\'nın başındaki besmele 1:1 olarak numaralandırılır. Besmelenin sûrelerle ilişkisi ve namazda okunmasına dair fıkhî görüşler, numaralandırma tercihinden ayrı bir konudur. Bismillah\'ın kendisi bu halka şemasının bir pozisyonu değildir: Farrin\'in analizi de onu sûrenin yapısına saymaz. Son âyet (1:7) iki cümleciğe ayrılır; B\' ve A\' aynı âyetin iki yarısıdır (yedi konum, altı âyet).'
+                : 'This page follows the Kufan verse count, in which the basmala at the head of al-Fatiha is numbered 1:1. How the basmala relates to each sura, and whether it is recited in prayer, are questions of jurisprudence separate from this numbering. Bismillah itself is not a position in this ring: Farrin\'s own analysis likewise does not count it as part of the sura\'s structure. The final verse (1:7) is split into two clauses; B\' and A\' are the two halves of the same verse (seven positions, six verses).'}
             </p>
           )}
 
@@ -648,8 +648,8 @@ export default function HiddenArchitecture() {
       {/* Academic disclaimer — 7-layer taxonomy is a modern construct */}
       <motion.p variants={fadeUpItem} className="text-text-faint text-xs leading-relaxed max-w-3xl mb-6 font-body italic">
         {language === 'tr'
-          ? 'ℹ Bu 7 katmanlı yorum, Râzî–Gazâlî–İbn Arabî geleneğini modern fizik, psikoloji ve felsefe perspektifleriyle harmanlayan çağdaş bir okumadır. Klasik tefsirin standart taksonomisi 4 katmandır: zâhir (literal), bâtın (ezoterik), hadd (sınır/hudud), muttala\' (yüksek makam); İbn Mes\'ûd rivayetine dayanır.'
-          : 'ℹ This 7-layer reading is a modern synthesis blending the Rāzī–Ghazālī–Ibn Arabi tradition with contemporary perspectives from physics, psychology, and philosophy. The standard classical taxonomy is 4-layer: ẓāhir (literal), bāṭin (esoteric), ḥadd (limits), muṭṭalaʿ (highest), based on a tradition reported from Ibn Masʿūd.'}
+          ? 'Bu 7 katmanlı yorum, Râzî, Gazâlî ve İbn Arabî geleneğini modern fizik, psikoloji ve felsefe perspektifleriyle harmanlayan çağdaş bir okumadır. Klasik tefsirin standart taksonomisi 4 katmandır: zâhir (literal), bâtın (ezoterik), hadd (sınır/hudud), muttala\' (yüksek makam); İbn Mes\'ûd rivayetine dayanır.'
+          : 'This 7-layer reading is a modern synthesis blending the Rāzī, Ghazālī and Ibn Arabi tradition with contemporary perspectives from physics, psychology, and philosophy. The standard classical taxonomy is 4-layer: ẓāhir (literal), bāṭin (esoteric), ḥadd (limits), muṭṭalaʿ (highest), based on a tradition reported from Ibn Masʿūd.'}
       </motion.p>
 
       {/* ── Verse + audio (fallback chain via QuranVerse) ── */}

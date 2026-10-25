@@ -95,29 +95,64 @@ sarımsak/buğday, ağaç kurdu) kaynak künyesi yok — §13.35'e göre nokta
 referansı gerekiyor. Ayrıca C listesindeki sayı farkları (deve, inek, hurma…)
 morfolojik çözümleme ister; mevcut betik güvenilir değil.
 
-### 1.2 Metinle çelişen diğer ifadeler
-- [ ] **Dua Dili** — "Hiçbir dua 'yâ' ile başlamaz" → «يَا رَبِّ» 25:30 ve
-      43:88'de var. "Çok büyük çoğunluğu…; istisnalar 25:30, 43:88".
-- [ ] **Altı Konu (18:25)** — "309,017" ve "tam olarak" → işlem 309,211.
-      Zaman Boyutları sayfası doğru veriyor. Sayı düzelsin, "yaklaşık" densin.
-- [ ] **Esmâ** — "yalın yüzey «الله» ~1.813" → ölçüm 2.153 (bizim sayımımız
-      2.155). `EsmaFrekans.jsx:34` `ALLAH_SURFACE_COUNT` ve
-      `esma-frekans.json`. Sayının neyi saydığı yazılsın.
-- [ ] **Sebeb-i Nüzûl** — zina cezası: "İslam öncesi … (Nisâ 4:15)" → 4:15 bir
-      Kur'an hükmüdür. "Nisâ 4:15'teki ilk hüküm…" diye düzeltilsin.
-- [ ] **Sıfır Gereksizlik** — "14.870 formdan tek âyette geçen ~455" → sitenin
-      kendi tanımıyla 8.820. Tanım düzeltilsin.
-- [ ] **Yaratılış Hikâyesi-2** — "Allah meleklere 'Ben', insanlara 'Biz' diye
-      hitap eder" → «وَإِذْ قُلْنَا لِلْمَلَائِكَةِ» 5 âyette (2:34, 7:11,
-      17:61, 18:50, 20:116); insanlara "Ben" 2:152, 2:186, 51:56. Genelleme
-      kaldırılsın ya da daraltılsın.
-- [ ] **Halka Kompozisyon** — "Şafiî sayımı … besmele mezhep meselesidir" →
-      numaralandırma fıkıh mezhebinin değil **sayım ekolünün** (Kûfî, Basrî)
-      konusu. Ana sayfadaki doğru ifade buraya da konsun.
-- [ ] **Tarihsel İzler (Zülkarneyn)** — "Kiros'un Gorgan/Derbent sınırına inşa
-      ettiği duvar" → Gorgan Seddi ve Derbent surları Sâsânî (MS 5.-6. yy).
-      ⚠ ÖNCE birincil kaynaktan doğrula.
-- [ ] **Cennet, Cin, Mecnun** — «جنات» için "Secde 32:17" → 32:19.
+### 1.2 Metinle çelişen diğer ifadeler ✅ TAMAM (2026-10-24)
+
+Dokuz maddenin tamamı astra hakem turundan geçti; astra üç yerde beni
+düzeltti ve metinleri kendisi yazdı.
+
+- [x] **Dua "yâ"** (`QuranDua.jsx`) — "hiçbir dua 'yâ' ile başlamaz" iddiası
+      kalktı. «يَا رَبِّ» Furkān 25:30 ve Zuhruf 43:88'de geçiyor. Astra ayrıca
+      iki şey daha düzeltti: "neredeyse tamamı" da gösterilmiş bir sayım değil
+      (Mâide 5:114 "Allahümme Rabbenâ" gibi başka açılışlar var), ve "yâ edatı
+      mesafe varsa kullanılır" dilbilgisi iddiası yanıltıcı — nidâ edatından
+      Allah ile kul arasında fiziksel mesafe sonucu çıkarılamaz. Pencere
+      başlığı da "Yâ Edatının Yokluğu" → "Nidâ Edatı Yâ" oldu.
+- [x] **Kehf 18:25** (`i18n/tr+en`, `Highlights.jsx`) — 309,017 → **309,21**;
+      "tam olarak" kalktı. Astra düzeltmesi: fark ~75 gün (ben 77 demiştim).
+      Widget zaten canlı hesaplıyordu, yalnız elle yazılmış başlık yanlıştı.
+- [x] **Esmâ yalın «الله»** (`EsmaFrekans.jsx:34`, `esma-frekans.json`) —
+      1.813 → **2.155**. Astra "sayıyı takas etme, ölçütü tanımla ve yeniden
+      say" dedi; öyle yapıldı ve ölçüt koda yazıldı: ön eksiz yalın biçim,
+      hareke düşürülür, «اللهم» hariç, Kûfî sayımda 2-114. sûre besmeleleri
+      dahil değil. Aynı metinde ön ekli biçimler 393, lafzı içeren tüm
+      kelimeler 2.557. 1.813'ün hangi ölçütle çıktığı bulunamadı.
+- [x] **Sebeb-i Nüzûl / Nisâ 4:15** — "İslam öncesi uygulama" çerçevesi
+      kalktı. Astra'nın metni kullanıldı; "ilk hüküm" yerine "erken dönem
+      hükümlerinden biri" denildi ve nesih/tahsis/tafsil terimleri
+      birbirine karıştırılmadı.
+- [x] **Hapax "~455"** (`i18n/tr+en`) — astra "UYGULAMA: sayıyı koruyup
+      yalnız açıklamayı değiştirme" dedi. Toorawa'nın çalışmasının VARLIĞINI
+      doğruladım ("Hapaxes in the Qurʾān", *New Perspectives on the Qurʾān* 2,
+      2011) ama **455 rakamını doğrulayamadım**. Doğrulanmamış sayı kaldırıldı;
+      yerine kendi ölçümümüz ve yöntemi kondu: yazılış düzeyinde tek kez geçen
+      **8.666** biçim / toplam **14.782** yazılış. İpucu metni birimin yazılış
+      olduğunu, sözlük düzeyindeki hapaksın çok daha küçük ayrı bir küme
+      olduğunu söylüyor; Toorawa yalnız katalog çalışması olarak anılıyor,
+      ona bir sayı atfedilmiyor.
+- [x] **Yaratılış-2 "Ben/Biz"** — cümle YAZARIN metninde değil BİZİM
+      özetimizdeydi (TR ve EN), kaldırıldı. Astra çerçevemi düzeltti:
+      "genelleme ters" demek de yanlış, çünkü «قُلْنَا لِلْمَلَائِكَةِ»
+      anlatıcı ifadesidir, meleklere söylenen sözün içeriği değil; 2:30'daki
+      "Ben … yaratacağım" ise hitabın içinde. Doğrusu "bu kesin ayrım
+      kurulamaz". ⏳ Yazara kısa bir düzeltme bildirimi gönderilecek.
+- [x] **Halka Kompozisyon / besmele** (`HiddenArchitecture.jsx`) — "Şafiî
+      mezhebi sayımı" → **Kûfî âyet sayımı**. Astra: numaralandırma âyet sayım
+      geleneğine nispet edilir; besmelenin namazda okunmasına dair fıkhî
+      görüşler ayrı bir konudur, ikisi aynı kategori değil.
+- [x] **Zülkarneyn / Gorgan-Derbent** (`tarihsel-kanitlar.json`) — "Kiros'un
+      inşa ettiği duvar" ifadesi kalktı. Yeni metin: özdeşleştirme bir
+      yorumdur; bugün görülen büyük tahkimatlar genel olarak Sâsânî dönemine
+      (MS 5.-6. yy) tarihlenir, Kiros'a ait gösterilemez.
+- [x] **«جَنَّات» 32:17 → 32:19** (`cennet-cin-mecnun.json`) — yalnız kelime
+      tablosu satırı. ⚠ Düzyazıdaki 32:17 atfı DOĞRU ve dokunulmadı: 32:17
+      «مَٓا اُخْفِيَ لَهُمْ» yani gizlilik bağlamı. Astra da onayladı.
+
+**Yan etki:** yeni canlanan humanizer kapısı (bkz. 1.1) dokunduğum satırlardaki
+ESKİ borcu da yakaladı: 3 uzun tire + 4 "ℹ" emoji + 2 isim tiresi
+(Râzî–Gazâlî–İbn Arabî). Hepsi temizlendi; astra da aynı şeyi önermişti.
+
+**Kalan:** Razi/Taberî'nin 18:25 yorumu ve "klasik gelenekte mucize diye
+vurgulanmaz" iddiası nokta referansı istiyor (§13.35) — Kademe 2.3'e.
 
 ### 1.3 Küçük atıf ve biçim hataları (🟢 listesi)
 - [ ] Zemahşerî kaynakçada iki kez listelenmiş.
@@ -379,4 +414,5 @@ morfolojik çözümleme ister; mevcut betik güvenilir değil.
 |---|---|---|---|
 | 2026-10-24 | 0 | Rapor okundu, 8 iddia kendi metnimizle doğrulandı, astra editoryal hüküm verdi, bu liste oluşturuldu | — |
 | 2026-10-24 | 1.1 | Tabiat Atlası 8 kart düzeltildi (astra turu yapıldı, 12 bulgusu uygulandı) | — |
+| 2026-10-24 | 1.2 | Metinle çelişen 9 ifade düzeltildi (astra turu; 3 yerde beni düzeltti) | — |
 | 2026-10-24 | — | **Üç denetim kapısının ölü olduğu bulundu ve düzeltildi** (§13.15, §13.34, §13.32): `changed.mjs` yolları repo köküne göre döndürüyordu, kapılar `^src/`/`^public/` süzüyordu, hiçbiri eşleşmiyordu | — |
