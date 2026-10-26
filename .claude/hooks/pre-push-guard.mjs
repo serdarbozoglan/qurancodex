@@ -57,6 +57,7 @@ process.stdin.on('end', () => {
     ['çıplak âyet referansı — §13.32', 'node scripts/audit-verse-refs.mjs --ci'],
     ['Arapça JSON problem karakter — §13.15', 'node scripts/audit-arabic-json.mjs --ci'],
     ['dış kaynak izinli mi — §13.35', 'node scripts/audit-sources.mjs --ci'],
+    ['sır taraması (anahtar/jeton git\'e düşmesin)', 'node scripts/audit-secrets.mjs --ci'],
     ['/hakkinda son güncelleme tarihi — §13.33', 'node scripts/audit-hakkinda-date.mjs --ci'],
   ];
 

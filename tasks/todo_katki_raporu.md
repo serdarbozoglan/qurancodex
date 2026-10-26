@@ -1007,6 +1007,39 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 
 ## KADEME 6 — Diğer
 
+- [x] **Sır taraması kapısı kuruldu, ve "açığa çıkmış anahtar" iddiası
+      çürütüldü** (2026-10-25). Oturum notlarımda "açığa çıkmış OpenAI
+      anahtarını döndür" diye bir madde taşınıyordu ve kullanıcıya bunu
+      **acil** diye bildirdim. Sonra ölçtüm, dayanağı yoktu:
+      · anahtar değeri git geçmişinde YOK (`sk-` deseni sıfır satır),
+      · takip edilen hiçbir `.env` dosyası yok,
+      · gitignore `.env`, `.env.local` ve `next/.env.local`'i kapsıyor,
+      · anahtar depo DIŞINDA duruyor, git erişemiyor,
+      · geçmişte `OPENAI_API_KEY` geçen sekiz satırın hepsi yalnız
+        değişken ADI (kodun okuduğu satır, hata mesajı, `sk-...` yer
+        tutucusu).
+      İddianın kaydı ne `tasks/` altında ne CLAUDE.md'de vardı; yalnız
+      benim oturum notumdaydı. **Kullanıcıya düzeltme bildirildi.**
+      ⚠ Doğrulanamayan: anahtar başka bir yoldan (sohbete yapıştırma, log,
+      paylaşım) açığa çıktı mı. Onu yalnız kullanıcı bilebilir.
+
+      **Asıl boşluk başka yerdeydi:** push kapısında sır taraması HİÇ
+      YOKTU. Yani bugün sızıntı olmaması bir tedbirin değil tesadüfün
+      sonucuydu. `scripts/audit-secrets.mjs` yazıldı, `audit:static`
+      zincirine ve push kapısına bağlandı.
+      · Sekiz desen tanıyor (OpenAI, AWS, GitHub, Slack, Google, özel
+        anahtar bloğu, atamayla uzun gizli değer, Bearer jetonu).
+      · **Eşleşen değeri ASLA basmıyor**, yalnız dosya, satır ve desen
+        adını söylüyor. Bir sır tarayıcının bulduğu sırrı ekrana yazması
+        kendisini sızıntı kaynağı yapar.
+      · Sahnelenmiş `.env` dosyasını yoluyla yakalıyor, içine bakmadan.
+      · Yer tutucuları ayıklıyor (`sk-...`, `<your-key>`, `process.env`),
+        yoksa kapı kendi belgelerine takılır.
+      · Sahte bir anahtarla SINANDI: hem dosya içindeki değeri hem
+        sahnelenen `.env`'i yakaladı, sonra temizlenince yeşil döndü.
+      ⚠ Kapının sınırı başlığında yazılı: yalnız DESEN tanır, desene
+      uymayan bir sır (ör. düz bir parola) yakalanmaz.
+
 - [ ] "Ekip ve danışmanlar" bölümü (hazırlayan / ilmî danışman bilgisi yok).
 - [ ] **Bilimsel İşaretler kart künyeleri doğrulanmadı** (astra bulgusu,
       2026-10-25). Astra: "künyeler bu paketle doğrulanmış değil."
