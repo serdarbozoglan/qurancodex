@@ -487,6 +487,53 @@ Beşinin de yeri bulundu. Astra ajanı altı yerde düzeltti.
       söyledi: doksan dokuz isim hakkındaki sahih hadis ile isimleri tek
       tek sıralayan rivayetlerin sıhhati ayrı meseleler.
 
+- [ ] 🛑 **ESMÂ SAYIM İŞİ DURDURULDU. Devam etmek için gerçek morfoloji
+      verisi şart.** Gerekçe, yedi ardışık ölçüm hatası (üçünü astra
+      yakaladı). Bu madde kapanmadan kalan ~90 isme DOKUNULMAMALI.
+
+      **Son ve en öğretici hata:** sitenin kendi kök haritası
+      (`esma-kok-haritasi.json`) 13 isim için "yüzey formu Kur'an'da
+      geçmiyor" kaydı tutuyor. Bunu bağımsız doğruladım, "güçlü kanıt"
+      dedim ve o 13 ismin sayısını sıfıra çekmeye hazırlandım
+      (El-Muğnî 21, El-Bâis 9, El-Mümît 9, El-Muîd 8 vb.).
+      **Astra çürüttü ve metinden doğrulandı:**
+      · **El-Muhyî** Rûm 30:50 ve Fussilet 41:39'da Allah'a nisbet
+        ediliyor: `لَمُحْـيِ الْمَوْتٰى` ("ölüleri mutlaka diriltecek").
+      · **El-Müteâlî** Ra'd 13:9'da: `الْمُتَعَالِ` ("yücedir").
+      **Sebep:** ismin SÖZLÜK biçimi ile Kur'an'daki biçimi farklı yazılıyor.
+      `الْمُحْيِي` iki yâ taşır, metindeki `لَمُحْـيِ` tek yâ; `متعالي`
+      sonda yâ'lı, metindeki `الْمُتَعَالِ` yâ'sız. Kök haritasının testi
+      sözlük biçimini arıyor, bu yüzden var olanı "yok" sanıyor.
+      ⚠ Yani `yuzeyFormuGecer` alanı İKİ YÖNDE DE güvenilmez: `true` değeri
+      gevşek bir alt dize testinden geliyor (bütün mushaf metninde
+      `MUSHAF.includes`, üç harften kısa olanlar otomatik `true`), `false`
+      değeri ise yazım farkı yüzünden yanlış olabiliyor.
+
+      **Yedi hatanın listesi, bir daha aynı yola girmemek için:**
+      1. El-Aliyy: yâ'dan sonra şedde bekledim, `عَلِياًّ`'da araya elif
+         giriyor; üç geçiş kaçtı.
+      2. Aritmetik: `عَلَيَّ` grubunu 15 saydım, 16'ydı.
+      3. El-Hayy: biçim grubunu bütün olarak eledim, Furkān 25:58 içindeydi.
+      4. Ön ek soyutlama: kök harfi `و` olanlarda `وَحْيٌ` (vahiy) El-Hayy'e
+         karıştı.
+      5. El-Vâhid: belirlilik takısının cezmi yüzünden belirli biçimler
+         kaçtı; 7 dedim, gerçek 61 geçiş ve 20'den fazla ilâhî kullanım.
+      6. Yakınlık taraması Es-Selâm'ın Haşr 59:23'ünü bulamadı.
+      7. Kalıplarım `مُحيطٌ`, `الْمَحيضِ` ve hatta `يَحْيٰى` (Yahyâ, özel
+         isim) yakaladı.
+
+      **Devam etmek için gereken:** kelime başına kök ve biçim etiketi veren
+      bir morfoloji kaynağı. quran.com API'si kök ve lemma VERMİYOR
+      (ölçüldü). Quranic Arabic Corpus'un morfoloji dosyası (izinli
+      listede) uygun aday ama indirmek lisans değerlendirmesi ister, o da
+      Kademe 5 ile birlikte ele alınmalı.
+      **İndirgenemeyen kısım:** biçim tespiti otomatikleşse bile her geçişin
+      kime nisbet edildiğini âyet metninden okumak gerekiyor; astra bunu
+      üç ayrı turda hatırlattı ve her turda benim atladığım bir âyet buldu.
+
+      Bu turda doğrulanıp kayda geçen, sonraki pas için hazır bilgi:
+      El-Muhyî → Rûm 30:50, Fussilet 41:39 · El-Müteâlî → Ra'd 13:9.
+
 - [ ] ⚠ **YÖNTEM DEĞİŞMELİ: elle düzenli ifade yazmak bu iş için
       yetersiz.** Bu turda beş ayrı kalıp yazdım ve **beşinde de hata
       çıktı**, üçünü astra yakaladı:
