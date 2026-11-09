@@ -168,8 +168,20 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 // NOT: Parent inline-block'a `line-height:1` veriyoruz — böylece kutu paragraphın
 // lineHeight:2.2'sini miras almaz, sadece harfi sarar. Aksi halde bottom:-0.2em
 // uzun kutunun dibine göre hesaplanır ve etiket satır-boşluğuna iner.
+// ⚠ display:inline ZORUNLU, inline-block DEĞİL (2026-11-08). Bir inline-block
+// kutusu kendi şekillendirme akışını kurar; Arapça harfler o sınırı geçip
+// BİRLEŞEMEZ. Sarılan şey bir HARF olduğu için, kendinden önceki harf onu
+// göremez ve YALIN (yuvarlak) biçimde basılır. Kullanıcı bunu mushafta
+// Hicr 15:68 ve 15:71'deki «هٰٓؤُ۬لَٓاءِ» kelimesinde gördü: baştaki ه
+// yuvarlak çıkıyordu. Ölçüldü (Playwright, max-content genişlik):
+// sarmalanmamış 79,6px · inline-block 76,0px (kırık) · inline 79,6px (doğru).
+// Etiketin konumu etkilenmiyor: position:relative inline kutuda da mutlak
+// konumlu çocuğa çapa olur; ölçümde etiket harfin tam altında ve ortalanmış.
+// Aynı tuzak bu dosyanın «Maddah curve» notunda zaten yazılıydı ("combining
+// mark önceki harfle bağını kaybeder"), ama harf saran sarmalayıcılara
+// uygulanmamıştı.
 const makeKasrWrap = (dayMode) => (_, letter) =>
-  `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
+  `<span style="display:inline;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
@@ -187,7 +199,7 @@ const MED_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06E
 const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
   const tint = colorize ? (dayMode ? '#d946ef' : COLORS.med) : 'inherit';
   return (
-    `<span style="display:inline-block;position:relative;line-height:1;color:${tint};">${letter}` +
+    `<span style="display:inline;position:relative;line-height:1;color:${tint};">${letter}` +
     `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
     `font-size:0.5em;font-weight:400;line-height:1;` +
     `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
@@ -202,7 +214,7 @@ const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
 // Örn. Hac 22:11 "خَيْرٌۨ ٱطْمَأَنَّ", "فِتْنَةٌۨ ٱنْقَلَبَ".
 const NUN_WIQAYAH_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06E7\u06E9-\u06EA\u06EC\u06ED])*)\u06E8/gu;
 const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
-  `<span style="display:inline-block;position:relative;line-height:1;">${letter}` +
+  `<span style="display:inline;position:relative;line-height:1;">${letter}` +
   `<span style="position:absolute;bottom:-0.7em;left:-0.4em;` +
   `font-size:0.55em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +

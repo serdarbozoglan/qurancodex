@@ -1054,6 +1054,43 @@ Rapor "gizlilik sayfası yok" diyordu. İncelerken daha ağır üç şey çıkt�
 
 ## KADEME 6 — Diğer
 
+- [x] 🔴 **MUSHAF'TA HARF BİRLEŞMESİ KIRIKTI: 689 âyet, 260 kelime**
+      (2026-11-08, kullanıcı mushaf sayfa 264-265'te fark etti).
+      Belirti: `هٰٓؤُ۬لَٓاءِ` kelimesinde baştaki ه **yuvarlak yalın
+      biçimde** basılıyordu, bağlı biçimde değil. Kullanıcı "aynı yapıdaki
+      başka kelimelerde de" dedi, haklıydı.
+
+      **Kök sebep:** tecvid etiketlerini basan üç sarmalayıcı
+      (`makeKasrWrap`, `makeMedWrap`, `makeNunWiqayahWrap`) sardıkları
+      HARFİ `display:inline-block` kutusuna alıyordu. Bir inline-block
+      kutusu kendi şekillendirme akışını kurar; Arapça harfler o sınırı
+      geçip birleşemez. Kelimede `قصر` işareti `ؤ` harfinin üstünde
+      olduğu için kalıp `ؤُ`'yi ayrı kutuya alıyor, önündeki `ه` onu
+      göremiyor ve yalın biçime düşüyordu.
+
+      **Ölçüm (Playwright, gerçek âyet ve gerçek kalıpla):**
+      referans 448,4px · inline-block 445,3px (kırık) · inline 448,4px
+      (birebir aynı). Görselde de doğrulandı.
+      Etiketin konumu etkilenmiyor: `position:relative` inline kutuda da
+      mutlak konumlu çocuğa çapa oluyor; etiket harfin tam altında ve
+      ortalanmış (yatay sapma 0).
+
+      **Kapsam:** قصر 487 · مد 248 · نِ 34 geçiş, 689 âyet, 260 ayrı
+      kelime. Sık geçenlerden biri `اُو۬لٰٓئِكَ` (ulâike).
+
+      ⚠ **Bu tuzak bu dosyada ZATEN YAZILIYDI** ("Maddah curve" notu:
+      "display:inline-block → combining mark önceki harfle bağını
+      kaybeder") ama yalnız renk vakası için düşünülmüş, harf saran
+      sarmalayıcılara uygulanmamıştı. Not artık üç sarmalayıcının başına
+      ölçümüyle birlikte yazıldı.
+
+      **Dokunulmayanlar, gerekçeleriyle:** `makeSektaWrap` bir harfi değil
+      durak işaretini (U+06D4) sarıyor, o karakter iki yönde de
+      birleşmiyor. Vakıf işareti sarmalayıcısı (satır 56) için de kelime
+      içinde iki yanında harf olan 4 durum bulundu; dördü de ölçüldü,
+      **kırılma yok** (Yûsuf 12:11 dahil: 81,6px her üç hâlde de aynı).
+      Yani orada gereksiz bir değişiklik yapılmadı.
+
 - [x] **Sır taraması kapısı kuruldu, ve "açığa çıkmış anahtar" iddiası
       çürütüldü** (2026-10-25). Oturum notlarımda "açığa çıkmış OpenAI
       anahtarını döndür" diye bir madde taşınıyordu ve kullanıcıya bunu
