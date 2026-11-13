@@ -2064,6 +2064,12 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   // görünüm ancak kullanıcı tıklayınca mount oluyor. GPT-5.4 kod incelemesi
   // yakaladı.
   const navTop = useNavbarOffset(0, 62);
+  // W de ayni sebeple BU BİLEŞENDE de tanımlanmalı — ClusterView'de
+  // `const W = window.innerWidth;` var (2026-09-15, mobil ipucu konumu için),
+  // ayni kullanım VerseView'e kopyalanırken bu satır eksik kalmıştı. Sonuç:
+  // VerseView her mount olduğunda `W is not defined` ile çöküyordu (2026-11-12,
+  // kullanıcı canlıda yakaladı — Sûre Haritası'ndan her sûre seçiminde hata sayfası).
+  const W = window.innerWidth;
   const graphRef = useRef(null);
   const initialFitDone = useRef(false);
   const [selected, setSelected] = useState(null);
