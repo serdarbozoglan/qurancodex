@@ -114,8 +114,10 @@ const SEKTA_RE = /\u06D4/gu;
 const makeSektaWrap = (dayMode) => (_m) =>
   // Hide source U+06D4; render explicit "سكتة" label below (same size/pattern
   // as makeMedWrap's "مد" so they look visually consistent in mushaf).
+  // bottom:-0.2em — bkz. makeKasrWrap/makeMedWrap'teki aynı not: küçük taşma,
+  // etiket BU harfe ait kalır, alttaki satıra inmez.
   `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
-  `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
+  `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">سكتة</span></span>`;
@@ -182,7 +184,7 @@ const KASR_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06
 // uygulanmamıştı.
 const makeKasrWrap = (dayMode) => (_, letter) =>
   `<span style="display:inline;position:relative;line-height:1;">${letter}` +
-  `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
+  `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">قصر</span></span>`;
@@ -190,6 +192,11 @@ const makeKasrWrap = (dayMode) => (_, letter) =>
 // U+06EB (ARABIC EMPTY CENTRE HIGH STOP): KFGQPC tarafından "مد" annotation olarak
 // render edilir (örn. Vâkıa 56:53 "فَمَالِـؤُ۫نَ"). قصر paterniyle paralel olarak,
 // kelimenin altında küçük "مد" etiketi kırmızıyla gösterilir.
+// bottom:-0.2em: ayni gerekce, bkz. makeKasrWrap/makeSektaWrap notlari.
+// 2026-11-18: bu deger bir noktada (migration oncesi, kayit altina
+// alinmamis) -1em'e suruklenmisti; kullanici mushaf sayfa 443'te etiketin
+// alttaki satira yapistigini bildirdi. -0.2em satirin kendi line-height
+// payina sigiyor, -1em sigmiyordu.
 const MED_RE = /([\u0600-\u06FF](?:[\u0610-\u061A\u064B-\u065F\u0670\u06E0-\u06EA\u06EC\u06ED])*)\u06EB/gu;
 // `colorize=true` (tajweed mode) tints the carrier letter with the same magenta
 // used by the other med rules (fatha+alef, damma+waw, kasra+yāʾ) so U+06EB
@@ -200,7 +207,7 @@ const makeMedWrap = (dayMode, colorize = false) => (_, letter) => {
   const tint = colorize ? (dayMode ? '#d946ef' : COLORS.med) : 'inherit';
   return (
     `<span style="display:inline;position:relative;line-height:1;color:${tint};">${letter}` +
-    `<span style="position:absolute;bottom:-1em;left:50%;transform:translateX(-50%);` +
+    `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
     `font-size:0.5em;font-weight:400;line-height:1;` +
     `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
     `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">مد</span></span>`
