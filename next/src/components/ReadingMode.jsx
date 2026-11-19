@@ -114,18 +114,23 @@ const SEKTA_RE = /\u06D4/gu;
 const makeSektaWrap = (dayMode) => (_m) =>
   // Hide source U+06D4; render explicit "سكتة" label below (same size/pattern
   // as makeMedWrap's "مد" so they look visually consistent in mushaf).
-  // bottom:-0.2em - bkz. makeKasrWrap/makeMedWrap'teki ayni not: kucuk tasma,
-  // etiket BU harfe ait kalir, alttaki satira inmez.
-  // 2026-11-18: font-family'yi degistirip (ShaykhHamdullah'i cikarip)
-  // U+06D4'un renkli glif kalintisini (kirmizi cizgi) gidermeye calisildi,
-  // ama bu Mushaf Modu'nun kelime/satir bolme mantigiyla etkilesip "سكتة"
-  // etiketinin kelimenin icine sikismasina yol acti (kullanici ekran
-  // goruntusuyle yakaladi) - KOK SEBEBI tam anlasilmadan GERI ALINDI.
-  // Orijinal font ailesi (ShaykhHamdullah dahil) bilerek KORUNUYOR; altindaki
-  // kirmizi cizgi kozmetik sorunu ayri, daha dikkatli bir turda ele alinacak.
+  // 2026-11-18, uc tur: (1) ShaykhHamdullah'i font-family'den cikarmak
+  // U+06D4'un renkli glif kalintisini (kirmizi cizgi) giderdi ama Mushaf
+  // Modu'nda etiketi kelimenin icine sikistirdi - geri alindi, orijinal font
+  // ailesi korundu. (2) bottom'u -0.2em'den -0.45em'e cikarmak komsu harflerle
+  // acikligi arttirdi ama "مد" ile ayni dikey hizadan cikardi (kullanici
+  // "med ile ayni hizda degil" dedi) - -0.2em'e geri donuldu, UC etiket
+  // (مد/قصر/سكتة) ayni hizada. (3) -0.2em'de GERCEK cakisma dogrulandi:
+  // 4 sekte konumundan 2'si (Kiyame 75:27 "مَنْ"/"رَاقٍ", Mutaffifin 83:14
+  // "بَلْ"/"رَانَ" - ikisi de KISA kelimeler arasinda) etiketin kirmizi
+  // harfleri komsu siyah harflerle gercekten KESISIYOR (ekran goruntusuyle
+  // dogrulandi). Kok sebep DIKEY DEGIL: "سكتة" 4 harf, "مد" 2 harf - ayni
+  // -0.2em mesafede bile "سكتة" daha GENIS oldugu icin dar kelime araliklarina
+  // sigmiyor. Cozum: font-size 0.5em -> 0.38em (yalniz sekte icin, mد/قصر
+  // etkilenmez) - genislik daralir, dikey hiza (-0.2em) DEGISMEZ.
   `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
   `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
-  `font-size:0.5em;font-weight:400;line-height:1;` +
+  `font-size:0.38em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
   `pointer-events:none;user-select:none;white-space:nowrap;direction:rtl;">سكتة</span></span>`;
 // Allah lafzı renklendirme: tilde kırmızısıyla aynı renk (gündüz/gece uyumlu).
