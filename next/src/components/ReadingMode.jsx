@@ -128,7 +128,13 @@ const makeSektaWrap = (dayMode) => (_m) =>
   // -0.2em mesafede bile "سكتة" daha GENIS oldugu icin dar kelime araliklarina
   // sigmiyor. Cozum: font-size 0.5em -> 0.38em (yalniz sekte icin, mد/قصر
   // etkilenmez) - genislik daralir, dikey hiza (-0.2em) DEGISMEZ.
-  `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
+  // (4) Asil sebep bulundu: MED/KASR'in tasiyicisi display:inline, sekte'ninki
+  // inline-block + line-height:1 idi. Mutlak konumlu etiketin referans kutusu
+  // inline'da fontun TAM alt siniri (descent), inline-block'ta ise 1em'lik
+  // kisa kutunun alti - ayni -0.2em sekte'yi daha YUKARIDA birakip harflere
+  // degdiriyordu. Tasiyici artik inline: med ile ayni referans, ayni hiza.
+  // U+06D4 birlesen harf degil, inline sarmak sekillendirmeyi bozmaz.
+  `<span style="display:inline;position:relative;line-height:1;color:transparent;">${_m}` +
   `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.38em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
