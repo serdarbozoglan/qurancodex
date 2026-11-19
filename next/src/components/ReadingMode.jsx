@@ -111,30 +111,20 @@ const makeWaqfTaSpan = (dayMode) => () =>
 // ediyor; UTHMANI_MARKS_RE'dan ayrı bir wrap kullanıyoruz çünkü diğer waqf
 // markerları üstte (top:-0.15em), sekta altta (top:0.15em).
 const SEKTA_RE = /\u06D4/gu;
-const makeSektaWrap = (dayMode) => (_m) =>
-  // Hide source U+06D4; render explicit "سكتة" label below (same size/pattern
-  // as makeMedWrap's "مد" so they look visually consistent in mushaf).
-  // 2026-11-18, uc tur: (1) ShaykhHamdullah'i font-family'den cikarmak
-  // U+06D4'un renkli glif kalintisini (kirmizi cizgi) giderdi ama Mushaf
-  // Modu'nda etiketi kelimenin icine sikistirdi - geri alindi, orijinal font
-  // ailesi korundu. (2) bottom'u -0.2em'den -0.45em'e cikarmak komsu harflerle
-  // acikligi arttirdi ama "مد" ile ayni dikey hizadan cikardi (kullanici
-  // "med ile ayni hizda degil" dedi) - -0.2em'e geri donuldu, UC etiket
-  // (مد/قصر/سكتة) ayni hizada. (3) -0.2em'de GERCEK cakisma dogrulandi:
-  // 4 sekte konumundan 2'si (Kiyame 75:27 "مَنْ"/"رَاقٍ", Mutaffifin 83:14
-  // "بَلْ"/"رَانَ" - ikisi de KISA kelimeler arasinda) etiketin kirmizi
-  // harfleri komsu siyah harflerle gercekten KESISIYOR (ekran goruntusuyle
-  // dogrulandi). Kok sebep DIKEY DEGIL: "سكتة" 4 harf, "مد" 2 harf - ayni
-  // -0.2em mesafede bile "سكتة" daha GENIS oldugu icin dar kelime araliklarina
-  // sigmiyor. Cozum: font-size 0.5em -> 0.38em (yalniz sekte icin, mد/قصر
-  // etkilenmez) - genislik daralir, dikey hiza (-0.2em) DEGISMEZ.
-  // (4) Asil sebep bulundu: MED/KASR'in tasiyicisi display:inline, sekte'ninki
-  // inline-block + line-height:1 idi. Mutlak konumlu etiketin referans kutusu
-  // inline'da fontun TAM alt siniri (descent), inline-block'ta ise 1em'lik
-  // kisa kutunun alti - ayni -0.2em sekte'yi daha YUKARIDA birakip harflere
-  // degdiriyordu. Tasiyici artik inline: med ile ayni referans, ayni hiza.
-  // U+06D4 birlesen harf degil, inline sarmak sekillendirmeyi bozmaz.
-  `<span style="display:inline;position:relative;line-height:1;color:transparent;">${_m}` +
+const makeSektaWrap = (dayMode) => () =>
+  // Orijinal U+06D4 DOM'a HIC konmaz (KASR/MED/NUN-WIQAYAH ile ayni desen);
+  // yerine bos bir inline capa + kirmizi "سكتة" etiketi basilir.
+  // Neden: ShaykhHamdullah U+06D4'u kendi "سكتة" glifiyle ciziyor. inline
+  // sarildiginda bu glif onceki harfle ayni kumede sekillenir ve
+  // color:transparent uygulanmaz -> siyah ikinci bir "سكتة" gorunur
+  // (2026-11-19, kullanici yakaladi). inline-block ile gizlenir ama o zaman
+  // referans kutusu kisalip etiket harflere degiyordu.
+  // Capa display:inline: mutlak etiketin referans kutusu fontun tam
+  // ascent/descent alani olur, MED/KASR ile birebir ayni hiza (olculdu:
+  // etiket alt kenari taban cizgisinin ~0.77em alti, med 0.79em).
+  // font-size 0.38em: "سكتة" 4 harf; 0.5em'de 75:27 ve 83:14'te kisa komsu
+  // kelimelerle yatayda cakisiyordu.
+  `<span style="display:inline;position:relative;line-height:1;">` +
   `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.38em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
