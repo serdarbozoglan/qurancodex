@@ -114,9 +114,18 @@ const SEKTA_RE = /\u06D4/gu;
 const makeSektaWrap = (dayMode) => (_m) =>
   // Hide source U+06D4; render explicit "سكتة" label below (same size/pattern
   // as makeMedWrap's "مد" so they look visually consistent in mushaf).
-  // bottom:-0.2em — bkz. makeKasrWrap/makeMedWrap'teki aynı not: küçük taşma,
-  // etiket BU harfe ait kalır, alttaki satıra inmez.
-  `<span style="display:inline-block;position:relative;line-height:1;color:transparent;">${_m}` +
+  // bottom:-0.2em - bkz. makeKasrWrap/makeMedWrap'teki ayni not: kucuk tasma,
+  // etiket BU harfe ait kalir, alttaki satira inmez.
+  // 2026-11-18: carrier span'a 'ShaykhHamdullah' VERME. Bu fontta U+06D4
+  // renkli/cizgili bir glif olarak ciziliyor ve color:transparent onu
+  // bastiramiyor (fontun kendi renk katmani CSS color'dan etkilenmiyor) -
+  // kullanici mushaf sayfa 442'de (Ya-Sin 36:51) "سكتة" etiketinin altinda
+  // kirmizi bir cizgi kaldigini bildirdi. KASR/MED/NUN-WIQAYAH bu hatadan
+  // etkilenmez: onlar orijinal isareti DOM'a hic koymaz (regex tuketip atar),
+  // gizlenecek bir sey yoktur. 'KFGQPC'/'Amiri Quran' bu glifi cizmiyor;
+  // tasiyici zaten gizli oldugu icin harf sekli onemsiz, yalniz istenmeyen
+  // gorunur glif kaynagini eledik.
+  `<span style="display:inline-block;position:relative;line-height:1;color:transparent;font-family:'KFGQPC','Amiri Quran',serif;">${_m}` +
   `<span style="position:absolute;bottom:-0.2em;left:50%;transform:translateX(-50%);` +
   `font-size:0.5em;font-weight:400;line-height:1;` +
   `font-family:'ShaykhHamdullah','KFGQPC','Amiri Quran',serif;color:${dayMode ? '#c0392b' : COLORS.kalkale};` +
